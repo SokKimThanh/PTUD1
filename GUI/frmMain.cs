@@ -16,7 +16,7 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class frmMainForm : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
+    public partial class frmMain : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
         /// <summary>
         /// Nơi khai báo mã chức năng và user control
@@ -41,7 +41,7 @@ namespace GUI
 
         FLoading frmLoad = null;
 
-        public frmMainForm()
+        public frmMain()
         {
             InitializeComponent();
         }
@@ -120,7 +120,7 @@ namespace GUI
                     this.Hide();
 
                     //Chưa chưa gọi form login
-                    LoginForm objLoginForm = new LoginForm();
+                    frmLogin objLoginForm = new frmLogin();
                     objLoginForm.ShowDialog();
 
                     //Xử lý toàn vẹn dữ liệu, sự kiện đầu ra trong login form

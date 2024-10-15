@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class frmMainForm
+    partial class frmMain
     {
         /// <summary>
         /// Required designer variable.
@@ -260,7 +260,7 @@
             // 
             this.fluentFormDefaultManager1.Form = this;
             // 
-            // frmMainForm
+            // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -272,7 +272,7 @@
             this.FluentDesignFormControl = this.fluentDesignFormControl1;
             this.IconOptions.Image = global::GUI.Properties.Resources.Logo;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "frmMainForm";
+            this.Name = "frmMain";
             this.NavigationControl = this.arrFunction;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PTUD: Cinema Management";
