@@ -3,8 +3,48 @@
   "WorkspaceRootPath": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{89A76F6C-5F05-4306-A90B-321ED5E0E04C}|GUI\\GUI.csproj|e:\\tdc_hk5\\ptud1\\ptud_cmproject\\gui\\ui\\modules\\ucsanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89A76F6C-5F05-4306-A90B-321ED5E0E04C}|GUI\\GUI.csproj|solutionrelative:gui\\ui\\modules\\ucsanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2458331A-DA31-4263-98C0-8F78F67D1090}|DTO\\DTO.csproj|e:\\tdc_hk5\\ptud1\\ptud_cmproject\\dto\\tbl_dm_product_dto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2458331A-DA31-4263-98C0-8F78F67D1090}|DTO\\DTO.csproj|solutionrelative:dto\\tbl_dm_product_dto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2458331A-DA31-4263-98C0-8F78F67D1090}|DTO\\DTO.csproj|e:\\tdc_hk5\\ptud1\\ptud_cmproject\\dto\\tbl_dm_agerating_dto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2458331A-DA31-4263-98C0-8F78F67D1090}|DTO\\DTO.csproj|solutionrelative:dto\\tbl_dm_agerating_dto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2458331A-DA31-4263-98C0-8F78F67D1090}|DTO\\DTO.csproj|e:\\tdc_hk5\\ptud1\\ptud_cmproject\\dto\\baocaotonkho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2458331A-DA31-4263-98C0-8F78F67D1090}|DTO\\DTO.csproj|solutionrelative:dto\\baocaotonkho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2458331A-DA31-4263-98C0-8F78F67D1090}|DTO\\DTO.csproj|e:\\tdc_hk5\\ptud1\\ptud_cmproject\\dto\\baocaothuchi_dto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2458331A-DA31-4263-98C0-8F78F67D1090}|DTO\\DTO.csproj|solutionrelative:dto\\baocaothuchi_dto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2458331A-DA31-4263-98C0-8F78F67D1090}|DTO\\DTO.csproj|e:\\tdc_hk5\\ptud1\\ptud_cmproject\\dto\\baocaodoanhthu_dto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2458331A-DA31-4263-98C0-8F78F67D1090}|DTO\\DTO.csproj|solutionrelative:dto\\baocaodoanhthu_dto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2458331A-DA31-4263-98C0-8F78F67D1090}|DTO\\DTO.csproj|e:\\tdc_hk5\\ptud1\\ptud_cmproject\\dto\\tbl_dm_movie_dto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2458331A-DA31-4263-98C0-8F78F67D1090}|DTO\\DTO.csproj|solutionrelative:dto\\tbl_dm_movie_dto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89A76F6C-5F05-4306-A90B-321ED5E0E04C}|GUI\\GUI.csproj|e:\\tdc_hk5\\ptud1\\ptud_cmproject\\gui\\ui\\modules\\ucsanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{89A76F6C-5F05-4306-A90B-321ED5E0E04C}|GUI\\GUI.csproj|solutionrelative:gui\\ui\\modules\\ucsanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89A76F6C-5F05-4306-A90B-321ED5E0E04C}|GUI\\GUI.csproj|e:\\tdc_hk5\\ptud1\\ptud_cmproject\\gui\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{89A76F6C-5F05-4306-A90B-321ED5E0E04C}|GUI\\GUI.csproj|solutionrelative:gui\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{89A76F6C-5F05-4306-A90B-321ED5E0E04C}|GUI\\GUI.csproj|e:\\tdc_hk5\\ptud1\\ptud_cmproject\\gui\\ui\\modules\\ucdatve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{89A76F6C-5F05-4306-A90B-321ED5E0E04C}|GUI\\GUI.csproj|solutionrelative:gui\\ui\\modules\\ucdatve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89A76F6C-5F05-4306-A90B-321ED5E0E04C}|GUI\\GUI.csproj|e:\\tdc_hk5\\ptud1\\ptud_cmproject\\gui\\ui\\modules\\ucghe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{89A76F6C-5F05-4306-A90B-321ED5E0E04C}|GUI\\GUI.csproj|solutionrelative:gui\\ui\\modules\\ucghe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{89A76F6C-5F05-4306-A90B-321ED5E0E04C}|GUI\\GUI.csproj|e:\\tdc_hk5\\ptud1\\ptud_cmproject\\gui\\ui\\modules\\ucdatve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -22,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 16,
           "Children": [
             {
               "$type": "Bookmark",
@@ -66,12 +106,151 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BaoCaoTonKho.cs",
+              "DocumentMoniker": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\DTO\\BaoCaoTonKho.cs",
+              "RelativeDocumentMoniker": "DTO\\BaoCaoTonKho.cs",
+              "ToolTip": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\DTO\\BaoCaoTonKho.cs",
+              "RelativeToolTip": "DTO\\BaoCaoTonKho.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T13:14:17.241Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BaoCaoDoanhThu_DTO.cs",
+              "DocumentMoniker": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\DTO\\BaoCaoDoanhThu_DTO.cs",
+              "RelativeDocumentMoniker": "DTO\\BaoCaoDoanhThu_DTO.cs",
+              "ToolTip": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\DTO\\BaoCaoDoanhThu_DTO.cs",
+              "RelativeToolTip": "DTO\\BaoCaoDoanhThu_DTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T13:14:02.435Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BaoCaoThuChi_DTO.cs",
+              "DocumentMoniker": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\DTO\\BaoCaoThuChi_DTO.cs",
+              "RelativeDocumentMoniker": "DTO\\BaoCaoThuChi_DTO.cs",
+              "ToolTip": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\DTO\\BaoCaoThuChi_DTO.cs",
+              "RelativeToolTip": "DTO\\BaoCaoThuChi_DTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T13:13:40.642Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "tbl_DM_AgeRating_DTO.cs",
+              "DocumentMoniker": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\DTO\\tbl_DM_AgeRating_DTO.cs",
+              "RelativeDocumentMoniker": "DTO\\tbl_DM_AgeRating_DTO.cs",
+              "ToolTip": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\DTO\\tbl_DM_AgeRating_DTO.cs",
+              "RelativeToolTip": "DTO\\tbl_DM_AgeRating_DTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T13:13:25.314Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "tbl_DM_Movie_DTO.cs",
+              "DocumentMoniker": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\DTO\\tbl_DM_Movie_DTO.cs",
+              "RelativeDocumentMoniker": "DTO\\tbl_DM_Movie_DTO.cs",
+              "ToolTip": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\DTO\\tbl_DM_Movie_DTO.cs",
+              "RelativeToolTip": "DTO\\tbl_DM_Movie_DTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T13:13:11.402Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "tbl_DM_Product_DTO.cs",
+              "DocumentMoniker": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\DTO\\tbl_DM_Product_DTO.cs",
+              "RelativeDocumentMoniker": "DTO\\tbl_DM_Product_DTO.cs",
+              "ToolTip": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\DTO\\tbl_DM_Product_DTO.cs",
+              "RelativeToolTip": "DTO\\tbl_DM_Product_DTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T13:11:57.452Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ucSanPham.cs",
+              "DocumentMoniker": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\GUI\\UI\\Modules\\ucSanPham.cs",
+              "RelativeDocumentMoniker": "GUI\\UI\\Modules\\ucSanPham.cs",
+              "ToolTip": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\GUI\\UI\\Modules\\ucSanPham.cs",
+              "RelativeToolTip": "GUI\\UI\\Modules\\ucSanPham.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAuwBcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T13:06:39.267Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ucSanPham.cs [Design]",
+              "DocumentMoniker": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\GUI\\UI\\Modules\\ucSanPham.cs",
+              "RelativeDocumentMoniker": "GUI\\UI\\Modules\\ucSanPham.cs",
+              "ToolTip": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\GUI\\UI\\Modules\\ucSanPham.cs [Design]",
+              "RelativeToolTip": "GUI\\UI\\Modules\\ucSanPham.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T13:06:34.277Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "frmMain.cs [Design]",
+              "DocumentMoniker": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\GUI\\frmMain.cs",
+              "RelativeDocumentMoniker": "GUI\\frmMain.cs",
+              "ToolTip": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\GUI\\frmMain.cs [Design]",
+              "RelativeToolTip": "GUI\\frmMain.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T13:00:45.494Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ucDatVe.cs [Design]",
+              "DocumentMoniker": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\GUI\\UI\\Modules\\ucDatVe.cs",
+              "RelativeDocumentMoniker": "GUI\\UI\\Modules\\ucDatVe.cs",
+              "ToolTip": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\GUI\\UI\\Modules\\ucDatVe.cs [Design]",
+              "RelativeToolTip": "GUI\\UI\\Modules\\ucDatVe.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T13:00:10.11Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ucGhe.cs [Design]",
+              "DocumentMoniker": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\GUI\\UI\\Modules\\ucGhe.cs",
+              "RelativeDocumentMoniker": "GUI\\UI\\Modules\\ucGhe.cs",
+              "ToolTip": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\GUI\\UI\\Modules\\ucGhe.cs [Design]",
+              "RelativeToolTip": "GUI\\UI\\Modules\\ucGhe.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T12:59:58.392Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "ucDatVe.cs",
               "DocumentMoniker": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\GUI\\UI\\Modules\\ucDatVe.cs",
               "RelativeDocumentMoniker": "GUI\\UI\\Modules\\ucDatVe.cs",
-              "ToolTip": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\GUI\\UI\\Modules\\ucDatVe.cs*",
-              "RelativeToolTip": "GUI\\UI\\Modules\\ucDatVe.cs*",
+              "ToolTip": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\GUI\\UI\\Modules\\ucDatVe.cs",
+              "RelativeToolTip": "GUI\\UI\\Modules\\ucDatVe.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-15T12:56:45.357Z",
@@ -79,19 +258,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ucDatVe.cs [Design]",
-              "DocumentMoniker": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\GUI\\UI\\Modules\\ucDatVe.cs",
-              "RelativeDocumentMoniker": "GUI\\UI\\Modules\\ucDatVe.cs",
-              "ToolTip": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\GUI\\UI\\Modules\\ucDatVe.cs [Design]*",
-              "RelativeToolTip": "GUI\\UI\\Modules\\ucDatVe.cs [Design]*",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T12:56:37.999Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 12,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\GUI\\Program.cs",
               "RelativeDocumentMoniker": "GUI\\Program.cs",
