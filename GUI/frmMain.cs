@@ -16,7 +16,7 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class frmMainForm : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
+    public partial class frmMain : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
         /// <summary>
         /// Nơi khai báo mã chức năng và user control
@@ -39,9 +39,9 @@ namespace GUI
             { "accBaoCaoTonKho", new ucBaoCaoTonKho() },
         };
 
-        FLoading frmLoad = null;
+        private frmLoading frmLoad = null;
 
-        public frmMainForm()
+        public frmMain()
         {
             InitializeComponent();
         }
@@ -120,7 +120,7 @@ namespace GUI
                     this.Hide();
 
                     //Chưa chưa gọi form login
-                    LoginForm objLoginForm = new LoginForm();
+                    frmLogin objLoginForm = new frmLogin();
                     objLoginForm.ShowDialog();
 
                     //Xử lý toàn vẹn dữ liệu, sự kiện đầu ra trong login form
@@ -130,7 +130,7 @@ namespace GUI
                     this.Show();
                 }
 
-                frmLoad = new FLoading();
+                frmLoad = new frmLoading();
                 frmLoad.SetCaption("Hệ thống đang tải....");
                 frmLoad.SetDescription("Vui lòng chờ một lát.");
 
@@ -146,9 +146,11 @@ namespace GUI
             }
             finally
             {
-                frmLoad.Close();
                 if (frmLoad != null)
+                {
+                    frmLoad.Close();
                     frmLoad.Dispose();
+                }
             }
         }
 
@@ -159,7 +161,7 @@ namespace GUI
             {
                 try
                 {
-                    frmLoad = new FLoading();
+                    frmLoad = new frmLoading();
                     frmLoad.SetCaption("Hệ thống đang tải....");
                     frmLoad.SetDescription("Vui lòng chờ một lát.");
 
@@ -198,9 +200,12 @@ namespace GUI
                 }
                 finally
                 {
-                    frmLoad.Close();
+
                     if (frmLoad != null)
+                    {
+                        frmLoad.Close();
                         frmLoad.Dispose();
+                    }
                 }
             }
         }

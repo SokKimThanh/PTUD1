@@ -13,11 +13,11 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class LoginForm : DevExpress.XtraEditors.XtraForm
+    public partial class frmLogin : DevExpress.XtraEditors.XtraForm
     {
         public bool StatusClose { get; set; } = false; // không đóng form
 
-        public LoginForm()
+        public frmLogin()
         {
             InitializeComponent();
             this.KeyPreview = true; // Cho phép form nhận sự kiện phím

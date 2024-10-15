@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class FLoading
+    partial class frmLoading
     {
         /// <summary>
         /// Required designer variable.
