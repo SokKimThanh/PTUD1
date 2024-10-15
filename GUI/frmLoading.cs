@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class FLoading : WaitForm
+    public partial class frmLoading : WaitForm
     {
-        public FLoading()
+        public frmLoading()
         {
             InitializeComponent();
             this.progressPanel1.AutoHeight = true;

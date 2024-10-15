@@ -39,7 +39,7 @@ namespace GUI
             { "accBaoCaoTonKho", new ucBaoCaoTonKho() },
         };
 
-        FLoading frmLoad = null;
+        private frmLoading frmLoad = null;
 
         public frmMain()
         {
@@ -130,7 +130,7 @@ namespace GUI
                     this.Show();
                 }
 
-                frmLoad = new FLoading();
+                frmLoad = new frmLoading();
                 frmLoad.SetCaption("Hệ thống đang tải....");
                 frmLoad.SetDescription("Vui lòng chờ một lát.");
 
@@ -146,9 +146,11 @@ namespace GUI
             }
             finally
             {
-                frmLoad.Close();
                 if (frmLoad != null)
+                {
+                    frmLoad.Close();
                     frmLoad.Dispose();
+                }
             }
         }
 
@@ -159,7 +161,7 @@ namespace GUI
             {
                 try
                 {
-                    frmLoad = new FLoading();
+                    frmLoad = new frmLoading();
                     frmLoad.SetCaption("Hệ thống đang tải....");
                     frmLoad.SetDescription("Vui lòng chờ một lát.");
 
@@ -198,9 +200,12 @@ namespace GUI
                 }
                 finally
                 {
-                    frmLoad.Close();
+
                     if (frmLoad != null)
+                    {
+                        frmLoad.Close();
                         frmLoad.Dispose();
+                    }
                 }
             }
         }
