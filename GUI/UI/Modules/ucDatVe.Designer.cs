@@ -192,18 +192,18 @@
             // 
             this.lblTitle.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Bold);
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.lblTitle.Location = new System.Drawing.Point(12, 12);
+            this.lblTitle.Location = new System.Drawing.Point(18, 18);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(712, 20);
+            this.lblTitle.Size = new System.Drawing.Size(700, 22);
             this.lblTitle.TabIndex = 9;
             this.lblTitle.Text = "Title";
             // 
             // dgv
             // 
-            this.dgv.Location = new System.Drawing.Point(24, 162);
+            this.dgv.Location = new System.Drawing.Point(24, 176);
             this.dgv.MainView = this.gridView1;
             this.dgv.Name = "dgv";
-            this.dgv.Size = new System.Drawing.Size(748, 331);
+            this.dgv.Size = new System.Drawing.Size(748, 317);
             this.dgv.TabIndex = 8;
             this.dgv.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -216,7 +216,7 @@
             // timeEdit2
             // 
             this.timeEdit2.EditValue = new System.DateTime(2024, 10, 15, 0, 0, 0, 0);
-            this.timeEdit2.Location = new System.Drawing.Point(489, 93);
+            this.timeEdit2.Location = new System.Drawing.Point(489, 107);
             this.timeEdit2.Name = "timeEdit2";
             this.timeEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -227,7 +227,7 @@
             // timeEdit1
             // 
             this.timeEdit1.EditValue = new System.DateTime(2024, 10, 15, 0, 0, 0, 0);
-            this.timeEdit1.Location = new System.Drawing.Point(113, 93);
+            this.timeEdit1.Location = new System.Drawing.Point(113, 107);
             this.timeEdit1.Name = "timeEdit1";
             this.timeEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -237,7 +237,7 @@
             // 
             // textEdit1
             // 
-            this.textEdit1.Location = new System.Drawing.Point(113, 69);
+            this.textEdit1.Location = new System.Drawing.Point(113, 83);
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Size = new System.Drawing.Size(659, 20);
             this.textEdit1.StyleController = this.layoutForm;
@@ -259,11 +259,13 @@
             // 
             this.layoutTitle.Control = this.lblTitle;
             this.layoutTitle.Location = new System.Drawing.Point(0, 0);
-            this.layoutTitle.MaxSize = new System.Drawing.Size(716, 24);
-            this.layoutTitle.MinSize = new System.Drawing.Size(716, 24);
+            this.layoutTitle.MaxSize = new System.Drawing.Size(716, 38);
+            this.layoutTitle.MinSize = new System.Drawing.Size(716, 30);
             this.layoutTitle.Name = "layoutTitle";
-            this.layoutTitle.Size = new System.Drawing.Size(776, 24);
+            this.layoutTitle.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
+            this.layoutTitle.Size = new System.Drawing.Size(776, 38);
             this.layoutTitle.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutTitle.Spacing = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
             this.layoutTitle.Text = "Title";
             this.layoutTitle.TextSize = new System.Drawing.Size(0, 0);
             this.layoutTitle.TextVisible = false;
@@ -275,7 +277,8 @@
             this.layoutControlItem2,
             this.layoutControlItem3,
             this.layoutControlItem4});
-            this.layoutAction.Location = new System.Drawing.Point(0, 24);
+            this.layoutAction.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Flow;
+            this.layoutAction.Location = new System.Drawing.Point(0, 38);
             this.layoutAction.Name = "layoutAction";
             this.layoutAction.Size = new System.Drawing.Size(776, 93);
             this.layoutAction.Text = "Thao tác nhập liệu";
@@ -316,9 +319,9 @@
             this.layoutDGV.CustomizationFormText = "Danh sách dữ liệu";
             this.layoutDGV.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
-            this.layoutDGV.Location = new System.Drawing.Point(0, 117);
+            this.layoutDGV.Location = new System.Drawing.Point(0, 131);
             this.layoutDGV.Name = "layoutDGV";
-            this.layoutDGV.Size = new System.Drawing.Size(776, 380);
+            this.layoutDGV.Size = new System.Drawing.Size(776, 366);
             this.layoutDGV.Text = "Danh sách dữ liệu";
             // 
             // layoutControlItem1
@@ -327,7 +330,7 @@
             this.layoutControlItem1.CustomizationFormText = "dgvCaLamViec";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(752, 335);
+            this.layoutControlItem1.Size = new System.Drawing.Size(752, 321);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
