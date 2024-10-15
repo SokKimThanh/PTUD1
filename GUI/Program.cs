@@ -5,6 +5,7 @@ using DTO.Custom;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -18,8 +19,12 @@ namespace GUI
         [STAThread]
         static void Main()
         {
-            // Lấy chuỗi kết nối từ App.config
-            CConfig.CM_Cinema_DB_ConnectionString = ConfigurationManager.ConnectionStrings["CM_Cinema_DB"].ConnectionString;
+            // Tự động lấy tên máy chủ
+            string strServerName = Environment.MachineName;
+            if (strServerName.Trim() == "")
+                return;
+
+            CConfig.CM_Cinema_DB_ConnectionString = $"Server={strServerName};Database=CM_Cinema_DB;Integrated Security=True;";
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
