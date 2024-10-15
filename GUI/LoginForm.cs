@@ -20,7 +20,12 @@ namespace GUI
         public LoginForm()
         {
             InitializeComponent();
+            this.KeyPreview = true; // Cho phép form nhận sự kiện phím
+
+            this.KeyDown += LoginForm_KeyDown;
         }
+
+        #region Event
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
@@ -38,7 +43,6 @@ namespace GUI
             }
         }
 
-
         private void btnThoat_Click(object sender, EventArgs e)
         {
             if (DialogResult.Yes == MessageBox.Show("Bạn có muốn thoát chương trình?", "Thông báo",
@@ -47,7 +51,16 @@ namespace GUI
                 StatusClose = true;
 
                 // Thoát chương trình
-                Application.Exit();            
+                Application.Exit();
+            }
+        }
+
+        private void LoginForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnDangNhap_Click(sender, e);
+                e.Handled = true; // Ngăn chặn sự kiện tiếp tục
             }
         }
 
@@ -55,6 +68,8 @@ namespace GUI
         {
 
         }
+
+        #endregion
 
         protected override void WndProc(ref Message message)
         {
