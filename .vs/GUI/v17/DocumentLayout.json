@@ -7,20 +7,12 @@
       "RelativeMoniker": "D:0:0:{89A76F6C-5F05-4306-A90B-321ED5E0E04C}|GUI\\GUI.csproj|solutionrelative:gui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{89A76F6C-5F05-4306-A90B-321ED5E0E04C}|GUI\\GUI.csproj|c:\\tuan\\git\\ptud\\gui\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "AbsoluteMoniker": "D:0:0:{89A76F6C-5F05-4306-A90B-321ED5E0E04C}|GUI\\GUI.csproj|C:\\Tuan\\Git\\PTUD\\gui\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{89A76F6C-5F05-4306-A90B-321ED5E0E04C}|GUI\\GUI.csproj|solutionrelative:gui\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2458331A-DA31-4263-98C0-8F78F67D1090}|DTO\\DTO.csproj|c:\\tuan\\git\\ptud\\dto\\custom\\cconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2458331A-DA31-4263-98C0-8F78F67D1090}|DTO\\DTO.csproj|C:\\Tuan\\Git\\PTUD\\dto\\custom\\cconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2458331A-DA31-4263-98C0-8F78F67D1090}|DTO\\DTO.csproj|solutionrelative:dto\\custom\\cconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B0466D0E-175E-432B-9515-24D1A6269681}|BUS\\BUS.csproj|C:\\Tuan\\Git\\PTUD\\bus\\danh_muc\\staffcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B0466D0E-175E-432B-9515-24D1A6269681}|BUS\\BUS.csproj|solutionrelative:bus\\danh_muc\\staffcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{89A76F6C-5F05-4306-A90B-321ED5E0E04C}|GUI\\GUI.csproj|c:\\tuan\\git\\ptud\\gui\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{89A76F6C-5F05-4306-A90B-321ED5E0E04C}|GUI\\GUI.csproj|solutionrelative:gui\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,6 +50,19 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Tuan\\Git\\PTUD\\GUI\\Program.cs",
+              "RelativeDocumentMoniker": "GUI\\Program.cs",
+              "ToolTip": "C:\\Tuan\\Git\\PTUD\\GUI\\Program.cs*",
+              "RelativeToolTip": "GUI\\Program.cs*",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAqwBcAAAB7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T12:35:19.511Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "App.config",
               "DocumentMoniker": "C:\\Tuan\\Git\\PTUD\\GUI\\App.config",
@@ -79,47 +84,7 @@
               "RelativeToolTip": "DTO\\Custom\\CConfig.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T12:22:42.978Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Tuan\\Git\\PTUD\\GUI\\Program.cs",
-              "RelativeDocumentMoniker": "GUI\\Program.cs",
-              "ToolTip": "C:\\Tuan\\Git\\PTUD\\GUI\\Program.cs",
-              "RelativeToolTip": "GUI\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T12:22:29.159Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "frmMain.cs",
-              "DocumentMoniker": "C:\\Tuan\\Git\\PTUD\\GUI\\frmMain.cs",
-              "RelativeDocumentMoniker": "GUI\\frmMain.cs",
-              "ToolTip": "C:\\Tuan\\Git\\PTUD\\GUI\\frmMain.cs",
-              "RelativeToolTip": "GUI\\frmMain.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAADAAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T11:35:06.597Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "StaffController.cs",
-              "DocumentMoniker": "C:\\Tuan\\Git\\PTUD\\BUS\\Danh_Muc\\StaffController.cs",
-              "RelativeDocumentMoniker": "BUS\\Danh_Muc\\StaffController.cs",
-              "ToolTip": "C:\\Tuan\\Git\\PTUD\\BUS\\Danh_Muc\\StaffController.cs",
-              "RelativeToolTip": "BUS\\Danh_Muc\\StaffController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAqwBMAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T11:34:24.834Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-15T12:22:42.978Z"
             }
           ]
         }
