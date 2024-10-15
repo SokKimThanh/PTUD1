@@ -1,36 +1,7 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{89A76F6C-5F05-4306-A90B-321ED5E0E04C}|GUI\\GUI.csproj|e:\\tdc_hk5\\ptud1\\ptud_cmproject\\gui\\ui\\modules\\ucbaocaotonkho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{89A76F6C-5F05-4306-A90B-321ED5E0E04C}|GUI\\GUI.csproj|solutionrelative:gui\\ui\\modules\\ucbaocaotonkho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{89A76F6C-5F05-4306-A90B-321ED5E0E04C}|GUI\\GUI.csproj|e:\\tdc_hk5\\ptud1\\ptud_cmproject\\gui\\ui\\modules\\ucbaocaodoanhthu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{89A76F6C-5F05-4306-A90B-321ED5E0E04C}|GUI\\GUI.csproj|solutionrelative:gui\\ui\\modules\\ucbaocaodoanhthu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{89A76F6C-5F05-4306-A90B-321ED5E0E04C}|GUI\\GUI.csproj|e:\\tdc_hk5\\ptud1\\ptud_cmproject\\gui\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{89A76F6C-5F05-4306-A90B-321ED5E0E04C}|GUI\\GUI.csproj|solutionrelative:gui\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{89A76F6C-5F05-4306-A90B-321ED5E0E04C}|GUI\\GUI.csproj|e:\\tdc_hk5\\ptud1\\ptud_cmproject\\gui\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{89A76F6C-5F05-4306-A90B-321ED5E0E04C}|GUI\\GUI.csproj|solutionrelative:gui\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{89A76F6C-5F05-4306-A90B-321ED5E0E04C}|GUI\\GUI.csproj|e:\\tdc_hk5\\ptud1\\ptud_cmproject\\gui\\frmmainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{89A76F6C-5F05-4306-A90B-321ED5E0E04C}|GUI\\GUI.csproj|solutionrelative:gui\\frmmainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{89A76F6C-5F05-4306-A90B-321ED5E0E04C}|GUI\\GUI.csproj|e:\\tdc_hk5\\ptud1\\ptud_cmproject\\gui\\frmmainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{89A76F6C-5F05-4306-A90B-321ED5E0E04C}|GUI\\GUI.csproj|solutionrelative:gui\\frmmainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{89A76F6C-5F05-4306-A90B-321ED5E0E04C}|GUI\\GUI.csproj|e:\\tdc_hk5\\ptud1\\ptud_cmproject\\gui\\ui\\modules\\ucbaocaotonkho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{89A76F6C-5F05-4306-A90B-321ED5E0E04C}|GUI\\GUI.csproj|solutionrelative:gui\\ui\\modules\\ucbaocaotonkho.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "WorkspaceRootPath": "C:\\Tuan\\Git\\PTUD\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -38,12 +9,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": -1,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
@@ -66,106 +33,7 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ucBaoCaoTonKho.cs [Design]",
-              "DocumentMoniker": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\GUI\\UI\\Modules\\ucBaoCaoTonKho.cs",
-              "RelativeDocumentMoniker": "GUI\\UI\\Modules\\ucBaoCaoTonKho.cs",
-              "ToolTip": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\GUI\\UI\\Modules\\ucBaoCaoTonKho.cs [Design]",
-              "RelativeToolTip": "GUI\\UI\\Modules\\ucBaoCaoTonKho.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T07:44:33.075Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ucBaoCaoDoanhThu.cs [Design]",
-              "DocumentMoniker": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\GUI\\UI\\Modules\\ucBaoCaoDoanhThu.cs",
-              "RelativeDocumentMoniker": "GUI\\UI\\Modules\\ucBaoCaoDoanhThu.cs",
-              "ToolTip": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\GUI\\UI\\Modules\\ucBaoCaoDoanhThu.cs [Design]",
-              "RelativeToolTip": "GUI\\UI\\Modules\\ucBaoCaoDoanhThu.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T07:44:29.835Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "FrmMainForm.cs",
-              "DocumentMoniker": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\GUI\\FrmMainForm.cs",
-              "RelativeDocumentMoniker": "GUI\\FrmMainForm.cs",
-              "ToolTip": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\GUI\\FrmMainForm.cs",
-              "RelativeToolTip": "GUI\\FrmMainForm.cs",
-              "ViewState": "AQIAAFsAAAAAAAAAAAAwwHcAAAAZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T07:28:41.546Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "FrmMainForm.cs [Design]",
-              "DocumentMoniker": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\GUI\\FrmMainForm.cs",
-              "RelativeDocumentMoniker": "GUI\\FrmMainForm.cs",
-              "ToolTip": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\GUI\\FrmMainForm.cs [Design]",
-              "RelativeToolTip": "GUI\\FrmMainForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T07:28:18.254Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "LoginForm.cs",
-              "DocumentMoniker": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\GUI\\LoginForm.cs",
-              "RelativeDocumentMoniker": "GUI\\LoginForm.cs",
-              "ToolTip": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\GUI\\LoginForm.cs",
-              "RelativeToolTip": "GUI\\LoginForm.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAA4wCYAAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T07:22:57.479Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "LoginForm.cs [Design]",
-              "DocumentMoniker": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\GUI\\LoginForm.cs",
-              "RelativeDocumentMoniker": "GUI\\LoginForm.cs",
-              "ToolTip": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\GUI\\LoginForm.cs [Design]",
-              "RelativeToolTip": "GUI\\LoginForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T07:22:51.48Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ucBaoCaoTonKho.cs",
-              "DocumentMoniker": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\GUI\\UI\\Modules\\ucBaoCaoTonKho.cs",
-              "RelativeDocumentMoniker": "GUI\\UI\\Modules\\ucBaoCaoTonKho.cs",
-              "ToolTip": "E:\\TDC_HK5\\PTUD1\\PTUD_CMProject\\GUI\\UI\\Modules\\ucBaoCaoTonKho.cs",
-              "RelativeToolTip": "GUI\\UI\\Modules\\ucBaoCaoTonKho.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T07:20:49.022Z",
-              "EditorCaption": ""
+              "Name": "ST:129:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
             }
           ]
         }
