@@ -1,4 +1,8 @@
-﻿using DevExpress.XtraBars;
+﻿using BUS.Danh_Muc;
+using DevExpress.XtraBars;
+using DevExpress.XtraBars.Navigation;
+using DTO.Common;
+using DTO.Custom;
 using GUI.UI.Modules;
 using System;
 using System.Collections.Generic;
@@ -14,116 +18,235 @@ namespace GUI
 {
     public partial class frmMainForm : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
+        /// <summary>
+        /// Nơi khai báo mã chức năng và user control
+        /// </summary>
+        private Dictionary<string, UserControl> dicFunction = new Dictionary<string, UserControl>()
+        {
+            { "accDatVe", new ucDatVe() },
+            { "accQLHoaDon", new ucHoaDon() },
+            { "accQLPhim", new ucPhim() },
+            { "accQLSanPham", new ucSanPham() },
+            { "accQLPhongChieu", new ucPhongChieu() },
+            { "accQLSuatChieu", new ucSuatChieu() },
+            { "accQLNhanVien", new ucNhanVien() },
+            { "accQLPhanCa", new ucPhanCa() },
+            { "accQLCaLamViec", new ucCaLamViec() },
+            { "accQLGhe", new ucGhe() },
+            { "accQLDanhGiaDoTuoi", new ucDanhGiaDoTuoi() },
+            { "accBaoCaoDoanhThu", new ucBaoCaoDoanhThu() },
+            { "accBaoCaoThuChi", new ucBaoCaoThuChi() },
+            { "accBaoCaoTonKho", new ucBaoCaoTonKho() },
+        };
+
+        FLoading frmLoad = null;
+
         public frmMainForm()
         {
             InitializeComponent();
         }
-        private void LoadControl(UserControl control)
+
+        #region Function bổ trợ
+
+        private void LoadFunctionByLevel(int iLevel)
         {
-            // Xóa tất cả các control hiện tại trong main container
-            //mainContainer.Controls.Clear();
+            //Xóa hết chức năng trên menu đi
+            arrFunction.Elements.Clear();
+            switch (iLevel)
+            {
+                case (int)ELevel.Admin:
+                    FunctionADMIN();
+                    break;
 
-            // Dock control vào container để nó chiếm toàn bộ diện tích
-            control.Dock = DockStyle.Fill;
+                case (int)ELevel.Manager:
+                    FunctionManager();
+                    break;
 
-            // Thêm UserControl vào main container
-            mainContainer.Controls.Add(control);
+                case (int)ELevel.Staff:
+                    FunctionStaff();
+                    break;
+            }
 
-            // Đưa nó lên phía trước (nếu đã có)
-            control.BringToFront();
-        }
-        private void accDatVe_Click(object sender, EventArgs e)
-        {
-            LoadControl(new ucDatVe());
-        }
+            //Duyệt qua cây chức năng sau khi đã load
+            foreach (AccordionControlElement objFunctionC1 in arrFunction.Elements)
+            {
+                //Kiểm tra xem có tồn tại chức năng con không
+                if (objFunctionC1.Elements.Count == 0)
+                    continue;
 
-        private void accQLHoaDon_Click(object sender, EventArgs e)
-        {
-            LoadControl(new ucHoaDon());
-        }
-
-        private void accInHoaDonThanhToan_Click(object sender, EventArgs e)
-        {
-            LoadControl(new ucInHoaDon());
-        }
-
-        private void accQLPhim_Click(object sender, EventArgs e)
-        {
-            LoadControl(new ucPhim());
-        }
-
-        private void accQLSanPham_Click(object sender, EventArgs e)
-        {
-            LoadControl(new ucSanPham());
+                foreach (AccordionControlElement objFunctionC2 in objFunctionC1.Elements)
+                {
+                    //Gán sự kiện click cho từng chức năng con
+                    objFunctionC2.Click += LoadFunction_Click;
+                }
+            }
         }
 
-        private void accQLPhongChieu_Click(object sender, EventArgs e)
+        private void FunctionADMIN()
         {
-            LoadControl(new ucPhongChieu());
+            arrFunction.Elements.AddRange(new AccordionControlElement[] {
+            this.aceDanhMuc,
+            this.aceBaoCao,
+            this.aceHeThong});
         }
 
-        private void accQLSuatChieu_Click(object sender, EventArgs e)
+        private void FunctionManager()
         {
-            LoadControl(new ucSuatChieu());
+            arrFunction.Elements.AddRange(new AccordionControlElement[] {
+            this.aceDanhMuc,
+            this.aceBaoCao,
+            this.aceHeThong});
         }
 
-        private void accQLNhanVien_Click(object sender, EventArgs e)
+        private void FunctionStaff()
         {
-            LoadControl(new ucNhanVien());
+            arrFunction.Elements.AddRange(new AccordionControlElement[] {
+            this.aceDanhMuc,
+            this.aceHeThong});
         }
 
-        private void accQLPhanCa_Click(object sender, EventArgs e)
+        #endregion
+
+        #region Event
+        private void frmMainForm_Load(object sender, EventArgs e)
         {
-            LoadControl(new ucPhanCa());
+            StaffController objStaffController = new StaffController();
+            try
+            {
+                //Kiểm tra xem đã đăng nhập hay chưa
+                if (CCommon.MaDangNhap == "")
+                {
+                    //Ẩn form hiện tại đi
+                    this.Hide();
+
+                    //Chưa chưa gọi form login
+                    LoginForm objLoginForm = new LoginForm();
+                    objLoginForm.ShowDialog();
+
+                    //Xử lý toàn vẹn dữ liệu, sự kiện đầu ra trong login form
+                    //Show lại form nếu người dùng k nhấn nút thoát bên form login
+                    if (objLoginForm.StatusClose == true)
+                        return;
+                    this.Show();
+                }
+
+                frmLoad = new FLoading();
+                frmLoad.SetCaption("Hệ thống đang tải....");
+                frmLoad.SetDescription("Vui lòng chờ một lát.");
+
+                frmLoad.Show();
+
+                //Dựa vào phân quyền để load cây chức năng theo
+                int iLevel = objStaffController.LoadLevelByMaDangNhap(CCommon.MaDangNhap);
+                LoadFunctionByLevel(iLevel);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                frmLoad.Close();
+                if (frmLoad != null)
+                    frmLoad.Dispose();
+            }
         }
 
-        private void accQLCaLamViec_Click(object sender, EventArgs e)
+        private void LoadFunction_Click(object objSender, EventArgs e)
         {
-            LoadControl(new ucCaLamViec());
-        }
+            //Kiểm tra dữ liệu có null và có phải kiểu AccordionControlElement hay không
+            if (objSender != null && objSender.GetType() == typeof(AccordionControlElement))
+            {
+                try
+                {
+                    frmLoad = new FLoading();
+                    frmLoad.SetCaption("Hệ thống đang tải....");
+                    frmLoad.SetDescription("Vui lòng chờ một lát.");
 
-        private void accQLGhe_Click(object sender, EventArgs e)
-        {
-            LoadControl(new ucGhe());
-        }
+                    frmLoad.Show();
 
-        private void accQLDanhGiaDoTuoi_Click(object sender, EventArgs e)
-        {
-            LoadControl(new ucDanhGiaDoTuoi());
-        }
+                    AccordionControlElement objElement = objSender as AccordionControlElement;
 
-        private void accBaoCaoDoanhThu_Click(object sender, EventArgs e)
-        {
-            LoadControl(new ucBaoCaoDoanhThu());
-        }
+                    // Kiểm tra xem nó có trong dicFunction hay không
+                    if (dicFunction.ContainsKey(objElement.Name) == false)
+                        return;
 
-        private void accBaoCaoThuChi_Click(object sender, EventArgs e)
-        {
-            LoadControl(new ucBaoCaoThuChi());
-        }
+                    // Lấy UserControl tương ứng với tên
+                    UserControl objLoad = dicFunction[objElement.Name];
+                    if (objLoad == null)
+                        return;
 
-        private void accBaoCaoTonKho_Click(object sender, EventArgs e)
-        {
-            LoadControl(new ucBaoCaoTonKho());
+                    // Nếu UserControl đã có trong mainContainer thì đưa nó lên trước
+                    if (mainContainer.Controls.Contains(objLoad) == false)
+                    {
+                        // Clear toàn bộ những gì trên container
+                        mainContainer.Controls.Clear();
+
+                        // Dock control vào container để nó chiếm toàn bộ diện tích
+                        objLoad.Dock = DockStyle.Fill;
+
+                        // Thêm UserControl vào main container
+                        mainContainer.Controls.Add(objLoad);
+                    }
+
+                    // Đưa nó lên phía trước
+                    objLoad.BringToFront();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    frmLoad.Close();
+                    if (frmLoad != null)
+                        frmLoad.Dispose();
+                }
+            }
         }
 
         private void accDangXuat_Click(object sender, EventArgs e)
         {
-            // Ẩn form chính
-            this.Hide();
+            if (DialogResult.Yes == MessageBox.Show("Bạn có muốn đăng xuất?", "Thông báo",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            {
+                //Gán lại biến common
+                CCommon.MaDangNhap = "";
 
-            // Mở lại form đăng nhập
-            LoginForm loginForm = new LoginForm();
-            loginForm.ShowDialog();
-
-            // Sau khi form đăng nhập đóng, thoát form chính
-            this.Close();
+                //gọi lại sự kiện load
+                this.OnLoad(EventArgs.Empty);
+            }
         }
 
-        private void accThoatVaDangXuat_Click(object sender, EventArgs e)
+        private void accThoat_Click(object sender, EventArgs e)
         {
-            // thoat chuong trinh & giai phong bo nho
-            Application.Exit();
+            if (DialogResult.Yes == MessageBox.Show("Bạn có muốn thoát chương trình?", "Thông báo",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            {
+                // Thoát chương trình
+                Application.Exit();
+            }
         }
+
+        #endregion
+
+        protected override void WndProc(ref Message message)
+        {
+            const int WM_SYSCOMMAND = 0x0112;
+            const int SC_MOVE = 0xF010;
+            const int SC_SIZE = 0xF000; // Mã lệnh cho thay đổi kích thước
+
+            switch (message.Msg)
+            {
+                case WM_SYSCOMMAND:
+                    int command = message.WParam.ToInt32() & 0xfff0;
+                    if (command == SC_MOVE || command == SC_SIZE)
+                        return; // Chặn cả di chuyển và thay đổi kích thước
+                    break;
+            }
+
+            base.WndProc(ref message);
+        }
+
     }
 }
