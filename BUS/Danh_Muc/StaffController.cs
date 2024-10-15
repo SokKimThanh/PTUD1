@@ -14,7 +14,7 @@ namespace BUS.Danh_Muc
     {
         public void LoginProcess(string strMaDangNhap, string strMatKhau)
         {
-            using (CM_Cinema_DBDataContext objDB = new CM_Cinema_DBDataContext())
+            using (CM_Cinema_DBDataContext objDB = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString))
             {
                 string strError = "";
                 string strStep = "1";
@@ -62,7 +62,7 @@ namespace BUS.Danh_Muc
         public int LoadLevelByMaDangNhap(string strMaDangNhap)
         {
             int iRes = (int)ELevel.None;
-            using (CM_Cinema_DBDataContext objDB = new CM_Cinema_DBDataContext())
+            using (CM_Cinema_DBDataContext objDB = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString))
             {
                 //Kiểm tra xem có user nào tồn tại với mã đăng nhập
                 tbl_DM_Staff objUser = objDB.tbl_DM_Staffs.FirstOrDefault(it => it.ST_USERNAME == strMaDangNhap && it.DELETED == 0);
