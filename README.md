@@ -1,2 +1,2 @@
-# PTUD1
-Mô hình ba lớp ptud1: Quản lý rạp phim
+# PTUD Cinema Management
+Mô hình ba lớp ptud: Quản lý rạp phim
