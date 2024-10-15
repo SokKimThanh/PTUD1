@@ -553,3 +553,4 @@ FodyWeavers.xsd
 /DAL/CM_Cinema_DB.dbml
 /DAL/CM_Cinema_DB.dbml.layout
 /DAL/CM_Cinema_DB.designer.cs
+/DAL/app.config
