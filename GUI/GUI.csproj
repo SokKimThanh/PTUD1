@@ -35,12 +35,19 @@
     <Reference Include="DevExpress.BonusSkins.v22.2" />
     <Reference Include="DevExpress.Data.Desktop.v22.2" />
     <Reference Include="DevExpress.Data.v22.2" />
+    <Reference Include="DevExpress.Images.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v22.2" />
     <Reference Include="DevExpress.Sparkline.v22.2.Core" />
+    <Reference Include="DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v22.2" />
     <Reference Include="DevExpress.Printing.v22.2.Core" />
     <Reference Include="DevExpress.Drawing.v22.2" />
+    <Reference Include="DevExpress.XtraGrid.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -52,14 +59,126 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmLoading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoading.Designer.cs">
+      <DependentUpon>frmLoading.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Modules\ucBaoCaoDoanhThu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Modules\ucBaoCaoDoanhThu.Designer.cs">
+      <DependentUpon>ucBaoCaoDoanhThu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Modules\ucBaoCaoThuChi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Modules\ucBaoCaoThuChi.Designer.cs">
+      <DependentUpon>ucBaoCaoThuChi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Modules\ucBaoCaoTonKho.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Modules\ucBaoCaoTonKho.Designer.cs">
+      <DependentUpon>ucBaoCaoTonKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Modules\ucCaLamViec.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Modules\ucCaLamViec.Designer.cs">
+      <DependentUpon>ucCaLamViec.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Modules\ucDatVe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Modules\ucDatVe.Designer.cs">
+      <DependentUpon>ucDatVe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Modules\ucGhe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Modules\ucGhe.Designer.cs">
+      <DependentUpon>ucGhe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Modules\ucHoaDon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Modules\ucHoaDon.Designer.cs">
+      <DependentUpon>ucHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Modules\ucInHoaDon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Modules\ucInHoaDon.Designer.cs">
+      <DependentUpon>ucInHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Modules\ucNhanVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Modules\ucNhanVien.Designer.cs">
+      <DependentUpon>ucNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Modules\ucPhanCa.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Modules\ucPhanCa.Designer.cs">
+      <DependentUpon>ucPhanCa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Modules\ucPhim.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Modules\ucPhim.Designer.cs">
+      <DependentUpon>ucPhim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Modules\ucPhongChieu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Modules\ucPhongChieu.Designer.cs">
+      <DependentUpon>ucPhongChieu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Modules\ucSanPham.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Modules\ucSanPham.Designer.cs">
+      <DependentUpon>ucSanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Modules\ucSuatChieu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Modules\ucSuatChieu.Designer.cs">
+      <DependentUpon>ucSuatChieu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Modules\ucDanhGiaDoTuoi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Modules\ucDanhGiaDoTuoi.Designer.cs">
+      <DependentUpon>ucDanhGiaDoTuoi.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frmLoading.resx">
+      <DependentUpon>frmLoading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -68,7 +187,53 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UI\Modules\ucBaoCaoDoanhThu.resx">
+      <DependentUpon>ucBaoCaoDoanhThu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Modules\ucBaoCaoThuChi.resx">
+      <DependentUpon>ucBaoCaoThuChi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Modules\ucBaoCaoTonKho.resx">
+      <DependentUpon>ucBaoCaoTonKho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Modules\ucCaLamViec.resx">
+      <DependentUpon>ucCaLamViec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Modules\ucDanhGiaDoTuoi.resx">
+      <DependentUpon>ucDanhGiaDoTuoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Modules\ucDatVe.resx">
+      <DependentUpon>ucDatVe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Modules\ucGhe.resx">
+      <DependentUpon>ucGhe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Modules\ucHoaDon.resx">
+      <DependentUpon>ucHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Modules\ucInHoaDon.resx">
+      <DependentUpon>ucInHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Modules\ucNhanVien.resx">
+      <DependentUpon>ucNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Modules\ucPhanCa.resx">
+      <DependentUpon>ucPhanCa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Modules\ucPhim.resx">
+      <DependentUpon>ucPhim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Modules\ucPhongChieu.resx">
+      <DependentUpon>ucPhongChieu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Modules\ucSanPham.resx">
+      <DependentUpon>ucSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Modules\ucSuatChieu.resx">
+      <DependentUpon>ucSuatChieu.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -89,6 +254,237 @@
       <Project>{2458331a-da31-4263-98c0-8f78f67d1090}</Project>
       <Name>DTO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report2_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boscheduler_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inbox_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkbox_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkbox_16x161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkbox_16x162.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkbox_16x163.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\additem_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\additem_16x161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\additem_16x162.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\additem_16x163.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\additem_16x164.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\additem_16x165.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\additem_16x166.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\additem_16x167.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\additem_16x168.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\additem_16x169.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_16x161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_16x162.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_16x163.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_16x164.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_16x165.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_16x166.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addfile_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconsetredtoblack4_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconsettrafficlights3_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconsetsymbolscircled3_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconsetredtoblack4_16x161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printernetwork_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_16x167.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_16x168.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_16x169.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_16x1610.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_16x1611.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addfile_16x161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addfile_16x162.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boreport_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boreport_16x161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boreport_16x162.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\operatingsystem_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_16x1612.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_16x1613.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\apply_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_32x321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refreshallpivottable_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refreshallpivottable_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reset_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reset_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\insert_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\insert_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deletelist_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deletelist_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\updatetableofcontents_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\updatetableofcontents_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_16x161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_32x321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refreshpivottable_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refreshpivottable_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newtablestyle_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reviewallowuserstoeditranges_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\encrypt_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editname_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\show_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconsetsigns3_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\apply_16x161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\borules_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconsetredtoblack4_16x162.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reset_16x161.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
