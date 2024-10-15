@@ -20,9 +20,12 @@ namespace GUI
         static void Main()
         {
             // Tự động lấy tên máy chủ
-            string serverName = Environment.MachineName;
-            CConfig.CM_Cinema_DB_ConnectionString = $"Server={serverName};Database=CM_Cinema_DB;Integrated Security=True;";
-       
+            string strServerName = Environment.MachineName;
+            if (strServerName.Trim() == "")
+                return;
+
+            CConfig.CM_Cinema_DB_ConnectionString = $"Server={strServerName};Database=CM_Cinema_DB;Integrated Security=True;";
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmMain());
