@@ -113,7 +113,7 @@ namespace GUI
             this.Hide();
 
             // Mở lại form đăng nhập
-            LoginForm loginForm = new LoginForm();
+            frmLogin loginForm = new frmLogin();
             loginForm.ShowDialog();
 
             // Sau khi form đăng nhập đóng, thoát form chính

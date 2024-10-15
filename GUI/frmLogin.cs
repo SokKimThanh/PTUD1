@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class LoginForm : DevExpress.XtraEditors.XtraForm
+    public partial class frmLogin : DevExpress.XtraEditors.XtraForm
     {
-        public LoginForm()
+        public frmLogin()
         {
             InitializeComponent();
         }

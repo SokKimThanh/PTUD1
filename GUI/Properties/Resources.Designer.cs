@@ -343,6 +343,16 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap apply_16x162 {
+            get {
+                object obj = ResourceManager.GetObject("apply_16x162", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap boreport_16x16 {
             get {
                 object obj = ResourceManager.GetObject("boreport_16x16", resourceCulture);
@@ -553,6 +563,16 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap iconsetquarters5_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("iconsetquarters5_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap iconsetredtoblack4_16x16 {
             get {
                 object obj = ResourceManager.GetObject("iconsetredtoblack4_16x16", resourceCulture);
@@ -666,6 +686,16 @@ namespace GUI.Properties {
         internal static System.Drawing.Bitmap operatingsystem_16x16 {
             get {
                 object obj = ResourceManager.GetObject("operatingsystem_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pause_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("pause_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

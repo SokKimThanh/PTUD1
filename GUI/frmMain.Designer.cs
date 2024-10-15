@@ -34,14 +34,13 @@
             this.aceDanhMuc = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accDatVe = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accQLHoaDon = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accInHoaDonThanhToan = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accQLPhim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accQLSanPham = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accQLPhongChieu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accQLSuatChieu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accQLNhanVien = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accQLPhanCa = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accQLCaLamViec = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accQLPhanCa = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accQLGhe = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accQLDanhGiaDoTuoi = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aceBaoCao = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -50,7 +49,7 @@
             this.accBaoCaoTonKho = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aceHeThong = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accDangXuat = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accThoatVaDangXuat = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accThoat = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.fluentFormDefaultManager1 = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
@@ -85,17 +84,15 @@
             this.aceDanhMuc.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accDatVe,
             this.accQLHoaDon,
-            this.accInHoaDonThanhToan,
+            this.accQLPhanCa,
+            this.accQLNhanVien,
+            this.accQLCaLamViec,
             this.accQLPhim,
+            this.accQLDanhGiaDoTuoi,
             this.accQLSanPham,
             this.accQLPhongChieu,
             this.accQLSuatChieu,
-            this.accQLNhanVien,
-            this.accQLPhanCa,
-            this.accQLCaLamViec,
-            this.accQLGhe,
-            this.accQLDanhGiaDoTuoi});
-            this.aceDanhMuc.Expanded = true;
+            this.accQLGhe});
             this.aceDanhMuc.ImageOptions.Image = global::GUI.Properties.Resources.add_32x32;
             this.aceDanhMuc.Name = "aceDanhMuc";
             this.aceDanhMuc.Text = "Danh Mục";
@@ -116,15 +113,6 @@
             this.accQLHoaDon.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accQLHoaDon.Text = "QL Hóa Đơn";
             this.accQLHoaDon.Click += new System.EventHandler(this.accQLHoaDon_Click);
-            // 
-            // accInHoaDonThanhToan
-            // 
-            this.accInHoaDonThanhToan.Hint = "In hóa đơn thanh toán";
-            this.accInHoaDonThanhToan.ImageOptions.Image = global::GUI.Properties.Resources.printernetwork_16x16;
-            this.accInHoaDonThanhToan.Name = "accInHoaDonThanhToan";
-            this.accInHoaDonThanhToan.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accInHoaDonThanhToan.Text = "In Hóa đơn";
-            this.accInHoaDonThanhToan.Click += new System.EventHandler(this.accInHoaDonThanhToan_Click);
             // 
             // accQLPhim
             // 
@@ -171,15 +159,6 @@
             this.accQLNhanVien.Text = "QL Nhân Viên";
             this.accQLNhanVien.Click += new System.EventHandler(this.accQLNhanVien_Click);
             // 
-            // accQLPhanCa
-            // 
-            this.accQLPhanCa.Hint = "Quản lý Phân Ca";
-            this.accQLPhanCa.ImageOptions.Image = global::GUI.Properties.Resources.add_16x1610;
-            this.accQLPhanCa.Name = "accQLPhanCa";
-            this.accQLPhanCa.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accQLPhanCa.Text = "QL Phân Ca";
-            this.accQLPhanCa.Click += new System.EventHandler(this.accQLPhanCa_Click);
-            // 
             // accQLCaLamViec
             // 
             this.accQLCaLamViec.Hint = "Quản lý Ca Làm Việc";
@@ -188,6 +167,15 @@
             this.accQLCaLamViec.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accQLCaLamViec.Text = "QL Ca Làm Việc";
             this.accQLCaLamViec.Click += new System.EventHandler(this.accQLCaLamViec_Click);
+            // 
+            // accQLPhanCa
+            // 
+            this.accQLPhanCa.Hint = "Phân Ca Làm việc nhân viên";
+            this.accQLPhanCa.ImageOptions.Image = global::GUI.Properties.Resources.apply_16x162;
+            this.accQLPhanCa.Name = "accQLPhanCa";
+            this.accQLPhanCa.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accQLPhanCa.Text = "Phân Ca";
+            this.accQLPhanCa.Click += new System.EventHandler(this.accQLPhanCa_Click);
             // 
             // accQLGhe
             // 
@@ -246,7 +234,7 @@
             // 
             this.aceHeThong.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accDangXuat,
-            this.accThoatVaDangXuat});
+            this.accThoat});
             this.aceHeThong.Expanded = true;
             this.aceHeThong.ImageOptions.Image = global::GUI.Properties.Resources.database_32x32;
             this.aceHeThong.Name = "aceHeThong";
@@ -254,19 +242,19 @@
             // 
             // accDangXuat
             // 
-            this.accDangXuat.ImageOptions.Image = global::GUI.Properties.Resources.reset_16x161;
+            this.accDangXuat.ImageOptions.Image = global::GUI.Properties.Resources.pause_16x16;
             this.accDangXuat.Name = "accDangXuat";
             this.accDangXuat.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accDangXuat.Text = "Đăng xuất";
             this.accDangXuat.Click += new System.EventHandler(this.accDangXuat_Click);
             // 
-            // accThoatVaDangXuat
+            // accThoat
             // 
-            this.accThoatVaDangXuat.ImageOptions.Image = global::GUI.Properties.Resources.close_16x16;
-            this.accThoatVaDangXuat.Name = "accThoatVaDangXuat";
-            this.accThoatVaDangXuat.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accThoatVaDangXuat.Text = "Thoát và đăng xuất";
-            this.accThoatVaDangXuat.Click += new System.EventHandler(this.accThoatVaDangXuat_Click);
+            this.accThoat.ImageOptions.Image = global::GUI.Properties.Resources.iconsetquarters5_16x16;
+            this.accThoat.Name = "accThoat";
+            this.accThoat.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accThoat.Text = "Thoát";
+            this.accThoat.Click += new System.EventHandler(this.accThoatVaDangXuat_Click);
             // 
             // fluentDesignFormControl1
             // 
@@ -319,8 +307,7 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accBaoCaoDoanhThu;
         private DevExpress.XtraBars.Navigation.AccordionControlElement aceHeThong;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accDangXuat;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accThoatVaDangXuat;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accInHoaDonThanhToan;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accThoat;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accQLHoaDon;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accQLPhanCa;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accQLCaLamViec;
