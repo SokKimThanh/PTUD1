@@ -11,12 +11,18 @@ using System.Windows.Forms;
 
 namespace GUI.UI.Modules
 {
-    public partial class ucInHoaDon : DevExpress.XtraEditors.XtraUserControl
+    public partial class ucInHoaDon : ucBase
     {
         public ucInHoaDon()
         {
             InitializeComponent();
             lblTitle.Text = "Thanh toán in hóa đơn".ToUpper();
+        }
+
+        protected override void Load_Data()
+        {
+            if (strFunctionCode != "")
+                lblTitle.Text = strFunctionCode.Trim();
         }
     }
 }

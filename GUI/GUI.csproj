@@ -79,6 +79,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Modules\ucBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UI\Modules\ucBaoCaoDoanhThu.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -11,12 +11,18 @@ using System.Windows.Forms;
 
 namespace GUI.UI.Modules
 {
-    public partial class ucPhanCa : DevExpress.XtraEditors.XtraUserControl
+    public partial class ucPhanCa : ucBase
     {
         public ucPhanCa()
         {
             InitializeComponent();
             lblTitle.Text = "Quản lý phân ca".ToUpper();
+
+        }
+        protected override void Load_Data()
+        {
+            if (strFunctionCode != "")
+                lblTitle.Text = strFunctionCode.Trim();
         }
     }
 }

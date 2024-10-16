@@ -11,12 +11,18 @@ using System.Windows.Forms;
 
 namespace GUI.UI.Modules
 {
-    public partial class ucPhim : DevExpress.XtraEditors.XtraUserControl
+    public partial class ucPhim : ucBase
     {
         public ucPhim()
         {
             InitializeComponent();
             lblTitle.Text = "Quản lý phim".ToUpper();
+        }
+
+        protected override void Load_Data()
+        {
+            if (strFunctionCode != "")
+                lblTitle.Text = strFunctionCode.Trim();
         }
     }
 }
