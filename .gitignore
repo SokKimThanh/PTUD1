@@ -546,3 +546,4 @@ FodyWeavers.xsd
 
 # End of https://www.toptal.com/developers/gitignore/api/aspnetcore,visualstudio,visualstudiocode
 /GUI/App.config
+/.vs/GUI/v17/DocumentLayout.json
