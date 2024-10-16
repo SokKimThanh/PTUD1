@@ -3,12 +3,14 @@ using DevExpress.XtraBars;
 using DevExpress.XtraBars.Navigation;
 using DTO.Common;
 using DTO.Custom;
+using DTO.Utility;
 using GUI.UI.Modules;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -113,9 +115,58 @@ namespace GUI
             StaffController objStaffController = new StaffController();
             try
             {
+                //Kiểm tra dưới file
+                if (CCommon.MaDangNhap == "")
+                {
+                    try
+                    {
+                        //Kiểm tra trong file
+                        //B1. Kiểm tra xem file chứa thông tin đăng nhập có tồn tại trên máy không nếu không thì tạo mới
+                        if (Directory.Exists(CConfig.CM_Cinema_FileManagement_Folder) == false)
+                            Directory.CreateDirectory(CConfig.CM_Cinema_FileManagement_Folder);
+
+                        string strFileName = "userinfo.txt";
+                        string strFullFilePath = CConfig.CM_Cinema_FileManagement_Folder + strFileName;
+
+                        //Tạo file nếu file không tồn tại
+                        if (File.Exists(strFullFilePath) == false)
+                        {
+                            using (FileStream objFile = File.Create(strFullFilePath))
+                            {
+
+                            }
+                        }
+
+                        //Đọc thông tin file
+                        using (Stream objStream = File.Open(strFullFilePath, FileMode.Open))
+                        {
+                            using (StreamReader objSR = new StreamReader(objStream, Encoding.UTF8))
+                            {
+                                string strMaDangNhap = objSR.ReadLine();
+                                string strMatKhau = objSR.ReadLine();
+
+                                //Kiểm tra xem thông tin lưu trong file còn khớp hay khôn
+                                //Kiểm tra các trường đọc lên có dữ liệu hay không
+                                if (string.IsNullOrEmpty(strMaDangNhap) == false && string.IsNullOrEmpty(strMatKhau) == false)
+                                {
+                                    //Nếu có check xem thông tin có còn khớp dưới db
+                                    CCommon.MaDangNhap = objStaffController.CheckLoginFileProcess(strMaDangNhap, strMatKhau);
+                                }
+
+                            }
+                        }
+
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+
                 //Kiểm tra xem đã đăng nhập hay chưa
                 if (CCommon.MaDangNhap == "")
                 {
+
                     //Ẩn form hiện tại đi
                     this.Hide();
 
@@ -127,6 +178,7 @@ namespace GUI
                     //Show lại form nếu người dùng k nhấn nút thoát bên form login
                     if (objLoginForm.StatusClose == true)
                         return;
+
                     this.Show();
                 }
 
@@ -212,25 +264,77 @@ namespace GUI
 
         private void accDangXuat_Click(object sender, EventArgs e)
         {
-            if (DialogResult.Yes == MessageBox.Show("Bạn có muốn đăng xuất?", "Thông báo",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            try
             {
-                //Gán lại biến common
-                CCommon.MaDangNhap = "";
+                if (DialogResult.Yes == MessageBox.Show("Bạn có muốn đăng xuất?", "Thông báo",
+               MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                {
+                    //Kiểm tra dưới file
+                    if (CCommon.MaDangNhap != "")
+                    {
+                        try
+                        {
+                            //Kiểm tra trong file
+                            //B1. Kiểm tra xem file chứa thông tin đăng nhập có tồn tại trên máy không nếu không thì tạo mới
+                            if (Directory.Exists(CConfig.CM_Cinema_FileManagement_Folder) == false)
+                                Directory.CreateDirectory(CConfig.CM_Cinema_FileManagement_Folder);
 
-                //gọi lại sự kiện load
-                this.OnLoad(EventArgs.Empty);
+                            string strFileName = "userinfo.txt";
+                            string strFullFilePath = CConfig.CM_Cinema_FileManagement_Folder + strFileName;
+
+                            //Tạo file nếu file không tồn tại
+                            if (File.Exists(strFullFilePath) == false)
+                            {
+                                using (FileStream objFile = File.Create(strFullFilePath))
+                                {
+
+                                }
+                            }
+
+                            //Xóa dữ liệu của file đi
+                            using (FileStream fs = new FileStream(strFullFilePath, FileMode.Truncate))
+                            {
+                                // File sẽ bị xóa hết dữ liệu nhưng file vẫn tồn tại
+                                // Không cần ghi gì, chỉ mở file với chế độ Truncate
+                            }
+
+                        }
+                        catch (Exception)
+                        {
+                            throw;
+                        }
+                    }
+
+                    //Gán lại biến common
+                    CCommon.MaDangNhap = "";
+
+                    //gọi lại sự kiện load
+                    this.OnLoad(EventArgs.Empty);
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void accThoat_Click(object sender, EventArgs e)
         {
-            if (DialogResult.Yes == MessageBox.Show("Bạn có muốn thoát chương trình?", "Thông báo",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            try
             {
-                // Thoát chương trình
-                Application.Exit();
+                if (DialogResult.Yes == MessageBox.Show("Bạn có muốn thoát chương trình?", "Thông báo",
+               MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                {
+                    // Thoát chương trình
+                    Application.Exit();
+                }
             }
+            catch (Exception)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         #endregion
