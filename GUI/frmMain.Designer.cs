@@ -111,7 +111,7 @@
             this.accQLHoaDon.ImageOptions.Image = global::GUI.Properties.Resources.apply_16x16;
             this.accQLHoaDon.Name = "accQLHoaDon";
             this.accQLHoaDon.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accQLHoaDon.Text = "QL Hóa Đơn";
+            this.accQLHoaDon.Text = "Hóa Đơn";
             // 
             // accQLPhim
             // 
@@ -119,7 +119,7 @@
             this.accQLPhim.ImageOptions.Image = global::GUI.Properties.Resources.add_16x164;
             this.accQLPhim.Name = "accQLPhim";
             this.accQLPhim.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accQLPhim.Text = "QL Phim";
+            this.accQLPhim.Text = "Phim";
             // 
             // accQLSanPham
             // 
@@ -127,7 +127,7 @@
             this.accQLSanPham.ImageOptions.Image = global::GUI.Properties.Resources.add_16x167;
             this.accQLSanPham.Name = "accQLSanPham";
             this.accQLSanPham.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accQLSanPham.Text = "QL Sản Phẩm";
+            this.accQLSanPham.Text = "Sản Phẩm";
             // 
             // accQLPhongChieu
             // 
@@ -135,7 +135,7 @@
             this.accQLPhongChieu.ImageOptions.Image = global::GUI.Properties.Resources.add_16x168;
             this.accQLPhongChieu.Name = "accQLPhongChieu";
             this.accQLPhongChieu.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accQLPhongChieu.Text = "QL Phòng Chiếu";
+            this.accQLPhongChieu.Text = "Phòng Chiếu";
             // 
             // accQLSuatChieu
             // 
@@ -143,7 +143,7 @@
             this.accQLSuatChieu.ImageOptions.Image = global::GUI.Properties.Resources.add_16x169;
             this.accQLSuatChieu.Name = "accQLSuatChieu";
             this.accQLSuatChieu.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accQLSuatChieu.Text = "QL Suất Chiếu";
+            this.accQLSuatChieu.Text = "Suất Chiếu";
             // 
             // accQLNhanVien
             // 
@@ -151,7 +151,7 @@
             this.accQLNhanVien.ImageOptions.Image = global::GUI.Properties.Resources.add_16x163;
             this.accQLNhanVien.Name = "accQLNhanVien";
             this.accQLNhanVien.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accQLNhanVien.Text = "QL Nhân Viên";
+            this.accQLNhanVien.Text = "Nhân Viên";
             // 
             // accQLPhanCa
             // 
@@ -159,7 +159,7 @@
             this.accQLPhanCa.ImageOptions.Image = global::GUI.Properties.Resources.add_16x1610;
             this.accQLPhanCa.Name = "accQLPhanCa";
             this.accQLPhanCa.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accQLPhanCa.Text = "QL Phân Ca";
+            this.accQLPhanCa.Text = "Phân Ca";
             // 
             // accQLCaLamViec
             // 
@@ -167,7 +167,7 @@
             this.accQLCaLamViec.ImageOptions.Image = global::GUI.Properties.Resources.add_16x1610;
             this.accQLCaLamViec.Name = "accQLCaLamViec";
             this.accQLCaLamViec.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accQLCaLamViec.Text = "QL Ca Làm Việc";
+            this.accQLCaLamViec.Text = "Ca Làm Việc";
             // 
             // accQLGhe
             // 
@@ -175,7 +175,7 @@
             this.accQLGhe.ImageOptions.Image = global::GUI.Properties.Resources.add_16x165;
             this.accQLGhe.Name = "accQLGhe";
             this.accQLGhe.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accQLGhe.Text = "QL Ghế";
+            this.accQLGhe.Text = "Ghế";
             // 
             // accQLDanhGiaDoTuoi
             // 
@@ -183,7 +183,7 @@
             this.accQLDanhGiaDoTuoi.ImageOptions.Image = global::GUI.Properties.Resources.add_16x1610;
             this.accQLDanhGiaDoTuoi.Name = "accQLDanhGiaDoTuoi";
             this.accQLDanhGiaDoTuoi.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accQLDanhGiaDoTuoi.Text = "QL Đánh giá độ tuổi";
+            this.accQLDanhGiaDoTuoi.Text = "Đánh giá độ tuổi";
             // 
             // aceBaoCao
             // 
