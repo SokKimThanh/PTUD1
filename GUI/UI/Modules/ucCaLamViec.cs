@@ -11,12 +11,18 @@ using System.Windows.Forms;
 
 namespace GUI.UI.Modules
 {
-    public partial class ucCaLamViec : DevExpress.XtraEditors.XtraUserControl
+    public partial class ucCaLamViec : ucBase
     {
         public ucCaLamViec()
         {
             InitializeComponent();
             lblTitle.Text = "Quản lý ca làm việc".ToUpper();
+        }
+
+        protected override void Load_Data()
+        {
+            if (strFunctionCode != "")
+                lblTitle.Text = strFunctionCode.Trim();
         }
     }
 }

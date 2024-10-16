@@ -11,12 +11,18 @@ using System.Windows.Forms;
 
 namespace GUI.UI.Modules
 {
-    public partial class ucPhongChieu : DevExpress.XtraEditors.XtraUserControl
+    public partial class ucPhongChieu : ucBase
     {
         public ucPhongChieu()
         {
             InitializeComponent();
             lblTitle.Text = "Quản lý phòng chiếu".ToUpper();
+        }
+
+        protected override void Load_Data()
+        {
+            if (strFunctionCode != "")
+                lblTitle.Text = strFunctionCode.Trim();
         }
     }
 }

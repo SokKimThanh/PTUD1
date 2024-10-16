@@ -23,7 +23,7 @@ namespace GUI
         /// <summary>
         /// Nơi khai báo mã chức năng và user control
         /// </summary>
-        private Dictionary<string, UserControl> dicFunction = new Dictionary<string, UserControl>()
+        private Dictionary<string, ucBase> dicFunction = new Dictionary<string, ucBase>()
         {
             { "accDatVe", new ucDatVe() },
             { "accQLHoaDon", new ucHoaDon() },
@@ -226,9 +226,11 @@ namespace GUI
                         return;
 
                     // Lấy UserControl tương ứng với tên
-                    UserControl objLoad = dicFunction[objElement.Name];
+                    ucBase objLoad = dicFunction[objElement.Name];
                     if (objLoad == null)
                         return;
+
+                    objLoad.strFunctionCode = objElement.Text;
 
                     // Nếu UserControl đã có trong mainContainer thì đưa nó lên trước
                     if (mainContainer.Controls.Contains(objLoad) == false)
@@ -330,7 +332,7 @@ namespace GUI
                     Application.Exit();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

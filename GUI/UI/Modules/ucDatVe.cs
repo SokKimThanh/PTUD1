@@ -11,12 +11,17 @@ using System.Windows.Forms;
 
 namespace GUI.UI.Modules
 {
-    public partial class ucDatVe : DevExpress.XtraEditors.XtraUserControl
+    public partial class ucDatVe : ucBase
     {
         public ucDatVe()
         {
             InitializeComponent();
             lblTitle.Text = "Đặt vé".ToUpper();
+        }
+        protected override void Load_Data()
+        {
+            if (strFunctionCode != "")
+                lblTitle.Text = strFunctionCode.Trim();
         }
     }
 }

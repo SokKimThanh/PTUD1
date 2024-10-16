@@ -11,12 +11,18 @@ using System.Windows.Forms;
 
 namespace GUI.UI.Modules
 {
-    public partial class ucGhe : DevExpress.XtraEditors.XtraUserControl
+    public partial class ucGhe : ucBase
     {
         public ucGhe()
         {
             InitializeComponent();
             lblTitle.Text = "Quản lý ghế ngồi".ToUpper();
         }
+        protected override void Load_Data()
+        {
+            if (strFunctionCode != "")
+                lblTitle.Text = strFunctionCode.Trim();
+        }
+
     }
 }

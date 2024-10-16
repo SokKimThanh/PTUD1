@@ -12,12 +12,18 @@ using System.Windows.Forms;
 
 namespace GUI.UI.Modules
 {
-    public partial class ucBaoCaoDoanhThu : DevExpress.XtraEditors.XtraUserControl
+    public partial class ucBaoCaoDoanhThu : ucBase
     {
         public ucBaoCaoDoanhThu()
         {
             InitializeComponent();
-            lblTitle.Text = "Báo cáo doanh thu".ToUpper();
+            lblTitle.Text = "Báo cáo doanh thu".ToUpper();     
+        }
+
+        protected override void Load_Data()
+        {
+            if (strFunctionCode != "")
+                lblTitle.Text = strFunctionCode.Trim();
         }
     }
 }
