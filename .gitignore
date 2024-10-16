@@ -545,3 +545,16 @@ FodyWeavers.xsd
 # Additional files built by Visual Studio
 
 # End of https://www.toptal.com/developers/gitignore/api/aspnetcore,visualstudio,visualstudiocode
+<<<<<<< HEAD
+=======
+/DAL/CM_Cinema_DB.cs
+/DAL/CM_Cinema_DB.dbml
+/DAL/CM_Cinema_DB.dbml.layout
+/DAL/CM_Cinema_DB.designer.cs
+/DAL/CM_Cinema_DB.cs
+/DAL/CM_Cinema_DB.dbml
+/DAL/CM_Cinema_DB.dbml.layout
+/DAL/CM_Cinema_DB.designer.cs
+/DAL/app.config
+/.vs/GUI/v17/DocumentLayout.json
+>>>>>>> Update gitignore
