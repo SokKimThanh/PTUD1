@@ -43,9 +43,6 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.dgv = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.timeEdit2 = new DevExpress.XtraEditors.TimeEdit();
-            this.timeEdit1 = new DevExpress.XtraEditors.TimeEdit();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutTitle = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutAction = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -54,14 +51,16 @@
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutDGV = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.timeEdit1 = new DevExpress.XtraEditors.DateEdit();
+            this.timeEdit2 = new DevExpress.XtraEditors.DateEdit();
+            this.textEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.textEdit11 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutForm)).BeginInit();
             this.layoutForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutAction)).BeginInit();
@@ -70,6 +69,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeEdit1.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeEdit2.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit11.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -146,15 +152,15 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(631, 24);
+            this.barDockControlTop.Size = new System.Drawing.Size(777, 24);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 502);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 384);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(631, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(777, 0);
             // 
             // barDockControlLeft
             // 
@@ -162,29 +168,30 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 478);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 360);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(631, 24);
+            this.barDockControlRight.Location = new System.Drawing.Point(777, 24);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 478);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 360);
             // 
             // layoutForm
             // 
             this.layoutForm.Controls.Add(this.lblTitle);
             this.layoutForm.Controls.Add(this.dgv);
-            this.layoutForm.Controls.Add(this.timeEdit2);
             this.layoutForm.Controls.Add(this.timeEdit1);
+            this.layoutForm.Controls.Add(this.timeEdit2);
             this.layoutForm.Controls.Add(this.textEdit1);
+            this.layoutForm.Controls.Add(this.textEdit11);
             this.layoutForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutForm.Location = new System.Drawing.Point(0, 24);
             this.layoutForm.Name = "layoutForm";
-            this.layoutForm.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1064, 288, 650, 400);
+            this.layoutForm.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(716, 288, 650, 400);
             this.layoutForm.Root = this.Root;
-            this.layoutForm.Size = new System.Drawing.Size(631, 478);
+            this.layoutForm.Size = new System.Drawing.Size(777, 360);
             this.layoutForm.TabIndex = 9;
             this.layoutForm.Text = "layoutControl1";
             // 
@@ -203,7 +210,7 @@
             this.dgv.Location = new System.Drawing.Point(24, 162);
             this.dgv.MainView = this.gridView1;
             this.dgv.Name = "dgv";
-            this.dgv.Size = new System.Drawing.Size(688, 275);
+            this.dgv.Size = new System.Drawing.Size(729, 174);
             this.dgv.TabIndex = 8;
             this.dgv.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -212,36 +219,6 @@
             // 
             this.gridView1.GridControl = this.dgv;
             this.gridView1.Name = "gridView1";
-            // 
-            // timeEdit2
-            // 
-            this.timeEdit2.EditValue = new System.DateTime(2024, 10, 15, 0, 0, 0, 0);
-            this.timeEdit2.Location = new System.Drawing.Point(459, 93);
-            this.timeEdit2.Name = "timeEdit2";
-            this.timeEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.timeEdit2.Size = new System.Drawing.Size(253, 20);
-            this.timeEdit2.StyleController = this.layoutForm;
-            this.timeEdit2.TabIndex = 7;
-            // 
-            // timeEdit1
-            // 
-            this.timeEdit1.EditValue = new System.DateTime(2024, 10, 15, 0, 0, 0, 0);
-            this.timeEdit1.Location = new System.Drawing.Point(113, 93);
-            this.timeEdit1.Name = "timeEdit1";
-            this.timeEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.timeEdit1.Size = new System.Drawing.Size(253, 20);
-            this.timeEdit1.StyleController = this.layoutForm;
-            this.timeEdit1.TabIndex = 6;
-            // 
-            // textEdit1
-            // 
-            this.textEdit1.Location = new System.Drawing.Point(113, 69);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(599, 20);
-            this.textEdit1.StyleController = this.layoutForm;
-            this.textEdit1.TabIndex = 5;
             // 
             // Root
             // 
@@ -252,7 +229,7 @@
             this.layoutAction,
             this.layoutDGV});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(736, 461);
+            this.Root.Size = new System.Drawing.Size(777, 360);
             this.Root.TextVisible = false;
             // 
             // layoutTitle
@@ -262,7 +239,7 @@
             this.layoutTitle.MaxSize = new System.Drawing.Size(716, 24);
             this.layoutTitle.MinSize = new System.Drawing.Size(716, 24);
             this.layoutTitle.Name = "layoutTitle";
-            this.layoutTitle.Size = new System.Drawing.Size(716, 24);
+            this.layoutTitle.Size = new System.Drawing.Size(757, 24);
             this.layoutTitle.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutTitle.Text = "Title";
             this.layoutTitle.TextSize = new System.Drawing.Size(0, 0);
@@ -274,41 +251,42 @@
             this.layoutAction.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem2,
             this.layoutControlItem3,
-            this.layoutControlItem4});
+            this.layoutControlItem4,
+            this.layoutControlItem5});
             this.layoutAction.Location = new System.Drawing.Point(0, 24);
             this.layoutAction.Name = "layoutAction";
-            this.layoutAction.Size = new System.Drawing.Size(716, 93);
+            this.layoutAction.Size = new System.Drawing.Size(757, 93);
             this.layoutAction.Text = "Thao tác nhập liệu";
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.textEdit1;
-            this.layoutControlItem2.CustomizationFormText = "txtTenCaLamViec";
+            this.layoutControlItem2.CustomizationFormText = "Phim:";
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(692, 24);
-            this.layoutControlItem2.Text = "Tên ca làm việc:";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(77, 13);
+            this.layoutControlItem2.Size = new System.Drawing.Size(366, 24);
+            this.layoutControlItem2.Text = "Phim:";
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(62, 13);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.timeEdit1;
-            this.layoutControlItem3.CustomizationFormText = "TimeBatDau";
+            this.layoutControlItem3.CustomizationFormText = "Bắt đầu:";
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(346, 24);
-            this.layoutControlItem3.Text = "Từ:";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(77, 13);
+            this.layoutControlItem3.Size = new System.Drawing.Size(366, 24);
+            this.layoutControlItem3.Text = "Bắt đầu:";
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(62, 13);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.timeEdit2;
-            this.layoutControlItem4.CustomizationFormText = "TimeKetThuc";
-            this.layoutControlItem4.Location = new System.Drawing.Point(346, 24);
+            this.layoutControlItem4.CustomizationFormText = "Kết thúc:";
+            this.layoutControlItem4.Location = new System.Drawing.Point(366, 24);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(346, 24);
-            this.layoutControlItem4.Text = "Đến:";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(77, 13);
+            this.layoutControlItem4.Size = new System.Drawing.Size(367, 24);
+            this.layoutControlItem4.Text = "Kết thúc:";
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(62, 13);
             // 
             // layoutDGV
             // 
@@ -318,7 +296,7 @@
             this.layoutControlItem1});
             this.layoutDGV.Location = new System.Drawing.Point(0, 117);
             this.layoutDGV.Name = "layoutDGV";
-            this.layoutDGV.Size = new System.Drawing.Size(716, 324);
+            this.layoutDGV.Size = new System.Drawing.Size(757, 223);
             this.layoutDGV.Text = "Danh sách dữ liệu";
             // 
             // layoutControlItem1
@@ -327,9 +305,82 @@
             this.layoutControlItem1.CustomizationFormText = "dgvCaLamViec";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(692, 279);
+            this.layoutControlItem1.Size = new System.Drawing.Size(733, 178);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
+            // 
+            // timeEdit1
+            // 
+            this.timeEdit1.EditValue = new System.DateTime(2024, 10, 15, 0, 0, 0, 0);
+            this.timeEdit1.Location = new System.Drawing.Point(98, 93);
+            this.timeEdit1.Name = "timeEdit1";
+            this.timeEdit1.Properties.BeepOnError = true;
+            this.timeEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.timeEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.timeEdit1.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Fluent;
+            this.timeEdit1.Properties.DisplayFormat.FormatString = "";
+            this.timeEdit1.Properties.EditFormat.FormatString = "";
+            this.timeEdit1.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered;
+            this.timeEdit1.Properties.MaskSettings.Set("mask", "d");
+            this.timeEdit1.Properties.UseMaskAsDisplayFormat = true;
+            this.timeEdit1.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
+            this.timeEdit1.Size = new System.Drawing.Size(288, 20);
+            this.timeEdit1.StyleController = this.layoutForm;
+            this.timeEdit1.TabIndex = 6;
+            // 
+            // timeEdit2
+            // 
+            this.timeEdit2.EditValue = new System.DateTime(2024, 10, 15, 0, 0, 0, 0);
+            this.timeEdit2.Location = new System.Drawing.Point(464, 93);
+            this.timeEdit2.Name = "timeEdit2";
+            this.timeEdit2.Properties.BeepOnError = true;
+            this.timeEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.timeEdit2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.timeEdit2.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Fluent;
+            this.timeEdit2.Properties.DisplayFormat.FormatString = "";
+            this.timeEdit2.Properties.EditFormat.FormatString = "";
+            this.timeEdit2.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered;
+            this.timeEdit2.Properties.MaskSettings.Set("mask", "d");
+            this.timeEdit2.Properties.UseMaskAsDisplayFormat = true;
+            this.timeEdit2.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
+            this.timeEdit2.Size = new System.Drawing.Size(289, 20);
+            this.timeEdit2.StyleController = this.layoutForm;
+            this.timeEdit2.TabIndex = 7;
+            // 
+            // textEdit1
+            // 
+            this.textEdit1.Location = new System.Drawing.Point(98, 69);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.textEdit1.Size = new System.Drawing.Size(288, 20);
+            this.textEdit1.StyleController = this.layoutForm;
+            this.textEdit1.TabIndex = 5;
+            // 
+            // textEdit11
+            // 
+            this.textEdit11.Location = new System.Drawing.Point(464, 69);
+            this.textEdit11.Name = "textEdit11";
+            this.textEdit11.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.textEdit11.Size = new System.Drawing.Size(289, 20);
+            this.textEdit11.StyleController = this.layoutForm;
+            this.textEdit11.TabIndex = 5;
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.textEdit11;
+            this.layoutControlItem5.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.layoutControlItem5.CustomizationFormText = "Phòng chiếu:";
+            this.layoutControlItem5.Location = new System.Drawing.Point(366, 0);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(367, 24);
+            this.layoutControlItem5.Text = "Phòng chiếu:";
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(62, 13);
             // 
             // ucSuatChieu
             // 
@@ -341,15 +392,12 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "ucSuatChieu";
-            this.Size = new System.Drawing.Size(631, 502);
+            this.Size = new System.Drawing.Size(777, 384);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutForm)).EndInit();
             this.layoutForm.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutAction)).EndInit();
@@ -358,6 +406,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeEdit1.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeEdit2.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit11.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -379,9 +434,6 @@
         private System.Windows.Forms.Label lblTitle;
         private DevExpress.XtraGrid.GridControl dgv;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraEditors.TimeEdit timeEdit2;
-        private DevExpress.XtraEditors.TimeEdit timeEdit1;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraLayout.LayoutControlItem layoutTitle;
         private DevExpress.XtraLayout.LayoutControlGroup layoutAction;
@@ -390,5 +442,10 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.LayoutControlGroup layoutDGV;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraEditors.DateEdit timeEdit1;
+        private DevExpress.XtraEditors.DateEdit timeEdit2;
+        private DevExpress.XtraEditors.ComboBoxEdit textEdit1;
+        private DevExpress.XtraEditors.ComboBoxEdit textEdit11;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
     }
 }
