@@ -18,5 +18,10 @@ namespace GUI.UI.Modules
             InitializeComponent();
             lblTitle.Text = "Quản lý sản phẩm".ToUpper();
         }
+
+        private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
     }
 }
