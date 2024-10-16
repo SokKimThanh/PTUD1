@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.mainContainer = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
             this.arrFunction = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.aceDanhMuc = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -52,6 +53,7 @@
             this.accThoat = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.fluentFormDefaultManager1 = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
+            this.accNgonNgu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.arrFunction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).BeginInit();
@@ -221,7 +223,8 @@
             // 
             this.aceHeThong.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accDangXuat,
-            this.accThoat});
+            this.accThoat,
+            this.accNgonNgu});
             this.aceHeThong.Expanded = true;
             this.aceHeThong.ImageOptions.Image = global::GUI.Properties.Resources.database_32x32;
             this.aceHeThong.Name = "aceHeThong";
@@ -256,6 +259,13 @@
             // fluentFormDefaultManager1
             // 
             this.fluentFormDefaultManager1.Form = this;
+            // 
+            // accNgonNgu
+            // 
+            this.accNgonNgu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accNgonNgu.ImageOptions.Image")));
+            this.accNgonNgu.Name = "accNgonNgu";
+            this.accNgonNgu.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accNgonNgu.Text = "Ngôn ngữ";
             // 
             // frmMain
             // 
@@ -305,5 +315,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accBaoCaoTonKho;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accQLDanhGiaDoTuoi;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accDatVe;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accNgonNgu;
     }
 }
