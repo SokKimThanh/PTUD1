@@ -121,6 +121,9 @@
   <data name="deletelist_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\deletelist_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="media_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\media_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -268,6 +271,9 @@
   <data name="boreport_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\boreport_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="sectionbreakslist_oddpage_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sectionbreakslist_oddpage_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="additem_16x163" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\additem_16x163.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -298,6 +304,9 @@
   <data name="iconsettrafficlights3_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconsettrafficlights3_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="status_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\status_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="checkbox_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\checkbox_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -315,6 +324,9 @@
   </data>
   <data name="reviewallowuserstoeditranges_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\reviewallowuserstoeditranges_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="highlightactiveelements_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\highlightactiveelements_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="reset_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\reset_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -364,7 +376,7 @@
   <data name="close_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\close_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="status_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\status_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="rowindex_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rowindex_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

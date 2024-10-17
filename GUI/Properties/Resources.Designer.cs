@@ -603,6 +603,16 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap highlightactiveelements_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("highlightactiveelements_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap iconsetquarters5_16x16 {
             get {
                 object obj = ResourceManager.GetObject("iconsetquarters5_16x16", resourceCulture);
@@ -706,6 +716,16 @@ namespace GUI.Properties {
         internal static System.Drawing.Bitmap Logo {
             get {
                 object obj = ResourceManager.GetObject("Logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap media_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("media_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -836,6 +856,26 @@ namespace GUI.Properties {
         internal static System.Drawing.Bitmap reviewallowuserstoeditranges_16x16 {
             get {
                 object obj = ResourceManager.GetObject("reviewallowuserstoeditranges_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rowindex_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("rowindex_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sectionbreakslist_oddpage_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("sectionbreakslist_oddpage_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

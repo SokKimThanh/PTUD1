@@ -517,6 +517,18 @@
   <ItemGroup>
     <None Include="Resources\status_16x16.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\highlightactiveelements_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sectionbreakslist_oddpage_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rowindex_16x16.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
