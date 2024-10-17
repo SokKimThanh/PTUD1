@@ -733,6 +733,16 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap media_16x161 {
+            get {
+                object obj = ResourceManager.GetObject("media_16x161", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap newtablestyle_16x16 {
             get {
                 object obj = ResourceManager.GetObject("newtablestyle_16x16", resourceCulture);
@@ -913,6 +923,26 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap time_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("time_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap time2_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("time2_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap updatetableofcontents_16x16 {
             get {
                 object obj = ResourceManager.GetObject("updatetableofcontents_16x16", resourceCulture);
@@ -926,6 +956,16 @@ namespace GUI.Properties {
         internal static System.Drawing.Bitmap updatetableofcontents_32x32 {
             get {
                 object obj = ResourceManager.GetObject("updatetableofcontents_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap video_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("video_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
