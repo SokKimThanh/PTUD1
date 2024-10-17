@@ -433,6 +433,16 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap changetextcase_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("changetextcase_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap checkbox_16x16 {
             get {
                 object obj = ResourceManager.GetObject("checkbox_16x16", resourceCulture);
@@ -846,6 +856,16 @@ namespace GUI.Properties {
         internal static System.Drawing.Bitmap showworktimeonly_16x16 {
             get {
                 object obj = ResourceManager.GetObject("showworktimeonly_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap status_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("status_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

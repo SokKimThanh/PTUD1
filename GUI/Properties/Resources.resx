@@ -244,6 +244,9 @@
   <data name="boproduct_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\boproduct_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="changetextcase_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\changetextcase_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="showworktimeonly_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\showworktimeonly_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -331,6 +334,9 @@
   <data name="checkbox_16x162" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\checkbox_16x162.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="employee_16x161" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\employee_16x161.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="iconsetredtoblack4_16x161" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconsetredtoblack4_16x161.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -358,7 +364,7 @@
   <data name="close_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\close_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="employee_16x161" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\employee_16x161.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="status_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\status_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
