@@ -41,16 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="tbl_Report_Revenue_DTO.cs" />
-    <Compile Include="tbl_Report_IncomeExpense_DTO.cs" />
-    <Compile Include="tbl_Report_Inventory_DTO.cs" />
+    <Compile Include="tbl_DTO\tbl_Report_Revenue_DTO.cs" />
+    <Compile Include="tbl_DTO\tbl_Report_IncomeExpense_DTO.cs" />
+    <Compile Include="tbl_DTO\tbl_Report_Inventory_DTO.cs" />
     <Compile Include="Common\CCommon.cs" />
     <Compile Include="Custom\CConfig.cs" />
     <Compile Include="Custom\EEnum.cs" />
-    <Compile Include="tbl_DM_AgeRating_DTO.cs" />
-    <Compile Include="tbl_DM_Movie_DTO.cs" />
+    <Compile Include="tbl_DTO\tbl_DM_AgeRating_DTO.cs" />
+    <Compile Include="tbl_DTO\tbl_DM_Movie_DTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="tbl_DM_Product_DTO.cs" />
+    <Compile Include="tbl_DTO\tbl_DM_Product_DTO.cs" />
     <Compile Include="Utility\CUtility.cs" />
   </ItemGroup>
   <ItemGroup />
