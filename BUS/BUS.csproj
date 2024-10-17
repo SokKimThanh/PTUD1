@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BasicMethods.cs" />
+    <Compile Include="BUS_Seats.cs" />
     <Compile Include="Danh_Muc\StaffController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

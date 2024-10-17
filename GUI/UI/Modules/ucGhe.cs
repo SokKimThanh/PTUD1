@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using BUS;
+using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,10 +14,18 @@ namespace GUI.UI.Modules
 {
     public partial class ucGhe : ucBase
     {
+        private BUS_Seats bus = new BUS_Seats();
         public ucGhe()
         {
             InitializeComponent();
-            lblTitle.Text = "Quản lý ghế ngồi".ToUpper();
+            for(int i = 1; i <= 20; i++)
+            {
+                cboRows.Items.Add(i.ToString());
+                cboCols.Items.Add(i.ToString());
+                if(i<=10)
+                    cboCouples.Items.Add(i.ToString());
+            }
+            //cboTheater.DataSource = 
         }
         protected override void Load_Data()
         {
@@ -24,5 +33,13 @@ namespace GUI.UI.Modules
                 lblTitle.Text = strFunctionCode.Trim();
         }
 
+        private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            int rows = cboRows.SelectedIndex;
+            int cols = cboCols.SelectedIndex;
+            int couples = cboCouples.SelectedIndex;
+            int theater_AutoID = 1;
+            bus.AddData(rows,cols,couples,theater_AutoID);
+        }
     }
 }
