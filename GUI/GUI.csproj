@@ -182,12 +182,6 @@
     <Compile Include="UI\Modules\ucDanhGiaDoTuoi.Designer.cs">
       <DependentUpon>ucDanhGiaDoTuoi.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucVe.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UI\Modules\ucVe.Designer.cs">
-      <DependentUpon>ucVe.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="frmLoading.resx">
       <DependentUpon>frmLoading.cs</DependentUpon>
     </EmbeddedResource>
@@ -252,9 +246,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Modules\ucSuatChieu.resx">
       <DependentUpon>ucSuatChieu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Modules\ucVe.resx">
-      <DependentUpon>ucVe.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Properties\Settings.settings">
