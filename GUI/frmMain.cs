@@ -1,4 +1,5 @@
 ﻿using BUS.Danh_Muc;
+using BUS.Sys;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Navigation;
 using DTO.Common;
@@ -72,12 +73,17 @@ namespace GUI
             //Duyệt qua cây chức năng sau khi đã load
             foreach (AccordionControlElement objFunctionC1 in arrFunction.Elements)
             {
+                objFunctionC1.Text = LanguageController.GetLanguageDataLabel(objFunctionC1.Text);
+                objFunctionC1.Hint = LanguageController.GetLanguageDataLabel(objFunctionC1.Hint);
                 //Kiểm tra xem có tồn tại chức năng con không
                 if (objFunctionC1.Elements.Count == 0)
                     continue;
 
                 foreach (AccordionControlElement objFunctionC2 in objFunctionC1.Elements)
                 {
+                    objFunctionC2.Text = LanguageController.GetLanguageDataLabel(objFunctionC2.Text);
+                    objFunctionC2.Hint = LanguageController.GetLanguageDataLabel(objFunctionC2.Hint);
+
                     //Gán sự kiện click cho từng chức năng con
                     objFunctionC2.Click += LoadFunction_Click;
                 }
@@ -194,7 +200,7 @@ namespace GUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(LanguageController.GetLanguageDataLabel(ex.Message), LanguageController.GetLanguageDataLabel("Lỗi"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -250,7 +256,7 @@ namespace GUI
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(LanguageController.GetLanguageDataLabel(ex.Message), LanguageController.GetLanguageDataLabel("Lỗi"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -268,8 +274,7 @@ namespace GUI
         {
             try
             {
-                if (DialogResult.Yes == MessageBox.Show("Bạn có muốn đăng xuất?", "Thông báo",
-               MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                if (DialogResult.Yes == MessageBox.Show(LanguageController.GetLanguageDataLabel("Bạn có muốn đăng xuất?"), LanguageController.GetLanguageDataLabel("Thông báo"), MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                 {
                     //Kiểm tra dưới file
                     if (CCommon.MaDangNhap != "")
@@ -316,7 +321,7 @@ namespace GUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(LanguageController.GetLanguageDataLabel(ex.Message), LanguageController.GetLanguageDataLabel("Lỗi"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -325,8 +330,7 @@ namespace GUI
         {
             try
             {
-                if (DialogResult.Yes == MessageBox.Show("Bạn có muốn thoát chương trình?", "Thông báo",
-               MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                if (DialogResult.Yes == MessageBox.Show(LanguageController.GetLanguageDataLabel("Bạn có muốn thoát chương trình?"), LanguageController.GetLanguageDataLabel("Thông báo"), MessageBoxButtons.OK, MessageBoxIcon.Question))
                 {
                     // Thoát chương trình
                     Application.Exit();
@@ -334,7 +338,7 @@ namespace GUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(LanguageController.GetLanguageDataLabel(ex.Message), LanguageController.GetLanguageDataLabel("Lỗi"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
