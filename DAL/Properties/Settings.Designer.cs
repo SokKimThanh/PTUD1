@@ -36,19 +36,8 @@ namespace DAL.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=QLBHX;Integrated Security=True;Encrypt=True;TrustSe" +
-            "rverCertificate=True")]
-        public string QLBHXConnectionString {
-            get {
-                return ((string)(this["QLBHXConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-SV40LIF;Initial Catalog=CM_Cinema_DB;Integrated Security=True" +
-            ";TrustServerCertificate=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=HoshikiShiro\\SQLEXPRESS;Initial Catalog=CM_Cinema_DB;Integrated Secur" +
+            "ity=True;TrustServerCertificate=True")]
         public string CM_Cinema_DBConnectionString1 {
             get {
                 return ((string)(this["CM_Cinema_DBConnectionString1"]));
