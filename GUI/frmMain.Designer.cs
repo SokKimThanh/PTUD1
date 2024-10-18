@@ -51,9 +51,9 @@
             this.aceHeThong = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accDangXuat = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accThoat = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accNgonNgu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.fluentFormDefaultManager1 = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
-            this.accNgonNgu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.arrFunction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).BeginInit();
@@ -62,9 +62,10 @@
             // mainContainer
             // 
             this.mainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainContainer.Location = new System.Drawing.Point(260, 31);
+            this.mainContainer.Location = new System.Drawing.Point(303, 39);
+            this.mainContainer.Margin = new System.Windows.Forms.Padding(4);
             this.mainContainer.Name = "mainContainer";
-            this.mainContainer.Size = new System.Drawing.Size(700, 683);
+            this.mainContainer.Size = new System.Drawing.Size(817, 840);
             this.mainContainer.TabIndex = 0;
             // 
             // arrFunction
@@ -74,10 +75,11 @@
             this.aceDanhMuc,
             this.aceBaoCao,
             this.aceHeThong});
-            this.arrFunction.Location = new System.Drawing.Point(0, 31);
+            this.arrFunction.Location = new System.Drawing.Point(0, 39);
+            this.arrFunction.Margin = new System.Windows.Forms.Padding(4);
             this.arrFunction.Name = "arrFunction";
             this.arrFunction.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
-            this.arrFunction.Size = new System.Drawing.Size(260, 683);
+            this.arrFunction.Size = new System.Drawing.Size(303, 840);
             this.arrFunction.TabIndex = 1;
             this.arrFunction.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -246,20 +248,6 @@
             this.accThoat.Text = "Thoát";
             this.accThoat.Click += new System.EventHandler(this.accThoat_Click);
             // 
-            // fluentDesignFormControl1
-            // 
-            this.fluentDesignFormControl1.FluentDesignForm = this;
-            this.fluentDesignFormControl1.Location = new System.Drawing.Point(0, 0);
-            this.fluentDesignFormControl1.Manager = this.fluentFormDefaultManager1;
-            this.fluentDesignFormControl1.Name = "fluentDesignFormControl1";
-            this.fluentDesignFormControl1.Size = new System.Drawing.Size(960, 31);
-            this.fluentDesignFormControl1.TabIndex = 2;
-            this.fluentDesignFormControl1.TabStop = false;
-            // 
-            // fluentFormDefaultManager1
-            // 
-            this.fluentFormDefaultManager1.Form = this;
-            // 
             // accNgonNgu
             // 
             this.accNgonNgu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accNgonNgu.ImageOptions.Image")));
@@ -267,17 +255,33 @@
             this.accNgonNgu.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accNgonNgu.Text = "Ngôn ngữ";
             // 
+            // fluentDesignFormControl1
+            // 
+            this.fluentDesignFormControl1.FluentDesignForm = this;
+            this.fluentDesignFormControl1.Location = new System.Drawing.Point(0, 0);
+            this.fluentDesignFormControl1.Manager = this.fluentFormDefaultManager1;
+            this.fluentDesignFormControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.fluentDesignFormControl1.Name = "fluentDesignFormControl1";
+            this.fluentDesignFormControl1.Size = new System.Drawing.Size(1120, 39);
+            this.fluentDesignFormControl1.TabIndex = 2;
+            this.fluentDesignFormControl1.TabStop = false;
+            // 
+            // fluentFormDefaultManager1
+            // 
+            this.fluentFormDefaultManager1.Form = this;
+            // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(960, 714);
+            this.ClientSize = new System.Drawing.Size(1120, 879);
             this.ControlContainer = this.mainContainer;
             this.Controls.Add(this.mainContainer);
             this.Controls.Add(this.arrFunction);
             this.Controls.Add(this.fluentDesignFormControl1);
             this.FluentDesignFormControl = this.fluentDesignFormControl1;
             this.IconOptions.Image = global::GUI.Properties.Resources.Logo;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMain";
             this.NavigationControl = this.arrFunction;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

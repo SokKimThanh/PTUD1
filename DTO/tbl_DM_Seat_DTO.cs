@@ -12,7 +12,8 @@ namespace DTO
         private long? autoID;
         private string file;
         private int rank;
-        private int theater_AutoID;
+        private long theater_AutoID;
+        private int deleted;
         #endregion
 
         /// <summary>
@@ -22,12 +23,13 @@ namespace DTO
         /// <param name="file"></param>
         /// <param name="rank"></param>
         /// <param name="theater_AutoID"></param>
-        public tbl_DM_Seat_DTO(long? autoID, string file, int rank, int theater_AutoID)
+        public tbl_DM_Seat_DTO(long? autoID, string file, int rank, long theater_AutoID, int deleted)
         {
             this.autoID = autoID;
             this.File = file;
             this.Rank = rank;
             this.Theater_AutoID = theater_AutoID;
+            this.Deleted = deleted;
         }
 
         #region Properties
@@ -43,7 +45,8 @@ namespace DTO
             } 
         }
         public int Rank { get => rank; set => rank = value; }
-        public int Theater_AutoID { get => theater_AutoID; set => theater_AutoID = value; }
+        public long Theater_AutoID { get => theater_AutoID; set => theater_AutoID = value; }
+        public int Deleted { get => deleted; set => deleted = value; }
         #endregion
     }
 }
