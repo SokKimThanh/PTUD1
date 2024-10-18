@@ -78,7 +78,7 @@ namespace DAL
     #endregion
 		
 		public CM_Cinema_DBDataContext() : 
-				base(global::DAL.Properties.Settings.Default.CM_Cinema_DBConnectionString, mappingSource)
+				base(global::DAL.Properties.Settings.Default.CM_Cinema_DBConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -288,7 +288,7 @@ namespace DAL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AR_AutoID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AR_AutoID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public long AR_AutoID
 		{
 			get
@@ -603,7 +603,7 @@ namespace DAL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lang_AutoID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lang_AutoID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public long Lang_AutoID
 		{
 			get
@@ -955,7 +955,7 @@ namespace DAL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BL_AutoID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BL_AutoID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public long BL_AutoID
 		{
 			get
@@ -1355,7 +1355,7 @@ namespace DAL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ET_AutoID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ET_AutoID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public long ET_AutoID
 		{
 			get
@@ -1718,7 +1718,7 @@ namespace DAL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MV_AutoID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MV_AutoID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public long MV_AutoID
 		{
 			get
@@ -2112,8 +2112,6 @@ namespace DAL
 		
 		private EntitySet<tbl_DM_SeatSchedule> _tbl_DM_SeatSchedules;
 		
-		private EntitySet<tbl_DM_Ticket> _tbl_DM_Tickets;
-		
 		private EntityRef<tbl_DM_Movie> _tbl_DM_Movie;
 		
 		private EntityRef<tbl_DM_Theater> _tbl_DM_Theater;
@@ -2149,13 +2147,12 @@ namespace DAL
 		public tbl_DM_MovieSchedule()
 		{
 			this._tbl_DM_SeatSchedules = new EntitySet<tbl_DM_SeatSchedule>(new Action<tbl_DM_SeatSchedule>(this.attach_tbl_DM_SeatSchedules), new Action<tbl_DM_SeatSchedule>(this.detach_tbl_DM_SeatSchedules));
-			this._tbl_DM_Tickets = new EntitySet<tbl_DM_Ticket>(new Action<tbl_DM_Ticket>(this.attach_tbl_DM_Tickets), new Action<tbl_DM_Ticket>(this.detach_tbl_DM_Tickets));
 			this._tbl_DM_Movie = default(EntityRef<tbl_DM_Movie>);
 			this._tbl_DM_Theater = default(EntityRef<tbl_DM_Theater>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MS_AutoID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MS_AutoID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public long MS_AutoID
 		{
 			get
@@ -2396,19 +2393,6 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_DM_MovieSchedule_tbl_DM_Ticket", Storage="_tbl_DM_Tickets", ThisKey="MS_AutoID", OtherKey="TK_MOVIESCHEDULE_AutoID")]
-		public EntitySet<tbl_DM_Ticket> tbl_DM_Tickets
-		{
-			get
-			{
-				return this._tbl_DM_Tickets;
-			}
-			set
-			{
-				this._tbl_DM_Tickets.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_DM_Movie_tbl_DM_MovieSchedule", Storage="_tbl_DM_Movie", ThisKey="MS_MOVIE_AutoID", OtherKey="MV_AutoID", IsForeignKey=true)]
 		public tbl_DM_Movie tbl_DM_Movie
 		{
@@ -2508,18 +2492,6 @@ namespace DAL
 			this.SendPropertyChanging();
 			entity.tbl_DM_MovieSchedule = null;
 		}
-		
-		private void attach_tbl_DM_Tickets(tbl_DM_Ticket entity)
-		{
-			this.SendPropertyChanging();
-			entity.tbl_DM_MovieSchedule = this;
-		}
-		
-		private void detach_tbl_DM_Tickets(tbl_DM_Ticket entity)
-		{
-			this.SendPropertyChanging();
-			entity.tbl_DM_MovieSchedule = null;
-		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_DM_Product")]
@@ -2593,7 +2565,7 @@ namespace DAL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PD_AutoID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PD_AutoID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public long PD_AutoID
 		{
 			get
@@ -2912,11 +2884,9 @@ namespace DAL
 		
 		private long _SE_AutoID;
 		
-		private char _SE_FILE;
+		private string _SE_FILE;
 		
 		private int _SE_RANK;
-		
-		private string _SE_TYPE;
 		
 		private long _SE_THEATER_AutoID;
 		
@@ -2936,18 +2906,18 @@ namespace DAL
 		
 		private EntitySet<tbl_DM_SeatSchedule> _tbl_DM_SeatSchedules;
 		
+		private EntityRef<tbl_DM_Theater> _tbl_DM_Theater;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
     partial void OnSE_AutoIDChanging(long value);
     partial void OnSE_AutoIDChanged();
-    partial void OnSE_FILEChanging(char value);
+    partial void OnSE_FILEChanging(string value);
     partial void OnSE_FILEChanged();
     partial void OnSE_RANKChanging(int value);
     partial void OnSE_RANKChanged();
-    partial void OnSE_TYPEChanging(string value);
-    partial void OnSE_TYPEChanged();
     partial void OnSE_THEATER_AutoIDChanging(long value);
     partial void OnSE_THEATER_AutoIDChanged();
     partial void OnDELETEDChanging(System.Nullable<int> value);
@@ -2969,10 +2939,11 @@ namespace DAL
 		public tbl_DM_Seat()
 		{
 			this._tbl_DM_SeatSchedules = new EntitySet<tbl_DM_SeatSchedule>(new Action<tbl_DM_SeatSchedule>(this.attach_tbl_DM_SeatSchedules), new Action<tbl_DM_SeatSchedule>(this.detach_tbl_DM_SeatSchedules));
+			this._tbl_DM_Theater = default(EntityRef<tbl_DM_Theater>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SE_AutoID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SE_AutoID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public long SE_AutoID
 		{
 			get
@@ -2992,8 +2963,8 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SE_FILE", DbType="Char(1) NOT NULL")]
-		public char SE_FILE
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SE_FILE", DbType="NChar(2) NOT NULL", CanBeNull=false)]
+		public string SE_FILE
 		{
 			get
 			{
@@ -3032,26 +3003,6 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SE_TYPE", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string SE_TYPE
-		{
-			get
-			{
-				return this._SE_TYPE;
-			}
-			set
-			{
-				if ((this._SE_TYPE != value))
-				{
-					this.OnSE_TYPEChanging(value);
-					this.SendPropertyChanging();
-					this._SE_TYPE = value;
-					this.SendPropertyChanged("SE_TYPE");
-					this.OnSE_TYPEChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SE_THEATER_AutoID", DbType="BigInt NOT NULL")]
 		public long SE_THEATER_AutoID
 		{
@@ -3063,6 +3014,10 @@ namespace DAL
 			{
 				if ((this._SE_THEATER_AutoID != value))
 				{
+					if (this._tbl_DM_Theater.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnSE_THEATER_AutoIDChanging(value);
 					this.SendPropertyChanging();
 					this._SE_THEATER_AutoID = value;
@@ -3225,6 +3180,40 @@ namespace DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_DM_Theater_tbl_DM_Seat", Storage="_tbl_DM_Theater", ThisKey="SE_THEATER_AutoID", OtherKey="TT_AutoID", IsForeignKey=true)]
+		public tbl_DM_Theater tbl_DM_Theater
+		{
+			get
+			{
+				return this._tbl_DM_Theater.Entity;
+			}
+			set
+			{
+				tbl_DM_Theater previousValue = this._tbl_DM_Theater.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_DM_Theater.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_DM_Theater.Entity = null;
+						previousValue.tbl_DM_Seats.Remove(this);
+					}
+					this._tbl_DM_Theater.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_DM_Seats.Add(this);
+						this._SE_THEATER_AutoID = value.TT_AutoID;
+					}
+					else
+					{
+						this._SE_THEATER_AutoID = default(long);
+					}
+					this.SendPropertyChanged("tbl_DM_Theater");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -3284,6 +3273,8 @@ namespace DAL
 		
 		private string _UPDATED_BY_FUNCTION;
 		
+		private EntitySet<tbl_DM_Ticket> _tbl_DM_Tickets;
+		
 		private EntityRef<tbl_DM_MovieSchedule> _tbl_DM_MovieSchedule;
 		
 		private EntityRef<tbl_DM_Seat> _tbl_DM_Seat;
@@ -3316,12 +3307,13 @@ namespace DAL
 		
 		public tbl_DM_SeatSchedule()
 		{
+			this._tbl_DM_Tickets = new EntitySet<tbl_DM_Ticket>(new Action<tbl_DM_Ticket>(this.attach_tbl_DM_Tickets), new Action<tbl_DM_Ticket>(this.detach_tbl_DM_Tickets));
 			this._tbl_DM_MovieSchedule = default(EntityRef<tbl_DM_MovieSchedule>);
 			this._tbl_DM_Seat = default(EntityRef<tbl_DM_Seat>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SES_AutoID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SES_AutoID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public long SES_AutoID
 		{
 			get
@@ -3529,6 +3521,19 @@ namespace DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_DM_SeatSchedule_tbl_DM_Ticket", Storage="_tbl_DM_Tickets", ThisKey="SES_AutoID", OtherKey="TK_SEATSCHEDULE_AutoID")]
+		public EntitySet<tbl_DM_Ticket> tbl_DM_Tickets
+		{
+			get
+			{
+				return this._tbl_DM_Tickets;
+			}
+			set
+			{
+				this._tbl_DM_Tickets.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_DM_MovieSchedule_tbl_DM_SeatSchedule", Storage="_tbl_DM_MovieSchedule", ThisKey="SES_MOVIESCHEDULE_AutoID", OtherKey="MS_AutoID", IsForeignKey=true)]
 		public tbl_DM_MovieSchedule tbl_DM_MovieSchedule
 		{
@@ -3616,6 +3621,18 @@ namespace DAL
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_tbl_DM_Tickets(tbl_DM_Ticket entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_DM_SeatSchedule = this;
+		}
+		
+		private void detach_tbl_DM_Tickets(tbl_DM_Ticket entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_DM_SeatSchedule = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_DM_Shift")]
@@ -3682,7 +3699,7 @@ namespace DAL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SF_AutoID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SF_AutoID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public long SF_AutoID
 		{
 			get
@@ -4034,7 +4051,7 @@ namespace DAL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ST_AutoID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ST_AutoID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public long ST_AutoID
 		{
 			get
@@ -4493,7 +4510,7 @@ namespace DAL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SS_AutoID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SS_AutoID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public long SS_AutoID
 		{
 			get
@@ -4798,9 +4815,7 @@ namespace DAL
 		
 		private long _TK_AutoID;
 		
-		private string _TK_NAME;
-		
-		private System.Nullable<long> _TK_MOVIESCHEDULE_AutoID;
+		private long _TK_SEATSCHEDULE_AutoID;
 		
 		private long _TK_STAFF_AutoID;
 		
@@ -4820,7 +4835,7 @@ namespace DAL
 		
 		private string _UPDATED_BY_FUNCTION;
 		
-		private EntityRef<tbl_DM_MovieSchedule> _tbl_DM_MovieSchedule;
+		private EntityRef<tbl_DM_SeatSchedule> _tbl_DM_SeatSchedule;
 		
 		private EntityRef<tbl_DM_Staff> _tbl_DM_Staff;
 		
@@ -4830,10 +4845,8 @@ namespace DAL
     partial void OnCreated();
     partial void OnTK_AutoIDChanging(long value);
     partial void OnTK_AutoIDChanged();
-    partial void OnTK_NAMEChanging(string value);
-    partial void OnTK_NAMEChanged();
-    partial void OnTK_MOVIESCHEDULE_AutoIDChanging(System.Nullable<long> value);
-    partial void OnTK_MOVIESCHEDULE_AutoIDChanged();
+    partial void OnTK_SEATSCHEDULE_AutoIDChanging(long value);
+    partial void OnTK_SEATSCHEDULE_AutoIDChanged();
     partial void OnTK_STAFF_AutoIDChanging(long value);
     partial void OnTK_STAFF_AutoIDChanged();
     partial void OnTK_PRICEChanging(double value);
@@ -4856,12 +4869,12 @@ namespace DAL
 		
 		public tbl_DM_Ticket()
 		{
-			this._tbl_DM_MovieSchedule = default(EntityRef<tbl_DM_MovieSchedule>);
+			this._tbl_DM_SeatSchedule = default(EntityRef<tbl_DM_SeatSchedule>);
 			this._tbl_DM_Staff = default(EntityRef<tbl_DM_Staff>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TK_AutoID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TK_AutoID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public long TK_AutoID
 		{
 			get
@@ -4881,46 +4894,26 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TK_NAME", DbType="NVarChar(150) NOT NULL", CanBeNull=false)]
-		public string TK_NAME
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TK_SEATSCHEDULE_AutoID", DbType="BigInt NOT NULL")]
+		public long TK_SEATSCHEDULE_AutoID
 		{
 			get
 			{
-				return this._TK_NAME;
+				return this._TK_SEATSCHEDULE_AutoID;
 			}
 			set
 			{
-				if ((this._TK_NAME != value))
+				if ((this._TK_SEATSCHEDULE_AutoID != value))
 				{
-					this.OnTK_NAMEChanging(value);
-					this.SendPropertyChanging();
-					this._TK_NAME = value;
-					this.SendPropertyChanged("TK_NAME");
-					this.OnTK_NAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TK_MOVIESCHEDULE_AutoID", DbType="BigInt")]
-		public System.Nullable<long> TK_MOVIESCHEDULE_AutoID
-		{
-			get
-			{
-				return this._TK_MOVIESCHEDULE_AutoID;
-			}
-			set
-			{
-				if ((this._TK_MOVIESCHEDULE_AutoID != value))
-				{
-					if (this._tbl_DM_MovieSchedule.HasLoadedOrAssignedValue)
+					if (this._tbl_DM_SeatSchedule.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnTK_MOVIESCHEDULE_AutoIDChanging(value);
+					this.OnTK_SEATSCHEDULE_AutoIDChanging(value);
 					this.SendPropertyChanging();
-					this._TK_MOVIESCHEDULE_AutoID = value;
-					this.SendPropertyChanged("TK_MOVIESCHEDULE_AutoID");
-					this.OnTK_MOVIESCHEDULE_AutoIDChanged();
+					this._TK_SEATSCHEDULE_AutoID = value;
+					this.SendPropertyChanged("TK_SEATSCHEDULE_AutoID");
+					this.OnTK_SEATSCHEDULE_AutoIDChanged();
 				}
 			}
 		}
@@ -5109,36 +5102,36 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_DM_MovieSchedule_tbl_DM_Ticket", Storage="_tbl_DM_MovieSchedule", ThisKey="TK_MOVIESCHEDULE_AutoID", OtherKey="MS_AutoID", IsForeignKey=true)]
-		public tbl_DM_MovieSchedule tbl_DM_MovieSchedule
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_DM_SeatSchedule_tbl_DM_Ticket", Storage="_tbl_DM_SeatSchedule", ThisKey="TK_SEATSCHEDULE_AutoID", OtherKey="SES_AutoID", IsForeignKey=true)]
+		public tbl_DM_SeatSchedule tbl_DM_SeatSchedule
 		{
 			get
 			{
-				return this._tbl_DM_MovieSchedule.Entity;
+				return this._tbl_DM_SeatSchedule.Entity;
 			}
 			set
 			{
-				tbl_DM_MovieSchedule previousValue = this._tbl_DM_MovieSchedule.Entity;
+				tbl_DM_SeatSchedule previousValue = this._tbl_DM_SeatSchedule.Entity;
 				if (((previousValue != value) 
-							|| (this._tbl_DM_MovieSchedule.HasLoadedOrAssignedValue == false)))
+							|| (this._tbl_DM_SeatSchedule.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._tbl_DM_MovieSchedule.Entity = null;
+						this._tbl_DM_SeatSchedule.Entity = null;
 						previousValue.tbl_DM_Tickets.Remove(this);
 					}
-					this._tbl_DM_MovieSchedule.Entity = value;
+					this._tbl_DM_SeatSchedule.Entity = value;
 					if ((value != null))
 					{
 						value.tbl_DM_Tickets.Add(this);
-						this._TK_MOVIESCHEDULE_AutoID = value.MS_AutoID;
+						this._TK_SEATSCHEDULE_AutoID = value.SES_AutoID;
 					}
 					else
 					{
-						this._TK_MOVIESCHEDULE_AutoID = default(Nullable<long>);
+						this._TK_SEATSCHEDULE_AutoID = default(long);
 					}
-					this.SendPropertyChanged("tbl_DM_MovieSchedule");
+					this.SendPropertyChanged("tbl_DM_SeatSchedule");
 				}
 			}
 		}
@@ -5226,6 +5219,8 @@ namespace DAL
 		
 		private EntitySet<tbl_DM_MovieSchedule> _tbl_DM_MovieSchedules;
 		
+		private EntitySet<tbl_DM_Seat> _tbl_DM_Seats;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -5255,10 +5250,11 @@ namespace DAL
 		public tbl_DM_Theater()
 		{
 			this._tbl_DM_MovieSchedules = new EntitySet<tbl_DM_MovieSchedule>(new Action<tbl_DM_MovieSchedule>(this.attach_tbl_DM_MovieSchedules), new Action<tbl_DM_MovieSchedule>(this.detach_tbl_DM_MovieSchedules));
+			this._tbl_DM_Seats = new EntitySet<tbl_DM_Seat>(new Action<tbl_DM_Seat>(this.attach_tbl_DM_Seats), new Action<tbl_DM_Seat>(this.detach_tbl_DM_Seats));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TT_AutoID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TT_AutoID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public long TT_AutoID
 		{
 			get
@@ -5471,6 +5467,19 @@ namespace DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_DM_Theater_tbl_DM_Seat", Storage="_tbl_DM_Seats", ThisKey="TT_AutoID", OtherKey="SE_THEATER_AutoID")]
+		public EntitySet<tbl_DM_Seat> tbl_DM_Seats
+		{
+			get
+			{
+				return this._tbl_DM_Seats;
+			}
+			set
+			{
+				this._tbl_DM_Seats.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -5498,6 +5507,18 @@ namespace DAL
 		}
 		
 		private void detach_tbl_DM_MovieSchedules(tbl_DM_MovieSchedule entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_DM_Theater = null;
+		}
+		
+		private void attach_tbl_DM_Seats(tbl_DM_Seat entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_DM_Theater = this;
+		}
+		
+		private void detach_tbl_DM_Seats(tbl_DM_Seat entity)
 		{
 			this.SendPropertyChanging();
 			entity.tbl_DM_Theater = null;
@@ -5576,7 +5597,7 @@ namespace DAL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EX_AutoID", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EX_AutoID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public long EX_AutoID
 		{
 			get

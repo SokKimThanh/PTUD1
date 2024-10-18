@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CM_Cinema_DB" Class="CM_Cinema_DBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=CM_Cinema_DB;User ID=sa;Encrypt=False" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="CM_Cinema_DBConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-SV40LIF;Initial Catalog=CM_Cinema_DB;Integrated Security=True;Trust Server Certificate=True" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="CM_Cinema_DBConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.tbl_DM_AgeRating" Member="tbl_DM_AgeRatings">
     <Type Name="tbl_DM_AgeRating">
-      <Column Name="AR_AutoID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AR_AutoID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="AR_NAME" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
       <Column Name="AR_NOTE" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="DELETED" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -17,7 +17,7 @@
   </Table>
   <Table Name="dbo.tbl_Sys_Language" Member="tbl_Sys_Languages">
     <Type Name="tbl_Sys_Language">
-      <Column Name="Lang_AutoID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Lang_AutoID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Eng_Lang" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
       <Column Name="VN_Lang" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
       <Column Name="JP_Lang" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
@@ -34,7 +34,7 @@
   </Table>
   <Table Name="dbo.tbl_DM_Bill" Member="tbl_DM_Bills">
     <Type Name="tbl_DM_Bill">
-      <Column Name="BL_AutoID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BL_AutoID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="BL_PRODUCT_AutoID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Column Name="BL_QUANTITY" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="BL_PRICE" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
@@ -52,7 +52,7 @@
   </Table>
   <Table Name="dbo.tbl_DM_ExpenseType" Member="tbl_DM_ExpenseTypes">
     <Type Name="tbl_DM_ExpenseType">
-      <Column Name="ET_AutoID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ET_AutoID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ET_NAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="ET_PRODUCT_AutoID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="DELETED" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -68,7 +68,7 @@
   </Table>
   <Table Name="dbo.tbl_DM_Movie" Member="tbl_DM_Movies">
     <Type Name="tbl_DM_Movie">
-      <Column Name="MV_AutoID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MV_AutoID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="MV_NAME" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
       <Column Name="MV_PRICE" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="MV_DURATION" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -88,7 +88,7 @@
   </Table>
   <Table Name="dbo.tbl_DM_MovieSchedule" Member="tbl_DM_MovieSchedules">
     <Type Name="tbl_DM_MovieSchedule">
-      <Column Name="MS_AutoID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MS_AutoID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="MS_MOVIE_AutoID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="MS_THEATER_AutoID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="MS_START" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
@@ -100,14 +100,13 @@
       <Column Name="UPDATED_BY" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
       <Column Name="UPDATED_BY_FUNCTION" Type="System.String" DbType="NChar(200)" CanBeNull="true" />
       <Association Name="tbl_DM_MovieSchedule_tbl_DM_SeatSchedule" Member="tbl_DM_SeatSchedules" ThisKey="MS_AutoID" OtherKey="SES_MOVIESCHEDULE_AutoID" Type="tbl_DM_SeatSchedule" />
-      <Association Name="tbl_DM_MovieSchedule_tbl_DM_Ticket" Member="tbl_DM_Tickets" ThisKey="MS_AutoID" OtherKey="TK_MOVIESCHEDULE_AutoID" Type="tbl_DM_Ticket" />
       <Association Name="tbl_DM_Movie_tbl_DM_MovieSchedule" Member="tbl_DM_Movie" ThisKey="MS_MOVIE_AutoID" OtherKey="MV_AutoID" Type="tbl_DM_Movie" IsForeignKey="true" />
       <Association Name="tbl_DM_Theater_tbl_DM_MovieSchedule" Member="tbl_DM_Theater" ThisKey="MS_THEATER_AutoID" OtherKey="TT_AutoID" Type="tbl_DM_Theater" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_DM_Product" Member="tbl_DM_Products">
     <Type Name="tbl_DM_Product">
-      <Column Name="PD_AutoID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PD_AutoID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="PD_NAME" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
       <Column Name="PD_QUANTITY" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="PD_PRICE" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
@@ -125,10 +124,9 @@
   </Table>
   <Table Name="dbo.tbl_DM_Seat" Member="tbl_DM_Seats">
     <Type Name="tbl_DM_Seat">
-      <Column Name="SE_AutoID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="SE_FILE" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="SE_AutoID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SE_FILE" Type="System.String" DbType="NChar(2) NOT NULL" CanBeNull="false" />
       <Column Name="SE_RANK" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="SE_TYPE" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="SE_THEATER_AutoID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Column Name="DELETED" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="CREATED" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
@@ -138,11 +136,12 @@
       <Column Name="UPDATED_BY" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
       <Column Name="UPDATED_BY_FUNCTION" Type="System.String" DbType="NChar(200)" CanBeNull="true" />
       <Association Name="tbl_DM_Seat_tbl_DM_SeatSchedule" Member="tbl_DM_SeatSchedules" ThisKey="SE_AutoID" OtherKey="SES_SEAT_AutoID" Type="tbl_DM_SeatSchedule" />
+      <Association Name="tbl_DM_Theater_tbl_DM_Seat" Member="tbl_DM_Theater" ThisKey="SE_THEATER_AutoID" OtherKey="TT_AutoID" Type="tbl_DM_Theater" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_DM_SeatSchedule" Member="tbl_DM_SeatSchedules">
     <Type Name="tbl_DM_SeatSchedule">
-      <Column Name="SES_AutoID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SES_AutoID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="SES_MOVIESCHEDULE_AutoID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Column Name="SES_SEAT_AutoID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Column Name="DELETED" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -152,13 +151,14 @@
       <Column Name="UPDATED" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="UPDATED_BY" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
       <Column Name="UPDATED_BY_FUNCTION" Type="System.String" DbType="NChar(200)" CanBeNull="true" />
+      <Association Name="tbl_DM_SeatSchedule_tbl_DM_Ticket" Member="tbl_DM_Tickets" ThisKey="SES_AutoID" OtherKey="TK_SEATSCHEDULE_AutoID" Type="tbl_DM_Ticket" />
       <Association Name="tbl_DM_MovieSchedule_tbl_DM_SeatSchedule" Member="tbl_DM_MovieSchedule" ThisKey="SES_MOVIESCHEDULE_AutoID" OtherKey="MS_AutoID" Type="tbl_DM_MovieSchedule" IsForeignKey="true" />
       <Association Name="tbl_DM_Seat_tbl_DM_SeatSchedule" Member="tbl_DM_Seat" ThisKey="SES_SEAT_AutoID" OtherKey="SE_AutoID" Type="tbl_DM_Seat" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_DM_Shift" Member="tbl_DM_Shifts">
     <Type Name="tbl_DM_Shift">
-      <Column Name="SF_AutoID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SF_AutoID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="SF_NAME" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
       <Column Name="SF_START" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="SF_END" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
@@ -174,7 +174,7 @@
   </Table>
   <Table Name="dbo.tbl_DM_Staff" Member="tbl_DM_Staffs">
     <Type Name="tbl_DM_Staff">
-      <Column Name="ST_AutoID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ST_AutoID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ST_USERNAME" Type="System.String" DbType="NChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="ST_PASSWORD" Type="System.String" DbType="NChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="ST_NAME" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
@@ -196,7 +196,7 @@
   </Table>
   <Table Name="dbo.tbl_DM_StaffSchedule" Member="tbl_DM_StaffSchedules">
     <Type Name="tbl_DM_StaffSchedule">
-      <Column Name="SS_AutoID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SS_AutoID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="SS_STAFF_AutoID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="SS_SHIFT_AutoID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="DELETED" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -212,9 +212,8 @@
   </Table>
   <Table Name="dbo.tbl_DM_Ticket" Member="tbl_DM_Tickets">
     <Type Name="tbl_DM_Ticket">
-      <Column Name="TK_AutoID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TK_NAME" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
-      <Column Name="TK_MOVIESCHEDULE_AutoID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="TK_AutoID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TK_SEATSCHEDULE_AutoID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Column Name="TK_STAFF_AutoID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Column Name="TK_PRICE" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="DELETED" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -224,13 +223,13 @@
       <Column Name="UPDATED" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="UPDATED_BY" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
       <Column Name="UPDATED_BY_FUNCTION" Type="System.String" DbType="NChar(200)" CanBeNull="true" />
-      <Association Name="tbl_DM_MovieSchedule_tbl_DM_Ticket" Member="tbl_DM_MovieSchedule" ThisKey="TK_MOVIESCHEDULE_AutoID" OtherKey="MS_AutoID" Type="tbl_DM_MovieSchedule" IsForeignKey="true" />
+      <Association Name="tbl_DM_SeatSchedule_tbl_DM_Ticket" Member="tbl_DM_SeatSchedule" ThisKey="TK_SEATSCHEDULE_AutoID" OtherKey="SES_AutoID" Type="tbl_DM_SeatSchedule" IsForeignKey="true" />
       <Association Name="tbl_DM_Staff_tbl_DM_Ticket" Member="tbl_DM_Staff" ThisKey="TK_STAFF_AutoID" OtherKey="ST_AutoID" Type="tbl_DM_Staff" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_DM_Theater" Member="tbl_DM_Theaters">
     <Type Name="tbl_DM_Theater">
-      <Column Name="TT_AutoID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TT_AutoID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="TT_NAME" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
       <Column Name="TT_STATUS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="DELETED" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -241,11 +240,12 @@
       <Column Name="UPDATED_BY" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
       <Column Name="UPDATED_BY_FUNCTION" Type="System.String" DbType="NChar(200)" CanBeNull="true" />
       <Association Name="tbl_DM_Theater_tbl_DM_MovieSchedule" Member="tbl_DM_MovieSchedules" ThisKey="TT_AutoID" OtherKey="MS_THEATER_AutoID" Type="tbl_DM_MovieSchedule" />
+      <Association Name="tbl_DM_Theater_tbl_DM_Seat" Member="tbl_DM_Seats" ThisKey="TT_AutoID" OtherKey="SE_THEATER_AutoID" Type="tbl_DM_Seat" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_SYS_Expense" Member="tbl_SYS_Expenses">
     <Type Name="tbl_SYS_Expense">
-      <Column Name="EX_AutoID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EX_AutoID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="EX_EXTYPE_AutoID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Column Name="EX_QUANTITY" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="EX_PRICE" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />

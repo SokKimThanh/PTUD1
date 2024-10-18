@@ -53,6 +53,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="tbl_DM_AgeRating_DAL.cs" />
+    <Compile Include="tbl_DM_Movie_DAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj">
@@ -61,6 +63,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="CM_Cinema_DB.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>CM_Cinema_DB.designer.cs</LastGenOutput>
@@ -79,8 +82,6 @@
       <DependentUpon>CM_Cinema_DB.dbml</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Tbl_DAL\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
