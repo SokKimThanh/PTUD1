@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,7 +15,11 @@ namespace GUI.UI.Modules
 {
     public partial class ucGhe : ucBase
     {
-        private BUS_Seats bus = new BUS_Seats();
+        #region Fields
+        private tbl_DM_Seat_BUS seat_BUS = new tbl_DM_Seat_BUS();
+        private tbl_DM_Theater_BUS theater_BUS = new tbl_DM_Theater_BUS();
+        #endregion
+
         public ucGhe()
         {
             InitializeComponent();
@@ -25,7 +30,7 @@ namespace GUI.UI.Modules
                 if(i<=10)
                     cboCouples.Items.Add(i.ToString());
             }
-            //cboTheater.DataSource = 
+            cboTheater.DataSource = theater_BUS.GetList();
         }
         protected override void Load_Data()
         {
@@ -39,7 +44,7 @@ namespace GUI.UI.Modules
             int cols = cboCols.SelectedIndex;
             int couples = cboCouples.SelectedIndex;
             int theater_AutoID = 1;
-            bus.AddData(rows,cols,couples,theater_AutoID);
+            seat_BUS.AddData(rows,cols,couples,theater_AutoID);
         }
     }
 }

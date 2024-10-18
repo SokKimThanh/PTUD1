@@ -6,14 +6,23 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class DTO_Seats
+    public class tbl_DM_Seat_DTO
     {
-        private int? autoID;
+        #region Fields
+        private long? autoID;
         private string file;
         private int rank;
         private int theater_AutoID;
+        #endregion
 
-        public DTO_Seats(int? autoID, string file, int rank, int theater_AutoID)
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="autoID"></param>
+        /// <param name="file"></param>
+        /// <param name="rank"></param>
+        /// <param name="theater_AutoID"></param>
+        public tbl_DM_Seat_DTO(long? autoID, string file, int rank, int theater_AutoID)
         {
             this.autoID = autoID;
             this.File = file;
@@ -21,7 +30,8 @@ namespace DTO
             this.Theater_AutoID = theater_AutoID;
         }
 
-        public int? AutoID { get => autoID; }
+        #region Properties
+        public long? AutoID { get => autoID; }
         public string File { 
             get => file; 
             set 
@@ -34,5 +44,6 @@ namespace DTO
         }
         public int Rank { get => rank; set => rank = value; }
         public int Theater_AutoID { get => theater_AutoID; set => theater_AutoID = value; }
+        #endregion
     }
 }

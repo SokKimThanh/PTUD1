@@ -41,7 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DTO_Seats.cs" />
+    <Compile Include="tbl_DM_Seat_DTO.cs" />
+    <Compile Include="tbl_DM_Theater_DTO.cs" />
     <Compile Include="tbl_Report_Revenue_DTO.cs" />
     <Compile Include="tbl_Report_IncomeExpense_DTO.cs" />
     <Compile Include="tbl_Report_Inventory_DTO.cs" />

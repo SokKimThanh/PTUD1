@@ -8,13 +8,15 @@ using System.Threading.Tasks;
 
 namespace BUS
 {
-    public class BUS_Seats
+    public class tbl_DM_Seat_BUS
     {
-        private DAL_Seats dal = new DAL_Seats();
-        public List<DTO_Seats> GetList()
+        private tbl_DM_Seat_DAL dal = new tbl_DM_Seat_DAL();
+
+        public List<tbl_DM_Seat_DTO> GetList()
         {
             throw new NotImplementedException();
         }
+
         /// <summary>
         /// Thêm số lượng lớn ghế vào phòng chiếu
         /// </summary>
@@ -26,20 +28,27 @@ namespace BUS
         public bool AddData(int rows, int cols, int couples, int theater_AutoID)
         {
             bool flg = false;
+
             for(int row = 1; row <= cols; row++)
             {
                 for(int col = 1; col <= cols; col++)
                 {
+                    // Chuyển số dãy thành chữ
                     string file = Convert.ToChar(row + 65).ToString();
+                    // Số cột là số thứ tự của ghế trên dãy
                     int rank = col;
-                    flg = dal.AddData(new DTO_Seats(null,file,rank, theater_AutoID));
+                    //Thêm ghế đơn vào danh sách
+                    flg = dal.AddData(new tbl_DM_Seat_DTO(null,file,rank, theater_AutoID));
                 }
             }
             for(int couple = 1; couple <= couples; couple++)
             {
+                // Ghế đôi bắt đầu bằng ký tự CP
                 string file = "CP";
+                // Số ghế là số thứ tự
                 int rank = couple;
-                flg = dal.AddData(new DTO_Seats(null, file, rank, theater_AutoID));
+                // Thêm ghế đôi vào danh sách
+                flg = dal.AddData(new tbl_DM_Seat_DTO(null, file, rank, theater_AutoID));
             }
             return flg;
         }
@@ -49,7 +58,7 @@ namespace BUS
             throw new NotImplementedException();
         }
 
-        public bool UpdateData(DTO_Seats obj)
+        public bool UpdateData(tbl_DM_Seat_DTO obj)
         {
             throw new NotImplementedException();
         }

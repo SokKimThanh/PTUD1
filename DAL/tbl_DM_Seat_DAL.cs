@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DAL_Seats : BasicMethods<DTO_Seats>
+    public class tbl_DM_Seat_DAL : BasicMethods<tbl_DM_Seat_DTO>
     {
         private CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext();
 
@@ -17,7 +17,7 @@ namespace DAL
         /// </summary>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public override List<DTO_Seats> GetList()
+        public override List<tbl_DM_Seat_DTO> GetList()
         {
             throw new NotImplementedException();
         }
@@ -26,7 +26,7 @@ namespace DAL
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public override bool AddData(DTO_Seats obj)
+        public override bool AddData(tbl_DM_Seat_DTO obj)
         {
             try
             {
@@ -54,7 +54,7 @@ namespace DAL
         /// <param name="obj"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public override bool UpdateData(DTO_Seats obj)
+        public override bool UpdateData(tbl_DM_Seat_DTO obj)
         {
             throw new NotImplementedException();
         }
