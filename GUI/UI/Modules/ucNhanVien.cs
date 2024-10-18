@@ -16,7 +16,7 @@ namespace GUI.UI.Modules
         public ucNhanVien()
         {
             InitializeComponent();
-            lblTitle.Text = "QUẢN LÝ NHÂN VIÊN";
+            lblTitle.Text = "QUẢN LÝ NHÂN VIÊN".ToUpper();
         }
 
         protected override void Load_Data()
