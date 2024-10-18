@@ -89,15 +89,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI\Modules\ucBaoCaoDoanhThu.cs" />
+    <Compile Include="UI\Modules\ucBaoCaoDoanhThu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UI\Modules\ucBaoCaoDoanhThu.Designer.cs">
       <DependentUpon>ucBaoCaoDoanhThu.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucBaoCaoThuChi.cs" />
+    <Compile Include="UI\Modules\ucBaoCaoThuChi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UI\Modules\ucBaoCaoThuChi.Designer.cs">
       <DependentUpon>ucBaoCaoThuChi.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucBaoCaoTonKho.cs" />
+    <Compile Include="UI\Modules\ucBaoCaoTonKho.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UI\Modules\ucBaoCaoTonKho.Designer.cs">
       <DependentUpon>ucBaoCaoTonKho.cs</DependentUpon>
     </Compile>
@@ -107,51 +113,72 @@
     <Compile Include="UI\Modules\ucCaLamViec.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Modules\ucCaLamViec.cs" />
     <Compile Include="UI\Modules\ucCaLamViec.Designer.cs">
       <DependentUpon>ucCaLamViec.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucDatVe.cs" />
+    <Compile Include="UI\Modules\ucDatVe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UI\Modules\ucDatVe.Designer.cs">
       <DependentUpon>ucDatVe.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucGhe.cs" />
+    <Compile Include="UI\Modules\ucGhe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UI\Modules\ucGhe.Designer.cs">
       <DependentUpon>ucGhe.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucHoaDon.cs" />
+    <Compile Include="UI\Modules\ucHoaDon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UI\Modules\ucHoaDon.Designer.cs">
       <DependentUpon>ucHoaDon.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucInHoaDon.cs" />
+    <Compile Include="UI\Modules\ucInHoaDon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UI\Modules\ucInHoaDon.Designer.cs">
       <DependentUpon>ucInHoaDon.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucNhanVien.cs" />
+    <Compile Include="UI\Modules\ucNhanVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UI\Modules\ucNhanVien.Designer.cs">
       <DependentUpon>ucNhanVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucPhanCa.cs" />
+    <Compile Include="UI\Modules\ucPhanCa.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UI\Modules\ucPhanCa.Designer.cs">
       <DependentUpon>ucPhanCa.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucPhim.cs" />
+    <Compile Include="UI\Modules\ucPhim.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UI\Modules\ucPhim.Designer.cs">
       <DependentUpon>ucPhim.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucPhongChieu.cs" />
+    <Compile Include="UI\Modules\ucPhongChieu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UI\Modules\ucPhongChieu.Designer.cs">
       <DependentUpon>ucPhongChieu.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucSanPham.cs" />
+    <Compile Include="UI\Modules\ucSanPham.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UI\Modules\ucSanPham.Designer.cs">
       <DependentUpon>ucSanPham.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucSuatChieu.cs" />
+    <Compile Include="UI\Modules\ucSuatChieu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UI\Modules\ucSuatChieu.Designer.cs">
       <DependentUpon>ucSuatChieu.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucDanhGiaDoTuoi.cs" />
+    <Compile Include="UI\Modules\ucDanhGiaDoTuoi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UI\Modules\ucDanhGiaDoTuoi.Designer.cs">
       <DependentUpon>ucDanhGiaDoTuoi.cs</DependentUpon>
     </Compile>

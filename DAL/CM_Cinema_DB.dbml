@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CM_Cinema_DB" Class="CM_Cinema_DBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=HoshikiShiro\SQLEXPRESS;Initial Catalog=CM_Cinema_DB;Integrated Security=True;Trust Server Certificate=True" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="CM_Cinema_DBConnectionString1" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.tbl_DM_AgeRating" Member="tbl_DM_AgeRatings">
-    <Type Name="tbl_DM_AgeRating">
+      <Connection Mode="AppSettings" ConnectionString="Data Source=SOKKIMTHANH;Initial Catalog=CM_Cinema_DB;Integrated Security=True;Trust Server Certificate=True" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="CM_Cinema_DBConnectionString1" Provider="System.Data.SqlClient" />
+      <Table Name="dbo.tbl_DM_AgeRating" Member="tbl_DM_AgeRatings">
+      <Type Name="tbl_DM_AgeRating">
       <Column Name="AR_AutoID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="AR_NAME" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
       <Column Name="AR_NOTE" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
@@ -100,7 +100,6 @@
       <Column Name="UPDATED_BY" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
       <Column Name="UPDATED_BY_FUNCTION" Type="System.String" DbType="NChar(200)" CanBeNull="true" />
       <Association Name="tbl_DM_MovieSchedule_tbl_DM_SeatSchedule" Member="tbl_DM_SeatSchedules" ThisKey="MS_AutoID" OtherKey="SES_MOVIESCHEDULE_AutoID" Type="tbl_DM_SeatSchedule" />
-      <Association Name="tbl_DM_MovieSchedule_tbl_DM_Ticket" Member="tbl_DM_Tickets" ThisKey="MS_AutoID" OtherKey="TK_MOVIESCHEDULE_AutoID" Type="tbl_DM_Ticket" />
       <Association Name="tbl_DM_Movie_tbl_DM_MovieSchedule" Member="tbl_DM_Movie" ThisKey="MS_MOVIE_AutoID" OtherKey="MV_AutoID" Type="tbl_DM_Movie" IsForeignKey="true" />
       <Association Name="tbl_DM_Theater_tbl_DM_MovieSchedule" Member="tbl_DM_Theater" ThisKey="MS_THEATER_AutoID" OtherKey="TT_AutoID" Type="tbl_DM_Theater" IsForeignKey="true" />
     </Type>
@@ -152,6 +151,7 @@
       <Column Name="UPDATED" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="UPDATED_BY" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
       <Column Name="UPDATED_BY_FUNCTION" Type="System.String" DbType="NChar(200)" CanBeNull="true" />
+      <Association Name="tbl_DM_SeatSchedule_tbl_DM_Ticket" Member="tbl_DM_Tickets" ThisKey="SES_AutoID" OtherKey="TK_SEATSCHEDULE_AutoID" Type="tbl_DM_Ticket" />
       <Association Name="tbl_DM_MovieSchedule_tbl_DM_SeatSchedule" Member="tbl_DM_MovieSchedule" ThisKey="SES_MOVIESCHEDULE_AutoID" OtherKey="MS_AutoID" Type="tbl_DM_MovieSchedule" IsForeignKey="true" />
       <Association Name="tbl_DM_Seat_tbl_DM_SeatSchedule" Member="tbl_DM_Seat" ThisKey="SES_SEAT_AutoID" OtherKey="SE_AutoID" Type="tbl_DM_Seat" IsForeignKey="true" />
     </Type>
@@ -224,7 +224,7 @@
       <Column Name="UPDATED" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="UPDATED_BY" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
       <Column Name="UPDATED_BY_FUNCTION" Type="System.String" DbType="NChar(200)" CanBeNull="true" />
-      <Association Name="tbl_DM_MovieSchedule_tbl_DM_Ticket" Member="tbl_DM_MovieSchedule" ThisKey="TK_MOVIESCHEDULE_AutoID" OtherKey="MS_AutoID" Type="tbl_DM_MovieSchedule" IsForeignKey="true" />
+      <Association Name="tbl_DM_SeatSchedule_tbl_DM_Ticket" Member="tbl_DM_SeatSchedule" ThisKey="TK_SEATSCHEDULE_AutoID" OtherKey="SES_AutoID" Type="tbl_DM_SeatSchedule" IsForeignKey="true" />
       <Association Name="tbl_DM_Staff_tbl_DM_Ticket" Member="tbl_DM_Staff" ThisKey="TK_STAFF_AutoID" OtherKey="ST_AutoID" Type="tbl_DM_Staff" IsForeignKey="true" />
     </Type>
   </Table>
