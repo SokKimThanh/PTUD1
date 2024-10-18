@@ -1,4 +1,5 @@
 ﻿using BUS;
+using BUS.Sys;
 using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
@@ -23,14 +24,12 @@ namespace GUI.UI.Modules
         public ucGhe()
         {
             InitializeComponent();
-            for(int i = 1; i <= 20; i++)
-            {
-                cboRows.Items.Add(i.ToString());
-                cboCols.Items.Add(i.ToString());
-                if(i<=10)
-                    cboCouples.Items.Add(i.ToString());
-            }
-            cboTheater.DataSource = theater_BUS.GetList();
+
+            // Lấy danh sách các phòng chiếu
+            cboTheaters.Properties.DataSource = theater_BUS.GetList();
+            cboTheaters.Properties.DisplayMember = "Name";
+            cboTheaters.Properties.ValueMember = "AutoID";
+            cboTheaters.ItemIndex = 0;
         }
         protected override void Load_Data()
         {
@@ -40,11 +39,35 @@ namespace GUI.UI.Modules
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            int rows = cboRows.SelectedIndex;
-            int cols = cboCols.SelectedIndex;
-            int couples = cboCouples.SelectedIndex;
-            int theater_AutoID = 1;
-            seat_BUS.AddData(rows,cols,couples,theater_AutoID);
+            int rows, cols;
+            if(Ultilities.isNumber(txtRows.Text) && Ultilities.isNumber(txtCols.Text))
+            {
+                rows = int.Parse(txtRows.Text);
+                cols = int.Parse(txtCols.Text);
+                int couples = Convert.ToInt32(cboCouples.EditValue.ToString());
+                int theater_AutoID = 1;
+                seat_BUS.AddData(rows, cols, couples, theater_AutoID);
+            }
+            else
+            {
+                MessageBox.Show("Nhập số đi bạn !");
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txt_EditValueChanged(object sender, EventArgs e)
+        {
+            if (txtCols.Text != "" && txtRows.Text != "")
+            {
+                cboCouples.Enabled = true;
+            }
+            else
+            {
+                cboCouples.Enabled = false;
+            }
         }
     }
 }

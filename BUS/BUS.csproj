@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BasicMethods.cs" />
+    <Compile Include="Sys\Ultilities.cs" />
     <Compile Include="tbl_DM_Seat_BUS.cs" />
     <Compile Include="Danh_Muc\StaffController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
