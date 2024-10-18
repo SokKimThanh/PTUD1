@@ -30,19 +30,18 @@ namespace DAL
             try
             {
                 bool flg = false;
-                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext())
-                {
-                    tbl_DM_Seat seat = new tbl_DM_Seat()
-                    {
-                        SE_FILE = obj.File,
-                        SE_RANK = obj.Rank,
-                        SE_THEATER_AutoID = obj.Theater_AutoID,
-                    };
-                    db.tbl_DM_Seats.InsertOnSubmit(seat);
-                    db.SubmitChanges();
 
-                    flg = true;
-                }
+                tbl_DM_Seat seat = new tbl_DM_Seat()
+                {
+                    SE_FILE = obj.File,
+                    SE_RANK = obj.Rank,
+                    SE_THEATER_AutoID = obj.Theater_AutoID,
+                };
+                DBDataContext.tbl_DM_Seats.InsertOnSubmit(seat);
+                DBDataContext.SubmitChanges();
+
+                flg = true;
+
                 return flg;
             }
             catch (Exception ex)
@@ -61,19 +60,18 @@ namespace DAL
             try
             {
                 bool flg = false;
-                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext())
-                {
-                    // Tìm ghế có mã ghế như trên trong danh sách
-                    tbl_DM_Seat seat = db.tbl_DM_Seats.SingleOrDefault(item => item.SE_AutoID == obj.AutoID);
 
-                    //Nếu tìm thấy ghế
-                    if (seat != null)
-                    {
-                        seat.DELETED = obj.Deleted;
-                        db.SubmitChanges();
-                        flg = true;
-                    }
+                // Tìm ghế có mã ghế như trên trong danh sách
+                tbl_DM_Seat seat = DBDataContext.tbl_DM_Seats.SingleOrDefault(item => item.SE_AutoID == obj.AutoID);
+
+                //Nếu tìm thấy ghế
+                if (seat != null)
+                {
+                    seat.DELETED = obj.Deleted;
+                    DBDataContext.SubmitChanges();
+                    flg = true;
                 }
+
                 return flg;
             }
             catch (Exception ex)
@@ -92,19 +90,18 @@ namespace DAL
             try
             {
                 bool flg = false;
-                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext())
+
+                // Tìm ghế có mã ghế như trên trong danh sách
+                tbl_DM_Seat seat = DBDataContext.tbl_DM_Seats.SingleOrDefault(item => item.SE_AutoID == id);
+                //Nếu tìm thấy ghế
+                if (seat != null)
                 {
-                    // Tìm ghế có mã ghế như trên trong danh sách
-                    tbl_DM_Seat seat = db.tbl_DM_Seats.SingleOrDefault(item => item.SE_AutoID == id);
-                    //Nếu tìm thấy ghế
-                    if (seat != null)
-                    {
-                        seat.DELETED = 1;
-                        db.tbl_DM_Seats.InsertOnSubmit(seat);
-                        db.SubmitChanges();
-                        flg = true;
-                    }
+                    seat.DELETED = 1;
+                    DBDataContext.tbl_DM_Seats.InsertOnSubmit(seat);
+                    DBDataContext.SubmitChanges();
+                    flg = true;
                 }
+
                 return flg;
             }
             catch (Exception ex)
@@ -123,17 +120,17 @@ namespace DAL
         {
             try
             {
-                using(CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext())
+
+                tbl_DM_Seat seat_Found = DBDataContext.tbl_DM_Seats.SingleOrDefault(item => item.SE_FILE == file && item.SE_RANK == rank && item.SE_THEATER_AutoID == theater_AutoID);
+                tbl_DM_Seat_DTO result = null;
+                if (seat_Found != null)
                 {
-                    tbl_DM_Seat seat_Found = db.tbl_DM_Seats.SingleOrDefault(item => item.SE_FILE == file && item.SE_RANK == rank && item.SE_THEATER_AutoID == theater_AutoID);
-                    tbl_DM_Seat_DTO result = null;
-                    if (seat_Found != null)
-                    {
-                        result = new tbl_DM_Seat_DTO(seat_Found.SE_AutoID, seat_Found.SE_FILE, seat_Found.SE_RANK, seat_Found.SE_THEATER_AutoID, (int)seat_Found.DELETED);
-                    }
-                    return result;
+                    result = new tbl_DM_Seat_DTO(seat_Found.SE_AutoID, seat_Found.SE_FILE, seat_Found.SE_RANK, seat_Found.SE_THEATER_AutoID, (int)seat_Found.DELETED);
                 }
-            }catch(Exception ex)
+                return result;
+
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }

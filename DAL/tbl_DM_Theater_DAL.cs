@@ -10,7 +10,6 @@ namespace DAL
 {
     public class tbl_DM_Theater_DAL : BasicMethods<tbl_DM_Theater_DTO>
     {
-        private CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext();
 
         /// <summary>
         /// Lấy danh sách các phòng chiếu
@@ -21,7 +20,7 @@ namespace DAL
             // Khởi tạo danh sách các phòng chiếu
             List<tbl_DM_Theater_DTO> list = new List<tbl_DM_Theater_DTO>();
             // Chuyển kiểu dữ liệu từ context sang DTO
-            foreach (tbl_DM_Theater item in db.tbl_DM_Theaters.ToList())
+            foreach (tbl_DM_Theater item in DBDataContext.tbl_DM_Theaters.ToList())
             {
                 // Nếu không bị xóa khỏi context view thì thêm vào danh sách DTO
                 if (item.DELETED != 1)

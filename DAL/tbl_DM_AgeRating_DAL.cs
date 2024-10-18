@@ -7,9 +7,8 @@ using DTO.tbl_DTO;
 
 namespace DAL
 {
-    public class tbl_DM_AgeRating_DAL
+    public class tbl_DM_AgeRating_DAL : BasicMethods<tbl_DM_AgeRating_DAL>
     {
-        private readonly string _connectionString = CConfig.CM_Cinema_DB_ConnectionString;
 
         // Thêm mới AgeRating
         public void Add(tbl_DM_AgeRating_DTO ageRating)
@@ -87,10 +86,9 @@ namespace DAL
         {
             try
             {
-                using (var dbContext = new CM_Cinema_DBDataContext(_connectionString))
-                {
-                    action(dbContext);
-                }
+
+                action(DBDataContext);
+
             }
             catch (Exception ex)
             {
@@ -103,15 +101,32 @@ namespace DAL
         {
             try
             {
-                using (var dbContext = new CM_Cinema_DBDataContext(_connectionString))
-                {
-                    return query(dbContext);
-                }
+
+                return query(DBDataContext);
+
             }
             catch (Exception ex)
             {
                 throw new Exception($"Lỗi thực thi truy vấn với DB: {ex.Message}");
             }
+        }
+
+        public override bool AddData(tbl_DM_AgeRating_DAL obj)
+        {
+            throw new NotImplementedException();
+        }
+        public override bool RemoveData(int id)
+        {
+            throw new NotImplementedException();
+        }
+        public override List<tbl_DM_AgeRating_DAL> GetList()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override bool UpdateData(tbl_DM_AgeRating_DAL obj)
+        {
+            throw new NotImplementedException();
         }
     }
 }
