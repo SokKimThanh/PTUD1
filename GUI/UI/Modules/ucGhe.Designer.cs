@@ -39,7 +39,9 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.dgvSeats = new DevExpress.XtraGrid.GridControl();
+            this.layoutForm = new DevExpress.XtraLayout.LayoutControl();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.dgv = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.textEdit11 = new DevExpress.XtraEditors.TextEdit();
@@ -55,7 +57,9 @@
             this.layoutDGV = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSeats)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutForm)).BeginInit();
+            this.layoutForm.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit11.Properties)).BeginInit();
@@ -112,7 +116,6 @@
             this.btnThem.ImageOptions.Image = global::GUI.Properties.Resources.insert_16x16;
             this.btnThem.ImageOptions.LargeImage = global::GUI.Properties.Resources.insert_32x32;
             this.btnThem.Name = "btnThem";
-            this.btnThem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThem_ItemClick);
             // 
             // btnXoa
             // 
@@ -173,7 +176,7 @@
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 492);
             // 
-            // dgvSeats
+            // layoutForm
             // 
             this.layoutForm.Controls.Add(this.lblTitle);
             this.layoutForm.Controls.Add(this.dgv);
@@ -190,12 +193,6 @@
             this.layoutForm.TabIndex = 9;
             this.layoutForm.Text = "layoutControl1";
             // 
-            // gridView1
-            // 
-            this.gridView1.DetailHeight = 431;
-            this.gridView1.GridControl = this.dgvSeats;
-            this.gridView1.Name = "gridView1";
-            // 
             // lblTitle
             // 
             this.lblTitle.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Bold);
@@ -206,7 +203,7 @@
             this.lblTitle.TabIndex = 9;
             this.lblTitle.Text = "Title";
             // 
-            // label1
+            // dgv
             // 
             this.dgv.Location = new System.Drawing.Point(24, 162);
             this.dgv.MainView = this.gridView1;
@@ -216,12 +213,12 @@
             this.dgv.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
-            // label2
+            // gridView1
             // 
             this.gridView1.GridControl = this.dgv;
             this.gridView1.Name = "gridView1";
             // 
-            // label3
+            // textEdit1
             // 
             this.textEdit1.Location = new System.Drawing.Point(119, 69);
             this.textEdit1.Name = "textEdit1";
@@ -271,7 +268,7 @@
             this.Root.Size = new System.Drawing.Size(859, 492);
             this.Root.TextVisible = false;
             // 
-            // cboCouples
+            // layoutTitle
             // 
             this.layoutTitle.Control = this.lblTitle;
             this.layoutTitle.Location = new System.Drawing.Point(0, 0);
@@ -284,7 +281,7 @@
             this.layoutTitle.TextSize = new System.Drawing.Size(0, 0);
             this.layoutTitle.TextVisible = false;
             // 
-            // cboCols
+            // layoutAction
             // 
             this.layoutAction.CaptionImageOptions.Image = global::GUI.Properties.Resources.reviewallowuserstoeditranges_16x16;
             this.layoutAction.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
@@ -297,7 +294,7 @@
             this.layoutAction.Size = new System.Drawing.Size(839, 93);
             this.layoutAction.Text = "Thao tác nhập liệu";
             // 
-            // cboTheater
+            // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.textEdit1;
             this.layoutControlItem2.CustomizationFormText = "Dãy:";
@@ -344,7 +341,7 @@
             this.layoutControlItem5.Text = "Phòng chiếu:";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(83, 16);
             // 
-            // cboRows
+            // layoutDGV
             // 
             this.layoutDGV.CaptionImageOptions.Image = global::GUI.Properties.Resources.newtablestyle_16x16;
             this.layoutDGV.CustomizationFormText = "Danh sách dữ liệu";
@@ -355,7 +352,7 @@
             this.layoutDGV.Size = new System.Drawing.Size(839, 355);
             this.layoutDGV.Text = "Danh sách dữ liệu";
             // 
-            // Root
+            // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.dgv;
             this.layoutControlItem1.CustomizationFormText = "dgvCaLamViec";
@@ -369,16 +366,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.cboRows);
-            this.Controls.Add(this.cboTheater);
-            this.Controls.Add(this.cboCols);
-            this.Controls.Add(this.cboCouples);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.dgvSeats);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.layoutForm);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
@@ -386,7 +374,9 @@
             this.Name = "ucGhe";
             this.Size = new System.Drawing.Size(859, 516);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSeats)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutForm)).EndInit();
+            this.layoutForm.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit11.Properties)).EndInit();
@@ -418,17 +408,11 @@
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
-        private DevExpress.XtraGrid.GridControl dgvSeats;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraLayout.LayoutControl layoutForm;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.ComboBox cboRows;
-        private System.Windows.Forms.ComboBox cboTheater;
-        private System.Windows.Forms.ComboBox cboCols;
-        private System.Windows.Forms.ComboBox cboCouples;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private DevExpress.XtraGrid.GridControl dgv;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraEditors.TextEdit textEdit1;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraLayout.LayoutControlItem layoutTitle;
         private DevExpress.XtraLayout.LayoutControlGroup layoutAction;
