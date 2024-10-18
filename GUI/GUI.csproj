@@ -104,6 +104,9 @@
     <Compile Include="UI\Modules\ucBase.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="UI\Modules\ucCaLamViec.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UI\Modules\ucCaLamViec.cs" />
     <Compile Include="UI\Modules\ucCaLamViec.Designer.cs">
       <DependentUpon>ucCaLamViec.cs</DependentUpon>

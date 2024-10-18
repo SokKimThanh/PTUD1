@@ -34,8 +34,8 @@ namespace GUI.UI.Modules
         }
         protected override void Load_Data()
         {
-            if (strFunctionCode != "")
-                lblTitle.Text = strFunctionCode.Trim();
+            //if (strFunctionCode != "")
+            //    lblTitle.Text = strFunctionCode.Trim();
         }
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
