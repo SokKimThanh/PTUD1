@@ -3273,8 +3273,6 @@ namespace DAL
 		
 		private string _UPDATED_BY_FUNCTION;
 		
-		private EntitySet<tbl_DM_Ticket> _tbl_DM_Tickets;
-		
 		private EntityRef<tbl_DM_MovieSchedule> _tbl_DM_MovieSchedule;
 		
 		private EntityRef<tbl_DM_Seat> _tbl_DM_Seat;
@@ -3307,7 +3305,6 @@ namespace DAL
 		
 		public tbl_DM_SeatSchedule()
 		{
-			this._tbl_DM_Tickets = new EntitySet<tbl_DM_Ticket>(new Action<tbl_DM_Ticket>(this.attach_tbl_DM_Tickets), new Action<tbl_DM_Ticket>(this.detach_tbl_DM_Tickets));
 			this._tbl_DM_MovieSchedule = default(EntityRef<tbl_DM_MovieSchedule>);
 			this._tbl_DM_Seat = default(EntityRef<tbl_DM_Seat>);
 			OnCreated();
@@ -3521,19 +3518,6 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_DM_SeatSchedule_tbl_DM_Ticket", Storage="_tbl_DM_Tickets", ThisKey="SES_AutoID", OtherKey="TK_SEATSCHEDULE_AutoID")]
-		public EntitySet<tbl_DM_Ticket> tbl_DM_Tickets
-		{
-			get
-			{
-				return this._tbl_DM_Tickets;
-			}
-			set
-			{
-				this._tbl_DM_Tickets.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_DM_MovieSchedule_tbl_DM_SeatSchedule", Storage="_tbl_DM_MovieSchedule", ThisKey="SES_MOVIESCHEDULE_AutoID", OtherKey="MS_AutoID", IsForeignKey=true)]
 		public tbl_DM_MovieSchedule tbl_DM_MovieSchedule
 		{
@@ -3620,18 +3604,6 @@ namespace DAL
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_tbl_DM_Tickets(tbl_DM_Ticket entity)
-		{
-			this.SendPropertyChanging();
-			entity.tbl_DM_SeatSchedule = this;
-		}
-		
-		private void detach_tbl_DM_Tickets(tbl_DM_Ticket entity)
-		{
-			this.SendPropertyChanging();
-			entity.tbl_DM_SeatSchedule = null;
 		}
 	}
 	
@@ -4815,7 +4787,9 @@ namespace DAL
 		
 		private long _TK_AutoID;
 		
-		private long _TK_SEATSCHEDULE_AutoID;
+		private string _TK_NAME;
+		
+		private System.Nullable<long> _TK_MOVIESCHEDULE_AutoID;
 		
 		private long _TK_STAFF_AutoID;
 		
@@ -4835,8 +4809,6 @@ namespace DAL
 		
 		private string _UPDATED_BY_FUNCTION;
 		
-		private EntityRef<tbl_DM_SeatSchedule> _tbl_DM_SeatSchedule;
-		
 		private EntityRef<tbl_DM_Staff> _tbl_DM_Staff;
 		
     #region Extensibility Method Definitions
@@ -4845,8 +4817,10 @@ namespace DAL
     partial void OnCreated();
     partial void OnTK_AutoIDChanging(long value);
     partial void OnTK_AutoIDChanged();
-    partial void OnTK_SEATSCHEDULE_AutoIDChanging(long value);
-    partial void OnTK_SEATSCHEDULE_AutoIDChanged();
+    partial void OnTK_NAMEChanging(string value);
+    partial void OnTK_NAMEChanged();
+    partial void OnTK_MOVIESCHEDULE_AutoIDChanging(System.Nullable<long> value);
+    partial void OnTK_MOVIESCHEDULE_AutoIDChanged();
     partial void OnTK_STAFF_AutoIDChanging(long value);
     partial void OnTK_STAFF_AutoIDChanged();
     partial void OnTK_PRICEChanging(double value);
@@ -4869,7 +4843,6 @@ namespace DAL
 		
 		public tbl_DM_Ticket()
 		{
-			this._tbl_DM_SeatSchedule = default(EntityRef<tbl_DM_SeatSchedule>);
 			this._tbl_DM_Staff = default(EntityRef<tbl_DM_Staff>);
 			OnCreated();
 		}
@@ -4894,26 +4867,42 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TK_SEATSCHEDULE_AutoID", DbType="BigInt NOT NULL")]
-		public long TK_SEATSCHEDULE_AutoID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TK_NAME", DbType="NVarChar(150) NOT NULL", CanBeNull=false)]
+		public string TK_NAME
 		{
 			get
 			{
-				return this._TK_SEATSCHEDULE_AutoID;
+				return this._TK_NAME;
 			}
 			set
 			{
-				if ((this._TK_SEATSCHEDULE_AutoID != value))
+				if ((this._TK_NAME != value))
 				{
-					if (this._tbl_DM_SeatSchedule.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnTK_SEATSCHEDULE_AutoIDChanging(value);
+					this.OnTK_NAMEChanging(value);
 					this.SendPropertyChanging();
-					this._TK_SEATSCHEDULE_AutoID = value;
-					this.SendPropertyChanged("TK_SEATSCHEDULE_AutoID");
-					this.OnTK_SEATSCHEDULE_AutoIDChanged();
+					this._TK_NAME = value;
+					this.SendPropertyChanged("TK_NAME");
+					this.OnTK_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TK_MOVIESCHEDULE_AutoID", DbType="BigInt")]
+		public System.Nullable<long> TK_MOVIESCHEDULE_AutoID
+		{
+			get
+			{
+				return this._TK_MOVIESCHEDULE_AutoID;
+			}
+			set
+			{
+				if ((this._TK_MOVIESCHEDULE_AutoID != value))
+				{
+					this.OnTK_MOVIESCHEDULE_AutoIDChanging(value);
+					this.SendPropertyChanging();
+					this._TK_MOVIESCHEDULE_AutoID = value;
+					this.SendPropertyChanged("TK_MOVIESCHEDULE_AutoID");
+					this.OnTK_MOVIESCHEDULE_AutoIDChanged();
 				}
 			}
 		}
@@ -5098,40 +5087,6 @@ namespace DAL
 					this._UPDATED_BY_FUNCTION = value;
 					this.SendPropertyChanged("UPDATED_BY_FUNCTION");
 					this.OnUPDATED_BY_FUNCTIONChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_DM_SeatSchedule_tbl_DM_Ticket", Storage="_tbl_DM_SeatSchedule", ThisKey="TK_SEATSCHEDULE_AutoID", OtherKey="SES_AutoID", IsForeignKey=true)]
-		public tbl_DM_SeatSchedule tbl_DM_SeatSchedule
-		{
-			get
-			{
-				return this._tbl_DM_SeatSchedule.Entity;
-			}
-			set
-			{
-				tbl_DM_SeatSchedule previousValue = this._tbl_DM_SeatSchedule.Entity;
-				if (((previousValue != value) 
-							|| (this._tbl_DM_SeatSchedule.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._tbl_DM_SeatSchedule.Entity = null;
-						previousValue.tbl_DM_Tickets.Remove(this);
-					}
-					this._tbl_DM_SeatSchedule.Entity = value;
-					if ((value != null))
-					{
-						value.tbl_DM_Tickets.Add(this);
-						this._TK_SEATSCHEDULE_AutoID = value.SES_AutoID;
-					}
-					else
-					{
-						this._TK_SEATSCHEDULE_AutoID = default(long);
-					}
-					this.SendPropertyChanged("tbl_DM_SeatSchedule");
 				}
 			}
 		}
