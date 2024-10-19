@@ -35,6 +35,7 @@
             this.btnXoa = new DevExpress.XtraBars.BarButtonItem();
             this.btnCapNhat = new DevExpress.XtraBars.BarButtonItem();
             this.btnLamMoi = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -56,7 +57,6 @@
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutDGV = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutForm)).BeginInit();
             this.layoutForm.SuspendLayout();
@@ -147,6 +147,14 @@
             this.btnLamMoi.ImageOptions.LargeImage = global::GUI.Properties.Resources.refreshpivottable_32x32;
             this.btnLamMoi.Name = "btnLamMoi";
             // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "In hóa đơn";
+            this.barButtonItem1.Id = 4;
+            this.barButtonItem1.ImageOptions.Image = global::GUI.Properties.Resources.printernetwork_16x161;
+            this.barButtonItem1.ImageOptions.LargeImage = global::GUI.Properties.Resources.printernetwork_32x32;
+            this.barButtonItem1.Name = "barButtonItem1";
+            // 
             // barDockControlTop
             // 
             this.barDockControlTop.CausesValidation = false;
@@ -204,18 +212,18 @@
             // 
             this.lblTitle.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Bold);
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.lblTitle.Location = new System.Drawing.Point(11, 10);
+            this.lblTitle.Location = new System.Drawing.Point(18, 18);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(712, 20);
+            this.lblTitle.Size = new System.Drawing.Size(676, 20);
             this.lblTitle.TabIndex = 9;
             this.lblTitle.Text = "Title";
             // 
             // dgv
             // 
-            this.dgv.Location = new System.Drawing.Point(22, 154);
+            this.dgv.Location = new System.Drawing.Point(24, 174);
             this.dgv.MainView = this.gridView1;
             this.dgv.Name = "dgv";
-            this.dgv.Size = new System.Drawing.Size(690, 242);
+            this.dgv.Size = new System.Drawing.Size(664, 235);
             this.dgv.TabIndex = 8;
             this.dgv.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -227,44 +235,44 @@
             // 
             // textEdit11
             // 
-            this.textEdit11.Location = new System.Drawing.Point(471, 89);
+            this.textEdit11.Location = new System.Drawing.Point(462, 105);
             this.textEdit11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textEdit11.Name = "textEdit11";
-            this.textEdit11.Size = new System.Drawing.Size(241, 20);
+            this.textEdit11.Size = new System.Drawing.Size(226, 20);
             this.textEdit11.StyleController = this.layoutForm;
             this.textEdit11.TabIndex = 5;
             // 
             // textEdit12
             // 
-            this.textEdit12.Location = new System.Drawing.Point(471, 65);
+            this.textEdit12.Location = new System.Drawing.Point(462, 81);
             this.textEdit12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textEdit12.Name = "textEdit12";
-            this.textEdit12.Size = new System.Drawing.Size(241, 20);
+            this.textEdit12.Size = new System.Drawing.Size(226, 20);
             this.textEdit12.StyleController = this.layoutForm;
             this.textEdit12.TabIndex = 5;
             // 
             // textEdit1
             // 
             this.textEdit1.EditValue = "--Chọn sản phẩm";
-            this.textEdit1.Location = new System.Drawing.Point(124, 65);
+            this.textEdit1.Location = new System.Drawing.Point(128, 81);
             this.textEdit1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.textEdit1.Size = new System.Drawing.Size(241, 20);
+            this.textEdit1.Size = new System.Drawing.Size(226, 20);
             this.textEdit1.StyleController = this.layoutForm;
             this.textEdit1.TabIndex = 5;
             // 
             // timeEdit1
             // 
             this.timeEdit1.EditValue = "--Chọn nhân viên";
-            this.timeEdit1.Location = new System.Drawing.Point(124, 89);
+            this.timeEdit1.Location = new System.Drawing.Point(128, 105);
             this.timeEdit1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.timeEdit1.Name = "timeEdit1";
             this.timeEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.timeEdit1.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered;
-            this.timeEdit1.Size = new System.Drawing.Size(241, 20);
+            this.timeEdit1.Size = new System.Drawing.Size(226, 20);
             this.timeEdit1.StyleController = this.layoutForm;
             this.timeEdit1.TabIndex = 6;
             // 
@@ -277,18 +285,17 @@
             this.layoutAction,
             this.layoutDGV});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(734, 416);
+            this.Root.Size = new System.Drawing.Size(712, 433);
             this.Root.TextVisible = false;
             // 
             // layoutTitle
             // 
             this.layoutTitle.Control = this.lblTitle;
             this.layoutTitle.Location = new System.Drawing.Point(0, 0);
-            this.layoutTitle.MaxSize = new System.Drawing.Size(716, 24);
-            this.layoutTitle.MinSize = new System.Drawing.Size(716, 24);
             this.layoutTitle.Name = "layoutTitle";
-            this.layoutTitle.Size = new System.Drawing.Size(716, 24);
-            this.layoutTitle.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutTitle.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
+            this.layoutTitle.Size = new System.Drawing.Size(692, 36);
+            this.layoutTitle.Spacing = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
             this.layoutTitle.Text = "Title";
             this.layoutTitle.TextSize = new System.Drawing.Size(0, 0);
             this.layoutTitle.TextVisible = false;
@@ -301,9 +308,9 @@
             this.layoutControlItem5,
             this.layoutControlItem6,
             this.layoutControlItem3});
-            this.layoutAction.Location = new System.Drawing.Point(0, 24);
+            this.layoutAction.Location = new System.Drawing.Point(0, 36);
             this.layoutAction.Name = "layoutAction";
-            this.layoutAction.Size = new System.Drawing.Size(716, 89);
+            this.layoutAction.Size = new System.Drawing.Size(692, 93);
             this.layoutAction.Text = "Thao tác nhập liệu";
             // 
             // layoutControlItem2
@@ -313,7 +320,7 @@
             this.layoutControlItem2.ImageOptions.Image = global::GUI.Properties.Resources.boproduct_16x16;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(347, 24);
+            this.layoutControlItem2.Size = new System.Drawing.Size(334, 24);
             this.layoutControlItem2.Text = "Tên sản phẩm:";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(92, 16);
             // 
@@ -322,9 +329,9 @@
             this.layoutControlItem5.Control = this.textEdit11;
             this.layoutControlItem5.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem5.CustomizationFormText = "Giá tiền:";
-            this.layoutControlItem5.Location = new System.Drawing.Point(347, 24);
+            this.layoutControlItem5.Location = new System.Drawing.Point(334, 24);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(347, 24);
+            this.layoutControlItem5.Size = new System.Drawing.Size(334, 24);
             this.layoutControlItem5.Text = "Giá tiền:";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(92, 13);
             // 
@@ -333,9 +340,9 @@
             this.layoutControlItem6.Control = this.textEdit12;
             this.layoutControlItem6.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem6.CustomizationFormText = "Số Lượng:";
-            this.layoutControlItem6.Location = new System.Drawing.Point(347, 0);
+            this.layoutControlItem6.Location = new System.Drawing.Point(334, 0);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(347, 24);
+            this.layoutControlItem6.Size = new System.Drawing.Size(334, 24);
             this.layoutControlItem6.Text = "Số Lượng:";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(92, 13);
             // 
@@ -346,7 +353,7 @@
             this.layoutControlItem3.ImageOptions.Image = global::GUI.Properties.Resources.employee_16x161;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(347, 24);
+            this.layoutControlItem3.Size = new System.Drawing.Size(334, 24);
             this.layoutControlItem3.Text = "Nhân viên:";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(92, 16);
             // 
@@ -356,9 +363,9 @@
             this.layoutDGV.CustomizationFormText = "Danh sách dữ liệu";
             this.layoutDGV.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
-            this.layoutDGV.Location = new System.Drawing.Point(0, 113);
+            this.layoutDGV.Location = new System.Drawing.Point(0, 129);
             this.layoutDGV.Name = "layoutDGV";
-            this.layoutDGV.Size = new System.Drawing.Size(716, 287);
+            this.layoutDGV.Size = new System.Drawing.Size(692, 284);
             this.layoutDGV.Text = "Danh sách dữ liệu";
             // 
             // layoutControlItem1
@@ -367,17 +374,9 @@
             this.layoutControlItem1.CustomizationFormText = "dgvCaLamViec";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(694, 246);
+            this.layoutControlItem1.Size = new System.Drawing.Size(668, 239);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
-            // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "In hóa đơn";
-            this.barButtonItem1.Id = 4;
-            this.barButtonItem1.ImageOptions.Image = global::GUI.Properties.Resources.printernetwork_16x161;
-            this.barButtonItem1.ImageOptions.LargeImage = global::GUI.Properties.Resources.printernetwork_32x32;
-            this.barButtonItem1.Name = "barButtonItem1";
             // 
             // ucHoaDon
             // 
