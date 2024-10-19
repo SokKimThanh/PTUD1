@@ -35,7 +35,11 @@ namespace DTO.tbl_DTO
             {
                 if (string.IsNullOrEmpty(value))
                 {
-                    throw new ArgumentException("AR_NAME không được để trống.");
+                    throw new ArgumentException("Nhãn đánh giá độ tuổi không được để trống.");
+                }
+                if (value.Length > 150)
+                {
+                    throw new Exception("Nhãn đánh giá độ tuổi không được quá 150 kí tự");
                 }
                 _aR_NAME = value;
             }
@@ -64,7 +68,6 @@ namespace DTO.tbl_DTO
                 _aR_AUTOID = value;
             }
         }
-
         // Phương thức để dễ dàng hiển thị thông tin đối tượng
         public override string ToString()
         {
