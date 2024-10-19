@@ -17,7 +17,9 @@ namespace GUI.UI.Modules
         public ucBaoCaoDoanhThu()
         {
             InitializeComponent();
-            lblTitle.Text = "Báo cáo doanh thu".ToUpper();     
+            lblTitle.Text = "Báo cáo doanh thu".ToUpper();
+            // Ngăn không cho phép sửa dữ liệu trực tiếp trên GridView
+            gridView1.OptionsBehavior.Editable = false;
         }
 
         protected override void Load_Data()

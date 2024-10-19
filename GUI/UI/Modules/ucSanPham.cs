@@ -17,6 +17,8 @@ namespace GUI.UI.Modules
         {
             InitializeComponent();
             lblTitle.Text = "Quản lý sản phẩm".ToUpper();
+            // Ngăn không cho phép sửa dữ liệu trực tiếp trên GridView
+            gridView1.OptionsBehavior.Editable = false;
 
         }
 

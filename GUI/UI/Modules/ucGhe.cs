@@ -30,6 +30,8 @@ namespace GUI.UI.Modules
             cboTheaters.Properties.DisplayMember = "Name";
             cboTheaters.Properties.ValueMember = "AutoID";
             cboTheaters.ItemIndex = 0;
+            // Ngăn không cho phép sửa dữ liệu trực tiếp trên GridView
+            gridView1.OptionsBehavior.Editable = false;
         }
         protected override void Load_Data()
         {

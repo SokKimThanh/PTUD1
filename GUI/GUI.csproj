@@ -134,12 +134,6 @@
     <Compile Include="UI\Modules\ucHoaDon.Designer.cs">
       <DependentUpon>ucHoaDon.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucInHoaDon.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UI\Modules\ucInHoaDon.Designer.cs">
-      <DependentUpon>ucInHoaDon.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Modules\ucNhanVien.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -225,9 +219,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Modules\ucHoaDon.resx">
       <DependentUpon>ucHoaDon.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Modules\ucInHoaDon.resx">
-      <DependentUpon>ucInHoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Modules\ucNhanVien.resx">
       <DependentUpon>ucNhanVien.cs</DependentUpon>
@@ -540,6 +531,12 @@
       <Project>{2458331a-da31-4263-98c0-8f78f67d1090}</Project>
       <Name>DTO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printernetwork_16x161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printernetwork_32x32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
