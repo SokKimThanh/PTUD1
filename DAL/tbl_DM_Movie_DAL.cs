@@ -1,120 +1,168 @@
-﻿using DTO.Custom;
-using DTO.tbl_DTO;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using DAL;
+using DTO.Custom;
+using DTO.tbl_DTO;
 
 namespace DAL
 {
-    public class tbl_DM_Movie_DAL : BasicMethods<tbl_DM_Movie_DAL>
+    public class tbl_DM_Movie_DAL
     {
-        //Them
+        private readonly string _connectionString = CConfig.CM_Cinema_DB_ConnectionString;
+
+        // Thêm mới Movie
         public void Add(tbl_DM_Movie_DTO movie)
         {
             try
             {
-
-                tbl_DM_Movie tbl_DM_Movie = new tbl_DM_Movie()
+                using (var dbContext = new CM_Cinema_DBDataContext(_connectionString))
                 {
-                    MV_DESCRIPTION = movie.MV_DESCRIPTION,
-                    MV_NAME = movie.MV_NAME,
-                    MV_DURATION = movie.MV_DURATION,
-                    MV_POSTERURL = movie.MV_POSTERURL,
-                    MV_PRICE = movie.MV_PRICE,
-                };
-                DBDataContext.tbl_DM_Movies.InsertOnSubmit(tbl_DM_Movie);
-                DBDataContext.SubmitChanges();
+                    var entity = new tbl_DM_Movie
+                    {
+                        DELETED = 0,
+                        MV_NAME = movie.MV_NAME,
+                        MV_DESCRIPTION = movie.MV_DESCRIPTION,
+                        MV_DURATION = movie.MV_DURATION,
+                        MV_POSTERURL = movie.MV_POSTERURL,
+                        MV_PRICE = movie.MV_PRICE,
+                        MV_AGERATING_AutoID = movie.MV_AGERATING_AutoID,
 
+
+                        CREATED = DateTime.Now,
+                        CREATED_BY = "Admin",
+                        CREATED_BY_FUNCTION = "Add",
+                        UPDATED = DateTime.Now,
+                        UPDATED_BY = "admin",
+                        UPDATED_BY_FUNCTION = "Add"
+                    };
+                    dbContext.tbl_DM_Movies.InsertOnSubmit(entity);
+                    dbContext.SubmitChanges();
+                }
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new Exception($"Lỗi thực thi thao tác với DB: {ex.Message}");
             }
         }
-        //Xoa
+
+        // Xóa Movie
         public void Remove(long id)
         {
             try
             {
-                // Ket noi db giải phóng bộ nhớ
+                using (var dbContext = new CM_Cinema_DBDataContext(_connectionString))
+                {
+                    var entity = dbContext.tbl_DM_Movies.SingleOrDefault(t => t.MV_AutoID == id);
 
-                var movie = DBDataContext.tbl_DM_Movies.Where(t => t.MV_AutoID == id).FirstOrDefault();
-                DBDataContext.tbl_DM_Movies.DeleteOnSubmit(movie);
-                DBDataContext.SubmitChanges();
-
+                    if (entity != null)
+                    {
+                        entity.DELETED = 1;
+                        entity.UPDATED = DateTime.Now;
+                        entity.UPDATED_BY = "admin";
+                        entity.UPDATED_BY_FUNCTION = "Remove";
+                        dbContext.SubmitChanges();
+                    }
+                }
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new Exception($"Lỗi thực thi thao tác với DB: {ex.Message}");
             }
         }
-        //Sua
+
+        // Cập nhật Movie
         public void Update(tbl_DM_Movie_DTO movie)
         {
             try
             {
-                var _movie = DBDataContext.tbl_DM_Movies.SingleOrDefault(t => t.MV_AutoID == movie.MV_AutoID);
-                _movie.MV_NAME = movie.MV_NAME;
-                _movie.MV_DURATION = movie.MV_DURATION;
-                _movie.MV_POSTERURL = movie.MV_POSTERURL;
-                _movie.MV_DESCRIPTION = movie.MV_DESCRIPTION;
-                _movie.MV_PRICE = movie.MV_PRICE;
-                DBDataContext.SubmitChanges();
+                using (var dbContext = new CM_Cinema_DBDataContext(_connectionString))
+                {
+                    var entity = dbContext.tbl_DM_Movies.SingleOrDefault(t => t.MV_AutoID == movie.MV_AutoID);
+                    if (entity != null)
+                    {
+                        entity.MV_POSTERURL = movie.MV_POSTERURL;
+                        entity.MV_DESCRIPTION = movie.MV_DESCRIPTION;
+                        entity.MV_DURATION = movie.MV_DURATION;
+                        entity.MV_NAME = movie.MV_NAME;
+                        entity.MV_PRICE = movie.MV_PRICE;
+                        entity.MV_AGERATING_AutoID = movie.MV_AGERATING_AutoID;
+
+                        entity.UPDATED = DateTime.Now;
+                        entity.UPDATED_BY = "admin";
+                        entity.UPDATED_BY_FUNCTION = "Update";
+                        dbContext.SubmitChanges();
+                    }
+                }
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new Exception($"Lỗi thực thi thao tác với DB: {ex.Message}");
             }
         }
-        //LayDanhSach - lam moi
+
+        // Lấy danh sách Movie
         public List<tbl_DM_Movie_DTO> GetAll()
         {
-            List<tbl_DM_Movie_DTO> tbl_DM_Movies = new List<tbl_DM_Movie_DTO>();
+            List<tbl_DM_Movie_DTO> result = new List<tbl_DM_Movie_DTO>();
             try
             {
-
-                var movies = DBDataContext.tbl_DM_Movies.ToList();
-
-                // Ánh xạ dữ liệu từ thực thể sang DTO
-                tbl_DM_Movies = movies.Select(ob => new tbl_DM_Movie_DTO
+                using (var dbContext = new CM_Cinema_DBDataContext(_connectionString))
                 {
-                    MV_AutoID = ob.MV_AutoID,
-                    MV_NAME = ob.MV_NAME,
-                    MV_DESCRIPTION = ob.MV_DESCRIPTION,
-                    MV_POSTERURL = ob.MV_POSTERURL,
-                    MV_DURATION = ob.MV_DURATION,
-                    MV_PRICE = ob.MV_PRICE,
-                }).ToList();
+                    var list = dbContext.tbl_DM_Movies.ToList();
 
-                return tbl_DM_Movies; // Trả về List<tbl_DM_Movie_DTO>
-
+                    foreach (var item in list)
+                    {
+                        if (item.DELETED != 1)
+                        {
+                            tbl_DM_Movie_DTO entity = new tbl_DM_Movie_DTO()
+                            {
+                                MV_AutoID = item.MV_AutoID,
+                                MV_POSTERURL = item.MV_POSTERURL,
+                                MV_DESCRIPTION = item.MV_DESCRIPTION,
+                                MV_DURATION = item.MV_DURATION,
+                                MV_NAME = item.MV_NAME,
+                                MV_PRICE = item.MV_PRICE,
+                                MV_AGERATING_AutoID = item.MV_AGERATING_AutoID,
+                            };
+                            result.Add(entity);
+                        }
+                    }
+                    return result;
+                }
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new Exception($"Lỗi thực thi thao tác với DB: {ex.Message}");
             }
         }
 
-        public override bool AddData(tbl_DM_Movie_DAL obj)
+        // Tìm kiếm Movie theo ID
+        public tbl_DM_Movie_DTO Find(long id)
         {
-            throw new NotImplementedException();
-        }
-
-        public override List<tbl_DM_Movie_DAL> GetList()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override bool UpdateData(tbl_DM_Movie_DAL obj)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override bool RemoveData(int id)
-        {
-            throw new NotImplementedException();
+            try
+            {
+                using (var dbContext = new CM_Cinema_DBDataContext(_connectionString))
+                {
+                    return dbContext.tbl_DM_Movies
+                          .Where(t => t.MV_AutoID == id)
+                          .Select(item => new tbl_DM_Movie_DTO
+                          {
+                              MV_AutoID = item.MV_AutoID,
+                              MV_POSTERURL = item.MV_POSTERURL,
+                              MV_DESCRIPTION = item.MV_DESCRIPTION,
+                              MV_DURATION = item.MV_DURATION,
+                              MV_NAME = item.MV_NAME,
+                              MV_PRICE = item.MV_PRICE,
+                              MV_AGERATING_AutoID = item.MV_AGERATING_AutoID,
+                          })
+                          .SingleOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Lỗi thực thi thao tác với DB: {ex.Message}");
+            }
         }
     }
 }
