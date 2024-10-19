@@ -197,18 +197,18 @@
             // 
             this.lblTitle.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Bold);
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.lblTitle.Location = new System.Drawing.Point(17, 16);
+            this.lblTitle.Location = new System.Drawing.Point(18, 18);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(825, 20);
+            this.lblTitle.Size = new System.Drawing.Size(823, 20);
             this.lblTitle.TabIndex = 9;
             this.lblTitle.Text = "Title";
             // 
             // dgv
             // 
-            this.dgv.Location = new System.Drawing.Point(22, 166);
+            this.dgv.Location = new System.Drawing.Point(24, 174);
             this.dgv.MainView = this.gridView1;
             this.dgv.Name = "dgv";
-            this.dgv.Size = new System.Drawing.Size(815, 306);
+            this.dgv.Size = new System.Drawing.Size(811, 294);
             this.dgv.TabIndex = 8;
             this.dgv.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -220,18 +220,18 @@
             // 
             // txtRows
             // 
-            this.txtRows.Location = new System.Drawing.Point(164, 77);
+            this.txtRows.Location = new System.Drawing.Point(168, 81);
             this.txtRows.Name = "txtRows";
-            this.txtRows.Size = new System.Drawing.Size(263, 20);
+            this.txtRows.Size = new System.Drawing.Size(259, 20);
             this.txtRows.StyleController = this.layoutForm;
             this.txtRows.TabIndex = 5;
             this.txtRows.EditValueChanged += new System.EventHandler(this.txt_EditValueChanged);
             // 
             // txtCols
             // 
-            this.txtCols.Location = new System.Drawing.Point(573, 77);
+            this.txtCols.Location = new System.Drawing.Point(575, 81);
             this.txtCols.Name = "txtCols";
-            this.txtCols.Size = new System.Drawing.Size(264, 20);
+            this.txtCols.Size = new System.Drawing.Size(260, 20);
             this.txtCols.StyleController = this.layoutForm;
             this.txtCols.TabIndex = 5;
             this.txtCols.EditValueChanged += new System.EventHandler(this.txt_EditValueChanged);
@@ -240,25 +240,25 @@
             // 
             this.cboCouples.EditValue = "";
             this.cboCouples.Enabled = false;
-            this.cboCouples.Location = new System.Drawing.Point(164, 101);
+            this.cboCouples.Location = new System.Drawing.Point(168, 105);
             this.cboCouples.Name = "cboCouples";
             this.cboCouples.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboCouples.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cboCouples.Size = new System.Drawing.Size(263, 20);
+            this.cboCouples.Size = new System.Drawing.Size(259, 20);
             this.cboCouples.StyleController = this.layoutForm;
             this.cboCouples.TabIndex = 5;
             // 
             // cboTheaters
             // 
             this.cboTheaters.EditValue = "--Chọn phòng chiếu";
-            this.cboTheaters.Location = new System.Drawing.Point(573, 101);
+            this.cboTheaters.Location = new System.Drawing.Point(575, 105);
             this.cboTheaters.Name = "cboTheaters";
             this.cboTheaters.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboTheaters.Properties.NullText = "";
             this.cboTheaters.Properties.PopupSizeable = false;
-            this.cboTheaters.Size = new System.Drawing.Size(264, 20);
+            this.cboTheaters.Size = new System.Drawing.Size(260, 20);
             this.cboTheaters.StyleController = this.layoutForm;
             this.cboTheaters.TabIndex = 5;
             // 
@@ -278,9 +278,12 @@
             // 
             this.layoutTitle.Control = this.lblTitle;
             this.layoutTitle.Location = new System.Drawing.Point(0, 0);
+            this.layoutTitle.MaxSize = new System.Drawing.Size(0, 36);
+            this.layoutTitle.MinSize = new System.Drawing.Size(36, 36);
             this.layoutTitle.Name = "layoutTitle";
             this.layoutTitle.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
-            this.layoutTitle.Size = new System.Drawing.Size(841, 36);
+            this.layoutTitle.Size = new System.Drawing.Size(839, 36);
+            this.layoutTitle.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutTitle.Spacing = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
             this.layoutTitle.Text = "Title";
             this.layoutTitle.TextSize = new System.Drawing.Size(0, 0);
@@ -296,7 +299,7 @@
             this.layoutControlItem5});
             this.layoutAction.Location = new System.Drawing.Point(0, 36);
             this.layoutAction.Name = "layoutAction";
-            this.layoutAction.Size = new System.Drawing.Size(841, 89);
+            this.layoutAction.Size = new System.Drawing.Size(839, 93);
             this.layoutAction.Text = "Thao tác nhập liệu";
             // 
             // layoutControlItem2
@@ -306,7 +309,7 @@
             this.layoutControlItem2.ImageOptions.Image = global::GUI.Properties.Resources.sectionbreakslist_oddpage_16x16;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(409, 24);
+            this.layoutControlItem2.Size = new System.Drawing.Size(407, 24);
             this.layoutControlItem2.Text = "Số lượng dãy:";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(132, 16);
             // 
@@ -318,7 +321,7 @@
             this.layoutControlItem4.ImageOptions.Image = global::GUI.Properties.Resources.highlightactiveelements_16x16;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(409, 24);
+            this.layoutControlItem4.Size = new System.Drawing.Size(407, 24);
             this.layoutControlItem4.Text = "Số lượng ghế đôi:";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(132, 16);
             // 
@@ -328,9 +331,9 @@
             this.layoutControlItem3.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem3.CustomizationFormText = "Số:";
             this.layoutControlItem3.ImageOptions.Image = global::GUI.Properties.Resources.rowindex_16x16;
-            this.layoutControlItem3.Location = new System.Drawing.Point(409, 0);
+            this.layoutControlItem3.Location = new System.Drawing.Point(407, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(410, 24);
+            this.layoutControlItem3.Size = new System.Drawing.Size(408, 24);
             this.layoutControlItem3.Text = "Số lượng ghế trên dãy:";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(132, 16);
             // 
@@ -340,9 +343,9 @@
             this.layoutControlItem5.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem5.CustomizationFormText = "Phòng chiếu:";
             this.layoutControlItem5.ImageOptions.Image = global::GUI.Properties.Resources.media_16x16;
-            this.layoutControlItem5.Location = new System.Drawing.Point(409, 24);
+            this.layoutControlItem5.Location = new System.Drawing.Point(407, 24);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(410, 24);
+            this.layoutControlItem5.Size = new System.Drawing.Size(408, 24);
             this.layoutControlItem5.Text = "Phòng chiếu:";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(132, 16);
             // 
@@ -352,9 +355,9 @@
             this.layoutDGV.CustomizationFormText = "Danh sách dữ liệu";
             this.layoutDGV.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
-            this.layoutDGV.Location = new System.Drawing.Point(0, 125);
+            this.layoutDGV.Location = new System.Drawing.Point(0, 129);
             this.layoutDGV.Name = "layoutDGV";
-            this.layoutDGV.Size = new System.Drawing.Size(841, 351);
+            this.layoutDGV.Size = new System.Drawing.Size(839, 343);
             this.layoutDGV.Text = "Danh sách dữ liệu";
             // 
             // layoutControlItem1
@@ -363,7 +366,7 @@
             this.layoutControlItem1.CustomizationFormText = "dgvCaLamViec";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(819, 310);
+            this.layoutControlItem1.Size = new System.Drawing.Size(815, 298);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 

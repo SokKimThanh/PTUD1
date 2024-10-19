@@ -24,6 +24,9 @@ namespace GUI.UI.Modules
         public ucGhe()
         {
             InitializeComponent();
+            this.layoutTitle.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutTitle.MaxSize = new System.Drawing.Size(0, 42);
+            this.layoutTitle.MinSize = new System.Drawing.Size(36, 36);
 
             // Lấy danh sách các phòng chiếu
             cboTheaters.Properties.DataSource = theater_BUS.GetList();
@@ -35,8 +38,8 @@ namespace GUI.UI.Modules
         }
         protected override void Load_Data()
         {
-            //if (strFunctionCode != "")
-            //    lblTitle.Text = strFunctionCode.Trim();
+            if (strFunctionCode != "")
+                lblTitle.Text = strFunctionCode.ToUpper().Trim();
         }
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

@@ -192,7 +192,7 @@
             this.txtNote.Location = new System.Drawing.Point(126, 105);
             this.txtNote.MenuManager = this.barManager1;
             this.txtNote.Name = "txtNote";
-            this.txtNote.Size = new System.Drawing.Size(650, 87);
+            this.txtNote.Size = new System.Drawing.Size(650, 274);
             this.txtNote.TabIndex = 10;
             // 
             // lblTitle
@@ -207,10 +207,10 @@
             // 
             // dgv
             // 
-            this.dgv.Location = new System.Drawing.Point(24, 241);
+            this.dgv.Location = new System.Drawing.Point(24, 428);
             this.dgv.MainView = this.gridView1;
             this.dgv.Name = "dgv";
-            this.dgv.Size = new System.Drawing.Size(752, 311);
+            this.dgv.Size = new System.Drawing.Size(752, 124);
             this.dgv.TabIndex = 8;
             this.dgv.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -245,9 +245,12 @@
             // 
             this.layoutTitle.Control = this.lblTitle;
             this.layoutTitle.Location = new System.Drawing.Point(0, 0);
+            this.layoutTitle.MaxSize = new System.Drawing.Size(0, 36);
+            this.layoutTitle.MinSize = new System.Drawing.Size(36, 36);
             this.layoutTitle.Name = "layoutTitle";
             this.layoutTitle.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
             this.layoutTitle.Size = new System.Drawing.Size(780, 36);
+            this.layoutTitle.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutTitle.Spacing = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
             this.layoutTitle.Text = "Title";
             this.layoutTitle.TextSize = new System.Drawing.Size(0, 0);
@@ -261,7 +264,7 @@
             this.layoutControlItem5});
             this.layoutAction.Location = new System.Drawing.Point(0, 36);
             this.layoutAction.Name = "layoutAction";
-            this.layoutAction.Size = new System.Drawing.Size(780, 160);
+            this.layoutAction.Size = new System.Drawing.Size(780, 347);
             this.layoutAction.Text = "Thao tác nhập liệu";
             // 
             // layoutControlItem2
@@ -279,7 +282,7 @@
             this.layoutControlItem5.Control = this.txtNote;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(756, 91);
+            this.layoutControlItem5.Size = new System.Drawing.Size(756, 278);
             this.layoutControlItem5.Text = "Mô tả chi tiết:";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(90, 13);
             // 
@@ -289,9 +292,9 @@
             this.layoutDGV.CustomizationFormText = "Danh sách dữ liệu";
             this.layoutDGV.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
-            this.layoutDGV.Location = new System.Drawing.Point(0, 196);
+            this.layoutDGV.Location = new System.Drawing.Point(0, 383);
             this.layoutDGV.Name = "layoutDGV";
-            this.layoutDGV.Size = new System.Drawing.Size(780, 360);
+            this.layoutDGV.Size = new System.Drawing.Size(780, 173);
             this.layoutDGV.Text = "Danh sách dữ liệu";
             // 
             // layoutControlItem1
@@ -300,7 +303,7 @@
             this.layoutControlItem1.CustomizationFormText = "dgvCaLamViec";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(756, 315);
+            this.layoutControlItem1.Size = new System.Drawing.Size(756, 128);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 

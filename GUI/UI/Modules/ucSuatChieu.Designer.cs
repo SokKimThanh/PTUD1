@@ -187,7 +187,7 @@
             this.layoutForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutForm.Location = new System.Drawing.Point(0, 24);
             this.layoutForm.Name = "layoutForm";
-            this.layoutForm.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(362, 538, 650, 400);
+            this.layoutForm.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(719, 369, 650, 400);
             this.layoutForm.Root = this.Root;
             this.layoutForm.Size = new System.Drawing.Size(829, 517);
             this.layoutForm.TabIndex = 9;
@@ -278,9 +278,12 @@
             // 
             this.layoutTitle.Control = this.lblTitle;
             this.layoutTitle.Location = new System.Drawing.Point(0, 0);
+            this.layoutTitle.MaxSize = new System.Drawing.Size(0, 36);
+            this.layoutTitle.MinSize = new System.Drawing.Size(36, 36);
             this.layoutTitle.Name = "layoutTitle";
             this.layoutTitle.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
             this.layoutTitle.Size = new System.Drawing.Size(809, 36);
+            this.layoutTitle.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutTitle.Spacing = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
             this.layoutTitle.Text = "Title";
             this.layoutTitle.TextSize = new System.Drawing.Size(0, 0);
