@@ -47,7 +47,6 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.txtName = new DevExpress.XtraEditors.TextEdit();
             this.txtPrice = new DevExpress.XtraEditors.TextEdit();
-            this.cboAgeRating = new DevExpress.XtraEditors.ComboBoxEdit();
             this.txtDurations = new DevExpress.XtraEditors.TextEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutTitle = new DevExpress.XtraLayout.LayoutControlItem();
@@ -60,6 +59,7 @@
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutDGV = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.cboAgeRating = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutForm)).BeginInit();
             this.layoutForm.SuspendLayout();
@@ -68,7 +68,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboAgeRating.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDurations.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).BeginInit();
@@ -81,6 +80,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboAgeRating.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -123,6 +123,7 @@
             this.btnThem.ImageOptions.Image = global::GUI.Properties.Resources.insert_16x16;
             this.btnThem.ImageOptions.LargeImage = global::GUI.Properties.Resources.insert_32x32;
             this.btnThem.Name = "btnThem";
+            this.btnThem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThem_ItemClick);
             // 
             // btnXoa
             // 
@@ -132,6 +133,7 @@
             this.btnXoa.ImageOptions.Image = global::GUI.Properties.Resources.deletelist_16x16;
             this.btnXoa.ImageOptions.LargeImage = global::GUI.Properties.Resources.deletelist_32x32;
             this.btnXoa.Name = "btnXoa";
+            this.btnXoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXoa_ItemClick);
             // 
             // btnCapNhat
             // 
@@ -141,6 +143,7 @@
             this.btnCapNhat.ImageOptions.Image = global::GUI.Properties.Resources.edit_16x161;
             this.btnCapNhat.ImageOptions.LargeImage = global::GUI.Properties.Resources.edit_32x321;
             this.btnCapNhat.Name = "btnCapNhat";
+            this.btnCapNhat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCapNhat_ItemClick);
             // 
             // btnLamMoi
             // 
@@ -150,6 +153,7 @@
             this.btnLamMoi.ImageOptions.Image = global::GUI.Properties.Resources.refreshpivottable_16x16;
             this.btnLamMoi.ImageOptions.LargeImage = global::GUI.Properties.Resources.refreshpivottable_32x32;
             this.btnLamMoi.Name = "btnLamMoi";
+            this.btnLamMoi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLamMoi_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -191,8 +195,8 @@
             this.layoutForm.Controls.Add(this.dgv);
             this.layoutForm.Controls.Add(this.txtName);
             this.layoutForm.Controls.Add(this.txtPrice);
-            this.layoutForm.Controls.Add(this.cboAgeRating);
             this.layoutForm.Controls.Add(this.txtDurations);
+            this.layoutForm.Controls.Add(this.cboAgeRating);
             this.layoutForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutForm.Location = new System.Drawing.Point(0, 24);
             this.layoutForm.Name = "layoutForm";
@@ -238,6 +242,7 @@
             this.dgv.TabIndex = 8;
             this.dgv.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.dgv.Click += new System.EventHandler(this.dgv_Click);
             // 
             // gridView1
             // 
@@ -260,17 +265,6 @@
             this.txtPrice.Size = new System.Drawing.Size(223, 20);
             this.txtPrice.StyleController = this.layoutForm;
             this.txtPrice.TabIndex = 10;
-            // 
-            // cboAgeRating
-            // 
-            this.cboAgeRating.Location = new System.Drawing.Point(525, 105);
-            this.cboAgeRating.MenuManager = this.barManager1;
-            this.cboAgeRating.Name = "cboAgeRating";
-            this.cboAgeRating.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboAgeRating.Size = new System.Drawing.Size(223, 20);
-            this.cboAgeRating.StyleController = this.layoutForm;
-            this.cboAgeRating.TabIndex = 11;
             // 
             // txtDurations
             // 
@@ -399,6 +393,21 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
+            // cboAgeRating
+            // 
+            this.cboAgeRating.EditValue = "--Chọn đánh giá";
+            this.cboAgeRating.Location = new System.Drawing.Point(525, 105);
+            this.cboAgeRating.MenuManager = this.barManager1;
+            this.cboAgeRating.Name = "cboAgeRating";
+            this.cboAgeRating.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboAgeRating.Properties.NullText = "";
+            this.cboAgeRating.Properties.PopupSizeable = false;
+            this.cboAgeRating.Size = new System.Drawing.Size(223, 20);
+            this.cboAgeRating.StyleController = this.layoutForm;
+            this.cboAgeRating.TabIndex = 11;
+            this.cboAgeRating.EditValueChanged += new System.EventHandler(this.cboAgeRating_EditValueChanged);
+            // 
             // ucPhim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -418,7 +427,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboAgeRating.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDurations.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).EndInit();
@@ -431,6 +439,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboAgeRating.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -459,7 +468,6 @@
         private DevExpress.XtraLayout.LayoutControlGroup layoutDGV;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraEditors.TextEdit txtPrice;
-        private DevExpress.XtraEditors.ComboBoxEdit cboAgeRating;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
         private DevExpress.XtraRichEdit.RichEditControl txtDescription;
@@ -468,5 +476,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraEditors.TextEdit txtDurations;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
+        private DevExpress.XtraEditors.LookUpEdit cboAgeRating;
     }
 }

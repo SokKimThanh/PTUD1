@@ -88,6 +88,34 @@ namespace GUI.UI.Modules
                 MessageBox.Show($"Lỗi: {ex.Message}");
             }
         }
+        // Làm mới dữ liệu
+        private void btnLamMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            LoadForm();
+        }
+        // Chọn dòng để cập nhật
+        private void dgv_Click(object sender, EventArgs e)
+        {
+            int[] dong = gridView1.GetSelectedRows();
+            foreach (int i in dong)
+            {
+                if (i >= 0)
+                {
+                    try
+                    {
+                        dgv_selected_id = gridView1.GetRowCellValue(i, "AR_AutoID").ToString().Trim();
+                        tbl_DM_AgeRating_DTO o = data.Find(long.Parse(dgv_selected_id));
+                        txtName.Text = o.AR_NAME;
+                        txtNote.Text = o.AR_NOTE;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Lỗi");
+                    }
+                    dangThaoTac(true);
+                }
+            }
+        }
 
         // Cập nhật trạng thái các nút thao tác
         private void dangThaoTac(bool isEdit)
@@ -103,36 +131,6 @@ namespace GUI.UI.Modules
             dgv.DataSource = data.GetAll();
             dangThaoTac(false);
             txtName.Text = txtNote.Text = string.Empty;
-        }
-
-        // Chọn dòng để cập nhật
-        private void dgv_Click(object sender, EventArgs e)
-        {
-            int[] dong = gridView1.GetSelectedRows();
-            foreach (int i in dong)
-            {
-                if (i >= 0)
-                {
-                    try
-                    {
-                        dgv_selected_id = gridView1.GetRowCellValue(i, "AR_AUTOID").ToString().Trim();
-                        tbl_DM_AgeRating_DTO km = data.Find(long.Parse(dgv_selected_id));
-                        txtName.Text = km.AR_NAME;
-                        txtNote.Text = km.AR_NOTE;
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Lỗi");
-                    }
-                    dangThaoTac(true);
-                }
-            }
-        }
-
-        // Làm mới dữ liệu
-        private void btnLamMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            LoadForm();
         }
     }
 }
