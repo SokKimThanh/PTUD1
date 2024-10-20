@@ -72,7 +72,7 @@ namespace DAL
             {
                 using (var dbContext = new CM_Cinema_DBDataContext(_connectionString))
                 {
-                    var entity = dbContext.tbl_DM_AgeRatings.SingleOrDefault(t => t.AR_AutoID == ageRating.AR_AUTOID);
+                    var entity = dbContext.tbl_DM_AgeRatings.SingleOrDefault(t => t.AR_AutoID == ageRating.AR_AutoID);
                     if (entity != null)
                     {
                         entity.AR_NAME = ageRating.AR_NAME;
@@ -106,7 +106,7 @@ namespace DAL
                         {
                             tbl_DM_AgeRating_DTO entity = new tbl_DM_AgeRating_DTO()
                             {
-                                AR_AUTOID = item.AR_AutoID,
+                                AR_AutoID = item.AR_AutoID,
                                 AR_NAME = item.AR_NAME,
                                 AR_NOTE = item.AR_NOTE
                             };
@@ -133,7 +133,7 @@ namespace DAL
                           .Where(t => t.AR_AutoID == id)
                           .Select(ar => new tbl_DM_AgeRating_DTO
                           {
-                              AR_AUTOID = ar.AR_AutoID,
+                              AR_AutoID = ar.AR_AutoID,
                               AR_NAME = ar.AR_NAME,
                               AR_NOTE = ar.AR_NOTE
                           })
@@ -144,6 +144,36 @@ namespace DAL
             {
                 throw new Exception($"Lỗi thực thi thao tác với DB: {ex.Message}");
             }
+        }
+        /// <summary>
+        /// Danh sách combobox đánh giá độ tuổi
+        /// </summary>
+        /// <returns></returns>
+        public List<tbl_DM_AgeRating_DTO> GetCombobox()
+        {
+            List<tbl_DM_AgeRating_DTO> result = new List<tbl_DM_AgeRating_DTO>();
+            try
+            {
+                using (var dbContext = new CM_Cinema_DBDataContext(_connectionString))
+                {
+                    // Lấy dữ liệu từ database
+                    var dataSource = dbContext.tbl_DM_AgeRatings
+                                               .Where(t => t.DELETED == 0)
+                                               .Select(t => new tbl_DM_AgeRating_DTO//(t.AR_AutoID, t.AR_NAME, t.AR_NOTE));
+                                               {
+                                                   AR_AutoID = t.AR_AutoID,
+                                                   AR_NAME = t.AR_NAME,
+                                                   AR_NOTE = t.AR_NOTE // Thêm các trường khác nếu cần
+                                               });
+                    // Chuyển IQueryable thành List
+                    result = dataSource.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Lỗi thực thi thao tác với DB: {ex.Message}");
+            }
+            return result;
         }
     }
 }
