@@ -12,7 +12,7 @@ namespace DAL
         private readonly string _connectionString = CConfig.CM_Cinema_DB_ConnectionString;
 
         // Thêm mới Movie
-        public void Add(tbl_DM_Movie_DTO movie)
+        public long Add(tbl_DM_Movie_DTO movie)
         {
             try
             {
@@ -38,6 +38,8 @@ namespace DAL
                     };
                     dbContext.tbl_DM_Movies.InsertOnSubmit(entity);
                     dbContext.SubmitChanges();
+
+                    return entity.MV_AutoID; // Trả về id vừa được thêm
                 }
             }
             catch (Exception ex)
@@ -47,7 +49,7 @@ namespace DAL
         }
 
         // Xóa Movie
-        public void Remove(long id)
+        public bool Remove(long id)
         {
             try
             {
@@ -62,7 +64,9 @@ namespace DAL
                         entity.UPDATED_BY = "admin";
                         entity.UPDATED_BY_FUNCTION = "Remove";
                         dbContext.SubmitChanges();
+                        return true; // Thao tác thành công
                     }
+                    return false; // Không tìm thấy entity để xóa
                 }
             }
             catch (Exception ex)
@@ -72,7 +76,7 @@ namespace DAL
         }
 
         // Cập nhật Movie
-        public void Update(tbl_DM_Movie_DTO movie)
+        public bool Update(tbl_DM_Movie_DTO movie)
         {
             try
             {
@@ -92,7 +96,9 @@ namespace DAL
                         entity.UPDATED_BY = "admin";
                         entity.UPDATED_BY_FUNCTION = "Update";
                         dbContext.SubmitChanges();
+                        return true; // Thao tác thành công
                     }
+                    return false; // Không tìm thấy entity để cập nhật
                 }
             }
             catch (Exception ex)
