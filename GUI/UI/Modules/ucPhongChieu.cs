@@ -20,8 +20,9 @@ namespace GUI.UI.Modules
         public ucPhongChieu()
         {
             InitializeComponent();
-            if (strFunctionCode != "")
-                lblTitle.Text = strFunctionCode.Trim();
+            this.layoutTitle.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutTitle.MaxSize = new System.Drawing.Size(0, 42);
+            this.layoutTitle.MinSize = new System.Drawing.Size(36, 36);
         }
 
         /// <summary>
@@ -137,6 +138,8 @@ namespace GUI.UI.Modules
                     cboStatus.SelectedIndex = (int)gvTheaters.GetRowCellValue(i, "TT_STATUS");
                 }
             }
+            if (strFunctionCode != "")
+                lblTitle.Text = strFunctionCode.ToUpper().Trim();
         }
     }
 }
