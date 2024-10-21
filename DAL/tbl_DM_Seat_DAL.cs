@@ -54,7 +54,7 @@ namespace DAL
         /// <exception cref="NotImplementedException"></exception>
         public override void UpdateData(tbl_DM_Seat_DTO obj)
         {
-            try
+            try { 
                 using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext())
                 {
                     // Tìm ghế có mã ghế như trên trong danh sách

@@ -97,7 +97,7 @@ namespace DAL
             }
         }
 
-        public override bool AddData(tbl_DM_Movie_DAL obj)
+        public override void AddData(tbl_DM_Movie_DAL obj)
         {
             throw new NotImplementedException();
         }
@@ -107,12 +107,12 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public override bool UpdateData(tbl_DM_Movie_DAL obj)
+        public override void UpdateData(tbl_DM_Movie_DAL obj)
         {
             throw new NotImplementedException();
         }
 
-        public override bool RemoveData(int id)
+        public override void RemoveData(int id)
         {
             throw new NotImplementedException();
         }
