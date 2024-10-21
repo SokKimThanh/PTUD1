@@ -3,6 +3,7 @@ using DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,9 +12,16 @@ namespace BUS
     public class tbl_DM_Theater_BUS
     {
         private tbl_DM_Theater_DAL dal = new tbl_DM_Theater_DAL();
-        public bool AddData(tbl_DM_Theater_DTO obj)
+        public void AddData(tbl_DM_Theater_DTO obj)
         {
-            throw new NotImplementedException();
+            try
+            {
+                dal.AddData(obj);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         /// <summary>
@@ -23,17 +31,36 @@ namespace BUS
         /// <exception cref="NotImplementedException"></exception>
         public List<tbl_DM_Theater_DTO> GetList()
         {
-            return dal.GetList();
+            try
+            {
+                return dal.GetList();
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public bool RemoveData(int id)
+        public void RemoveData(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                dal.RemoveData(id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        public bool UpdateData(tbl_DM_Theater_DTO obj)
+        public void UpdateData(tbl_DM_Theater_DTO obj)
         {
-            throw new NotImplementedException();
+            try
+            {
+                dal.UpdateData(obj);
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
