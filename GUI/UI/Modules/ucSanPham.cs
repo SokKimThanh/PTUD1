@@ -2,6 +2,7 @@
 using BUS.Danh_Muc;
 using DevExpress.Utils;
 using DevExpress.XtraEditors;
+using DevExpress.XtraRichEdit.Model;
 using DTO.tbl_DTO;
 using System;
 using System.Collections.Generic;
@@ -59,6 +60,14 @@ namespace GUI.UI.Modules
 
             // Đặt chiều cao dòng phù hợp với kích thước của hình ảnh
             gridView1.RowHeight = 250;
+
+            var width_img = 42;
+            // đặt chiều rộng cột hình ảnh
+            gridView1.Columns["PD_IMAGEURL"].Width = width_img;
+
+            // Đặt độ rộng tối thiểu và tối đa cho một cột cụ thể
+            gridView1.Columns["PD_IMAGEURL"].MinWidth = width_img;
+            gridView1.Columns["PD_IMAGEURL"].MaxWidth = 300;
 
             // Vẽ thủ công hình ảnh hiển thị trên lưới 
             gridView1.CustomDrawCell += gridView1_CustomDrawCell;
