@@ -38,7 +38,7 @@ namespace GUI.UI.Modules
             // Sử dụng constructor của tbl_DM_Movie_DTO để tạo đối tượng movie
             var movie = new tbl_DM_Movie_DTO(
                 mV_NAME: txtName.Text,
-                mV_POSTERURL: txtPostURL.Text,
+                mV_POSTERURL: txtUrlHinhAnh.Text,
                 mV_DESCRIPTION: txtDescription.Text,
                 mV_PRICE: double.Parse(txtPrice.Text.Trim()),
                 mV_DURATION: int.Parse(txtDurations.Text.Trim()),
@@ -116,7 +116,7 @@ namespace GUI.UI.Modules
                         txtName.Text = o.MV_NAME;
                         txtDescription.Text = o.MV_DESCRIPTION;
                         txtDurations.Text = o.MV_DURATION.ToString();
-                        txtPostURL.Text = o.MV_POSTERURL;
+                        txtUrlHinhAnh.Text = o.MV_POSTERURL;
                         txtPrice.Text = o.MV_PRICE.ToString();
                         cboAgeRating.ItemIndex = -1;
                     }
@@ -145,7 +145,7 @@ namespace GUI.UI.Modules
             txtName.Text = string.Empty;
             txtDescription.Text = string.Empty;
             txtDurations.Text = string.Empty;
-            txtPostURL.Text = string.Empty;
+            txtUrlHinhAnh.Text = string.Empty;
             txtPrice.Text = string.Empty;
             cboAgeRating.ItemIndex = -1;
         }
@@ -157,10 +157,27 @@ namespace GUI.UI.Modules
             //tbl_DM_AgeRating_DTO o = cboAgeRatingData.Find(cboAgeRating_selected_id);
             MessageBox.Show(cboAgeRating_selected_id.ToString(), "show id");
         }
-
+        /// <summary>
+        /// Nhấp vào hình hiển thị dialog box chọn ảnh
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBox_Click(object sender, EventArgs e)
         {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif";
 
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Hiển thị hình ảnh trên PictureEdit
+                pictureBox.Image = Image.FromFile(openFileDialog.FileName);
+
+                // Lấy đường dẫn đầy đủ của file đã chọn
+                string selectedImagePath = openFileDialog.FileName;
+
+                // Hiển thị đường dẫn hình ảnh trong TextBox hoặc Label
+                txtUrlHinhAnh.Text = selectedImagePath;
+            }
         }
     }
 }

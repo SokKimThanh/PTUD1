@@ -52,12 +52,12 @@
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutTitle = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutAction = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutTenSP = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutSoLuong = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutGia = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutTenSP = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutGia = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutDGV = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
@@ -74,12 +74,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutAction)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutTenSP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutSoLuong)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutGia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutTenSP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutGia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
@@ -207,22 +207,24 @@
             // 
             // btnOpenImage
             // 
-            this.btnOpenImage.Location = new System.Drawing.Point(212, 241);
+            this.btnOpenImage.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnOpenImage.Appearance.Options.UseFont = true;
+            this.btnOpenImage.Location = new System.Drawing.Point(24, 241);
             this.btnOpenImage.Name = "btnOpenImage";
-            this.btnOpenImage.Size = new System.Drawing.Size(559, 22);
+            this.btnOpenImage.Size = new System.Drawing.Size(125, 22);
             this.btnOpenImage.StyleController = this.layoutForm;
             this.btnOpenImage.TabIndex = 14;
-            this.btnOpenImage.Text = "Thêm ảnh";
+            this.btnOpenImage.Text = "Chọn hình ảnh";
             this.btnOpenImage.Click += new System.EventHandler(this.btnOpenImage_Click);
             // 
             // pictureBox
             // 
-            this.pictureBox.Location = new System.Drawing.Point(24, 97);
+            this.pictureBox.Location = new System.Drawing.Point(24, 81);
             this.pictureBox.MenuManager = this.barManager1;
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureBox.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.pictureBox.Size = new System.Drawing.Size(184, 166);
+            this.pictureBox.Size = new System.Drawing.Size(125, 156);
             this.pictureBox.StyleController = this.layoutForm;
             this.pictureBox.TabIndex = 13;
             this.pictureBox.Click += new System.EventHandler(this.pictureBox_Click);
@@ -254,33 +256,33 @@
             // 
             // txtTenSanPham
             // 
-            this.txtTenSanPham.Location = new System.Drawing.Point(212, 97);
+            this.txtTenSanPham.Location = new System.Drawing.Point(153, 97);
             this.txtTenSanPham.Name = "txtTenSanPham";
-            this.txtTenSanPham.Size = new System.Drawing.Size(559, 20);
+            this.txtTenSanPham.Size = new System.Drawing.Size(618, 20);
             this.txtTenSanPham.StyleController = this.layoutForm;
             this.txtTenSanPham.TabIndex = 5;
             // 
             // txtSoLuong
             // 
-            this.txtSoLuong.Location = new System.Drawing.Point(212, 137);
+            this.txtSoLuong.Location = new System.Drawing.Point(153, 137);
             this.txtSoLuong.Name = "txtSoLuong";
-            this.txtSoLuong.Size = new System.Drawing.Size(559, 21);
+            this.txtSoLuong.Size = new System.Drawing.Size(618, 21);
             this.txtSoLuong.TabIndex = 10;
             // 
             // txtGiaTien
             // 
-            this.txtGiaTien.Location = new System.Drawing.Point(212, 177);
+            this.txtGiaTien.Location = new System.Drawing.Point(153, 177);
             this.txtGiaTien.Name = "txtGiaTien";
-            this.txtGiaTien.Size = new System.Drawing.Size(559, 20);
+            this.txtGiaTien.Size = new System.Drawing.Size(618, 20);
             this.txtGiaTien.StyleController = this.layoutForm;
             this.txtGiaTien.TabIndex = 11;
             // 
             // txtUrlHinh
             // 
-            this.txtUrlHinh.Location = new System.Drawing.Point(212, 217);
+            this.txtUrlHinh.Location = new System.Drawing.Point(153, 217);
             this.txtUrlHinh.MenuManager = this.barManager1;
             this.txtUrlHinh.Name = "txtUrlHinh";
-            this.txtUrlHinh.Size = new System.Drawing.Size(559, 20);
+            this.txtUrlHinh.Size = new System.Drawing.Size(618, 20);
             this.txtUrlHinh.StyleController = this.layoutForm;
             this.txtUrlHinh.TabIndex = 12;
             // 
@@ -317,66 +319,43 @@
             this.layoutAction.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem2,
             this.layoutSoLuong,
-            this.layoutControlItem4,
             this.layoutControlItem3,
             this.layoutTenSP,
-            this.layoutGia});
+            this.layoutGia,
+            this.layoutControlItem4});
             this.layoutAction.Location = new System.Drawing.Point(0, 36);
             this.layoutAction.Name = "layoutAction";
             this.layoutAction.Size = new System.Drawing.Size(775, 231);
             this.layoutAction.Text = "Thao tác nhập liệu";
             // 
-            // layoutTenSP
-            // 
-            this.layoutTenSP.Control = this.txtTenSanPham;
-            this.layoutTenSP.CustomizationFormText = "Tên sản phẩm:";
-            this.layoutTenSP.Location = new System.Drawing.Point(188, 0);
-            this.layoutTenSP.Name = "layoutTenSP";
-            this.layoutTenSP.Size = new System.Drawing.Size(563, 40);
-            this.layoutTenSP.Text = "Tên sản phẩm:";
-            this.layoutTenSP.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutTenSP.TextSize = new System.Drawing.Size(95, 13);
-            // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.txtUrlHinh;
-            this.layoutControlItem2.Location = new System.Drawing.Point(188, 120);
+            this.layoutControlItem2.Location = new System.Drawing.Point(129, 120);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(563, 40);
-            this.layoutControlItem2.Text = "Url Hình:";
+            this.layoutControlItem2.Size = new System.Drawing.Size(622, 66);
+            this.layoutControlItem2.Text = "Product URL:";
             this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(95, 13);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(71, 13);
             // 
             // layoutSoLuong
             // 
             this.layoutSoLuong.Control = this.txtSoLuong;
             this.layoutSoLuong.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutSoLuong.CustomizationFormText = "Số lượng:";
-            this.layoutSoLuong.Location = new System.Drawing.Point(188, 40);
+            this.layoutSoLuong.Location = new System.Drawing.Point(129, 40);
             this.layoutSoLuong.Name = "layoutSoLuong";
-            this.layoutSoLuong.Size = new System.Drawing.Size(563, 40);
+            this.layoutSoLuong.Size = new System.Drawing.Size(622, 40);
             this.layoutSoLuong.Text = "Số lượng:";
             this.layoutSoLuong.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutSoLuong.TextSize = new System.Drawing.Size(95, 13);
-            // 
-            // layoutGia
-            // 
-            this.layoutGia.Control = this.txtGiaTien;
-            this.layoutGia.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutGia.CustomizationFormText = "Giá:";
-            this.layoutGia.Location = new System.Drawing.Point(188, 80);
-            this.layoutGia.Name = "layoutGia";
-            this.layoutGia.Size = new System.Drawing.Size(563, 40);
-            this.layoutGia.Text = "Giá:";
-            this.layoutGia.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutGia.TextSize = new System.Drawing.Size(95, 13);
+            this.layoutSoLuong.TextSize = new System.Drawing.Size(71, 13);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.btnOpenImage;
-            this.layoutControlItem4.Location = new System.Drawing.Point(188, 160);
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 160);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(563, 26);
+            this.layoutControlItem4.Size = new System.Drawing.Size(129, 26);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
@@ -384,13 +363,38 @@
             // 
             this.layoutControlItem3.Control = this.pictureBox;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem3.MinSize = new System.Drawing.Size(99, 60);
+            this.layoutControlItem3.MaxSize = new System.Drawing.Size(129, 160);
+            this.layoutControlItem3.MinSize = new System.Drawing.Size(129, 160);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(188, 186);
+            this.layoutControlItem3.Size = new System.Drawing.Size(129, 160);
             this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem3.Text = "Hình ảnh sản phẩm:";
             this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(95, 13);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextVisible = false;
+            // 
+            // layoutTenSP
+            // 
+            this.layoutTenSP.Control = this.txtTenSanPham;
+            this.layoutTenSP.CustomizationFormText = "Tên sản phẩm:";
+            this.layoutTenSP.Location = new System.Drawing.Point(129, 0);
+            this.layoutTenSP.Name = "layoutTenSP";
+            this.layoutTenSP.Size = new System.Drawing.Size(622, 40);
+            this.layoutTenSP.Text = "Tên sản phẩm:";
+            this.layoutTenSP.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutTenSP.TextSize = new System.Drawing.Size(71, 13);
+            // 
+            // layoutGia
+            // 
+            this.layoutGia.Control = this.txtGiaTien;
+            this.layoutGia.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.layoutGia.CustomizationFormText = "Giá:";
+            this.layoutGia.Location = new System.Drawing.Point(129, 80);
+            this.layoutGia.Name = "layoutGia";
+            this.layoutGia.Size = new System.Drawing.Size(622, 40);
+            this.layoutGia.Text = "Giá:";
+            this.layoutGia.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutGia.TextSize = new System.Drawing.Size(71, 13);
             // 
             // layoutDGV
             // 
@@ -437,12 +441,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutAction)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutTenSP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutSoLuong)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutGia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutTenSP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutGia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
