@@ -142,7 +142,6 @@ namespace DAL
                 throw new Exception($"Lỗi thực thi thao tác với DB: {ex.Message}");
             }
         }
-
         // Tìm kiếm Movie theo ID
         public tbl_DM_Movie_DTO Find(long id)
         {
@@ -163,6 +162,39 @@ namespace DAL
                               MV_AGERATING_AutoID = item.MV_AGERATING_AutoID,
                           })
                           .SingleOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Lỗi thực thi thao tác với DB: {ex.Message}");
+            }
+        }
+        /// <summary>
+        /// Danh sách combobox phim
+        /// </summary>
+        /// <returns></returns>
+        public List<tbl_DM_Movie_DTO> GetCombobox()
+        {
+            List<tbl_DM_Movie_DTO> result = new List<tbl_DM_Movie_DTO>();
+            try
+            {
+                using (var dbContext = new CM_Cinema_DBDataContext(_connectionString))
+                {
+                    var list = dbContext.tbl_DM_Movies.ToList();
+
+                    foreach (var item in list)
+                    {
+                        if (item.DELETED != 1)
+                        {
+                            tbl_DM_Movie_DTO entity = new tbl_DM_Movie_DTO(
+                                mV_AutoID: item.MV_AutoID,
+                                mV_NAME: item.MV_NAME
+                                );
+
+                            result.Add(entity);
+                        }
+                    }
+                    return result;
                 }
             }
             catch (Exception ex)

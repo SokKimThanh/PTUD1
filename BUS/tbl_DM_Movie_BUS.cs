@@ -53,11 +53,19 @@ namespace BUS
         /// <summary>
         /// Tìm kiếm Movie theo ID
         /// </summary>
-        /// <param name="id">MV_AutoID</param>
+        /// <param name="id">dgv_selected_id, cboMovie_selected_id</param>
         /// <returns>tbl_DM_Movie_DTO</returns>
-        public tbl_DM_Movie_DTO Find(long id)
+        public tbl_DM_Movie_DTO Find(long dgv_selected_id)
         {
-            return data.Find(id);
+            return data.Find(dgv_selected_id);
+        }
+        /// <summary>
+        /// Danh sách combobox phim
+        /// </summary>
+        /// <returns></returns>
+        public List<tbl_DM_Movie_DTO> GetCombobox()
+        {
+            return data.GetCombobox();
         }
     }
 }
