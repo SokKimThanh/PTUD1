@@ -220,6 +220,9 @@
             this.gvTheaters.DetailHeight = 431;
             this.gvTheaters.GridControl = this.dgvView;
             this.gvTheaters.Name = "gvTheaters";
+            this.gvTheaters.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
+            this.gvTheaters.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
+            this.gvTheaters.OptionsBehavior.Editable = false;
             this.gvTheaters.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gvTheaters_RowCellClick);
             // 
             // txtName
@@ -241,6 +244,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboStatus.Properties.DropDownRows = 2;
             this.cboStatus.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered;
+            this.cboStatus.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cboStatus.Size = new System.Drawing.Size(684, 22);
             this.cboStatus.StyleController = this.layoutForm;
             this.cboStatus.TabIndex = 7;

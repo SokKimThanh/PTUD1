@@ -25,55 +25,59 @@ namespace BUS
         /// <param name="couples"></param>
         /// <param name="theater_AutoID"></param>
         /// <returns></returns>
-        public bool AddData(int rows, int cols, int couples, int theater_AutoID)
+        public void AddData(int rows, int cols, int couples, int theater_AutoID)
         {
-            bool flg = false;
-
-            for(int row = 1; row <= cols; row++)
+            try
             {
-                for(int col = 1; col <= cols; col++)
+                for (int row = 1; row <= cols; row++)
                 {
-                    // Chuyển số dãy thành chữ
-                    string file = Convert.ToChar(row + 65).ToString();
-                    // Số cột là số thứ tự của ghế trên dãy
-                    int rank = col;
-                    tbl_DM_Seat_DTO item = new tbl_DM_Seat_DTO(null, file, rank, theater_AutoID, 0);
-                    try
+                    for (int col = 1; col <= cols; col++)
                     {
-                        //Thêm ghế đơn vào danh sách
-                        flg = dal.AddData(item);
-                    }catch(Exception ex)
-                    {
-                        // Nếu ghế đã có trong danh sách 
-                        if (ex.ToString().Contains("UNIQUE"))
+                        // Chuyển số dãy thành chữ
+                        string file = Convert.ToChar(row + 65).ToString();
+                        // Số cột là số thứ tự của ghế trên dãy
+                        int rank = col;
+                        tbl_DM_Seat_DTO item = new tbl_DM_Seat_DTO(null, file, rank, theater_AutoID, 0);
+                        try
                         {
-                            tbl_DM_Seat_DTO item_Found = dal.FindSeat(file, rank, theater_AutoID);
-                            // Tái kích hoạt ghế nếu ghế đang ẩn
-                            if(item_Found.Deleted == 1)
+                            //Thêm ghế đơn vào danh sách
+                            dal.AddData(item);
+                        }
+                        catch (Exception ex)
+                        {
+                            // Nếu ghế đã có trong danh sách 
+                            if (ex.ToString().Contains("UNIQUE"))
                             {
-                                // Cập nhật trạng thái kích hoạt cho ghế vừa tìm thấy
-                                item_Found.Deleted = 0;
-                                dal.UpdateData(item_Found);
+                                tbl_DM_Seat_DTO item_Found = dal.FindSeat(file, rank, theater_AutoID);
+                                // Tái kích hoạt ghế nếu ghế đang ẩn
+                                if (item_Found.Deleted == 1)
+                                {
+                                    // Cập nhật trạng thái kích hoạt cho ghế vừa tìm thấy
+                                    item_Found.Deleted = 0;
+                                    dal.UpdateData(item_Found);
+                                }
                             }
                         }
                     }
                 }
-            }
-            for(int couple = 1; couple <= couples; couple++)
+                for (int couple = 1; couple <= couples; couple++)
+                {
+                    // Ghế đôi bắt đầu bằng ký tự CP
+                    string file = "CP";
+                    // Số ghế là số thứ tự
+                    int rank = couple;
+                    // Thêm ghế đôi vào danh sách
+                    dal.AddData(new tbl_DM_Seat_DTO(null, file, rank, theater_AutoID, 0));
+                }
+            }catch(Exception ex)
             {
-                // Ghế đôi bắt đầu bằng ký tự CP
-                string file = "CP";
-                // Số ghế là số thứ tự
-                int rank = couple;
-                // Thêm ghế đôi vào danh sách
-                flg = dal.AddData(new tbl_DM_Seat_DTO(null, file, rank, theater_AutoID,0));
+                throw ex;
             }
-            return flg;
         }
 
-        public bool RemoveData(int id)
+        public void RemoveData(int id)
         {
-            return dal.RemoveData(id);
+            dal.RemoveData(id);
         }
     }
 }
