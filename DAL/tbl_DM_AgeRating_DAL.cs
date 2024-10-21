@@ -14,7 +14,6 @@ namespace DAL
         // Thêm mới AgeRating
         public void Add(tbl_DM_AgeRating_DTO ageRating)
         {
-
             try
             {
                 using (var dbContext = new CM_Cinema_DBDataContext(_connectionString))

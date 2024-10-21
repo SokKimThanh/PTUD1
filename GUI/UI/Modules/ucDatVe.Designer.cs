@@ -40,6 +40,7 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.layoutForm = new DevExpress.XtraLayout.LayoutControl();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.dgv = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -48,7 +49,6 @@
             this.layoutAction = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutDGV = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutForm)).BeginInit();
@@ -177,22 +177,29 @@
             this.layoutForm.TabIndex = 9;
             this.layoutForm.Text = "layoutControl1";
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(12, 384);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(772, 121);
+            this.panel1.TabIndex = 10;
+            // 
             // lblTitle
             // 
             this.lblTitle.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Bold);
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.lblTitle.Location = new System.Drawing.Point(18, 18);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(700, 18);
+            this.lblTitle.Size = new System.Drawing.Size(760, 20);
             this.lblTitle.TabIndex = 9;
             this.lblTitle.Text = "Title";
             // 
             // dgv
             // 
-            this.dgv.Location = new System.Drawing.Point(24, 164);
+            this.dgv.Location = new System.Drawing.Point(24, 293);
             this.dgv.MainView = this.gridView1;
             this.dgv.Name = "dgv";
-            this.dgv.Size = new System.Drawing.Size(748, 281);
+            this.dgv.Size = new System.Drawing.Size(748, 75);
             this.dgv.TabIndex = 8;
             this.dgv.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -219,11 +226,11 @@
             // 
             this.layoutTitle.Control = this.lblTitle;
             this.layoutTitle.Location = new System.Drawing.Point(0, 0);
-            this.layoutTitle.MaxSize = new System.Drawing.Size(716, 38);
-            this.layoutTitle.MinSize = new System.Drawing.Size(716, 30);
+            this.layoutTitle.MaxSize = new System.Drawing.Size(0, 36);
+            this.layoutTitle.MinSize = new System.Drawing.Size(36, 36);
             this.layoutTitle.Name = "layoutTitle";
             this.layoutTitle.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
-            this.layoutTitle.Size = new System.Drawing.Size(776, 34);
+            this.layoutTitle.Size = new System.Drawing.Size(776, 36);
             this.layoutTitle.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutTitle.Spacing = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
             this.layoutTitle.Text = "Title";
@@ -234,9 +241,9 @@
             // 
             this.layoutAction.CaptionImageOptions.Image = global::GUI.Properties.Resources.reviewallowuserstoeditranges_16x16;
             this.layoutAction.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Flow;
-            this.layoutAction.Location = new System.Drawing.Point(0, 34);
+            this.layoutAction.Location = new System.Drawing.Point(0, 36);
             this.layoutAction.Name = "layoutAction";
-            this.layoutAction.Size = new System.Drawing.Size(776, 85);
+            this.layoutAction.Size = new System.Drawing.Size(776, 212);
             this.layoutAction.Text = "Thao tác nhập liệu";
             // 
             // layoutDGV
@@ -245,9 +252,9 @@
             this.layoutDGV.CustomizationFormText = "Danh sách dữ liệu";
             this.layoutDGV.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
-            this.layoutDGV.Location = new System.Drawing.Point(0, 119);
+            this.layoutDGV.Location = new System.Drawing.Point(0, 248);
             this.layoutDGV.Name = "layoutDGV";
-            this.layoutDGV.Size = new System.Drawing.Size(776, 330);
+            this.layoutDGV.Size = new System.Drawing.Size(776, 124);
             this.layoutDGV.Text = "Danh sách dữ liệu";
             // 
             // layoutControlItem1
@@ -256,23 +263,16 @@
             this.layoutControlItem1.CustomizationFormText = "dgvCaLamViec";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(752, 285);
+            this.layoutControlItem1.Size = new System.Drawing.Size(752, 79);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(12, 461);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(772, 44);
-            this.panel1.TabIndex = 10;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.panel1;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 449);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 372);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(776, 48);
+            this.layoutControlItem2.Size = new System.Drawing.Size(776, 125);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
