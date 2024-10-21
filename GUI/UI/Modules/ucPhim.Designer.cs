@@ -48,7 +48,6 @@ namespace GUI.UI.Modules
             this.txtUrlHinhAnh = new DevExpress.XtraEditors.TextEdit();
             this.lblTitle = new System.Windows.Forms.Label();
             this.dgv = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.txtName = new DevExpress.XtraEditors.TextEdit();
             this.txtPrice = new DevExpress.XtraEditors.TextEdit();
             this.txtDurations = new DevExpress.XtraEditors.TextEdit();
@@ -66,13 +65,13 @@ namespace GUI.UI.Modules
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutDGV = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutForm)).BeginInit();
             this.layoutForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUrlHinhAnh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDurations.Properties)).BeginInit();
@@ -90,6 +89,7 @@ namespace GUI.UI.Modules
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -244,6 +244,7 @@ namespace GUI.UI.Modules
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureBox.Properties.ShowZoomSubMenu = DevExpress.Utils.DefaultBoolean.True;
+            this.pictureBox.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
             this.pictureBox.Size = new System.Drawing.Size(125, 156);
             this.pictureBox.StyleController = this.layoutForm;
             this.pictureBox.TabIndex = 15;
@@ -278,12 +279,6 @@ namespace GUI.UI.Modules
             this.dgv.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             this.dgv.Click += new System.EventHandler(this.dgv_Click);
-            // 
-            // gridView1
-            // 
-            this.gridView1.GridControl = this.dgv;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsBehavior.Editable = false;
             // 
             // txtName
             // 
@@ -487,6 +482,12 @@ namespace GUI.UI.Modules
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.dgv;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
+            // 
             // ucPhim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -504,7 +505,6 @@ namespace GUI.UI.Modules
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUrlHinhAnh.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDurations.Properties)).EndInit();
@@ -522,6 +522,7 @@ namespace GUI.UI.Modules
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -541,7 +542,6 @@ namespace GUI.UI.Modules
         private DevExpress.XtraLayout.LayoutControl layoutForm;
         private System.Windows.Forms.Label lblTitle;
         private DevExpress.XtraGrid.GridControl dgv;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.TextEdit txtName;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraLayout.LayoutControlItem layoutTitle;
@@ -563,5 +563,6 @@ namespace GUI.UI.Modules
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraEditors.SimpleButton btnOpenImage;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
     }
 }
