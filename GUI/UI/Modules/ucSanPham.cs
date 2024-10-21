@@ -17,14 +17,7 @@ namespace GUI.UI.Modules
     {
         public ucSanPham()
         {
-            InitializeComponent();
-            this.layoutTitle.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutTitle.MaxSize = new System.Drawing.Size(0, 42);
-            this.layoutTitle.MinSize = new System.Drawing.Size(36, 36);
-            // Ngăn không cho phép sửa dữ liệu trực tiếp trên GridView
-            gridView1.OptionsBehavior.Editable = false;
-            // cho phép kéo thả hình vào ô hình
-            pictureBox.Properties.ShowZoomSubMenu = DefaultBoolean.True;
+            InitializeComponent(); 
         }
 
         protected override void Load_Data()
@@ -56,7 +49,7 @@ namespace GUI.UI.Modules
                 string selectedImagePath = openFileDialog.FileName;
 
                 // Hiển thị đường dẫn hình ảnh trong TextBox hoặc Label
-                txtUrlHinh.Text = selectedImagePath;
+                txtUrlHinhAnh.Text = selectedImagePath;
             }
         }
         /// <summary>
@@ -78,7 +71,7 @@ namespace GUI.UI.Modules
                 string selectedImagePath = openFileDialog.FileName;
 
                 // Hiển thị đường dẫn hình ảnh trong TextBox hoặc Label
-                txtUrlHinh.Text = selectedImagePath;
+                txtUrlHinhAnh.Text = selectedImagePath;
             }
         }
     }

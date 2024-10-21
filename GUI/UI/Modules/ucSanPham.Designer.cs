@@ -1,4 +1,6 @@
-﻿namespace GUI.UI.Modules
+﻿using DevExpress.Utils;
+
+namespace GUI.UI.Modules
 {
     partial class ucSanPham
     {
@@ -48,16 +50,16 @@
             this.txtTenSanPham = new DevExpress.XtraEditors.TextEdit();
             this.txtSoLuong = new System.Windows.Forms.NumericUpDown();
             this.txtGiaTien = new DevExpress.XtraEditors.TextEdit();
-            this.txtUrlHinh = new DevExpress.XtraEditors.TextEdit();
+            this.txtUrlHinhAnh = new DevExpress.XtraEditors.TextEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutTitle = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutAction = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutSoLuong = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutTenSP = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutGia = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutDGV = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
@@ -70,16 +72,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTenSanPham.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGiaTien.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUrlHinh.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUrlHinhAnh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutAction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutSoLuong)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTenSP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutGia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
@@ -195,7 +197,7 @@
             this.layoutForm.Controls.Add(this.txtTenSanPham);
             this.layoutForm.Controls.Add(this.txtSoLuong);
             this.layoutForm.Controls.Add(this.txtGiaTien);
-            this.layoutForm.Controls.Add(this.txtUrlHinh);
+            this.layoutForm.Controls.Add(this.txtUrlHinhAnh);
             this.layoutForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutForm.Location = new System.Drawing.Point(0, 24);
             this.layoutForm.Name = "layoutForm";
@@ -223,6 +225,7 @@
             this.pictureBox.MenuManager = this.barManager1;
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureBox.Properties.ShowZoomSubMenu = DevExpress.Utils.DefaultBoolean.True;
             this.pictureBox.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
             this.pictureBox.Size = new System.Drawing.Size(125, 156);
             this.pictureBox.StyleController = this.layoutForm;
@@ -253,6 +256,7 @@
             // 
             this.gridView1.GridControl = this.dgv;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
             // 
             // txtTenSanPham
             // 
@@ -273,18 +277,25 @@
             // 
             this.txtGiaTien.Location = new System.Drawing.Point(153, 177);
             this.txtGiaTien.Name = "txtGiaTien";
+            this.txtGiaTien.Properties.BeepOnError = true;
+            this.txtGiaTien.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.txtGiaTien.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
+            this.txtGiaTien.Properties.MaskSettings.Set("mask", "d");
+            this.txtGiaTien.Properties.MaskSettings.Set("culture", "vi-VN");
+            this.txtGiaTien.Properties.MaskSettings.Set("valueType", typeof(double));
+            this.txtGiaTien.Properties.UseMaskAsDisplayFormat = true;
             this.txtGiaTien.Size = new System.Drawing.Size(618, 20);
             this.txtGiaTien.StyleController = this.layoutForm;
             this.txtGiaTien.TabIndex = 11;
             // 
-            // txtUrlHinh
+            // txtUrlHinhAnh
             // 
-            this.txtUrlHinh.Location = new System.Drawing.Point(153, 217);
-            this.txtUrlHinh.MenuManager = this.barManager1;
-            this.txtUrlHinh.Name = "txtUrlHinh";
-            this.txtUrlHinh.Size = new System.Drawing.Size(618, 20);
-            this.txtUrlHinh.StyleController = this.layoutForm;
-            this.txtUrlHinh.TabIndex = 12;
+            this.txtUrlHinhAnh.Location = new System.Drawing.Point(153, 217);
+            this.txtUrlHinhAnh.MenuManager = this.barManager1;
+            this.txtUrlHinhAnh.Name = "txtUrlHinhAnh";
+            this.txtUrlHinhAnh.Size = new System.Drawing.Size(618, 20);
+            this.txtUrlHinhAnh.StyleController = this.layoutForm;
+            this.txtUrlHinhAnh.TabIndex = 12;
             // 
             // Root
             // 
@@ -302,7 +313,7 @@
             // 
             this.layoutTitle.Control = this.lblTitle;
             this.layoutTitle.Location = new System.Drawing.Point(0, 0);
-            this.layoutTitle.MaxSize = new System.Drawing.Size(0, 36);
+            this.layoutTitle.MaxSize = new System.Drawing.Size(0, 42);
             this.layoutTitle.MinSize = new System.Drawing.Size(36, 36);
             this.layoutTitle.Name = "layoutTitle";
             this.layoutTitle.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
@@ -330,7 +341,7 @@
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.txtUrlHinh;
+            this.layoutControlItem2.Control = this.txtUrlHinhAnh;
             this.layoutControlItem2.Location = new System.Drawing.Point(129, 120);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(622, 66);
@@ -349,15 +360,6 @@
             this.layoutSoLuong.Text = "Số lượng:";
             this.layoutSoLuong.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutSoLuong.TextSize = new System.Drawing.Size(71, 13);
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.btnOpenImage;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 160);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(129, 26);
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
             // 
             // layoutControlItem3
             // 
@@ -395,6 +397,15 @@
             this.layoutGia.Text = "Giá:";
             this.layoutGia.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutGia.TextSize = new System.Drawing.Size(71, 13);
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.btnOpenImage;
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 160);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(129, 26);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
             // 
             // layoutDGV
             // 
@@ -437,16 +448,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTenSanPham.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGiaTien.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUrlHinh.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUrlHinhAnh.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutAction)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutSoLuong)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTenSP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutGia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
@@ -483,7 +494,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutGia;
         private DevExpress.XtraLayout.LayoutControlItem layoutSoLuong;
         private DevExpress.XtraEditors.PictureEdit pictureBox;
-        private DevExpress.XtraEditors.TextEdit txtUrlHinh;
+        private DevExpress.XtraEditors.TextEdit txtUrlHinhAnh;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraEditors.SimpleButton btnOpenImage;

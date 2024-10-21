@@ -1,5 +1,6 @@
 ﻿using BUS;
 using BUS.Danh_Muc;
+using DevExpress.Utils;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DTO.tbl_DTO;
@@ -26,11 +27,6 @@ namespace GUI.UI.Modules
         public ucPhim()
         {
             InitializeComponent();
-            this.layoutTitle.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutTitle.MaxSize = new System.Drawing.Size(0, 42);
-            this.layoutTitle.MinSize = new System.Drawing.Size(36, 36);
-            // Ngăn không cho phép sửa dữ liệu trực tiếp trên GridView
-            gridView1.OptionsBehavior.Editable = false;
         }
 
         private tbl_DM_Movie_DTO GetFormData()
@@ -167,6 +163,28 @@ namespace GUI.UI.Modules
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif";
 
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Hiển thị hình ảnh trên PictureEdit
+                pictureBox.Image = Image.FromFile(openFileDialog.FileName);
+
+                // Lấy đường dẫn đầy đủ của file đã chọn
+                string selectedImagePath = openFileDialog.FileName;
+
+                // Hiển thị đường dẫn hình ảnh trong TextBox hoặc Label
+                txtUrlHinhAnh.Text = selectedImagePath;
+            }
+        }
+
+        /// <summary>
+        /// Nút thêm hình nếu người dùng thích bấm
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnOpenImage_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 // Hiển thị hình ảnh trên PictureEdit
