@@ -25,24 +25,21 @@ namespace DAL
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public override bool AddData(tbl_DM_Seat_DTO obj)
+        public override void AddData(tbl_DM_Seat_DTO obj)
         {
             try
             {
-                bool flg = false;
-
-                tbl_DM_Seat seat = new tbl_DM_Seat()
+                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext())
                 {
-                    SE_FILE = obj.File,
-                    SE_RANK = obj.Rank,
-                    SE_THEATER_AutoID = obj.Theater_AutoID,
-                };
-                DBDataContext.tbl_DM_Seats.InsertOnSubmit(seat);
-                DBDataContext.SubmitChanges();
-
-                flg = true;
-
-                return flg;
+                    tbl_DM_Seat seat = new tbl_DM_Seat()
+                    {
+                        SE_FILE = obj.File,
+                        SE_RANK = obj.Rank,
+                        SE_THEATER_AutoID = obj.Theater_AutoID,
+                    };
+                    db.tbl_DM_Seats.InsertOnSubmit(seat);
+                    db.SubmitChanges();
+                }
             }
             catch (Exception ex)
             {
@@ -55,24 +52,21 @@ namespace DAL
         /// <param name="obj"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public override bool UpdateData(tbl_DM_Seat_DTO obj)
+        public override void UpdateData(tbl_DM_Seat_DTO obj)
         {
             try
-            {
-                bool flg = false;
-
-                // Tìm ghế có mã ghế như trên trong danh sách
-                tbl_DM_Seat seat = DBDataContext.tbl_DM_Seats.SingleOrDefault(item => item.SE_AutoID == obj.AutoID);
-
-                //Nếu tìm thấy ghế
-                if (seat != null)
+                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext())
                 {
-                    seat.DELETED = obj.Deleted;
-                    DBDataContext.SubmitChanges();
-                    flg = true;
-                }
+                    // Tìm ghế có mã ghế như trên trong danh sách
+                    tbl_DM_Seat seat = db.tbl_DM_Seats.SingleOrDefault(item => item.SE_AutoID == obj.AutoID);
 
-                return flg;
+                    //Nếu tìm thấy ghế
+                    if (seat != null)
+                    {
+                        seat.DELETED = obj.Deleted;
+                        db.SubmitChanges();
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -85,24 +79,22 @@ namespace DAL
         /// <param name="id"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public override bool RemoveData(int id)
+        public override void RemoveData(int id)
         {
             try
             {
-                bool flg = false;
-
-                // Tìm ghế có mã ghế như trên trong danh sách
-                tbl_DM_Seat seat = DBDataContext.tbl_DM_Seats.SingleOrDefault(item => item.SE_AutoID == id);
-                //Nếu tìm thấy ghế
-                if (seat != null)
+                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext())
                 {
-                    seat.DELETED = 1;
-                    DBDataContext.tbl_DM_Seats.InsertOnSubmit(seat);
-                    DBDataContext.SubmitChanges();
-                    flg = true;
+                    // Tìm ghế có mã ghế như trên trong danh sách
+                    tbl_DM_Seat seat = db.tbl_DM_Seats.SingleOrDefault(item => item.SE_AutoID == id);
+                    //Nếu tìm thấy ghế
+                    if (seat != null)
+                    {
+                        seat.DELETED = 1;
+                        db.tbl_DM_Seats.InsertOnSubmit(seat);
+                        db.SubmitChanges();
+                    }
                 }
-
-                return flg;
             }
             catch (Exception ex)
             {

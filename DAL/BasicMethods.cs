@@ -12,9 +12,9 @@ namespace DAL
         protected CM_Cinema_DBDataContext DBDataContext = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString);
 
         public abstract List<T> GetList();
-        public abstract bool AddData(T obj);
-        public abstract bool UpdateData(T obj);
-        public abstract bool RemoveData(int id);
+        public abstract void AddData(T obj);
+        public abstract void UpdateData(T obj);
+        public abstract void RemoveData(int id);
 
     }
 }
