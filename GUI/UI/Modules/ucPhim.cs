@@ -74,15 +74,15 @@ namespace GUI.UI.Modules
             dgv.RefreshDataSource();
 
             // Đặt chiều cao dòng phù hợp với kích thước của hình ảnh
-            gridView1.RowHeight = 250;
-
-            var width_img = 42;
+            gridView1.RowHeight = 150;
+ 
+            var width_img = 100;
             // đặt chiều rộng cột hình ảnh
             gridView1.Columns["MV_POSTERURL"].Width = width_img;
 
             // Đặt độ rộng tối thiểu và tối đa cho một cột cụ thể
             gridView1.Columns["MV_POSTERURL"].MinWidth = width_img;
-            gridView1.Columns["MV_POSTERURL"].MaxWidth = 300;
+            gridView1.Columns["MV_POSTERURL"].MaxWidth = width_img;
 
             // Vẽ thủ công hình ảnh hiển thị trên lưới 
             gridView1.CustomDrawCell += gridView1_CustomDrawCell;
