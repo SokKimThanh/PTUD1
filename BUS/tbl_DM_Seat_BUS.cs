@@ -1,5 +1,5 @@
 ﻿using DAL;
-using DTO;
+using DTO.tbl_DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +14,7 @@ namespace BUS
 
         public List<tbl_DM_Seat_DTO> GetList()
         {
-            throw new NotImplementedException();
+            return dal.GetList();
         }
 
         /// <summary>
@@ -25,16 +25,16 @@ namespace BUS
         /// <param name="couples"></param>
         /// <param name="theater_AutoID"></param>
         /// <returns></returns>
-        public void AddData(int rows, int cols, int couples, int theater_AutoID)
+        public void AddData(int rows, int cols, int couples, long theater_AutoID)
         {
             try
             {
-                for (int row = 1; row <= cols; row++)
+                for (int row = 1; row <= rows; row++)
                 {
                     for (int col = 1; col <= cols; col++)
                     {
                         // Chuyển số dãy thành chữ
-                        string file = Convert.ToChar(row + 65).ToString();
+                        string file = Convert.ToChar(row + 64).ToString();
                         // Số cột là số thứ tự của ghế trên dãy
                         int rank = col;
                         tbl_DM_Seat_DTO item = new tbl_DM_Seat_DTO(null, file, rank, theater_AutoID, 0);

@@ -44,7 +44,11 @@ namespace DAL
                 throw ex;
             }
         }
-
+        /// <summary>
+        /// Thêm phòng chiếu mới vào danh sách
+        /// Kiểm tra các phòng chiếu có cùng tên, nếu có nhưng đã ẩn thì tái kích hoạt để hiển thị lên danh sách
+        /// </summary>
+        /// <param name="obj"></param>
         public override void AddData(tbl_DM_Theater_DTO obj)
         {
             try
