@@ -13,7 +13,8 @@ namespace DTO.tbl_DTO
     {
         private long pD_AutoID;
         private string pD_NAME, pD_IMAGEURL;
-        private float pD_QUANTITY, pD_PRICE;
+        private double pD_QUANTITY, pD_PRICE;
+         
 
         public tbl_DM_Product_DTO()
         {
@@ -30,7 +31,7 @@ namespace DTO.tbl_DTO
             this.pD_NAME = pD_NAME;
         }
 
-        public tbl_DM_Product_DTO(string pD_NAME = null, string pD_IMAGEURL = null, float pD_QUANTITY = 0, float pD_PRICE = 0, long pD_AutoID = 0)
+        public tbl_DM_Product_DTO(string pD_NAME = null, string pD_IMAGEURL = null, double pD_QUANTITY = 0, double pD_PRICE = 0, long pD_AutoID = 0)
         {
             this.pD_NAME = pD_NAME;
             this.pD_IMAGEURL = pD_IMAGEURL;
@@ -71,23 +72,23 @@ namespace DTO.tbl_DTO
             }
         }
 
-        public float PD_QUANTITY
+        public double PD_QUANTITY
         {
             get => pD_QUANTITY;
             set
             {
-                if (value >= 0)
+                if (!string.IsNullOrWhiteSpace(value.ToString()) && value >= 0)
                 {
                     pD_QUANTITY = value;
                 }
                 else
                 {
-                    throw new ArgumentException("PD_QUANTITY bắt buộc lớn hơn hoặc bằng 0");
+                    throw new ArgumentException("PD_QUANTITY bắt buộc lớn hơn 0.");
                 }
             }
         }
 
-        public float PD_PRICE
+        public double PD_PRICE
         {
             get => pD_PRICE;
             set
@@ -98,7 +99,7 @@ namespace DTO.tbl_DTO
                 }
                 else
                 {
-                    throw new ArgumentException("PD_PRICE must be greater than or equal to 0.");
+                    throw new ArgumentException("PD_PRICE bắt buộc lớn hơn hoặc bằng 0.");
                 }
             }
         }
@@ -114,7 +115,7 @@ namespace DTO.tbl_DTO
                 }
                 else
                 {
-                    throw new ArgumentException("PD_AutoID must be greater than 0.");
+                    throw new ArgumentException("PD_AutoID bắt buộc lớn hơn 0.");
                 }
             }
         }
