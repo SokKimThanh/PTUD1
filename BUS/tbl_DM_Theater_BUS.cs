@@ -24,10 +24,11 @@ namespace BUS
                 else
                 {
                     if (theater_Found.Deleted == 0)
-                        throw new Exception("Rạp " + theater_Found.Name + " đã có trong danh sách !");
+                        throw new Exception(theater_Found.Name + " đã có trong danh sách !");
                     else
                     {
                         theater_Found.Deleted = 0;
+                        theater_Found.Status = obj.Status;
                         dal.UpdateData(theater_Found);
                     }
                 }

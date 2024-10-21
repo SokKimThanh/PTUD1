@@ -24,38 +24,44 @@ namespace GUI.UI.Modules
         public ucGhe()
         {
             InitializeComponent();
-            this.layoutTitle.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutTitle.MaxSize = new System.Drawing.Size(0, 42);
-            this.layoutTitle.MinSize = new System.Drawing.Size(36, 36);
+
+        }
+        protected override void Load_Data()
+        {
+            if (strFunctionCode != "")
+                lblTitle.Text = strFunctionCode.ToUpper().Trim();
 
             // Lấy danh sách các phòng chiếu
             cboTheaters.Properties.DataSource = theater_BUS.GetList();
             cboTheaters.Properties.DisplayMember = "Name";
             cboTheaters.Properties.ValueMember = "AutoID";
             cboTheaters.ItemIndex = 0;
-            // Ngăn không cho phép sửa dữ liệu trực tiếp trên GridView
-            gridView1.OptionsBehavior.Editable = false;
-        }
-        protected override void Load_Data()
-        {
-            if (strFunctionCode != "")
-                lblTitle.Text = strFunctionCode.ToUpper().Trim();
+
+            // Lấy danh sách ghế trong các phòng chiếu
+            dgv.DataSource = seat_BUS.GetList();
         }
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            int rows, cols;
-            if(Ultilities.isNumber(txtRows.Text) && Ultilities.isNumber(txtCols.Text))
+            try
             {
-                rows = int.Parse(txtRows.Text);
-                cols = int.Parse(txtCols.Text);
-                int couples = Convert.ToInt32(cboCouples.EditValue.ToString());
-                int theater_AutoID = 1;
-                seat_BUS.AddData(rows, cols, couples, theater_AutoID);
-            }
-            else
+                int rows, cols;
+                if (Ultilities.isNumber(txtRows.Text) && Ultilities.isNumber(txtCols.Text))
+                {
+                    rows = int.Parse(txtRows.Text);
+                    cols = int.Parse(txtCols.Text);
+                    int couples = Convert.ToInt32(cboCouples.EditValue.ToString());
+                    long theater_AutoID = (long)cboTheaters.EditValue;
+                    seat_BUS.AddData(rows, cols, couples, theater_AutoID);
+                }
+                else
+                {
+                    MessageBox.Show("Nhập số đi bạn !");
+                }
+                Load_Data();
+            }catch(Exception ex)
             {
-                MessageBox.Show("Nhập số đi bạn !");
+                MessageBox.Show(ex.Message);
             }
         }
         /// <summary>
@@ -68,10 +74,27 @@ namespace GUI.UI.Modules
             if (txtCols.Text != "" && txtRows.Text != "")
             {
                 cboCouples.Enabled = true;
+                cboCouples.Properties.Items.Clear();
+                for (int couple = 1; couple < Convert.ToInt32(txtCols.Text.Trim()) / 2; couple++)
+                {
+                    cboCouples.Properties.Items.Add(couple.ToString());
+                }
+                cboCouples.SelectedIndex = 0;
             }
             else
             {
                 cboCouples.Enabled = false;
+            }
+        }
+
+        private void btnLamMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                Load_Data();
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }
