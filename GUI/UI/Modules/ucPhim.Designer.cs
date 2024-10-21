@@ -42,6 +42,7 @@ namespace GUI.UI.Modules
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.layoutForm = new DevExpress.XtraLayout.LayoutControl();
+            this.txtDescription = new DevExpress.XtraRichEdit.RichEditControl();
             this.btnOpenImage = new DevExpress.XtraEditors.SimpleButton();
             this.pictureBox = new DevExpress.XtraEditors.PictureEdit();
             this.txtUrlHinhAnh = new DevExpress.XtraEditors.TextEdit();
@@ -62,10 +63,9 @@ namespace GUI.UI.Modules
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutDGV = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtDescription = new DevExpress.XtraRichEdit.RichEditControl();
-            this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutForm)).BeginInit();
             this.layoutForm.SuspendLayout();
@@ -87,9 +87,9 @@ namespace GUI.UI.Modules
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -217,6 +217,14 @@ namespace GUI.UI.Modules
             this.layoutForm.TabIndex = 9;
             this.layoutForm.Text = "layoutControl1";
             // 
+            // txtDescription
+            // 
+            this.txtDescription.Location = new System.Drawing.Point(415, 97);
+            this.txtDescription.MenuManager = this.barManager1;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(446, 180);
+            this.txtDescription.TabIndex = 18;
+            // 
             // btnOpenImage
             // 
             this.btnOpenImage.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
@@ -277,6 +285,7 @@ namespace GUI.UI.Modules
             this.gridView1.GridControl = this.dgv;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gridView1_CustomDrawCell);
             // 
             // txtName
             // 
@@ -449,6 +458,16 @@ namespace GUI.UI.Modules
             this.layoutControlItem6.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem6.TextSize = new System.Drawing.Size(86, 13);
             // 
+            // layoutControlItem10
+            // 
+            this.layoutControlItem10.Control = this.txtDescription;
+            this.layoutControlItem10.Location = new System.Drawing.Point(391, 0);
+            this.layoutControlItem10.Name = "layoutControlItem10";
+            this.layoutControlItem10.Size = new System.Drawing.Size(450, 200);
+            this.layoutControlItem10.Text = "Mô tả:";
+            this.layoutControlItem10.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(86, 13);
+            // 
             // layoutDGV
             // 
             this.layoutDGV.CaptionImageOptions.Image = global::GUI.Properties.Resources.newtablestyle_16x16;
@@ -469,24 +488,6 @@ namespace GUI.UI.Modules
             this.layoutControlItem1.Size = new System.Drawing.Size(841, 366);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
-            // 
-            // txtDescription
-            // 
-            this.txtDescription.Location = new System.Drawing.Point(415, 97);
-            this.txtDescription.MenuManager = this.barManager1;
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(446, 180);
-            this.txtDescription.TabIndex = 18;
-            // 
-            // layoutControlItem10
-            // 
-            this.layoutControlItem10.Control = this.txtDescription;
-            this.layoutControlItem10.Location = new System.Drawing.Point(391, 0);
-            this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(450, 200);
-            this.layoutControlItem10.Text = "Mô tả:";
-            this.layoutControlItem10.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem10.TextSize = new System.Drawing.Size(86, 13);
             // 
             // ucPhim
             // 
@@ -520,9 +521,9 @@ namespace GUI.UI.Modules
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

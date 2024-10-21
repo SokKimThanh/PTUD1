@@ -79,6 +79,14 @@ namespace GUI.UI.Modules
             // Vẽ thủ công hình ảnh hiển thị trên lưới 
             gridView1.CustomDrawCell += gridView1_CustomDrawCell;
 
+            // Đặt tên tiếng Việt cho các cột
+            gridView1.Columns["MV_NAME"].Caption = "Tên Phim";
+            gridView1.Columns["MV_PRICE"].Caption = "Giá";
+            gridView1.Columns["MV_DESCRIPTION"].Caption = "Mô tả";
+            gridView1.Columns["MV_DURATION"].Caption = "Thời lượng (Phút)";
+            gridView1.Columns["MV_POSTERURL"].Caption = "Đường dẫn Hình ảnh";
+            gridView1.Columns["MV_AutoID"].Visible = false;
+            gridView1.Columns["MV_AGERATING_AutoID"].Visible = false;
         }
         /// <summary>
         /// Thêm mới movie

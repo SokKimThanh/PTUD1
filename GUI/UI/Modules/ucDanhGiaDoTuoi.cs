@@ -34,6 +34,11 @@ namespace GUI.UI.Modules
             dgv.DataSource = data.GetAll();
             dgv.RefreshDataSource();
             dangThaoTac(false);
+
+            // Đặt tên tiếng Việt cho các cột
+            gridView1.Columns["AR_NAME"].Caption = "Nhãn Đánh giá độ tuổi";
+            gridView1.Columns["AR_NOTE"].Caption = "Mô tả";
+            gridView1.Columns["AR_AutoID"].Visible = false;
         }
 
         // Thêm mới AgeRating
