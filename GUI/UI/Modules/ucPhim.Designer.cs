@@ -43,11 +43,11 @@ namespace GUI.UI.Modules
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.layoutForm = new DevExpress.XtraLayout.LayoutControl();
             this.btnOpenImage = new DevExpress.XtraEditors.SimpleButton();
-            this.txtDescription = new System.Windows.Forms.RichTextBox();
             this.pictureBox = new DevExpress.XtraEditors.PictureEdit();
             this.txtUrlHinhAnh = new DevExpress.XtraEditors.TextEdit();
             this.lblTitle = new System.Windows.Forms.Label();
             this.dgv = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.txtName = new DevExpress.XtraEditors.TextEdit();
             this.txtPrice = new DevExpress.XtraEditors.TextEdit();
             this.txtDurations = new DevExpress.XtraEditors.TextEdit();
@@ -61,17 +61,18 @@ namespace GUI.UI.Modules
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutDGV = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.txtDescription = new DevExpress.XtraRichEdit.RichEditControl();
+            this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutForm)).BeginInit();
             this.layoutForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUrlHinhAnh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDurations.Properties)).BeginInit();
@@ -85,11 +86,10 @@ namespace GUI.UI.Modules
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -198,8 +198,8 @@ namespace GUI.UI.Modules
             // 
             // layoutForm
             // 
-            this.layoutForm.Controls.Add(this.btnOpenImage);
             this.layoutForm.Controls.Add(this.txtDescription);
+            this.layoutForm.Controls.Add(this.btnOpenImage);
             this.layoutForm.Controls.Add(this.pictureBox);
             this.layoutForm.Controls.Add(this.txtUrlHinhAnh);
             this.layoutForm.Controls.Add(this.lblTitle);
@@ -229,14 +229,6 @@ namespace GUI.UI.Modules
             this.btnOpenImage.Text = "Chọn hình ảnh";
             this.btnOpenImage.Click += new System.EventHandler(this.btnOpenImage_Click);
             // 
-            // txtDescription
-            // 
-            this.txtDescription.Location = new System.Drawing.Point(590, 97);
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(271, 140);
-            this.txtDescription.TabIndex = 16;
-            this.txtDescription.Text = "";
-            // 
             // pictureBox
             // 
             this.pictureBox.Location = new System.Drawing.Point(24, 81);
@@ -255,7 +247,7 @@ namespace GUI.UI.Modules
             this.txtUrlHinhAnh.Location = new System.Drawing.Point(153, 257);
             this.txtUrlHinhAnh.MenuManager = this.barManager1;
             this.txtUrlHinhAnh.Name = "txtUrlHinhAnh";
-            this.txtUrlHinhAnh.Size = new System.Drawing.Size(708, 20);
+            this.txtUrlHinhAnh.Size = new System.Drawing.Size(258, 20);
             this.txtUrlHinhAnh.StyleController = this.layoutForm;
             this.txtUrlHinhAnh.TabIndex = 13;
             // 
@@ -280,11 +272,17 @@ namespace GUI.UI.Modules
             this.gridView1});
             this.dgv.Click += new System.EventHandler(this.dgv_Click);
             // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.dgv;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
+            // 
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(153, 97);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(433, 20);
+            this.txtName.Size = new System.Drawing.Size(258, 20);
             this.txtName.StyleController = this.layoutForm;
             this.txtName.TabIndex = 5;
             // 
@@ -299,7 +297,7 @@ namespace GUI.UI.Modules
             this.txtPrice.Properties.MaskSettings.Set("culture", "vi");
             this.txtPrice.Properties.MaskSettings.Set("valueType", typeof(double));
             this.txtPrice.Properties.UseMaskAsDisplayFormat = true;
-            this.txtPrice.Size = new System.Drawing.Size(433, 20);
+            this.txtPrice.Size = new System.Drawing.Size(258, 20);
             this.txtPrice.StyleController = this.layoutForm;
             this.txtPrice.TabIndex = 10;
             // 
@@ -314,7 +312,7 @@ namespace GUI.UI.Modules
             this.txtDurations.Properties.MaskSettings.Set("mask", "d");
             this.txtDurations.Properties.MaskSettings.Set("culture", "vi-VN");
             this.txtDurations.Properties.UseMaskAsDisplayFormat = true;
-            this.txtDurations.Size = new System.Drawing.Size(433, 20);
+            this.txtDurations.Size = new System.Drawing.Size(258, 20);
             this.txtDurations.StyleController = this.layoutForm;
             this.txtDurations.TabIndex = 14;
             // 
@@ -328,7 +326,7 @@ namespace GUI.UI.Modules
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboAgeRating.Properties.NullText = "";
             this.cboAgeRating.Properties.PopupSizeable = false;
-            this.cboAgeRating.Size = new System.Drawing.Size(433, 20);
+            this.cboAgeRating.Size = new System.Drawing.Size(258, 20);
             this.cboAgeRating.StyleController = this.layoutForm;
             this.cboAgeRating.TabIndex = 11;
             this.cboAgeRating.EditValueChanged += new System.EventHandler(this.cboAgeRating_EditValueChanged);
@@ -370,8 +368,8 @@ namespace GUI.UI.Modules
             this.layoutControlItem9,
             this.layoutControlItem4,
             this.layoutControlItem5,
-            this.layoutControlItem3,
-            this.layoutControlItem6});
+            this.layoutControlItem6,
+            this.layoutControlItem10});
             this.layoutAction.Location = new System.Drawing.Point(0, 36);
             this.layoutAction.Name = "layoutAction";
             this.layoutAction.Size = new System.Drawing.Size(865, 245);
@@ -383,7 +381,7 @@ namespace GUI.UI.Modules
             this.layoutControlItem2.CustomizationFormText = "Tên Phim:";
             this.layoutControlItem2.Location = new System.Drawing.Point(129, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(437, 40);
+            this.layoutControlItem2.Size = new System.Drawing.Size(262, 40);
             this.layoutControlItem2.Text = "Tên Phim:";
             this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(86, 13);
@@ -393,7 +391,7 @@ namespace GUI.UI.Modules
             this.layoutControlItem7.Control = this.txtDurations;
             this.layoutControlItem7.Location = new System.Drawing.Point(129, 80);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(437, 40);
+            this.layoutControlItem7.Size = new System.Drawing.Size(262, 40);
             this.layoutControlItem7.Text = "Nhập số phút:";
             this.layoutControlItem7.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem7.TextSize = new System.Drawing.Size(86, 13);
@@ -426,7 +424,7 @@ namespace GUI.UI.Modules
             this.layoutControlItem4.Control = this.txtUrlHinhAnh;
             this.layoutControlItem4.Location = new System.Drawing.Point(129, 160);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(712, 40);
+            this.layoutControlItem4.Size = new System.Drawing.Size(262, 40);
             this.layoutControlItem4.Text = "Poster URL:";
             this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem4.TextSize = new System.Drawing.Size(86, 13);
@@ -436,27 +434,17 @@ namespace GUI.UI.Modules
             this.layoutControlItem5.Control = this.txtPrice;
             this.layoutControlItem5.Location = new System.Drawing.Point(129, 120);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(437, 40);
+            this.layoutControlItem5.Size = new System.Drawing.Size(262, 40);
             this.layoutControlItem5.Text = "Giá vé:";
             this.layoutControlItem5.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem5.TextSize = new System.Drawing.Size(86, 13);
-            // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.txtDescription;
-            this.layoutControlItem3.Location = new System.Drawing.Point(566, 0);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(275, 160);
-            this.layoutControlItem3.Text = "Mô tả:";
-            this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(86, 13);
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.cboAgeRating;
             this.layoutControlItem6.Location = new System.Drawing.Point(129, 40);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(437, 40);
+            this.layoutControlItem6.Size = new System.Drawing.Size(262, 40);
             this.layoutControlItem6.Text = "Đánh giá lứa tuổi:";
             this.layoutControlItem6.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem6.TextSize = new System.Drawing.Size(86, 13);
@@ -482,11 +470,23 @@ namespace GUI.UI.Modules
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
-            // gridView1
+            // txtDescription
             // 
-            this.gridView1.GridControl = this.dgv;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsBehavior.Editable = false;
+            this.txtDescription.Location = new System.Drawing.Point(415, 97);
+            this.txtDescription.MenuManager = this.barManager1;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(446, 180);
+            this.txtDescription.TabIndex = 18;
+            // 
+            // layoutControlItem10
+            // 
+            this.layoutControlItem10.Control = this.txtDescription;
+            this.layoutControlItem10.Location = new System.Drawing.Point(391, 0);
+            this.layoutControlItem10.Name = "layoutControlItem10";
+            this.layoutControlItem10.Size = new System.Drawing.Size(450, 200);
+            this.layoutControlItem10.Text = "Mô tả:";
+            this.layoutControlItem10.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(86, 13);
             // 
             // ucPhim
             // 
@@ -505,6 +505,7 @@ namespace GUI.UI.Modules
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUrlHinhAnh.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDurations.Properties)).EndInit();
@@ -518,11 +519,10 @@ namespace GUI.UI.Modules
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -559,10 +559,10 @@ namespace GUI.UI.Modules
         private DevExpress.XtraEditors.LookUpEdit cboAgeRating;
         private DevExpress.XtraEditors.PictureEdit pictureBox;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
-        private System.Windows.Forms.RichTextBox txtDescription;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraEditors.SimpleButton btnOpenImage;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraRichEdit.RichEditControl txtDescription;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
     }
 }

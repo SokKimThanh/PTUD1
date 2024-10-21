@@ -72,29 +72,12 @@ namespace GUI.UI.Modules
             // tai du lieu dgv
             dgv.DataSource = data.GetAll();
             dgv.RefreshDataSource();
-            ///
-            /// Vẽ thủ công
-            /// 
-            //gridView1.CustomDrawCell += gridView1_CustomDrawCell;
-
-            ///
-            /// Vẽ tự động
-            /// 
-            // Tạo RepositoryItemPictureEdit để hiển thị hình ảnh
-            RepositoryItemPictureEdit pictureEdit = new RepositoryItemPictureEdit();
-            gridView1.Columns["MV_POSTERURL"].ColumnEdit = pictureEdit; // "MV_POSTERURL" là cột chứa đường dẫn hình ảnh
-
-            // Cấu hình hiển thị hình ảnh trong PictureEdit
-            pictureEdit.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-
-            // Sử dụng sự kiện RowCellStyle để kiểm tra và xử lý đường dẫn
-            gridView1.RowCellStyle += gridView1_RowCellStyle;
-
-            // Cho phép GridView tự động điều chỉnh chiều cao dòng theo nội dung
-            gridView1.OptionsView.RowAutoHeight = true;
 
             // Đặt chiều cao dòng phù hợp với kích thước của hình ảnh
-            gridView1.RowHeight = 200; // Điều chỉnh chiều cao tùy thuộc vào kích thước ảnh của bạn
+            gridView1.RowHeight = 250;
+
+            // Vẽ thủ công hình ảnh hiển thị trên lưới 
+            gridView1.CustomDrawCell += gridView1_CustomDrawCell;
 
         }
         /// <summary>
@@ -280,6 +263,7 @@ namespace GUI.UI.Modules
                 // Lấy đường dẫn từ ô hiện tại
                 string imagePath = gridView1.GetRowCellValue(e.RowHandle, e.Column).ToString();
 
+
                 // Kiểm tra nếu file tồn tại
                 if (File.Exists(imagePath))
                 {
@@ -292,20 +276,5 @@ namespace GUI.UI.Modules
                 }
             }
         }
-
-        private void gridView1_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
-        {
-            if (e.Column.FieldName == "MV_POSTERURL")
-            {
-                string imagePath = gridView1.GetRowCellValue(e.RowHandle, e.Column).ToString();
-                if (File.Exists(imagePath))
-                {
-                    // Hiển thị hình ảnh trong cột PictureEdit
-                    Image img = Image.FromFile(imagePath);
-                    e.Appearance.Image = img;
-                }
-            }
-        }
-
     }
 }
