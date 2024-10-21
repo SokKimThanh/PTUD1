@@ -192,18 +192,18 @@
             // 
             this.lblTitle.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Bold);
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.lblTitle.Location = new System.Drawing.Point(12, 12);
+            this.lblTitle.Location = new System.Drawing.Point(18, 18);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(712, 20);
+            this.lblTitle.Size = new System.Drawing.Size(695, 20);
             this.lblTitle.TabIndex = 9;
             this.lblTitle.Text = "Title";
             // 
             // dgv
             // 
-            this.dgv.Location = new System.Drawing.Point(24, 162);
+            this.dgv.Location = new System.Drawing.Point(24, 174);
             this.dgv.MainView = this.gridView1;
             this.dgv.Name = "dgv";
-            this.dgv.Size = new System.Drawing.Size(688, 383);
+            this.dgv.Size = new System.Drawing.Size(683, 388);
             this.dgv.TabIndex = 8;
             this.dgv.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -216,30 +216,30 @@
             // timeEdit2
             // 
             this.timeEdit2.EditValue = new System.DateTime(2024, 10, 15, 0, 0, 0, 0);
-            this.timeEdit2.Location = new System.Drawing.Point(459, 93);
+            this.timeEdit2.Location = new System.Drawing.Point(456, 105);
             this.timeEdit2.Name = "timeEdit2";
             this.timeEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.timeEdit2.Size = new System.Drawing.Size(253, 20);
+            this.timeEdit2.Size = new System.Drawing.Size(251, 20);
             this.timeEdit2.StyleController = this.layoutForm;
             this.timeEdit2.TabIndex = 7;
             // 
             // timeEdit1
             // 
             this.timeEdit1.EditValue = new System.DateTime(2024, 10, 15, 0, 0, 0, 0);
-            this.timeEdit1.Location = new System.Drawing.Point(113, 93);
+            this.timeEdit1.Location = new System.Drawing.Point(113, 105);
             this.timeEdit1.Name = "timeEdit1";
             this.timeEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.timeEdit1.Size = new System.Drawing.Size(253, 20);
+            this.timeEdit1.Size = new System.Drawing.Size(250, 20);
             this.timeEdit1.StyleController = this.layoutForm;
             this.timeEdit1.TabIndex = 6;
             // 
             // textEdit1
             // 
-            this.textEdit1.Location = new System.Drawing.Point(113, 69);
+            this.textEdit1.Location = new System.Drawing.Point(113, 81);
             this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(599, 20);
+            this.textEdit1.Size = new System.Drawing.Size(594, 20);
             this.textEdit1.StyleController = this.layoutForm;
             this.textEdit1.TabIndex = 5;
             // 
@@ -252,18 +252,20 @@
             this.layoutAction,
             this.layoutDGV});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(736, 569);
+            this.Root.Size = new System.Drawing.Size(731, 586);
             this.Root.TextVisible = false;
             // 
             // layoutTitle
             // 
             this.layoutTitle.Control = this.lblTitle;
             this.layoutTitle.Location = new System.Drawing.Point(0, 0);
-            this.layoutTitle.MaxSize = new System.Drawing.Size(716, 24);
-            this.layoutTitle.MinSize = new System.Drawing.Size(716, 24);
+            this.layoutTitle.MaxSize = new System.Drawing.Size(0, 36);
+            this.layoutTitle.MinSize = new System.Drawing.Size(36, 36);
             this.layoutTitle.Name = "layoutTitle";
-            this.layoutTitle.Size = new System.Drawing.Size(716, 24);
+            this.layoutTitle.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
+            this.layoutTitle.Size = new System.Drawing.Size(711, 36);
             this.layoutTitle.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutTitle.Spacing = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
             this.layoutTitle.Text = "Title";
             this.layoutTitle.TextSize = new System.Drawing.Size(0, 0);
             this.layoutTitle.TextVisible = false;
@@ -275,9 +277,9 @@
             this.layoutControlItem2,
             this.layoutControlItem3,
             this.layoutControlItem4});
-            this.layoutAction.Location = new System.Drawing.Point(0, 24);
+            this.layoutAction.Location = new System.Drawing.Point(0, 36);
             this.layoutAction.Name = "layoutAction";
-            this.layoutAction.Size = new System.Drawing.Size(716, 93);
+            this.layoutAction.Size = new System.Drawing.Size(711, 93);
             this.layoutAction.Text = "Thao tác nhập liệu";
             // 
             // layoutControlItem2
@@ -286,7 +288,7 @@
             this.layoutControlItem2.CustomizationFormText = "txtTenCaLamViec";
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(692, 24);
+            this.layoutControlItem2.Size = new System.Drawing.Size(687, 24);
             this.layoutControlItem2.Text = "Tên ca làm việc:";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(77, 13);
             // 
@@ -296,7 +298,7 @@
             this.layoutControlItem3.CustomizationFormText = "TimeBatDau";
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(346, 24);
+            this.layoutControlItem3.Size = new System.Drawing.Size(343, 24);
             this.layoutControlItem3.Text = "Từ:";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(77, 13);
             // 
@@ -304,9 +306,9 @@
             // 
             this.layoutControlItem4.Control = this.timeEdit2;
             this.layoutControlItem4.CustomizationFormText = "TimeKetThuc";
-            this.layoutControlItem4.Location = new System.Drawing.Point(346, 24);
+            this.layoutControlItem4.Location = new System.Drawing.Point(343, 24);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(346, 24);
+            this.layoutControlItem4.Size = new System.Drawing.Size(344, 24);
             this.layoutControlItem4.Text = "Đến:";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(77, 13);
             // 
@@ -316,9 +318,9 @@
             this.layoutDGV.CustomizationFormText = "Danh sách dữ liệu";
             this.layoutDGV.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
-            this.layoutDGV.Location = new System.Drawing.Point(0, 117);
+            this.layoutDGV.Location = new System.Drawing.Point(0, 129);
             this.layoutDGV.Name = "layoutDGV";
-            this.layoutDGV.Size = new System.Drawing.Size(716, 432);
+            this.layoutDGV.Size = new System.Drawing.Size(711, 437);
             this.layoutDGV.Text = "Danh sách dữ liệu";
             // 
             // layoutControlItem1
@@ -327,7 +329,7 @@
             this.layoutControlItem1.CustomizationFormText = "dgvCaLamViec";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(692, 387);
+            this.layoutControlItem1.Size = new System.Drawing.Size(687, 392);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 

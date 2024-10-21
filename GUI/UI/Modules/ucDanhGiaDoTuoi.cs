@@ -16,7 +16,11 @@ namespace GUI.UI.Modules
         public ucDanhGiaDoTuoi()
         {
             InitializeComponent();
-            lblTitle.Text = "Quản lý đánh giá độ tuổi".ToUpper();
+            this.layoutTitle.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutTitle.MaxSize = new System.Drawing.Size(0, 42);
+            this.layoutTitle.MinSize = new System.Drawing.Size(36, 36);
+            // Ngăn không cho phép sửa dữ liệu trực tiếp trên GridView
+            gridView1.OptionsBehavior.Editable = false;
         }
 
         private tbl_DM_AgeRating_DTO GetFormData() =>
@@ -25,7 +29,7 @@ namespace GUI.UI.Modules
         protected override void Load_Data()
         {
             if (!string.IsNullOrEmpty(strFunctionCode))
-                lblTitle.Text = strFunctionCode.Trim();
+                lblTitle.Text = strFunctionCode.ToUpper().Trim();
 
             dgv.DataSource = data.GetAll();
             dgv.RefreshDataSource();
@@ -104,21 +108,24 @@ namespace GUI.UI.Modules
         // Chọn dòng để cập nhật
         private void dgv_Click(object sender, EventArgs e)
         {
-            try
+            int[] dong = gridView1.GetSelectedRows();
+            foreach (int i in dong)
             {
-                var selectedRow = gridView1.GetSelectedRows().FirstOrDefault();
-                if (selectedRow >= 0)
+                if (i >= 0)
                 {
-                    dgv_selected_id = gridView1.GetRowCellValue(selectedRow, "AR_AUTOID").ToString();
-                    var ageRating = data.Find(long.Parse(dgv_selected_id));
-                    txtName.Text = ageRating.AR_NAME;
-                    txtNote.Text = ageRating.AR_NOTE;
+                    try
+                    {
+                        dgv_selected_id = gridView1.GetRowCellValue(i, "AR_AUTOID").ToString().Trim();
+                        tbl_DM_AgeRating_DTO km = data.Find(long.Parse(dgv_selected_id));
+                        txtName.Text = km.AR_NAME;
+                        txtNote.Text = km.AR_NOTE;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Lỗi");
+                    }
                     dangThaoTac(true);
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Không thể chọn dòng: {ex.Message}");
             }
         }
 
