@@ -20,8 +20,6 @@ namespace GUI.UI.Modules
         public ucPhongChieu()
         {
             InitializeComponent();
-            if (strFunctionCode != "")
-                lblTitle.Text = strFunctionCode.Trim();
         }
 
         /// <summary>
@@ -31,6 +29,9 @@ namespace GUI.UI.Modules
         {
             try
             {
+                if (strFunctionCode != "")
+                    lblTitle.Text = strFunctionCode.ToUpper().Trim();
+
                 // Combo box trạng thái phòng chiếu
                 cboStatus.Properties.Items.Clear();
                 cboStatus.Properties.Items.Add("Bảo trì");
