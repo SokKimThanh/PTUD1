@@ -25,11 +25,10 @@ namespace DAL
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public override bool AddData(tbl_DM_Seat_DTO obj)
+        public override void AddData(tbl_DM_Seat_DTO obj)
         {
             try
             {
-                bool flg = false;
                 using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext())
                 {
                     tbl_DM_Seat seat = new tbl_DM_Seat()
@@ -40,10 +39,7 @@ namespace DAL
                     };
                     db.tbl_DM_Seats.InsertOnSubmit(seat);
                     db.SubmitChanges();
-
-                    flg = true;
                 }
-                return flg;
             }
             catch (Exception ex)
             {
@@ -56,11 +52,10 @@ namespace DAL
         /// <param name="obj"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public override bool UpdateData(tbl_DM_Seat_DTO obj)
+        public override void UpdateData(tbl_DM_Seat_DTO obj)
         {
             try
             {
-                bool flg = false;
                 using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext())
                 {
                     // Tìm ghế có mã ghế như trên trong danh sách
@@ -71,10 +66,8 @@ namespace DAL
                     {
                         seat.DELETED = obj.Deleted;
                         db.SubmitChanges();
-                        flg = true;
                     }
                 }
-                return flg;
             }
             catch (Exception ex)
             {
@@ -87,11 +80,10 @@ namespace DAL
         /// <param name="id"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public override bool RemoveData(int id)
+        public override void RemoveData(int id)
         {
             try
             {
-                bool flg = false;
                 using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext())
                 {
                     // Tìm ghế có mã ghế như trên trong danh sách
@@ -102,10 +94,8 @@ namespace DAL
                         seat.DELETED = 1;
                         db.tbl_DM_Seats.InsertOnSubmit(seat);
                         db.SubmitChanges();
-                        flg = true;
                     }
                 }
-                return flg;
             }
             catch (Exception ex)
             {

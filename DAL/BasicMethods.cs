@@ -9,9 +9,9 @@ namespace DAL
     public abstract class BasicMethods<T>
     {
         public abstract List<T> GetList();
-        public abstract bool AddData(T obj);
-        public abstract bool UpdateData(T obj);
-        public abstract bool RemoveData(int id);
+        public abstract void AddData(T obj);
+        public abstract void UpdateData(T obj);
+        public abstract void RemoveData(int id);
 
     }
 }
