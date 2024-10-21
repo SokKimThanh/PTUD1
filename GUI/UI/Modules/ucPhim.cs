@@ -157,5 +157,10 @@ namespace GUI.UI.Modules
             //tbl_DM_AgeRating_DTO o = cboAgeRatingData.Find(cboAgeRating_selected_id);
             MessageBox.Show(cboAgeRating_selected_id.ToString(), "show id");
         }
+
+        private void pictureBox_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
