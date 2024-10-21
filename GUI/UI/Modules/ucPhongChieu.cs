@@ -20,9 +20,8 @@ namespace GUI.UI.Modules
         public ucPhongChieu()
         {
             InitializeComponent();
-            this.layoutTitle.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutTitle.MaxSize = new System.Drawing.Size(0, 42);
-            this.layoutTitle.MinSize = new System.Drawing.Size(36, 36);
+            if (strFunctionCode != "")
+                lblTitle.Text = strFunctionCode.Trim();
         }
 
         /// <summary>
@@ -33,14 +32,17 @@ namespace GUI.UI.Modules
             try
             {
                 // Combo box trạng thái phòng chiếu
-                cboStatus.Properties.Items.Add("Đang hoạt động");
+                cboStatus.Properties.Items.Clear();
                 cboStatus.Properties.Items.Add("Bảo trì");
-                cboStatus.SelectionStart = 0;
+                cboStatus.Properties.Items.Add("Đang hoạt động");
+                cboStatus.SelectedIndex = 0;
 
                 // Danh sách phòng chiếu
                 dgvView.DataSource = theater_bus.GetList();
+                dgvView.Refresh();
 
-
+                // Xóa dữ liệu trên ô Tên phòng chiếu
+                txtName.EditValue = "";
 
             }
             catch (Exception ex)
@@ -68,12 +70,36 @@ namespace GUI.UI.Modules
             }
         }
 
+        /// <summary>
+        /// Xóa thông tin phòng chiếu khỏi view
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             try
             {
-                tbl_DM_Theater_DTO newItem = new tbl_DM_Theater_DTO(null, txtName.Text, cboStatus.SelectedIndex, 0);
-                theater_bus.AddData(newItem);
+                int[] cacDong = gvTheaters.GetSelectedRows();
+                foreach (int i in cacDong)
+                {
+                    if (i >= 0)
+                    {
+                        long id = (long)gvTheaters.GetRowCellValue(i, "AutoID");
+                        string name = txtName.Text.Trim();
+                        int status = cboStatus.SelectedIndex;
+                        int deleted = 1;
+                        DialogResult re = MessageBox.Show("Bạn có muốn xóa phòng chiếu " + name, "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if(re == DialogResult.Yes)
+                        {
+                            tbl_DM_Theater_DTO editTheater = new tbl_DM_Theater_DTO(id, name, status, deleted);
+                            theater_bus.UpdateData(editTheater);
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                }
                 Load_Data();
             }
             catch (Exception ex)
@@ -96,14 +122,15 @@ namespace GUI.UI.Modules
                 {
                     if (i >= 0)
                     {
-                        long id = (long)gvTheaters.GetRowCellValue(i, "TT_AutoID");
+                        long id = (long)gvTheaters.GetRowCellValue(i, "AutoID");
                         string name = txtName.Text.Trim();
                         int status = cboStatus.SelectedIndex;
-                        int deleted = (int)gvTheaters.GetRowCellValue(i, "DELETED");
+                        int deleted = (int)gvTheaters.GetRowCellValue(i, "Deleted");
                         tbl_DM_Theater_DTO editTheater = new tbl_DM_Theater_DTO(id, name, status, deleted);
                         theater_bus.UpdateData(editTheater);
                     }
                 }
+                Load_Data();
             }catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -134,8 +161,8 @@ namespace GUI.UI.Modules
             {
                 if (i >= 0)
                 {
-                    txtName.Text = gvTheaters.GetRowCellValue(i, "TT_NAME").ToString();
-                    cboStatus.SelectedIndex = (int)gvTheaters.GetRowCellValue(i, "TT_STATUS");
+                    txtName.Text = gvTheaters.GetRowCellValue(i, "Name").ToString();
+                    cboStatus.SelectedIndex = (int)gvTheaters.GetRowCellValue(i, "Status");
                 }
             }
             if (strFunctionCode != "")

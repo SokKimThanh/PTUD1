@@ -19,7 +19,7 @@ namespace DAL
         {
             try
             {
-                using(CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext())
+                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext())
                 {
                     // Khởi tạo danh sách các phòng chiếu
                     List<tbl_DM_Theater_DTO> list = new List<tbl_DM_Theater_DTO>();
@@ -38,7 +38,8 @@ namespace DAL
                     }
                     return list;
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -122,7 +123,7 @@ namespace DAL
                 {
                     // Chuyển kiểu dữ liệu DTO sang context để thêm mới vào danh sách
                     tbl_DM_Theater theater = db.tbl_DM_Theaters.SingleOrDefault(item => item.TT_AutoID == obj.AutoID);
-                    if(theater != null)
+                    if (theater != null)
                     {
                         // Sửa thông tin phòng chiếu
                         theater.TT_NAME = obj.Name;
@@ -138,6 +139,30 @@ namespace DAL
                     else
                     {
                         throw new Exception("Không tìm thấy phòng chiếu");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public tbl_DM_Theater_DTO FindByName(string name)
+        {
+            try
+            {
+                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext())
+                {
+                    tbl_DM_Theater theater_Found = db.tbl_DM_Theaters.SingleOrDefault(item => item.TT_NAME.Trim() == name);
+                    if (theater_Found != null)
+                    {
+                        tbl_DM_Theater_DTO result = new tbl_DM_Theater_DTO(theater_Found.TT_AutoID, theater_Found.TT_NAME, theater_Found.TT_STATUS, (int)theater_Found.DELETED);
+                        return result;
+                    }
+                    else
+                    {
+                        return null;
                     }
                 }
             }
