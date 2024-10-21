@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DTO
+namespace DTO.tbl_DTO
 {
     public class tbl_DM_Seat_DTO
     {
@@ -38,8 +38,8 @@ namespace DTO
             get => file; 
             set 
             {
-                if (value.Length != 1 || value.Length != 2)
-                    throw new Exception();
+                if (value.Length != 1 && value.Length != 2)
+                    throw new Exception("Lỗi tên file");
                 else 
                     file = value;
             } 

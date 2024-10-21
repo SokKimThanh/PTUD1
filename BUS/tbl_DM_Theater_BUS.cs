@@ -16,7 +16,22 @@ namespace BUS
         {
             try
             {
-                dal.AddData(obj);
+                tbl_DM_Theater_DTO theater_Found = dal.FindByName(obj.Name);
+                if (theater_Found == null)
+                {
+                    dal.AddData(obj);
+                }
+                else
+                {
+                    if (theater_Found.Deleted == 0)
+                        throw new Exception(theater_Found.Name + " đã có trong danh sách !");
+                    else
+                    {
+                        theater_Found.Deleted = 0;
+                        theater_Found.Status = obj.Status;
+                        dal.UpdateData(theater_Found);
+                    }
+                }
             }
             catch (Exception ex)
             {
