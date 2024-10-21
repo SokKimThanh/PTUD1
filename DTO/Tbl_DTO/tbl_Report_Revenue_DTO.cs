@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DTO
+namespace DTO.tbl_DTO
 {
     /// <summary>
-    /// Danh mục đánh giá độ tuổi
+    /// Báo cáo doanh thu
     /// </summary>
-    public class tbl_DM_AgeRating_DTO
+    public class tbl_Report_Revenue_DTO
     {
-        private string AR_NAME, AR_NOTE;
+
     }
 }

@@ -55,7 +55,6 @@ namespace DAL
         public override void UpdateData(tbl_DM_Seat_DTO obj)
         {
             try
-            {
                 using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext())
                 {
                     // Tìm ghế có mã ghế như trên trong danh sách
@@ -113,17 +112,17 @@ namespace DAL
         {
             try
             {
-                using(CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext())
+
+                tbl_DM_Seat seat_Found = DBDataContext.tbl_DM_Seats.SingleOrDefault(item => item.SE_FILE == file && item.SE_RANK == rank && item.SE_THEATER_AutoID == theater_AutoID);
+                tbl_DM_Seat_DTO result = null;
+                if (seat_Found != null)
                 {
-                    tbl_DM_Seat seat_Found = db.tbl_DM_Seats.SingleOrDefault(item => item.SE_FILE == file && item.SE_RANK == rank && item.SE_THEATER_AutoID == theater_AutoID);
-                    tbl_DM_Seat_DTO result = null;
-                    if (seat_Found != null)
-                    {
-                        result = new tbl_DM_Seat_DTO(seat_Found.SE_AutoID, seat_Found.SE_FILE, seat_Found.SE_RANK, seat_Found.SE_THEATER_AutoID, (int)seat_Found.DELETED);
-                    }
-                    return result;
+                    result = new tbl_DM_Seat_DTO(seat_Found.SE_AutoID, seat_Found.SE_FILE, seat_Found.SE_RANK, seat_Found.SE_THEATER_AutoID, (int)seat_Found.DELETED);
                 }
-            }catch(Exception ex)
+                return result;
+
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }

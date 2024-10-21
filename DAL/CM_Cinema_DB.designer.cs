@@ -2112,8 +2112,6 @@ namespace DAL
 		
 		private EntitySet<tbl_DM_SeatSchedule> _tbl_DM_SeatSchedules;
 		
-		private EntitySet<tbl_DM_Ticket> _tbl_DM_Tickets;
-		
 		private EntityRef<tbl_DM_Movie> _tbl_DM_Movie;
 		
 		private EntityRef<tbl_DM_Theater> _tbl_DM_Theater;
@@ -2149,7 +2147,6 @@ namespace DAL
 		public tbl_DM_MovieSchedule()
 		{
 			this._tbl_DM_SeatSchedules = new EntitySet<tbl_DM_SeatSchedule>(new Action<tbl_DM_SeatSchedule>(this.attach_tbl_DM_SeatSchedules), new Action<tbl_DM_SeatSchedule>(this.detach_tbl_DM_SeatSchedules));
-			this._tbl_DM_Tickets = new EntitySet<tbl_DM_Ticket>(new Action<tbl_DM_Ticket>(this.attach_tbl_DM_Tickets), new Action<tbl_DM_Ticket>(this.detach_tbl_DM_Tickets));
 			this._tbl_DM_Movie = default(EntityRef<tbl_DM_Movie>);
 			this._tbl_DM_Theater = default(EntityRef<tbl_DM_Theater>);
 			OnCreated();
@@ -2396,19 +2393,6 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_DM_MovieSchedule_tbl_DM_Ticket", Storage="_tbl_DM_Tickets", ThisKey="MS_AutoID", OtherKey="TK_MOVIESCHEDULE_AutoID")]
-		public EntitySet<tbl_DM_Ticket> tbl_DM_Tickets
-		{
-			get
-			{
-				return this._tbl_DM_Tickets;
-			}
-			set
-			{
-				this._tbl_DM_Tickets.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_DM_Movie_tbl_DM_MovieSchedule", Storage="_tbl_DM_Movie", ThisKey="MS_MOVIE_AutoID", OtherKey="MV_AutoID", IsForeignKey=true)]
 		public tbl_DM_Movie tbl_DM_Movie
 		{
@@ -2504,18 +2488,6 @@ namespace DAL
 		}
 		
 		private void detach_tbl_DM_SeatSchedules(tbl_DM_SeatSchedule entity)
-		{
-			this.SendPropertyChanging();
-			entity.tbl_DM_MovieSchedule = null;
-		}
-		
-		private void attach_tbl_DM_Tickets(tbl_DM_Ticket entity)
-		{
-			this.SendPropertyChanging();
-			entity.tbl_DM_MovieSchedule = this;
-		}
-		
-		private void detach_tbl_DM_Tickets(tbl_DM_Ticket entity)
 		{
 			this.SendPropertyChanging();
 			entity.tbl_DM_MovieSchedule = null;
@@ -4837,8 +4809,6 @@ namespace DAL
 		
 		private string _UPDATED_BY_FUNCTION;
 		
-		private EntityRef<tbl_DM_MovieSchedule> _tbl_DM_MovieSchedule;
-		
 		private EntityRef<tbl_DM_Staff> _tbl_DM_Staff;
 		
     #region Extensibility Method Definitions
@@ -4873,7 +4843,6 @@ namespace DAL
 		
 		public tbl_DM_Ticket()
 		{
-			this._tbl_DM_MovieSchedule = default(EntityRef<tbl_DM_MovieSchedule>);
 			this._tbl_DM_Staff = default(EntityRef<tbl_DM_Staff>);
 			OnCreated();
 		}
@@ -4929,10 +4898,6 @@ namespace DAL
 			{
 				if ((this._TK_MOVIESCHEDULE_AutoID != value))
 				{
-					if (this._tbl_DM_MovieSchedule.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnTK_MOVIESCHEDULE_AutoIDChanging(value);
 					this.SendPropertyChanging();
 					this._TK_MOVIESCHEDULE_AutoID = value;
@@ -5122,40 +5087,6 @@ namespace DAL
 					this._UPDATED_BY_FUNCTION = value;
 					this.SendPropertyChanged("UPDATED_BY_FUNCTION");
 					this.OnUPDATED_BY_FUNCTIONChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_DM_MovieSchedule_tbl_DM_Ticket", Storage="_tbl_DM_MovieSchedule", ThisKey="TK_MOVIESCHEDULE_AutoID", OtherKey="MS_AutoID", IsForeignKey=true)]
-		public tbl_DM_MovieSchedule tbl_DM_MovieSchedule
-		{
-			get
-			{
-				return this._tbl_DM_MovieSchedule.Entity;
-			}
-			set
-			{
-				tbl_DM_MovieSchedule previousValue = this._tbl_DM_MovieSchedule.Entity;
-				if (((previousValue != value) 
-							|| (this._tbl_DM_MovieSchedule.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._tbl_DM_MovieSchedule.Entity = null;
-						previousValue.tbl_DM_Tickets.Remove(this);
-					}
-					this._tbl_DM_MovieSchedule.Entity = value;
-					if ((value != null))
-					{
-						value.tbl_DM_Tickets.Add(this);
-						this._TK_MOVIESCHEDULE_AutoID = value.MS_AutoID;
-					}
-					else
-					{
-						this._TK_MOVIESCHEDULE_AutoID = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("tbl_DM_MovieSchedule");
 				}
 			}
 		}

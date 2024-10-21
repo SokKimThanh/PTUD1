@@ -58,6 +58,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="tbl_DM_AgeRating_DAL.cs" />
+    <Compile Include="tbl_DM_Movie_DAL.cs" />
     <Compile Include="tbl_DM_Theater_DAL.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -86,5 +88,6 @@
       <DependentUpon>CM_Cinema_DB.dbml</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
