@@ -1,20 +1,13 @@
 ﻿using BUS.Danh_Muc;
 using BUS.Sys;
-using DevExpress.XtraBars;
 using DevExpress.XtraBars.Navigation;
 using DTO.Common;
 using DTO.Custom;
-using DTO.Utility;
 using GUI.UI.Modules;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI
@@ -165,7 +158,7 @@ namespace GUI
                     }
                     catch (Exception)
                     {
-                       
+
                     }
                 }
 
