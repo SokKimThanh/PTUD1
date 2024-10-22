@@ -1,21 +1,12 @@
 ﻿using BUS;
 using BUS.Danh_Muc;
-using DevExpress.Utils;
-using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
-using DevExpress.XtraEditors.Repository;
 using DTO.tbl_DTO;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace GUI.UI.Modules
 {
@@ -75,7 +66,7 @@ namespace GUI.UI.Modules
 
             // Đặt chiều cao dòng phù hợp với kích thước của hình ảnh
             gridView1.RowHeight = 150;
- 
+
             var width_img = 100;
             // đặt chiều rộng cột hình ảnh
             gridView1.Columns["MV_POSTERURL"].Width = width_img;
