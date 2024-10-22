@@ -2,6 +2,9 @@
 using DTO.tbl_DTO;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace BUS
 {
@@ -66,8 +69,7 @@ namespace BUS
                     // Thêm ghế đôi vào danh sách
                     dal.AddData(new tbl_DM_Seat_DTO(null, file, rank, theater_AutoID, 0));
                 }
-            }
-            catch (Exception ex)
+            }catch(Exception ex)
             {
                 throw ex;
             }

@@ -2,6 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace DAL
 {
@@ -19,9 +22,9 @@ namespace DAL
             {
                 using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext())
                 {
-                    List<tbl_DM_Seat_DTO> list = new List<tbl_DM_Seat_DTO>();
+                    List<tbl_DM_Seat_DTO> list = new List<tbl_DM_Seat_DTO> ();
                     var list_Found = db.tbl_DM_Seats.Where(seat => seat.DELETED == 0).ToList();
-                    foreach (tbl_DM_Seat seat in list_Found)
+                    foreach(tbl_DM_Seat seat in list_Found)
                     {
                         list.Add(new tbl_DM_Seat_DTO(seat.SE_AutoID, seat.SE_FILE, seat.SE_RANK, seat.SE_THEATER_AutoID, (int)seat.DELETED));
                     }
@@ -70,8 +73,7 @@ namespace DAL
         /// <exception cref="NotImplementedException"></exception>
         public void UpdateData(tbl_DM_Seat_DTO obj)
         {
-            try
-            {
+            try { 
                 using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext())
                 {
                     // Tìm ghế có mã ghế như trên trong danh sách

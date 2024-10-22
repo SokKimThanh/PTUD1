@@ -1,8 +1,9 @@
-﻿using DTO.Custom;
-using DTO.tbl_DTO;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using DAL;
+using DTO.Custom;
+using DTO.tbl_DTO;
 
 namespace DAL
 {

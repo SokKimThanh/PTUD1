@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace DTO.tbl_DTO
 {
@@ -10,7 +14,7 @@ namespace DTO.tbl_DTO
         private long pD_AutoID;
         private string pD_NAME, pD_IMAGEURL;
         private double pD_QUANTITY, pD_PRICE;
-
+         
 
         public tbl_DM_Product_DTO()
         {
