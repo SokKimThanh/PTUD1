@@ -64,7 +64,7 @@
     <Compile Include="tbl_DM_Theater_DAL.cs" />
     <Compile Include="tbl_Report_Expense_DAL.cs" />
     <Compile Include="tbl_Report_Inventory_DAL.cs" />
-    <Compile Include="tbl_Report_Sales_DTO.cs" />
+    <Compile Include="tbl_Report_Sales_DAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj">
@@ -92,6 +92,8 @@
       <DependentUpon>CM_Cinema_DB.dbml</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="tbl_sp\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

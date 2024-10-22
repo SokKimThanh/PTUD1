@@ -13,6 +13,6 @@ namespace DTO.tbl_DTO
     {
         public string MovieName { get; set; }
         public decimal TotalRevenue { get; set; }
-        public int TicketsSold { get; set; }
+        public int TotalTicketsSold { get; set; }
     }
 }

@@ -42,9 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bao_Cao\tbl_Report_Expense_BUS.cs" />
-    <Compile Include="Bao_Cao\tbl_Report_Inventory_BUS.cs" />
-    <Compile Include="Bao_Cao\tbl_Report_Sales_BUS.cs" />
+    <Compile Include="Bao_Cao\tbl_Report_BUS.cs" />
     <Compile Include="BasicMethods.cs" />
     <Compile Include="Danh_Muc\tbl_DM_Product_BUS.cs" />
     <Compile Include="Sys\Ultilities.cs" />
