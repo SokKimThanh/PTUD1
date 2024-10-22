@@ -111,7 +111,7 @@ namespace GUI
         #region Event
         private void frmMainForm_Load(object sender, EventArgs e)
         {
-            StaffController objStaffController = new StaffController();
+            tbl_DM_Staff_BUS objStaffController = new tbl_DM_Staff_BUS();
             try
             {
                 //Kiểm tra dưới file
