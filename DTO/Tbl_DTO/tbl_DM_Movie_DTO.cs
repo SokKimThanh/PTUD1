@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace DTO.tbl_DTO
 {
@@ -54,7 +58,7 @@ namespace DTO.tbl_DTO
             set
             {
                 if (string.IsNullOrEmpty(value))
-                    throw new ArgumentException("URL poster không được để trống.");
+                    throw new ArgumentException("URL poster không được để trống."); 
                 mV_POSTERURL = value;
             }
         }

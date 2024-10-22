@@ -1,7 +1,13 @@
-﻿using DTO.Custom;
+﻿using DevExpress.LookAndFeel;
+using DevExpress.Skins;
+using DevExpress.UserSkins;
+using DTO.Custom;
 using System;
+using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace GUI

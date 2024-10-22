@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace DTO
 {
@@ -20,11 +24,9 @@ namespace DTO
         public long? AutoID { get => autoID; }
         public string Name { get => name; set => name = value; }
         public int Status { get => status; set => status = value; }
-        public int Deleted
-        {
-            get => deleted;
-            set
-            {
+        public int Deleted { 
+            get => deleted; 
+            set{
                 if (value != 0 && value != 1)
                 {
                     throw new Exception("Lỗi nhập dữ liệu (DELETED");
