@@ -32,7 +32,6 @@ namespace GUI.UI.Modules
 
         protected override void Load_FirstBase()
         {
-
             if (strFunctionCode != "")
                 lblTitle.Text = strFunctionCode.ToUpper().Trim();
 
@@ -45,16 +44,16 @@ namespace GUI.UI.Modules
             this.layoutTitle.MaxSize = new System.Drawing.Size(0, 42);
             this.layoutTitle.MinSize = new System.Drawing.Size(36, 36);
             // Ngăn không cho phép sửa dữ liệu trực tiếp trên GridView
-            gridView1.OptionsBehavior.Editable = false;
-            gridView1.RowClick += RowClick_Grid;
+            grdData.OptionsBehavior.Editable = false;
+            
+            grdData.RowClick += RowClick_Grid;
 
             cbbLevel.Properties.Items.Add(LanguageController.GetLanguageDataLabel("Admin"));
             cbbLevel.Properties.Items.Add(LanguageController.GetLanguageDataLabel("None"));
             cbbLevel.Properties.Items.Add(LanguageController.GetLanguageDataLabel("Manager"));
             cbbLevel.Properties.Items.Add(LanguageController.GetLanguageDataLabel("Staff"));
+
             cbbLevel.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-
-
         }
 
         protected override void Load_Data()
@@ -80,20 +79,20 @@ namespace GUI.UI.Modules
             // Focus vào ComboBoxEdit
             cbbLevel.Focus();
 
-            gridView1.Columns["ST_AutoID"].Visible = false;
-            gridView1.Columns["ST_PASSWORD"].Visible = false;
-            gridView1.Columns["ST_LEVEL"].Visible = false;
+            grdData.Columns["ST_AutoID"].Visible = false;
+            grdData.Columns["ST_PASSWORD"].Visible = false;
+            grdData.Columns["ST_LEVEL"].Visible = false;
 
-            gridView1.Columns["ST_USERNAME"].Caption = LanguageController.GetLanguageDataLabel("Mã đăng nhập");
-            gridView1.Columns["ST_PASSWORD"].Caption = LanguageController.GetLanguageDataLabel("Mật khẩu");
+            grdData.Columns["ST_USERNAME"].Caption = LanguageController.GetLanguageDataLabel("Mã đăng nhập");
+            grdData.Columns["ST_PASSWORD"].Caption = LanguageController.GetLanguageDataLabel("Mật khẩu");
 
-            gridView1.Columns["ST_NAME"].Caption = LanguageController.GetLanguageDataLabel("Tên");
-            gridView1.Columns["ST_PHONE"].Caption = LanguageController.GetLanguageDataLabel("SĐT");
-            gridView1.Columns["ST_CIC"].Caption = LanguageController.GetLanguageDataLabel("CCCD");
-            gridView1.Columns["ST_NOTE"].Caption = LanguageController.GetLanguageDataLabel("Ghi chú");
-            gridView1.Columns["ST_LEVELText"].Caption = LanguageController.GetLanguageDataLabel("Level");
+            grdData.Columns["ST_NAME"].Caption = LanguageController.GetLanguageDataLabel("Tên");
+            grdData.Columns["ST_PHONE"].Caption = LanguageController.GetLanguageDataLabel("SĐT");
+            grdData.Columns["ST_CIC"].Caption = LanguageController.GetLanguageDataLabel("CCCD");
+            grdData.Columns["ST_NOTE"].Caption = LanguageController.GetLanguageDataLabel("Ghi chú");
+            grdData.Columns["ST_LEVELText"].Caption = LanguageController.GetLanguageDataLabel("Level");
 
-            FormatGridView(gridView1);
+            FormatGridView(grdData);
 
         }
 

@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BasicMethods.cs" />
+    <Compile Include="Danh_Muc\tbl_DM_Shift_BUS.cs" />
     <Compile Include="Danh_Muc\tbl_DM_Staff_BUS.cs" />
     <Compile Include="Danh_Muc\tbl_DM_Product_BUS.cs" />
     <Compile Include="Sys\Ultilities.cs" />
