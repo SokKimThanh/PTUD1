@@ -1,19 +1,11 @@
 ﻿using BUS.Sys;
-using DevExpress.XtraEditors;
-using DevExpress.XtraExport.Helpers;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
-using DevExpress.XtraRichEdit;
 using DTO.Common;
 using DTO.Custom;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI.UI.Modules
