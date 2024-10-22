@@ -524,7 +524,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BUS\BUS.csproj">
-      <Project>{b0466d0e-175e-432b-9515-24d1a6269681}</Project>
+      <Project>{B0466D0E-175E-432B-9515-24D1A6269681}</Project>
       <Name>BUS</Name>
     </ProjectReference>
     <ProjectReference Include="..\DTO\DTO.csproj">

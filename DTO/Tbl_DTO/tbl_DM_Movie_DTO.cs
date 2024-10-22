@@ -58,9 +58,7 @@ namespace DTO.tbl_DTO
             set
             {
                 if (string.IsNullOrEmpty(value))
-                    throw new ArgumentException("URL poster không được để trống.");
-                if (!Uri.IsWellFormedUriString(value, UriKind.Absolute))
-                    throw new ArgumentException("URL poster không hợp lệ.");
+                    throw new ArgumentException("URL poster không được để trống."); 
                 mV_POSTERURL = value;
             }
         }
