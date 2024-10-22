@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DTO.tbl_DTO
+namespace BUS.Bao_Cao
 {
-    /// <summary>
-    /// Báo cáo thu chi
-    /// </summary>
-    public class tbl_Report_IncomeExpense_DTO
+    public class tbl_Report_Inventory_BUS
     {
-
     }
 }

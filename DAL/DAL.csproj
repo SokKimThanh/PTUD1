@@ -62,6 +62,9 @@
     </Compile>
     <Compile Include="tbl_DM_AgeRating_DAL.cs" />
     <Compile Include="tbl_DM_Theater_DAL.cs" />
+    <Compile Include="tbl_Report_Expense_DAL.cs" />
+    <Compile Include="tbl_Report_Inventory_DAL.cs" />
+    <Compile Include="tbl_Report_Sales_DTO.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj">
