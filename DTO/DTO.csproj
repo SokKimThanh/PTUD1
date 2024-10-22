@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="tbl_DTO\tbl_Report_Detail_Sales_DTO.cs" />
     <Compile Include="tbl_DTO\tbl_Report_Sales_DTO.cs" />
     <Compile Include="tbl_DTO\tbl_Report_Expense_DTO.cs" />
     <Compile Include="tbl_DTO\tbl_Report_Inventory_DTO.cs" />
