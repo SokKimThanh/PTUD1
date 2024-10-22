@@ -1,5 +1,6 @@
 ﻿using BUS.Danh_Muc;
 using DTO.Custom;
+using DTO.tbl_DTO;
 using DTO.Utility;
 using System;
 using System.IO;
@@ -27,8 +28,13 @@ namespace GUI
         {
             try
             {
-                StaffController objController = new StaffController();
-                objController.LoginProcess(txtTenDangNhap.Text, txtMatKhau.Text);
+                tbl_DM_Staff_DTO objUser = new tbl_DM_Staff_DTO();
+                objUser.ST_USERNAME = txtTenDangNhap.Text;
+                objUser.ST_PASSWORD = txtMatKhau.Text;
+
+
+                tbl_DM_Staff_BUS objController = new tbl_DM_Staff_BUS();
+                objController.LoginProcess(objUser);
 
                 //B1. Kiểm tra xem file chứa thông tin đăng nhập có tồn tại trên máy không nếu không thì tạo mới
                 if (Directory.Exists(CConfig.CM_Cinema_FileManagement_Folder) == false)
