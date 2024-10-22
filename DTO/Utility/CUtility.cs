@@ -17,6 +17,9 @@ namespace DTO.Utility
         /// <returns></returns>
         public static string MD5_Encrypt(string strData)
         {
+            if (strData == "")
+                return "";
+
             // Bước 1: Tạo đối tượng MD5
             using (MD5 objMD5 = MD5.Create())
             {
