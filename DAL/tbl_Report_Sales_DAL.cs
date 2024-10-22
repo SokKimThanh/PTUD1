@@ -51,8 +51,8 @@ namespace DAL
                                      select new tbl_Report_Sales_DTO
                                      {
                                          MovieName = phimGroup.Key,// doanh thu từng phim
-                                         TotalTicketsSold = phimGroup.Count(),// tổng tiền đã thu
-                                         TotalRevenue = phimGroup.Sum(t => (decimal)t.ve.TK_AutoID)// tổng vé đã bán
+                                         TotalRevenue = phimGroup.Sum(t => (decimal)t.ve.TK_AutoID),// tổng tiền đã thu
+                                         TotalTicketsSold = phimGroup.Count(),// tổng vé đã bán
                                      };
 
                     result = reportList.ToList();
