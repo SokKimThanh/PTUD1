@@ -19,6 +19,12 @@ namespace DAL
         // chuỗi kết nối
         private readonly string _connectionString = CConfig.CM_Cinema_DB_ConnectionString;
 
+        /// <summary>
+        /// Hàm báo cáo doanh thu chi tiết
+        /// </summary>
+        /// <param name="startDate"></param>
+        /// <param name="endDate"></param>
+        /// <returns></returns>
         public object GetDetailSaleReport(DateTime startDate, DateTime endDate)
         {
             // ket qua tra ve
@@ -67,7 +73,7 @@ namespace DAL
             return result;
         }
 
-        // Hàm báo cáo doanh thu
+        // Hàm báo cáo doanh thu tổng quan
         public List<tbl_Report_Sales_DTO> GetSalesReport(DateTime startDate, DateTime endDate)
         {
             // ket qua tra ve
