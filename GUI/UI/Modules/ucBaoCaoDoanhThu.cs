@@ -2,61 +2,61 @@
 using DevExpress.XtraEditors;
 using DevExpress.XtraPrinting;
 using DevExpress.XtraReports.UI;
-using DevExpress.XtraReports;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using GUI.UI.ReportDesign;
-using DevExpress.XtraRichEdit.Model;
-using System.Runtime.InteropServices.ComTypes;
+using System;
+using System.Windows.Forms;
 
 namespace GUI.UI.Modules
 {
     public partial class ucBaoCaoDoanhThu : ucBase
     {
         private tbl_Report_BUS data = new tbl_Report_BUS();
-        DateTime startDate;
-        DateTime endDate;
+        private DateTime startDate;
+        private DateTime endDate;
 
         public ucBaoCaoDoanhThu()
         {
             InitializeComponent();
-            // Ngăn không cho phép sửa dữ liệu trực tiếp trên GridView
+            // Ngăn không cho phép chỉnh sửa trực tiếp trên GridView
             gridView1.OptionsBehavior.Editable = false;
         }
 
         protected override void Load_Data()
         {
-            if (strFunctionCode != "")
-                lblTitle.Text = strFunctionCode.ToUpper().Trim();
+            lblTitle.Text = !string.IsNullOrEmpty(strFunctionCode) ? strFunctionCode.ToUpper().Trim() : string.Empty;
 
             // Mặc định hiển thị báo cáo tổng quan
             rptViewReport.SelectedIndex = 0;
 
-            // tổng quan năm hiện tại
+            // Đặt khoảng thời gian cho năm hiện tại
             startDate = new DateTime(DateTime.Now.Year, 1, 1);
             endDate = new DateTime(DateTime.Now.Year, 12, 31);
             dgv.DataSource = data.GetAllSalesReport(startDate, endDate);
-            if (rptViewReport.SelectedIndex == 0)
+
+            ConfigureGridColumns();
+
+            // Hiển thị năm hiện tại lên các điều khiển
+            txtStartDate.EditValue = startDate;
+            txtEndDate.EditValue = endDate;
+
+            // Tải lại nguồn dữ liệu
+            dgv.RefreshDataSource();
+        }
+
+        private void ConfigureGridColumns()
+        {
+            if (rptViewReport.SelectedIndex == 0) // Tổng quan
             {
-                // tổng quan
                 gridView1.Columns["MovieName"].Caption = "Tên phim";
                 gridView1.Columns["TotalRevenue"].Caption = "Tổng doanh thu";
                 gridView1.Columns["TotalTicketsSold"].Caption = "Tổng vé bán";
 
                 // Định dạng cột Tổng doanh thu
                 gridView1.Columns["TotalRevenue"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-                gridView1.Columns["TotalRevenue"].DisplayFormat.FormatString = "c0"; // Hiển thị tiền tệ
+                gridView1.Columns["TotalRevenue"].DisplayFormat.FormatString = "c0"; // Định dạng tiền tệ
             }
-            else
+            else // Chi tiết
             {
-                // chi tiết 
                 gridView1.Columns["MovieName"].Caption = "Tên phim";
                 gridView1.Columns["ShowTime"].Caption = "Thời gian chiếu";
                 gridView1.Columns["TicketPrice"].Caption = "Giá vé";
@@ -65,32 +65,20 @@ namespace GUI.UI.Modules
 
                 // Định dạng cột Giá vé
                 gridView1.Columns["TicketPrice"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-                gridView1.Columns["TicketPrice"].DisplayFormat.FormatString = "c0"; // Hiển thị tiền tệ
+                gridView1.Columns["TicketPrice"].DisplayFormat.FormatString = "c0"; // Định dạng tiền tệ
             }
-            // hiển thị năm hiện tại lên control
-            txtStartDate.EditValue = startDate;
-            txtEndDate.EditValue = endDate;
-
-            // tải lại form
-            dgv.RefreshDataSource();
         }
 
         private void btnThucThi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) && DateTime.TryParse(txtEndDate.Text.Trim(), out endDate))
+            if (DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) &&
+                DateTime.TryParse(txtEndDate.Text.Trim(), out endDate))
             {
-                // hiển thị danh sách báo cáo
-                if (rptViewReport.SelectedIndex == 0)
-                {
-                    // tổng quan
-                    dgv.DataSource = data.GetAllSalesReport(startDate, endDate);
-                }
-                else
-                {
-                    // chi tiết 
-                    dgv.DataSource = data.GetDetailSaleReport(startDate, endDate);
-                }
-                // tải lại form
+                dgv.DataSource = rptViewReport.SelectedIndex == 0
+                    ? data.GetAllSalesReport(startDate, endDate)
+                    : data.GetDetailSaleReport(startDate, endDate);
+
+                // Tải lại nguồn dữ liệu
                 dgv.RefreshDataSource();
             }
             else
@@ -101,35 +89,28 @@ namespace GUI.UI.Modules
 
         private void btnLuuPDF_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            // Triển khai chức năng lưu PDF tại đây
         }
 
-        /// <summary>
-        /// Hàm tạo report
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnTaoBaoCao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) &&
                 DateTime.TryParse(txtEndDate.Text.Trim(), out endDate))
             {
-                // hiển thị danh sách báo cáo
-                if (rptViewReport.SelectedIndex == 0)
+                if (rptViewReport.SelectedIndex == 0) // Tổng quan
                 {
-                    // tổng quan
                     dgv.DataSource = data.GetAllSalesReport(startDate, endDate);
-                    tbl_rp_sales_ui report = new tbl_rp_sales_ui(startDate, endDate);
-                    ReportPrintTool printTool = new ReportPrintTool(report);
-                    printTool.ShowPreview();  // Hiển thị báo cáo trong cửa sổ Preview
+                    var report = new tbl_rp_sales_ui(startDate, endDate);
+                    var printTool = new ReportPrintTool(report);
+                    printTool.ShowPreview();  // Hiển thị báo cáo trong cửa sổ xem trước
                 }
-                else
+                else // Chi tiết
                 {
-                    // chi tiết 
                     dgv.DataSource = data.GetDetailSaleReport(startDate, endDate);
-                    //tbl_rp_sales_details_ui report = new tbl_rp_sales_details_ui(startDate, endDate);
-                    //ReportPrintTool printTool = new ReportPrintTool(report);
-                    //printTool.ShowPreview();  // Hiển thị báo cáo trong cửa sổ Preview
+                    // Bỏ chọn bên dưới để triển khai xem trước báo cáo chi tiết
+                    // var report = new tbl_rp_sales_details_ui(startDate, endDate);
+                    // var printTool = new ReportPrintTool(report);
+                    // printTool.ShowPreview();  // Hiển thị báo cáo trong cửa sổ xem trước
                 }
             }
             else
@@ -138,10 +119,9 @@ namespace GUI.UI.Modules
             }
         }
 
-
         private void btnLamMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            // tải lại form
+            // Tải lại nguồn dữ liệu
             dgv.RefreshDataSource();
         }
     }
