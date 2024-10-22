@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,5 +38,30 @@ namespace DTO.Utility
             }
 
         }
+
+        public static void Clone_Entity(object objSource, object objTarget)
+        {
+            // Lấy danh sách các thuộc tính của objSource và objTarget
+            PropertyInfo[] arrPropSources = objSource.GetType().GetProperties();
+            PropertyInfo[] arrPropTarget = objTarget.GetType().GetProperties();
+
+            // Duyệt qua từng thuộc tính của objSource
+            foreach (PropertyInfo objPropSoucre in arrPropSources)
+            {
+                // Tìm thuộc tính tương ứng trong objTarget theo tên
+                PropertyInfo objPropTarget = arrPropTarget.FirstOrDefault(p => p.Name == objPropSoucre.Name);
+
+                // Kiểm tra nếu thuộc tính có thể đọc từ source và ghi vào target
+                if (objPropTarget != null && objPropTarget.CanWrite && objPropSoucre.CanRead)
+                {
+                    // Lấy giá trị từ objSource
+                    object objValue = objPropSoucre.GetValue(objSource);
+
+                    // Gán giá trị vào objTarget
+                    objPropTarget.SetValue(objTarget, objValue);
+                }
+            }
+        }
+
     }
 }
