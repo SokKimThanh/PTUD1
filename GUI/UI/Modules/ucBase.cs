@@ -1,8 +1,9 @@
 ﻿using BUS.Sys;
+using DevExpress.XtraEditors;
+using DevExpress.XtraExport.Helpers;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
 using DTO.Common;
-using DTO.Custom;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -47,6 +48,7 @@ namespace GUI.UI.Modules
                 MessageBox.Show(LanguageController.GetLanguageDataLabel(ex.Message), LanguageController.GetLanguageDataLabel("Lỗi"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
 
         /// <summary>
@@ -191,116 +193,6 @@ namespace GUI.UI.Modules
             {
                 MessageBox.Show(LanguageController.GetLanguageDataLabel(ex.Message), LanguageController.GetLanguageDataLabel("Lỗi"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        protected void FormatGridView(GridView objGrid)
-        {
-            List<string> arrDefaultCols = new List<string>()
-            {
-                "DELETED",
-                "CREATED",
-                "CREATED_BY",
-                "CREATED_BY_FUNCTION",
-                "UPDATED",
-                "UPDATED_BY",
-                "UPDATED_BY_FUNCTION",
-            };
-
-            // Danh sách các kiểu dữ liệu số đầy đủ
-            List<Type> arrNum = new List<Type>
-            {
-                typeof(int),        // int (System.Int32)
-                typeof(long),       // long (System.Int64)
-                typeof(short),      // short (System.Int16)
-                typeof(byte),       // byte (System.Byte)
-                typeof(sbyte),      // sbyte (System.SByte)
-                typeof(ushort),     // ushort (System.UInt16)
-                typeof(uint),       // uint (System.UInt32)
-                typeof(ulong),      // ulong (System.UInt64)
-                typeof(float),      // float (System.Single)
-                typeof(double),     // double (System.Double)
-                typeof(decimal),    // decimal (System.Decimal)
-                typeof(Int16),      // Int16 (System.Int16)
-                typeof(Int32),      // Int32 (System.Int32)
-                typeof(Int64),      // Int64 (System.Int64)
-                typeof(UInt16),     // UInt16 (System.UInt16)
-                typeof(UInt32),     // UInt32 (System.UInt32)
-                typeof(UInt64)      // UInt64 (System.UInt64)
-            };
-
-
-            //Duyệt qua danh sách các cột
-            foreach (GridColumn objCol in objGrid.Columns)
-            {
-                //Kiểm tra xem tên cột có nằm trong danh sách ẩn mặc định k?
-                if (arrDefaultCols.Contains(objCol.FieldName.Trim()) == true)
-                    objCol.Visible = false; //Ẩn đi
-
-                //Kiểm tra trạng thái ẩn
-                if (objCol.Visible == false)
-                    continue;
-
-                //Lấy kiểu dữ liệu cột đó ra
-                Type objColType = objCol.ColumnType;
-
-                // Format dữ liệu cột
-                if (arrNum.Contains(objColType) == true)
-                {
-                    // Định dạng số
-                    objCol.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-                    objCol.DisplayFormat.FormatString = CConfig.Number_Format_String;
-
-                    // Căn phải nội dung
-                    objCol.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-
-                    // Màu số (màu đỏ)
-                    objCol.AppearanceCell.ForeColor = Color.Red;
-
-                    // Nền màu vàng
-                    objCol.AppearanceCell.BackColor = Color.Yellow;
-
-                    //Độ rộng
-                    objCol.Width = 80;
-                }
-                else if (objColType == typeof(DateTime) || objColType == typeof(TimeSpan))
-                {
-
-                    // Định dạng
-                    objCol.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-                    objCol.DisplayFormat.FormatString = CConfig.Date_Format_String;
-
-                    // Căn phải nội dung
-                    objCol.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-
-                    //Độ rộng
-                    objCol.Width = 100;
-                }
-                else
-                {
-                    // Định dạng
-                    objCol.DisplayFormat.FormatType = DevExpress.Utils.FormatType.None;
-
-                    // Căn phải nội dung
-                    objCol.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-
-                    //Độ rộng
-                    objCol.Width = 120;
-                }
-
-                // Đặt font, cỡ chữ
-                objCol.AppearanceCell.Font = new Font("Times New Roman", 10);
-
-                //Chỉnh lại theo multilanguage
-                objCol.Caption = LanguageController.GetLanguageDataLabel(objCol.Caption);
-            }
-
-            //Các tùy chỉnh
-            objGrid.OptionsView.ColumnAutoWidth = false;
-            objGrid.OptionsView.RowAutoHeight = true;
-            objGrid.OptionsBehavior.AutoExpandAllGroups = true;
-            objGrid.ScrollStyle = ScrollStyleFlags.LiveHorzScroll; // Tùy chọn nếu muốn scroll mượt
-            objGrid.OptionsView.ShowIndicator = false; // Tắt cột đầu
-
         }
     }
 }
