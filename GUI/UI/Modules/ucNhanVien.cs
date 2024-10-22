@@ -22,12 +22,14 @@ namespace GUI.UI.Modules
     {
         private List<tbl_DM_Staff_DTO> arrData = new List<tbl_DM_Staff_DTO>();
         private tbl_DM_Staff_DTO objEdit = null;
+
         private List<string> arrLevel = new List<string>();
 
         public ucNhanVien()
         {
             InitializeComponent();
         }
+
         protected override void Load_FirstBase()
         {
 
@@ -51,6 +53,7 @@ namespace GUI.UI.Modules
             cbbLevel.Properties.Items.Add(LanguageController.GetLanguageDataLabel("Manager"));
             cbbLevel.Properties.Items.Add(LanguageController.GetLanguageDataLabel("Staff"));
             cbbLevel.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+
 
         }
 
@@ -77,6 +80,21 @@ namespace GUI.UI.Modules
             // Focus vào ComboBoxEdit
             cbbLevel.Focus();
 
+            gridView1.Columns["ST_AutoID"].Visible = false;
+            gridView1.Columns["ST_PASSWORD"].Visible = false;
+            gridView1.Columns["ST_LEVEL"].Visible = false;
+
+            gridView1.Columns["ST_USERNAME"].Caption = LanguageController.GetLanguageDataLabel("Mã đăng nhập");
+            gridView1.Columns["ST_PASSWORD"].Caption = LanguageController.GetLanguageDataLabel("Mật khẩu");
+
+            gridView1.Columns["ST_NAME"].Caption = LanguageController.GetLanguageDataLabel("Tên");
+            gridView1.Columns["ST_PHONE"].Caption = LanguageController.GetLanguageDataLabel("SĐT");
+            gridView1.Columns["ST_CIC"].Caption = LanguageController.GetLanguageDataLabel("CCCD");
+            gridView1.Columns["ST_NOTE"].Caption = LanguageController.GetLanguageDataLabel("Ghi chú");
+            gridView1.Columns["ST_LEVELText"].Caption = LanguageController.GetLanguageDataLabel("Level");
+
+            FormatGridView(gridView1);
+
         }
 
         protected override void Add_Data()
@@ -91,13 +109,13 @@ namespace GUI.UI.Modules
             objNew.ST_CIC = txtCIC.Text.Trim();
             objNew.ST_NOTE = txtNOTE.Text.Trim();
 
-            if(cbbLevel.SelectedItem != null)
+            if (cbbLevel.SelectedItem != null)
             {
                 string strCBBValue = cbbLevel.SelectedItem.ToString();
 
-                if (strCBBValue == LanguageController.GetLanguageDataLabel("None"))             
+                if (strCBBValue == LanguageController.GetLanguageDataLabel("None"))
                     objNew.ST_LEVEL = (int)ELevel.None;
-                else if(strCBBValue == LanguageController.GetLanguageDataLabel("Admin"))
+                else if (strCBBValue == LanguageController.GetLanguageDataLabel("Admin"))
                     objNew.ST_LEVEL = (int)ELevel.Admin;
                 else if (strCBBValue == LanguageController.GetLanguageDataLabel("Manager"))
                     objNew.ST_LEVEL = (int)ELevel.Manager;
