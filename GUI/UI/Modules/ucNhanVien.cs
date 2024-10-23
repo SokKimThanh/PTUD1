@@ -1,6 +1,8 @@
 ﻿using BUS.Danh_Muc;
 using BUS.Sys;
 using DevExpress.XtraEditors;
+using DevExpress.XtraExport.Helpers;
+using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
 using DTO.Custom;
 using DTO.tbl_DTO;
@@ -93,7 +95,7 @@ namespace GUI.UI.Modules
             grdData.Columns["ST_LEVELText"].Caption = LanguageController.GetLanguageDataLabel("Level");
 
             FormatGridView(grdData);
-
+            
         }
 
         protected override void Add_Data()
