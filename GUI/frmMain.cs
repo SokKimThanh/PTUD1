@@ -242,6 +242,8 @@ namespace GUI
 
                         // Thêm UserControl vào main container
                         mainContainer.Controls.Add(objLoad);
+
+                        objLoad.Load_DataBase(objSender, e);
                     }
 
                     // Đưa nó lên phía trước

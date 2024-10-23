@@ -1,6 +1,8 @@
 ﻿using BUS.Sys;
 using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraExport.Helpers;
+using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraRichEdit;
@@ -27,9 +29,10 @@ namespace GUI.UI.Modules
         public string strActive_User_Name { get; set; } = "";
 
         protected bool blIs_First_Load = false;
+
         public ucBase()
         {
-            this.Load += Load_DataBase;
+
         }
 
         /// <summary>
@@ -37,7 +40,7 @@ namespace GUI.UI.Modules
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void Load_DataBase(object sender, EventArgs e)
+        public void Load_DataBase(object sender, EventArgs e)
         {
             try
             {
@@ -205,7 +208,7 @@ namespace GUI.UI.Modules
         {
             List<string> arrDefaultCols = new List<string>()
             {
-                "DELETED",
+              //  "DELETED",
                 "CREATED",
                 "CREATED_BY",
                 "CREATED_BY_FUNCTION",
@@ -236,6 +239,8 @@ namespace GUI.UI.Modules
                 typeof(UInt64)      // UInt64 (System.UInt64)
             };
 
+            //Biến này dùng để tính toán độ rộng cho cột cuối
+            int iTotalWidth = 0;
 
             //Duyệt qua danh sách các cột
             foreach (GridColumn objCol in objGrid.Columns)
@@ -246,6 +251,10 @@ namespace GUI.UI.Modules
 
                 //Kiểm tra trạng thái ẩn
                 if (objCol.Visible == false)
+                    continue;
+
+                //Không cần style cột này
+                if (objCol.Name == "LastCol")
                     continue;
 
                 //Lấy kiểu dữ liệu cột đó ra
@@ -269,6 +278,10 @@ namespace GUI.UI.Modules
 
                     //Độ rộng
                     objCol.Width = 80;
+
+                    // Cấu hình tính tổng cho cột
+                    objCol.SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum;
+                    objCol.SummaryItem.DisplayFormat = "{0:n3}";  // Định dạng hiển thị tổng (ví dụ: số nguyên)
                 }
                 else if (objColType == typeof(DateTime) || objColType == typeof(TimeSpan))
                 {
@@ -281,7 +294,7 @@ namespace GUI.UI.Modules
                     objCol.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
 
                     //Độ rộng
-                    objCol.Width = 100;
+                    objCol.Width = 120;
                 }
                 else
                 {
@@ -292,7 +305,7 @@ namespace GUI.UI.Modules
                     objCol.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
 
                     //Độ rộng
-                    objCol.Width = 120;
+                    objCol.Width = 200;
                 }
 
                 // Đặt font, cỡ chữ
@@ -300,15 +313,52 @@ namespace GUI.UI.Modules
 
                 //Chỉnh lại theo multilanguage
                 objCol.Caption = LanguageController.GetLanguageDataLabel(objCol.Caption);
+                iTotalWidth += objCol.Width;
             }
 
+            //Nếu chưa tồn tại thì thêm vào
+            if (objGrid.Columns.ColumnByName("LastCol") == null)
+            {
+                //Thêm cột cuối vào cho đẹp
+                GridColumn objLastColumn = new GridColumn
+                {
+                    Name = "ColFooter",
+                    FieldName = "",
+                    Visible = true
+                };
+
+                // Cho phép cột này mở rộng kích thước tự động
+                objLastColumn.OptionsColumn.FixedWidth = false;  // Đảm bảo cột có thể thay đổi kích thước
+                objLastColumn.MinWidth = 100;                    // Đặt chiều rộng tối thiểu cho cột
+
+                int iWidthCol = objGrid.GridControl.ClientSize.Width - iTotalWidth - 77;
+
+                // Đặt chiều rộng theo GridControl
+                if (iWidthCol > 0)
+                    objLastColumn.Width = iWidthCol;
+                else
+                    objLastColumn.Width = 100;
+
+                // Thêm cột vào GridControl
+                objGrid.Columns.Add(objLastColumn);
+            }
+
+
+            // Cài đặt thuộc tính cho toàn bộ footer
+            objGrid.Appearance.FooterPanel.BackColor = Color.LightSteelBlue;  // Màu nền của footer
+            objGrid.Appearance.FooterPanel.ForeColor = Color.Black;           // Màu chữ của footer
+            objGrid.Appearance.FooterPanel.Font = new Font("Times New Roman", 10, FontStyle.Bold);  // Font chữ cho footer
+            objGrid.Appearance.FooterPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;  // Căn phải toàn bộ footer
+
             //Các tùy chỉnh
+            objGrid.OptionsView.ShowFooter = true;
+            objGrid.OptionsSelection.MultiSelect = true;
+            objGrid.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             objGrid.OptionsView.ColumnAutoWidth = false;
             objGrid.OptionsView.RowAutoHeight = true;
             objGrid.OptionsBehavior.AutoExpandAllGroups = true;
-            objGrid.ScrollStyle = ScrollStyleFlags.LiveHorzScroll; // Tùy chọn nếu muốn scroll mượt
-            objGrid.OptionsView.ShowIndicator = false; // Tắt cột đầu
-
+            objGrid.ScrollStyle = ScrollStyleFlags.LiveHorzScroll;
+            objGrid.OptionsView.ShowIndicator = false;
         }
     }
 }
