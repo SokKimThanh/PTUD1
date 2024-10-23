@@ -18,11 +18,16 @@ namespace DTO.tbl_DTO
         public tbl_DM_AgeRating_DTO()
         {
         }
-
+        // Constructor combobox
+        public tbl_DM_AgeRating_DTO(long aR_AUTOID, string aR_NAME)
+        {
+            this.AR_AutoID = aR_AUTOID;
+            this.AR_NAME = aR_NAME;
+        }
         // Constructor với tham số
         public tbl_DM_AgeRating_DTO(long aR_AUTOID, string aR_NAME, string aR_NOTE)
         {
-            this.AR_AUTOID = aR_AUTOID;
+            this.AR_AutoID = aR_AUTOID;
             this.AR_NAME = aR_NAME;
             this.AR_NOTE = aR_NOTE;
         }
@@ -55,15 +60,15 @@ namespace DTO.tbl_DTO
             }
         }
 
-        // Thuộc tính AR_AUTOID
-        public long AR_AUTOID
+        // Thuộc tính AR_AutoID
+        public long AR_AutoID
         {
             get => _aR_AUTOID;
             set
             {
                 if (value <= 0)
                 {
-                    throw new ArgumentException("AR_AUTOID phải lớn hơn 0.");
+                    throw new ArgumentException("AR_AutoID phải lớn hơn 0.");
                 }
                 _aR_AUTOID = value;
             }
@@ -71,7 +76,7 @@ namespace DTO.tbl_DTO
         // Phương thức để dễ dàng hiển thị thông tin đối tượng
         public override string ToString()
         {
-            return $"ID: {AR_AUTOID}, Tên: {AR_NAME}, Ghi chú: {AR_NOTE}";
+            return $"Tên: {AR_NAME}, Ghi chú: {AR_NOTE}";
         }
     }
 }

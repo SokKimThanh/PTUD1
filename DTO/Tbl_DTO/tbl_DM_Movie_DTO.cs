@@ -21,6 +21,13 @@ namespace DTO.tbl_DTO
         {
         }
 
+        // constructor for combobox
+        public tbl_DM_Movie_DTO(long mV_AutoID, string mV_NAME)
+        {
+            this.mV_AutoID = mV_AutoID;
+            this.mV_NAME = mV_NAME;
+        }
+
         public tbl_DM_Movie_DTO(string mV_NAME, string mV_POSTERURL, string mV_DESCRIPTION, double mV_PRICE, int mV_DURATION, long mV_AutoID, long? mV_AGERATING_AutoID = null)
         {
             MV_NAME = mV_NAME;
@@ -51,9 +58,7 @@ namespace DTO.tbl_DTO
             set
             {
                 if (string.IsNullOrEmpty(value))
-                    throw new ArgumentException("URL poster không được để trống.");
-                if (!Uri.IsWellFormedUriString(value, UriKind.Absolute))
-                    throw new ArgumentException("URL poster không hợp lệ.");
+                    throw new ArgumentException("URL poster không được để trống."); 
                 mV_POSTERURL = value;
             }
         }

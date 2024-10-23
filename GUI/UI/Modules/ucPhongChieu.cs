@@ -166,6 +166,8 @@ namespace GUI.UI.Modules
                     cboStatus.SelectedIndex = (int)gvTheaters.GetRowCellValue(i, "Status");
                 }
             }
+            if (strFunctionCode != "")
+                lblTitle.Text = strFunctionCode.ToUpper().Trim();
         }
     }
 }

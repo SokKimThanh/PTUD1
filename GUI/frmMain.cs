@@ -165,7 +165,7 @@ namespace GUI
                     }
                     catch (Exception)
                     {
-                        throw;
+                       
                     }
                 }
 
@@ -330,7 +330,7 @@ namespace GUI
         {
             try
             {
-                if (DialogResult.Yes == MessageBox.Show(LanguageController.GetLanguageDataLabel("Bạn có muốn thoát chương trình?"), LanguageController.GetLanguageDataLabel("Thông báo"), MessageBoxButtons.OK, MessageBoxIcon.Question))
+                if (DialogResult.Yes == MessageBox.Show(LanguageController.GetLanguageDataLabel("Bạn có muốn thoát chương trình?"), LanguageController.GetLanguageDataLabel("Thông báo"), MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                 {
                     // Thoát chương trình
                     Application.Exit();

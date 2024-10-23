@@ -61,9 +61,22 @@ namespace BUS.Danh_Muc
                 throw ex;
             }
         }
+        /// <summary>
+        /// Hàm lấy dgv_selected_id
+        /// </summary>
+        /// <param name="id">dgv_selected_id || cboAgeRating_selected_id</param>
+        /// <returns></returns>
         public tbl_DM_AgeRating_DTO Find(long id)
         {
             return data.Find(id);
+        }
+        /// <summary>
+        /// Lấy danh sách combobox
+        /// </summary>
+        /// <returns></returns>
+        public List<tbl_DM_AgeRating_DTO> GetCombobox()
+        {
+            return data.GetCombobox();
         }
     }
 }

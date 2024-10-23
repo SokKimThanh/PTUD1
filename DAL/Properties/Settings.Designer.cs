@@ -47,11 +47,22 @@ namespace DAL.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=HOSHIKISHIRO\\SQLEXPRESS;Initial Catalog=CM_Cinema_DB;Integrated Secur" +
-            "ity=True;TrustServerCertificate=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-SV40LIF;Initial Catalog=CM_Cinema_DB;Integrated Security=True" +
+            ";Encrypt=True;Trust Server Certificate=True")]
         public string CM_Cinema_DBConnectionString2 {
             get {
                 return ((string)(this["CM_Cinema_DBConnectionString2"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-SV40LIF;Initial Catalog=CM_Cinema_DB;Integrated Security=True" +
+            ";Encrypt=True;TrustServerCertificate=True")]
+        public string CM_Cinema_DBConnectionString3 {
+            get {
+                return ((string)(this["CM_Cinema_DBConnectionString3"]));
             }
         }
     }
