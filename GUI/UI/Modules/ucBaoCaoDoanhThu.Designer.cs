@@ -257,6 +257,7 @@
             this.rptViewReport.Size = new System.Drawing.Size(333, 44);
             this.rptViewReport.StyleController = this.layoutForm;
             this.rptViewReport.TabIndex = 11;
+            this.rptViewReport.SelectedIndexChanged += new System.EventHandler(this.rptViewReport_SelectedIndexChanged);
             // 
             // lblTitle
             // 
