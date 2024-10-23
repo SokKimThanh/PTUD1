@@ -527,6 +527,10 @@
       <Project>{B0466D0E-175E-432B-9515-24D1A6269681}</Project>
       <Name>BUS</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{2458331a-da31-4263-98c0-8f78f67d1090}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\printernetwork_16x161.png" />
