@@ -64,6 +64,9 @@
     <Compile Include="tbl_DM_Shift_DAL.cs" />
     <Compile Include="tbl_DM_Staff_DAL.cs" />
     <Compile Include="tbl_DM_Theater_DAL.cs" />
+    <Compile Include="tbl_Report_Expense_DAL.cs" />
+    <Compile Include="tbl_Report_Inventory_DAL.cs" />
+    <Compile Include="tbl_Report_Sales_DAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -84,6 +87,9 @@
     <None Include="CM_Cinema_DB.dbml.layout">
       <DependentUpon>CM_Cinema_DB.dbml</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="tbl_sp\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj">

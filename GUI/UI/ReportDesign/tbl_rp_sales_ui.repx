@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="22.2.3.0" Ref="1" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="tbl_rp_sales_ui" BookmarkDuplicateSuppress="false" Margins="90, 90, 100, 100" PageWidth="850" PageHeight="1100" Version="22.2" DataMember="sp_GetSalesReport" DataSource="#Ref-0" Font="Arial, 9.75pt">
+  <Bands>
+    <Item1 Ref="2" ControlType="DetailBand" Name="Detail" HeightF="30" KeepTogether="true" TextAlignment="TopLeft" StyleName="baseControlStyle" Padding="0,0,0,0,100">
+      <Controls>
+        <Item1 Ref="3" ControlType="XRTable" Name="detailTable" AnchorHorizontal="Right" SizeF="630.000244,30" LocationFloat="19.99998,0" BorderColor="255,198,198,198" Borders="Bottom">
+          <Rows>
+            <Item1 Ref="4" ControlType="XRTableRow" Name="detailTableRow" Weight="10.58">
+              <Cells>
+                <Item1 Ref="5" ControlType="XRTableCell" Name="quantity" Weight="1.0127497793414433" Text="1" TextAlignment="TopLeft" Font="Segoe UI, 11.83pt" Padding="2,2,5,0,100">
+                  <ExpressionBindings>
+                    <Item1 Ref="6" EventName="BeforePrint" PropertyName="Text" Expression="[MovieName]" />
+                  </ExpressionBindings>
+                  <StylePriority Ref="7" UseFont="false" UsePadding="false" UseTextAlignment="false" />
+                </Item1>
+                <Item2 Ref="8" ControlType="XRTableCell" Name="productName" Weight="0.76178833624577125" TextFormatString="{0:N0}" Text="ProductName" Font="Segoe UI, 11.83pt" Padding="10,2,5,0,100">
+                  <ExpressionBindings>
+                    <Item1 Ref="9" EventName="BeforePrint" PropertyName="Text" Expression="[TicketsSold]" />
+                  </ExpressionBindings>
+                  <StylePriority Ref="10" UseFont="false" UsePadding="false" />
+                </Item2>
+                <Item3 Ref="11" ControlType="XRTableCell" Name="lineTotal" Weight="1.00392393621666" TextFormatString="{0:C0}" Text="0,00 ₫" TextAlignment="TopRight" Font="Segoe UI, 11.83pt, style=Bold" Padding="2,2,5,0,100">
+                  <ExpressionBindings>
+                    <Item1 Ref="12" EventName="BeforePrint" PropertyName="Text" Expression="[TotalRevenue]" />
+                  </ExpressionBindings>
+                  <StylePriority Ref="13" UseFont="false" UseForeColor="false" UsePadding="false" UseTextAlignment="false" />
+                </Item3>
+              </Cells>
+            </Item1>
+          </Rows>
+          <StylePriority Ref="14" UseFont="false" UseBorderColor="false" UseBorders="false" />
+        </Item1>
+      </Controls>
+    </Item1>
+    <Item2 Ref="15" ControlType="TopMarginBand" Name="TopMargin" TextAlignment="TopLeft" Padding="0,0,0,0,100">
+      <StylePriority Ref="16" UseBackColor="false" />
+    </Item2>
+    <Item3 Ref="17" ControlType="BottomMarginBand" Name="BottomMargin" TextAlignment="TopLeft" Padding="0,0,0,0,100">
+      <Controls>
+        <Item1 Ref="18" ControlType="XRTable" Name="vendorContactsTable" AnchorHorizontal="Both" SizeF="630.0003,25" LocationFloat="19.99999,18.00005" Font="Segoe UI, 8.25pt" Padding="2,2,0,0,100" BorderColor="Gray">
+          <Rows>
+            <Item1 Ref="19" ControlType="XRTableRow" Name="vendorContactsRow" Weight="1">
+              <Cells>
+                <Item1 Ref="20" ControlType="XRTableCell" Name="vendorWebsite" Weight="1" CanShrink="true" Text="irt.com" TextAlignment="MiddleLeft">
+                  <StylePriority Ref="21" UseTextAlignment="false" />
+                </Item1>
+                <Item2 Ref="22" ControlType="XRTableCell" Name="vendorEmail" Weight="1" CanShrink="true" Text="irt@gmail.com" TextAlignment="MiddleCenter">
+                  <StylePriority Ref="23" UseBorders="false" UseTextAlignment="false" />
+                </Item2>
+                <Item3 Ref="24" ControlType="XRTableCell" Name="vendorPhone" Weight="1" CanShrink="true" Text="0904964226" TextAlignment="MiddleRight">
+                  <StylePriority Ref="25" UseBorders="false" UseTextAlignment="false" />
+                </Item3>
+              </Cells>
+            </Item1>
+          </Rows>
+          <StylePriority Ref="26" UseFont="false" UsePadding="false" UseBorderColor="false" />
+        </Item1>
+        <Item2 Ref="27" ControlType="XRLine" Name="xrLine1" LineWidth="2" AnchorHorizontal="Both" SizeF="669.6851,10" LocationFloat="0,0" ForeColor="255,198,198,198">
+          <StylePriority Ref="28" UseForeColor="false" />
+        </Item2>
+      </Controls>
+    </Item3>
+    <Item4 Ref="29" ControlType="GroupHeaderBand" Name="GroupHeader1" GroupUnion="WithFirstDetail" HeightF="218.000015" StyleName="baseControlStyle">
+      <SubBands>
+        <Item1 Ref="30" ControlType="SubBand" Name="SubBand1" HeightF="95.00002" KeepTogether="true">
+          <Controls>
+            <Item1 Ref="31" ControlType="XRTable" Name="headerTable" AnchorHorizontal="Right" SizeF="629.9952,35.0000153" LocationFloat="19.99998,60.0000076" Font="Segoe UI, 9.75pt, style=Bold" Padding="0,0,5,0,100" BorderColor="255,121,121,121" Borders="Bottom" BorderWidth="3">
+              <Rows>
+                <Item1 Ref="32" ControlType="XRTableRow" Name="headerTableRow" Weight="11.5">
+                  <Cells>
+                    <Item1 Ref="33" ControlType="XRTableCell" Name="quantityCaption" Weight="0.83059950002053762" Text="Tên Phim" TextAlignment="TopLeft">
+                      <StylePriority Ref="34" UseTextAlignment="false" />
+                    </Item1>
+                    <Item2 Ref="35" ControlType="XRTableCell" Name="productNameCaption" Weight="0.62477529538619647" Text="Tổng vé bán ra" Padding="10,0,5,0,100">
+                      <StylePriority Ref="36" UsePadding="false" />
+                    </Item2>
+                    <Item3 Ref="37" ControlType="XRTableCell" Name="unitPriceCaption" Weight="0.82333994314870274" Text="Tổng Doanh Thu" TextAlignment="TopRight">
+                      <StylePriority Ref="38" UseTextAlignment="false" />
+                    </Item3>
+                  </Cells>
+                </Item1>
+              </Rows>
+              <StylePriority Ref="39" UseFont="false" UsePadding="false" UseBorderColor="false" UseBorders="false" UseBorderWidth="false" />
+            </Item1>
+            <Item2 Ref="40" ControlType="XRLabel" Name="invoiceLabel" Text="Báo Cáo Doanh Thu" TextAlignment="BottomLeft" SizeF="380.2067,45" LocationFloat="19.99998,0" Font="Segoe UI, 24pt, style=Bold">
+              <StylePriority Ref="41" UseFont="false" UsePadding="false" UseTextAlignment="false" />
+            </Item2>
+          </Controls>
+        </Item1>
+      </SubBands>
+      <Controls>
+        <Item1 Ref="42" ControlType="XRPictureBox" Name="vendorLogo" ImageUrl="C:\Users\thanh\Downloads\IRT Image\LogoTeam.svg" Sizing="Squeeze" ImageAlignment="MiddleCenter" AnchorHorizontal="Right" SizeF="629.9952,165.833344" LocationFloat="19.99998,0">
+          <StylePriority Ref="43" UsePadding="false" UseBorderColor="false" UseBorders="false" />
+        </Item1>
+        <Item2 Ref="44" ControlType="XRLabel" Name="xrLabel1" TextFormatString="{0:dd/MM/yyyy}" Multiline="true" Text="Ngày làm báo cáo:" TextAlignment="TopLeft" SizeF="180.677124,23" LocationFloat="19.99998,165.833344" Font="Segoe UI, 10.96pt" ForeColor="Black" BackColor="Transparent" Padding="2,2,0,0,100" BorderColor="Black" Borders="None" BorderWidth="1" BorderDashStyle="Solid">
+          <StylePriority Ref="45" UseFont="false" UseForeColor="false" UseBackColor="false" UsePadding="false" UseBorderColor="false" UseBorders="false" UseBorderWidth="false" UseBorderDashStyle="false" UseTextAlignment="false" />
+        </Item2>
+        <Item3 Ref="46" ControlType="XRLabel" Name="xrLabel2" TextFormatString="{0:dd/MM/yyyy}" Multiline="true" TextAlignment="TopLeft" SizeF="449.318054,23" LocationFloat="200.677109,165.833344" Font="Segoe UI, 9.75pt" ForeColor="Black" BackColor="Transparent" Padding="2,2,0,0,100" BorderColor="Black" Borders="None" BorderWidth="1" BorderDashStyle="Solid">
+          <StylePriority Ref="47" UseFont="false" UseForeColor="false" UseBackColor="false" UsePadding="false" UseBorderColor="false" UseBorders="false" UseBorderWidth="false" UseBorderDashStyle="false" UseTextAlignment="false" />
+        </Item3>
+        <Item4 Ref="48" ControlType="XRLabel" Name="xrLabel3" TextFormatString="{0:dd/MM/yyyy}" Multiline="true" Text="Người làm báo cáo:" TextAlignment="TopLeft" SizeF="180.677139,23" LocationFloat="19.99998,195.000015" Font="Segoe UI, 11.31pt" ForeColor="Black" BackColor="Transparent" Padding="2,2,0,0,100" BorderColor="Black" Borders="None" BorderWidth="1" BorderDashStyle="Solid">
+          <StylePriority Ref="49" UseFont="false" UseForeColor="false" UseBackColor="false" UsePadding="false" UseBorderColor="false" UseBorders="false" UseBorderWidth="false" UseBorderDashStyle="false" UseTextAlignment="false" />
+        </Item4>
+        <Item5 Ref="50" ControlType="XRLabel" Name="xrLabel4" TextFormatString="{0:dd/MM/yyyy}" Multiline="true" TextAlignment="TopLeft" SizeF="449.32312,23" LocationFloat="200.677109,195.000015" Font="Segoe UI, 11.31pt" ForeColor="Black" BackColor="Transparent" Padding="2,2,0,0,100" BorderColor="Black" Borders="None" BorderWidth="1" BorderDashStyle="Solid">
+          <StylePriority Ref="51" UseFont="false" UseForeColor="false" UseBackColor="false" UsePadding="false" UseBorderColor="false" UseBorders="false" UseBorderWidth="false" UseBorderDashStyle="false" UseTextAlignment="false" />
+        </Item5>
+      </Controls>
+      <StylePriority Ref="52" UseBackColor="false" />
+    </Item4>
+    <Item5 Ref="53" ControlType="GroupFooterBand" Name="GroupFooter1" GroupUnion="WithLastDetail" PageBreak="AfterBandExceptLastEntry" HeightF="87" KeepTogether="true" StyleName="baseControlStyle">
+      <Controls>
+        <Item1 Ref="54" ControlType="XRTable" Name="totalTable" AnchorHorizontal="Right" SizeF="629.9999,35" LocationFloat="19.99998,28.0000057" Font="Segoe UI, 9.75pt, style=Bold" ForeColor="Black" Padding="2,2,5,0,100" BorderColor="255,198,198,198" Borders="Top">
+          <Rows>
+            <Item1 Ref="55" ControlType="XRTableRow" Name="totalRow" Weight="1.5217391304347823" Font="Segoe UI, 14.25pt, style=Bold" BorderColor="255,121,121,121" BorderWidth="3">
+              <Cells>
+                <Item1 Ref="56" ControlType="XRTableCell" Name="totalCaption" Weight="3.7904990475856284" Text="Tổng cộng" TextAlignment="BottomLeft">
+                  <StylePriority Ref="57" UseFont="false" UseTextAlignment="false" />
+                </Item1>
+                <Item2 Ref="58" ControlType="XRTableCell" Name="total" Weight="6.6086631846527579" TextFormatString="{0:C0}" Text="0,00 ₫" TextAlignment="BottomRight">
+                  <ExpressionBindings>
+                    <Item1 Ref="59" EventName="BeforePrint" PropertyName="Text" Expression="sum([TotalRevenue])" />
+                  </ExpressionBindings>
+                  <StylePriority Ref="60" UseFont="false" UseTextAlignment="false" />
+                </Item2>
+              </Cells>
+              <StylePriority Ref="61" UseFont="false" UseBorderColor="false" UseBorderWidth="false" />
+            </Item1>
+          </Rows>
+          <StylePriority Ref="62" UseFont="false" UseForeColor="false" UsePadding="false" UseBorderColor="false" UseBorders="false" />
+        </Item1>
+      </Controls>
+    </Item5>
+  </Bands>
+  <StyleSheet>
+    <Item1 Ref="63" Name="Title" BorderStyle="Inset" Padding="6,6,0,0,100" Font="Arial, 14.25pt" ForeColor="255,64,70,80" BackColor="Transparent" BorderColor="Black" Sides="None" StringFormat="Near;Near;0;None;Character;GenericDefault" BorderWidthSerializable="1" />
+    <Item2 Ref="64" Name="DetailCaption1" BorderStyle="Inset" Padding="6,6,0,0,100" Font="Arial, 8.25pt, style=Bold" ForeColor="White" BackColor="255,57,159,228" BorderColor="White" Sides="Left" StringFormat="Near;Center;0;None;Character;GenericDefault" TextAlignment="MiddleLeft" BorderWidthSerializable="2" />
+    <Item3 Ref="65" Name="DetailData1" BorderStyle="Inset" Padding="6,6,0,0,100" Font="Arial, 8.25pt" ForeColor="Black" BorderColor="Transparent" Sides="Left" StringFormat="Near;Center;0;None;Character;GenericDefault" TextAlignment="MiddleLeft" BorderWidthSerializable="2" />
+    <Item4 Ref="66" Name="DetailData3_Odd" BorderStyle="Inset" Padding="6,6,0,0,100" Font="Arial, 8.25pt" ForeColor="Black" BackColor="255,243,245,248" BorderColor="Transparent" Sides="None" StringFormat="Near;Center;0;None;Character;GenericDefault" TextAlignment="MiddleLeft" BorderWidthSerializable="1" />
+    <Item5 Ref="67" Name="PageInfo" BorderStyle="Inset" Padding="6,6,0,0,100" Font="Arial, 8.25pt, style=Bold" ForeColor="255,64,70,80" StringFormat="Near;Near;0;None;Character;GenericDefault" />
+    <Item6 Ref="68" Name="baseControlStyle" BorderStyle="Inset" Padding="2,2,0,0,100" Font="Segoe UI, 9.75pt" StringFormat="Near;Near;0;None;Character;GenericDefault" />
+  </StyleSheet>
+  <ObjectStorage>
+    <Item1 Ref="0" ObjectType="DevExpress.DataAccess.Sql.SqlDataSource,DevExpress.DataAccess.v22.2" Name="sqlDataSource1" Base64="PFNxbERhdGFTb3VyY2UgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxDb25uZWN0aW9uIE5hbWU9InNva2tpbXRoYW5oLkNNX0NpbmVtYV9EQi5kYm8iIEZyb21BcHBDb25maWc9InRydWUiIC8+PFF1ZXJ5IFR5cGU9IlN0b3JlZFByb2NRdWVyeSIgTmFtZT0ic3BfR2V0U2FsZXNSZXBvcnQiPjxQYXJhbWV0ZXIgTmFtZT0iQFN0YXJ0RGF0ZSIgVHlwZT0iU3lzdGVtLkRhdGVUaW1lIj42MzgzOTY2NDAwMDAwMDAwMDA8L1BhcmFtZXRlcj48UGFyYW1ldGVyIE5hbWU9IkBFbmREYXRlIiBUeXBlPSJTeXN0ZW0uRGF0ZVRpbWUiPjYzODcxMjAwMDAwMDAwMDAwMDwvUGFyYW1ldGVyPjxQcm9jTmFtZT5zcF9HZXRTYWxlc1JlcG9ydDwvUHJvY05hbWU+PC9RdWVyeT48UmVzdWx0U2NoZW1hPjxEYXRhU2V0IE5hbWU9InNxbERhdGFTb3VyY2UxIj48VmlldyBOYW1lPSJzcF9HZXRTYWxlc1JlcG9ydCI+PEZpZWxkIE5hbWU9Ik1vdmllTmFtZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJUb3RhbFJldmVudWUiIFR5cGU9IkRvdWJsZSIgLz48RmllbGQgTmFtZT0iVGlja2V0c1NvbGQiIFR5cGU9IkludDMyIiAvPjwvVmlldz48L0RhdGFTZXQ+PC9SZXN1bHRTY2hlbWE+PENvbm5lY3Rpb25PcHRpb25zIENsb3NlQ29ubmVjdGlvbj0idHJ1ZSIgLz48L1NxbERhdGFTb3VyY2U+" />
+  </ObjectStorage>
+</XtraReportsLayoutSerializer>
