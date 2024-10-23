@@ -1,5 +1,7 @@
 ﻿using BUS.Danh_Muc;
 using DevExpress.XtraEditors.Controls;
+using System;
+using System.Windows.Forms;
 
 namespace GUI.UI.Modules
 {
@@ -30,12 +32,12 @@ namespace GUI.UI.Modules
             cboMovies.Properties.DataSource = movie_bus.GetAll();
             cboMovies.Properties.DisplayMember = "MV_NAME";
             cboMovies.Properties.ValueMember = "MV_AutoID";
-            cboMovies.Properties.Columns.Add(new LookUpColumnInfo("MV_NAME","Tên Phim"));
+            cboMovies.Properties.Columns.Add(new LookUpColumnInfo("MV_NAME", "Tên Phim"));
             cboMovies.Properties.Columns.Add(new LookUpColumnInfo("MV_PRICE", "Giá vé"));
             cboMovies.SelectionStart = 0;
 
             // Lấy danh sách phòng chiếu
-            cboTheaters.Properties.DataSource= theater_bus.GetList();
+            cboTheaters.Properties.DataSource = theater_bus.GetList();
             cboTheaters.Properties.DisplayMember = "Name";
             cboTheaters.Properties.ValueMember = "AutoID";
             cboTheaters.Properties.Columns.Add(new LookUpColumnInfo("Name", "Tên Rạp"));
@@ -53,7 +55,42 @@ namespace GUI.UI.Modules
         /// <param name="e"></param>
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            try
+            {
+                // Lấy ngày và giờ đã chọn
+                DateTime startDate = new DateTime(((DateTime)tmpStartTime.EditValue).TimeOfDay.Ticks + dtpStartDate.DateTime.Ticks);
 
+                // Thêm dữ liệu vào danh sách
+                movieSche_bus.AddData((long)cboMovies.EditValue, (long)cboTheaters.EditValue, startDate);
+
+                Load_Data();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
+        private void btnCapNhat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
+        private void btnLamMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                Load_Data();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
