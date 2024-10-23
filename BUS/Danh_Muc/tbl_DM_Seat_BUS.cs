@@ -3,7 +3,7 @@ using DTO.tbl_DTO;
 using System;
 using System.Collections.Generic;
 
-namespace BUS
+namespace BUS.Danh_Muc
 {
     public class tbl_DM_Seat_BUS
     {

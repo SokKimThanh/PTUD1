@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BUS
+namespace BUS.Danh_Muc
 {
     public class tbl_DM_MovieSchedule_BUS
     {
@@ -16,11 +16,11 @@ namespace BUS
         /// Thêm dữ liệu
         /// </summary>
         /// <param name="obj"></param>
-        public void AddData(tbl_DM_MovieSchedule_DTO obj)
+        public void AddData(long movie_AutoID, long theater_AutoID, DateTime startDate)
         {
             try
             {
-                dal.AddData(obj);
+                dal.AddData(new tbl_DM_MovieSchedule_DTO(null,movie_AutoID,theater_AutoID,startDate,0));
             }catch(Exception ex)
             {
                 throw ex;
@@ -60,11 +60,11 @@ namespace BUS
         /// Cập nhật thông tin
         /// </summary>
         /// <param name="obj"></param>
-        public void UpdateData(tbl_DM_MovieSchedule_DTO obj)
+        public void UpdateData(long autoID, long movie_AutoID, long theater_AutoID, DateTime startDate, int delete)
         {
             try
             {
-                dal.UpdateData(obj);
+                dal.UpdateData(new tbl_DM_MovieSchedule_DTO(autoID, movie_AutoID, theater_AutoID, startDate, delete));
             }
             catch (Exception ex)
             {
