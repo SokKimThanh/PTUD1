@@ -58,7 +58,7 @@ namespace DAL
                                      {
                                          MovieName = phim.MV_NAME,  // Tên phim
                                          ShowTime = suatChieu.MS_START, // thời gian chiếu
-                                         TicketPrice = (decimal)ve.TK_PRICE,  // Giá vé
+                                         TicketPrice = (decimal)phim.MV_PRICE,  // Giá vé
                                          SaleTime = ve.CREATED, // Thời gian bán vé
                                          TheaterName = phongChieu.TT_NAME // Tên phòng chiếu
                                      };
@@ -105,7 +105,7 @@ namespace DAL
                                      select new tbl_Report_Sales_DTO
                                      {
                                          MovieName = phimGroup.Key,// doanh thu từng phim
-                                         TotalRevenue = phimGroup.Sum(t => (decimal)t.ve.TK_AutoID),// tổng tiền đã thu
+                                         TotalRevenue = phimGroup.Sum(t => (decimal)t.phim.MV_PRICE),// tổng tiền đã thu
                                          TotalTicketsSold = phimGroup.Count(),// tổng vé đã bán
                                      };
 

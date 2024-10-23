@@ -1,4 +1,5 @@
 ﻿using BUS.Bao_Cao;
+using DevExpress.DataAccess.EntityFramework;
 using DevExpress.XtraEditors;
 using DevExpress.XtraPrinting;
 using DevExpress.XtraReports.UI;
@@ -26,21 +27,32 @@ namespace GUI.UI.Modules
             lblTitle.Text = !string.IsNullOrEmpty(strFunctionCode) ? strFunctionCode.ToUpper().Trim() : string.Empty;
 
             // Mặc định hiển thị báo cáo tổng quan
-            rptViewReport.SelectedIndex = 0;
+            //rptViewReport.SelectedIndex = 0;
 
             // Đặt khoảng thời gian cho năm hiện tại
             startDate = new DateTime(DateTime.Now.Year, 1, 1);
             endDate = new DateTime(DateTime.Now.Year, 12, 31);
-            dgv.DataSource = data.GetAllSalesReport(startDate, endDate);
-
-            ConfigureGridColumns();
 
             // Hiển thị năm hiện tại lên các điều khiển
             txtStartDate.EditValue = startDate;
             txtEndDate.EditValue = endDate;
 
-            // Tải lại nguồn dữ liệu
-            dgv.RefreshDataSource();
+            gridView1.Columns.Clear(); // Xóa cột cũ trước khi gán dữ liệu mới
+
+
+            if (rptViewReport.SelectedIndex == 0)
+            {
+                dgv.DataSource = data.GetAllSalesReport(startDate, endDate);
+            }
+            else
+            {
+                dgv.DataSource = data.GetDetailSaleReport(startDate, endDate);
+            }
+
+            ConfigureGridColumns();
+
+            // Refresh lại DataGridView để hiển thị dữ liệu mới
+            dgv.Refresh();
         }
 
         private void ConfigureGridColumns()
@@ -57,6 +69,7 @@ namespace GUI.UI.Modules
             }
             else // Chi tiết
             {
+
                 gridView1.Columns["MovieName"].Caption = "Tên phim";
                 gridView1.Columns["ShowTime"].Caption = "Thời gian chiếu";
                 gridView1.Columns["TicketPrice"].Caption = "Giá vé";
@@ -74,18 +87,26 @@ namespace GUI.UI.Modules
             if (DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) &&
                 DateTime.TryParse(txtEndDate.Text.Trim(), out endDate))
             {
-                dgv.DataSource = rptViewReport.SelectedIndex == 0
-                    ? data.GetAllSalesReport(startDate, endDate)
-                    : data.GetDetailSaleReport(startDate, endDate);
+                gridView1.Columns.Clear(); // Xóa cột cũ trước khi gán dữ liệu mới
+ 
+                if (rptViewReport.SelectedIndex == 0)
+                {
+                    dgv.DataSource = data.GetAllSalesReport(startDate, endDate);
+                }
+                else
+                {
+                    dgv.DataSource = data.GetDetailSaleReport(startDate, endDate);
+                }
 
-                // Tải lại nguồn dữ liệu
-                dgv.RefreshDataSource();
+                // Refresh lại DataGridView để hiển thị dữ liệu mới
+                dgv.Refresh();
             }
             else
             {
                 MessageBox.Show("Vui lòng nhập đúng định dạng ngày!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void btnLuuPDF_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -100,7 +121,13 @@ namespace GUI.UI.Modules
                 if (rptViewReport.SelectedIndex == 0) // Tổng quan
                 {
                     dgv.DataSource = data.GetAllSalesReport(startDate, endDate);
-                    var report = new tbl_rp_sales_ui(startDate, endDate);
+                    var report = new tbl_rp_sales_ui();
+
+                    report.NgayBatDau = startDate;
+                    report.NgayKetThuc = endDate;
+
+                    report.Add();
+
                     var printTool = new ReportPrintTool(report);
                     printTool.ShowPreview();  // Hiển thị báo cáo trong cửa sổ xem trước
                 }
@@ -108,7 +135,7 @@ namespace GUI.UI.Modules
                 {
                     dgv.DataSource = data.GetDetailSaleReport(startDate, endDate);
                     // Bỏ chọn bên dưới để triển khai xem trước báo cáo chi tiết
-                    // var report = new tbl_rp_sales_details_ui(startDate, endDate);
+                    // var report = new tbl_rp_sales_details_ui(ngayBatDau, ngayKetThuc);
                     // var printTool = new ReportPrintTool(report);
                     // printTool.ShowPreview();  // Hiển thị báo cáo trong cửa sổ xem trước
                 }
@@ -121,8 +148,23 @@ namespace GUI.UI.Modules
 
         private void btnLamMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            // Tải lại nguồn dữ liệu
-            dgv.RefreshDataSource();
+            gridView1.Columns.Clear(); // Xóa cột cũ trước khi gán dữ liệu mới
+
+            if (DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) &&
+                DateTime.TryParse(txtEndDate.Text.Trim(), out endDate))
+            {
+                if (rptViewReport.SelectedIndex == 0)
+                {
+                    dgv.DataSource = data.GetAllSalesReport(startDate, endDate);
+                }
+                else
+                {
+                    dgv.DataSource = data.GetDetailSaleReport(startDate, endDate);
+                }
+
+                // Refresh lại DataGridView để hiển thị dữ liệu mới
+                dgv.Refresh();
+            }
         }
     }
 }

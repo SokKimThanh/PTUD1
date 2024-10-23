@@ -10,18 +10,27 @@ namespace GUI.UI.ReportDesign
 {
     public partial class tbl_rp_sales_ui : DevExpress.XtraReports.UI.XtraReport
     {
-        public tbl_rp_sales_ui(DateTime startDate, DateTime endDate)
+        private DateTime ngayBatDau, ngayKetThuc;
+
+
+
+        public tbl_rp_sales_ui()
         {
             InitializeComponent();
+        }
 
+        public DateTime NgayBatDau { get => ngayBatDau; set => ngayBatDau = value; }
+        public DateTime NgayKetThuc { get => ngayKetThuc; set => ngayKetThuc = value; }
+
+        public void Add()
+        {
             // Thiết lập giá trị cho tham số StartDate và EndDate
-            Parameters["StartDate"].Value = startDate;
-            Parameters["EndDate"].Value = endDate;
+            Parameters["StartDate"].Value = NgayBatDau;
+            Parameters["EndDate"].Value = NgayKetThuc;
 
             // Ẩn tham số nếu không muốn hiển thị cho người dùng
             Parameters["StartDate"].Visible = false;
             Parameters["EndDate"].Visible = false;
         }
-
     }
 }
