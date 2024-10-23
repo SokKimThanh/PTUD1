@@ -1,4 +1,6 @@
-﻿using DevExpress.XtraReports.UI;
+﻿using DevExpress.DataAccess.Sql;
+using DevExpress.XtraReports.UI;
+using DTO.Custom;
 using System;
 using System.Collections;
 using System.ComponentModel;
@@ -11,15 +13,35 @@ namespace GUI.UI.ReportDesign
         public RP_Sales()
         {
             InitializeComponent();
+            ConfigureDataSource();
+        }
+
+        private void ConfigureDataSource()
+        {
+            // Tạo một kết nối đến cơ sở dữ liệu
+            SqlDataSource objSqlDataSoucre = new SqlDataSource(CConfig.CM_Cinema_DB_ConnectionString);
+
+            // Tạo một query cho store procedure
+            StoredProcQuery objStoreQuery = new StoredProcQuery("SalesQuery", "sp_GetSalesReport");
+
+            // Thêm các tham số vào query (khớp với tham số của stored procedure)
+            objStoreQuery.Parameters.Add(new QueryParameter("RP_StartDate", typeof(DateTime), this.Parameters["RP_StartDate"].Value));
+            objStoreQuery.Parameters.Add(new QueryParameter("RP_EndDate", typeof(DateTime), this.Parameters["RP_EndDate"].Value));
+
+            // Thêm query vào DataSource
+            objSqlDataSoucre.Queries.Add(objStoreQuery);
+
+            // Đặt DataSource cho báo cáo
+            this.DataSource = objSqlDataSoucre;
         }
 
         public void Add(DateTime _startDate, DateTime _endDate)
         {
-            // truyền tham số report vào tham số store procedure
+            // Truyền tham số vào báo cáo
             this.Parameters["RP_StartDate"].Value = _startDate;
             this.Parameters["RP_EndDate"].Value = _endDate;
 
-            // tắt field nhập parameter khi preview
+            // Tắt field nhập parameter khi preview
             this.Parameters["RP_StartDate"].Visible = false;
             this.Parameters["RP_EndDate"].Visible = false;
         }
