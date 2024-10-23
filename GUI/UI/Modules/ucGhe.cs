@@ -40,7 +40,11 @@ namespace GUI.UI.Modules
             // Lấy danh sách ghế trong các phòng chiếu
             dgv.DataSource = seat_BUS.GetList();
         }
-
+        /// <summary>
+        /// Nút thêm
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             try
@@ -65,7 +69,7 @@ namespace GUI.UI.Modules
             }
         }
         /// <summary>
-        /// 
+        /// Thay đổi số ghế đôi theo số lượng ghế trên dãy
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -86,7 +90,12 @@ namespace GUI.UI.Modules
                 cboCouples.Enabled = false;
             }
         }
-
+        /// <summary>
+        /// Nút làm mới
+        /// Tải lại các dữ liệu lên Lookupedit và xóa các dữ liệu ở các TextBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLamMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             try
