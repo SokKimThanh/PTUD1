@@ -104,7 +104,8 @@ go
 -- Quản lý thông tin của các vé được bán ra (VD: địa chỉ rạp phim, người bán, tên phim, giờ chiếu,...)
 create table tbl_DM_Ticket(
 TK_AutoID bigint primary key IDENTITY(1,1) not null,
-TK_SEATSCHEDULE_AutoID bigint not null,
+TK_SEAT_AutoID bigint not null,
+TK_MOVIESCHEDULE_AutoID bigint not null,
 TK_STAFF_AutoID bigint not null,
 TK_PRICE float not null,
 DELETED INT,
@@ -220,20 +221,6 @@ UPDATED_BY_FUNCTION nchar(200)
 )
 
 go
-create table tbl_DM_SeatSchedule(
-SES_AutoID bigint primary key IDENTITY(1,1) not null,
-SES_MOVIESCHEDULE_AutoID bigint not null,
-SES_SEAT_AutoID bigint not null,
-DELETED INT,
-CREATED datetime,
-CREATED_BY nchar(30),
-CREATED_BY_FUNCTION nchar(250),
-UPDATED datetime, 
-UPDATED_BY nchar(30),
-UPDATED_BY_FUNCTION nchar(200)
-)
-
-go
 create table tbl_DM_ExpenseType(
 ET_AutoID bigint primary key IDENTITY(1,1) not null,
 ET_NAME nvarchar(50) not null,
@@ -281,22 +268,19 @@ alter table tbl_DM_MovieSchedule
 add constraint fk_theater_movieschedule foreign key (MS_THEATER_AutoID) references tbl_DM_Theater(TT_AutoID)
 go
 alter table tbl_DM_Ticket
-add constraint fk_ticket_seatschedule foreign key (TK_SEATSCHEDULE_AutoID) references tbl_DM_SeatSchedule(SES_AutoID)
+add constraint fk_ticket_movieschedule foreign key (TK_MOVIESCHEDULE_AutoID) references tbl_DM_Movie(MV_AutoID)
 go
 alter table tbl_DM_Ticket
 add constraint fk_ticket_staff foreign key (TK_STAFF_AutoID) references tbl_DM_Staff(ST_AutoID)
+go
+alter table tbl_DM_Ticket
+add constraint fk_ticket_seat foreign key (TK_SEAT_AutoID) references tbl_DM_Seat(SE_AutoID)
 go
 alter table tbl_DM_StaffSchedule
 add constraint fk_staff_schedule foreign key (SS_STAFF_AutoID) references tbl_DM_Staff(ST_AutoID)
 go
 alter table tbl_DM_StaffSchedule
 add constraint fk_shift_schedule foreign key (SS_SHIFT_AutoID) references tbl_DM_Shift(SF_AutoID)
-go
-alter table tbl_DM_SeatSchedule
-add constraint fk_seat_seatschedule foreign key (SES_SEAT_AutoID) references tbl_DM_Seat(SE_AutoID)
-go
-alter table tbl_DM_SeatSchedule
-add constraint fk_movieschedule_seatschedule foreign key (SES_MOVIESCHEDULE_AutoID) references tbl_DM_MovieSchedule(MS_AutoID)
 go
 alter table tbl_DM_Bill
 add constraint fk_bill_product foreign key (BL_PRODUCT_AutoID) references tbl_DM_Product(PD_AutoID)
@@ -309,6 +293,7 @@ add constraint fk_expensetype_product foreign key (ET_PRODUCT_AutoID) references
 go
 alter table tbl_SYS_Expense
 add constraint fk_expense_expensetype foreign key (EX_EXTYPE_AutoID) references tbl_DM_ExpenseType(ET_AutoID)
+
 
 -- Khóa UNIQUE
 go

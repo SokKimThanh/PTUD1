@@ -61,16 +61,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="tbl_DM_AgeRating_DAL.cs" />
+    <Compile Include="tbl_DM_Shift_DAL.cs" />
+    <Compile Include="tbl_DM_Staff_DAL.cs" />
     <Compile Include="tbl_DM_Theater_DAL.cs" />
     <Compile Include="tbl_Report_Expense_DAL.cs" />
     <Compile Include="tbl_Report_Inventory_DAL.cs" />
     <Compile Include="tbl_Report_Sales_DAL.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DTO\DTO.csproj">
-      <Project>{2458331a-da31-4263-98c0-8f78f67d1090}</Project>
-      <Name>DTO</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -94,6 +90,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="tbl_sp\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{2458331a-da31-4263-98c0-8f78f67d1090}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

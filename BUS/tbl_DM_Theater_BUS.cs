@@ -2,10 +2,6 @@
 using DTO;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BUS
 {
@@ -49,7 +45,8 @@ namespace BUS
             try
             {
                 return dal.GetList();
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -72,7 +69,8 @@ namespace BUS
             try
             {
                 dal.UpdateData(obj);
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }

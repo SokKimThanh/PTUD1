@@ -75,7 +75,7 @@ namespace DAL
     #endregion
 		
 		public CM_Cinema_DBDataContext() : 
-				base(global::DAL.Properties.Settings.Default.CM_Cinema_DBConnectionString3, mappingSource)
+				base(global::DAL.Properties.Settings.Default.CM_Cinema_DBConnectionString2, mappingSource)
 		{
 			OnCreated();
 		}
