@@ -87,16 +87,5 @@ namespace DAL.Properties {
                 return ((string)(this["CM_Cinema_DBConnectionString5"]));
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SOKKIMTHANH;Initial Catalog=CM_Cinema_DB;Integrated Security=True;Enc" +
-            "rypt=True;TrustServerCertificate=True")]
-        public string CM_Cinema_DBConnectionString4 {
-            get {
-                return ((string)(this["CM_Cinema_DBConnectionString4"]));
-            }
-        }
     }
 }
