@@ -22,15 +22,16 @@ namespace GUI.UI.Modules
     {
         private List<tbl_DM_Staff_DTO> arrData = new List<tbl_DM_Staff_DTO>();
         private tbl_DM_Staff_DTO objEdit = null;
+
         private List<string> arrLevel = new List<string>();
 
         public ucNhanVien()
         {
             InitializeComponent();
         }
+
         protected override void Load_FirstBase()
         {
-
             if (strFunctionCode != "")
                 lblTitle.Text = strFunctionCode.ToUpper().Trim();
 
@@ -43,15 +44,16 @@ namespace GUI.UI.Modules
             this.layoutTitle.MaxSize = new System.Drawing.Size(0, 42);
             this.layoutTitle.MinSize = new System.Drawing.Size(36, 36);
             // Ngăn không cho phép sửa dữ liệu trực tiếp trên GridView
-            gridView1.OptionsBehavior.Editable = false;
-            gridView1.RowClick += RowClick_Grid;
+            grdData.OptionsBehavior.Editable = false;
+            
+            grdData.RowClick += RowClick_Grid;
 
             cbbLevel.Properties.Items.Add(LanguageController.GetLanguageDataLabel("Admin"));
             cbbLevel.Properties.Items.Add(LanguageController.GetLanguageDataLabel("None"));
             cbbLevel.Properties.Items.Add(LanguageController.GetLanguageDataLabel("Manager"));
             cbbLevel.Properties.Items.Add(LanguageController.GetLanguageDataLabel("Staff"));
-            cbbLevel.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
 
+            cbbLevel.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
         }
 
         protected override void Load_Data()
@@ -77,6 +79,21 @@ namespace GUI.UI.Modules
             // Focus vào ComboBoxEdit
             cbbLevel.Focus();
 
+            grdData.Columns["ST_AutoID"].Visible = false;
+            grdData.Columns["ST_PASSWORD"].Visible = false;
+            grdData.Columns["ST_LEVEL"].Visible = false;
+
+            grdData.Columns["ST_USERNAME"].Caption = LanguageController.GetLanguageDataLabel("Mã đăng nhập");
+            grdData.Columns["ST_PASSWORD"].Caption = LanguageController.GetLanguageDataLabel("Mật khẩu");
+
+            grdData.Columns["ST_NAME"].Caption = LanguageController.GetLanguageDataLabel("Tên");
+            grdData.Columns["ST_PHONE"].Caption = LanguageController.GetLanguageDataLabel("SĐT");
+            grdData.Columns["ST_CIC"].Caption = LanguageController.GetLanguageDataLabel("CCCD");
+            grdData.Columns["ST_NOTE"].Caption = LanguageController.GetLanguageDataLabel("Ghi chú");
+            grdData.Columns["ST_LEVELText"].Caption = LanguageController.GetLanguageDataLabel("Level");
+
+            FormatGridView(grdData);
+
         }
 
         protected override void Add_Data()
@@ -91,13 +108,13 @@ namespace GUI.UI.Modules
             objNew.ST_CIC = txtCIC.Text.Trim();
             objNew.ST_NOTE = txtNOTE.Text.Trim();
 
-            if(cbbLevel.SelectedItem != null)
+            if (cbbLevel.SelectedItem != null)
             {
                 string strCBBValue = cbbLevel.SelectedItem.ToString();
 
-                if (strCBBValue == LanguageController.GetLanguageDataLabel("None"))             
+                if (strCBBValue == LanguageController.GetLanguageDataLabel("None"))
                     objNew.ST_LEVEL = (int)ELevel.None;
-                else if(strCBBValue == LanguageController.GetLanguageDataLabel("Admin"))
+                else if (strCBBValue == LanguageController.GetLanguageDataLabel("Admin"))
                     objNew.ST_LEVEL = (int)ELevel.Admin;
                 else if (strCBBValue == LanguageController.GetLanguageDataLabel("Manager"))
                     objNew.ST_LEVEL = (int)ELevel.Manager;

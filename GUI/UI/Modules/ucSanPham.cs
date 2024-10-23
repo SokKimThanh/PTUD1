@@ -1,20 +1,9 @@
-﻿using BUS;
-using BUS.Danh_Muc;
-using DevExpress.Utils;
-using DevExpress.XtraEditors;
-using DevExpress.XtraRichEdit.Model;
+﻿using BUS.Danh_Muc;
 using DTO.tbl_DTO;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace GUI.UI.Modules
 {

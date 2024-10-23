@@ -1,15 +1,6 @@
 ﻿using BUS;
 using BUS.Sys;
-using DevExpress.XtraEditors;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI.UI.Modules
@@ -63,7 +54,8 @@ namespace GUI.UI.Modules
                     MessageBox.Show("Nhập số đi bạn !");
                 }
                 Load_Data();
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -101,7 +93,8 @@ namespace GUI.UI.Modules
             try
             {
                 Load_Data();
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

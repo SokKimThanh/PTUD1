@@ -43,12 +43,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BasicMethods.cs" />
+    <Compile Include="Danh_Muc\tbl_DM_Shift_BUS.cs" />
     <Compile Include="Danh_Muc\tbl_DM_Staff_BUS.cs" />
     <Compile Include="Danh_Muc\tbl_DM_Product_BUS.cs" />
     <Compile Include="Sys\Ultilities.cs" />
     <Compile Include="Danh_Muc\tbl_DM_Movie_BUS.cs" />
     <Compile Include="tbl_DM_Seat_BUS.cs" />
-    <Compile Include="Danh_Muc\StaffController.cs" />
     <Compile Include="Danh_Muc\tbl_DM_AgeRating_BUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sys\LanguageController.cs" />

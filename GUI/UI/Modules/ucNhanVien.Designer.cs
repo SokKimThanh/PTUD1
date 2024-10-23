@@ -43,7 +43,7 @@
             this.cbbLevel = new DevExpress.XtraEditors.ComboBoxEdit();
             this.lblTitle = new System.Windows.Forms.Label();
             this.dgv = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.grdData = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.txtNameStaff = new DevExpress.XtraEditors.TextEdit();
             this.txtCIC = new DevExpress.XtraEditors.TextEdit();
             this.txtUserName = new DevExpress.XtraEditors.TextEdit();
@@ -67,7 +67,7 @@
             this.layoutForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbbLevel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNameStaff.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCIC.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).BeginInit();
@@ -239,19 +239,19 @@
             // 
             this.dgv.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(5);
             this.dgv.Location = new System.Drawing.Point(24, 248);
-            this.dgv.MainView = this.gridView1;
+            this.dgv.MainView = this.grdData;
             this.dgv.Margin = new System.Windows.Forms.Padding(4);
             this.dgv.Name = "dgv";
             this.dgv.Size = new System.Drawing.Size(797, 281);
             this.dgv.TabIndex = 8;
             this.dgv.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.grdData});
             // 
-            // gridView1
+            // grdData
             // 
-            this.gridView1.DetailHeight = 431;
-            this.gridView1.GridControl = this.dgv;
-            this.gridView1.Name = "gridView1";
+            this.grdData.DetailHeight = 431;
+            this.grdData.GridControl = this.dgv;
+            this.grdData.Name = "grdData";
             // 
             // txtNameStaff
             // 
@@ -366,11 +366,11 @@
             // 
             this.layoutControlItem6.Control = this.txtUserName;
             this.layoutControlItem6.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItem6.CustomizationFormText = "Tên đăng nhập:";
+            this.layoutControlItem6.CustomizationFormText = "Mã đăng nhập:";
             this.layoutControlItem6.Location = new System.Drawing.Point(400, 0);
             this.layoutControlItem6.Name = "layoutControlItem6";
             this.layoutControlItem6.Size = new System.Drawing.Size(401, 26);
-            this.layoutControlItem6.Text = "Tên đăng nhập:";
+            this.layoutControlItem6.Text = "Mã đăng nhập:";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(114, 16);
             // 
             // layoutControlItem8
@@ -402,7 +402,7 @@
             this.layoutControlItem4.Location = new System.Drawing.Point(400, 52);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(401, 52);
-            this.layoutControlItem4.Text = "Level:";
+            this.layoutControlItem4.Text = "Nhóm quyền:";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(114, 16);
             // 
             // layoutDGV
@@ -463,7 +463,7 @@
             this.layoutForm.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cbbLevel.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNameStaff.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCIC.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).EndInit();
@@ -502,7 +502,7 @@
         private DevExpress.XtraLayout.LayoutControl layoutForm;
         private System.Windows.Forms.Label lblTitle;
         private DevExpress.XtraGrid.GridControl dgv;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Views.Grid.GridView grdData;
         private DevExpress.XtraEditors.TextEdit txtNameStaff;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraLayout.LayoutControlItem layoutTitle;
