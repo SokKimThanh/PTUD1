@@ -1,15 +1,6 @@
 ﻿using BUS;
-using DevExpress.Utils.MVVM;
-using DevExpress.XtraEditors;
 using DTO;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI.UI.Modules
@@ -90,7 +81,7 @@ namespace GUI.UI.Modules
                         int status = cboStatus.SelectedIndex;
                         int deleted = 1;
                         DialogResult re = MessageBox.Show("Bạn có muốn xóa phòng chiếu " + name, "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        if(re == DialogResult.Yes)
+                        if (re == DialogResult.Yes)
                         {
                             tbl_DM_Theater_DTO editTheater = new tbl_DM_Theater_DTO(id, name, status, deleted);
                             theater_bus.UpdateData(editTheater);
@@ -132,7 +123,8 @@ namespace GUI.UI.Modules
                     }
                 }
                 Load_Data();
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

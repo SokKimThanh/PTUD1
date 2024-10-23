@@ -1,17 +1,10 @@
 ﻿using BUS.Danh_Muc;
-using DevExpress.XtraEditors;
-using DevExpress.XtraWaitForm;
 using DTO.Custom;
+using DTO.tbl_DTO;
 using DTO.Utility;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI
@@ -35,8 +28,13 @@ namespace GUI
         {
             try
             {
-                StaffController objController = new StaffController();
-                objController.LoginProcess(txtTenDangNhap.Text, txtMatKhau.Text);
+                tbl_DM_Staff_DTO objUser = new tbl_DM_Staff_DTO();
+                objUser.ST_USERNAME = txtTenDangNhap.Text;
+                objUser.ST_PASSWORD = txtMatKhau.Text;
+
+
+                tbl_DM_Staff_BUS objController = new tbl_DM_Staff_BUS();
+                objController.LoginProcess(objUser);
 
                 //B1. Kiểm tra xem file chứa thông tin đăng nhập có tồn tại trên máy không nếu không thì tạo mới
                 if (Directory.Exists(CConfig.CM_Cinema_FileManagement_Folder) == false)
