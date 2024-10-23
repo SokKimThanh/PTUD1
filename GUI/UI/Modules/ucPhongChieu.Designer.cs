@@ -223,6 +223,7 @@
             this.gvTheaters.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
             this.gvTheaters.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
             this.gvTheaters.OptionsBehavior.Editable = false;
+            this.gvTheaters.OptionsView.ShowIndicator = false;
             this.gvTheaters.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gvTheaters_RowCellClick);
             // 
             // txtName

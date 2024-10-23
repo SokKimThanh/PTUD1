@@ -234,6 +234,11 @@
             this.txtRows.Location = new System.Drawing.Point(189, 94);
             this.txtRows.Margin = new System.Windows.Forms.Padding(4);
             this.txtRows.Name = "txtRows";
+            this.txtRows.Properties.BeepOnError = true;
+            this.txtRows.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.txtRows.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
+            this.txtRows.Properties.MaskSettings.Set("mask", "d");
+            this.txtRows.Properties.UseMaskAsDisplayFormat = true;
             this.txtRows.Size = new System.Drawing.Size(309, 22);
             this.txtRows.StyleController = this.layoutForm;
             this.txtRows.TabIndex = 5;
@@ -244,6 +249,11 @@
             this.txtCols.Location = new System.Drawing.Point(667, 94);
             this.txtCols.Margin = new System.Windows.Forms.Padding(4);
             this.txtCols.Name = "txtCols";
+            this.txtCols.Properties.BeepOnError = true;
+            this.txtCols.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.txtCols.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
+            this.txtCols.Properties.MaskSettings.Set("mask", "d");
+            this.txtCols.Properties.UseMaskAsDisplayFormat = true;
             this.txtCols.Size = new System.Drawing.Size(311, 22);
             this.txtCols.StyleController = this.layoutForm;
             this.txtCols.TabIndex = 5;

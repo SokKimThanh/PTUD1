@@ -3,11 +3,16 @@ using DTO;
 using System;
 using System.Collections.Generic;
 
-namespace BUS
+namespace BUS.Danh_Muc
 {
     public class tbl_DM_Theater_BUS
     {
         private tbl_DM_Theater_DAL dal = new tbl_DM_Theater_DAL();
+
+        /// <summary>
+        /// Thêm dữ liệu
+        /// </summary>
+        /// <param name="obj"></param>
         public void AddData(tbl_DM_Theater_DTO obj)
         {
             try
@@ -34,7 +39,6 @@ namespace BUS
                 throw ex;
             }
         }
-
         /// <summary>
         /// Lấy danh sách các phòng chiếu
         /// </summary>
@@ -51,7 +55,10 @@ namespace BUS
                 throw ex;
             }
         }
-
+        /// <summary>
+        /// Ẩn dữ liệu khỏi view
+        /// </summary>
+        /// <param name="id"></param>
         public void RemoveData(int id)
         {
             try
@@ -63,7 +70,10 @@ namespace BUS
                 throw ex;
             }
         }
-
+        /// <summary>
+        /// Cập nhật thông tin dữ liệu
+        /// </summary>
+        /// <param name="obj"></param>
         public void UpdateData(tbl_DM_Theater_DTO obj)
         {
             try

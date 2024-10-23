@@ -42,6 +42,31 @@ namespace DAL
             }
         }
         /// <summary>
+        /// Lấy danh sách rạp phim còn hoạt động
+        /// </summary>
+        /// <returns></returns>
+        public List<tbl_DM_Theater_DTO> GetList_Active()
+        {
+            try
+            {
+                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext())
+                {
+                    // Khởi tạo danh sách các phòng chiếu
+                    List<tbl_DM_Theater_DTO> list = new List<tbl_DM_Theater_DTO>();
+                    // Chuyển kiểu dữ liệu từ context sang DTO
+                    foreach (tbl_DM_Theater item in db.tbl_DM_Theaters.Where(item=> item.DELETED == 0 && item.TT_STATUS == 1).ToList())
+                    {
+                        list.Add(new tbl_DM_Theater_DTO(item.TT_AutoID, item.TT_NAME, item.TT_STATUS, (int)item.DELETED));
+                    }
+                    return list;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        /// <summary>
         /// Thêm phòng chiếu mới vào danh sách
         /// Kiểm tra các phòng chiếu có cùng tên, nếu có nhưng đã ẩn thì tái kích hoạt để hiển thị lên danh sách
         /// </summary>
