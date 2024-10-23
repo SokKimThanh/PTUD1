@@ -122,8 +122,8 @@ go
 -- Quản lý lịch chiếu phim bao gồm tên phim, ngày chiếu, giờ chiếu
 create table tbl_DM_MovieSchedule(
 MS_AutoID bigint primary key IDENTITY(1,1) not null,
-MS_MOVIE_AutoID bigint,
-MS_THEATER_AutoID bigint,
+MS_MOVIE_AutoID bigint not null,
+MS_THEATER_AutoID bigint not null,
 MS_START datetime not null,
 DELETED INT,
 CREATED datetime,

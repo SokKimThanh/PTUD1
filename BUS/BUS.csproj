@@ -48,6 +48,7 @@
     <Compile Include="Danh_Muc\tbl_DM_Product_BUS.cs" />
     <Compile Include="Sys\Ultilities.cs" />
     <Compile Include="Danh_Muc\tbl_DM_Movie_BUS.cs" />
+    <Compile Include="tbl_DM_MovieSchedule_BUS.cs" />
     <Compile Include="tbl_DM_Seat_BUS.cs" />
     <Compile Include="Danh_Muc\tbl_DM_AgeRating_BUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

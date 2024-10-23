@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DTO.tbl_DTO
 {
-    public class tbl_DM_MovieSchedule
+    public class tbl_DM_MovieSchedule_DTO
     {
         #region Fields
         private long? autoID;
@@ -17,7 +17,7 @@ namespace DTO.tbl_DTO
         private int deleted;
         #endregion
 
-        public tbl_DM_MovieSchedule(long? autoID, long movie_AutoID, long theater_AutoID, DateTime startDate, int deleted)
+        public tbl_DM_MovieSchedule_DTO(long? autoID, long movie_AutoID, long theater_AutoID, DateTime startDate, int deleted)
         {
             this.AutoID = autoID;
             this.Movie_AutoID = movie_AutoID;
