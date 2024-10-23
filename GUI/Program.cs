@@ -1,8 +1,12 @@
 ﻿using DTO.Custom;
 using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Sql;
 using System.Data.SqlClient;
 using System.IO;
 using System.Windows.Forms;
+using static DevExpress.XtraEditors.Mask.MaskSettings;
 
 namespace GUI
 {
@@ -14,27 +18,58 @@ namespace GUI
         [STAThread]
         static void Main()
         {
-            // Tự động lấy tên máy chủ
-            string strServerName = Environment.MachineName;
-            if (strServerName.Trim() == "")
-                return;
+            List<string> arrServers = new List<string>();
 
-            CConfig.CM_Cinema_DB_ConnectionString = $"Server={strServerName};Database=CM_Cinema_DB;Integrated Security=True;";
+            SqlDataSourceEnumerator objSqlDataSoucre = SqlDataSourceEnumerator.Instance;
+            DataTable dt = objSqlDataSoucre.GetDataSources(); //Lấy datasoucre
 
-            try
+            foreach (DataRow row in dt.Rows)
             {
-                //Nếu không lấy đc chuỗi kết nối thì lấy từ file app config
-                using (SqlConnection conn = new SqlConnection(CConfig.CM_Cinema_DB_ConnectionString))
-                {
-                    conn.Open();
+                string strServerName = row["ServerName"].ToString();
+                string strInstanceName = row["InstanceName"].ToString();
+                string strFullServerName = "";
+                if (strInstanceName != null && strInstanceName.Trim() != "")
+                    strFullServerName = strServerName.Trim();
+                else
+                    strFullServerName = $"{strServerName}\\{strInstanceName}";
 
-                    conn.Close();
+                using (SqlConnection conn = new SqlConnection($"Server={strFullServerName};Database=CM_Cinema_DB;Integrated Security=True;"))
+                {
+                    try
+                    {
+                        conn.Open();
+                        conn.Close();
+                        CConfig.CM_Cinema_DB_ConnectionString = conn.ConnectionString;
+                        break;
+                    }
+                    catch (SqlException)
+                    {
+
+                    }
                 }
             }
-            catch (Exception)
-            {
-                CConfig.CM_Cinema_DB_ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["CM_Cinema_DB"].ConnectionString;
-            }
+
+            //// Tự động lấy tên máy chủ
+            //string strServerName = Environment.MachineName;
+            //if (strServerName.Trim() == "")
+            //    return;
+
+            //CConfig.CM_Cinema_DB_ConnectionString = $"Server={strServerName};Database=CM_Cinema_DB;Integrated Security=True;";
+
+            //try
+            //{
+            //    //Nếu không lấy đc chuỗi kết nối thì lấy từ file app config
+            //    using (SqlConnection conn = new SqlConnection(CConfig.CM_Cinema_DB_ConnectionString))
+            //    {
+            //        conn.Open();
+
+            //        conn.Close();
+            //    }
+            //}
+            //catch (Exception)
+            //{
+            //    CConfig.CM_Cinema_DB_ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["CM_Cinema_DB"].ConnectionString;
+            //}
 
 
 
