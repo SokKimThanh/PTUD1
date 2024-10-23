@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DAL
-namespace DTO.tbl_DTO
 {
     /// <summary>
     /// Báo cáo thu chi
