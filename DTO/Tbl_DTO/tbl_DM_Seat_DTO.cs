@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DTO.tbl_DTO
 {
@@ -34,15 +30,16 @@ namespace DTO.tbl_DTO
 
         #region Properties
         public long? AutoID { get => autoID; }
-        public string File { 
-            get => file; 
-            set 
+        public string File
+        {
+            get => file;
+            set
             {
                 if (value.Length != 1 && value.Length != 2)
                     throw new Exception("Lỗi tên file");
-                else 
+                else
                     file = value;
-            } 
+            }
         }
         public int Rank { get => rank; set => rank = value; }
         public long Theater_AutoID { get => theater_AutoID; set => theater_AutoID = value; }

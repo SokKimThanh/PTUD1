@@ -1,15 +1,6 @@
 ﻿using BUS;
 using BUS.Sys;
-using DevExpress.XtraEditors;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI.UI.Modules
@@ -40,7 +31,11 @@ namespace GUI.UI.Modules
             // Lấy danh sách ghế trong các phòng chiếu
             dgv.DataSource = seat_BUS.GetList();
         }
-
+        /// <summary>
+        /// Nút thêm
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             try
@@ -59,13 +54,14 @@ namespace GUI.UI.Modules
                     MessageBox.Show("Nhập số đi bạn !");
                 }
                 Load_Data();
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
         /// <summary>
-        /// 
+        /// Thay đổi số ghế đôi theo số lượng ghế trên dãy
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -86,13 +82,19 @@ namespace GUI.UI.Modules
                 cboCouples.Enabled = false;
             }
         }
-
+        /// <summary>
+        /// Nút làm mới
+        /// Tải lại các dữ liệu lên Lookupedit và xóa các dữ liệu ở các TextBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLamMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             try
             {
                 Load_Data();
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
