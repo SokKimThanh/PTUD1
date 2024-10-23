@@ -43,7 +43,6 @@ namespace GUI.UI.Modules
             }
             else // Chi tiết
             {
-
                 gridView1.Columns["MovieName"].Caption = "Tên phim";
                 gridView1.Columns["ShowTime"].Caption = "Thời gian chiếu";
                 gridView1.Columns["TicketPrice"].Caption = "Giá vé";
@@ -86,23 +85,25 @@ namespace GUI.UI.Modules
                 if (rptViewReport.SelectedIndex == 0) // Tổng quan
                 {
                     dgv.DataSource = data.GetAllSalesReport(startDate, endDate);
-                    var report = new tbl_rp_sales_ui();
+                    var report = new RP_Sales();
 
-                    report.NgayBatDau = startDate;
-                    report.NgayKetThuc = endDate;
+                    report.Add(startDate, endDate);
 
-                    report.Add();
-
+                    // Hiển thị báo cáo
                     var printTool = new ReportPrintTool(report);
-                    printTool.ShowPreview();  // Hiển thị báo cáo trong cửa sổ xem trước
+                    printTool.ShowPreview();
+
                 }
                 else // Chi tiết
                 {
                     dgv.DataSource = data.GetDetailSaleReport(startDate, endDate);
                     // Bỏ chọn bên dưới để triển khai xem trước báo cáo chi tiết
-                    // var report = new tbl_rp_sales_details_ui(ngayBatDau, ngayKetThuc);
-                    //var printTool = new ReportPrintTool(report);
-                    //printTool.ShowPreview();  // Hiển thị báo cáo trong cửa sổ xem trước
+                    var detailedReport = new RP_SalesDetails();
+
+                    detailedReport.Add(startDate, endDate);
+
+                    var printTool2 = new ReportPrintTool(detailedReport);
+                    detailedReport.ShowPreview();  // Hiển thị báo cáo trong cửa sổ xem trước
                 }
             }
             else

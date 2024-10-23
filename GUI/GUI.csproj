@@ -187,11 +187,17 @@
     <Compile Include="UI\Modules\ucDanhGiaDoTuoi.Designer.cs">
       <DependentUpon>ucDanhGiaDoTuoi.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\ReportDesign\tbl_rp_sales_ui.cs">
+    <Compile Include="UI\ReportDesign\RP_Sales.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UI\ReportDesign\tbl_rp_sales_ui.Designer.cs">
-      <DependentUpon>tbl_rp_sales_ui.cs</DependentUpon>
+    <Compile Include="UI\ReportDesign\RP_Sales.Designer.cs">
+      <DependentUpon>RP_Sales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ReportDesign\RP_SalesDetails.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\ReportDesign\RP_SalesDetails.Designer.cs">
+      <DependentUpon>RP_SalesDetails.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="frmLoading.resx">
       <DependentUpon>frmLoading.cs</DependentUpon>
@@ -255,8 +261,11 @@
     <EmbeddedResource Include="UI\Modules\ucSuatChieu.resx">
       <DependentUpon>ucSuatChieu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\ReportDesign\tbl_rp_sales_ui.resx">
-      <DependentUpon>tbl_rp_sales_ui.cs</DependentUpon>
+    <EmbeddedResource Include="UI\ReportDesign\RP_Sales.resx">
+      <DependentUpon>RP_Sales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ReportDesign\RP_SalesDetails.resx">
+      <DependentUpon>RP_SalesDetails.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Properties\Settings.settings">
