@@ -96,16 +96,6 @@ namespace GUI.UI.Modules
             obj.SF_NAME = txtTCLV.Text.Trim();
             obj.SF_START = dtmFrom.Time;
             obj.SF_END = dtmTo.Time;
-
-            obj.DELETED = 0;
-            obj.CREATED = DateTime.Now;
-            obj.CREATED_BY = strActive_User_Name;
-            obj.CREATED_BY_FUNCTION = strFunctionCode;
-            obj.UPDATED = DateTime.Now;
-            obj.UPDATED_BY = strActive_User_Name;
-            obj.UPDATED_BY_FUNCTION = strFunctionCode;
-
-
             obj.UPDATED = DateTime.Now;
             obj.UPDATED_BY = strActive_User_Name;
             obj.UPDATED_BY_FUNCTION = strFunctionCode;

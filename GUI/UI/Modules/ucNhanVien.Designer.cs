@@ -267,6 +267,10 @@
             this.txtCIC.Location = new System.Drawing.Point(150, 172);
             this.txtCIC.Margin = new System.Windows.Forms.Padding(4);
             this.txtCIC.Name = "txtCIC";
+            this.txtCIC.Properties.BeepOnError = true;
+            this.txtCIC.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.txtCIC.Properties.MaskSettings.Set("mask", "d");
+            this.txtCIC.Properties.UseMaskAsDisplayFormat = true;
             this.txtCIC.Size = new System.Drawing.Size(270, 22);
             this.txtCIC.StyleController = this.layoutForm;
             this.txtCIC.TabIndex = 5;
