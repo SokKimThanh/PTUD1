@@ -424,7 +424,7 @@
             // 
             // sqlDataSource1
             // 
-            this.sqlDataSource1.ConnectionName = "localhost_CM_Cinema_DB_Connection";
+            this.sqlDataSource1.ConnectionName = "CM_Cinema_DB";
             this.sqlDataSource1.Name = "sqlDataSource1";
             storedProcQuery1.Name = "sp_GetSalesReport";
             queryParameter1.Name = "@StartDate";

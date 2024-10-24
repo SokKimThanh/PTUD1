@@ -49,32 +49,29 @@ namespace GUI
                 }
             }
             if (CConfig.CM_Cinema_DB_ConnectionString == "")
-                return;
+            {
+                // Tự động lấy tên máy chủ
+                string strServerName = Environment.MachineName;
+                if (strServerName.Trim() == "")
+                    return;
 
+                CConfig.CM_Cinema_DB_ConnectionString = $"Server={strServerName};Database=CM_Cinema_DB;Integrated Security=True;";
 
-            //// Tự động lấy tên máy chủ
-            //string strServerName = Environment.MachineName;
-            //if (strServerName.Trim() == "")
-            //    return;
+                try
+                {
+                    //Nếu không lấy đc chuỗi kết nối thì lấy từ file app config
+                    using (SqlConnection conn = new SqlConnection(CConfig.CM_Cinema_DB_ConnectionString))
+                    {
+                        conn.Open();
 
-            //CConfig.CM_Cinema_DB_ConnectionString = $"Server={strServerName};Database=CM_Cinema_DB;Integrated Security=True;";
-
-            //try
-            //{
-            //    //Nếu không lấy đc chuỗi kết nối thì lấy từ file app config
-            //    using (SqlConnection conn = new SqlConnection(CConfig.CM_Cinema_DB_ConnectionString))
-            //    {
-            //        conn.Open();
-
-            //        conn.Close();
-            //    }
-            //}
-            //catch (Exception)
-            //{
-            //    CConfig.CM_Cinema_DB_ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["CM_Cinema_DB"].ConnectionString;
-            //}
-
-
+                        conn.Close();
+                    }
+                }
+                catch (Exception)
+                {
+                    CConfig.CM_Cinema_DB_ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["CM_Cinema_DB"].ConnectionString;
+                }
+            }
 
             if (Directory.Exists(CConfig.CM_Cinema_FileManagement_Folder) == false)
                 Directory.CreateDirectory(CConfig.CM_Cinema_FileManagement_Folder);
