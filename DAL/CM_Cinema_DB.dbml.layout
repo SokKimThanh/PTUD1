@@ -84,6 +84,7 @@
       <DataClassMoniker Name="/CM_Cinema_DBDataContext/tbl_SYS_Expense" />
       <nestedChildShapes>
         <elementListCompartment Id="3fb32e45-c01b-48f2-893f-1522d7215771" absoluteBounds="9.265, 9.96, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+
       </nestedChildShapes>
     </classShape>
     <associationConnector edgePoints="[(2.125 : 22); (2.125 : 21.0016097005208)]" fixedFrom="Algorithm" fixedTo="Algorithm">

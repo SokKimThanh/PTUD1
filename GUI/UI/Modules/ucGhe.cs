@@ -1,4 +1,4 @@
-﻿using BUS;
+﻿using BUS.Danh_Muc;
 using BUS.Sys;
 using System;
 using System.Windows.Forms;
@@ -30,6 +30,10 @@ namespace GUI.UI.Modules
 
             // Lấy danh sách ghế trong các phòng chiếu
             dgv.DataSource = seat_BUS.GetList();
+
+            //
+            txtCols.Text = "";
+            txtRows.Text = "";
         }
         /// <summary>
         /// Nút thêm
