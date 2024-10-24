@@ -763,6 +763,26 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap iconsetsymbols3_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("iconsetsymbols3_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconsetsymbols3_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("iconsetsymbols3_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap iconsetsymbolscircled3_16x16 {
             get {
                 object obj = ResourceManager.GetObject("iconsetsymbolscircled3_16x16", resourceCulture);
@@ -883,9 +903,29 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap play_16x161 {
+            get {
+                object obj = ResourceManager.GetObject("play_16x161", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap play_32x32 {
             get {
                 object obj = ResourceManager.GetObject("play_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap play_32x321 {
+            get {
+                object obj = ResourceManager.GetObject("play_32x321", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -976,6 +1016,16 @@ namespace GUI.Properties {
         internal static System.Drawing.Bitmap printviapdf_32x32 {
             get {
                 object obj = ResourceManager.GetObject("printviapdf_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap radio_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("radio_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1116,6 +1166,16 @@ namespace GUI.Properties {
         internal static System.Drawing.Bitmap status_16x16 {
             get {
                 object obj = ResourceManager.GetObject("status_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tableproperties_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("tableproperties_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

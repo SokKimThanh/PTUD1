@@ -208,7 +208,7 @@ namespace GUI.UI.Modules
         {
             List<string> arrDefaultCols = new List<string>()
             {
-              //  "DELETED",
+                "DELETED",
                 "CREATED",
                 "CREATED_BY",
                 "CREATED_BY_FUNCTION",
@@ -322,7 +322,7 @@ namespace GUI.UI.Modules
                 //Thêm cột cuối vào cho đẹp
                 GridColumn objLastColumn = new GridColumn
                 {
-                    Name = "ColFooter",
+                    Name = "LastCol",
                     FieldName = "",
                     Visible = true
                 };

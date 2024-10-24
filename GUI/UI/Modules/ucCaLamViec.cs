@@ -91,16 +91,18 @@ namespace GUI.UI.Modules
         protected override void Update_Data()
         {
             tbl_DM_Shift_BUS objBUS = new tbl_DM_Shift_BUS();
-            tbl_DM_Shift_DTO obj = new tbl_DM_Shift_DTO();
-            obj.SF_AutoID = iAuto_ID;
-            obj.SF_NAME = txtTCLV.Text.Trim();
-            obj.SF_START = dtmFrom.Time;
-            obj.SF_END = dtmTo.Time;
-            obj.UPDATED = DateTime.Now;
-            obj.UPDATED_BY = strActive_User_Name;
-            obj.UPDATED_BY_FUNCTION = strFunctionCode;
+            if (objEdit != null)
+            {
+                objEdit.SF_AutoID = iAuto_ID;
+                objEdit.SF_NAME = txtTCLV.Text.Trim();
+                objEdit.SF_START = dtmFrom.Time;
+                objEdit.SF_END = dtmTo.Time;
+                objEdit.UPDATED = DateTime.Now;
+                objEdit.UPDATED_BY = strActive_User_Name;
+                objEdit.UPDATED_BY_FUNCTION = strFunctionCode;
 
-            objBUS.UpdateData(obj);
+                objBUS.UpdateData(objEdit);
+            }
         }
 
         protected override void RemoveData(long iAuto_ID)
