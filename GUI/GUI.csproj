@@ -98,6 +98,12 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="NhapChuoiKetNoiBaoCao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhapChuoiKetNoiBaoCao.Designer.cs">
+      <DependentUpon>NhapChuoiKetNoiBaoCao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\Modules\ucBaoCaoDoanhThu.cs">
@@ -207,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhapChuoiKetNoiBaoCao.resx">
+      <DependentUpon>NhapChuoiKetNoiBaoCao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -621,7 +630,12 @@
   <ItemGroup>
     <None Include="Resources\exporttopdf_32x322.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\tableproperties_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\radio_16x16.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -983,6 +983,16 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap radio_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("radio_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap refreshallpivottable_16x16 {
             get {
                 object obj = ResourceManager.GetObject("refreshallpivottable_16x16", resourceCulture);
@@ -1116,6 +1126,16 @@ namespace GUI.Properties {
         internal static System.Drawing.Bitmap status_16x16 {
             get {
                 object obj = ResourceManager.GetObject("status_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tableproperties_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("tableproperties_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
