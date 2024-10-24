@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="tbl_DTO\tbl_DM_Shift_DTO.cs" />
     <Compile Include="tbl_DTO\tbl_DM_MovieSchedule_DTO.cs" />
+    <Compile Include="tbl_DTO\tbl_DM_StaffSchedule_DTO.cs" />
     <Compile Include="tbl_DTO\tbl_DM_Staff_DTO.cs" />
     <Compile Include="tbl_DTO\tbl_Report_Detail_Sales_DTO.cs" />
     <Compile Include="tbl_DTO\tbl_Report_Sales_DTO.cs" />

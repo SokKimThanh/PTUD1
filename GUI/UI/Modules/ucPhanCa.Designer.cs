@@ -43,8 +43,7 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.dgv = new DevExpress.XtraGrid.GridControl();
             this.grdData = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.cbbCaLamViec = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.cbbNhanVien = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.cbbCaLamViec = new DevExpress.XtraEditors.LookUpEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutTitle = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutAction = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -52,13 +51,13 @@
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutDGV = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.cbbNhanVien = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutForm)).BeginInit();
             this.layoutForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbbCaLamViec.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbbNhanVien.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutAction)).BeginInit();
@@ -66,6 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbbNhanVien.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -226,22 +226,11 @@
             this.cbbCaLamViec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbbCaLamViec.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered;
+            this.cbbCaLamViec.Properties.NullText = "";
+            this.cbbCaLamViec.Properties.PopupSizeable = false;
             this.cbbCaLamViec.Size = new System.Drawing.Size(812, 22);
             this.cbbCaLamViec.StyleController = this.layoutForm;
             this.cbbCaLamViec.TabIndex = 7;
-            // 
-            // cbbNhanVien
-            // 
-            this.cbbNhanVien.EditValue = "";
-            this.cbbNhanVien.Location = new System.Drawing.Point(144, 94);
-            this.cbbNhanVien.Margin = new System.Windows.Forms.Padding(4);
-            this.cbbNhanVien.Name = "cbbNhanVien";
-            this.cbbNhanVien.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbbNhanVien.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered;
-            this.cbbNhanVien.Size = new System.Drawing.Size(812, 22);
-            this.cbbNhanVien.StyleController = this.layoutForm;
-            this.cbbNhanVien.TabIndex = 6;
             // 
             // Root
             // 
@@ -324,6 +313,21 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
+            // cbbNhanVien
+            // 
+            this.cbbNhanVien.EditValue = "";
+            this.cbbNhanVien.Location = new System.Drawing.Point(144, 94);
+            this.cbbNhanVien.Margin = new System.Windows.Forms.Padding(4);
+            this.cbbNhanVien.Name = "cbbNhanVien";
+            this.cbbNhanVien.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbbNhanVien.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered;
+            this.cbbNhanVien.Properties.NullText = "";
+            this.cbbNhanVien.Properties.PopupSizeable = false;
+            this.cbbNhanVien.Size = new System.Drawing.Size(812, 22);
+            this.cbbNhanVien.StyleController = this.layoutForm;
+            this.cbbNhanVien.TabIndex = 6;
+            // 
             // ucPhanCa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -342,7 +346,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbbCaLamViec.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbbNhanVien.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutAction)).EndInit();
@@ -350,6 +353,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbbNhanVien.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -378,7 +382,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.LayoutControlGroup layoutDGV;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private DevExpress.XtraEditors.ComboBoxEdit cbbCaLamViec;
-        private DevExpress.XtraEditors.ComboBoxEdit cbbNhanVien;
+        private DevExpress.XtraEditors.LookUpEdit cbbCaLamViec;
+        private DevExpress.XtraEditors.LookUpEdit cbbNhanVien;
     }
 }

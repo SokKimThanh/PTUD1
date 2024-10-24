@@ -63,6 +63,7 @@
     </Compile>
     <Compile Include="tbl_DM_AgeRating_DAL.cs" />
     <Compile Include="tbl_DM_Shift_DAL.cs" />
+    <Compile Include="tbl_DM_StaffSchedule_DAL.cs" />
     <Compile Include="tbl_DM_Staff_DAL.cs" />
     <Compile Include="tbl_DM_Theater_DAL.cs" />
     <Compile Include="tbl_Report_Expense_DAL.cs" />
