@@ -8,7 +8,7 @@ namespace DTO.Custom
 {
     public class CConfig
     {
-        public static string CM_Cinema_DB_ConnectionString = "Data Source=.\\sqlexpress;Initial Catalog=CM_Cinema_DB;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
+        public static string CM_Cinema_DB_ConnectionString = "";
 
         public static string CM_Cinema_FileManagement_Folder = "C:\\CM_Cinema_FileManagement\\";
 
