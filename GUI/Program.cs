@@ -48,6 +48,9 @@ namespace GUI
                     }
                 }
             }
+            if (CConfig.CM_Cinema_DB_ConnectionString == "")
+                return;
+
 
             //// Tự động lấy tên máy chủ
             //string strServerName = Environment.MachineName;
