@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class NhapChuoiKetNoiBaoCao
+    partial class frmConnection
     {
         /// <summary>
         /// Required designer variable.

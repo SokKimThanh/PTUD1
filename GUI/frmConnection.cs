@@ -12,10 +12,10 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class NhapChuoiKetNoiBaoCao : DevExpress.XtraEditors.XtraForm
+    public partial class frmConnection : DevExpress.XtraEditors.XtraForm
     {
 
-        public NhapChuoiKetNoiBaoCao()
+        public frmConnection()
         {
             InitializeComponent();
             if (string.IsNullOrEmpty(txtConnectionString.Text))

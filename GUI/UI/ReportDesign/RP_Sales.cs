@@ -15,42 +15,34 @@ namespace GUI.UI.ReportDesign
         public RP_Sales()
         {
             InitializeComponent();
+
+            // Mở form nhập kết nối
+            //using (var connectionForm = new frmConnection())
+            //{
+            //    if (connectionForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            //    {
+            //        _connectionString = connectionForm.ConnectionString;
+            //    }
+            //    else
+            //    {
+            //        // Chuỗi kết nối mặc định
+            //        _connectionString = CConfig.CM_Cinema_DB_ConnectionString;
+            //    }
+            //}
+
+            // Kết nối với report
             //ConfigureDataSource();
-
-            // Hiển thị form nhập chuỗi kết nối
-            using (var connectionForm = new NhapChuoiKetNoiBaoCao())
-            {
-                if (connectionForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                {
-                    _connectionString = connectionForm.ConnectionString;
-                }
-                else
-                {
-                    // Nếu người dùng không nhập, sử dụng chuỗi kết nối mặc định
-                    _connectionString = CConfig.CM_Cinema_DB_ConnectionString;
-                }
-            }
-
-            // Gọi hàm cấu hình dữ liệu
-            ConfigureDataSource();
         }
 
         private void ConfigureDataSource()
         {
+            if (string.IsNullOrEmpty(_connectionString))
+            {
+                throw new ArgumentException("Chuỗi kết nối không được rỗng.");
+            }
+
             // Tạo một kết nối đến cơ sở dữ liệu
-            SqlDataSource objSqlDataSoucre = new SqlDataSource(CConfig.CM_Cinema_DB_ConnectionString);
-
-            // Tạo một query cho store procedure
-            StoredProcQuery objStoreQuery = new StoredProcQuery("SalesQuery", "sp_GetSalesReport");
-
-            // Thêm các tham số vào query (khớp với tham số của stored procedure)
-            objStoreQuery.Parameters.Add(new QueryParameter("RP_StartDate", typeof(DateTime), this.Parameters["RP_StartDate"].Value));
-            objStoreQuery.Parameters.Add(new QueryParameter("RP_EndDate", typeof(DateTime), this.Parameters["RP_EndDate"].Value));
-
-            // Thêm query vào DataSource
-            objSqlDataSoucre.Queries.Add(objStoreQuery);
-
-            // Đặt DataSource cho báo cáo
+            SqlDataSource objSqlDataSoucre = new SqlDataSource(_connectionString);
             this.DataSource = objSqlDataSoucre;
         }
 
