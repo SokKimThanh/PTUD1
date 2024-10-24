@@ -8,6 +8,8 @@ GO
 -- Description:	<Báo cáo doanh thu vé và phim>
 -- =============================================
 drop procedure if exists sp_GetSalesReport
+drop procedure if exists sp_GetDetailedSalesReport
+
 go
 CREATE PROCEDURE sp_GetSalesReport
     @StartDate DATETIME,
@@ -27,9 +29,8 @@ BEGIN
     ORDER BY TotalRevenue DESC;
 END;
 
-EXEC sp_GetSalesReport '2024-01-01', '2024-12-31';
 
-drop procedure if exists sp_GetDetailedSalesReport
+
 go
 CREATE PROCEDURE sp_GetDetailedSalesReport
     @StartDate DATETIME,
@@ -51,6 +52,6 @@ BEGIN
     AND TK.DELETED = 0
     ORDER BY MV.MV_NAME, MS.MS_START, TK.CREATED;
 END;
-go
-EXEC sp_GetDetailedSalesReport '2024-01-01', '2024-12-31';
-go
+
+--EXEC sp_GetDetailedSalesReport '2024-01-01', '2024-12-31';
+--EXEC sp_GetSalesReport '2024-01-01', '2024-12-31';
