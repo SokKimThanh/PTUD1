@@ -69,6 +69,7 @@ namespace GUI
                 }
                 catch (Exception)
                 {
+                    
                     CConfig.CM_Cinema_DB_ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["CM_Cinema_DB"].ConnectionString;
                 }
             }

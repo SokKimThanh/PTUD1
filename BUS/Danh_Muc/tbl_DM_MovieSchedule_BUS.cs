@@ -20,7 +20,7 @@ namespace BUS.Danh_Muc
         {
             try
             {
-                dal.AddData(new tbl_DM_MovieSchedule_DTO(null,movie_AutoID,theater_AutoID,startDate,0));
+                dal.AddData(new tbl_DM_MovieSchedule_DTO(null,movie_AutoID,null,theater_AutoID,null,startDate,0));
             }catch(Exception ex)
             {
                 throw ex;
@@ -45,7 +45,7 @@ namespace BUS.Danh_Muc
         /// Ẩn dữ liệu khỏi view
         /// </summary>
         /// <param name="id"></param>
-        public void RemoveData(int id)
+        public void RemoveData(long id)
         {
             try
             {
@@ -64,7 +64,7 @@ namespace BUS.Danh_Muc
         {
             try
             {
-                dal.UpdateData(new tbl_DM_MovieSchedule_DTO(autoID, movie_AutoID, theater_AutoID, startDate, delete));
+                dal.UpdateData(new tbl_DM_MovieSchedule_DTO(autoID, movie_AutoID, null, theater_AutoID, null, startDate, delete));
             }
             catch (Exception ex)
             {
