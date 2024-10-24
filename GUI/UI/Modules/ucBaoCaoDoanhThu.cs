@@ -86,13 +86,11 @@ namespace GUI.UI.Modules
                 {
                     dgv.DataSource = data.GetAllSalesReport(startDate, endDate);
                     var report = new RP_Sales();
-
                     report.Add(startDate, endDate);
 
                     // Hiển thị báo cáo
                     var printTool = new ReportPrintTool(report);
                     printTool.ShowPreview();
-
                 }
                 else // Chi tiết
                 {
