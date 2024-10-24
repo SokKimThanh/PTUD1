@@ -46,6 +46,7 @@
             this.dtpStartDate = new DevExpress.XtraEditors.DateEdit();
             this.cboMovies = new DevExpress.XtraEditors.LookUpEdit();
             this.cboTheaters = new DevExpress.XtraEditors.LookUpEdit();
+            this.tmpStartTime = new DevExpress.XtraEditors.TimeEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutTitle = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutDGV = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -55,7 +56,6 @@
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.tmpStartTime = new DevExpress.XtraEditors.TimeEdit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutForm)).BeginInit();
             this.layoutForm.SuspendLayout();
@@ -65,6 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtpStartDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboMovies.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboTheaters.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tmpStartTime.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).BeginInit();
@@ -74,7 +75,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tmpStartTime.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -232,6 +232,7 @@
             this.gvMovieSchedules.GridControl = this.dgvMovieSchedules;
             this.gvMovieSchedules.Name = "gvMovieSchedules";
             this.gvMovieSchedules.OptionsView.ShowIndicator = false;
+            this.gvMovieSchedules.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gvMovieSchedules_RowClick);
             // 
             // dtpStartDate
             // 
@@ -281,6 +282,20 @@
             this.cboTheaters.Size = new System.Drawing.Size(327, 22);
             this.cboTheaters.StyleController = this.layoutForm;
             this.cboTheaters.TabIndex = 5;
+            // 
+            // tmpStartTime
+            // 
+            this.tmpStartTime.EditValue = new System.DateTime(2024, 10, 15, 0, 0, 0, 0);
+            this.tmpStartTime.Location = new System.Drawing.Point(143, 158);
+            this.tmpStartTime.Margin = new System.Windows.Forms.Padding(4);
+            this.tmpStartTime.Name = "tmpStartTime";
+            this.tmpStartTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.tmpStartTime.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.tmpStartTime.Properties.TimeEditStyle = DevExpress.XtraEditors.Repository.TimeEditStyle.TouchUI;
+            this.tmpStartTime.Size = new System.Drawing.Size(350, 22);
+            this.tmpStartTime.StyleController = this.layoutForm;
+            this.tmpStartTime.TabIndex = 6;
             // 
             // Root
             // 
@@ -388,20 +403,6 @@
             this.layoutControlItem5.Text = "Phòng chiếu:";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(95, 16);
             // 
-            // tmpStartTime
-            // 
-            this.tmpStartTime.EditValue = new System.DateTime(2024, 10, 15, 0, 0, 0, 0);
-            this.tmpStartTime.Location = new System.Drawing.Point(143, 158);
-            this.tmpStartTime.Margin = new System.Windows.Forms.Padding(4);
-            this.tmpStartTime.Name = "tmpStartTime";
-            this.tmpStartTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.tmpStartTime.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.tmpStartTime.Properties.TimeEditStyle = DevExpress.XtraEditors.Repository.TimeEditStyle.TouchUI;
-            this.tmpStartTime.Size = new System.Drawing.Size(350, 22);
-            this.tmpStartTime.StyleController = this.layoutForm;
-            this.tmpStartTime.TabIndex = 6;
-            // 
             // ucSuatChieu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -423,6 +424,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtpStartDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboMovies.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboTheaters.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tmpStartTime.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).EndInit();
@@ -432,7 +434,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tmpStartTime.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
