@@ -137,33 +137,35 @@ namespace GUI.UI.Modules
         protected override void Update_Data()
         {
             tbl_DM_Staff_BUS objBUS = new tbl_DM_Staff_BUS();
-            tbl_DM_Staff_DTO obj = new tbl_DM_Staff_DTO();
-            obj.ST_AutoID = iAuto_ID;
-            obj.ST_USERNAME = txtUserName.Text.Trim();
-            obj.ST_PASSWORD = CUtility.MD5_Encrypt(txtPassword.Text.Trim());
-            obj.ST_NAME = txtNameStaff.Text.Trim();
-            obj.ST_PHONE = txtPhone.Text.Trim();
-            obj.ST_CIC = txtCIC.Text.Trim();
-            obj.ST_NOTE = txtNOTE.Text.Trim();
-
-            if (cbbLevel.SelectedItem != null)
+            if (objEdit != null)
             {
-                string strCBBValue = cbbLevel.SelectedItem.ToString();
+                objEdit.ST_AutoID = iAuto_ID;
+                objEdit.ST_USERNAME = txtUserName.Text.Trim();
+                objEdit.ST_PASSWORD = CUtility.MD5_Encrypt(txtPassword.Text.Trim());
+                objEdit.ST_NAME = txtNameStaff.Text.Trim();
+                objEdit.ST_PHONE = txtPhone.Text.Trim();
+                objEdit.ST_CIC = txtCIC.Text.Trim();
+                objEdit.ST_NOTE = txtNOTE.Text.Trim();
 
-                if (strCBBValue == LanguageController.GetLanguageDataLabel("None"))
-                    obj.ST_LEVEL = (int)ELevel.None;
-                else if (strCBBValue == LanguageController.GetLanguageDataLabel("Admin"))
-                    obj.ST_LEVEL = (int)ELevel.Admin;
-                else if (strCBBValue == LanguageController.GetLanguageDataLabel("Manager"))
-                    obj.ST_LEVEL = (int)ELevel.Manager;
-                else if (strCBBValue == LanguageController.GetLanguageDataLabel("Staff"))
-                    obj.ST_LEVEL = (int)ELevel.Staff;
+                if (cbbLevel.SelectedItem != null)
+                {
+                    string strCBBValue = cbbLevel.SelectedItem.ToString();
+
+                    if (strCBBValue == LanguageController.GetLanguageDataLabel("None"))
+                        objEdit.ST_LEVEL = (int)ELevel.None;
+                    else if (strCBBValue == LanguageController.GetLanguageDataLabel("Admin"))
+                        objEdit.ST_LEVEL = (int)ELevel.Admin;
+                    else if (strCBBValue == LanguageController.GetLanguageDataLabel("Manager"))
+                        objEdit.ST_LEVEL = (int)ELevel.Manager;
+                    else if (strCBBValue == LanguageController.GetLanguageDataLabel("Staff"))
+                        objEdit.ST_LEVEL = (int)ELevel.Staff;
+                }
+                objEdit.UPDATED = DateTime.Now;
+                objEdit.UPDATED_BY = strActive_User_Name;
+                objEdit.UPDATED_BY_FUNCTION = strFunctionCode;
+
+                objBUS.UpdateData(objEdit);
             }
-            obj.UPDATED = DateTime.Now;
-            obj.UPDATED_BY = strActive_User_Name;
-            obj.UPDATED_BY_FUNCTION = strFunctionCode;
-
-            objBUS.UpdateData(obj);
         }
 
         protected override void RemoveData(long iAuto_ID)
