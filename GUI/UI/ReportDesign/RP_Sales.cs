@@ -13,7 +13,7 @@ namespace GUI.UI.ReportDesign
         public RP_Sales()
         {
             InitializeComponent();
-            ConfigureDataSource();
+            //ConfigureDataSource();
         }
 
         private void ConfigureDataSource()
