@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DTO.Custom;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +14,24 @@ namespace GUI
 {
     public partial class NhapChuoiKetNoiBaoCao : DevExpress.XtraEditors.XtraForm
     {
+
         public NhapChuoiKetNoiBaoCao()
         {
             InitializeComponent();
+            if (string.IsNullOrEmpty(txtConnectionString.Text))
+            {
+                txtConnectionString.Text = CConfig.CM_Cinema_DB_ConnectionString;
+            }
+        }
+
+        public string ConnectionString { get; private set; }
+
+        private void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            // Lấy chuỗi kết nối từ TextBox
+            ConnectionString = txtConnectionString.Text;
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }

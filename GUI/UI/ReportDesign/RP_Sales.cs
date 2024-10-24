@@ -10,10 +10,29 @@ namespace GUI.UI.ReportDesign
 {
     public partial class RP_Sales : DevExpress.XtraReports.UI.XtraReport
     {
+        private readonly string _connectionString;
+
         public RP_Sales()
         {
             InitializeComponent();
             //ConfigureDataSource();
+
+            // Hiển thị form nhập chuỗi kết nối
+            using (var connectionForm = new NhapChuoiKetNoiBaoCao())
+            {
+                if (connectionForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    _connectionString = connectionForm.ConnectionString;
+                }
+                else
+                {
+                    // Nếu người dùng không nhập, sử dụng chuỗi kết nối mặc định
+                    _connectionString = CConfig.CM_Cinema_DB_ConnectionString;
+                }
+            }
+
+            // Gọi hàm cấu hình dữ liệu
+            ConfigureDataSource();
         }
 
         private void ConfigureDataSource()
