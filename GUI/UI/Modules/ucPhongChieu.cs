@@ -146,7 +146,11 @@ namespace GUI.UI.Modules
                 MessageBox.Show(ex.Message);
             }
         }
-
+        /// <summary>
+        /// Chọn 1 thành phần trên danh sách
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gvTheaters_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
         {
             int[] cacDong = gvTheaters.GetSelectedRows();
@@ -158,8 +162,6 @@ namespace GUI.UI.Modules
                     cboStatus.SelectedIndex = (int)gvTheaters.GetRowCellValue(i, "Status");
                 }
             }
-            if (strFunctionCode != "")
-                lblTitle.Text = strFunctionCode.ToUpper().Trim();
         }
     }
 }

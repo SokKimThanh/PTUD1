@@ -1,6 +1,7 @@
 ﻿using DTO.tbl_DTO;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -55,11 +56,24 @@ namespace DAL
                 using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext())
                 {
                     List<tbl_DM_MovieSchedule_DTO> list = new List<tbl_DM_MovieSchedule_DTO> ();
-                    var list_Found = db.tbl_DM_MovieSchedules.Where(item => item.DELETED == 0);
-
-                    foreach( tbl_DM_MovieSchedule item in list_Found)
+                    //var list_Found = db.tbl_DM_MovieSchedules.Where(item => item.DELETED == 0);
+                    var list_Found = from ms in db.tbl_DM_MovieSchedules
+                                     join mv in db.tbl_DM_Movies on ms.MS_MOVIE_AutoID equals mv.MV_AutoID
+                                     join tt in db.tbl_DM_Theaters on ms.MS_THEATER_AutoID equals tt.TT_AutoID
+                                     select new
+                                     {
+                                         AutoID = ms.MS_AutoID,
+                                         Movie_AutoID = ms.MS_MOVIE_AutoID,
+                                         Movie_Name = mv.MV_NAME,
+                                         Theater_AutoID = ms.MS_THEATER_AutoID,
+                                         Theater_Name = tt.TT_NAME,
+                                         Start_Date = ms.MS_START,
+                                         Deleted = ms.DELETED
+                                     };
+                                     
+                    foreach(var item in list_Found)
                     {
-                        list.Add(new tbl_DM_MovieSchedule_DTO(item.MS_AutoID, (long)item.MS_MOVIE_AutoID, (long)item.MS_THEATER_AutoID, item.MS_START, (int)item.DELETED));
+                        list.Add(new tbl_DM_MovieSchedule_DTO(item.AutoID, (long)item.Movie_AutoID, item.Movie_Name, (long)item.Theater_AutoID, item.Theater_Name, item.Start_Date, (int)item.Deleted));
                     }
 
                     return list;
@@ -73,7 +87,7 @@ namespace DAL
         /// Ẩn dữ liệu khỏi view
         /// </summary>
         /// <param name="id"></param>
-        public void RemoveData(int id)
+        public void RemoveData(long id)
         {
             try
             {
