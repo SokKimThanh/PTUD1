@@ -335,12 +335,13 @@ namespace GUI.UI.Modules
 
                 // Đặt chiều rộng theo GridControl
                 if (iWidthCol > 0)
+                {
                     objLastColumn.Width = iWidthCol;
-                else
-                    objLastColumn.Width = 100;
+                    // Thêm cột vào GridControl
 
-                // Thêm cột vào GridControl
-                objGrid.Columns.Add(objLastColumn);
+                    objGrid.Columns.Add(objLastColumn);
+
+                }
             }
 
 

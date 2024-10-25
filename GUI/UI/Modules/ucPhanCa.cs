@@ -82,6 +82,7 @@ namespace GUI.UI.Modules
             grdData.Columns["SS_STAFF_AutoID"].Visible = false;
             grdData.Columns["SS_SHIFT_AutoID"].Visible = false;
 
+            grdData.Columns["ST_USERNAME"].Caption = LanguageController.GetLanguageDataLabel("Mã đăng nhập");
             grdData.Columns["ST_NAME"].Caption = LanguageController.GetLanguageDataLabel("Nhân viên");
             grdData.Columns["SF_NAME"].Caption = LanguageController.GetLanguageDataLabel("Ca làm");
 
