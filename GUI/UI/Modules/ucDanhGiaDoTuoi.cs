@@ -94,6 +94,7 @@ namespace GUI.UI.Modules
         private void btnLamMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             LoadForm();
+            Load_Data();
         }
         // Chọn dòng để cập nhật
         private void dgv_Click(object sender, EventArgs e)
