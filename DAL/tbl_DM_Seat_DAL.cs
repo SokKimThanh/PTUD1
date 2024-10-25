@@ -1,4 +1,5 @@
-﻿using DTO.tbl_DTO;
+﻿using DTO.Custom;
+using DTO.tbl_DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace DAL
         {
             try
             {
-                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext())
+                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString))
                 {
                     List<tbl_DM_Seat_DTO> list = new List<tbl_DM_Seat_DTO>();
                     var list_Found = db.tbl_DM_Seats.Where(seat => seat.DELETED == 0).ToList();
@@ -44,7 +45,7 @@ namespace DAL
         {
             try
             {
-                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext())
+                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString))
                 {
                     tbl_DM_Seat seat = new tbl_DM_Seat()
                     {
@@ -72,7 +73,7 @@ namespace DAL
         {
             try
             {
-                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext())
+                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString))
                 {
                     // Tìm ghế có mã ghế như trên trong danh sách
                     tbl_DM_Seat seat = db.tbl_DM_Seats.SingleOrDefault(item => item.SE_AutoID == obj.AutoID);
@@ -100,7 +101,7 @@ namespace DAL
         {
             try
             {
-                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext())
+                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString))
                 {
                     // Tìm ghế có mã ghế như trên trong danh sách
                     tbl_DM_Seat seat = db.tbl_DM_Seats.SingleOrDefault(item => item.SE_AutoID == id);
@@ -129,7 +130,7 @@ namespace DAL
         {
             try
             {
-                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext())
+                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString))
                 {
                     tbl_DM_Seat seat_Found = db.tbl_DM_Seats.SingleOrDefault(item => item.SE_FILE == file && item.SE_RANK == rank && item.SE_THEATER_AutoID == theater_AutoID);
                     tbl_DM_Seat_DTO result = null;
