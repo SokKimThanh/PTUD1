@@ -1,4 +1,5 @@
 ﻿using DTO;
+using DTO.Custom;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace DAL
         {
             try
             {
-                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext())
+                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString))
                 {
                     // Khởi tạo danh sách các phòng chiếu
                     List<tbl_DM_Theater_DTO> list = new List<tbl_DM_Theater_DTO>();
@@ -49,7 +50,7 @@ namespace DAL
         {
             try
             {
-                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext())
+                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString))
                 {
                     // Khởi tạo danh sách các phòng chiếu
                     List<tbl_DM_Theater_DTO> list = new List<tbl_DM_Theater_DTO>();
@@ -75,7 +76,7 @@ namespace DAL
         {
             try
             {
-                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext())
+                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString))
                 {
                     // Chuyển kiểu dữ liệu DTO sang context để thêm mới vào danh sách
                     tbl_DM_Theater theater = new tbl_DM_Theater()
@@ -110,7 +111,7 @@ namespace DAL
         {
             try
             {
-                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext())
+                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString))
                 {
                     // Chuyển kiểu dữ liệu DTO sang context để thêm mới vào danh sách
                     tbl_DM_Theater theater = db.tbl_DM_Theaters.SingleOrDefault(item => item.TT_AutoID == id);
@@ -145,7 +146,7 @@ namespace DAL
         {
             try
             {
-                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext())
+                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString))
                 {
                     // Chuyển kiểu dữ liệu DTO sang context để thêm mới vào danh sách
                     tbl_DM_Theater theater = db.tbl_DM_Theaters.SingleOrDefault(item => item.TT_AutoID == obj.AutoID);
@@ -178,7 +179,7 @@ namespace DAL
         {
             try
             {
-                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext())
+                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString))
                 {
                     tbl_DM_Theater theater_Found = db.tbl_DM_Theaters.SingleOrDefault(item => item.TT_NAME.Trim() == name);
                     if (theater_Found != null)

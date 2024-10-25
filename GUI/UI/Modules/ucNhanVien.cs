@@ -50,7 +50,7 @@ namespace GUI.UI.Modules
             
             grdData.RowClick += RowClick_Grid;
 
-            cbbLevel.Properties.Items.Add(LanguageController.GetLanguageDataLabel("Admin"));
+            //cbbLevel.Properties.Items.Add(LanguageController.GetLanguageDataLabel("Admin"));
             cbbLevel.Properties.Items.Add(LanguageController.GetLanguageDataLabel("None"));
             cbbLevel.Properties.Items.Add(LanguageController.GetLanguageDataLabel("Manager"));
             cbbLevel.Properties.Items.Add(LanguageController.GetLanguageDataLabel("Staff"));

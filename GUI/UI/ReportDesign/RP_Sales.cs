@@ -10,7 +10,7 @@ namespace GUI.UI.ReportDesign
 {
     public partial class RP_Sales : DevExpress.XtraReports.UI.XtraReport
     {
-        private readonly string _connectionString;
+    
 
         public RP_Sales()
         {

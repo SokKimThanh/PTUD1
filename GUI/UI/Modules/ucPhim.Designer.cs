@@ -300,6 +300,7 @@ namespace GUI.UI.Modules
             this.txtPrice.Location = new System.Drawing.Point(153, 217);
             this.txtPrice.MenuManager = this.barManager1;
             this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Properties.BeepOnError = true;
             this.txtPrice.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.txtPrice.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
             this.txtPrice.Properties.MaskSettings.Set("mask", "d");
