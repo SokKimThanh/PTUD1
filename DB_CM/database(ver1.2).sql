@@ -1,6 +1,4 @@
-﻿--update  by		--	update date			---		description
---sok kim thanh			24/10/2024 8:45				'Cập nhật khóa duy nhất cho các trường dữ liệu'
-go
+﻿go
 use master
 
 go
@@ -297,15 +295,10 @@ add constraint fk_expense_expensetype foreign key (EX_EXTYPE_AutoID) references 
 
 
 -- Khóa UNIQUE
--- Thêm khóa UNIQUE cho tbl_DM_AgeRating
-go
-alter table tbl_DM_AgeRating
-add constraint uq_agerating unique (AR_NAME)
-
 -- Thêm khóa UNIQUE cho tbl_DM_Movie
 go
 alter table tbl_DM_Movie
-add constraint uq_movie unique (MV_NAME, MV_PRICE, MV_DURATION)
+add constraint uq_movie unique (MV_NAME)
 
 -- Thêm khóa UNIQUE cho tbl_DM_ExpenseType
 -- Tên loại chi phí nên là duy nhất.
@@ -331,13 +324,13 @@ ADD CONSTRAINT uq_theater_name UNIQUE (TT_NAME);
 --ADD CONSTRAINT UQ_ST_USERNAME UNIQUE (ST_USERNAME);
 
 -- Số chứng minh thư/căn cước công dân nên là duy nhất.
---ALTER TABLE tbl_DM_Staff 
---ADD CONSTRAINT UQ_ST_CIC UNIQUE (ST_CIC);
+ALTER TABLE tbl_DM_Staff 
+ADD CONSTRAINT UQ_ST_CIC UNIQUE (ST_CIC);
 
 -- Thêm khóa UNIQUE cho tbl_DM_Product
+--Tên sản phẩm nên là duy nhất.
 go
 ALTER TABLE tbl_DM_Product
---Tên sản phẩm nên là duy nhất.
 ADD CONSTRAINT uq_product_name UNIQUE (PD_NAME);
 
 -- Thêm khóa UNIQUE cho tbl_DM_MovieSchedule
@@ -345,7 +338,3 @@ ADD CONSTRAINT uq_product_name UNIQUE (PD_NAME);
 go
 ALTER TABLE tbl_DM_MovieSchedule
 ADD CONSTRAINT uq_movieschedule UNIQUE (MS_MOVIE_AutoID, MS_THEATER_AutoID, MS_START);
-
--- Bảng tbl_DM_Ticket
--- Mỗi vé bán cho một ghế và một lịch chiếu phim nên là duy nhất.
-ALTER TABLE tbl_DM_Ticket ADD CONSTRAINT UQ_TK_SEAT_MOVIESCHEDULE UNIQUE (TK_SEAT_AutoID, TK_MOVIESCHEDULE_AutoID);

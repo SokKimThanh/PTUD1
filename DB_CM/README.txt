@@ -1,3 +1,7 @@
+****************Update 24/10/2024:
+ADD:
+	+ Add new unique keys for tables
+
 ****************Update 22/10/2024:
 REMOVE:
 	+ Delete table SeatSchedule due to the inconvenients
