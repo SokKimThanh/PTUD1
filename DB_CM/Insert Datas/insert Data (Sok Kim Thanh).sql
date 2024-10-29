@@ -176,30 +176,30 @@ VALUES
 INSERT INTO [dbo].[tbl_DM_Staff] ([ST_USERNAME], [ST_PASSWORD], [ST_NAME], [ST_PHONE], [ST_CIC], [ST_NOTE], [ST_LEVEL], [DELETED], [CREATED], [CREATED_BY], [CREATED_BY_FUNCTION], [UPDATED], [UPDATED_BY], [UPDATED_BY_FUNCTION])
 VALUES 
 -- Nhân viên quản lý và nhân viên bán vé
-('admin', 'c4ca4238a0b923820dcc509a6f75849b', 'Admin User', '0123456789', '123456789012', 'Admin account', -5, 0, GETDATE(), 'admin', 'System', GETDATE(), 'admin', 'System'),
-('staff1', 'c4ca4238a0b923820dcc509a6f75849b', 'Sok Kim Thanh', '0123456789', '123456789012', 'Nhân viên bán vé', -5, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('staff2', 'c4ca4238a0b923820dcc509a6f75849b', 'Lê Duy Anh Tú', '0987654321', '987654321012', 'Nhân viên bán vé', -5, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('staff3', 'c4ca4238a0b923820dcc509a6f75849b', 'Trần Minh Tuấn', '0987654321', '987654321012', 'Nhân viên bán vé', -5, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('admin', 'c4ca4238a0b923820dcc509a6f75849b', N'Admin User', '0123456789', '123456789012', N'Admin account', -5, 0, GETDATE(), 'admin', 'System', GETDATE(), 'admin', 'System'),
+('staff1', 'c4ca4238a0b923820dcc509a6f75849b', N'Sok Kim Thanh', '0123456789', '123456789012', N'Nhân viên bán vé', -5, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('staff2', 'c4ca4238a0b923820dcc509a6f75849b', N'Lê Duy Anh Tú', '0987654321', '987654321012', N'Nhân viên bán vé', -5, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('staff3', 'c4ca4238a0b923820dcc509a6f75849b', N'Trần Minh Tuấn', '0987654321', '987654321012', N'Nhân viên bán vé', -5, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
 
 -- Nhân viên khác
-('staff4', 'c4ca4238a0b923820dcc509a6f75849b', 'Nguyễn Văn Bình', '0912345678', '456789123456', 'Nhân viên quầy thực phẩm', -3, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('staff5', 'c4ca4238a0b923820dcc509a6f75849b', 'Phạm Thị Hồng', '0938765432', '654321789654', 'Nhân viên vệ sinh', -2, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('staff6', 'c4ca4238a0b923820dcc509a6f75849b', 'Đặng Hoài Nam', '0972348765', '789456123789', 'Nhân viên bảo trì', -4, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('staff7', 'c4ca4238a0b923820dcc509a6f75849b', 'Lý Bảo Trân', '0909876543', '321654987321', 'Nhân viên pha chế', -3, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('staff8', 'c4ca4238a0b923820dcc509a6f75849b', 'Trương Văn Hiếu', '0934567890', '567123456789', 'Nhân viên bảo vệ', -4, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('staff9', 'c4ca4238a0b923820dcc509a6f75849b', 'Hoàng Minh Anh', '0923456789', '789321654123', 'Nhân viên điều phối', -3, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('staff4', 'c4ca4238a0b923820dcc509a6f75849b', N'Nguyễn Văn Bình', '0912345678', '456789123456', N'Nhân viên quầy thực phẩm', -3, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('staff5', 'c4ca4238a0b923820dcc509a6f75849b', N'Phạm Thị Hồng', '0938765432', '654321789654', N'Nhân viên vệ sinh', -2, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('staff6', 'c4ca4238a0b923820dcc509a6f75849b', N'Đặng Hoài Nam', '0972348765', '789456123789', N'Nhân viên bảo trì', -4, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('staff7', 'c4ca4238a0b923820dcc509a6f75849b', N'Lý Bảo Trân', '0909876543', '321654987321', N'Nhân viên pha chế', -3, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('staff8', 'c4ca4238a0b923820dcc509a6f75849b', N'Trương Văn Hiếu', '0934567890', '567123456789', N'Nhân viên bảo vệ', -4, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('staff9', 'c4ca4238a0b923820dcc509a6f75849b', N'Hoàng Minh Anh', '0923456789', '789321654123', N'Nhân viên điều phối', -3, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
 
 -- Thêm nhân viên mới với các vai trò khác nhau
-('staff10', 'c4ca4238a0b923820dcc509a6f75849b', 'Nguyễn Thị Lan', '0934554321', '111223334455', 'Nhân viên quầy thực phẩm', -3, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('staff11', 'c4ca4238a0b923820dcc509a6f75849b', 'Vũ Văn Thành', '0974556768', '234556789012', 'Nhân viên quản lý lịch chiếu', -1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('staff12', 'c4ca4238a0b923820dcc509a6f75849b', 'Trần Thanh Huyền', '0912345678', '998877665544', 'Nhân viên điều phối khách hàng', -2, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('staff13', 'c4ca4238a0b923820dcc509a6f75849b', 'Lê Quốc Bảo', '0945567889', '223344556677', 'Nhân viên vệ sinh', -2, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('staff14', 'c4ca4238a0b923820dcc509a6f75849b', 'Nguyễn Hải Đăng', '0964433221', '334455667788', 'Nhân viên quầy vé', -5, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('staff15', 'c4ca4238a0b923820dcc509a6f75849b', 'Phạm Văn Hùng', '0903232456', '445566778899', 'Nhân viên bảo trì thiết bị', -4, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('staff16', 'c4ca4238a0b923820dcc509a6f75849b', 'Trương Nhật Minh', '0986754321', '556677889900', 'Nhân viên pha chế', -3, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('staff17', 'c4ca4238a0b923820dcc509a6f75849b', 'Lê Thu Trang', '0932445566', '667788990011', 'Nhân viên bán hàng lưu niệm', -3, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('staff18', 'c4ca4238a0b923820dcc509a6f75849b', 'Hoàng Bảo Linh', '0971234567', '778899001122', 'Nhân viên quầy thực phẩm', -3, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('staff19', 'c4ca4238a0b923820dcc509a6f75849b', 'Phan Quang Huy', '0923344556', '889900112233', 'Nhân viên quản lý kho hàng', -1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System');
+('staff10', 'c4ca4238a0b923820dcc509a6f75849b', N'Nguyễn Thị Lan', '0934554321', '111223334455', N'Nhân viên quầy thực phẩm', -3, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('staff11', 'c4ca4238a0b923820dcc509a6f75849b', N'Vũ Văn Thành', '0974556768', '234556789012', N'Nhân viên quản lý lịch chiếu', -1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('staff12', 'c4ca4238a0b923820dcc509a6f75849b', N'Trần Thanh Huyền', '0912345678', '998877665544', N'Nhân viên điều phối khách hàng', -2, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('staff13', 'c4ca4238a0b923820dcc509a6f75849b', N'Lê Quốc Bảo', '0945567889', '223344556677', N'Nhân viên vệ sinh', -2, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('staff14', 'c4ca4238a0b923820dcc509a6f75849b', N'Nguyễn Hải Đăng', '0964433221', '334455667788', N'Nhân viên quầy vé', -5, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('staff15', 'c4ca4238a0b923820dcc509a6f75849b', N'Phạm Văn Hùng', '0903232456', '445566778899', N'Nhân viên bảo trì thiết bị', -4, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('staff16', 'c4ca4238a0b923820dcc509a6f75849b', N'Trương Nhật Minh', '0986754321', '556677889900', N'Nhân viên pha chế', -3, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('staff17', 'c4ca4238a0b923820dcc509a6f75849b', N'Lê Thu Trang', '0932445566', '667788990011', N'Nhân viên bán hàng lưu niệm', -3, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('staff18', 'c4ca4238a0b923820dcc509a6f75849b', N'Hoàng Bảo Linh', '0971234567', '778899001122', N'Nhân viên quầy thực phẩm', -3, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('staff19', 'c4ca4238a0b923820dcc509a6f75849b', N'Phan Quang Huy', '0923344556', '889900112233', N'Nhân viên quản lý kho hàng', -1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System');
 
 -- them ghe
 insert into tbl_DM_Seat (SE_FILE, SE_RANK, SE_THEATER_AutoID, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
