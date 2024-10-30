@@ -1,3 +1,8 @@
+****************Update 29/10/2024:
+MODIFY:
+	+ Modify length of CREATED_BY, CREATED_BY_FUNCTION, UPDATED_BY, UPDATED_BY_FUNCTION
+	+ Modify length of MV_POSTERURL and PD_IMAGEURL by varchar(MAX)
+
 ****************Update 24/10/2024:
 ADD:
 	+ Add new unique keys for tables
