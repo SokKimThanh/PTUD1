@@ -4,6 +4,7 @@
 --Cảnh báo nếu số lượng tồn kho thấp dưới mức yêu cầu.
 drop proc if exists sp_GetInventoryReport
 drop proc if exists sp_GetExpenseReport
+drop proc if exists sp_GetDetailedExpenseReport
 go
 CREATE PROCEDURE sp_GetInventoryReport
 AS
@@ -31,4 +32,26 @@ BEGIN
     FROM tbl_SYS_Expense EX
     WHERE EX.CREATED BETWEEN @StartDate AND @EndDate       -- Khoảng thời gian
     AND EX.DELETED = 0;                                    -- Bỏ qua các chi phí đã xóa
+END;
+
+go
+CREATE PROCEDURE sp_GetDetailedExpenseReport
+    @StartDate DATETIME,
+    @EndDate DATETIME
+AS
+BEGIN
+    SELECT 
+        EX.EX_AutoID,              -- ID của chi phí
+        EX.EX_EXTYPE_AutoID,       -- ID loại chi phí
+        ET.ET_NAME AS ExpenseType, -- Tên loại chi phí (JOIN từ bảng loại chi phí)
+        EX.EX_QUANTITY,            -- Số lượng chi phí
+        EX.EX_PRICE,               -- Đơn giá của chi phí
+        (EX.EX_PRICE * EX.EX_QUANTITY) AS TotalCost, -- Tổng chi phí (đơn giá * số lượng)
+        EX.EX_REASON,              -- Lý do hoặc mô tả chi phí
+        EX.CREATED                 -- Ngày tạo chi phí
+    FROM tbl_SYS_Expense EX
+    LEFT JOIN tbl_DM_ExpenseType ET ON EX.EX_EXTYPE_AutoID = ET.ET_AutoID -- Kết nối với bảng loại chi phí
+    WHERE EX.CREATED BETWEEN @StartDate AND @EndDate  -- Lọc theo khoảng thời gian
+    AND EX.DELETED = 0                               -- Bỏ qua các chi phí đã xóa
+    ORDER BY EX.CREATED ASC;                         -- Sắp xếp theo ngày tạo chi phí
 END;
