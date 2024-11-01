@@ -177,9 +177,8 @@ values	(N'Phòng 1', 1, 0, GETDATE(), 'Admin', 'insert',GETDATE(),'Admin', 'inse
 		(N'Phòng 14', 1, 0, GETDATE(), 'Admin', 'insert',GETDATE(),'Admin', 'insert'),
 		(N'Phòng 15', 1, 0, GETDATE(), 'Admin', 'insert',GETDATE(),'Admin', 'insert'),
 		(N'phòng chiếu IMAX', 1, 0, GETDATE(), 'Admin', 'insert',GETDATE(),'Admin', 'insert'),
-		(N'phòng chiếu 4DX', 1, 0, GETDATE(), 'Admin', 'insert',GETDATE(),'Admin', 'insert'),
-INSERT INTO tbl_DM_MovieSchedule 
-    (MS_MOVIE_AutoID, MS_THEATER_AutoID, MS_START, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
+		(N'phòng chiếu 4DX', 1, 0, GETDATE(), 'Admin', 'insert',GETDATE(),'Admin', 'insert');
+INSERT INTO tbl_DM_MovieSchedule (MS_MOVIE_AutoID, MS_THEATER_AutoID, MS_START, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
 VALUES
     (1, 1, '2024-10-22 10:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Inception tại Theater 1
     (2, 2, '2024-10-22 13:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- The Matrix tại Theater 2
@@ -270,7 +269,7 @@ VALUES
 -- Thêm dữ liệu vào bảng tbl_DM_Product
 INSERT INTO tbl_DM_Product (PD_NAME, PD_QUANTITY, PD_PRICE, PD_IMAGEURL, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
 VALUES 
-('Bắp', 100, 50.0, 'url_to_popcorn_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+(N'Bắp', 100, 50.0, 'url_to_popcorn_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
 ('Coca-Cola', 200, 20.0, 'url_to_coke_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
 ('Fanta', 200, 20.0, 'url_to_fanta_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
 ('Sprite', 200, 20.0, 'url_to_sprite_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
