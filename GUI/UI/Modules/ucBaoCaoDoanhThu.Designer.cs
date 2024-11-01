@@ -125,15 +125,7 @@
             this.btnThucThi.ImageOptions.LargeImage = global::GUI.Properties.Resources.play_32x32;
             this.btnThucThi.Name = "btnThucThi";
             this.btnThucThi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThucThi_ItemClick);
-            // 
-            // btnLuuPDF
-            // 
-            this.btnLuuPDF.Caption = "Lưu File";
-            this.btnLuuPDF.Id = 8;
-            this.btnLuuPDF.ImageOptions.Image = global::GUI.Properties.Resources.exporttopdf_16x162;
-            this.btnLuuPDF.ImageOptions.LargeImage = global::GUI.Properties.Resources.exporttopdf_32x322;
-            this.btnLuuPDF.Name = "btnLuuPDF";
-            this.btnLuuPDF.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLuuPDF_ItemClick);
+             
             // 
             // btnTaoBaoCao
             // 
