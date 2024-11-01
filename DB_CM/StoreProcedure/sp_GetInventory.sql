@@ -8,6 +8,7 @@ drop proc if exists sp_GetExpenseReport
 drop proc if exists sp_GetDetailedExpenseReport
 drop proc if exists sp_GetInventoryReportByStatus
 drop proc if exists sp_GetDetailedInventoryReportByStatus
+drop proc if exists sp_GetSalesSummaryReport
 go
 CREATE PROCEDURE sp_GetInventoryReport
 AS
@@ -92,9 +93,9 @@ BEGIN
         ISNULL(SUM(BL.BL_QUANTITY), 0) AS SoldQuantity,  -- Tổng số lượng đã bán
         (PD.PD_QUANTITY * PD.PD_PRICE) AS TotalInventoryValue,  -- Tổng giá trị tồn kho còn lại
         CASE 
-            WHEN PD.PD_QUANTITY < 10 THEN 'Low Stock'
-            WHEN PD.PD_QUANTITY > 100 THEN 'Overstocked'
-            ELSE 'In Stock'
+            WHEN PD.PD_QUANTITY < 10 THEN N'Cạn kiệt'
+            WHEN PD.PD_QUANTITY > 100 THEN N'Quá tải'
+            ELSE N'Có sẵn'
         END AS StockStatus
     FROM tbl_DM_Product PD
     LEFT JOIN tbl_DM_Bill BL ON PD.PD_AutoID = BL.BL_PRODUCT_AutoID
@@ -122,23 +123,23 @@ BEGIN
         
         -- Xác định Trạng thái tồn kho (Stock Status)
         CASE 
-            WHEN PD.PD_QUANTITY < 10 THEN 'Low Stock'
-            WHEN PD.PD_QUANTITY > 100 THEN 'Overstocked'
-            ELSE 'In Stock'
+            WHEN PD.PD_QUANTITY < 10 THEN N'Cạn kiệt'
+            WHEN PD.PD_QUANTITY > 100 THEN N'Quá tải'
+            ELSE N'Có sẵn'
         END AS StockStatus,
         
         -- Xác định Hiệu suất bán hàng (Sales Performance)
         CASE 
-            WHEN ISNULL(SUM(BL.BL_QUANTITY), 0) < 10 THEN 'Slow'
-            WHEN ISNULL(SUM(BL.BL_QUANTITY), 0) BETWEEN 10 AND 50 THEN 'Moderate'
-            ELSE 'Fast'
+            WHEN ISNULL(SUM(BL.BL_QUANTITY), 0) < 10 THEN N'Bán chậm'
+            WHEN ISNULL(SUM(BL.BL_QUANTITY), 0) BETWEEN 10 AND 50 THEN N'Ổn định'
+            ELSE N'Cháy hàng'
         END AS SalesPerformance,
         
         -- Hành động khuyến nghị dựa trên tồn kho và hiệu suất bán hàng
         CASE 
-            WHEN PD.PD_QUANTITY < 10 AND ISNULL(SUM(BL.BL_QUANTITY), 0) > 50 THEN 'Order More Stock'
-            WHEN PD.PD_QUANTITY > 100 AND ISNULL(SUM(BL.BL_QUANTITY), 0) < 10 THEN 'Consider Promotion'
-            ELSE 'Maintain Stock Level'
+            WHEN PD.PD_QUANTITY < 10 AND ISNULL(SUM(BL.BL_QUANTITY), 0) > 50 THEN N'Cần nhập hàng'
+            WHEN PD.PD_QUANTITY > 100 AND ISNULL(SUM(BL.BL_QUANTITY), 0) < 10 THEN N'Cân nhắc mở khuyến mãi'
+            ELSE N'Tiếp tục bán'
         END AS RecommendedAction
 
     FROM tbl_DM_Product PD
@@ -159,5 +160,44 @@ BEGIN
             (@SalesPerformance = 2 AND ISNULL(SUM(BL.BL_QUANTITY), 0) BETWEEN 10 AND 50) OR
             (@SalesPerformance = 3 AND ISNULL(SUM(BL.BL_QUANTITY), 0) > 50)
         )
+    ORDER BY PD.PD_NAME ASC;
+END;
+
+go
+CREATE PROCEDURE sp_GetSalesSummaryReport
+AS
+BEGIN
+    -- Tổng số sản phẩm bán ra
+    DECLARE @TotalProductsSold INT;
+    -- Tổng doanh thu từ số lượng đã bán
+    DECLARE @TotalRevenue DECIMAL(18, 2);
+
+    -- Tính tổng số sản phẩm bán ra
+    SELECT @TotalProductsSold = SUM(ISNULL(BL.BL_QUANTITY, 0))
+    FROM tbl_DM_Bill BL;
+
+    -- Tính tổng doanh thu từ số lượng đã bán
+    SELECT @TotalRevenue = SUM(ISNULL(BL.BL_QUANTITY, 0) * ISNULL(BL.BL_PRICE, 0))
+    FROM tbl_DM_Bill BL;
+
+    -- Trả về tổng số sản phẩm bán ra và tổng doanh thu
+    SELECT 
+        @TotalProductsSold AS TotalProductsSold,
+        @TotalRevenue AS TotalRevenue;
+
+    -- Trả về danh sách các sản phẩm cần nhập hàng ngay
+    SELECT 
+        PD.PD_AutoID AS ProductID,
+        PD.PD_NAME AS ProductName,
+        PD.PD_QUANTITY AS CurrentStock,
+        ISNULL(SUM(BL.BL_QUANTITY), 0) AS SoldQuantity, -- Số lượng đã bán
+        PD.PD_PRICE AS UnitPrice,
+        (PD.PD_QUANTITY * PD.PD_PRICE) AS TotalInventoryValue,
+        'Order More Stock' AS RecommendedAction -- Hành động đề xuất
+    FROM tbl_DM_Product PD
+    LEFT JOIN tbl_DM_Bill BL ON PD.PD_AutoID = BL.BL_PRODUCT_AutoID
+    WHERE PD.DELETED = 0 -- Bỏ qua sản phẩm đã xóa
+    GROUP BY PD.PD_AutoID, PD.PD_NAME, PD.PD_QUANTITY, PD.PD_PRICE
+    HAVING PD.PD_QUANTITY < 10 AND SUM(ISNULL(BL.BL_QUANTITY, 0)) > 50 -- Tồn kho thấp và bán chạy
     ORDER BY PD.PD_NAME ASC;
 END;
