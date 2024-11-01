@@ -3,6 +3,7 @@
 --Đã bán ra bao nhiêu trong khoảng thời gian nhất định.
 --Cảnh báo nếu số lượng tồn kho thấp dưới mức yêu cầu.
 drop proc if exists sp_GetInventoryReport
+drop proc if exists sp_GetDetailedInventoryReport
 drop proc if exists sp_GetExpenseReport
 drop proc if exists sp_GetDetailedExpenseReport
 go
@@ -54,4 +55,23 @@ BEGIN
     WHERE EX.CREATED BETWEEN @StartDate AND @EndDate  -- Lọc theo khoảng thời gian
     AND EX.DELETED = 0                               -- Bỏ qua các chi phí đã xóa
     ORDER BY EX.CREATED ASC;                         -- Sắp xếp theo ngày tạo chi phí
+END;
+
+
+go
+CREATE PROCEDURE sp_GetDetailedInventoryReport
+AS
+BEGIN
+    SELECT 
+        PD.PD_AutoID,                             -- ID của sản phẩm
+        PD.PD_NAME AS ProductName,                -- Tên sản phẩm
+        PD.PD_QUANTITY AS CurrentStock,           -- Số lượng tồn kho hiện có
+        ISNULL(SUM(BL.BL_QUANTITY), 0) AS SoldQuantity, -- Số lượng đã bán, dùng SUM và ISNULL để tránh giá trị NULL
+        PD.PD_PRICE AS UnitPrice,                 -- Giá đơn vị sản phẩm
+        (PD.PD_QUANTITY * PD.PD_PRICE) AS TotalInventoryValue -- Tổng giá trị tồn kho còn lại
+    FROM tbl_DM_Product PD
+    LEFT JOIN tbl_DM_Bill BL ON PD.PD_AutoID = BL.BL_PRODUCT_AutoID -- JOIN với bảng hóa đơn để lấy số lượng đã bán
+    WHERE PD.DELETED = 0                             -- Bỏ qua các sản phẩm đã xóa
+    GROUP BY PD.PD_AutoID, PD.PD_NAME, PD.PD_QUANTITY, PD.PD_PRICE -- Nhóm theo thông tin sản phẩm
+    ORDER BY PD.PD_NAME ASC;                         -- Sắp xếp theo tên sản phẩm
 END;

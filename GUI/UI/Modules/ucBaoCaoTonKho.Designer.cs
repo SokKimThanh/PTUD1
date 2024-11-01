@@ -31,42 +31,39 @@
             this.components = new System.ComponentModel.Container();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.ActionBar = new DevExpress.XtraBars.Bar();
-            this.btnThem = new DevExpress.XtraBars.BarButtonItem();
-            this.btnXoa = new DevExpress.XtraBars.BarButtonItem();
-            this.btnCapNhat = new DevExpress.XtraBars.BarButtonItem();
+            this.btnThucThi = new DevExpress.XtraBars.BarButtonItem();
+            this.btnTaoBaoCao = new DevExpress.XtraBars.BarButtonItem();
             this.btnLamMoi = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.btnCapNhat = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnLuuPDF = new DevExpress.XtraBars.BarButtonItem();
             this.layoutForm = new DevExpress.XtraLayout.LayoutControl();
+            this.rptViewReport = new DevExpress.XtraEditors.RadioGroup();
             this.lblTitle = new System.Windows.Forms.Label();
             this.dgv = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.timeEdit2 = new DevExpress.XtraEditors.TimeEdit();
-            this.timeEdit1 = new DevExpress.XtraEditors.TimeEdit();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutTitle = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutAction = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutDGV = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutForm)).BeginInit();
             this.layoutForm.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rptViewReport.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutAction)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
@@ -82,12 +79,17 @@
             this.barManager1.DockControls.Add(this.barDockControlRight);
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.btnThem,
-            this.btnXoa,
+            this.btnThucThi,
+            this.btnTaoBaoCao,
             this.btnCapNhat,
-            this.btnLamMoi});
+            this.btnLamMoi,
+            this.barButtonItem1,
+            this.barButtonItem2,
+            this.barButtonItem3,
+            this.barButtonItem4,
+            this.btnLuuPDF});
             this.barManager1.MainMenu = this.ActionBar;
-            this.barManager1.MaxItemId = 4;
+            this.barManager1.MaxItemId = 10;
             // 
             // ActionBar
             // 
@@ -96,40 +98,32 @@
             this.ActionBar.DockRow = 0;
             this.ActionBar.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.ActionBar.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnThem, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnXoa, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnCapNhat, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnThucThi, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnTaoBaoCao, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnLamMoi, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.ActionBar.OptionsBar.MultiLine = true;
             this.ActionBar.OptionsBar.UseWholeRow = true;
             this.ActionBar.Text = "Main menu";
             // 
-            // btnThem
+            // btnThucThi
             // 
-            this.btnThem.Caption = "Thêm mới";
-            this.btnThem.Hint = "Thêm mới";
-            this.btnThem.Id = 0;
-            this.btnThem.ImageOptions.Image = global::GUI.Properties.Resources.insert_16x16;
-            this.btnThem.ImageOptions.LargeImage = global::GUI.Properties.Resources.insert_32x32;
-            this.btnThem.Name = "btnThem";
+            this.btnThucThi.Caption = "Thực thi";
+            this.btnThucThi.Hint = "Hiển thị kết quả";
+            this.btnThucThi.Id = 0;
+            this.btnThucThi.ImageOptions.Image = global::GUI.Properties.Resources.play_16x16;
+            this.btnThucThi.ImageOptions.LargeImage = global::GUI.Properties.Resources.play_32x32;
+            this.btnThucThi.Name = "btnThucThi";
+            this.btnThucThi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThucThi_ItemClick);
             // 
-            // btnXoa
+            // btnTaoBaoCao
             // 
-            this.btnXoa.Caption = "Xóa";
-            this.btnXoa.Hint = "Xóa dữ liệu";
-            this.btnXoa.Id = 1;
-            this.btnXoa.ImageOptions.Image = global::GUI.Properties.Resources.deletelist_16x16;
-            this.btnXoa.ImageOptions.LargeImage = global::GUI.Properties.Resources.deletelist_32x32;
-            this.btnXoa.Name = "btnXoa";
-            // 
-            // btnCapNhat
-            // 
-            this.btnCapNhat.Caption = "Cập nhật";
-            this.btnCapNhat.Hint = "Cập nhật dữ liệu";
-            this.btnCapNhat.Id = 2;
-            this.btnCapNhat.ImageOptions.Image = global::GUI.Properties.Resources.edit_16x161;
-            this.btnCapNhat.ImageOptions.LargeImage = global::GUI.Properties.Resources.edit_32x321;
-            this.btnCapNhat.Name = "btnCapNhat";
+            this.btnTaoBaoCao.Caption = "Tạo báo cáo";
+            this.btnTaoBaoCao.Hint = "Xóa dữ liệu";
+            this.btnTaoBaoCao.Id = 1;
+            this.btnTaoBaoCao.ImageOptions.Image = global::GUI.Properties.Resources.boreport2_16x161;
+            this.btnTaoBaoCao.ImageOptions.LargeImage = global::GUI.Properties.Resources.boreport2_32x321;
+            this.btnTaoBaoCao.Name = "btnTaoBaoCao";
+            this.btnTaoBaoCao.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTaoBaoCao_ItemClick);
             // 
             // btnLamMoi
             // 
@@ -139,6 +133,7 @@
             this.btnLamMoi.ImageOptions.Image = global::GUI.Properties.Resources.refreshpivottable_16x16;
             this.btnLamMoi.ImageOptions.LargeImage = global::GUI.Properties.Resources.refreshpivottable_32x32;
             this.btnLamMoi.Name = "btnLamMoi";
+            this.btnLamMoi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLamMoi_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -172,21 +167,79 @@
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 586);
             // 
+            // btnCapNhat
+            // 
+            this.btnCapNhat.Caption = "Cập nhật";
+            this.btnCapNhat.Hint = "Cập nhật dữ liệu";
+            this.btnCapNhat.Id = 2;
+            this.btnCapNhat.ImageOptions.Image = global::GUI.Properties.Resources.edit_16x161;
+            this.btnCapNhat.ImageOptions.LargeImage = global::GUI.Properties.Resources.edit_32x321;
+            this.btnCapNhat.Name = "btnCapNhat";
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "Tạo báo cáo";
+            this.barButtonItem1.Id = 4;
+            this.barButtonItem1.Name = "barButtonItem1";
+            // 
+            // barButtonItem2
+            // 
+            this.barButtonItem2.Caption = "Lưu PDF";
+            this.barButtonItem2.Hint = "Lưu báo cáo thành file PDF";
+            this.barButtonItem2.Id = 5;
+            this.barButtonItem2.ImageOptions.Image = global::GUI.Properties.Resources.printviapdf_16x16;
+            this.barButtonItem2.ImageOptions.LargeImage = global::GUI.Properties.Resources.printviapdf_32x32;
+            this.barButtonItem2.Name = "barButtonItem2";
+            this.barButtonItem2.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionInMenu;
+            // 
+            // barButtonItem3
+            // 
+            this.barButtonItem3.Caption = "Lưu PDF";
+            this.barButtonItem3.Id = 6;
+            this.barButtonItem3.ImageOptions.Image = global::GUI.Properties.Resources.exporttopdf_16x16;
+            this.barButtonItem3.ImageOptions.LargeImage = global::GUI.Properties.Resources.exporttopdf_32x32;
+            this.barButtonItem3.Name = "barButtonItem3";
+            // 
+            // barButtonItem4
+            // 
+            this.barButtonItem4.Caption = "barButtonItem4";
+            this.barButtonItem4.Id = 7;
+            this.barButtonItem4.ImageOptions.Image = global::GUI.Properties.Resources.exporttopdf_16x161;
+            this.barButtonItem4.ImageOptions.LargeImage = global::GUI.Properties.Resources.exporttopdf_32x321;
+            this.barButtonItem4.Name = "barButtonItem4";
+            // 
+            // btnLuuPDF
+            // 
+            this.btnLuuPDF.Id = 9;
+            this.btnLuuPDF.Name = "btnLuuPDF";
+            // 
             // layoutForm
             // 
+            this.layoutForm.Controls.Add(this.rptViewReport);
             this.layoutForm.Controls.Add(this.lblTitle);
             this.layoutForm.Controls.Add(this.dgv);
-            this.layoutForm.Controls.Add(this.timeEdit2);
-            this.layoutForm.Controls.Add(this.timeEdit1);
-            this.layoutForm.Controls.Add(this.textEdit1);
             this.layoutForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutForm.Location = new System.Drawing.Point(0, 24);
             this.layoutForm.Name = "layoutForm";
             this.layoutForm.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1064, 288, 650, 400);
             this.layoutForm.Root = this.Root;
             this.layoutForm.Size = new System.Drawing.Size(731, 586);
-            this.layoutForm.TabIndex = 9;
+            this.layoutForm.TabIndex = 15;
             this.layoutForm.Text = "layoutControl1";
+            // 
+            // rptViewReport
+            // 
+            this.rptViewReport.Location = new System.Drawing.Point(24, 103);
+            this.rptViewReport.MenuManager = this.barManager1;
+            this.rptViewReport.Name = "rptViewReport";
+            this.rptViewReport.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
+            this.rptViewReport.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(((short)(0)), "Tổng quan", true, null, "rptTongQuan"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(((short)(1)), "Chi Tiết", true, null, "rptChiTiet")});
+            this.rptViewReport.Size = new System.Drawing.Size(683, 34);
+            this.rptViewReport.StyleController = this.layoutForm;
+            this.rptViewReport.TabIndex = 11;
+            this.rptViewReport.SelectedIndexChanged += new System.EventHandler(this.rptViewReport_SelectedIndexChanged);
             // 
             // lblTitle
             // 
@@ -194,54 +247,25 @@
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.lblTitle.Location = new System.Drawing.Point(18, 18);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(695, 20);
+            this.lblTitle.Size = new System.Drawing.Size(695, 26);
             this.lblTitle.TabIndex = 9;
             this.lblTitle.Text = "Title";
             // 
             // dgv
             // 
-            this.dgv.Location = new System.Drawing.Point(24, 174);
+            this.dgv.Location = new System.Drawing.Point(24, 186);
             this.dgv.MainView = this.gridView1;
             this.dgv.Name = "dgv";
-            this.dgv.Size = new System.Drawing.Size(683, 388);
+            this.dgv.Size = new System.Drawing.Size(683, 376);
             this.dgv.TabIndex = 8;
             this.dgv.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.dgv.Click += new System.EventHandler(this.rptViewReport_SelectedIndexChanged);
             // 
             // gridView1
             // 
             this.gridView1.GridControl = this.dgv;
             this.gridView1.Name = "gridView1";
-            // 
-            // timeEdit2
-            // 
-            this.timeEdit2.EditValue = new System.DateTime(2024, 10, 15, 0, 0, 0, 0);
-            this.timeEdit2.Location = new System.Drawing.Point(456, 105);
-            this.timeEdit2.Name = "timeEdit2";
-            this.timeEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.timeEdit2.Size = new System.Drawing.Size(251, 20);
-            this.timeEdit2.StyleController = this.layoutForm;
-            this.timeEdit2.TabIndex = 7;
-            // 
-            // timeEdit1
-            // 
-            this.timeEdit1.EditValue = new System.DateTime(2024, 10, 15, 0, 0, 0, 0);
-            this.timeEdit1.Location = new System.Drawing.Point(113, 105);
-            this.timeEdit1.Name = "timeEdit1";
-            this.timeEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.timeEdit1.Size = new System.Drawing.Size(250, 20);
-            this.timeEdit1.StyleController = this.layoutForm;
-            this.timeEdit1.TabIndex = 6;
-            // 
-            // textEdit1
-            // 
-            this.textEdit1.Location = new System.Drawing.Point(113, 81);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(594, 20);
-            this.textEdit1.StyleController = this.layoutForm;
-            this.textEdit1.TabIndex = 5;
             // 
             // Root
             // 
@@ -259,11 +283,11 @@
             // 
             this.layoutTitle.Control = this.lblTitle;
             this.layoutTitle.Location = new System.Drawing.Point(0, 0);
-            this.layoutTitle.MaxSize = new System.Drawing.Size(0, 36);
-            this.layoutTitle.MinSize = new System.Drawing.Size(36, 36);
+            this.layoutTitle.MaxSize = new System.Drawing.Size(0, 42);
+            this.layoutTitle.MinSize = new System.Drawing.Size(36, 1);
             this.layoutTitle.Name = "layoutTitle";
             this.layoutTitle.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
-            this.layoutTitle.Size = new System.Drawing.Size(711, 36);
+            this.layoutTitle.Size = new System.Drawing.Size(711, 42);
             this.layoutTitle.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutTitle.Spacing = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
             this.layoutTitle.Text = "Title";
@@ -274,43 +298,21 @@
             // 
             this.layoutAction.CaptionImageOptions.Image = global::GUI.Properties.Resources.reviewallowuserstoeditranges_16x16;
             this.layoutAction.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem2,
-            this.layoutControlItem3,
             this.layoutControlItem4});
-            this.layoutAction.Location = new System.Drawing.Point(0, 36);
+            this.layoutAction.Location = new System.Drawing.Point(0, 42);
             this.layoutAction.Name = "layoutAction";
-            this.layoutAction.Size = new System.Drawing.Size(711, 93);
+            this.layoutAction.Size = new System.Drawing.Size(711, 99);
             this.layoutAction.Text = "Thao tác nhập liệu";
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.textEdit1;
-            this.layoutControlItem2.CustomizationFormText = "txtTenCaLamViec";
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(687, 24);
-            this.layoutControlItem2.Text = "Tên ca làm việc:";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(77, 13);
-            // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.timeEdit1;
-            this.layoutControlItem3.CustomizationFormText = "TimeBatDau";
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 24);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(343, 24);
-            this.layoutControlItem3.Text = "Từ:";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(77, 13);
             // 
             // layoutControlItem4
             // 
-            this.layoutControlItem4.Control = this.timeEdit2;
-            this.layoutControlItem4.CustomizationFormText = "TimeKetThuc";
-            this.layoutControlItem4.Location = new System.Drawing.Point(343, 24);
+            this.layoutControlItem4.Control = this.rptViewReport;
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(344, 24);
-            this.layoutControlItem4.Text = "Đến:";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(77, 13);
+            this.layoutControlItem4.Size = new System.Drawing.Size(687, 54);
+            this.layoutControlItem4.Text = "Hiển thị:";
+            this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(40, 13);
             // 
             // layoutDGV
             // 
@@ -318,9 +320,9 @@
             this.layoutDGV.CustomizationFormText = "Danh sách dữ liệu";
             this.layoutDGV.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
-            this.layoutDGV.Location = new System.Drawing.Point(0, 129);
+            this.layoutDGV.Location = new System.Drawing.Point(0, 141);
             this.layoutDGV.Name = "layoutDGV";
-            this.layoutDGV.Size = new System.Drawing.Size(711, 437);
+            this.layoutDGV.Size = new System.Drawing.Size(711, 425);
             this.layoutDGV.Text = "Danh sách dữ liệu";
             // 
             // layoutControlItem1
@@ -329,7 +331,7 @@
             this.layoutControlItem1.CustomizationFormText = "dgvCaLamViec";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(687, 392);
+            this.layoutControlItem1.Size = new System.Drawing.Size(687, 380);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -347,16 +349,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutForm)).EndInit();
             this.layoutForm.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.rptViewReport.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutAction)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
@@ -369,26 +367,27 @@
 
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.Bar ActionBar;
-        private DevExpress.XtraBars.BarButtonItem btnThem;
-        private DevExpress.XtraBars.BarButtonItem btnXoa;
-        private DevExpress.XtraBars.BarButtonItem btnCapNhat;
+        private DevExpress.XtraBars.BarButtonItem btnThucThi;
+        private DevExpress.XtraBars.BarButtonItem btnTaoBaoCao;
         private DevExpress.XtraBars.BarButtonItem btnLamMoi;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private DevExpress.XtraBars.BarButtonItem btnCapNhat;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
+        private DevExpress.XtraBars.BarButtonItem btnLuuPDF;
         private DevExpress.XtraLayout.LayoutControl layoutForm;
+        private DevExpress.XtraEditors.RadioGroup rptViewReport;
         private System.Windows.Forms.Label lblTitle;
         private DevExpress.XtraGrid.GridControl dgv;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraEditors.TimeEdit timeEdit2;
-        private DevExpress.XtraEditors.TimeEdit timeEdit1;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraLayout.LayoutControlItem layoutTitle;
         private DevExpress.XtraLayout.LayoutControlGroup layoutAction;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.LayoutControlGroup layoutDGV;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
