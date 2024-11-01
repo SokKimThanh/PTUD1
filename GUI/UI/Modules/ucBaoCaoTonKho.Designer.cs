@@ -45,28 +45,36 @@
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.btnLuuPDF = new DevExpress.XtraBars.BarButtonItem();
             this.layoutForm = new DevExpress.XtraLayout.LayoutControl();
-            this.rptViewReport = new DevExpress.XtraEditors.RadioGroup();
             this.lblTitle = new System.Windows.Forms.Label();
             this.dgv = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.rptViewReport = new DevExpress.XtraEditors.RadioGroup();
+            this.txtStartDate = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.txtEndDate = new DevExpress.XtraEditors.ComboBoxEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutTitle = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutAction = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutDGV = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutAction = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutForm)).BeginInit();
             this.layoutForm.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rptViewReport.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rptViewReport.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtStartDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEndDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutAction)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutAction)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -215,9 +223,11 @@
             // 
             // layoutForm
             // 
-            this.layoutForm.Controls.Add(this.rptViewReport);
             this.layoutForm.Controls.Add(this.lblTitle);
             this.layoutForm.Controls.Add(this.dgv);
+            this.layoutForm.Controls.Add(this.rptViewReport);
+            this.layoutForm.Controls.Add(this.txtStartDate);
+            this.layoutForm.Controls.Add(this.txtEndDate);
             this.layoutForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutForm.Location = new System.Drawing.Point(0, 24);
             this.layoutForm.Name = "layoutForm";
@@ -227,45 +237,82 @@
             this.layoutForm.TabIndex = 15;
             this.layoutForm.Text = "layoutControl1";
             // 
-            // rptViewReport
-            // 
-            this.rptViewReport.Location = new System.Drawing.Point(24, 103);
-            this.rptViewReport.MenuManager = this.barManager1;
-            this.rptViewReport.Name = "rptViewReport";
-            this.rptViewReport.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
-            this.rptViewReport.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(((short)(0)), "Tổng quan", true, null, "rptTongQuan"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(((short)(1)), "Chi Tiết", true, null, "rptChiTiet")});
-            this.rptViewReport.Size = new System.Drawing.Size(683, 34);
-            this.rptViewReport.StyleController = this.layoutForm;
-            this.rptViewReport.TabIndex = 11;
-            this.rptViewReport.SelectedIndexChanged += new System.EventHandler(this.rptViewReport_SelectedIndexChanged);
-            // 
             // lblTitle
             // 
             this.lblTitle.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Bold);
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.lblTitle.Location = new System.Drawing.Point(18, 18);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(695, 26);
+            this.lblTitle.Size = new System.Drawing.Size(695, 20);
             this.lblTitle.TabIndex = 9;
             this.lblTitle.Text = "Title";
             // 
             // dgv
             // 
-            this.dgv.Location = new System.Drawing.Point(24, 186);
+            this.dgv.Location = new System.Drawing.Point(24, 180);
             this.dgv.MainView = this.gridView1;
             this.dgv.Name = "dgv";
-            this.dgv.Size = new System.Drawing.Size(683, 376);
+            this.dgv.Size = new System.Drawing.Size(683, 382);
             this.dgv.TabIndex = 8;
             this.dgv.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            this.dgv.Click += new System.EventHandler(this.rptViewReport_SelectedIndexChanged);
             // 
             // gridView1
             // 
             this.gridView1.GridControl = this.dgv;
             this.gridView1.Name = "gridView1";
+            // 
+            // rptViewReport
+            // 
+            this.rptViewReport.Location = new System.Drawing.Point(367, 97);
+            this.rptViewReport.Name = "rptViewReport";
+            this.rptViewReport.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
+            this.rptViewReport.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(((short)(0)), "Tổng quan", true, null, "rptTongQuan"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(((short)(1)), "Chi Tiết", true, null, "rptChiTiet")});
+            this.rptViewReport.Size = new System.Drawing.Size(340, 34);
+            this.rptViewReport.StyleController = this.layoutForm;
+            this.rptViewReport.TabIndex = 11;
+            // 
+            // txtStartDate
+            // 
+            this.txtStartDate.Location = new System.Drawing.Point(137, 81);
+            this.txtStartDate.Name = "txtStartDate";
+            this.txtStartDate.Properties.BeepOnError = true;
+            this.txtStartDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtStartDate.Properties.DisplayFormat.FormatString = "d";
+            this.txtStartDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtStartDate.Properties.EditFormat.FormatString = "d";
+            this.txtStartDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtStartDate.Properties.Items.AddRange(new object[] {
+            "Còn hàng",
+            "Hết hàng",
+            "Quá tải"});
+            this.txtStartDate.Properties.Sorted = true;
+            this.txtStartDate.Size = new System.Drawing.Size(226, 20);
+            this.txtStartDate.StyleController = this.layoutForm;
+            this.txtStartDate.TabIndex = 10;
+            // 
+            // txtEndDate
+            // 
+            this.txtEndDate.Location = new System.Drawing.Point(137, 105);
+            this.txtEndDate.Name = "txtEndDate";
+            this.txtEndDate.Properties.BeepOnError = true;
+            this.txtEndDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtEndDate.Properties.DisplayFormat.FormatString = "d";
+            this.txtEndDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtEndDate.Properties.EditFormat.FormatString = "d";
+            this.txtEndDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtEndDate.Properties.Items.AddRange(new object[] {
+            "Bán chậm",
+            "Bán nhanh",
+            "Ổn định"});
+            this.txtEndDate.Properties.Sorted = true;
+            this.txtEndDate.Size = new System.Drawing.Size(226, 20);
+            this.txtEndDate.StyleController = this.layoutForm;
+            this.txtEndDate.TabIndex = 10;
             // 
             // Root
             // 
@@ -273,8 +320,8 @@
             this.Root.GroupBordersVisible = false;
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutTitle,
-            this.layoutAction,
-            this.layoutDGV});
+            this.layoutDGV,
+            this.layoutAction});
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(731, 586);
             this.Root.TextVisible = false;
@@ -287,32 +334,12 @@
             this.layoutTitle.MinSize = new System.Drawing.Size(36, 1);
             this.layoutTitle.Name = "layoutTitle";
             this.layoutTitle.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
-            this.layoutTitle.Size = new System.Drawing.Size(711, 42);
+            this.layoutTitle.Size = new System.Drawing.Size(711, 36);
             this.layoutTitle.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutTitle.Spacing = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
             this.layoutTitle.Text = "Title";
             this.layoutTitle.TextSize = new System.Drawing.Size(0, 0);
             this.layoutTitle.TextVisible = false;
-            // 
-            // layoutAction
-            // 
-            this.layoutAction.CaptionImageOptions.Image = global::GUI.Properties.Resources.reviewallowuserstoeditranges_16x16;
-            this.layoutAction.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem4});
-            this.layoutAction.Location = new System.Drawing.Point(0, 42);
-            this.layoutAction.Name = "layoutAction";
-            this.layoutAction.Size = new System.Drawing.Size(711, 99);
-            this.layoutAction.Text = "Thao tác nhập liệu";
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.rptViewReport;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(687, 54);
-            this.layoutControlItem4.Text = "Hiển thị:";
-            this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(40, 13);
             // 
             // layoutDGV
             // 
@@ -320,9 +347,9 @@
             this.layoutDGV.CustomizationFormText = "Danh sách dữ liệu";
             this.layoutDGV.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
-            this.layoutDGV.Location = new System.Drawing.Point(0, 141);
+            this.layoutDGV.Location = new System.Drawing.Point(0, 135);
             this.layoutDGV.Name = "layoutDGV";
-            this.layoutDGV.Size = new System.Drawing.Size(711, 425);
+            this.layoutDGV.Size = new System.Drawing.Size(711, 431);
             this.layoutDGV.Text = "Danh sách dữ liệu";
             // 
             // layoutControlItem1
@@ -331,9 +358,56 @@
             this.layoutControlItem1.CustomizationFormText = "dgvCaLamViec";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(687, 380);
+            this.layoutControlItem1.Size = new System.Drawing.Size(687, 386);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
+            // 
+            // layoutAction
+            // 
+            this.layoutAction.CustomizationFormText = "Thao tác nhập liệu";
+            this.layoutAction.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem2,
+            this.layoutControlItem4,
+            this.layoutControlItem3});
+            this.layoutAction.Location = new System.Drawing.Point(0, 36);
+            this.layoutAction.Name = "layoutAction";
+            this.layoutAction.OptionsItemText.TextToControlDistance = 3;
+            this.layoutAction.Size = new System.Drawing.Size(711, 99);
+            this.layoutAction.Text = "Thao tác nhập liệu";
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.txtStartDate;
+            this.layoutControlItem2.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.layoutControlItem2.CustomizationFormText = "Từ ngày:";
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(343, 24);
+            this.layoutControlItem2.Text = "Trạng thái kho:";
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(101, 13);
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.rptViewReport;
+            this.layoutControlItem4.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.layoutControlItem4.CustomizationFormText = "Hiển thị:";
+            this.layoutControlItem4.Location = new System.Drawing.Point(343, 0);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(344, 54);
+            this.layoutControlItem4.Text = "Hiển thị:";
+            this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(101, 13);
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.txtEndDate;
+            this.layoutControlItem3.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.layoutControlItem3.CustomizationFormText = "Đến ngày:";
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(343, 30);
+            this.layoutControlItem3.Text = "Trạng thái mặt hàng:";
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(101, 13);
             // 
             // ucBaoCaoTonKho
             // 
@@ -349,15 +423,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutForm)).EndInit();
             this.layoutForm.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.rptViewReport.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rptViewReport.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtStartDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEndDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutAction)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutAction)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -381,15 +459,19 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private DevExpress.XtraBars.BarButtonItem btnLuuPDF;
         private DevExpress.XtraLayout.LayoutControl layoutForm;
-        private DevExpress.XtraEditors.RadioGroup rptViewReport;
         private System.Windows.Forms.Label lblTitle;
         private DevExpress.XtraGrid.GridControl dgv;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraLayout.LayoutControlItem layoutTitle;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutAction;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.LayoutControlGroup layoutDGV;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraEditors.RadioGroup rptViewReport;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutAction;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraEditors.ComboBoxEdit txtStartDate;
+        private DevExpress.XtraEditors.ComboBoxEdit txtEndDate;
     }
 }

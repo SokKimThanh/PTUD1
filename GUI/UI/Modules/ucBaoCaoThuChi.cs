@@ -21,7 +21,6 @@ namespace GUI.UI.Modules
             // Ngăn không cho phép sửa dữ liệu trực tiếp trên GridView
             gridView1.OptionsBehavior.Editable = false;
         }
-
         protected override void Load_Data()
         {
             if (strFunctionCode != "")
@@ -58,7 +57,7 @@ namespace GUI.UI.Modules
             }
         }
         public void executeReportDefault()
-        { 
+        {
             // Đặt khoảng thời gian cho năm hiện tại
             startDate = new DateTime(DateTime.Now.Year, 1, 1);
             endDate = new DateTime(DateTime.Now.Year, 12, 31);
@@ -78,8 +77,6 @@ namespace GUI.UI.Modules
             // Refresh lại DataGridView để hiển thị dữ liệu mới
             dgv.Refresh();
         }
-
-
         private void btnThucThi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             executeReport();

@@ -12,6 +12,8 @@ namespace BUS.Bao_Cao
     {
         private tbl_Report_Sales_DAL data = new tbl_Report_Sales_DAL();
         private tbl_Report_Expense_DAL ex = new tbl_Report_Expense_DAL();
+        private tbl_Report_Inventory_DAL inventory_DAL = new tbl_Report_Inventory_DAL();
+
         // Hàm báo cáo doanh thu
         public List<tbl_Report_Sales_DTO> GetAllSalesReport(DateTime ngayBatDau, DateTime ngayKetThuc)
         {
@@ -40,5 +42,13 @@ namespace BUS.Bao_Cao
             return ex.GetExpenseReport(startDate, endDate);
         }
         // hàm báo cáo tồn kho
+        public List<tbl_Report_Inventory_DTO> GetDetailedInventoryReport()
+        {
+            return inventory_DAL.GetDetailedInventoryReport();
+        }
+        public List<tbl_Report_Inventory_DTO> GetInventoryReportByStatus()
+        {
+            return inventory_DAL.GetInventoryReportByStatus();
+        }
     }
 }

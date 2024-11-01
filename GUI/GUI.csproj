@@ -199,6 +199,18 @@
     <Compile Include="UI\ReportDesign\RP_Expense.Designer.cs">
       <DependentUpon>RP_Expense.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ReportDesign\RP_Inventory.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\ReportDesign\RP_Inventory.Designer.cs">
+      <DependentUpon>RP_Inventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ReportDesign\RP_InventoryDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\ReportDesign\RP_InventoryDetail.Designer.cs">
+      <DependentUpon>RP_InventoryDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ReportDesign\RP_Sales.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -278,6 +290,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ReportDesign\RP_Expense.resx">
       <DependentUpon>RP_Expense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ReportDesign\RP_Inventory.resx">
+      <DependentUpon>RP_Inventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ReportDesign\RP_InventoryDetail.resx">
+      <DependentUpon>RP_InventoryDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ReportDesign\RP_Sales.resx">
       <DependentUpon>RP_Sales.cs</DependentUpon>
