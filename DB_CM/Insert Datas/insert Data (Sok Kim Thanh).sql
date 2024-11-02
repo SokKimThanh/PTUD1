@@ -305,10 +305,24 @@ VALUES
 ('Banana Smoothie', 85, 40.0, 'url_to_banana_smoothie_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System');
 
 -- Thêm dữ liệu vào bảng tbl_DM_Bill
+-- Bán hàng trong các ngày cụ thể cho các sản phẩm khác nhau
 INSERT INTO tbl_DM_Bill (BL_PRODUCT_AutoID, BL_QUANTITY, BL_PRICE, BL_STAFF_AutoID, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
-VALUES 
-(1, 2, 100.0, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-(2, 3, 60.0, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System');
+VALUES
+(1, 5, 500.0, 1, 0, '2024-08-01', 'Admin', 'System', '2024-08-01', 'Admin', 'System'),
+(1, 12, 600.0, 2, 0, '2024-08-15', 'Admin', 'System', '2024-08-15', 'Admin', 'System'),
+(1, 7, 350.0, 3, 0, '2024-09-05', 'Admin', 'System', '2024-09-05', 'Admin', 'System'),
+(2, 10, 200.0, 1, 0, '2024-09-10', 'Admin', 'System', '2024-09-10', 'Admin', 'System'),
+(2, 15, 300.0, 2, 0, '2024-09-20', 'Admin', 'System', '2024-09-20', 'Admin', 'System'),
+(2, 5, 100.0, 3, 0, '2024-10-05', 'Admin', 'System', '2024-10-05', 'Admin', 'System'),
+(3, 20, 400.0, 1, 0, '2024-10-10', 'Admin', 'System', '2024-10-10', 'Admin', 'System'),
+(3, 25, 500.0, 2, 0, '2024-10-15', 'Admin', 'System', '2024-10-15', 'Admin', 'System'),
+(4, 18, 360.0, 1, 0, '2024-10-20', 'Admin', 'System', '2024-10-20', 'Admin', 'System'),
+(4, 30, 600.0, 3, 0, '2024-10-25', 'Admin', 'System', '2024-10-25', 'Admin', 'System'),
+(1, 10, 500.0, 2, 0, '2024-11-01', 'Admin', 'System', '2024-11-01', 'Admin', 'System'),
+(2, 15, 300.0, 3, 0, '2024-11-05', 'Admin', 'System', '2024-11-05', 'Admin', 'System'),
+(3, 8, 160.0, 1, 0, '2024-11-10', 'Admin', 'System', '2024-11-10', 'Admin', 'System'),
+(4, 6, 120.0, 2, 0, '2024-11-15', 'Admin', 'System', '2024-11-15', 'Admin', 'System');
+
 
 
 INSERT INTO tbl_DM_ExpenseType (ET_NAME, ET_PRODUCT_AutoID, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION) 
@@ -364,3 +378,89 @@ VALUES
 (4, 1, 3000000, N'Nhập hàng', 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
 --fanta
 (5, 1, 3000000, N'Nhập hàng', 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System');
+
+
+-- Nhập hàng vào kho trong các ngày cụ thể cho các sản phẩm khác nhau
+INSERT INTO tbl_SYS_Expense (EX_EXTYPE_AutoID, EX_QUANTITY, EX_PRICE, EX_REASON, EX_STATUS, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
+VALUES
+(1, 50, 2500000.0, N'Nhập bắp', 1, 0, '2024-08-01', 'Admin', 'System', '2024-08-01', 'Admin', 'System'),
+(2, 40, 2000000.0, N'Nhập Coca-Cola', 1, 0, '2024-08-10', 'Admin', 'System', '2024-08-10', 'Admin', 'System'),
+(3, 30, 1500000.0, N'Nhập Sprite', 1, 0, '2024-08-15', 'Admin', 'System', '2024-08-15', 'Admin', 'System'),
+(4, 20, 1000000.0, N'Nhập Fanta', 1, 0, '2024-08-20', 'Admin', 'System', '2024-08-20', 'Admin', 'System'),
+(1, 60, 3000000.0, N'Nhập bắp', 1, 0, '2024-09-01', 'Admin', 'System', '2024-09-01', 'Admin', 'System'),
+(2, 55, 2750000.0, N'Nhập Coca-Cola', 1, 0, '2024-09-10', 'Admin', 'System', '2024-09-10', 'Admin', 'System'),
+(3, 45, 2250000.0, N'Nhập Sprite', 1, 0, '2024-09-15', 'Admin', 'System', '2024-09-15', 'Admin', 'System'),
+(4, 35, 1750000.0, N'Nhập Fanta', 1, 0, '2024-09-20', 'Admin', 'System', '2024-09-20', 'Admin', 'System'),
+(1, 75, 3750000.0, N'Nhập bắp', 1, 0, '2024-10-01', 'Admin', 'System', '2024-10-01', 'Admin', 'System'),
+(2, 65, 3250000.0, N'Nhập Coca-Cola', 1, 0, '2024-10-10', 'Admin', 'System', '2024-10-10', 'Admin', 'System'),
+(3, 50, 2500000.0, N'Nhập Sprite', 1, 0, '2024-10-15', 'Admin', 'System', '2024-10-15', 'Admin', 'System'),
+(4, 45, 2250000.0, N'Nhập Fanta', 1, 0, '2024-10-20', 'Admin', 'System', '2024-10-20', 'Admin', 'System'),
+(1, 80, 4000000.0, N'Nhập bắp', 1, 0, '2024-11-01', 'Admin', 'System', '2024-11-01', 'Admin', 'System'),
+(2, 70, 3500000.0, N'Nhập Coca-Cola', 1, 0, '2024-11-05', 'Admin', 'System', '2024-11-05', 'Admin', 'System'),
+(3, 55, 2750000.0, N'Nhập Sprite', 1, 0, '2024-11-10', 'Admin', 'System', '2024-11-10', 'Admin', 'System'),
+(4, 40, 2000000.0, N'Nhập Fanta', 1, 0, '2024-11-15', 'Admin', 'System', '2024-11-15', 'Admin', 'System');
+
+
+
+-- Bán hàng cho sản phẩm bắp với số lượng lớn để gây cháy hàng
+INSERT INTO tbl_DM_Bill (BL_PRODUCT_AutoID, BL_QUANTITY, BL_PRICE, BL_STAFF_AutoID, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
+VALUES
+(1, 15, 500.0, 1, 0, '2024-09-01', 'Admin', 'System', '2024-09-01', 'Admin', 'System'),
+(1, 20, 500.0, 1, 0, '2024-09-05', 'Admin', 'System', '2024-09-05', 'Admin', 'System'),
+(1, 25, 500.0, 1, 0, '2024-09-10', 'Admin', 'System', '2024-09-10', 'Admin', 'System'),
+(1, 30, 500.0, 1, 0, '2024-09-15', 'Admin', 'System', '2024-09-15', 'Admin', 'System'),
+(1, 35, 500.0, 1, 0, '2024-09-20', 'Admin', 'System', '2024-09-20', 'Admin', 'System');
+
+-- Nhập kho cho sản phẩm bắp nhưng với số lượng nhỏ để phản ánh tình trạng cạn kiệt do cháy hàng
+INSERT INTO tbl_SYS_Expense (EX_EXTYPE_AutoID, EX_QUANTITY, EX_PRICE, EX_REASON, EX_STATUS, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
+VALUES
+(1, 10, 250000.0, N'Nhập bắp số lượng nhỏ', 1, 0, '2024-08-25', 'Admin', 'System', '2024-08-25', 'Admin', 'System'),
+(1, 5, 125000.0, N'Nhập bắp số lượng rất nhỏ', 1, 0, '2024-09-18', 'Admin', 'System', '2024-09-18', 'Admin', 'System'),
+(1, 8, 200000.0, N'Nhập bắp số lượng nhỏ lẻ', 1, 0, '2024-10-01', 'Admin', 'System', '2024-10-01', 'Admin', 'System');
+
+
+-- Bán hàng cho sản phẩm "Bắp" với số lượng bán ổn định
+INSERT INTO tbl_DM_Bill (BL_PRODUCT_AutoID, BL_QUANTITY, BL_PRICE, BL_STAFF_AutoID, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
+VALUES
+(1, 8, 500.0, 1, 0, '2024-09-01', 'Admin', 'System', '2024-09-01', 'Admin', 'System'),
+(1, 10, 500.0, 1, 0, '2024-09-05', 'Admin', 'System', '2024-09-05', 'Admin', 'System'),
+(1, 7, 500.0, 2, 0, '2024-09-10', 'Admin', 'System', '2024-09-10', 'Admin', 'System'),
+(1, 9, 500.0, 1, 0, '2024-09-15', 'Admin', 'System', '2024-09-15', 'Admin', 'System'),
+(1, 6, 500.0, 3, 0, '2024-09-20', 'Admin', 'System', '2024-09-20', 'Admin', 'System'),
+
+-- Bán hàng cho sản phẩm "Coca-Cola" với số lượng bán đều
+(2, 8, 250.0, 2, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System'),
+(2, 10, 250.0, 1, 0, '2024-09-06', 'Admin', 'System', '2024-09-06', 'Admin', 'System'),
+(2, 7, 250.0, 2, 0, '2024-09-11', 'Admin', 'System', '2024-09-11', 'Admin', 'System'),
+(2, 9, 250.0, 1, 0, '2024-09-16', 'Admin', 'System', '2024-09-16', 'Admin', 'System'),
+(2, 6, 250.0, 3, 0, '2024-09-21', 'Admin', 'System', '2024-09-21', 'Admin', 'System'),
+
+-- Bán hàng cho sản phẩm "Sprite" khuyến mãi bán chậm
+(3, 8, 200.0, 3, 0, '2024-09-03', 'Admin', 'System', '2024-09-03', 'Admin', 'System'),
+(3, 10, 200.0, 1, 0, '2024-09-07', 'Admin', 'System', '2024-09-07', 'Admin', 'System'),
+(3, 7, 200.0, 2, 0, '2024-09-12', 'Admin', 'System', '2024-09-12', 'Admin', 'System'),
+(3, 9, 200.0, 1, 0, '2024-09-17', 'Admin', 'System', '2024-09-17', 'Admin', 'System'),
+(3, 6, 200.0, 3, 0, '2024-09-22', 'Admin', 'System', '2024-09-22', 'Admin', 'System');
+
+-- Nhập hàng cho sản phẩm "Bắp" để đạt trạng thái có sẵn hoặc quá tải
+INSERT INTO tbl_SYS_Expense (EX_EXTYPE_AutoID, EX_QUANTITY, EX_PRICE, EX_REASON, EX_STATUS, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
+VALUES
+(1, 15, 100000.0, N'Nhập bắp', 1, 0, '2024-09-01', 'Admin', 'System', '2024-09-01', 'Admin', 'System'),
+(1, 12, 100000.0, N'Nhập bắp', 1, 0, '2024-09-07', 'Admin', 'System', '2024-09-07', 'Admin', 'System'),
+(1, 18, 100000.0, N'Nhập bắp', 1, 0, '2024-09-14', 'Admin', 'System', '2024-09-14', 'Admin', 'System'),
+(1, 9, 100000.0, N'Nhập bắp', 1, 0, '2024-09-20', 'Admin', 'System', '2024-09-20', 'Admin', 'System'),
+(1, 5, 100000.0, N'Nhập bắp', 1, 0, '2024-09-25', 'Admin', 'System', '2024-09-25', 'Admin', 'System'),
+
+-- Nhập hàng cho sản phẩm "Coca-Cola" để duy trì trạng thái tồn kho
+(2, 15, 100000.0, N'Nhập Coca-Cola', 1, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System'),
+(2, 12, 100000.0, N'Nhập Coca-Cola', 1, 0, '2024-09-08', 'Admin', 'System', '2024-09-08', 'Admin', 'System'),
+(2, 10, 100000.0, N'Nhập Coca-Cola', 1, 0, '2024-09-15', 'Admin', 'System', '2024-09-15', 'Admin', 'System'),
+(2, 9, 100000.0, N'Nhập Coca-Cola', 1, 0, '2024-09-22', 'Admin', 'System', '2024-09-22', 'Admin', 'System'),
+(2, 7, 100000.0, N'Nhập Coca-Cola', 1, 0, '2024-09-28', 'Admin', 'System', '2024-09-28', 'Admin', 'System'),
+
+-- Nhập hàng cho sản phẩm "Sprite" để đạt trạng thái khuyến mãi bán chậm
+(3, 8, 100000.0, N'Nhập Sprite', 1, 0, '2024-09-03', 'Admin', 'System', '2024-09-03', 'Admin', 'System'),
+(3, 6, 100000.0, N'Nhập Sprite', 1, 0, '2024-09-09', 'Admin', 'System', '2024-09-09', 'Admin', 'System'),
+(3, 10, 100000.0, N'Nhập Sprite', 1, 0, '2024-09-16', 'Admin', 'System', '2024-09-16', 'Admin', 'System'),
+(3, 5, 100000.0, N'Nhập Sprite', 1, 0, '2024-09-23', 'Admin', 'System', '2024-09-23', 'Admin', 'System'),
+(3, 7, 100000.0, N'Nhập Sprite', 1, 0, '2024-09-29', 'Admin', 'System', '2024-09-29', 'Admin', 'System');
