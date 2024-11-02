@@ -8,7 +8,6 @@
     {
         public long ProductID { get; set; }
         public string ProductName { get; set; }
-        public string ProductImageUrl { get; set; }
         public double CurrentStock { get; set; }
         public double SoldQuantity { get; set; }
         public double UnitPrice { get; set; }

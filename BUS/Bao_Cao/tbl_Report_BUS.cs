@@ -42,13 +42,20 @@ namespace BUS.Bao_Cao
             return ex.GetExpenseReport(startDate, endDate);
         }
         // hàm báo cáo tồn kho
-        public List<tbl_Report_Inventory_DTO> GetDetailedInventoryReport()
+        public List<tbl_Report_Inventory_DTO> GetInventoryReport()
         {
-            return inventory_DAL.GetDetailedInventoryReport();
+            return inventory_DAL.GetInventoryReport();
         }
-        public List<tbl_Report_Inventory_DTO> GetInventoryReportByStatus()
+        public List<tbl_Report_Inventory_DTO> GetInventoryReportByStatusAndDate(int stockStatus,         // 1 = Cạn kiệt, 2 = Có sẵn, 3 = Quá tải
+            int salesPerformance,    // 1 = Bán chậm, 2 = Ổn định, 3 = Cháy hàng
+            DateTime startDate,
+            DateTime endDate)
         {
-            return inventory_DAL.GetInventoryReportByStatus();
+            return inventory_DAL.GetInventoryReportByStatusAndDate(
+                stockStatus,         // 1 = Cạn kiệt, 2 = Có sẵn, 3 = Quá tải
+              salesPerformance,    // 1 = Bán chậm, 2 = Ổn định, 3 = Cháy hàng
+              startDate,
+              endDate);
         }
     }
 }

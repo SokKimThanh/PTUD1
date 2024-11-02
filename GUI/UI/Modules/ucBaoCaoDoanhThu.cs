@@ -25,7 +25,6 @@ namespace GUI.UI.Modules
         protected override void Load_Data()
         {
             lblTitle.Text = !string.IsNullOrEmpty(strFunctionCode) ? strFunctionCode.ToUpper().Trim() : string.Empty;
-
             executeReportDefault();
         }
 

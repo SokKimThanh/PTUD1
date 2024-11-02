@@ -449,7 +449,7 @@ VALUES
 (1, 12, 100000.0, N'Nhập bắp', 1, 0, '2024-09-07', 'Admin', 'System', '2024-09-07', 'Admin', 'System'),
 (1, 18, 100000.0, N'Nhập bắp', 1, 0, '2024-09-14', 'Admin', 'System', '2024-09-14', 'Admin', 'System'),
 (1, 9, 100000.0, N'Nhập bắp', 1, 0, '2024-09-20', 'Admin', 'System', '2024-09-20', 'Admin', 'System'),
-(1, 5, 100000.0, N'Nhập bắp', 1, 0, '2024-09-25', 'Admin', 'System', '2024-09-25', 'Admin', 'System'),
+(1, 5, 100000.0, N'Nhập bắp', 1, 0, '2024-09-25', 'Admin', 'System', '2024-09-25', 'Admin', 'System')
 
 -- Nhập hàng cho sản phẩm "Coca-Cola" để duy trì trạng thái tồn kho
 (2, 15, 100000.0, N'Nhập Coca-Cola', 1, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System'),
