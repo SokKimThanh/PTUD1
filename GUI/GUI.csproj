@@ -134,11 +134,23 @@
     <Compile Include="UI\Modules\ucCaLamViec.Designer.cs">
       <DependentUpon>ucCaLamViec.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucDatVe.cs">
+    <Compile Include="UI\Modules\ucChonPhim.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Modules\ucDatVe.Designer.cs">
-      <DependentUpon>ucDatVe.cs</DependentUpon>
+    <Compile Include="UI\Modules\ucChonPhim.Designer.cs">
+      <DependentUpon>ucChonPhim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Modules\ucChonSanPham.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Modules\ucChonSanPham.Designer.cs">
+      <DependentUpon>ucChonSanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Modules\ucChonGhe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Modules\ucChonGhe.Designer.cs">
+      <DependentUpon>ucChonGhe.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Modules\ucGhe.cs">
       <SubType>UserControl</SubType>
@@ -259,11 +271,17 @@
     <EmbeddedResource Include="UI\Modules\ucCaLamViec.resx">
       <DependentUpon>ucCaLamViec.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Modules\ucChonPhim.resx">
+      <DependentUpon>ucChonPhim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Modules\ucChonSanPham.resx">
+      <DependentUpon>ucChonSanPham.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Modules\ucDanhGiaDoTuoi.resx">
       <DependentUpon>ucDanhGiaDoTuoi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Modules\ucDatVe.resx">
-      <DependentUpon>ucDatVe.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Modules\ucChonGhe.resx">
+      <DependentUpon>ucChonGhe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Modules\ucGhe.resx">
       <DependentUpon>ucGhe.cs</DependentUpon>

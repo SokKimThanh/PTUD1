@@ -1,8 +1,8 @@
 ﻿namespace GUI.UI.Modules
 {
-    public partial class ucDatVe : ucBase
+    public partial class ucChonGhe : ucBase
     {
-        public ucDatVe()
+        public ucChonGhe()
         {
             InitializeComponent();
             this.layoutTitle.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
