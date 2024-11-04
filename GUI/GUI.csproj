@@ -194,6 +194,12 @@
     <Compile Include="UI\Modules\ucDanhGiaDoTuoi.Designer.cs">
       <DependentUpon>ucDanhGiaDoTuoi.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Modules\ucVe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Modules\ucVe.Designer.cs">
+      <DependentUpon>ucVe.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ReportDesign\RP_Expense.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -282,6 +288,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Modules\ucSuatChieu.resx">
       <DependentUpon>ucSuatChieu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Modules\ucVe.resx">
+      <DependentUpon>ucVe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ReportDesign\RP_Expense.resx">
       <DependentUpon>RP_Expense.cs</DependentUpon>
