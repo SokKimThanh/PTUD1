@@ -240,6 +240,7 @@
             // 
             // pictureEdit7
             // 
+            this.pictureEdit7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureEdit7.EditValue = ((object)(resources.GetObject("pictureEdit7.EditValue")));
             this.pictureEdit7.Location = new System.Drawing.Point(151, 103);
             this.pictureEdit7.MenuManager = this.barManager1;
@@ -250,6 +251,7 @@
             // 
             // pictureEdit6
             // 
+            this.pictureEdit6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureEdit6.EditValue = ((object)(resources.GetObject("pictureEdit6.EditValue")));
             this.pictureEdit6.Location = new System.Drawing.Point(85, 103);
             this.pictureEdit6.MenuManager = this.barManager1;
@@ -260,6 +262,7 @@
             // 
             // pictureEdit5
             // 
+            this.pictureEdit5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureEdit5.EditValue = ((object)(resources.GetObject("pictureEdit5.EditValue")));
             this.pictureEdit5.Location = new System.Drawing.Point(21, 103);
             this.pictureEdit5.MenuManager = this.barManager1;
@@ -270,6 +273,7 @@
             // 
             // pictureEdit4
             // 
+            this.pictureEdit4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureEdit4.EditValue = ((object)(resources.GetObject("pictureEdit4.EditValue")));
             this.pictureEdit4.Location = new System.Drawing.Point(151, 42);
             this.pictureEdit4.MenuManager = this.barManager1;
@@ -280,6 +284,7 @@
             // 
             // pictureEdit3
             // 
+            this.pictureEdit3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureEdit3.EditValue = ((object)(resources.GetObject("pictureEdit3.EditValue")));
             this.pictureEdit3.Location = new System.Drawing.Point(85, 42);
             this.pictureEdit3.MenuManager = this.barManager1;
@@ -290,6 +295,7 @@
             // 
             // pictureEdit2
             // 
+            this.pictureEdit2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureEdit2.EditValue = ((object)(resources.GetObject("pictureEdit2.EditValue")));
             this.pictureEdit2.Location = new System.Drawing.Point(21, 42);
             this.pictureEdit2.MenuManager = this.barManager1;
