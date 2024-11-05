@@ -1,6 +1,4 @@
-﻿--update  by		--	update date			---		description
---sok kim thanh			24/10/2024 8:45				'Cập nhật khóa duy nhất cho các trường dữ liệu'
-go
+﻿go
 use master
 
 go
@@ -20,11 +18,11 @@ SE_RANK int not null,
 SE_THEATER_AutoID bigint not null,
 DELETED INT,
 CREATED datetime,
-CREATED_BY nchar(30),
-CREATED_BY_FUNCTION nchar(250),
+CREATED_BY nchar(50),
+CREATED_BY_FUNCTION nchar(100),
 UPDATED datetime, 
-UPDATED_BY nchar(30),
-UPDATED_BY_FUNCTION nchar(200)
+UPDATED_BY nchar(50),
+UPDATED_BY_FUNCTION nchar(100)
 )
 
 go
@@ -36,11 +34,11 @@ AR_NAME nvarchar(150) not null,
 AR_NOTE nvarchar(MAX),
 DELETED INT,
 CREATED datetime,
-CREATED_BY nchar(30),
-CREATED_BY_FUNCTION nchar(250),
+CREATED_BY nchar(50),
+CREATED_BY_FUNCTION nchar(100),
 UPDATED datetime, 
-UPDATED_BY nchar(30),
-UPDATED_BY_FUNCTION nchar(200)
+UPDATED_BY nchar(50),
+UPDATED_BY_FUNCTION nchar(100)
 )
 
 go
@@ -52,16 +50,16 @@ MV_AutoID bigint primary key IDENTITY(1,1) not null,
 MV_NAME nvarchar(250) not null,
 MV_PRICE float not null,
 MV_DURATION int not null,
-MV_POSTERURL text not null,
+MV_POSTERURL varchar(MAX) not null,
 MV_DESCRIPTION nvarchar(MAX) not null,
 MV_AGERATING_AutoID bigint,
 DELETED INT,
 CREATED datetime,
-CREATED_BY nchar(30),
-CREATED_BY_FUNCTION nchar(250),
+CREATED_BY nchar(50),
+CREATED_BY_FUNCTION nchar(100),
 UPDATED datetime, 
-UPDATED_BY nchar(30),
-UPDATED_BY_FUNCTION nchar(200)
+UPDATED_BY nchar(50),
+UPDATED_BY_FUNCTION nchar(100)
 )
 
 go
@@ -73,11 +71,11 @@ TT_NAME nvarchar(250) not null,
 TT_STATUS int not null,
 DELETED INT,
 CREATED datetime,
-CREATED_BY nchar(30),
-CREATED_BY_FUNCTION nchar(250),
+CREATED_BY nchar(50),
+CREATED_BY_FUNCTION nchar(100),
 UPDATED datetime, 
-UPDATED_BY nchar(30),
-UPDATED_BY_FUNCTION nchar(200)
+UPDATED_BY nchar(50),
+UPDATED_BY_FUNCTION nchar(100)
 )
 
 go 
@@ -94,11 +92,11 @@ ST_NOTE nvarchar(MAX),
 ST_LEVEL int not null,
 DELETED INT,
 CREATED datetime,
-CREATED_BY nchar(30),
-CREATED_BY_FUNCTION nchar(250),
+CREATED_BY nchar(50),
+CREATED_BY_FUNCTION nchar(100),
 UPDATED datetime, 
-UPDATED_BY nchar(30),
-UPDATED_BY_FUNCTION nchar(200)
+UPDATED_BY nchar(50),
+UPDATED_BY_FUNCTION nchar(100)
 )
 
 go
@@ -111,11 +109,11 @@ TK_MOVIESCHEDULE_AutoID bigint not null,
 TK_STAFF_AutoID bigint not null,
 DELETED INT,
 CREATED datetime,
-CREATED_BY nchar(30),
-CREATED_BY_FUNCTION nchar(250),
+CREATED_BY nchar(50),
+CREATED_BY_FUNCTION nchar(100),
 UPDATED datetime, 
-UPDATED_BY nchar(30),
-UPDATED_BY_FUNCTION nchar(200)
+UPDATED_BY nchar(50),
+UPDATED_BY_FUNCTION nchar(100)
 )
 
 go
@@ -128,11 +126,11 @@ MS_THEATER_AutoID bigint not null,
 MS_START datetime not null,
 DELETED INT,
 CREATED datetime,
-CREATED_BY nchar(30),
-CREATED_BY_FUNCTION nchar(250),
+CREATED_BY nchar(50),
+CREATED_BY_FUNCTION nchar(100),
 UPDATED datetime, 
-UPDATED_BY nchar(30),
-UPDATED_BY_FUNCTION nchar(200)
+UPDATED_BY nchar(50),
+UPDATED_BY_FUNCTION nchar(100)
 )
 
 go
@@ -145,11 +143,11 @@ SF_START datetime not null,
 SF_END datetime not null,
 DELETED INT,
 CREATED datetime,
-CREATED_BY nchar(30),
-CREATED_BY_FUNCTION nchar(250),
+CREATED_BY nchar(50),
+CREATED_BY_FUNCTION nchar(100),
 UPDATED datetime, 
-UPDATED_BY nchar(30),
-UPDATED_BY_FUNCTION nchar(200)
+UPDATED_BY nchar(50),
+UPDATED_BY_FUNCTION nchar(100)
 )
 
 go
@@ -161,11 +159,11 @@ SS_STAFF_AutoID bigint,
 SS_SHIFT_AutoID bigint,
 DELETED INT,
 CREATED datetime,
-CREATED_BY nchar(30),
-CREATED_BY_FUNCTION nchar(250),
+CREATED_BY nchar(50),
+CREATED_BY_FUNCTION nchar(100),
 UPDATED datetime, 
-UPDATED_BY nchar(30),
-UPDATED_BY_FUNCTION nchar(200)
+UPDATED_BY nchar(50),
+UPDATED_BY_FUNCTION nchar(100)
 )
 
 go
@@ -180,11 +178,11 @@ create table tbl_Sys_Language(
    CN_Lang nvarchar(255),
    DELETED INT,
    CREATED datetime,
-   CREATED_BY nchar(30),
-   CREATED_BY_FUNCTION nchar(250),
+   CREATED_BY nchar(50),
+   CREATED_BY_FUNCTION nchar(100),
    UPDATED datetime, 
-   UPDATED_BY nchar(30),
-   UPDATED_BY_FUNCTION nchar(200)
+   UPDATED_BY nchar(50),
+   UPDATED_BY_FUNCTION nchar(100)
 );
 
 --Bảng thức ăn/uống
@@ -195,14 +193,14 @@ PD_AutoID bigint primary key IDENTITY(1,1) not null,
 PD_NAME nvarchar(250) not null,
 PD_QUANTITY float not null,
 PD_PRICE float not null,
-PD_IMAGEURL text not null,
+PD_IMAGEURL varchar(MAX) not null,
 DELETED INT,
 CREATED datetime,
-CREATED_BY nchar(30),
-CREATED_BY_FUNCTION nchar(250),
+CREATED_BY nchar(50),
+CREATED_BY_FUNCTION nchar(100),
 UPDATED datetime, 
-UPDATED_BY nchar(30),
-UPDATED_BY_FUNCTION nchar(200)
+UPDATED_BY nchar(50),
+UPDATED_BY_FUNCTION nchar(100)
 )
 
 go
@@ -214,11 +212,11 @@ BL_PRICE float not null,
 BL_STAFF_AutoID bigint not null,
 DELETED INT,
 CREATED datetime,
-CREATED_BY nchar(30),
-CREATED_BY_FUNCTION nchar(250),
+CREATED_BY nchar(50),
+CREATED_BY_FUNCTION nchar(100),
 UPDATED datetime, 
-UPDATED_BY nchar(30),
-UPDATED_BY_FUNCTION nchar(200)
+UPDATED_BY nchar(50),
+UPDATED_BY_FUNCTION nchar(100)
 )
 
 go
@@ -228,11 +226,11 @@ ET_NAME nvarchar(50) not null,
 ET_PRODUCT_AutoID bigint,
 DELETED INT,
 CREATED datetime,
-CREATED_BY nchar(30),
-CREATED_BY_FUNCTION nchar(250),
+CREATED_BY nchar(50),
+CREATED_BY_FUNCTION nchar(100),
 UPDATED datetime, 
-UPDATED_BY nchar(30),
-UPDATED_BY_FUNCTION nchar(200)
+UPDATED_BY nchar(50),
+UPDATED_BY_FUNCTION nchar(100)
 )
 
 go
@@ -245,11 +243,11 @@ EX_REASON nvarchar(100) not null,
 EX_STATUS int,
 DELETED INT,
 CREATED datetime,
-CREATED_BY nchar(30),
-CREATED_BY_FUNCTION nchar(250),
+CREATED_BY nchar(50),
+CREATED_BY_FUNCTION nchar(100),
 UPDATED datetime, 
-UPDATED_BY nchar(30),
-UPDATED_BY_FUNCTION nchar(200)
+UPDATED_BY nchar(50),
+UPDATED_BY_FUNCTION nchar(100)
 )
 
 --
@@ -297,15 +295,10 @@ add constraint fk_expense_expensetype foreign key (EX_EXTYPE_AutoID) references 
 
 
 -- Khóa UNIQUE
--- Thêm khóa UNIQUE cho tbl_DM_AgeRating
-go
-alter table tbl_DM_AgeRating
-add constraint uq_agerating unique (AR_NAME)
-
 -- Thêm khóa UNIQUE cho tbl_DM_Movie
 go
 alter table tbl_DM_Movie
-add constraint uq_movie unique (MV_NAME, MV_PRICE, MV_DURATION)
+add constraint uq_movie unique (MV_NAME)
 
 -- Thêm khóa UNIQUE cho tbl_DM_ExpenseType
 -- Tên loại chi phí nên là duy nhất.
@@ -335,9 +328,9 @@ ADD CONSTRAINT uq_theater_name UNIQUE (TT_NAME);
 --ADD CONSTRAINT UQ_ST_CIC UNIQUE (ST_CIC);
 
 -- Thêm khóa UNIQUE cho tbl_DM_Product
+--Tên sản phẩm nên là duy nhất.
 go
 ALTER TABLE tbl_DM_Product
---Tên sản phẩm nên là duy nhất.
 ADD CONSTRAINT uq_product_name UNIQUE (PD_NAME);
 
 -- Thêm khóa UNIQUE cho tbl_DM_MovieSchedule
@@ -345,7 +338,3 @@ ADD CONSTRAINT uq_product_name UNIQUE (PD_NAME);
 go
 ALTER TABLE tbl_DM_MovieSchedule
 ADD CONSTRAINT uq_movieschedule UNIQUE (MS_MOVIE_AutoID, MS_THEATER_AutoID, MS_START);
-
--- Bảng tbl_DM_Ticket
--- Mỗi vé bán cho một ghế và một lịch chiếu phim nên là duy nhất.
-ALTER TABLE tbl_DM_Ticket ADD CONSTRAINT UQ_TK_SEAT_MOVIESCHEDULE UNIQUE (TK_SEAT_AutoID, TK_MOVIESCHEDULE_AutoID);

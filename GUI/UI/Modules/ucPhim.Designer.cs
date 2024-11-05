@@ -231,7 +231,7 @@ namespace GUI.UI.Modules
             this.btnOpenImage.Appearance.Options.UseFont = true;
             this.btnOpenImage.Location = new System.Drawing.Point(24, 241);
             this.btnOpenImage.Name = "btnOpenImage";
-            this.btnOpenImage.Size = new System.Drawing.Size(125, 22);
+            this.btnOpenImage.Size = new System.Drawing.Size(125, 36);
             this.btnOpenImage.StyleController = this.layoutForm;
             this.btnOpenImage.TabIndex = 17;
             this.btnOpenImage.Text = "Chọn hình ảnh";
@@ -300,6 +300,7 @@ namespace GUI.UI.Modules
             this.txtPrice.Location = new System.Drawing.Point(153, 217);
             this.txtPrice.MenuManager = this.barManager1;
             this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Properties.BeepOnError = true;
             this.txtPrice.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.txtPrice.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
             this.txtPrice.Properties.MaskSettings.Set("mask", "d");
@@ -423,8 +424,11 @@ namespace GUI.UI.Modules
             // 
             this.layoutControlItem9.Control = this.btnOpenImage;
             this.layoutControlItem9.Location = new System.Drawing.Point(0, 160);
+            this.layoutControlItem9.MinSize = new System.Drawing.Size(90, 26);
             this.layoutControlItem9.Name = "layoutControlItem9";
             this.layoutControlItem9.Size = new System.Drawing.Size(129, 40);
+            this.layoutControlItem9.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem9.Text = "ThemHinh";
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem9.TextVisible = false;
             // 

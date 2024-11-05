@@ -11,6 +11,8 @@ namespace BUS.Bao_Cao
     public class tbl_Report_BUS
     {
         private tbl_Report_Sales_DAL data = new tbl_Report_Sales_DAL();
+        private tbl_Report_Expense_DAL ex = new tbl_Report_Expense_DAL();
+        private tbl_Report_Inventory_DAL inventory_DAL = new tbl_Report_Inventory_DAL();
 
         // Hàm báo cáo doanh thu
         public List<tbl_Report_Sales_DTO> GetAllSalesReport(DateTime ngayBatDau, DateTime ngayKetThuc)
@@ -21,16 +23,39 @@ namespace BUS.Bao_Cao
         /// <summary>
         /// Hàm tạo báo cáo doanh thu chi tiết
         /// </summary>
-        /// <param name="dateTime1"></param>
-        /// <param name="dateTime2"></param>
+        /// <param name="startDate"></param>
+        /// <param name="endDate"></param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public object GetDetailSaleReport(DateTime ngayBatDau, DateTime ngayKetThuc)
+        public object GetDetailSaleReport(DateTime startDate, DateTime endDate)
         {
-            return data.GetDetailSaleReport(ngayBatDau, ngayKetThuc);
+            return data.GetDetailSaleReport(startDate, endDate);
         }
 
-        // Hàm báo cáo thu chi
+        /// <summary>
+        /// Hàm báo cáo thu chi
+        /// </summary>
+        /// <param name="startDate"></param>
+        /// <param name="endDate"></param>
+        /// <returns></returns>
+        public List<tbl_Report_Expense_DTO> GetExpenseReport(DateTime startDate, DateTime endDate)
+        {
+            return ex.GetExpenseReport(startDate, endDate);
+        }
         // hàm báo cáo tồn kho
+        public List<tbl_Report_Inventory_DTO> GetInventoryReport()
+        {
+            return inventory_DAL.GetInventoryReport();
+        }
+        public List<tbl_Report_Inventory_DTO> GetInventoryReportByStatusAndDate(int stockStatus,         // 1 = Cạn kiệt, 2 = Có sẵn, 3 = Quá tải
+            int salesPerformance,    // 1 = Bán chậm, 2 = Ổn định, 3 = Cháy hàng
+            DateTime startDate,
+            DateTime endDate)
+        {
+            return inventory_DAL.GetInventoryReportByStatusAndDate(
+                stockStatus,         // 1 = Cạn kiệt, 2 = Có sẵn, 3 = Quá tải
+              salesPerformance,    // 1 = Bán chậm, 2 = Ổn định, 3 = Cháy hàng
+              startDate,
+              endDate);
+        }
     }
 }

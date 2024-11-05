@@ -1,4 +1,5 @@
-﻿using DTO.tbl_DTO;
+﻿using DTO.Custom;
+using DTO.tbl_DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,7 +20,7 @@ namespace DAL
         {
             try
             {
-                using(CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext())
+                using(CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString))
                 {
                     tbl_DM_MovieSchedule moviesche = new tbl_DM_MovieSchedule()
                     {
@@ -53,7 +54,7 @@ namespace DAL
         {
             try
             {
-                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext())
+                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString))
                 {
                     List<tbl_DM_MovieSchedule_DTO> list = new List<tbl_DM_MovieSchedule_DTO> ();
                     //var list_Found = db.tbl_DM_MovieSchedules.Where(item => item.DELETED == 0);
@@ -91,7 +92,7 @@ namespace DAL
         {
             try
             {
-                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext())
+                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString))
                 {
                     tbl_DM_MovieSchedule moviesche = db.tbl_DM_MovieSchedules.SingleOrDefault(item => item.MS_AutoID == id);
                     moviesche.DELETED = 1;
@@ -115,7 +116,7 @@ namespace DAL
         {
             try
             {
-                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext())
+                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString))
                 {
                     tbl_DM_MovieSchedule moviesche = db.tbl_DM_MovieSchedules.SingleOrDefault(item => item.MS_AutoID == obj.AutoID);
                     moviesche.MS_MOVIE_AutoID = obj.Movie_AutoID;

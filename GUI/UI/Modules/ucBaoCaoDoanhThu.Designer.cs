@@ -32,7 +32,6 @@
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.ActionBar = new DevExpress.XtraBars.Bar();
             this.btnThucThi = new DevExpress.XtraBars.BarButtonItem();
-            this.btnLuuPDF = new DevExpress.XtraBars.BarButtonItem();
             this.btnTaoBaoCao = new DevExpress.XtraBars.BarButtonItem();
             this.btnLamMoi = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -44,6 +43,7 @@
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnLuuPDF = new DevExpress.XtraBars.BarButtonItem();
             this.layoutForm = new DevExpress.XtraLayout.LayoutControl();
             this.rptViewReport = new DevExpress.XtraEditors.RadioGroup();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -100,7 +100,7 @@
             this.barButtonItem4,
             this.btnLuuPDF});
             this.barManager1.MainMenu = this.ActionBar;
-            this.barManager1.MaxItemId = 9;
+            this.barManager1.MaxItemId = 10;
             // 
             // ActionBar
             // 
@@ -125,15 +125,6 @@
             this.btnThucThi.ImageOptions.LargeImage = global::GUI.Properties.Resources.play_32x32;
             this.btnThucThi.Name = "btnThucThi";
             this.btnThucThi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThucThi_ItemClick);
-            // 
-            // btnLuuPDF
-            // 
-            this.btnLuuPDF.Caption = "Lưu File";
-            this.btnLuuPDF.Id = 8;
-            this.btnLuuPDF.ImageOptions.Image = global::GUI.Properties.Resources.exporttopdf_16x162;
-            this.btnLuuPDF.ImageOptions.LargeImage = global::GUI.Properties.Resources.exporttopdf_32x322;
-            this.btnLuuPDF.Name = "btnLuuPDF";
-            this.btnLuuPDF.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLuuPDF_ItemClick);
             // 
             // btnTaoBaoCao
             // 
@@ -227,6 +218,11 @@
             this.barButtonItem4.ImageOptions.Image = global::GUI.Properties.Resources.exporttopdf_16x161;
             this.barButtonItem4.ImageOptions.LargeImage = global::GUI.Properties.Resources.exporttopdf_32x321;
             this.barButtonItem4.Name = "barButtonItem4";
+            // 
+            // btnLuuPDF
+            // 
+            this.btnLuuPDF.Id = 9;
+            this.btnLuuPDF.Name = "btnLuuPDF";
             // 
             // layoutForm
             // 

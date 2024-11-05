@@ -25,7 +25,6 @@ namespace GUI.UI.Modules
         protected override void Load_Data()
         {
             lblTitle.Text = !string.IsNullOrEmpty(strFunctionCode) ? strFunctionCode.ToUpper().Trim() : string.Empty;
-
             executeReportDefault();
         }
 
@@ -70,13 +69,7 @@ namespace GUI.UI.Modules
             {
                 executeReport();
             }
-        }
-
-        private void btnLuuPDF_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            // Triển khai chức năng lưu PDF tại đây
-        }
-
+        } 
         private void btnTaoBaoCao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) &&

@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.CodeParser.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
@@ -51,6 +54,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CM_Cinema_DB.dbml</DependentUpon>
     </Compile>
+    <Compile Include="tbl_DAL\InventorySettings.cs" />
     <Compile Include="tbl_DM_MovieSchedule_DAL.cs" />
     <Compile Include="tbl_DM_Movie_DAL.cs" />
     <Compile Include="tbl_DM_Product_DAL.cs" />
@@ -90,9 +94,7 @@
       <DependentUpon>CM_Cinema_DB.dbml</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="tbl_sp\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj">
       <Project>{2458331a-da31-4263-98c0-8f78f67d1090}</Project>

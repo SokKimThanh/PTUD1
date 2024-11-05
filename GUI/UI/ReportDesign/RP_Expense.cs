@@ -1,6 +1,4 @@
-﻿using DevExpress.DataAccess.Sql;
-using DevExpress.XtraReports.UI;
-using DTO.Custom;
+﻿using DevExpress.XtraReports.UI;
 using System;
 using System.Collections;
 using System.ComponentModel;
@@ -8,16 +6,12 @@ using System.Drawing;
 
 namespace GUI.UI.ReportDesign
 {
-    public partial class RP_Sales : DevExpress.XtraReports.UI.XtraReport
+    public partial class RP_Expense : DevExpress.XtraReports.UI.XtraReport
     {
-    
-
-        public RP_Sales()
+        public RP_Expense()
         {
             InitializeComponent();
-
         }
-
         public void Add(DateTime _startDate, DateTime _endDate)
         {
             // Truyền tham số vào báo cáo

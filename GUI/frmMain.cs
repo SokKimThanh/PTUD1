@@ -19,7 +19,7 @@ namespace GUI
         /// </summary>
         private Dictionary<string, ucBase> dicFunction = new Dictionary<string, ucBase>()
         {
-            { "accDatVe", new ucDatVe() },
+            { "accDatVe", new ucChonGhe() },
             { "accQLHoaDon", new ucHoaDon() },
             { "accQLPhim", new ucPhim() },
             { "accQLSanPham", new ucSanPham() },
@@ -242,7 +242,6 @@ namespace GUI
 
                         // Thêm UserControl vào main container
                         mainContainer.Controls.Add(objLoad);
-
                         objLoad.Load_DataBase(objSender, e);
                     }
 

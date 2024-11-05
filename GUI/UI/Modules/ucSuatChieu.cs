@@ -81,16 +81,21 @@ namespace GUI.UI.Modules
         {
             try
             {
-                long id = -1;
-                int[] cacDong = gvMovieSchedules.GetSelectedRows();
-                foreach (int i in cacDong)
+                DialogResult re = MessageBox.Show("Bạn muốn xóa lịch chiếu này chứ ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if(re == DialogResult.Yes)
                 {
-                    if (i >= 0)
+                    long id = -1;
+                    int[] cacDong = gvMovieSchedules.GetSelectedRows();
+                    foreach (int i in cacDong)
                     {
-                        id = (long)gvMovieSchedules.GetRowCellValue(i, "AutoID");
+                        if (i >= 0)
+                        {
+                            id = (long)gvMovieSchedules.GetRowCellValue(i, "AutoID");
+                        }
                     }
+                    movieSche_bus.RemoveData(id);
                 }
-                movieSche_bus.RemoveData(id);
+                Load_Data();
             }
             catch (Exception ex)
             {
@@ -118,6 +123,7 @@ namespace GUI.UI.Modules
                 DateTime startDate = new DateTime(((DateTime)tmpStartTime.EditValue).TimeOfDay.Ticks + dtpStartDate.DateTime.Ticks);
 
                 movieSche_bus.UpdateData(id, (long)cboMovies.EditValue, (long)cboTheaters.EditValue, startDate, 0);
+                Load_Data();
             }
             catch (Exception ex)
             {
@@ -154,9 +160,9 @@ namespace GUI.UI.Modules
                 {
                     if (i >= 0)
                     {
-                        cboMovies.EditValue = (int)gvMovieSchedules.GetRowCellValue(i, "Movie_AutoID");
-                        cboTheaters.EditValue = (int)gvMovieSchedules.GetRowCellValue(i, "Theater_AutoID");
-                        DateTime startDate = (DateTime)gvMovieSchedules.GetRowCellValue(i, "Start_Date");
+                        cboMovies.EditValue = gvMovieSchedules.GetRowCellValue(i, "Movie_AutoID");
+                        cboTheaters.EditValue = gvMovieSchedules.GetRowCellValue(i, "Theater_AutoID");
+                        DateTime startDate = (DateTime)gvMovieSchedules.GetRowCellValue(i, "StartDate");
                         tmpStartTime.EditValue = startDate;
                         dtpStartDate.EditValue = startDate;
                     }
