@@ -69,10 +69,12 @@ namespace GUI
                 }
                 catch (Exception)
                 {
-                    
                     CConfig.CM_Cinema_DB_ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["CM_Cinema_DB"].ConnectionString;
                 }
             }
+
+            if (CConfig.CM_Cinema_DB_ConnectionString == "")
+                return;
 
             if (Directory.Exists(CConfig.CM_Cinema_FileManagement_Folder) == false)
                 Directory.CreateDirectory(CConfig.CM_Cinema_FileManagement_Folder);
