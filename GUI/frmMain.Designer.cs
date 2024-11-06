@@ -34,8 +34,8 @@
             this.arrFunction = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.aceDanhMuc = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accDatVe = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accQLHoaDon = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accQLPhim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accQLHoaDon = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accQLSanPham = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accQLPhongChieu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accQLSuatChieu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -107,14 +107,6 @@
             this.accDatVe.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accDatVe.Text = "Đặt vé";
             // 
-            // accQLHoaDon
-            // 
-            this.accQLHoaDon.Hint = "Quản lý Hóa Đơn";
-            this.accQLHoaDon.ImageOptions.Image = global::GUI.Properties.Resources.apply_16x16;
-            this.accQLHoaDon.Name = "accQLHoaDon";
-            this.accQLHoaDon.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accQLHoaDon.Text = "Hóa Đơn";
-            // 
             // accQLPhim
             // 
             this.accQLPhim.Hint = "Quản Lý Phim";
@@ -122,6 +114,14 @@
             this.accQLPhim.Name = "accQLPhim";
             this.accQLPhim.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accQLPhim.Text = "Phim";
+            // 
+            // accQLHoaDon
+            // 
+            this.accQLHoaDon.Hint = "Quản lý Hóa Đơn";
+            this.accQLHoaDon.ImageOptions.Image = global::GUI.Properties.Resources.apply_16x16;
+            this.accQLHoaDon.Name = "accQLHoaDon";
+            this.accQLHoaDon.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accQLHoaDon.Text = "Hóa Đơn";
             // 
             // accQLSanPham
             // 

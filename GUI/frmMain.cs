@@ -355,7 +355,6 @@ namespace GUI
             }
 
             base.WndProc(ref message);
-        }
-
+        }    
     }
 }
