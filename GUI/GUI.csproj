@@ -206,6 +206,12 @@
     <Compile Include="UI\Modules\ucDanhGiaDoTuoi.Designer.cs">
       <DependentUpon>ucDanhGiaDoTuoi.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Modules\ucChonThanhToan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Modules\ucChonThanhToan.Designer.cs">
+      <DependentUpon>ucChonThanhToan.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Modules\ucVe.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -306,6 +312,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Modules\ucSuatChieu.resx">
       <DependentUpon>ucSuatChieu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Modules\ucChonThanhToan.resx">
+      <DependentUpon>ucChonThanhToan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Modules\ucVe.resx">
       <DependentUpon>ucVe.cs</DependentUpon>
