@@ -138,7 +138,16 @@ namespace GUI.UI.Modules
                         txtUrlHinhAnh.Text = o.PD_IMAGEURL;
 
                         // Hiển thị hình ảnh trên PictureEdit
-                        pictureBox.Image = Image.FromFile(o.PD_IMAGEURL);
+                        try
+                        {
+                            Image image = Image.FromFile(o.PD_IMAGEURL);
+                            pictureBox.Image = image;
+                        }
+                        catch
+                        {
+
+                            
+                        }
                     }
                     catch (Exception ex)
                     {

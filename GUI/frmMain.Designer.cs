@@ -85,8 +85,8 @@
             // 
             this.aceDanhMuc.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accDatVe,
-            this.accQLHoaDon,
             this.accQLPhim,
+            this.accQLHoaDon,
             this.accQLSanPham,
             this.accQLPhongChieu,
             this.accQLSuatChieu,
@@ -96,9 +96,9 @@
             this.accQLGhe,
             this.accQLDanhGiaDoTuoi});
             this.aceDanhMuc.Expanded = true;
-            this.aceDanhMuc.ImageOptions.Image = global::GUI.Properties.Resources.add_32x32;
+            this.aceDanhMuc.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("aceDanhMuc.ImageOptions.Image")));
             this.aceDanhMuc.Name = "aceDanhMuc";
-            this.aceDanhMuc.Text = "Danh Mục";
+            this.aceDanhMuc.Text = "Quản lý";
             // 
             // accDatVe
             // 
@@ -194,7 +194,6 @@
             this.accBaoCaoDoanhThu,
             this.accBaoCaoThuChi,
             this.accBaoCaoTonKho});
-            this.aceBaoCao.Expanded = true;
             this.aceBaoCao.ImageOptions.Image = global::GUI.Properties.Resources.report2_32x32;
             this.aceBaoCao.Name = "aceBaoCao";
             this.aceBaoCao.Text = "Báo cáo";
@@ -260,7 +259,7 @@
             this.fluentDesignFormControl1.Location = new System.Drawing.Point(0, 0);
             this.fluentDesignFormControl1.Manager = this.fluentFormDefaultManager1;
             this.fluentDesignFormControl1.Name = "fluentDesignFormControl1";
-            this.fluentDesignFormControl1.Size = new System.Drawing.Size(1120, 39);
+            this.fluentDesignFormControl1.Size = new System.Drawing.Size(960, 31);
             this.fluentDesignFormControl1.TabIndex = 2;
             this.fluentDesignFormControl1.TabStop = false;
             // 
@@ -270,7 +269,7 @@
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(960, 639);
             this.ControlContainer = this.mainContainer;

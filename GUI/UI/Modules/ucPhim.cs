@@ -176,8 +176,17 @@ namespace GUI.UI.Modules
                         txtPrice.Text = o.MV_PRICE.ToString();
                         // Hiển thị dữ liệu lên combobox
                         cboAgeRating.EditValue = o.MV_AGERATING_AutoID;
-                        // Hiển thị hình ảnh trên PictureEdit
-                        pictureBox.Image = Image.FromFile(o.MV_POSTERURL);
+                        // Hiển thị hình ảnh trên PictureEdit 
+                        try
+                        {
+                            Image image = Image.FromFile(o.MV_POSTERURL);
+                            pictureBox.Image = image;
+                        }
+                        catch
+                        {
+
+
+                        }
                     }
                     catch (Exception ex)
                     {

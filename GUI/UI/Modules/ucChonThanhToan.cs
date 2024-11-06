@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace GUI.UI.Modules
 {
-    public partial class ucChonPhim : DevExpress.XtraEditors.XtraUserControl
+    public partial class ucChonThanhToan : DevExpress.XtraEditors.XtraUserControl
     {
-        public ucChonPhim()
+        public ucChonThanhToan()
         {
             InitializeComponent();
-        } 
+        }
     }
 }
