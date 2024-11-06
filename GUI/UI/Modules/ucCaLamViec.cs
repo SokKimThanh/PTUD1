@@ -32,14 +32,7 @@ namespace GUI.UI.Modules
             btnThem.ItemClick += Add_DataBase;
             btnXoa.ItemClick += Remove_DataBase;
             btnCapNhat.ItemClick += Update_DataBase;
-            btnLamMoi.ItemClick += Refresh_Load_DataBase;
-
-            this.layoutTitle.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutTitle.MaxSize = new System.Drawing.Size(0, 42);
-            this.layoutTitle.MinSize = new System.Drawing.Size(36, 36);
-            // Ngăn không cho phép sửa dữ liệu trực tiếp trên GridView
-            grdData.OptionsBehavior.Editable = false;
-
+            btnLamMoi.ItemClick += Refresh_Load_DataBase;          
             grdData.RowClick += RowClick_Grid;
 
         }
