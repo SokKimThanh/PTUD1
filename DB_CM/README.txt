@@ -1,3 +1,9 @@
+****************Update 06/11/2024:
+ADD:
+	+ New fields to Theater table (TT_ROWS, TT_COLS and TT_COUPLES)
+REMOVE:
+	+ Remove Seat table
+
 ****************Update 29/10/2024:
 MODIFY:
 	+ Modify length of CREATED_BY, CREATED_BY_FUNCTION, UPDATED_BY, UPDATED_BY_FUNCTION
