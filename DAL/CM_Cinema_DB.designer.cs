@@ -51,9 +51,6 @@ namespace DAL
     partial void Inserttbl_DM_Product(tbl_DM_Product instance);
     partial void Updatetbl_DM_Product(tbl_DM_Product instance);
     partial void Deletetbl_DM_Product(tbl_DM_Product instance);
-    partial void Inserttbl_DM_Seat(tbl_DM_Seat instance);
-    partial void Updatetbl_DM_Seat(tbl_DM_Seat instance);
-    partial void Deletetbl_DM_Seat(tbl_DM_Seat instance);
     partial void Inserttbl_DM_Shift(tbl_DM_Shift instance);
     partial void Updatetbl_DM_Shift(tbl_DM_Shift instance);
     partial void Deletetbl_DM_Shift(tbl_DM_Shift instance);
@@ -75,7 +72,7 @@ namespace DAL
     #endregion
 		
 		public CM_Cinema_DBDataContext() : 
-				base(global::DAL.Properties.Settings.Default.CM_Cinema_DBConnectionString4, mappingSource)
+				base(global::DAL.Properties.Settings.Default.CM_Cinema_DBConnectionString5, mappingSource)
 		{
 			OnCreated();
 		}
@@ -157,14 +154,6 @@ namespace DAL
 			get
 			{
 				return this.GetTable<tbl_DM_Product>();
-			}
-		}
-		
-		public System.Data.Linq.Table<tbl_DM_Seat> tbl_DM_Seats
-		{
-			get
-			{
-				return this.GetTable<tbl_DM_Seat>();
 			}
 		}
 		
@@ -377,7 +366,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY", DbType="NChar(30)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY", DbType="NChar(50)")]
 		public string CREATED_BY
 		{
 			get
@@ -397,7 +386,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY_FUNCTION", DbType="NChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY_FUNCTION", DbType="NChar(100)")]
 		public string CREATED_BY_FUNCTION
 		{
 			get
@@ -437,7 +426,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY", DbType="NChar(30)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY", DbType="NChar(50)")]
 		public string UPDATED_BY
 		{
 			get
@@ -457,7 +446,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY_FUNCTION", DbType="NChar(200)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY_FUNCTION", DbType="NChar(100)")]
 		public string UPDATED_BY_FUNCTION
 		{
 			get
@@ -612,7 +601,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Eng_Lang", DbType="NVarChar(1)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Eng_Lang", DbType="NVarChar(255)")]
 		public string Eng_Lang
 		{
 			get
@@ -632,7 +621,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VN_Lang", DbType="NVarChar(1)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VN_Lang", DbType="NVarChar(255)")]
 		public string VN_Lang
 		{
 			get
@@ -652,7 +641,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JP_Lang", DbType="NVarChar(1)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JP_Lang", DbType="NVarChar(255)")]
 		public string JP_Lang
 		{
 			get
@@ -672,7 +661,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KR_Lang", DbType="NVarChar(1)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KR_Lang", DbType="NVarChar(255)")]
 		public string KR_Lang
 		{
 			get
@@ -692,7 +681,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CN_Lang", DbType="NVarChar(1)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CN_Lang", DbType="NVarChar(255)")]
 		public string CN_Lang
 		{
 			get
@@ -752,7 +741,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY", DbType="NChar(30)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY", DbType="NChar(50)")]
 		public string CREATED_BY
 		{
 			get
@@ -772,7 +761,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY_FUNCTION", DbType="NChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY_FUNCTION", DbType="NChar(100)")]
 		public string CREATED_BY_FUNCTION
 		{
 			get
@@ -812,7 +801,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY", DbType="NChar(30)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY", DbType="NChar(50)")]
 		public string UPDATED_BY
 		{
 			get
@@ -832,7 +821,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY_FUNCTION", DbType="NChar(200)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY_FUNCTION", DbType="NChar(100)")]
 		public string UPDATED_BY_FUNCTION
 		{
 			get
@@ -1092,7 +1081,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY", DbType="NChar(30)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY", DbType="NChar(50)")]
 		public string CREATED_BY
 		{
 			get
@@ -1112,7 +1101,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY_FUNCTION", DbType="NChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY_FUNCTION", DbType="NChar(100)")]
 		public string CREATED_BY_FUNCTION
 		{
 			get
@@ -1152,7 +1141,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY", DbType="NChar(30)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY", DbType="NChar(50)")]
 		public string UPDATED_BY
 		{
 			get
@@ -1172,7 +1161,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY_FUNCTION", DbType="NChar(200)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY_FUNCTION", DbType="NChar(100)")]
 		public string UPDATED_BY_FUNCTION
 		{
 			get
@@ -1448,7 +1437,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY", DbType="NChar(30)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY", DbType="NChar(50)")]
 		public string CREATED_BY
 		{
 			get
@@ -1468,7 +1457,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY_FUNCTION", DbType="NChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY_FUNCTION", DbType="NChar(100)")]
 		public string CREATED_BY_FUNCTION
 		{
 			get
@@ -1508,7 +1497,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY", DbType="NChar(30)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY", DbType="NChar(50)")]
 		public string UPDATED_BY
 		{
 			get
@@ -1528,7 +1517,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY_FUNCTION", DbType="NChar(200)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY_FUNCTION", DbType="NChar(100)")]
 		public string UPDATED_BY_FUNCTION
 		{
 			get
@@ -1790,7 +1779,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MV_POSTERURL", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MV_POSTERURL", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
 		public string MV_POSTERURL
 		{
 			get
@@ -1894,7 +1883,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY", DbType="NChar(30)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY", DbType="NChar(50)")]
 		public string CREATED_BY
 		{
 			get
@@ -1914,7 +1903,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY_FUNCTION", DbType="NChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY_FUNCTION", DbType="NChar(100)")]
 		public string CREATED_BY_FUNCTION
 		{
 			get
@@ -1954,7 +1943,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY", DbType="NChar(30)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY", DbType="NChar(50)")]
 		public string UPDATED_BY
 		{
 			get
@@ -1974,7 +1963,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY_FUNCTION", DbType="NChar(200)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY_FUNCTION", DbType="NChar(100)")]
 		public string UPDATED_BY_FUNCTION
 		{
 			get
@@ -2107,9 +2096,9 @@ namespace DAL
 		
 		private long _MS_AutoID;
 		
-		private System.Nullable<long> _MS_MOVIE_AutoID;
+		private long _MS_MOVIE_AutoID;
 		
-		private System.Nullable<long> _MS_THEATER_AutoID;
+		private long _MS_THEATER_AutoID;
 		
 		private System.DateTime _MS_START;
 		
@@ -2137,9 +2126,9 @@ namespace DAL
     partial void OnCreated();
     partial void OnMS_AutoIDChanging(long value);
     partial void OnMS_AutoIDChanged();
-    partial void OnMS_MOVIE_AutoIDChanging(System.Nullable<long> value);
+    partial void OnMS_MOVIE_AutoIDChanging(long value);
     partial void OnMS_MOVIE_AutoIDChanged();
-    partial void OnMS_THEATER_AutoIDChanging(System.Nullable<long> value);
+    partial void OnMS_THEATER_AutoIDChanging(long value);
     partial void OnMS_THEATER_AutoIDChanged();
     partial void OnMS_STARTChanging(System.DateTime value);
     partial void OnMS_STARTChanged();
@@ -2186,8 +2175,8 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MS_MOVIE_AutoID", DbType="BigInt")]
-		public System.Nullable<long> MS_MOVIE_AutoID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MS_MOVIE_AutoID", DbType="BigInt NOT NULL")]
+		public long MS_MOVIE_AutoID
 		{
 			get
 			{
@@ -2210,8 +2199,8 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MS_THEATER_AutoID", DbType="BigInt")]
-		public System.Nullable<long> MS_THEATER_AutoID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MS_THEATER_AutoID", DbType="BigInt NOT NULL")]
+		public long MS_THEATER_AutoID
 		{
 			get
 			{
@@ -2294,7 +2283,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY", DbType="NChar(30)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY", DbType="NChar(50)")]
 		public string CREATED_BY
 		{
 			get
@@ -2314,7 +2303,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY_FUNCTION", DbType="NChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY_FUNCTION", DbType="NChar(100)")]
 		public string CREATED_BY_FUNCTION
 		{
 			get
@@ -2354,7 +2343,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY", DbType="NChar(30)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY", DbType="NChar(50)")]
 		public string UPDATED_BY
 		{
 			get
@@ -2374,7 +2363,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY_FUNCTION", DbType="NChar(200)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY_FUNCTION", DbType="NChar(100)")]
 		public string UPDATED_BY_FUNCTION
 		{
 			get
@@ -2421,7 +2410,7 @@ namespace DAL
 					}
 					else
 					{
-						this._MS_MOVIE_AutoID = default(Nullable<long>);
+						this._MS_MOVIE_AutoID = default(long);
 					}
 					this.SendPropertyChanged("tbl_DM_Movie");
 				}
@@ -2455,7 +2444,7 @@ namespace DAL
 					}
 					else
 					{
-						this._MS_THEATER_AutoID = default(Nullable<long>);
+						this._MS_THEATER_AutoID = default(long);
 					}
 					this.SendPropertyChanged("tbl_DM_Theater");
 				}
@@ -2634,7 +2623,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PD_IMAGEURL", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PD_IMAGEURL", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
 		public string PD_IMAGEURL
 		{
 			get
@@ -2694,7 +2683,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY", DbType="NChar(30)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY", DbType="NChar(50)")]
 		public string CREATED_BY
 		{
 			get
@@ -2714,7 +2703,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY_FUNCTION", DbType="NChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY_FUNCTION", DbType="NChar(100)")]
 		public string CREATED_BY_FUNCTION
 		{
 			get
@@ -2754,7 +2743,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY", DbType="NChar(30)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY", DbType="NChar(50)")]
 		public string UPDATED_BY
 		{
 			get
@@ -2774,7 +2763,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY_FUNCTION", DbType="NChar(200)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY_FUNCTION", DbType="NChar(100)")]
 		public string UPDATED_BY_FUNCTION
 		{
 			get
@@ -2862,377 +2851,6 @@ namespace DAL
 		{
 			this.SendPropertyChanging();
 			entity.tbl_DM_Product = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_DM_Seat")]
-	public partial class tbl_DM_Seat : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private long _SE_AutoID;
-		
-		private string _SE_FILE;
-		
-		private int _SE_RANK;
-		
-		private long _SE_THEATER_AutoID;
-		
-		private System.Nullable<int> _DELETED;
-		
-		private System.Nullable<System.DateTime> _CREATED;
-		
-		private string _CREATED_BY;
-		
-		private string _CREATED_BY_FUNCTION;
-		
-		private System.Nullable<System.DateTime> _UPDATED;
-		
-		private string _UPDATED_BY;
-		
-		private string _UPDATED_BY_FUNCTION;
-		
-		private EntitySet<tbl_DM_Ticket> _tbl_DM_Tickets;
-		
-		private EntityRef<tbl_DM_Theater> _tbl_DM_Theater;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnSE_AutoIDChanging(long value);
-    partial void OnSE_AutoIDChanged();
-    partial void OnSE_FILEChanging(string value);
-    partial void OnSE_FILEChanged();
-    partial void OnSE_RANKChanging(int value);
-    partial void OnSE_RANKChanged();
-    partial void OnSE_THEATER_AutoIDChanging(long value);
-    partial void OnSE_THEATER_AutoIDChanged();
-    partial void OnDELETEDChanging(System.Nullable<int> value);
-    partial void OnDELETEDChanged();
-    partial void OnCREATEDChanging(System.Nullable<System.DateTime> value);
-    partial void OnCREATEDChanged();
-    partial void OnCREATED_BYChanging(string value);
-    partial void OnCREATED_BYChanged();
-    partial void OnCREATED_BY_FUNCTIONChanging(string value);
-    partial void OnCREATED_BY_FUNCTIONChanged();
-    partial void OnUPDATEDChanging(System.Nullable<System.DateTime> value);
-    partial void OnUPDATEDChanged();
-    partial void OnUPDATED_BYChanging(string value);
-    partial void OnUPDATED_BYChanged();
-    partial void OnUPDATED_BY_FUNCTIONChanging(string value);
-    partial void OnUPDATED_BY_FUNCTIONChanged();
-    #endregion
-		
-		public tbl_DM_Seat()
-		{
-			this._tbl_DM_Tickets = new EntitySet<tbl_DM_Ticket>(new Action<tbl_DM_Ticket>(this.attach_tbl_DM_Tickets), new Action<tbl_DM_Ticket>(this.detach_tbl_DM_Tickets));
-			this._tbl_DM_Theater = default(EntityRef<tbl_DM_Theater>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SE_AutoID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public long SE_AutoID
-		{
-			get
-			{
-				return this._SE_AutoID;
-			}
-			set
-			{
-				if ((this._SE_AutoID != value))
-				{
-					this.OnSE_AutoIDChanging(value);
-					this.SendPropertyChanging();
-					this._SE_AutoID = value;
-					this.SendPropertyChanged("SE_AutoID");
-					this.OnSE_AutoIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SE_FILE", DbType="NChar(2) NOT NULL", CanBeNull=false)]
-		public string SE_FILE
-		{
-			get
-			{
-				return this._SE_FILE;
-			}
-			set
-			{
-				if ((this._SE_FILE != value))
-				{
-					this.OnSE_FILEChanging(value);
-					this.SendPropertyChanging();
-					this._SE_FILE = value;
-					this.SendPropertyChanged("SE_FILE");
-					this.OnSE_FILEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SE_RANK", DbType="Int NOT NULL")]
-		public int SE_RANK
-		{
-			get
-			{
-				return this._SE_RANK;
-			}
-			set
-			{
-				if ((this._SE_RANK != value))
-				{
-					this.OnSE_RANKChanging(value);
-					this.SendPropertyChanging();
-					this._SE_RANK = value;
-					this.SendPropertyChanged("SE_RANK");
-					this.OnSE_RANKChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SE_THEATER_AutoID", DbType="BigInt NOT NULL")]
-		public long SE_THEATER_AutoID
-		{
-			get
-			{
-				return this._SE_THEATER_AutoID;
-			}
-			set
-			{
-				if ((this._SE_THEATER_AutoID != value))
-				{
-					if (this._tbl_DM_Theater.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnSE_THEATER_AutoIDChanging(value);
-					this.SendPropertyChanging();
-					this._SE_THEATER_AutoID = value;
-					this.SendPropertyChanged("SE_THEATER_AutoID");
-					this.OnSE_THEATER_AutoIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DELETED", DbType="Int")]
-		public System.Nullable<int> DELETED
-		{
-			get
-			{
-				return this._DELETED;
-			}
-			set
-			{
-				if ((this._DELETED != value))
-				{
-					this.OnDELETEDChanging(value);
-					this.SendPropertyChanging();
-					this._DELETED = value;
-					this.SendPropertyChanged("DELETED");
-					this.OnDELETEDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CREATED
-		{
-			get
-			{
-				return this._CREATED;
-			}
-			set
-			{
-				if ((this._CREATED != value))
-				{
-					this.OnCREATEDChanging(value);
-					this.SendPropertyChanging();
-					this._CREATED = value;
-					this.SendPropertyChanged("CREATED");
-					this.OnCREATEDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY", DbType="NChar(30)")]
-		public string CREATED_BY
-		{
-			get
-			{
-				return this._CREATED_BY;
-			}
-			set
-			{
-				if ((this._CREATED_BY != value))
-				{
-					this.OnCREATED_BYChanging(value);
-					this.SendPropertyChanging();
-					this._CREATED_BY = value;
-					this.SendPropertyChanged("CREATED_BY");
-					this.OnCREATED_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY_FUNCTION", DbType="NChar(250)")]
-		public string CREATED_BY_FUNCTION
-		{
-			get
-			{
-				return this._CREATED_BY_FUNCTION;
-			}
-			set
-			{
-				if ((this._CREATED_BY_FUNCTION != value))
-				{
-					this.OnCREATED_BY_FUNCTIONChanging(value);
-					this.SendPropertyChanging();
-					this._CREATED_BY_FUNCTION = value;
-					this.SendPropertyChanged("CREATED_BY_FUNCTION");
-					this.OnCREATED_BY_FUNCTIONChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED", DbType="DateTime")]
-		public System.Nullable<System.DateTime> UPDATED
-		{
-			get
-			{
-				return this._UPDATED;
-			}
-			set
-			{
-				if ((this._UPDATED != value))
-				{
-					this.OnUPDATEDChanging(value);
-					this.SendPropertyChanging();
-					this._UPDATED = value;
-					this.SendPropertyChanged("UPDATED");
-					this.OnUPDATEDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY", DbType="NChar(30)")]
-		public string UPDATED_BY
-		{
-			get
-			{
-				return this._UPDATED_BY;
-			}
-			set
-			{
-				if ((this._UPDATED_BY != value))
-				{
-					this.OnUPDATED_BYChanging(value);
-					this.SendPropertyChanging();
-					this._UPDATED_BY = value;
-					this.SendPropertyChanged("UPDATED_BY");
-					this.OnUPDATED_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY_FUNCTION", DbType="NChar(200)")]
-		public string UPDATED_BY_FUNCTION
-		{
-			get
-			{
-				return this._UPDATED_BY_FUNCTION;
-			}
-			set
-			{
-				if ((this._UPDATED_BY_FUNCTION != value))
-				{
-					this.OnUPDATED_BY_FUNCTIONChanging(value);
-					this.SendPropertyChanging();
-					this._UPDATED_BY_FUNCTION = value;
-					this.SendPropertyChanged("UPDATED_BY_FUNCTION");
-					this.OnUPDATED_BY_FUNCTIONChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_DM_Seat_tbl_DM_Ticket", Storage="_tbl_DM_Tickets", ThisKey="SE_AutoID", OtherKey="TK_SEAT_AutoID")]
-		public EntitySet<tbl_DM_Ticket> tbl_DM_Tickets
-		{
-			get
-			{
-				return this._tbl_DM_Tickets;
-			}
-			set
-			{
-				this._tbl_DM_Tickets.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_DM_Theater_tbl_DM_Seat", Storage="_tbl_DM_Theater", ThisKey="SE_THEATER_AutoID", OtherKey="TT_AutoID", IsForeignKey=true)]
-		public tbl_DM_Theater tbl_DM_Theater
-		{
-			get
-			{
-				return this._tbl_DM_Theater.Entity;
-			}
-			set
-			{
-				tbl_DM_Theater previousValue = this._tbl_DM_Theater.Entity;
-				if (((previousValue != value) 
-							|| (this._tbl_DM_Theater.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._tbl_DM_Theater.Entity = null;
-						previousValue.tbl_DM_Seats.Remove(this);
-					}
-					this._tbl_DM_Theater.Entity = value;
-					if ((value != null))
-					{
-						value.tbl_DM_Seats.Add(this);
-						this._SE_THEATER_AutoID = value.TT_AutoID;
-					}
-					else
-					{
-						this._SE_THEATER_AutoID = default(long);
-					}
-					this.SendPropertyChanged("tbl_DM_Theater");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_tbl_DM_Tickets(tbl_DM_Ticket entity)
-		{
-			this.SendPropertyChanging();
-			entity.tbl_DM_Seat = this;
-		}
-		
-		private void detach_tbl_DM_Tickets(tbl_DM_Ticket entity)
-		{
-			this.SendPropertyChanging();
-			entity.tbl_DM_Seat = null;
 		}
 	}
 	
@@ -3420,7 +3038,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY", DbType="NChar(30)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY", DbType="NChar(50)")]
 		public string CREATED_BY
 		{
 			get
@@ -3440,7 +3058,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY_FUNCTION", DbType="NChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY_FUNCTION", DbType="NChar(100)")]
 		public string CREATED_BY_FUNCTION
 		{
 			get
@@ -3480,7 +3098,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY", DbType="NChar(30)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY", DbType="NChar(50)")]
 		public string UPDATED_BY
 		{
 			get
@@ -3500,7 +3118,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY_FUNCTION", DbType="NChar(200)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY_FUNCTION", DbType="NChar(100)")]
 		public string UPDATED_BY_FUNCTION
 		{
 			get
@@ -3852,7 +3470,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY", DbType="NChar(30)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY", DbType="NChar(50)")]
 		public string CREATED_BY
 		{
 			get
@@ -3872,7 +3490,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY_FUNCTION", DbType="NChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY_FUNCTION", DbType="NChar(100)")]
 		public string CREATED_BY_FUNCTION
 		{
 			get
@@ -3912,7 +3530,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY", DbType="NChar(30)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY", DbType="NChar(50)")]
 		public string UPDATED_BY
 		{
 			get
@@ -3932,7 +3550,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY_FUNCTION", DbType="NChar(200)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY_FUNCTION", DbType="NChar(100)")]
 		public string UPDATED_BY_FUNCTION
 		{
 			get
@@ -4219,7 +3837,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY", DbType="NChar(30)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY", DbType="NChar(50)")]
 		public string CREATED_BY
 		{
 			get
@@ -4239,7 +3857,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY_FUNCTION", DbType="NChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY_FUNCTION", DbType="NChar(100)")]
 		public string CREATED_BY_FUNCTION
 		{
 			get
@@ -4279,7 +3897,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY", DbType="NChar(30)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY", DbType="NChar(50)")]
 		public string UPDATED_BY
 		{
 			get
@@ -4299,7 +3917,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY_FUNCTION", DbType="NChar(200)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY_FUNCTION", DbType="NChar(100)")]
 		public string UPDATED_BY_FUNCTION
 		{
 			get
@@ -4416,13 +4034,11 @@ namespace DAL
 		
 		private long _TK_AutoID;
 		
-		private long _TK_SEAT_AutoID;
+		private string _TK_SEATNAME;
 		
 		private long _TK_MOVIESCHEDULE_AutoID;
 		
 		private long _TK_STAFF_AutoID;
-		
-		private double _TK_PRICE;
 		
 		private System.Nullable<int> _DELETED;
 		
@@ -4440,8 +4056,6 @@ namespace DAL
 		
 		private EntityRef<tbl_DM_Movie> _tbl_DM_Movie;
 		
-		private EntityRef<tbl_DM_Seat> _tbl_DM_Seat;
-		
 		private EntityRef<tbl_DM_Staff> _tbl_DM_Staff;
 		
     #region Extensibility Method Definitions
@@ -4450,14 +4064,12 @@ namespace DAL
     partial void OnCreated();
     partial void OnTK_AutoIDChanging(long value);
     partial void OnTK_AutoIDChanged();
-    partial void OnTK_SEAT_AutoIDChanging(long value);
-    partial void OnTK_SEAT_AutoIDChanged();
+    partial void OnTK_SEATNAMEChanging(string value);
+    partial void OnTK_SEATNAMEChanged();
     partial void OnTK_MOVIESCHEDULE_AutoIDChanging(long value);
     partial void OnTK_MOVIESCHEDULE_AutoIDChanged();
     partial void OnTK_STAFF_AutoIDChanging(long value);
     partial void OnTK_STAFF_AutoIDChanged();
-    partial void OnTK_PRICEChanging(double value);
-    partial void OnTK_PRICEChanged();
     partial void OnDELETEDChanging(System.Nullable<int> value);
     partial void OnDELETEDChanged();
     partial void OnCREATEDChanging(System.Nullable<System.DateTime> value);
@@ -4477,7 +4089,6 @@ namespace DAL
 		public tbl_DM_Ticket()
 		{
 			this._tbl_DM_Movie = default(EntityRef<tbl_DM_Movie>);
-			this._tbl_DM_Seat = default(EntityRef<tbl_DM_Seat>);
 			this._tbl_DM_Staff = default(EntityRef<tbl_DM_Staff>);
 			OnCreated();
 		}
@@ -4502,26 +4113,22 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TK_SEAT_AutoID", DbType="BigInt NOT NULL")]
-		public long TK_SEAT_AutoID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TK_SEATNAME", DbType="NChar(3) NOT NULL", CanBeNull=false)]
+		public string TK_SEATNAME
 		{
 			get
 			{
-				return this._TK_SEAT_AutoID;
+				return this._TK_SEATNAME;
 			}
 			set
 			{
-				if ((this._TK_SEAT_AutoID != value))
+				if ((this._TK_SEATNAME != value))
 				{
-					if (this._tbl_DM_Seat.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnTK_SEAT_AutoIDChanging(value);
+					this.OnTK_SEATNAMEChanging(value);
 					this.SendPropertyChanging();
-					this._TK_SEAT_AutoID = value;
-					this.SendPropertyChanged("TK_SEAT_AutoID");
-					this.OnTK_SEAT_AutoIDChanged();
+					this._TK_SEATNAME = value;
+					this.SendPropertyChanged("TK_SEATNAME");
+					this.OnTK_SEATNAMEChanged();
 				}
 			}
 		}
@@ -4574,26 +4181,6 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TK_PRICE", DbType="Float NOT NULL")]
-		public double TK_PRICE
-		{
-			get
-			{
-				return this._TK_PRICE;
-			}
-			set
-			{
-				if ((this._TK_PRICE != value))
-				{
-					this.OnTK_PRICEChanging(value);
-					this.SendPropertyChanging();
-					this._TK_PRICE = value;
-					this.SendPropertyChanged("TK_PRICE");
-					this.OnTK_PRICEChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DELETED", DbType="Int")]
 		public System.Nullable<int> DELETED
 		{
@@ -4634,7 +4221,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY", DbType="NChar(30)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY", DbType="NChar(50)")]
 		public string CREATED_BY
 		{
 			get
@@ -4654,7 +4241,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY_FUNCTION", DbType="NChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY_FUNCTION", DbType="NChar(100)")]
 		public string CREATED_BY_FUNCTION
 		{
 			get
@@ -4694,7 +4281,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY", DbType="NChar(30)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY", DbType="NChar(50)")]
 		public string UPDATED_BY
 		{
 			get
@@ -4714,7 +4301,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY_FUNCTION", DbType="NChar(200)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY_FUNCTION", DbType="NChar(100)")]
 		public string UPDATED_BY_FUNCTION
 		{
 			get
@@ -4764,40 +4351,6 @@ namespace DAL
 						this._TK_MOVIESCHEDULE_AutoID = default(long);
 					}
 					this.SendPropertyChanged("tbl_DM_Movie");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_DM_Seat_tbl_DM_Ticket", Storage="_tbl_DM_Seat", ThisKey="TK_SEAT_AutoID", OtherKey="SE_AutoID", IsForeignKey=true)]
-		public tbl_DM_Seat tbl_DM_Seat
-		{
-			get
-			{
-				return this._tbl_DM_Seat.Entity;
-			}
-			set
-			{
-				tbl_DM_Seat previousValue = this._tbl_DM_Seat.Entity;
-				if (((previousValue != value) 
-							|| (this._tbl_DM_Seat.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._tbl_DM_Seat.Entity = null;
-						previousValue.tbl_DM_Tickets.Remove(this);
-					}
-					this._tbl_DM_Seat.Entity = value;
-					if ((value != null))
-					{
-						value.tbl_DM_Tickets.Add(this);
-						this._TK_SEAT_AutoID = value.SE_AutoID;
-					}
-					else
-					{
-						this._TK_SEAT_AutoID = default(long);
-					}
-					this.SendPropertyChanged("tbl_DM_Seat");
 				}
 			}
 		}
@@ -4869,6 +4422,12 @@ namespace DAL
 		
 		private int _TT_STATUS;
 		
+		private int _TT_ROWS;
+		
+		private int _TT_COLS;
+		
+		private int _TT_COUPLES;
+		
 		private System.Nullable<int> _DELETED;
 		
 		private System.Nullable<System.DateTime> _CREATED;
@@ -4885,8 +4444,6 @@ namespace DAL
 		
 		private EntitySet<tbl_DM_MovieSchedule> _tbl_DM_MovieSchedules;
 		
-		private EntitySet<tbl_DM_Seat> _tbl_DM_Seats;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -4897,6 +4454,12 @@ namespace DAL
     partial void OnTT_NAMEChanged();
     partial void OnTT_STATUSChanging(int value);
     partial void OnTT_STATUSChanged();
+    partial void OnTT_ROWSChanging(int value);
+    partial void OnTT_ROWSChanged();
+    partial void OnTT_COLSChanging(int value);
+    partial void OnTT_COLSChanged();
+    partial void OnTT_COUPLESChanging(int value);
+    partial void OnTT_COUPLESChanged();
     partial void OnDELETEDChanging(System.Nullable<int> value);
     partial void OnDELETEDChanged();
     partial void OnCREATEDChanging(System.Nullable<System.DateTime> value);
@@ -4916,7 +4479,6 @@ namespace DAL
 		public tbl_DM_Theater()
 		{
 			this._tbl_DM_MovieSchedules = new EntitySet<tbl_DM_MovieSchedule>(new Action<tbl_DM_MovieSchedule>(this.attach_tbl_DM_MovieSchedules), new Action<tbl_DM_MovieSchedule>(this.detach_tbl_DM_MovieSchedules));
-			this._tbl_DM_Seats = new EntitySet<tbl_DM_Seat>(new Action<tbl_DM_Seat>(this.attach_tbl_DM_Seats), new Action<tbl_DM_Seat>(this.detach_tbl_DM_Seats));
 			OnCreated();
 		}
 		
@@ -4980,6 +4542,66 @@ namespace DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TT_ROWS", DbType="Int NOT NULL")]
+		public int TT_ROWS
+		{
+			get
+			{
+				return this._TT_ROWS;
+			}
+			set
+			{
+				if ((this._TT_ROWS != value))
+				{
+					this.OnTT_ROWSChanging(value);
+					this.SendPropertyChanging();
+					this._TT_ROWS = value;
+					this.SendPropertyChanged("TT_ROWS");
+					this.OnTT_ROWSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TT_COLS", DbType="Int NOT NULL")]
+		public int TT_COLS
+		{
+			get
+			{
+				return this._TT_COLS;
+			}
+			set
+			{
+				if ((this._TT_COLS != value))
+				{
+					this.OnTT_COLSChanging(value);
+					this.SendPropertyChanging();
+					this._TT_COLS = value;
+					this.SendPropertyChanged("TT_COLS");
+					this.OnTT_COLSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TT_COUPLES", DbType="Int NOT NULL")]
+		public int TT_COUPLES
+		{
+			get
+			{
+				return this._TT_COUPLES;
+			}
+			set
+			{
+				if ((this._TT_COUPLES != value))
+				{
+					this.OnTT_COUPLESChanging(value);
+					this.SendPropertyChanging();
+					this._TT_COUPLES = value;
+					this.SendPropertyChanged("TT_COUPLES");
+					this.OnTT_COUPLESChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DELETED", DbType="Int")]
 		public System.Nullable<int> DELETED
 		{
@@ -5020,7 +4642,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY", DbType="NChar(30)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY", DbType="NChar(50)")]
 		public string CREATED_BY
 		{
 			get
@@ -5040,7 +4662,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY_FUNCTION", DbType="NChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY_FUNCTION", DbType="NChar(100)")]
 		public string CREATED_BY_FUNCTION
 		{
 			get
@@ -5080,7 +4702,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY", DbType="NChar(30)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY", DbType="NChar(50)")]
 		public string UPDATED_BY
 		{
 			get
@@ -5100,7 +4722,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY_FUNCTION", DbType="NChar(200)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY_FUNCTION", DbType="NChar(100)")]
 		public string UPDATED_BY_FUNCTION
 		{
 			get
@@ -5133,19 +4755,6 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_DM_Theater_tbl_DM_Seat", Storage="_tbl_DM_Seats", ThisKey="TT_AutoID", OtherKey="SE_THEATER_AutoID")]
-		public EntitySet<tbl_DM_Seat> tbl_DM_Seats
-		{
-			get
-			{
-				return this._tbl_DM_Seats;
-			}
-			set
-			{
-				this._tbl_DM_Seats.Assign(value);
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -5173,18 +4782,6 @@ namespace DAL
 		}
 		
 		private void detach_tbl_DM_MovieSchedules(tbl_DM_MovieSchedule entity)
-		{
-			this.SendPropertyChanging();
-			entity.tbl_DM_Theater = null;
-		}
-		
-		private void attach_tbl_DM_Seats(tbl_DM_Seat entity)
-		{
-			this.SendPropertyChanging();
-			entity.tbl_DM_Theater = this;
-		}
-		
-		private void detach_tbl_DM_Seats(tbl_DM_Seat entity)
 		{
 			this.SendPropertyChanging();
 			entity.tbl_DM_Theater = null;
@@ -5427,7 +5024,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY", DbType="NChar(30)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY", DbType="NChar(50)")]
 		public string CREATED_BY
 		{
 			get
@@ -5447,7 +5044,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY_FUNCTION", DbType="NChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY_FUNCTION", DbType="NChar(100)")]
 		public string CREATED_BY_FUNCTION
 		{
 			get
@@ -5487,7 +5084,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY", DbType="NChar(30)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY", DbType="NChar(50)")]
 		public string UPDATED_BY
 		{
 			get
@@ -5507,7 +5104,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY_FUNCTION", DbType="NChar(200)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY_FUNCTION", DbType="NChar(100)")]
 		public string UPDATED_BY_FUNCTION
 		{
 			get
