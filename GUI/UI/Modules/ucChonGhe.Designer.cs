@@ -106,9 +106,9 @@
             this.ActionBar.DockRow = 0;
             this.ActionBar.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.ActionBar.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnThem, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnXoa, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnLamMoi, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnLamMoi, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnHuy)});
             this.ActionBar.OptionsBar.MultiLine = true;
             this.ActionBar.OptionsBar.UseWholeRow = true;
             this.ActionBar.Text = "Main menu";
@@ -216,112 +216,69 @@
             // 
             // groupBtn
             // 
-            this.groupControl1.CaptionImageOptions.Image = global::GUI.Properties.Resources.info_16x16;
-            this.groupControl1.Controls.Add(this.pictureEdit1);
-            this.groupControl1.Location = new System.Drawing.Point(24, 81);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(918, 190);
-            this.groupControl1.TabIndex = 15;
-            this.groupControl1.Text = "Thông Tin phòng chiếu";
+            this.groupBtn.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupBtn.CaptionImageOptions.Image")));
+            this.groupBtn.Controls.Add(this.layoutControl2);
+            this.groupBtn.Location = new System.Drawing.Point(12, 844);
+            this.groupBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBtn.MaximumSize = new System.Drawing.Size(0, 94);
+            this.groupBtn.MinimumSize = new System.Drawing.Size(0, 94);
+            this.groupBtn.Name = "groupBtn";
+            this.groupBtn.Size = new System.Drawing.Size(1103, 94);
+            this.groupBtn.TabIndex = 16;
+            this.groupBtn.Text = "Tiếp theo";
             // 
             // layoutControl2
             // 
-            this.pictureEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureEdit1.EditValue = ((object)(resources.GetObject("pictureEdit1.EditValue")));
-            this.pictureEdit1.Location = new System.Drawing.Point(2, 23);
-            this.pictureEdit1.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureEdit1.MenuManager = this.barManager1;
-            this.pictureEdit1.Name = "pictureEdit1";
-            this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
-            this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
-            this.pictureEdit1.Properties.PictureAlignment = System.Drawing.ContentAlignment.TopCenter;
-            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit1.Size = new System.Drawing.Size(914, 165);
-            this.pictureEdit1.TabIndex = 16;
+            this.layoutControl2.Controls.Add(this.btnNext);
+            this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl2.Location = new System.Drawing.Point(2, 28);
+            this.layoutControl2.Margin = new System.Windows.Forms.Padding(4);
+            this.layoutControl2.Name = "layoutControl2";
+            this.layoutControl2.Root = this.layoutControlGroup1;
+            this.layoutControl2.Size = new System.Drawing.Size(1099, 64);
+            this.layoutControl2.TabIndex = 2;
+            this.layoutControl2.Text = "layoutControl2";
             // 
             // btnNext
             // 
-            this.GroupChoosenChair.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
-            this.GroupChoosenChair.Appearance.Options.UseBackColor = true;
-            this.GroupChoosenChair.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("GroupChoosenChair.CaptionImageOptions.Image")));
-            this.GroupChoosenChair.Controls.Add(this.pictureEdit7);
-            this.GroupChoosenChair.Controls.Add(this.pictureEdit6);
-            this.GroupChoosenChair.Controls.Add(this.pictureEdit5);
-            this.GroupChoosenChair.Controls.Add(this.pictureEdit4);
-            this.GroupChoosenChair.Controls.Add(this.pictureEdit3);
-            this.GroupChoosenChair.Controls.Add(this.pictureEdit2);
-            this.GroupChoosenChair.Location = new System.Drawing.Point(24, 275);
-            this.GroupChoosenChair.Name = "GroupChoosenChair";
-            this.GroupChoosenChair.Padding = new System.Windows.Forms.Padding(16);
-            this.GroupChoosenChair.Size = new System.Drawing.Size(918, 399);
-            this.GroupChoosenChair.TabIndex = 14;
-            this.GroupChoosenChair.Text = "Chọn ghế";
+            this.btnNext.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNext.Location = new System.Drawing.Point(12, 12);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(1075, 40);
+            this.btnNext.TabIndex = 4;
+            this.btnNext.Text = "Tiếp theo";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
-            // pictureEdit7
+            // layoutControlGroup1
             // 
-            this.pictureEdit7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureEdit7.EditValue = ((object)(resources.GetObject("pictureEdit7.EditValue")));
-            this.pictureEdit7.Location = new System.Drawing.Point(151, 103);
-            this.pictureEdit7.MenuManager = this.barManager1;
-            this.pictureEdit7.Name = "pictureEdit7";
-            this.pictureEdit7.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit7.Size = new System.Drawing.Size(32, 32);
-            this.pictureEdit7.TabIndex = 5;
-            // 
-            // pictureEdit6
-            // 
-            this.pictureEdit6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureEdit6.EditValue = ((object)(resources.GetObject("pictureEdit6.EditValue")));
-            this.pictureEdit6.Location = new System.Drawing.Point(85, 103);
-            this.pictureEdit6.MenuManager = this.barManager1;
-            this.pictureEdit6.Name = "pictureEdit6";
-            this.pictureEdit6.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit6.Size = new System.Drawing.Size(32, 32);
-            this.pictureEdit6.TabIndex = 4;
-            // 
-            // pictureEdit5
-            // 
-            this.pictureEdit5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureEdit5.EditValue = ((object)(resources.GetObject("pictureEdit5.EditValue")));
-            this.pictureEdit5.Location = new System.Drawing.Point(21, 103);
-            this.pictureEdit5.MenuManager = this.barManager1;
-            this.pictureEdit5.Name = "pictureEdit5";
-            this.pictureEdit5.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit5.Size = new System.Drawing.Size(32, 32);
-            this.pictureEdit5.TabIndex = 3;
-            // 
-            // pictureEdit4
-            // 
-            this.pictureEdit4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureEdit4.EditValue = ((object)(resources.GetObject("pictureEdit4.EditValue")));
-            this.pictureEdit4.Location = new System.Drawing.Point(151, 42);
-            this.pictureEdit4.MenuManager = this.barManager1;
-            this.pictureEdit4.Name = "pictureEdit4";
-            this.pictureEdit4.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit4.Size = new System.Drawing.Size(32, 32);
-            this.pictureEdit4.TabIndex = 2;
+            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup1.GroupBordersVisible = false;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem8});
+            this.layoutControlGroup1.Name = "layoutControlGroup1";
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1099, 64);
+            this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem8
             // 
-            this.pictureEdit3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureEdit3.EditValue = ((object)(resources.GetObject("pictureEdit3.EditValue")));
-            this.pictureEdit3.Location = new System.Drawing.Point(85, 42);
-            this.pictureEdit3.MenuManager = this.barManager1;
-            this.pictureEdit3.Name = "pictureEdit3";
-            this.pictureEdit3.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit3.Size = new System.Drawing.Size(32, 32);
-            this.pictureEdit3.TabIndex = 1;
+            this.layoutControlItem8.Control = this.btnNext;
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem8.Name = "layoutControlItem8";
+            this.layoutControlItem8.Size = new System.Drawing.Size(1079, 44);
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem8.TextVisible = false;
             // 
             // grpSeats
             // 
-            this.pictureEdit2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureEdit2.EditValue = ((object)(resources.GetObject("pictureEdit2.EditValue")));
-            this.pictureEdit2.Location = new System.Drawing.Point(21, 42);
-            this.pictureEdit2.MenuManager = this.barManager1;
-            this.pictureEdit2.Name = "pictureEdit2";
-            this.pictureEdit2.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit2.Size = new System.Drawing.Size(32, 32);
-            this.pictureEdit2.TabIndex = 0;
+            this.grpSeats.CaptionImageOptions.Image = global::GUI.Properties.Resources.info_16x16;
+            this.grpSeats.Location = new System.Drawing.Point(12, 56);
+            this.grpSeats.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.grpSeats.Name = "grpSeats";
+            this.grpSeats.Size = new System.Drawing.Size(1103, 644);
+            this.grpSeats.TabIndex = 15;
+            this.grpSeats.Text = "Thông Tin phòng chiếu";
             // 
             // lblTitle
             // 
@@ -338,7 +295,8 @@
             // 
             this.textEdit1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textEdit1.EditValue = ((short)(0));
-            this.textEdit1.Location = new System.Drawing.Point(38, 692);
+            this.textEdit1.Location = new System.Drawing.Point(41, 760);
+            this.textEdit1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.textEdit1.MenuManager = this.barManager1;
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -386,13 +344,11 @@
             // 
             this.layoutAction.CaptionImageOptions.Image = global::GUI.Properties.Resources.currency_16x16;
             this.layoutAction.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem2,
-            this.layoutControlItem5,
-            this.layoutControlItem3});
-            this.layoutAction.Location = new System.Drawing.Point(0, 36);
+            this.layoutControlItem2});
+            this.layoutAction.Location = new System.Drawing.Point(0, 692);
             this.layoutAction.Name = "layoutAction";
-            this.layoutAction.Size = new System.Drawing.Size(946, 716);
-            this.layoutAction.Text = "Thao tác nhập liệu";
+            this.layoutAction.Size = new System.Drawing.Size(1107, 140);
+            this.layoutAction.Text = "Tổng tiền";
             // 
             // layoutControlItem2
             // 
@@ -406,12 +362,21 @@
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.groupBtn;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 832);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(1107, 98);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
             // layoutControlItem5
             // 
-            this.layoutControlItem5.Control = this.GroupChoosenChair;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 194);
+            this.layoutControlItem5.Control = this.grpSeats;
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 44);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(922, 403);
+            this.layoutControlItem5.Size = new System.Drawing.Size(1107, 648);
             this.layoutControlItem5.Text = "ChonGheLayout";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
@@ -438,7 +403,8 @@
             this.Controls.Add(this.barDockControlTop);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ucChonGhe";
-            this.Size = new System.Drawing.Size(966, 796);
+            this.Size = new System.Drawing.Size(1127, 980);
+            this.Load += new System.EventHandler(this.ucChonGhe_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutForm)).EndInit();
             this.layoutForm.ResumeLayout(false);
@@ -485,5 +451,14 @@
         private DevExpress.XtraEditors.GroupControl grpSeats;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraEditors.GroupControl groupBtn;
+        private DevExpress.XtraLayout.LayoutControl layoutControl2;
+        private System.Windows.Forms.Button btnNext;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem btnHuy;
     }
 }
