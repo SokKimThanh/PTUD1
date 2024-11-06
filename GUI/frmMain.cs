@@ -19,7 +19,7 @@ namespace GUI
         /// </summary>
         private Dictionary<string, ucBase> dicFunction = new Dictionary<string, ucBase>()
         {
-            { "accDatVe", new ucChonPhim() },
+           { "accDatVe", new ucChonPhim() },
             { "accQLHoaDon", new ucHoaDon() },
             { "accQLPhim", new ucPhim() },
             { "accQLSanPham", new ucSanPham() },
@@ -355,6 +355,8 @@ namespace GUI
             }
 
             base.WndProc(ref message);
-        }    
+        }
     }
 }
+
+
