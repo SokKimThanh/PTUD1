@@ -24,7 +24,7 @@ namespace GUI.UI.Modules
 
         //Label-creating variables
         private int labelLength = 0;
-        private int spacing = 10;
+        private int spacing = 20;
         private int paddingTopBottom = 0;
         private int paddingLeftRight = 0;
         private int paddingLeftRight_Couples = 0;
@@ -218,22 +218,22 @@ namespace GUI.UI.Modules
 
         private void ChoosingSeat(object sender, EventArgs e)
         {
-            //Label currentPanel = (sender as Label);
-            //string name = currentPanel.Name;
+            Label currentPanel = (sender as Label);
+            string name = currentPanel.Name;
 
             //lblNotification.Text = "";
-            //if (currentPanel.BackColor == colors["Gray"])
-            //{
-            //    currentPanel.BackColor = colors["Green"];
-            //}
-            //else if (currentPanel.BackColor == colors["Green"])
-            //{
-            //    currentPanel.BackColor = colors["Gray"];
-            //}
-            //else
-            //{
-            //    lblNotification.Text = "Ghế đã có người đặt";
-            //}
+            if (currentPanel.BackColor == colors["Gray"])
+            {
+                currentPanel.BackColor = colors["Green"];
+            }
+            else if (currentPanel.BackColor == colors["Green"])
+            {
+                currentPanel.BackColor = colors["Gray"];
+            }
+            else
+            {
+                //lblNotification.Text = "Ghế đã có người đặt";
+            }
             //lblSeat.Text = name;
         }
 
