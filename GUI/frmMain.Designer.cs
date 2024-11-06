@@ -106,7 +106,6 @@
             this.accDatVe.Name = "accDatVe";
             this.accDatVe.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accDatVe.Text = "Đặt vé";
-            this.accDatVe.Click += new System.EventHandler(this.accDatVe_Click);
             // 
             // accQLPhim
             // 

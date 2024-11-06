@@ -2,6 +2,8 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System;
+using DevExpress.XtraBars.FluentDesignSystem;
+using BUS.Sys;
 
 namespace GUI.UI.Modules
 {
@@ -256,6 +258,72 @@ namespace GUI.UI.Modules
             }
 
             MessageBox.Show(text);
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Lấy form chứa uc này ra
+                if (this.Parent is FluentDesignFormContainer v_objContainer)
+                {
+                    ucChonThanhToan v_objLoad = new ucChonThanhToan();
+
+                    // Nếu UserControl đã có trong mainContainer thì đưa nó lên trước
+                    if (v_objContainer.Controls.Contains(v_objLoad) == false)
+                    {
+                        // Clear toàn bộ những gì trên container
+                        v_objContainer.Controls.Clear();
+
+                        // Dock control vào container để nó chiếm toàn bộ diện tích
+                        v_objLoad.Dock = DockStyle.Fill;
+
+                        // Thêm UserControl vào main container
+                        v_objContainer.Controls.Add(v_objLoad);
+                        v_objLoad.Load_DataBase(sender, e);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(LanguageController.GetLanguageDataLabel(ex.Message), LanguageController.GetLanguageDataLabel("Lỗi"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+       
+        /// <summary>
+        /// Nút hủy
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                //Lấy form chứa uc này ra
+                if (this.Parent is FluentDesignFormContainer v_objContainer)
+                {
+                    ucChonPhim v_objLoad = new ucChonPhim();
+
+                    if (v_objContainer.Controls.Contains(v_objLoad) == false)
+                    {
+                        // Clear toàn bộ những gì trên container
+                        v_objContainer.Controls.Clear();
+
+                        // Dock control vào container để nó chiếm toàn bộ diện tích
+                        v_objLoad.Dock = DockStyle.Fill;
+
+                        // Thêm UserControl vào main container
+                        v_objContainer.Controls.Add(v_objLoad);
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(LanguageController.GetLanguageDataLabel(ex.Message), LanguageController.GetLanguageDataLabel("Lỗi"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
