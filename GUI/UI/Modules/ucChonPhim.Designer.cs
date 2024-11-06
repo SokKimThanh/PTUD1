@@ -50,47 +50,47 @@
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.btnLuuPDF = new DevExpress.XtraBars.BarButtonItem();
             this.layoutForm = new DevExpress.XtraLayout.LayoutControl();
+            this.dateEdit2 = new DevExpress.XtraEditors.DateEdit();
+            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
+            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
             this.lblTitle = new System.Windows.Forms.Label();
             this.dgv = new DevExpress.XtraGrid.GridControl();
             this.gview1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.dateEdit11 = new DevExpress.XtraEditors.DateEdit();
+            this.dateEdit3 = new DevExpress.XtraEditors.TextEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutTitle = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutAction = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutDGV = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.dateEdit11 = new DevExpress.XtraEditors.DateEdit();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.dateEdit2 = new DevExpress.XtraEditors.DateEdit();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.dateEdit3 = new DevExpress.XtraEditors.TextEdit();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutDGV = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutForm)).BeginInit();
             this.layoutForm.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gview1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit11.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit11.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutAction)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit11.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit11.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnThucThi
@@ -289,6 +289,43 @@
             this.layoutForm.TabIndex = 10;
             this.layoutForm.Text = "layoutControl1";
             // 
+            // dateEdit2
+            // 
+            this.dateEdit2.EditValue = null;
+            this.dateEdit2.Location = new System.Drawing.Point(140, 204);
+            this.dateEdit2.Name = "dateEdit2";
+            this.dateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit2.Size = new System.Drawing.Size(536, 20);
+            this.dateEdit2.StyleController = this.layoutForm;
+            this.dateEdit2.TabIndex = 12;
+            // 
+            // pictureEdit1
+            // 
+            this.pictureEdit1.Location = new System.Drawing.Point(24, 105);
+            this.pictureEdit1.MenuManager = this.barManager1;
+            this.pictureEdit1.Name = "pictureEdit1";
+            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit1.Size = new System.Drawing.Size(112, 146);
+            this.pictureEdit1.StyleController = this.layoutForm;
+            this.pictureEdit1.TabIndex = 11;
+            // 
+            // dateEdit1
+            // 
+            this.dateEdit1.EditValue = null;
+            this.dateEdit1.Location = new System.Drawing.Point(140, 81);
+            this.dateEdit1.MenuManager = this.barManager1;
+            this.dateEdit1.Name = "dateEdit1";
+            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit1.Size = new System.Drawing.Size(536, 20);
+            this.dateEdit1.StyleController = this.layoutForm;
+            this.dateEdit1.TabIndex = 10;
+            // 
             // lblTitle
             // 
             this.lblTitle.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Bold);
@@ -313,6 +350,33 @@
             // 
             this.gview1.GridControl = this.dgv;
             this.gview1.Name = "gview1";
+            // 
+            // dateEdit11
+            // 
+            this.dateEdit11.EditValue = null;
+            this.dateEdit11.Location = new System.Drawing.Point(140, 124);
+            this.dateEdit11.Name = "dateEdit11";
+            this.dateEdit11.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit11.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit11.Size = new System.Drawing.Size(536, 20);
+            this.dateEdit11.StyleController = this.layoutForm;
+            this.dateEdit11.TabIndex = 10;
+            // 
+            // dateEdit3
+            // 
+            this.dateEdit3.Location = new System.Drawing.Point(140, 164);
+            this.dateEdit3.Name = "dateEdit3";
+            this.dateEdit3.Properties.DisplayFormat.FormatString = "d";
+            this.dateEdit3.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dateEdit3.Properties.EditFormat.FormatString = "d";
+            this.dateEdit3.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dateEdit3.Properties.Mask.EditMask = "d";
+            this.dateEdit3.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTime;
+            this.dateEdit3.Size = new System.Drawing.Size(536, 20);
+            this.dateEdit3.StyleController = this.layoutForm;
+            this.dateEdit3.TabIndex = 12;
             // 
             // Root
             // 
@@ -355,6 +419,62 @@
             this.layoutAction.Size = new System.Drawing.Size(680, 219);
             this.layoutAction.Text = "Thao tác nhập liệu";
             // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.dateEdit11;
+            this.layoutControlItem3.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.layoutControlItem3.CustomizationFormText = "Chọn ngày:";
+            this.layoutControlItem3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("layoutControlItem3.ImageOptions.Image")));
+            this.layoutControlItem3.Location = new System.Drawing.Point(116, 24);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(540, 43);
+            this.layoutControlItem3.Text = "Chọn phim:";
+            this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(104, 16);
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.dateEdit2;
+            this.layoutControlItem5.Location = new System.Drawing.Point(116, 107);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(540, 67);
+            this.layoutControlItem5.Text = "Đánh giá độ tuổi";
+            this.layoutControlItem5.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(104, 13);
+            // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.dateEdit3;
+            this.layoutControlItem6.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.layoutControlItem6.CustomizationFormText = "Đánh giá độ tuổi";
+            this.layoutControlItem6.Location = new System.Drawing.Point(116, 67);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Size = new System.Drawing.Size(540, 40);
+            this.layoutControlItem6.Text = "Thời lượng:";
+            this.layoutControlItem6.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(104, 13);
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.pictureEdit1;
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem4.MinSize = new System.Drawing.Size(100, 150);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(116, 150);
+            this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.dateEdit1;
+            this.layoutControlItem2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("layoutControlItem2.ImageOptions.Image")));
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(656, 24);
+            this.layoutControlItem2.Text = "Chọn ngày:         ";
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(104, 16);
+            // 
             // layoutDGV
             // 
             this.layoutDGV.CaptionImageOptions.Image = global::GUI.Properties.Resources.newtablestyle_16x16;
@@ -376,126 +496,6 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
-            // dateEdit1
-            // 
-            this.dateEdit1.EditValue = null;
-            this.dateEdit1.Location = new System.Drawing.Point(115, 81);
-            this.dateEdit1.MenuManager = this.barManager1;
-            this.dateEdit1.Name = "dateEdit1";
-            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Size = new System.Drawing.Size(561, 20);
-            this.dateEdit1.StyleController = this.layoutForm;
-            this.dateEdit1.TabIndex = 10;
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.dateEdit1;
-            this.layoutControlItem2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("layoutControlItem2.ImageOptions.Image")));
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(656, 24);
-            this.layoutControlItem2.Text = "Chọn ngày:";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(79, 16);
-            // 
-            // dateEdit11
-            // 
-            this.dateEdit11.EditValue = null;
-            this.dateEdit11.Location = new System.Drawing.Point(140, 124);
-            this.dateEdit11.Name = "dateEdit11";
-            this.dateEdit11.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit11.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit11.Size = new System.Drawing.Size(536, 20);
-            this.dateEdit11.StyleController = this.layoutForm;
-            this.dateEdit11.TabIndex = 10;
-            // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.dateEdit11;
-            this.layoutControlItem3.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItem3.CustomizationFormText = "Chọn ngày:";
-            this.layoutControlItem3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("layoutControlItem3.ImageOptions.Image")));
-            this.layoutControlItem3.Location = new System.Drawing.Point(116, 24);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(540, 43);
-            this.layoutControlItem3.Text = "Chọn phim:";
-            this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(79, 16);
-            // 
-            // pictureEdit1
-            // 
-            this.pictureEdit1.Location = new System.Drawing.Point(24, 105);
-            this.pictureEdit1.MenuManager = this.barManager1;
-            this.pictureEdit1.Name = "pictureEdit1";
-            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit1.Size = new System.Drawing.Size(112, 146);
-            this.pictureEdit1.StyleController = this.layoutForm;
-            this.pictureEdit1.TabIndex = 11;
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.pictureEdit1;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 24);
-            this.layoutControlItem4.MinSize = new System.Drawing.Size(100, 150);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(116, 150);
-            this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
-            // 
-            // dateEdit2
-            // 
-            this.dateEdit2.EditValue = null;
-            this.dateEdit2.Location = new System.Drawing.Point(140, 204);
-            this.dateEdit2.Name = "dateEdit2";
-            this.dateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit2.Size = new System.Drawing.Size(536, 20);
-            this.dateEdit2.StyleController = this.layoutForm;
-            this.dateEdit2.TabIndex = 12;
-            // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.dateEdit2;
-            this.layoutControlItem5.Location = new System.Drawing.Point(116, 107);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(540, 67);
-            this.layoutControlItem5.Text = "Đánh giá độ tuổi";
-            this.layoutControlItem5.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(79, 13);
-            // 
-            // layoutControlItem6
-            // 
-            this.layoutControlItem6.Control = this.dateEdit3;
-            this.layoutControlItem6.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItem6.CustomizationFormText = "Đánh giá độ tuổi";
-            this.layoutControlItem6.Location = new System.Drawing.Point(116, 67);
-            this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(540, 40);
-            this.layoutControlItem6.Text = "Thời lượng:";
-            this.layoutControlItem6.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(79, 13);
-            // 
-            // dateEdit3
-            // 
-            this.dateEdit3.Location = new System.Drawing.Point(140, 164);
-            this.dateEdit3.Name = "dateEdit3";
-            this.dateEdit3.Properties.DisplayFormat.FormatString = "d";
-            this.dateEdit3.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dateEdit3.Properties.EditFormat.FormatString = "d";
-            this.dateEdit3.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dateEdit3.Properties.Mask.EditMask = "d";
-            this.dateEdit3.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTime;
-            this.dateEdit3.Size = new System.Drawing.Size(536, 20);
-            this.dateEdit3.StyleController = this.layoutForm;
-            this.dateEdit3.TabIndex = 12;
-            // 
             // ucChonPhim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -511,26 +511,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutForm)).EndInit();
             this.layoutForm.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gview1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit11.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit11.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutAction)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit11.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit11.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

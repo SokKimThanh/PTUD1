@@ -56,7 +56,7 @@ namespace GUI.UI.Modules
             cbbCaLamViec.Properties.Columns.Clear();
             cbbCaLamViec.Properties.Columns.Add(new LookUpColumnInfo("SF_NAME", "Tên ca"));
             cbbCaLamViec.Properties.Columns.Add(new LookUpColumnInfo("ST_NAME", "Nhân viên"));
-                
+
             cbbCaLamViec.Properties.Columns.Add(new LookUpColumnInfo("SF_START", "Bắt đầu"));
             cbbCaLamViec.Properties.Columns.Add(new LookUpColumnInfo("SF_END", "Kết thúc"));
             cbbCaLamViec.SelectionStart = 0;
