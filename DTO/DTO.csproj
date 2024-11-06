@@ -52,7 +52,6 @@
     <Compile Include="tbl_DTO\tbl_Report_Sales_DTO.cs" />
     <Compile Include="tbl_DTO\tbl_Report_Expense_DTO.cs" />
     <Compile Include="tbl_DTO\tbl_Report_Inventory_DTO.cs" />
-    <Compile Include="tbl_DTO\tbl_DM_Seat_DTO.cs" />
     <Compile Include="tbl_DTO\tbl_DM_Theater_DTO.cs" />
     <Compile Include="Common\CCommon.cs" />
     <Compile Include="Custom\CConfig.cs" />

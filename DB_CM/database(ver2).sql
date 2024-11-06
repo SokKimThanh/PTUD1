@@ -282,11 +282,6 @@ go
 alter table tbl_DM_Movie
 add constraint uq_movie unique (MV_NAME)
 
--- Thêm khóa UNIQUE cho tbl_DM_Shift
-go
-alter table tbl_DM_Shift
-add constraint uq_shift unique (SF_START, SF_END)
-
 -- Thêm khóa UNIQUE cho tbl_DM_ExpenseType
 -- Tên loại chi phí nên là duy nhất.
 go
