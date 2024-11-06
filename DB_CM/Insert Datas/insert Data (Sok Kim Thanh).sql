@@ -1,4 +1,10 @@
-﻿
+﻿-- [Ngày]			[Người thực hiện]		[Mô tả thay đổi]
+-- 2024-11-06	| Admin				|	Thêm các phòng chiếu mới vào bảng tbl_DM_Theater
+
+-- Cập nhật ngày 2024-11-06
+-- Thêm các phòng mới từ Phòng 1 đến Phòng 15 và các phòng chiếu đặc biệt IMAX, 4DX vào bảng tbl_DM_Theater
+
+
 INSERT INTO tbl_DM_AgeRating (AR_NAME, AR_NOTE, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
 VALUES 
 -- Phân loại MPAA (Hoa Kỳ)
@@ -63,6 +69,7 @@ VALUES
 ('FSK_16', N'Phù hợp cho người từ 16 tuổi trở lên', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
 ('FSK_18', N'Chỉ dành cho người từ 18 tuổi trở lên', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System');
 
+go
 INSERT INTO tbl_DM_Movie (MV_NAME, MV_PRICE, MV_DURATION, MV_POSTERURL, MV_DESCRIPTION, MV_AGERATING_AutoID, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
 VALUES 
 -- Các bộ phim mới được thêm
@@ -160,24 +167,29 @@ VALUES
 ('Doctor Sleep', 95000, 152, 'doctor_sleep.jpg', 'A sequel to The Shining where an adult Danny Torrance must protect a girl with similar powers', (SELECT AR_AutoID FROM tbl_DM_AgeRating WHERE AR_NAME = 'R'), 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
 ('Marriage Story', 90000, 137, 'marriage_story.jpg', 'A stage director and his actor wife struggle through a grueling divorce', (SELECT AR_AutoID FROM tbl_DM_AgeRating WHERE AR_NAME = 'R'), 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System');
 
-insert into tbl_DM_Theater (TT_NAME, TT_STATUS, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
-values	(N'Phòng 1', 1, 0, GETDATE(), 'Admin', 'insert',GETDATE(),'Admin', 'insert'),
-		(N'Phòng 2', 1, 0, GETDATE(), 'Admin', 'insert',GETDATE(),'Admin', 'insert'),
-		(N'Phòng 3', 1, 0, GETDATE(), 'Admin', 'insert',GETDATE(),'Admin', 'insert'),
-		(N'Phòng 4', 1, 0, GETDATE(), 'Admin', 'insert',GETDATE(),'Admin', 'insert'),
-		(N'Phòng 5', 1, 0, GETDATE(), 'Admin', 'insert',GETDATE(),'Admin', 'insert'),
-		(N'Phòng 6', 1, 0, GETDATE(), 'Admin', 'insert',GETDATE(),'Admin', 'insert'),
-		(N'Phòng 7', 1, 0, GETDATE(), 'Admin', 'insert',GETDATE(),'Admin', 'insert'),
-		(N'Phòng 8', 1, 0, GETDATE(), 'Admin', 'insert',GETDATE(),'Admin', 'insert'),
-		(N'Phòng 9', 1, 0, GETDATE(), 'Admin', 'insert',GETDATE(),'Admin', 'insert'),
-		(N'Phòng 10', 1, 0, GETDATE(), 'Admin', 'insert',GETDATE(),'Admin', 'insert'),
-		(N'Phòng 11', 1, 0, GETDATE(), 'Admin', 'insert',GETDATE(),'Admin', 'insert'),
-		(N'Phòng 12', 1, 0, GETDATE(), 'Admin', 'insert',GETDATE(),'Admin', 'insert'),
-		(N'Phòng 13', 1, 0, GETDATE(), 'Admin', 'insert',GETDATE(),'Admin', 'insert'),
-		(N'Phòng 14', 1, 0, GETDATE(), 'Admin', 'insert',GETDATE(),'Admin', 'insert'),
-		(N'Phòng 15', 1, 0, GETDATE(), 'Admin', 'insert',GETDATE(),'Admin', 'insert'),
-		(N'phòng chiếu IMAX', 1, 0, GETDATE(), 'Admin', 'insert',GETDATE(),'Admin', 'insert'),
-		(N'phòng chiếu 4DX', 1, 0, GETDATE(), 'Admin', 'insert',GETDATE(),'Admin', 'insert');
+go
+INSERT INTO tbl_DM_Theater 
+    (TT_NAME, TT_STATUS, TT_ROWS, TT_COLS, TT_COUPLES, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
+VALUES 
+    (N'Phòng 1', 1, 10, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
+    (N'Phòng 2', 1, 10, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
+    (N'Phòng 3', 1, 10, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
+    (N'Phòng 4', 1, 10, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
+    (N'Phòng 5', 1, 10, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
+    (N'Phòng 6', 1, 10, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
+    (N'Phòng 7', 1, 10, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
+    (N'Phòng 8', 1, 10, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
+    (N'Phòng 9', 1, 10, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
+    (N'Phòng 10', 1, 10, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
+    (N'Phòng 11', 1, 10, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
+    (N'Phòng 12', 1, 10, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
+    (N'Phòng 13', 1, 10, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
+    (N'Phòng 14', 1, 10, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
+    (N'Phòng 15', 1, 10, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
+    (N'phòng chiếu IMAX', 1, 10, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
+    (N'phòng chiếu 4DX', 1, 10, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert');
+
+go
 INSERT INTO tbl_DM_MovieSchedule (MS_MOVIE_AutoID, MS_THEATER_AutoID, MS_START, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
 VALUES
     (1, 1, '2024-10-22 10:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Inception tại Theater 1
@@ -202,6 +214,7 @@ VALUES
     (20, 2, '2024-10-28 13:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System');  -- Monsters, Inc. tại Theater 2
 
 -- Thêm dữ liệu vào bảng tbl_DM_Staff (nhân viên)
+go
 INSERT INTO [dbo].[tbl_DM_Staff] ([ST_USERNAME], [ST_PASSWORD], [ST_NAME], [ST_PHONE], [ST_CIC], [ST_NOTE], [ST_LEVEL], [DELETED], [CREATED], [CREATED_BY], [CREATED_BY_FUNCTION], [UPDATED], [UPDATED_BY], [UPDATED_BY_FUNCTION])
 VALUES 
 -- Nhân viên quản lý và nhân viên bán vé
@@ -230,42 +243,59 @@ VALUES
 ('staff18', 'c4ca4238a0b923820dcc509a6f75849b', N'Hoàng Bảo Linh', '0971234567', '778899001122', N'Nhân viên quầy thực phẩm', -3, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
 ('staff19', 'c4ca4238a0b923820dcc509a6f75849b', N'Phan Quang Huy', '0923344556', '889900112233', N'Nhân viên quản lý kho hàng', -1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System');
 
--- them ghe
-insert into tbl_DM_Seat (SE_FILE, SE_RANK, SE_THEATER_AutoID, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
-values
-('A', 1, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('A', 2, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('B', 1, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('B', 2, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('C', 1, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('C', 2, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System');
-
 -- Thêm dữ liệu vào bảng tbl_DM_Ticket (vé)
-INSERT INTO tbl_DM_Ticket (TK_SEAT_AutoID, TK_MOVIESCHEDULE_AutoID, TK_STAFF_AutoID, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
+go
+INSERT INTO tbl_DM_Ticket 
+    (TK_SEATNAME, TK_MOVIESCHEDULE_AutoID, TK_STAFF_AutoID, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
 VALUES
-(1, 1, 1,  0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Vé cho phim Inception
-(2, 1, 1,  0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Vé cho phim Inception
-(3, 2, 2,  0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),   -- Vé cho phim The Matrix
-(4, 3, 1,  0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System');  -- Vé cho phim Interstellar
+    ('A1', 1, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Vé cho phim Inception
+    ('A2', 1, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Vé cho phim Inception
+    ('B1', 2, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Vé cho phim The Matrix
+    ('C1', 1, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Vé cho phim Interstellar
+-- tăng thêm 20 dòng dữ liệu	 
+    ('A3', 1, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+    ('A4', 2, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+    ('B2', 1, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+    ('B3', 2, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+    ('B4', 3, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+    ('C2', 1, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+    ('C3', 2, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+    ('C4', 3, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+    ('D1', 1, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+    ('D2', 2, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+    ('D3', 3, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+    ('D4', 4, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+    ('E1', 1, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+    ('E2', 2, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+    ('E3', 3, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+    ('E4', 4, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+    ('A5', 1, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+    ('B5', 2, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+    ('C5', 3, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+    ('D5', 4, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System');
 
+go
 -- Thêm dữ liệu vào bảng tbl_DM_Shift
 INSERT INTO tbl_DM_Shift (SF_NAME, SF_START, SF_END, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
 VALUES 
 ('Shift 1', '08:00:00', '16:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
 ('Shift 2', '16:00:00', '23:59:59', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System');
 
+go
 -- Thêm dữ liệu vào bảng tbl_DM_StaffSchedule
 INSERT INTO tbl_DM_StaffSchedule (SS_STAFF_AutoID, SS_SHIFT_AutoID, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
 VALUES 
 (1, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
 (2, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System');
 
+go
 -- Thêm dữ liệu vào bảng tbl_Sys_Language
 INSERT INTO tbl_Sys_Language (Eng_Lang, VN_Lang, JP_Lang, KR_Lang, CN_Lang, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
 VALUES 
 (N'Hello', N'Xin chào', N'こんにちは', N'안녕하세요', N'你好', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
 (N'Goodbye', N'Tạm biệt', N'さようなら', N'안녕히 가세요', N'再见', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System');
 
+go
 -- Thêm dữ liệu vào bảng tbl_DM_Product
 INSERT INTO tbl_DM_Product (PD_NAME, PD_QUANTITY, PD_PRICE, PD_IMAGEURL, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
 VALUES 
@@ -304,6 +334,7 @@ VALUES
 ('Strawberry Smoothie', 80, 40.0, 'url_to_strawberry_smoothie_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
 ('Banana Smoothie', 85, 40.0, 'url_to_banana_smoothie_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System');
 
+go
 -- Thêm dữ liệu vào bảng tbl_DM_Bill
 -- Bán hàng trong các ngày cụ thể cho các sản phẩm khác nhau
 INSERT INTO tbl_DM_Bill (BL_PRODUCT_AutoID, BL_QUANTITY, BL_PRICE, BL_STAFF_AutoID, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
@@ -321,10 +352,35 @@ VALUES
 (1, 10, 500.0, 2, 0, '2024-11-01', 'Admin', 'System', '2024-11-01', 'Admin', 'System'),
 (2, 15, 300.0, 3, 0, '2024-11-05', 'Admin', 'System', '2024-11-05', 'Admin', 'System'),
 (3, 8, 160.0, 1, 0, '2024-11-10', 'Admin', 'System', '2024-11-10', 'Admin', 'System'),
-(4, 6, 120.0, 2, 0, '2024-11-15', 'Admin', 'System', '2024-11-15', 'Admin', 'System');
+(4, 6, 120.0, 2, 0, '2024-11-15', 'Admin', 'System', '2024-11-15', 'Admin', 'System'),
+-- Bán hàng cho sản phẩm bắp với số lượng lớn để gây cháy hàng 
+(1, 15, 500.0, 1, 0, '2024-09-01', 'Admin', 'System', '2024-09-01', 'Admin', 'System'),
+(1, 20, 500.0, 1, 0, '2024-09-05', 'Admin', 'System', '2024-09-05', 'Admin', 'System'),
+(1, 25, 500.0, 1, 0, '2024-09-10', 'Admin', 'System', '2024-09-10', 'Admin', 'System'),
+(1, 30, 500.0, 1, 0, '2024-09-15', 'Admin', 'System', '2024-09-15', 'Admin', 'System'),
+(1, 35, 500.0, 1, 0, '2024-09-20', 'Admin', 'System', '2024-09-20', 'Admin', 'System'),
+-- Bán hàng cho sản phẩm "Bắp" với số lượng bán ổn định
+(1, 8, 500.0, 1, 0, '2024-09-01', 'Admin', 'System', '2024-09-01', 'Admin', 'System'),
+(1, 10, 500.0, 1, 0, '2024-09-05', 'Admin', 'System', '2024-09-05', 'Admin', 'System'),
+(1, 7, 500.0, 2, 0, '2024-09-10', 'Admin', 'System', '2024-09-10', 'Admin', 'System'),
+(1, 9, 500.0, 1, 0, '2024-09-15', 'Admin', 'System', '2024-09-15', 'Admin', 'System'),
+(1, 6, 500.0, 3, 0, '2024-09-20', 'Admin', 'System', '2024-09-20', 'Admin', 'System'),
 
+-- Bán hàng cho sản phẩm "Coca-Cola" với số lượng bán đều
+(2, 8, 250.0, 2, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System'),
+(2, 10, 250.0, 1, 0, '2024-09-06', 'Admin', 'System', '2024-09-06', 'Admin', 'System'),
+(2, 7, 250.0, 2, 0, '2024-09-11', 'Admin', 'System', '2024-09-11', 'Admin', 'System'),
+(2, 9, 250.0, 1, 0, '2024-09-16', 'Admin', 'System', '2024-09-16', 'Admin', 'System'),
+(2, 6, 250.0, 3, 0, '2024-09-21', 'Admin', 'System', '2024-09-21', 'Admin', 'System'),
 
+-- Bán hàng cho sản phẩm "Sprite" khuyến mãi bán chậm
+(3, 8, 200.0, 3, 0, '2024-09-03', 'Admin', 'System', '2024-09-03', 'Admin', 'System'),
+(3, 10, 200.0, 1, 0, '2024-09-07', 'Admin', 'System', '2024-09-07', 'Admin', 'System'),
+(3, 7, 200.0, 2, 0, '2024-09-12', 'Admin', 'System', '2024-09-12', 'Admin', 'System'),
+(3, 9, 200.0, 1, 0, '2024-09-17', 'Admin', 'System', '2024-09-17', 'Admin', 'System'),
+(3, 6, 200.0, 3, 0, '2024-09-22', 'Admin', 'System', '2024-09-22', 'Admin', 'System');
 
+go
 INSERT INTO tbl_DM_ExpenseType (ET_NAME, ET_PRODUCT_AutoID, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION) 
 VALUES
 -- Loại chi phí khác
@@ -346,6 +402,7 @@ VALUES
 -- Chi phí khác không cụ thể
 (N'Chi phí khác', NULL, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System');
 
+go
 -- Thêm 10 khoản chi phí vào bảng tbl_SYS_Expense
 -- Thêm chi phí mặt bằng
 INSERT INTO tbl_SYS_Expense (EX_EXTYPE_AutoID, EX_QUANTITY, EX_PRICE, EX_REASON, EX_STATUS, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
@@ -377,12 +434,8 @@ VALUES
 --sprite
 (4, 1, 3000000, N'Nhập hàng', 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
 --fanta
-(5, 1, 3000000, N'Nhập hàng', 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System');
-
-
--- Nhập hàng vào kho trong các ngày cụ thể cho các sản phẩm khác nhau
-INSERT INTO tbl_SYS_Expense (EX_EXTYPE_AutoID, EX_QUANTITY, EX_PRICE, EX_REASON, EX_STATUS, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
-VALUES
+(5, 1, 3000000, N'Nhập hàng', 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'), 
+-- Nhập hàng vào kho trong các ngày cụ thể cho các sản phẩm khác nhau 
 (1, 50, 2500000.0, N'Nhập bắp', 1, 0, '2024-08-01', 'Admin', 'System', '2024-08-01', 'Admin', 'System'),
 (2, 40, 2000000.0, N'Nhập Coca-Cola', 1, 0, '2024-08-10', 'Admin', 'System', '2024-08-10', 'Admin', 'System'),
 (3, 30, 1500000.0, N'Nhập Sprite', 1, 0, '2024-08-15', 'Admin', 'System', '2024-08-15', 'Admin', 'System'),
@@ -398,58 +451,21 @@ VALUES
 (1, 80, 4000000.0, N'Nhập bắp', 1, 0, '2024-11-01', 'Admin', 'System', '2024-11-01', 'Admin', 'System'),
 (2, 70, 3500000.0, N'Nhập Coca-Cola', 1, 0, '2024-11-05', 'Admin', 'System', '2024-11-05', 'Admin', 'System'),
 (3, 55, 2750000.0, N'Nhập Sprite', 1, 0, '2024-11-10', 'Admin', 'System', '2024-11-10', 'Admin', 'System'),
-(4, 40, 2000000.0, N'Nhập Fanta', 1, 0, '2024-11-15', 'Admin', 'System', '2024-11-15', 'Admin', 'System');
-
-
-
--- Bán hàng cho sản phẩm bắp với số lượng lớn để gây cháy hàng
-INSERT INTO tbl_DM_Bill (BL_PRODUCT_AutoID, BL_QUANTITY, BL_PRICE, BL_STAFF_AutoID, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
-VALUES
-(1, 15, 500.0, 1, 0, '2024-09-01', 'Admin', 'System', '2024-09-01', 'Admin', 'System'),
-(1, 20, 500.0, 1, 0, '2024-09-05', 'Admin', 'System', '2024-09-05', 'Admin', 'System'),
-(1, 25, 500.0, 1, 0, '2024-09-10', 'Admin', 'System', '2024-09-10', 'Admin', 'System'),
-(1, 30, 500.0, 1, 0, '2024-09-15', 'Admin', 'System', '2024-09-15', 'Admin', 'System'),
-(1, 35, 500.0, 1, 0, '2024-09-20', 'Admin', 'System', '2024-09-20', 'Admin', 'System');
+(4, 40, 2000000.0, N'Nhập Fanta', 1, 0, '2024-11-15', 'Admin', 'System', '2024-11-15', 'Admin', 'System'),
 
 -- Nhập kho cho sản phẩm bắp nhưng với số lượng nhỏ để phản ánh tình trạng cạn kiệt do cháy hàng
-INSERT INTO tbl_SYS_Expense (EX_EXTYPE_AutoID, EX_QUANTITY, EX_PRICE, EX_REASON, EX_STATUS, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
-VALUES
 (1, 10, 250000.0, N'Nhập bắp số lượng nhỏ', 1, 0, '2024-08-25', 'Admin', 'System', '2024-08-25', 'Admin', 'System'),
 (1, 5, 125000.0, N'Nhập bắp số lượng rất nhỏ', 1, 0, '2024-09-18', 'Admin', 'System', '2024-09-18', 'Admin', 'System'),
-(1, 8, 200000.0, N'Nhập bắp số lượng nhỏ lẻ', 1, 0, '2024-10-01', 'Admin', 'System', '2024-10-01', 'Admin', 'System');
-
-
--- Bán hàng cho sản phẩm "Bắp" với số lượng bán ổn định
-INSERT INTO tbl_DM_Bill (BL_PRODUCT_AutoID, BL_QUANTITY, BL_PRICE, BL_STAFF_AutoID, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
-VALUES
-(1, 8, 500.0, 1, 0, '2024-09-01', 'Admin', 'System', '2024-09-01', 'Admin', 'System'),
-(1, 10, 500.0, 1, 0, '2024-09-05', 'Admin', 'System', '2024-09-05', 'Admin', 'System'),
-(1, 7, 500.0, 2, 0, '2024-09-10', 'Admin', 'System', '2024-09-10', 'Admin', 'System'),
-(1, 9, 500.0, 1, 0, '2024-09-15', 'Admin', 'System', '2024-09-15', 'Admin', 'System'),
-(1, 6, 500.0, 3, 0, '2024-09-20', 'Admin', 'System', '2024-09-20', 'Admin', 'System'),
-
--- Bán hàng cho sản phẩm "Coca-Cola" với số lượng bán đều
-(2, 8, 250.0, 2, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System'),
-(2, 10, 250.0, 1, 0, '2024-09-06', 'Admin', 'System', '2024-09-06', 'Admin', 'System'),
-(2, 7, 250.0, 2, 0, '2024-09-11', 'Admin', 'System', '2024-09-11', 'Admin', 'System'),
-(2, 9, 250.0, 1, 0, '2024-09-16', 'Admin', 'System', '2024-09-16', 'Admin', 'System'),
-(2, 6, 250.0, 3, 0, '2024-09-21', 'Admin', 'System', '2024-09-21', 'Admin', 'System'),
-
--- Bán hàng cho sản phẩm "Sprite" khuyến mãi bán chậm
-(3, 8, 200.0, 3, 0, '2024-09-03', 'Admin', 'System', '2024-09-03', 'Admin', 'System'),
-(3, 10, 200.0, 1, 0, '2024-09-07', 'Admin', 'System', '2024-09-07', 'Admin', 'System'),
-(3, 7, 200.0, 2, 0, '2024-09-12', 'Admin', 'System', '2024-09-12', 'Admin', 'System'),
-(3, 9, 200.0, 1, 0, '2024-09-17', 'Admin', 'System', '2024-09-17', 'Admin', 'System'),
-(3, 6, 200.0, 3, 0, '2024-09-22', 'Admin', 'System', '2024-09-22', 'Admin', 'System');
+(1, 8, 200000.0, N'Nhập bắp số lượng nhỏ lẻ', 1, 0, '2024-10-01', 'Admin', 'System', '2024-10-01', 'Admin', 'System'),
+ 
 
 -- Nhập hàng cho sản phẩm "Bắp" để đạt trạng thái có sẵn hoặc quá tải
-INSERT INTO tbl_SYS_Expense (EX_EXTYPE_AutoID, EX_QUANTITY, EX_PRICE, EX_REASON, EX_STATUS, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
-VALUES
+ 
 (1, 15, 100000.0, N'Nhập bắp', 1, 0, '2024-09-01', 'Admin', 'System', '2024-09-01', 'Admin', 'System'),
 (1, 12, 100000.0, N'Nhập bắp', 1, 0, '2024-09-07', 'Admin', 'System', '2024-09-07', 'Admin', 'System'),
 (1, 18, 100000.0, N'Nhập bắp', 1, 0, '2024-09-14', 'Admin', 'System', '2024-09-14', 'Admin', 'System'),
 (1, 9, 100000.0, N'Nhập bắp', 1, 0, '2024-09-20', 'Admin', 'System', '2024-09-20', 'Admin', 'System'),
-(1, 5, 100000.0, N'Nhập bắp', 1, 0, '2024-09-25', 'Admin', 'System', '2024-09-25', 'Admin', 'System')
+(1, 5, 100000.0, N'Nhập bắp', 1, 0, '2024-09-25', 'Admin', 'System', '2024-09-25', 'Admin', 'System'),
 
 -- Nhập hàng cho sản phẩm "Coca-Cola" để duy trì trạng thái tồn kho
 (2, 15, 100000.0, N'Nhập Coca-Cola', 1, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System'),
