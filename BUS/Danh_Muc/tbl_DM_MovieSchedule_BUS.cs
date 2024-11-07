@@ -96,6 +96,16 @@ namespace BUS.Danh_Muc
                 throw ex;
             }
         }
+        public tbl_DM_MovieSchedule_DTO GetLastMovieSchedule_ByID(long id)
+        {
+            try
+            {
+                return dal.GetLastMovieSchedule_ByID(id);
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
         public tbl_DM_MovieSchedule_DTO GetLastMovieSchedule_ByTheaterandMovie(long theaterID, long movieID)
         {
             try

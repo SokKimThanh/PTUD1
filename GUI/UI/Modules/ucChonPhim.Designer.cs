@@ -40,12 +40,13 @@
             this.btnTiep_Tuc = new System.Windows.Forms.Button();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
+            this.dtpDate = new DevExpress.XtraEditors.DateEdit();
             this.lblTitle = new System.Windows.Forms.Label();
             this.dgvMovies = new DevExpress.XtraGrid.GridControl();
             this.gvMovies = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.txtDuration = new DevExpress.XtraEditors.TextEdit();
             this.txtAgeRating = new DevExpress.XtraEditors.TextEdit();
+            this.cboMovieSchedule = new DevExpress.XtraEditors.LookUpEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutTitle = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutAction = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -65,7 +66,6 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
-            this.cboMovieSchedule = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutForm)).BeginInit();
             this.layoutForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupBtn)).BeginInit();
@@ -74,12 +74,13 @@
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovies)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvMovies)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDuration.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAgeRating.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboMovieSchedule.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutAction)).BeginInit();
@@ -91,7 +92,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboMovieSchedule.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btnThucThi
@@ -133,7 +133,7 @@
             // layoutForm
             // 
             this.layoutForm.Controls.Add(this.groupBtn);
-            this.layoutForm.Controls.Add(this.dateEdit1);
+            this.layoutForm.Controls.Add(this.dtpDate);
             this.layoutForm.Controls.Add(this.lblTitle);
             this.layoutForm.Controls.Add(this.dgvMovies);
             this.layoutForm.Controls.Add(this.txtDuration);
@@ -205,22 +205,24 @@
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
-            // dateEdit1
+            // dtpDate
             // 
-            this.dateEdit1.EditValue = null;
-            this.dateEdit1.Location = new System.Drawing.Point(165, 102);
-            this.dateEdit1.Margin = new System.Windows.Forms.Padding(4);
-            this.dateEdit1.Name = "dateEdit1";
-            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dtpDate.EditValue = null;
+            this.dtpDate.Location = new System.Drawing.Point(165, 102);
+            this.dtpDate.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpDate.Name = "dtpDate";
+            this.dtpDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dtpDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.TouchUI;
-            this.dateEdit1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.dateEdit1.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            this.dateEdit1.Size = new System.Drawing.Size(742, 22);
-            this.dateEdit1.StyleController = this.layoutForm;
-            this.dateEdit1.TabIndex = 10;
+            this.dtpDate.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Classic;
+            this.dtpDate.Properties.MinValue = new System.DateTime(2024, 11, 7, 21, 46, 7, 0);
+            this.dtpDate.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.dtpDate.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
+            this.dtpDate.Size = new System.Drawing.Size(742, 22);
+            this.dtpDate.StyleController = this.layoutForm;
+            this.dtpDate.TabIndex = 10;
+            this.dtpDate.EditValueChanged += new System.EventHandler(this.dtpDate_EditValueChanged);
             // 
             // lblTitle
             // 
@@ -244,6 +246,8 @@
             this.dgvMovies.TabIndex = 8;
             this.dgvMovies.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvMovies});
+            this.dgvMovies.DataSourceChanged += new System.EventHandler(this.dgvMovies_DataSourceChanged);
+            this.dgvMovies.Click += new System.EventHandler(this.dgvMovies_Click);
             // 
             // gvMovies
             // 
@@ -254,7 +258,6 @@
             this.gvMovies.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
             this.gvMovies.OptionsBehavior.Editable = false;
             this.gvMovies.OptionsBehavior.ReadOnly = true;
-            this.gvMovies.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gvMovies_RowCellClick);
             // 
             // txtDuration
             // 
@@ -283,6 +286,22 @@
             this.txtAgeRating.Size = new System.Drawing.Size(429, 22);
             this.txtAgeRating.StyleController = this.layoutForm;
             this.txtAgeRating.TabIndex = 12;
+            // 
+            // cboMovieSchedule
+            // 
+            this.cboMovieSchedule.Location = new System.Drawing.Point(31, 224);
+            this.cboMovieSchedule.Margin = new System.Windows.Forms.Padding(4);
+            this.cboMovieSchedule.Name = "cboMovieSchedule";
+            this.cboMovieSchedule.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboMovieSchedule.Properties.DisplayFormat.FormatString = "d";
+            this.cboMovieSchedule.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.cboMovieSchedule.Properties.EditFormat.FormatString = "hh:mm:ss";
+            this.cboMovieSchedule.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.cboMovieSchedule.Properties.NullText = "";
+            this.cboMovieSchedule.Size = new System.Drawing.Size(876, 22);
+            this.cboMovieSchedule.StyleController = this.layoutForm;
+            this.cboMovieSchedule.TabIndex = 10;
             // 
             // Root
             // 
@@ -340,7 +359,7 @@
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.dateEdit1;
+            this.layoutControlItem2.Control = this.dtpDate;
             this.layoutControlItem2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("layoutControlItem2.ImageOptions.Image")));
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
@@ -498,22 +517,6 @@
             this.barDockControl1.Margin = new System.Windows.Forms.Padding(4);
             this.barDockControl1.Size = new System.Drawing.Size(0, 774);
             // 
-            // cboMovieSchedule
-            // 
-            this.cboMovieSchedule.Location = new System.Drawing.Point(31, 224);
-            this.cboMovieSchedule.Margin = new System.Windows.Forms.Padding(4);
-            this.cboMovieSchedule.Name = "cboMovieSchedule";
-            this.cboMovieSchedule.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboMovieSchedule.Properties.DisplayFormat.FormatString = "d";
-            this.cboMovieSchedule.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.cboMovieSchedule.Properties.EditFormat.FormatString = "d";
-            this.cboMovieSchedule.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.cboMovieSchedule.Properties.NullText = "";
-            this.cboMovieSchedule.Size = new System.Drawing.Size(876, 22);
-            this.cboMovieSchedule.StyleController = this.layoutForm;
-            this.cboMovieSchedule.TabIndex = 10;
-            // 
             // ucChonPhim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -536,12 +539,13 @@
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovies)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvMovies)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDuration.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAgeRating.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboMovieSchedule.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutAction)).EndInit();
@@ -553,7 +557,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboMovieSchedule.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -574,7 +577,7 @@
         private DevExpress.XtraLayout.LayoutControlGroup layoutAction;
         private DevExpress.XtraLayout.LayoutControlGroup layoutDGV;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private DevExpress.XtraEditors.DateEdit dateEdit1;
+        private DevExpress.XtraEditors.DateEdit dtpDate;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;

@@ -161,6 +161,28 @@ namespace DAL
                 throw ex;
             }
         }
+        public tbl_DM_MovieSchedule_DTO GetLastMovieSchedule_ByID(long id)
+        {
+            try
+            {
+                tbl_DM_MovieSchedule_DTO lastMovieSchedule = null;
+                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString))
+                {
+                    tbl_DM_MovieSchedule result = db.tbl_DM_MovieSchedules.FirstOrDefault(item => item.MS_AutoID == id);
+                    if (result != null)
+                    {
+                        tbl_DM_Movie foundMovie = db.tbl_DM_Movies.Where(item => item.MV_AutoID == result.MS_MOVIE_AutoID).First();
+                        tbl_DM_Theater foundTheater = db.tbl_DM_Theaters.Where(item => item.TT_AutoID == result.MS_THEATER_AutoID).First();
+                        lastMovieSchedule = new tbl_DM_MovieSchedule_DTO(result.MS_AutoID, result.MS_MOVIE_AutoID, foundMovie.MV_NAME, result.MS_THEATER_AutoID, foundTheater.TT_NAME, result.MS_START, result.MS_END, (int)result.DELETED);
+                    }
+                }
+                return lastMovieSchedule;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public tbl_DM_MovieSchedule_DTO GetLastMovieSchedule_ByTheaterandMovie(long theaterID, long movieID)
         {
             try

@@ -7,14 +7,20 @@ namespace DTO
         private long? autoID;
         private string name;
         private int status;
+        private int rows;
+        private int columns;
+        private int couples;
         private int deleted;
 
-        public tbl_DM_Theater_DTO(long? autoID, string name, int status, int deleted)
+        public tbl_DM_Theater_DTO(long? autoID, string name, int status, int rows, int columns, int couples, int deleted)
         {
             this.autoID = autoID;
-            this.name = name;
-            this.status = status;
-            this.deleted = deleted;
+            this.Name = name;
+            this.Status = status;
+            this.Rows = rows;
+            this.Couples = couples;
+            this.Columns = columns;
+            this.Deleted = deleted;
         }
 
         public long? AutoID { get => autoID; }
@@ -35,5 +41,9 @@ namespace DTO
                 }
             }
         }
+
+        public int Rows { get => rows; set => rows = value; }
+        public int Columns { get => columns; set => columns = value; }
+        public int Couples { get => couples; set => couples = value; }
     }
 }

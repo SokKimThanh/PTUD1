@@ -4,27 +4,38 @@ using System.Windows.Forms;
 using System;
 using DevExpress.XtraBars.FluentDesignSystem;
 using BUS.Sys;
+using BUS.Danh_Muc;
+using DTO;
+using DTO.Common;
+using DTO.tbl_DTO;
 
 namespace GUI.UI.Modules
 {
     public partial class ucChonGhe : ucBase
     {
-        //Initial variables
-        private int rows = 12;
-        private int columns = 20;
-        private int couples = 2;
+        // Biến khởi tạo
+        private int rows = 0;
+        private int columns = 0;
+        private int couples = 0;
         private int maxLength = 30;
         private int height = 0;
         private int width = 0;
         private string[] chosenSeatNames = new string[0];
+        private double price = 0;
+        private double totalPrice = 0;
         private Dictionary<string, Color> colors = new Dictionary<string, Color>()
         {
             {"Gray",Color.FromArgb(115,115,115)},
             {"Green", Color.FromArgb(31,219,80) },
         };
+        private tbl_DM_MovieSchedule_BUS movieScheBus = new tbl_DM_MovieSchedule_BUS();
+        private tbl_DM_Movie_BUS movieBus = new tbl_DM_Movie_BUS();
+        private tbl_DM_Theater_BUS theaterBus = new tbl_DM_Theater_BUS();
+        private tbl_DM_Ticket_BUS ticketBus = new tbl_DM_Ticket_BUS();
+        private tbl_DM_Theater_DTO chosenTheater;
 
 
-        //Label-creating variables
+        // Các biến cấu thành các ghế 
         private int labelLength = 0;
         private int spacing = 20;
         private int paddingTopBottom = 0;
@@ -41,11 +52,16 @@ namespace GUI.UI.Modules
         {
             if (strFunctionCode != "")
                 lblTitle.Text = strFunctionCode.ToUpper().Trim();
+            PrintSeats();
         }
 
         private void ucChonGhe_Load(object sender, System.EventArgs e)
         {
-            PrintSeats();
+            chosenTheater = theaterBus.FindByID(CCommon.suatChieuDuocChon);
+            price = (movieBus.Find((movieScheBus.GetLastMovieSchedule_ByID(CCommon.suatChieuDuocChon).Movie_AutoID)).MV_PRICE);
+            rows = chosenTheater.Rows;
+            columns = chosenTheater.Columns;
+            couples = chosenTheater.Couples;
         }
 
         //Methods
@@ -66,17 +82,32 @@ namespace GUI.UI.Modules
             //
             int[,] seats_Single = new int[rows, columns]; // Ghế đơn
             int[] seats_Couple = new int[couples]; // Ghế đôi
-            Random random = new Random();
             for (int row = 0; row < rows; row++)
             {
                 for (int col = 0; col < columns; col++)
                 {
-                    seats_Single[row, col] = random.Next(0, 2);
+                    // Kiểm tra các vé đặt ghế đơn của suất chiếu hiện tại
+                    if (ticketBus.SeatExist_ByMovieSchedule(Convert.ToChar(row + 65) + String.Format("{0:00}", col + 1), CCommon.suatChieuDuocChon))
+                    {
+                        seats_Single[row, col] = 1;
+                    }
+                    else
+                    {
+                        seats_Single[row, col] = 0;
+                    }
                 }
             }
             for (int couple = 0; couple < couples; couple++)
             {
-                seats_Couple[couple] = random.Next(0, 2); ;
+                // Kiểm tra các vé đặt ghế đôi của suất chiếu hiện tại
+                if (ticketBus.SeatExist_ByMovieSchedule("CP" + String.Format("{0:00}", couple + 1), CCommon.suatChieuDuocChon))
+                {
+                    seats_Couple[couple] = 1;
+                }
+                else
+                {
+                    seats_Couple[couple] = 0;
+                }
             }
 
             //
@@ -227,10 +258,22 @@ namespace GUI.UI.Modules
             if (currentPanel.BackColor == colors["Gray"])
             {
                 currentPanel.BackColor = colors["Green"];
+                totalPrice += price;
+                if (currentPanel.Text.Contains("CP"))
+                {
+                    totalPrice += price;
+                }
+                txtTotalPrice.Text = totalPrice.ToString();
             }
             else if (currentPanel.BackColor == colors["Green"])
             {
                 currentPanel.BackColor = colors["Gray"];
+                totalPrice -= price;
+                if (currentPanel.Text.Contains("CP"))
+                {
+                    totalPrice -= price;
+                }
+                txtTotalPrice.Text = totalPrice.ToString();
             }
             else
             {
@@ -291,7 +334,7 @@ namespace GUI.UI.Modules
 
         }
 
-       
+
         /// <summary>
         /// Nút hủy
         /// </summary>
@@ -324,6 +367,14 @@ namespace GUI.UI.Modules
             {
                 MessageBox.Show(LanguageController.GetLanguageDataLabel(ex.Message), LanguageController.GetLanguageDataLabel("Lỗi"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnLamMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            grpSeats.Controls.Clear();
+            PrintSeats();
+            totalPrice = 0;
+            txtTotalPrice.Text = totalPrice.ToString();
         }
     }
 }

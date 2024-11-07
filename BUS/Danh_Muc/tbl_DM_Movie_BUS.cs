@@ -1,5 +1,6 @@
 ﻿using DAL;
 using DTO.tbl_DTO;
+using System;
 using System.Collections.Generic;
 
 namespace BUS.Danh_Muc
@@ -44,6 +45,21 @@ namespace BUS.Danh_Muc
         public List<tbl_DM_Movie_DTO> GetAll()
         {
             return data.GetAll();
+        }
+        /// <summary>
+        /// Lấy danh sách phim theo ngày chiếu
+        /// </summary>
+        /// <param name="date"></param>
+        /// <returns></returns>
+        public List<tbl_DM_Movie_DTO> GetMovies_ByScheduleDate(DateTime date)
+        {
+            try
+            {
+                return data.GetMovies_ByScheduleDate(date);
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
         /// <summary>

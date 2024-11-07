@@ -172,46 +172,46 @@ INSERT INTO tbl_DM_Theater
     (TT_NAME, TT_STATUS, TT_ROWS, TT_COLS, TT_COUPLES, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
 VALUES 
     (N'Phòng 1', 1, 10, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
-    (N'Phòng 2', 1, 10, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
-    (N'Phòng 3', 1, 10, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
+    (N'Phòng 2', 1, 12, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
+    (N'Phòng 3', 1, 10, 20, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
     (N'Phòng 4', 1, 10, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
-    (N'Phòng 5', 1, 10, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
-    (N'Phòng 6', 1, 10, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
+    (N'Phòng 5', 1, 12, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
+    (N'Phòng 6', 1, 10, 20, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
     (N'Phòng 7', 1, 10, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
-    (N'Phòng 8', 1, 10, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
-    (N'Phòng 9', 1, 10, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
+    (N'Phòng 8', 1, 12, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
+    (N'Phòng 9', 1, 10, 20, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
     (N'Phòng 10', 1, 10, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
-    (N'Phòng 11', 1, 10, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
-    (N'Phòng 12', 1, 10, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
+    (N'Phòng 11', 1, 12, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
+    (N'Phòng 12', 1, 10, 20, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
     (N'Phòng 13', 1, 10, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
-    (N'Phòng 14', 1, 10, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
-    (N'Phòng 15', 1, 10, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
+    (N'Phòng 14', 1, 12, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
+    (N'Phòng 15', 1, 10, 20, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
     (N'phòng chiếu IMAX', 1, 10, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert'),
-    (N'phòng chiếu 4DX', 1, 10, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert');
+    (N'phòng chiếu 4DX', 1, 12, 15, 2, 0, GETDATE(), 'Admin', 'insert', GETDATE(), 'Admin', 'insert');
 
 go
 INSERT INTO tbl_DM_MovieSchedule (MS_MOVIE_AutoID, MS_THEATER_AutoID, MS_START, MS_END, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
 VALUES
-    (1, 1, '2024-10-22 10:00:00', '2024-10-22 12:00:00' , 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Inception tại Theater 1
-    (2, 2, '2024-10-22 13:00:00', '2024-10-22 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- The Matrix tại Theater 2
-    (3, 1, '2024-10-22 16:00:00', '2024-10-22 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Interstellar tại Theater 1
-    (4, 3, '2024-10-23 10:00:00', '2024-10-22 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Avatar tại Theater 3
-    (5, 2, '2024-10-23 13:00:00', '2024-10-22 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Titanic tại Theater 2
-    (6, 1, '2024-10-23 16:00:00', '2024-10-22 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Joker tại Theater 1
-    (7, 3, '2024-10-24 10:00:00', '2024-10-22 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- The Godfather tại Theater 3
-    (8, 2, '2024-10-24 13:00:00', '2024-10-22 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Star Wars tại Theater 2
-    (9, 1, '2024-10-24 16:00:00', '2024-10-22 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Gladiator tại Theater 1
-    (10, 3, '2024-10-25 10:00:00', '2024-10-22 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Lord of the Rings tại Theater 3
-    (11, 2, '2024-10-25 13:00:00', '2024-10-22 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Schindler's List tại Theater 2
-    (12, 1, '2024-10-25 16:00:00', '2024-10-22 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- The Dark Knight tại Theater 1
-    (13, 3, '2024-10-26 10:00:00', '2024-10-22 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Forrest Gump tại Theater 3
-    (14, 2, '2024-10-26 13:00:00', '2024-10-22 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- The Avengers tại Theater 2
-    (15, 1, '2024-10-26 16:00:00', '2024-10-22 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Black Panther tại Theater 1
-    (16, 3, '2024-10-27 10:00:00', '2024-10-22 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Frozen tại Theater 3
-    (17, 2, '2024-10-27 13:00:00', '2024-10-22 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Finding Nemo tại Theater 2
-    (18, 1, '2024-10-27 16:00:00', '2024-10-22 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Shrek tại Theater 1
-    (19, 3, '2024-10-28 10:00:00', '2024-10-22 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Toy Story tại Theater 3
-    (20, 2, '2024-10-28 13:00:00', '2024-10-22 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System');  -- Monsters, Inc. tại Theater 2
+    (1, 1, '2024-11-08 10:00:00', '2024-11-08 12:00:00' , 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Inception tại Theater 1
+    (2, 2, '2024-11-08 13:00:00', '2024-11-08 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- The Matrix tại Theater 2
+    (3, 1, '2024-11-08 16:00:00', '2024-11-08 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Interstellar tại Theater 1
+    (4, 3, '2024-11-09 10:00:00', '2024-11-09 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Avatar tại Theater 3
+    (5, 2, '2024-11-09 13:00:00', '2024-11-09 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Titanic tại Theater 2
+    (6, 1, '2024-11-09 16:00:00', '2024-11-09 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Joker tại Theater 1
+    (7, 3, '2024-11-10 10:00:00', '2024-11-10 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- The Godfather tại Theater 3
+    (8, 2, '2024-11-10 13:00:00', '2024-11-10 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Star Wars tại Theater 2
+    (9, 1, '2024-11-10 16:00:00', '2024-11-10 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Gladiator tại Theater 1
+    (10, 3, '2024-10-25 10:00:00', '2024-11-11 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Lord of the Rings tại Theater 3
+    (11, 2, '2024-10-25 13:00:00', '2024-11-11 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Schindler's List tại Theater 2
+    (12, 1, '2024-10-25 16:00:00', '2024-11-11 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- The Dark Knight tại Theater 1
+    (13, 3, '2024-11-12 10:00:00', '2024-11-12 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Forrest Gump tại Theater 3
+    (14, 2, '2024-11-12 13:00:00', '2024-11-12 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- The Avengers tại Theater 2
+    (15, 1, '2024-11-12 16:00:00', '2024-11-12 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Black Panther tại Theater 1
+    (16, 3, '2024-11-13 10:00:00', '2024-11-13 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Frozen tại Theater 3
+    (17, 2, '2024-11-13 13:00:00', '2024-11-13 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Finding Nemo tại Theater 2
+    (18, 1, '2024-11-13 16:00:00', '2024-11-13 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Shrek tại Theater 1
+    (19, 3, '2024-11-14 10:00:00', '2024-11-14 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Toy Story tại Theater 3
+    (20, 2, '2024-11-14 13:00:00', '2024-11-14 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System');  -- Monsters, Inc. tại Theater 2
 
 -- Thêm dữ liệu vào bảng tbl_DM_Staff (nhân viên)
 go
