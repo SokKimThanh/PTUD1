@@ -14,20 +14,7 @@ namespace DAL
     public class tbl_DM_Ticket_DAL
     {
         private readonly string _connectionString = CConfig.CM_Cinema_DB_ConnectionString;
-        public void AddData(tbl_DM_Ticket_DTO obj)
-        {
-            try
-            {
-                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString))
-                {
 
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
         public List<tbl_DM_Ticket_DTO> GetList()
         {
             try
@@ -105,9 +92,9 @@ namespace DAL
                 using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString))
                 {
                     tbl_DM_Ticket foundTicket = db.tbl_DM_Tickets.SingleOrDefault(item => item.TK_AutoID == ticketID);
-                    if(foundTicket != null)
+                    if (foundTicket != null)
                     {
-                        tbl_DM_Ticket_DTO result = new tbl_DM_Ticket_DTO(foundTicket.TK_AutoID,foundTicket.TK_SEATNAME, foundTicket.TK_MOVIESCHEDULE_AutoID,foundTicket.TK_STAFF_AutoID, (int)foundTicket.DELETED);
+                        tbl_DM_Ticket_DTO result = new tbl_DM_Ticket_DTO(foundTicket.TK_AutoID, foundTicket.TK_SEATNAME, foundTicket.TK_MOVIESCHEDULE_AutoID, foundTicket.TK_STAFF_AutoID, (int)foundTicket.DELETED);
                         return result;
                     }
                     else
@@ -116,10 +103,39 @@ namespace DAL
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
+        }
+
+
+        public void AddData(tbl_DM_Ticket_DTO p_objData)
+        {
+            try
+            {
+                tbl_DM_Ticket v_objRes = new tbl_DM_Ticket();
+                v_objRes.TK_STAFF_AutoID = p_objData.StaffID;
+                v_objRes.TK_MOVIESCHEDULE_AutoID = p_objData.MovieScheID;
+                v_objRes.TK_SEATNAME = p_objData.SeatName;
+                v_objRes.CREATED_BY = "admin";
+                v_objRes.UPDATED_BY = "admin";
+                v_objRes.CREATED = DateTime.Now;
+                v_objRes.UPDATED = DateTime.Now;
+                v_objRes.DELETED = 0;
+
+                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString))
+                {
+                    db.tbl_DM_Tickets.InsertOnSubmit(v_objRes);
+                    db.SubmitChanges();
+                }
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
         }
     }
 }

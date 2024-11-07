@@ -284,16 +284,7 @@ namespace GUI.UI.Modules
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            int count = 0;
-            foreach (Control ctrl in grpSeats.Controls)
-            {
-                if ((ctrl as Label).BackColor == colors["Green"])
-                {
-                    Array.Resize(ref chosenSeatNames, chosenSeatNames.Length + 1);
-                    chosenSeatNames[count] = ctrl.Text.Trim();
-                    count++;
-                }
-            }
+            
             string text = "";
             foreach (string item in chosenSeatNames)
             {
@@ -320,6 +311,19 @@ namespace GUI.UI.Modules
 
                         // Dock control vào container để nó chiếm toàn bộ diện tích
                         v_objLoad.Dock = DockStyle.Fill;
+
+                        int count = 0;
+                        foreach (Control ctrl in grpSeats.Controls)
+                        {
+                            if ((ctrl as Label).BackColor == colors["Green"])
+                            {
+                                Array.Resize(ref chosenSeatNames, chosenSeatNames.Length + 1);
+                                chosenSeatNames[count] = ctrl.Text.Trim();
+                                count++;
+                            }
+                        }
+                        v_objLoad.Danh_Sach_Ten_Ghe = chosenSeatNames;
+                        v_objLoad.Tong_Tien_Ghe = totalPrice;
 
                         // Thêm UserControl vào main container
                         v_objContainer.Controls.Add(v_objLoad);

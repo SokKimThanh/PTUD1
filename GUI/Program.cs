@@ -18,36 +18,36 @@ namespace GUI
         [STAThread]
         static void Main()
         {
-            List<string> arrServers = new List<string>();
+            //List<string> arrServers = new List<string>();
 
-            SqlDataSourceEnumerator objSqlDataSoucre = SqlDataSourceEnumerator.Instance;
-            DataTable dt = objSqlDataSoucre.GetDataSources(); //Lấy datasoucre
+            //SqlDataSourceEnumerator objSqlDataSoucre = SqlDataSourceEnumerator.Instance;
+            //DataTable dt = objSqlDataSoucre.GetDataSources(); //Lấy datasoucre
 
-            foreach (DataRow row in dt.Rows)
-            {
-                string strServerName = row["ServerName"].ToString();
-                string strInstanceName = row["InstanceName"].ToString();
-                string strFullServerName = "";
-                if (strInstanceName != null && strInstanceName.Trim() != "")
-                    strFullServerName = strServerName.Trim();
-                else
-                    strFullServerName = $"{strServerName}\\{strInstanceName}";
+            //foreach (DataRow row in dt.Rows)
+            //{
+            //    string strServerName = row["ServerName"].ToString();
+            //    string strInstanceName = row["InstanceName"].ToString();
+            //    string strFullServerName = "";
+            //    if (strInstanceName != null && strInstanceName.Trim() != "")
+            //        strFullServerName = strServerName.Trim();
+            //    else
+            //        strFullServerName = $"{strServerName}\\{strInstanceName}";
 
-                using (SqlConnection conn = new SqlConnection($"Server={strFullServerName};Database=CM_Cinema_DB;Integrated Security=True;"))
-                {
-                    try
-                    {
-                        conn.Open();
-                        conn.Close();
-                        CConfig.CM_Cinema_DB_ConnectionString = conn.ConnectionString;
-                        break;
-                    }
-                    catch (SqlException)
-                    {
+            //    using (SqlConnection conn = new SqlConnection($"Server={strFullServerName};Database=CM_Cinema_DB;Integrated Security=True;"))
+            //    {
+            //        try
+            //        {
+            //            conn.Open();
+            //            conn.Close();
+            //            CConfig.CM_Cinema_DB_ConnectionString = conn.ConnectionString;
+            //            break;
+            //        }
+            //        catch (SqlException)
+            //        {
 
-                    }
-                }
-            }
+            //        }
+            //    }
+            //}
             if (CConfig.CM_Cinema_DB_ConnectionString == "")
             {
                 // Tự động lấy tên máy chủ

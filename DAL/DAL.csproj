@@ -55,6 +55,7 @@
       <DependentUpon>CM_Cinema_DB.dbml</DependentUpon>
     </Compile>
     <Compile Include="tbl_DAL\InventorySettings.cs" />
+    <Compile Include="tbl_DM_Bill_DAL.cs" />
     <Compile Include="tbl_DM_MovieSchedule_DAL.cs" />
     <Compile Include="tbl_DM_Movie_DAL.cs" />
     <Compile Include="tbl_DM_Product_DAL.cs" />
