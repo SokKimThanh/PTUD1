@@ -130,6 +130,7 @@ namespace GUI.UI.Modules
                         txtDuration.Text = o.MV_DURATION.ToString().Trim();
                         txtAgeRating.Text = foundAR.AR_NOTE.ToString().Trim();
                         cboMovieSchedule.Properties.DataSource = movieScheBus.GetMovieSchedule_ByMovie(o.MV_AutoID);
+                        cboMovieSchedule.ItemIndex = 0;
                     }
                     catch (Exception ex)
                     {
