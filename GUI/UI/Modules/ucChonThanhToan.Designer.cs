@@ -526,8 +526,8 @@
             this.bar2.DockRow = 0;
             this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem4, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnThem_San_Pham)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnThem_San_Pham, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem4, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
@@ -544,6 +544,7 @@
             // 
             this.btnThem_San_Pham.Caption = "Thêm sản phẩm";
             this.btnThem_San_Pham.Id = 1;
+            this.btnThem_San_Pham.ImageOptions.Image = global::GUI.Properties.Resources.additem_16x162;
             this.btnThem_San_Pham.Name = "btnThem_San_Pham";
             this.btnThem_San_Pham.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThem_San_Pham_ItemClick);
             // 
