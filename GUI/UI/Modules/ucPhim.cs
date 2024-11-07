@@ -188,7 +188,7 @@ namespace GUI.UI.Modules
                         {
                             // Nếu file không tồn tại, sử dụng hình từ Resources
                             // Tên 'no_image_256' là tên của hình trong Resources
-                            pictureBox.Image = Properties.Resources.no_image_256;
+                            pictureBox.Image = Properties.Resources.gridview_no_image;
                         }
                     }
                     catch (Exception ex)
@@ -289,7 +289,14 @@ namespace GUI.UI.Modules
                 {
                     // Chuyển đường dẫn thành hình ảnh
                     Image img = Image.FromFile(imagePath);
-
+                    // Vẽ hình ảnh vào ô
+                    e.Graphics.DrawImage(img, e.Bounds);
+                    e.Handled = true; // Ngăn không vẽ dữ liệu mặc định lên ô
+                }
+                else
+                {
+                    // Chuyển đường dẫn thành hình ảnh
+                    Image img = Properties.Resources.gridview_no_image;
                     // Vẽ hình ảnh vào ô
                     e.Graphics.DrawImage(img, e.Bounds);
                     e.Handled = true; // Ngăn không vẽ dữ liệu mặc định lên ô

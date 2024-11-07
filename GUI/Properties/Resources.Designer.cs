@@ -813,6 +813,16 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gridview_no_image {
+            get {
+                object obj = ResourceManager.GetObject("gridview_no_image", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap highlightactiveelements_16x16 {
             get {
                 object obj = ResourceManager.GetObject("highlightactiveelements_16x16", resourceCulture);
