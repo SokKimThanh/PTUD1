@@ -26,5 +26,25 @@ namespace BUS.Danh_Muc
         {
             return dal.SeatExist_ByMovieSchedule(seatName, movieScheduleID);
         }
+        public List<tbl_DM_Ticket_DTO> GetList()
+        {
+            try
+            {
+                return dal.GetList();
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public tbl_DM_Ticket_DTO GetTicket_ByID(long id)
+        {
+            try
+            {
+                return dal.GetTicket_ByID(id);
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

@@ -114,6 +114,24 @@ namespace DAL
             throw new NotImplementedException();
         }
 
+        public tbl_DM_Staff_DTO GetStaff_ByID(int id)
+        {
+            try
+            {
+                tbl_DM_Staff objDB = DBDataContext.tbl_DM_Staffs.FirstOrDefault(it => it.ST_AutoID == id && it.DELETED == 0);
+                tbl_DM_Staff_DTO objRes = null;
+                if (objDB != null)
+                {
+                    objRes = new tbl_DM_Staff_DTO();
+                    CUtility.Clone_Entity(objDB, objRes);
+                }
 
+                return objRes;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
