@@ -51,9 +51,9 @@
             this.layoutTitle = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutAction = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutDGV = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -85,9 +85,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutAction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
@@ -336,7 +336,6 @@
             this.layoutAction.CaptionImageOptions.Image = global::GUI.Properties.Resources.reviewallowuserstoeditranges_16x16;
             this.layoutAction.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem6,
-            this.layoutControlItem2,
             this.layoutControlItem5,
             this.layoutControlItem3});
             this.layoutAction.Location = new System.Drawing.Point(0, 44);
@@ -458,7 +457,6 @@
             this.bar2.DockRow = 0;
             this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem2, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem1, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
@@ -550,9 +548,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutAction)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();

@@ -33,6 +33,7 @@ namespace GUI
             { "accBaoCaoDoanhThu", new ucBaoCaoDoanhThu() },
             { "accBaoCaoThuChi", new ucBaoCaoThuChi() },
             { "accBaoCaoTonKho", new ucBaoCaoTonKho() },
+               { "accThanhToan", new ucChonThanhToan() },
         };
 
         private frmLoading frmLoad = null;

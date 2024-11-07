@@ -1,5 +1,6 @@
 ﻿using BUS;
 using BUS.Danh_Muc;
+using DevExpress.Utils;
 using DevExpress.XtraEditors.Controls;
 using DTO.tbl_DTO;
 using System;
@@ -17,6 +18,7 @@ namespace GUI.UI.Modules
 
         private string dgv_selected_id = "";
         private long? cboAgeRating_selected_id = -1;// giá trị từ ComboBoxEdit
+
         public ucPhim()
         {
             InitializeComponent();
@@ -86,6 +88,9 @@ namespace GUI.UI.Modules
             gridView1.Columns["MV_POSTERURL"].Caption = "Đường dẫn Hình ảnh";
             gridView1.Columns["MV_AutoID"].Visible = false;
             gridView1.Columns["MV_AGERATING_AutoID"].Visible = false;
+
+            // Đặt VisibleIndex của cột MV_POSTERURL về 0 để chuyển nó lên vị trí đầu tiên
+            gridView1.Columns["MV_POSTERURL"].VisibleIndex = 0;
         }
         /// <summary>
         /// Thêm mới movie
@@ -176,7 +181,7 @@ namespace GUI.UI.Modules
                         txtPrice.Text = o.MV_PRICE.ToString();
                         // Hiển thị dữ liệu lên combobox
                         cboAgeRating.EditValue = o.MV_AGERATING_AutoID;
-                        // Hiển thị hình ảnh trên PictureEdit 
+                        // Hiển thị hình ảnh trên PictureEdit
                         try
                         {
                             Image image = Image.FromFile(o.MV_POSTERURL);
@@ -184,8 +189,8 @@ namespace GUI.UI.Modules
                         }
                         catch
                         {
-
-
+                            // Nếu file không tồn tại, sử dụng hình từ Resources
+                            pictureBox.Image = Properties.Resources.picture_box_no_image;
                         }
                     }
                     catch (Exception ex)
@@ -286,7 +291,14 @@ namespace GUI.UI.Modules
                 {
                     // Chuyển đường dẫn thành hình ảnh
                     Image img = Image.FromFile(imagePath);
-
+                    // Vẽ hình ảnh vào ô
+                    e.Graphics.DrawImage(img, e.Bounds);
+                    e.Handled = true; // Ngăn không vẽ dữ liệu mặc định lên ô
+                }
+                else
+                {
+                    // Chuyển đường dẫn thành hình ảnh
+                    Image img = Properties.Resources.gridview_no_image;
                     // Vẽ hình ảnh vào ô
                     e.Graphics.DrawImage(img, e.Bounds);
                     e.Handled = true; // Ngăn không vẽ dữ liệu mặc định lên ô
