@@ -85,5 +85,15 @@ namespace BUS.Danh_Muc
                 throw ex;
             }
         }
+        public tbl_DM_Theater_DTO FindByID(long id)
+        {
+            try
+            {
+                return dal.FindByID(id);
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

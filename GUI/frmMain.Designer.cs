@@ -63,7 +63,8 @@
             // mainContainer
             // 
             this.mainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainContainer.Location = new System.Drawing.Point(260, 31);
+            this.mainContainer.Location = new System.Drawing.Point(303, 39);
+            this.mainContainer.Margin = new System.Windows.Forms.Padding(4);
             this.mainContainer.Name = "mainContainer";
             this.mainContainer.Size = new System.Drawing.Size(700, 608);
             this.mainContainer.TabIndex = 0;
@@ -75,7 +76,8 @@
             this.aceDanhMuc,
             this.aceBaoCao,
             this.aceHeThong});
-            this.arrFunction.Location = new System.Drawing.Point(0, 31);
+            this.arrFunction.Location = new System.Drawing.Point(0, 39);
+            this.arrFunction.Margin = new System.Windows.Forms.Padding(4);
             this.arrFunction.Name = "arrFunction";
             this.arrFunction.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
             this.arrFunction.Size = new System.Drawing.Size(260, 608);
@@ -180,6 +182,7 @@
             this.accQLGhe.Name = "accQLGhe";
             this.accQLGhe.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accQLGhe.Text = "Ghế";
+            this.accQLGhe.Visible = false;
             // 
             // accQLDanhGiaDoTuoi
             // 
@@ -259,6 +262,7 @@
             this.fluentDesignFormControl1.FluentDesignForm = this;
             this.fluentDesignFormControl1.Location = new System.Drawing.Point(0, 0);
             this.fluentDesignFormControl1.Manager = this.fluentFormDefaultManager1;
+            this.fluentDesignFormControl1.Margin = new System.Windows.Forms.Padding(4);
             this.fluentDesignFormControl1.Name = "fluentDesignFormControl1";
             this.fluentDesignFormControl1.Size = new System.Drawing.Size(960, 31);
             this.fluentDesignFormControl1.TabIndex = 2;
@@ -285,6 +289,7 @@
             this.Controls.Add(this.fluentDesignFormControl1);
             this.FluentDesignFormControl = this.fluentDesignFormControl1;
             this.IconOptions.Image = global::GUI.Properties.Resources.Logo;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMain";
             this.NavigationControl = this.arrFunction;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

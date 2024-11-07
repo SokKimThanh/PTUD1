@@ -16,10 +16,11 @@ namespace DTO.tbl_DTO
         private long theater_AutoID;
         private string theater_Name;
         private DateTime startDate;
+        private DateTime endDate;
         private int deleted;
         #endregion
 
-        public tbl_DM_MovieSchedule_DTO(long? autoID, long movie_AutoID, string movie_Name, long theater_AutoID, string theater_Name, DateTime startDate, int deleted)
+        public tbl_DM_MovieSchedule_DTO(long? autoID, long movie_AutoID, string movie_Name, long theater_AutoID, string theater_Name, DateTime startDate, DateTime endDate, int deleted)
         {
             this.AutoID = autoID;
             this.Movie_AutoID = movie_AutoID;
@@ -27,6 +28,7 @@ namespace DTO.tbl_DTO
             this.Theater_AutoID = theater_AutoID;
             this.Theater_Name = theater_Name;
             this.StartDate = startDate;
+            this.StartDate = endDate;
             this.Deleted = deleted;
         }
 
@@ -37,16 +39,18 @@ namespace DTO.tbl_DTO
         public DateTime StartDate { 
             get => startDate; 
             set{
-                if(value < DateTime.Now)
-                {
-                    throw new Exception("Lỗi chọn ngày trong quá khứ");
-                }
-                else
-                {
-                    startDate = value;
-                }
+                //if(value < DateTime.Now)
+                //{
+                //    throw new Exception("Lỗi chọn ngày trong quá khứ");
+                //}
+                //else
+                //{
+                //    startDate = value;
+                //}
+                startDate = value;
             }
         }
+        public DateTime EndDate { get => endDate; set => endDate = value; }
         public int Deleted { get => deleted; set => deleted = value; }
         public string Movie_Name { get => movie_Name; set => movie_Name = value; }
         public string Theater_Name { get => theater_Name; set => theater_Name = value; }

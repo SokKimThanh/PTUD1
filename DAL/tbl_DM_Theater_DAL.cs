@@ -31,7 +31,7 @@ namespace DAL
                             int delete = 0;
                             if (item.DELETED != null)
                                 delete = (int)item.DELETED;
-                            list.Add(new tbl_DM_Theater_DTO(item.TT_AutoID, item.TT_NAME, item.TT_STATUS, delete));
+                            list.Add(new tbl_DM_Theater_DTO(item.TT_AutoID, item.TT_NAME, item.TT_STATUS, item.TT_ROWS, item.TT_COLS, item.TT_COUPLES, delete));
                         }
                     }
                     return list;
@@ -57,7 +57,7 @@ namespace DAL
                     // Chuyển kiểu dữ liệu từ context sang DTO
                     foreach (tbl_DM_Theater item in db.tbl_DM_Theaters.Where(item=> item.DELETED == 0 && item.TT_STATUS == 1).ToList())
                     {
-                        list.Add(new tbl_DM_Theater_DTO(item.TT_AutoID, item.TT_NAME, item.TT_STATUS, (int)item.DELETED));
+                        list.Add(new tbl_DM_Theater_DTO(item.TT_AutoID, item.TT_NAME, item.TT_STATUS, item.TT_ROWS, item.TT_COLS, item.TT_COUPLES, (int)item.DELETED));
                     }
                     return list;
                 }
@@ -83,7 +83,9 @@ namespace DAL
                     {
                         TT_NAME = obj.Name,
                         TT_STATUS = obj.Status,
-
+                        TT_ROWS = obj.Rows,
+                        TT_COLS = obj.Columns,
+                        TT_COUPLES = obj.Couples,
                     };
                     theater.DELETED = 0;
                     theater.CREATED = DateTime.Now;
@@ -154,6 +156,9 @@ namespace DAL
                     {
                         // Sửa thông tin phòng chiếu
                         theater.TT_NAME = obj.Name;
+                        theater.TT_ROWS = obj.Rows;
+                        theater.TT_COLS = obj.Columns;
+                        theater.TT_COUPLES = obj.Couples;
                         theater.TT_STATUS = obj.Status;
                         theater.DELETED = obj.Deleted;
                         theater.UPDATED = DateTime.Now;
@@ -184,7 +189,30 @@ namespace DAL
                     tbl_DM_Theater theater_Found = db.tbl_DM_Theaters.SingleOrDefault(item => item.TT_NAME.Trim() == name);
                     if (theater_Found != null)
                     {
-                        tbl_DM_Theater_DTO result = new tbl_DM_Theater_DTO(theater_Found.TT_AutoID, theater_Found.TT_NAME, theater_Found.TT_STATUS, (int)theater_Found.DELETED);
+                        tbl_DM_Theater_DTO result = new tbl_DM_Theater_DTO(theater_Found.TT_AutoID, theater_Found.TT_NAME, theater_Found.TT_STATUS, theater_Found.TT_ROWS, theater_Found.TT_COLS, theater_Found.TT_COUPLES, (int)theater_Found.DELETED);
+                        return result;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public tbl_DM_Theater_DTO FindByID(long id)
+        {
+            try
+            {
+                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString))
+                {
+                    tbl_DM_Theater theater_Found = db.tbl_DM_Theaters.SingleOrDefault(item => item.TT_AutoID == id);
+                    if (theater_Found != null)
+                    {
+                        tbl_DM_Theater_DTO result = new tbl_DM_Theater_DTO(theater_Found.TT_AutoID, theater_Found.TT_NAME, theater_Found.TT_STATUS, theater_Found.TT_ROWS, theater_Found.TT_COLS, theater_Found.TT_COUPLES, (int)theater_Found.DELETED);
                         return result;
                     }
                     else

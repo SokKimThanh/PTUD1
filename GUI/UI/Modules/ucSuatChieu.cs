@@ -1,5 +1,6 @@
 ﻿using BUS.Danh_Muc;
 using DevExpress.XtraEditors.Controls;
+using DTO.tbl_DTO;
 using System;
 using System.Windows.Forms;
 using System.Xml.Linq;
@@ -49,6 +50,23 @@ namespace GUI.UI.Modules
             dgvMovieSchedules.DataSource = movieSche_bus.GetList();
             dgvMovieSchedules.Refresh();
 
+            // Lấy suất chiếu cuối của phòng chiếu đang chọn
+            tbl_DM_MovieSchedule_DTO lastMovieSchedule = movieSche_bus.GetLastMovieSchedule_ByTheater((long)cboTheaters.EditValue);
+            if (lastMovieSchedule != null)
+            {
+                // Gắn giờ bắt đầu và giờ kết thúc
+                dtpStartDate.EditValue = lastMovieSchedule.StartDate;
+                dtpEndDate.EditValue = lastMovieSchedule.EndDate;
+            }
+            else
+            {
+                // Gắn giờ gần nhất hiện tại
+                dtpStartDate.EditValue = RoundUpToNearestHour(DateTime.Now);
+
+                // Gắn giờ kết thúc theo thời gian chiếu của phim
+                tbl_DM_Movie_DTO foundMovie = movie_bus.Find((long)cboMovies.EditValue);
+                dtpEndDate.EditValue = RoundUpToNearestHour(DateTime.Now).AddMinutes(foundMovie.MV_DURATION);
+            }
         }
         /// <summary>
         /// Nút thêm
@@ -60,10 +78,11 @@ namespace GUI.UI.Modules
             try
             {
                 // Lấy ngày và giờ đã chọn
-                DateTime startDate = new DateTime(((DateTime)tmpStartTime.EditValue).TimeOfDay.Ticks + dtpStartDate.DateTime.Ticks);
+                DateTime startDate = (DateTime)dtpEndDate.EditValue;
+                DateTime endDate = (DateTime)dtpEndDate.EditValue;
 
                 // Thêm dữ liệu vào danh sách
-                movieSche_bus.AddData((long)cboMovies.EditValue, (long)cboTheaters.EditValue, startDate);
+                movieSche_bus.AddData((long)cboMovies.EditValue, (long)cboTheaters.EditValue, startDate, endDate);
 
                 Load_Data();
             }
@@ -120,9 +139,10 @@ namespace GUI.UI.Modules
                         id = (long)gvMovieSchedules.GetRowCellValue(i, "AutoID");
                     }
                 }
-                DateTime startDate = new DateTime(((DateTime)tmpStartTime.EditValue).TimeOfDay.Ticks + dtpStartDate.DateTime.Ticks);
+                DateTime startDate = (DateTime)dtpStartDate.EditValue;
+                DateTime endDate = (DateTime)dtpEndDate.EditValue;
 
-                movieSche_bus.UpdateData(id, (long)cboMovies.EditValue, (long)cboTheaters.EditValue, startDate, 0);
+                movieSche_bus.UpdateData(id, (long)cboMovies.EditValue, (long)cboTheaters.EditValue, startDate, endDate, 0);
                 Load_Data();
             }
             catch (Exception ex)
@@ -163,8 +183,8 @@ namespace GUI.UI.Modules
                         cboMovies.EditValue = gvMovieSchedules.GetRowCellValue(i, "Movie_AutoID");
                         cboTheaters.EditValue = gvMovieSchedules.GetRowCellValue(i, "Theater_AutoID");
                         DateTime startDate = (DateTime)gvMovieSchedules.GetRowCellValue(i, "StartDate");
-                        tmpStartTime.EditValue = startDate;
                         dtpStartDate.EditValue = startDate;
+                        dtpEndDate.EditValue = startDate;
                     }
                 }
             }catch(Exception ex)
@@ -172,5 +192,21 @@ namespace GUI.UI.Modules
                 MessageBox.Show(ex.Message);
             }
         }
+
+        /// <summary>
+        /// Hàm làm tròn lên giờ
+        /// </summary>
+        /// <param name="dateTime">Giờ hiện tại</param>
+        /// <returns></returns>
+        public static DateTime RoundUpToNearestHour(DateTime dateTime)
+        {
+            if (dateTime.Minute == 0 && dateTime.Second == 0 && dateTime.Millisecond == 0)
+            {
+                return dateTime; // Already on the hour
+            }
+
+            return new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, dateTime.Hour, 0, 0).AddHours(1);
+        }
+
     }
 }

@@ -3,6 +3,7 @@ using DTO.tbl_DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using static DevExpress.Xpo.Helpers.AssociatedCollectionCriteriaHelper;
 
 namespace DAL
 {
@@ -168,6 +169,50 @@ namespace DAL
                 throw new Exception($"Lỗi thực thi thao tác với DB: {ex.Message}");
             }
         }
+        /// <summary>
+        /// Lấy danh sách phim theo ngày chiếu
+        /// </summary>
+        /// <param name="date"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public List<tbl_DM_Movie_DTO> GetMovies_ByScheduleDate(DateTime date)
+        {
+            try
+            {
+                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext(_connectionString))
+                {
+                    List<tbl_DM_Movie_DTO> result = new List<tbl_DM_Movie_DTO>();
+                    var list = from mv in db.tbl_DM_Movies
+                               join ms in db.tbl_DM_MovieSchedules on mv.MV_AutoID equals ms.MS_MOVIE_AutoID
+                               where ms.MS_START.Date == date.Date
+                               select mv;
+
+                    foreach (var item in list)
+                    {
+                        if (item.DELETED != 1)
+                        {
+                            tbl_DM_Movie_DTO entity = new tbl_DM_Movie_DTO()
+                            {
+                                MV_AutoID = item.MV_AutoID,
+                                MV_POSTERURL = item.MV_POSTERURL,
+                                MV_DESCRIPTION = item.MV_DESCRIPTION,
+                                MV_DURATION = item.MV_DURATION,
+                                MV_NAME = item.MV_NAME,
+                                MV_PRICE = item.MV_PRICE,
+                                MV_AGERATING_AutoID = item.MV_AGERATING_AutoID,
+                            };
+                            result.Add(entity);
+                        }
+                    }
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Lỗi thực thi thao tác với DB: {ex.Message}");
+            }
+        }
+
         /// <summary>
         /// Danh sách combobox phim
         /// </summary>
