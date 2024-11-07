@@ -54,6 +54,7 @@
             this.accNgonNgu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.fluentFormDefaultManager1 = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
+            this.accThanhToan = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.arrFunction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).BeginInit();
@@ -62,10 +63,9 @@
             // mainContainer
             // 
             this.mainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainContainer.Location = new System.Drawing.Point(303, 39);
-            this.mainContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mainContainer.Location = new System.Drawing.Point(260, 31);
             this.mainContainer.Name = "mainContainer";
-            this.mainContainer.Size = new System.Drawing.Size(817, 747);
+            this.mainContainer.Size = new System.Drawing.Size(700, 608);
             this.mainContainer.TabIndex = 0;
             // 
             // arrFunction
@@ -75,11 +75,10 @@
             this.aceDanhMuc,
             this.aceBaoCao,
             this.aceHeThong});
-            this.arrFunction.Location = new System.Drawing.Point(0, 39);
-            this.arrFunction.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.arrFunction.Location = new System.Drawing.Point(0, 31);
             this.arrFunction.Name = "arrFunction";
             this.arrFunction.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
-            this.arrFunction.Size = new System.Drawing.Size(303, 747);
+            this.arrFunction.Size = new System.Drawing.Size(260, 608);
             this.arrFunction.TabIndex = 1;
             this.arrFunction.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -96,7 +95,8 @@
             this.accQLPhanCa,
             this.accQLCaLamViec,
             this.accQLGhe,
-            this.accQLDanhGiaDoTuoi});
+            this.accQLDanhGiaDoTuoi,
+            this.accThanhToan});
             this.aceDanhMuc.Expanded = true;
             this.aceDanhMuc.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("aceDanhMuc.ImageOptions.Image")));
             this.aceDanhMuc.Name = "aceDanhMuc";
@@ -108,7 +108,7 @@
             this.accDatVe.Name = "accDatVe";
             this.accDatVe.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accDatVe.Text = "Đặt vé";
-
+            // 
             // accQLPhim
             // 
             this.accQLPhim.Hint = "Quản Lý Phim";
@@ -259,9 +259,8 @@
             this.fluentDesignFormControl1.FluentDesignForm = this;
             this.fluentDesignFormControl1.Location = new System.Drawing.Point(0, 0);
             this.fluentDesignFormControl1.Manager = this.fluentFormDefaultManager1;
-            this.fluentDesignFormControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.fluentDesignFormControl1.Name = "fluentDesignFormControl1";
-            this.fluentDesignFormControl1.Size = new System.Drawing.Size(1120, 39);
+            this.fluentDesignFormControl1.Size = new System.Drawing.Size(960, 31);
             this.fluentDesignFormControl1.TabIndex = 2;
             this.fluentDesignFormControl1.TabStop = false;
             // 
@@ -269,18 +268,23 @@
             // 
             this.fluentFormDefaultManager1.Form = this;
             // 
+            // accThanhToan
+            // 
+            this.accThanhToan.Name = "accThanhToan";
+            this.accThanhToan.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accThanhToan.Text = "ThanhToan";
+            // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1120, 786);
+            this.ClientSize = new System.Drawing.Size(960, 639);
             this.ControlContainer = this.mainContainer;
             this.Controls.Add(this.mainContainer);
             this.Controls.Add(this.arrFunction);
             this.Controls.Add(this.fluentDesignFormControl1);
             this.FluentDesignFormControl = this.fluentDesignFormControl1;
             this.IconOptions.Image = global::GUI.Properties.Resources.Logo;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmMain";
             this.NavigationControl = this.arrFunction;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -319,5 +323,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accQLDanhGiaDoTuoi;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accDatVe;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accNgonNgu;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accThanhToan;
     }
 }
