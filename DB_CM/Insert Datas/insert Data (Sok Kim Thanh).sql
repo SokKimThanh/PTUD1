@@ -4,7 +4,7 @@
 -- Cập nhật ngày 2024-11-06
 -- Thêm các phòng mới từ Phòng 1 đến Phòng 15 và các phòng chiếu đặc biệt IMAX, 4DX vào bảng tbl_DM_Theater
 use CM_Cinema_DB
-
+go
 INSERT INTO tbl_DM_AgeRating (AR_NAME, AR_NOTE, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
 VALUES 
 -- Phân loại MPAA (Hoa Kỳ)
@@ -73,8 +73,8 @@ go
 INSERT INTO tbl_DM_Movie (MV_NAME, MV_PRICE, MV_DURATION, MV_POSTERURL, MV_DESCRIPTION, MV_AGERATING_AutoID, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
 VALUES 
 -- Các bộ phim mới được thêm
-('Inception', 100000, 120, 'inception.jpg', 'A sci-fi thriller about dreams within dreams', 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('The Matrix', 90000, 120, 'matrix.jpg', 'A hacker discovers reality is a simulation', 2, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('Inception', 100000, 120, 'inception.jpg', 'A sci-fi thriller about dreams within dreams', 1,  (SELECT AR_AutoID FROM tbl_DM_AgeRating WHERE AR_NAME = 'G'), CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('The Matrix', 90000, 120, 'matrix.jpg', 'A hacker discovers reality is a simulation', 2, (SELECT AR_AutoID FROM tbl_DM_AgeRating WHERE AR_NAME = 'G'), CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
 ('Interstellar', 120000, 120, 'interstellar.jpg', 'A journey through space and time to save humanity', (SELECT AR_AutoID FROM tbl_DM_AgeRating WHERE AR_NAME = 'G'), 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
 ('Inglourious Basterds', 95000, 120, 'inglourious_basterds.jpg', 'A group of Jewish soldiers plan to assassinate Nazi leaders', (SELECT AR_AutoID FROM tbl_DM_AgeRating WHERE AR_NAME = 'R'), 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
 ('Saving Private Ryan', 90000, 120, 'saving_private_ryan.jpg', 'A group of soldiers go behind enemy lines to retrieve a paratrooper', (SELECT AR_AutoID FROM tbl_DM_AgeRating WHERE AR_NAME = 'R'), 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
