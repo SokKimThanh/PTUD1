@@ -32,9 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucChonGhe));
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.ActionBar = new DevExpress.XtraBars.Bar();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.btnLamMoi = new DevExpress.XtraBars.BarButtonItem();
             this.btnHuy = new DevExpress.XtraBars.BarButtonItem();
+            this.btnLamMoi = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -113,12 +113,13 @@
             this.ActionBar.OptionsBar.UseWholeRow = true;
             this.ActionBar.Text = "Main menu";
             // 
-            // barButtonItem1
+            // btnHuy
             // 
-            this.barButtonItem1.Caption = "Thêm sản phẩm";
-            this.barButtonItem1.Id = 4;
-            this.barButtonItem1.ImageOptions.Image = global::GUI.Properties.Resources.additem_16x16;
-            this.barButtonItem1.Name = "barButtonItem1";
+            this.btnHuy.Caption = "Hủy";
+            this.btnHuy.Id = 5;
+            this.btnHuy.ImageOptions.Image = global::GUI.Properties.Resources.cancel_16x16;
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
             // 
             // btnLamMoi
             // 
@@ -129,13 +130,12 @@
             this.btnLamMoi.ImageOptions.LargeImage = global::GUI.Properties.Resources.refreshpivottable_32x32;
             this.btnLamMoi.Name = "btnLamMoi";
             // 
-            // btnHuy
+            // barButtonItem1
             // 
-            this.btnHuy.Caption = "Hủy";
-            this.btnHuy.Id = 5;
-            this.btnHuy.ImageOptions.Image = global::GUI.Properties.Resources.cancel_16x16;
-            this.btnHuy.Name = "btnHuy";
-            this.btnHuy.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
+            this.barButtonItem1.Caption = "Thêm sản phẩm";
+            this.barButtonItem1.Id = 4;
+            this.barButtonItem1.ImageOptions.Image = global::GUI.Properties.Resources.additem_16x16;
+            this.barButtonItem1.Name = "barButtonItem1";
             // 
             // barDockControlTop
             // 
@@ -267,10 +267,10 @@
             // grpSeats
             // 
             this.grpSeats.CaptionImageOptions.Image = global::GUI.Properties.Resources.info_16x16;
-            this.grpSeats.Location = new System.Drawing.Point(12, 48);
+            this.grpSeats.Location = new System.Drawing.Point(12, 54);
             this.grpSeats.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpSeats.Name = "grpSeats";
-            this.grpSeats.Size = new System.Drawing.Size(657, 303);
+            this.grpSeats.Size = new System.Drawing.Size(657, 297);
             this.grpSeats.TabIndex = 15;
             this.grpSeats.Text = "Thông Tin phòng chiếu";
             // 
@@ -280,7 +280,7 @@
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.lblTitle.Location = new System.Drawing.Point(18, 18);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(645, 20);
+            this.lblTitle.Size = new System.Drawing.Size(645, 26);
             this.lblTitle.TabIndex = 9;
             this.lblTitle.Text = "Title";
             // 
@@ -322,11 +322,11 @@
             // 
             this.layoutTitle.Control = this.lblTitle;
             this.layoutTitle.Location = new System.Drawing.Point(0, 0);
-            this.layoutTitle.MaxSize = new System.Drawing.Size(0, 36);
-            this.layoutTitle.MinSize = new System.Drawing.Size(36, 36);
+            this.layoutTitle.MaxSize = new System.Drawing.Size(0, 48);
+            this.layoutTitle.MinSize = new System.Drawing.Size(36, 42);
             this.layoutTitle.Name = "layoutTitle";
             this.layoutTitle.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
-            this.layoutTitle.Size = new System.Drawing.Size(661, 36);
+            this.layoutTitle.Size = new System.Drawing.Size(661, 42);
             this.layoutTitle.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutTitle.Spacing = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
             this.layoutTitle.Text = "Title";
@@ -367,9 +367,9 @@
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.grpSeats;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 36);
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 42);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(661, 307);
+            this.layoutControlItem5.Size = new System.Drawing.Size(661, 301);
             this.layoutControlItem5.Text = "ChonGheLayout";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;

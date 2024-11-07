@@ -18,6 +18,7 @@ namespace GUI.UI.Modules
         public ucChonPhim()
         {
             InitializeComponent();
+            lblTitle.Text = "Chọn Phim".ToUpper();
         }
 
         private void btnTiep_Tuc_Click(object sender, EventArgs e)

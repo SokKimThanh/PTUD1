@@ -36,6 +36,7 @@ namespace GUI.UI.Modules
         public ucChonGhe()
         {
             InitializeComponent();
+            lblTitle.Text = "Chọn Ghế".ToUpper();
         }
         protected override void Load_Data()
         {

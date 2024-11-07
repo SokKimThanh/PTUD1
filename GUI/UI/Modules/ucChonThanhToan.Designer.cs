@@ -65,13 +65,13 @@
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.barManager2 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
-            this.btnThem_San_Pham = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnThem_San_Pham = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl2 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl3 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl4 = new DevExpress.XtraBars.BarDockControl();
-            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -281,6 +281,7 @@
             this.lblTitle.Location = new System.Drawing.Point(12, 12);
             this.lblTitle.MaximumSize = new System.Drawing.Size(0, 42);
             this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Padding = new System.Windows.Forms.Padding(4);
             this.lblTitle.Size = new System.Drawing.Size(808, 38);
             this.lblTitle.TabIndex = 10;
             this.lblTitle.Text = "Title";
@@ -510,13 +511,12 @@
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
             // 
-            // btnThem_San_Pham
+            // barButtonItem5
             // 
-            this.btnThem_San_Pham.Caption = "Thêm sản phẩm";
-            this.btnThem_San_Pham.Id = 1;
-            this.btnThem_San_Pham.ImageOptions.Image = global::GUI.Properties.Resources.additem_16x162;
-            this.btnThem_San_Pham.Name = "btnThem_San_Pham";
-            this.btnThem_San_Pham.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThem_San_Pham_ItemClick);
+            this.barButtonItem5.Caption = "Hủy";
+            this.barButtonItem5.Id = 2;
+            this.barButtonItem5.ImageOptions.Image = global::GUI.Properties.Resources.cancel_16x16;
+            this.barButtonItem5.Name = "barButtonItem5";
             // 
             // barButtonItem4
             // 
@@ -525,6 +525,14 @@
             this.barButtonItem4.ImageOptions.Image = global::GUI.Properties.Resources.refreshallpivottable_16x16;
             this.barButtonItem4.ImageOptions.LargeImage = global::GUI.Properties.Resources.refreshpivottable_32x321;
             this.barButtonItem4.Name = "barButtonItem4";
+            // 
+            // btnThem_San_Pham
+            // 
+            this.btnThem_San_Pham.Caption = "Thêm sản phẩm";
+            this.btnThem_San_Pham.Id = 1;
+            this.btnThem_San_Pham.ImageOptions.Image = global::GUI.Properties.Resources.additem_16x162;
+            this.btnThem_San_Pham.Name = "btnThem_San_Pham";
+            this.btnThem_San_Pham.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThem_San_Pham_ItemClick);
             // 
             // barDockControl1
             // 
@@ -557,13 +565,6 @@
             this.barDockControl4.Location = new System.Drawing.Point(832, 24);
             this.barDockControl4.Manager = this.barManager2;
             this.barDockControl4.Size = new System.Drawing.Size(0, 428);
-            // 
-            // barButtonItem5
-            // 
-            this.barButtonItem5.Caption = "Hủy";
-            this.barButtonItem5.Id = 2;
-            this.barButtonItem5.ImageOptions.Image = global::GUI.Properties.Resources.cancel_16x16;
-            this.barButtonItem5.Name = "barButtonItem5";
             // 
             // ucChonThanhToan
             // 
