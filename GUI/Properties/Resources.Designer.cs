@@ -1083,6 +1083,16 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap picture_box_no_image {
+            get {
+                object obj = ResourceManager.GetObject("picture_box_no_image", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap play_16x16 {
             get {
                 object obj = ResourceManager.GetObject("play_16x16", resourceCulture);

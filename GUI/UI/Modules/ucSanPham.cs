@@ -149,7 +149,7 @@ namespace GUI.UI.Modules
                             
                             Image image = Image.FromFile(o.PD_IMAGEURL);
                             // Tên 'no_image_256' là tên của hình trong Resources
-                            pictureBox.Image = Properties.Resources.gridview_no_image;
+                            pictureBox.Image = Properties.Resources.picture_box_no_image;
                         }
                     }
                     catch (Exception ex)

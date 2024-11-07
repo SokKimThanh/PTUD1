@@ -188,7 +188,7 @@ namespace GUI.UI.Modules
                         {
                             // Nếu file không tồn tại, sử dụng hình từ Resources
                             // Tên 'no_image_256' là tên của hình trong Resources
-                            pictureBox.Image = Properties.Resources.gridview_no_image;
+                            pictureBox.Image = Properties.Resources.picture_box_no_image;
                         }
                     }
                     catch (Exception ex)
