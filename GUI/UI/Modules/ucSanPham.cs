@@ -137,18 +137,14 @@ namespace GUI.UI.Modules
                         txtSoLuong.Text = o.PD_QUANTITY.ToString();
                         txtUrlHinhAnh.Text = o.PD_IMAGEURL;
 
-                        // Hiển thị hình ảnh trên PictureEdit
                         try
                         {
                             Image image = Image.FromFile(o.PD_IMAGEURL);
                             pictureBox.Image = image;
-                             
                         }
                         catch
                         {
-                            
-                            Image image = Image.FromFile(o.PD_IMAGEURL);
-                            // Tên 'no_image_256' là tên của hình trong Resources
+                            // Nếu file không tồn tại, sử dụng hình từ Resources
                             pictureBox.Image = Properties.Resources.picture_box_no_image;
                         }
                     }
