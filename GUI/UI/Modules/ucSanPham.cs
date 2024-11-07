@@ -67,6 +67,9 @@ namespace GUI.UI.Modules
             gridView1.Columns["PD_QUANTITY"].Caption = "Số lượng";
             gridView1.Columns["PD_IMAGEURL"].Caption = "Đường dẫn Hình Ảnh";
             gridView1.Columns["PD_AutoID"].Visible = false;
+
+            // Đặt VisibleIndex của cột PD_IMAGEURL về 0 để chuyển nó lên vị trí đầu tiên
+            gridView1.Columns["PD_IMAGEURL"].VisibleIndex = 0;
         }
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

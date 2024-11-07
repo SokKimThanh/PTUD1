@@ -88,6 +88,9 @@ namespace GUI.UI.Modules
             gridView1.Columns["MV_POSTERURL"].Caption = "Đường dẫn Hình ảnh";
             gridView1.Columns["MV_AutoID"].Visible = false;
             gridView1.Columns["MV_AGERATING_AutoID"].Visible = false;
+
+            // Đặt VisibleIndex của cột MV_POSTERURL về 0 để chuyển nó lên vị trí đầu tiên
+            gridView1.Columns["MV_POSTERURL"].VisibleIndex = 0;
         }
         /// <summary>
         /// Thêm mới movie
