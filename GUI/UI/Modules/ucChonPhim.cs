@@ -32,6 +32,7 @@ namespace GUI.UI.Modules
         public ucChonPhim()
         {
             InitializeComponent();
+            lblTitle.Text = "Chọn Phim".ToUpper();
         }
 
         //Tải dữ liệu

@@ -18,6 +18,7 @@ namespace GUI.UI.Modules
         public ucChonThanhToan()
         {
             InitializeComponent();
+            lblTitle.Text = "Thanh toán".ToUpper();
         }
 
         private void btnThem_San_Pham_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

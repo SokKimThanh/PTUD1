@@ -11,7 +11,7 @@ namespace GUI.UI.Modules
     {
         private tbl_DM_Product_BUS data = new tbl_DM_Product_BUS();
         private string dgv_selected_id = "";
-
+ 
 
         public ucSanPham()
         {
@@ -67,6 +67,9 @@ namespace GUI.UI.Modules
             gridView1.Columns["PD_QUANTITY"].Caption = "Số lượng";
             gridView1.Columns["PD_IMAGEURL"].Caption = "Đường dẫn Hình Ảnh";
             gridView1.Columns["PD_AutoID"].Visible = false;
+
+            // Đặt VisibleIndex của cột PD_IMAGEURL về 0 để chuyển nó lên vị trí đầu tiên
+            gridView1.Columns["PD_IMAGEURL"].VisibleIndex = 0;
         }
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -137,7 +140,6 @@ namespace GUI.UI.Modules
                         txtSoLuong.Text = o.PD_QUANTITY.ToString();
                         txtUrlHinhAnh.Text = o.PD_IMAGEURL;
 
-                        // Hiển thị hình ảnh trên PictureEdit
                         try
                         {
                             Image image = Image.FromFile(o.PD_IMAGEURL);
@@ -145,8 +147,8 @@ namespace GUI.UI.Modules
                         }
                         catch
                         {
-
-                            
+                            // Nếu file không tồn tại, sử dụng hình từ Resources
+                            pictureBox.Image = Properties.Resources.picture_box_no_image;
                         }
                     }
                     catch (Exception ex)
@@ -242,9 +244,15 @@ namespace GUI.UI.Modules
                     e.Graphics.DrawImage(img, e.Bounds);
                     e.Handled = true; // Ngăn không vẽ dữ liệu mặc định lên ô
                 }
+                else
+                {
+                    // Chuyển đường dẫn thành hình ảnh
+                    Image img = Properties.Resources.gridview_no_image;
+                    // Vẽ hình ảnh vào ô
+                    e.Graphics.DrawImage(img, e.Bounds);
+                    e.Handled = true; // Ngăn không vẽ dữ liệu mặc định lên ô
+                }
             }
         }
-
-
     }
 }
