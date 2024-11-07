@@ -2,7 +2,9 @@
 using DTO.tbl_DTO;
 using System;
 using System.Collections.Generic;
+using System.Data.Linq;
 using System.Linq;
+using System.Runtime.Remoting;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,13 +50,18 @@ namespace DAL
                 throw ex;
             }
         }
-        public void RemoveData(int id)
+        public void RemoveData(long ticketID)
         {
             try
             {
                 using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString))
                 {
-
+                    tbl_DM_Ticket foundTicket = db.tbl_DM_Tickets.SingleOrDefault(item => item.TK_AutoID == ticketID);
+                    //objRes.DELETED = 1;
+                    //objRes.UPDATED = DateTime.Now;
+                    //objRes.UPDATED_BY = strUpdated_By;
+                    //objRes.UPDATED_BY_FUNCTION = "Delete by ID";
+                    //DBDataContext.SubmitChanges();
                 }
             }
             catch (Exception ex)
