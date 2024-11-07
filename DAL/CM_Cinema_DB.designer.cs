@@ -2102,6 +2102,8 @@ namespace DAL
 		
 		private System.DateTime _MS_START;
 		
+		private System.DateTime _MS_END;
+		
 		private System.Nullable<int> _DELETED;
 		
 		private System.Nullable<System.DateTime> _CREATED;
@@ -2132,6 +2134,8 @@ namespace DAL
     partial void OnMS_THEATER_AutoIDChanged();
     partial void OnMS_STARTChanging(System.DateTime value);
     partial void OnMS_STARTChanged();
+    partial void OnMS_ENDChanging(System.DateTime value);
+    partial void OnMS_ENDChanged();
     partial void OnDELETEDChanging(System.Nullable<int> value);
     partial void OnDELETEDChanged();
     partial void OnCREATEDChanging(System.Nullable<System.DateTime> value);
@@ -2239,6 +2243,26 @@ namespace DAL
 					this._MS_START = value;
 					this.SendPropertyChanged("MS_START");
 					this.OnMS_STARTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MS_END", DbType="DateTime NOT NULL")]
+		public System.DateTime MS_END
+		{
+			get
+			{
+				return this._MS_END;
+			}
+			set
+			{
+				if ((this._MS_END != value))
+				{
+					this.OnMS_ENDChanging(value);
+					this.SendPropertyChanging();
+					this._MS_END = value;
+					this.SendPropertyChanged("MS_END");
+					this.OnMS_ENDChanged();
 				}
 			}
 		}

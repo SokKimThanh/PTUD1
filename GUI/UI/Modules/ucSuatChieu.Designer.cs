@@ -43,10 +43,8 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.dgvMovieSchedules = new DevExpress.XtraGrid.GridControl();
             this.gvMovieSchedules = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.dtpStartDate = new DevExpress.XtraEditors.DateEdit();
             this.cboMovies = new DevExpress.XtraEditors.LookUpEdit();
             this.cboTheaters = new DevExpress.XtraEditors.LookUpEdit();
-            this.tmpStartTime = new DevExpress.XtraEditors.TimeEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutTitle = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutDGV = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -56,16 +54,15 @@
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.dtpStartDate = new DevExpress.XtraEditors.DateTimeOffsetEdit();
+            this.dtpEndDate = new DevExpress.XtraEditors.DateTimeOffsetEdit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutForm)).BeginInit();
             this.layoutForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovieSchedules)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvMovieSchedules)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpStartDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpStartDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboMovies.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboTheaters.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tmpStartTime.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).BeginInit();
@@ -75,6 +72,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpStartDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpEndDate.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -189,10 +188,10 @@
             // 
             this.layoutForm.Controls.Add(this.lblTitle);
             this.layoutForm.Controls.Add(this.dgvMovieSchedules);
-            this.layoutForm.Controls.Add(this.dtpStartDate);
             this.layoutForm.Controls.Add(this.cboMovies);
             this.layoutForm.Controls.Add(this.cboTheaters);
-            this.layoutForm.Controls.Add(this.tmpStartTime);
+            this.layoutForm.Controls.Add(this.dtpStartDate);
+            this.layoutForm.Controls.Add(this.dtpEndDate);
             this.layoutForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutForm.Location = new System.Drawing.Point(0, 30);
             this.layoutForm.Margin = new System.Windows.Forms.Padding(4);
@@ -234,27 +233,6 @@
             this.gvMovieSchedules.OptionsView.ShowIndicator = false;
             this.gvMovieSchedules.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gvMovieSchedules_RowClick);
             // 
-            // dtpStartDate
-            // 
-            this.dtpStartDate.EditValue = new System.DateTime(2024, 10, 15, 0, 0, 0, 0);
-            this.dtpStartDate.Location = new System.Drawing.Point(604, 158);
-            this.dtpStartDate.Margin = new System.Windows.Forms.Padding(4);
-            this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtpStartDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtpStartDate.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Fluent;
-            this.dtpStartDate.Properties.EditFormat.FormatString = "";
-            this.dtpStartDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dtpStartDate.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered;
-            this.dtpStartDate.Properties.MaskSettings.Set("mask", "T");
-            this.dtpStartDate.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.dtpStartDate.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            this.dtpStartDate.Size = new System.Drawing.Size(327, 22);
-            this.dtpStartDate.StyleController = this.layoutForm;
-            this.dtpStartDate.TabIndex = 7;
-            // 
             // cboMovies
             // 
             this.cboMovies.EditValue = "";
@@ -282,20 +260,6 @@
             this.cboTheaters.Size = new System.Drawing.Size(327, 22);
             this.cboTheaters.StyleController = this.layoutForm;
             this.cboTheaters.TabIndex = 5;
-            // 
-            // tmpStartTime
-            // 
-            this.tmpStartTime.EditValue = new System.DateTime(2024, 10, 15, 0, 0, 0, 0);
-            this.tmpStartTime.Location = new System.Drawing.Point(143, 158);
-            this.tmpStartTime.Margin = new System.Windows.Forms.Padding(4);
-            this.tmpStartTime.Name = "tmpStartTime";
-            this.tmpStartTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.tmpStartTime.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.tmpStartTime.Properties.TimeEditStyle = DevExpress.XtraEditors.Repository.TimeEditStyle.TouchUI;
-            this.tmpStartTime.Size = new System.Drawing.Size(350, 22);
-            this.tmpStartTime.StyleController = this.layoutForm;
-            this.tmpStartTime.TabIndex = 6;
             // 
             // Root
             // 
@@ -371,7 +335,7 @@
             // 
             // layoutControlItem3
             // 
-            this.layoutControlItem3.Control = this.tmpStartTime;
+            this.layoutControlItem3.Control = this.dtpStartDate;
             this.layoutControlItem3.CustomizationFormText = "Bắt đầu:";
             this.layoutControlItem3.ImageOptions.Image = global::GUI.Properties.Resources.time_16x16;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 26);
@@ -382,13 +346,13 @@
             // 
             // layoutControlItem4
             // 
-            this.layoutControlItem4.Control = this.dtpStartDate;
+            this.layoutControlItem4.Control = this.dtpEndDate;
             this.layoutControlItem4.CustomizationFormText = "Kết thúc:";
             this.layoutControlItem4.ImageOptions.Image = global::GUI.Properties.Resources.time2_16x16;
             this.layoutControlItem4.Location = new System.Drawing.Point(461, 26);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(438, 26);
-            this.layoutControlItem4.Text = "Ngày chiếu:";
+            this.layoutControlItem4.Text = "Giờ Kết thúc";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(95, 16);
             // 
             // layoutControlItem5
@@ -402,6 +366,38 @@
             this.layoutControlItem5.Size = new System.Drawing.Size(438, 26);
             this.layoutControlItem5.Text = "Phòng chiếu:";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(95, 16);
+            // 
+            // dtpStartDate
+            // 
+            this.dtpStartDate.EditValue = new System.DateTime(2024, 10, 15, 0, 0, 0, 0);
+            this.dtpStartDate.Enabled = false;
+            this.dtpStartDate.Location = new System.Drawing.Point(143, 158);
+            this.dtpStartDate.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpStartDate.Name = "dtpStartDate";
+            this.dtpStartDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtpStartDate.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.DateTimeMaskManager));
+            this.dtpStartDate.Properties.MaskSettings.Set("mask", "T");
+            this.dtpStartDate.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.dtpStartDate.Size = new System.Drawing.Size(350, 22);
+            this.dtpStartDate.StyleController = this.layoutForm;
+            this.dtpStartDate.TabIndex = 6;
+            // 
+            // dtpEndDate
+            // 
+            this.dtpEndDate.EditValue = new System.DateTime(2024, 10, 15, 0, 0, 0, 0);
+            this.dtpEndDate.Enabled = false;
+            this.dtpEndDate.Location = new System.Drawing.Point(604, 158);
+            this.dtpEndDate.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpEndDate.Name = "dtpEndDate";
+            this.dtpEndDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtpEndDate.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.DateTimeMaskManager));
+            this.dtpEndDate.Properties.MaskSettings.Set("mask", "d");
+            this.dtpEndDate.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.dtpEndDate.Size = new System.Drawing.Size(327, 22);
+            this.dtpEndDate.StyleController = this.layoutForm;
+            this.dtpEndDate.TabIndex = 7;
             // 
             // ucSuatChieu
             // 
@@ -420,11 +416,8 @@
             this.layoutForm.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovieSchedules)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvMovieSchedules)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpStartDate.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpStartDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboMovies.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboTheaters.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tmpStartTime.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).EndInit();
@@ -434,6 +427,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpStartDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpEndDate.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -464,9 +459,9 @@
         private DevExpress.XtraLayout.LayoutControlGroup layoutDGV;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
-        private DevExpress.XtraEditors.DateEdit dtpStartDate;
         private DevExpress.XtraEditors.LookUpEdit cboMovies;
         private DevExpress.XtraEditors.LookUpEdit cboTheaters;
-        private DevExpress.XtraEditors.TimeEdit tmpStartTime;
+        private DevExpress.XtraEditors.DateTimeOffsetEdit dtpStartDate;
+        private DevExpress.XtraEditors.DateTimeOffsetEdit dtpEndDate;
     }
 }

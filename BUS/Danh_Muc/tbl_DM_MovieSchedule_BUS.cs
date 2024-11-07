@@ -16,11 +16,11 @@ namespace BUS.Danh_Muc
         /// Thêm dữ liệu
         /// </summary>
         /// <param name="obj"></param>
-        public void AddData(long movie_AutoID, long theater_AutoID, DateTime startDate)
+        public void AddData(long movie_AutoID, long theater_AutoID, DateTime startDate, DateTime endDate)
         {
             try
             {
-                dal.AddData(new tbl_DM_MovieSchedule_DTO(null,movie_AutoID,null,theater_AutoID,null,startDate,0));
+                dal.AddData(new tbl_DM_MovieSchedule_DTO(null,movie_AutoID,null,theater_AutoID,null,startDate, endDate,0));
             }catch(Exception ex)
             {
                 throw ex;
@@ -60,13 +60,60 @@ namespace BUS.Danh_Muc
         /// Cập nhật thông tin
         /// </summary>
         /// <param name="obj"></param>
-        public void UpdateData(long autoID, long movie_AutoID, long theater_AutoID, DateTime startDate, int delete)
+        public void UpdateData(long autoID, long movie_AutoID, long theater_AutoID, DateTime startDate, DateTime endDate, int delete)
         {
             try
             {
-                dal.UpdateData(new tbl_DM_MovieSchedule_DTO(autoID, movie_AutoID, null, theater_AutoID, null, startDate, delete));
+                dal.UpdateData(new tbl_DM_MovieSchedule_DTO(autoID, movie_AutoID, null, theater_AutoID, null, startDate, endDate, delete));
             }
             catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        /// <summary>
+        /// Tìm suất chiếu cuối của phòng chiếu đang chọn
+        /// </summary>
+        /// <param name="theaterID"></param>
+        /// <returns></returns>
+        public tbl_DM_MovieSchedule_DTO GetLastMovieSchedule_ByTheater(long theaterID)
+        {
+            try
+            {
+                tbl_DM_MovieSchedule_DTO foundMovieSchedule = dal.GetLastMovieSchedule_ByTheater(theaterID);
+                return foundMovieSchedule;
+                //if(foundMovieSchedule != null)
+                //{
+                //    return foundMovieSchedule;
+                //}
+                //else
+                //{
+                //    throw new NullReferenceException("Không tìm thấy ca");
+                //}
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public tbl_DM_MovieSchedule_DTO GetLastMovieSchedule_ByTheaterandMovie(long theaterID, long movieID)
+        {
+            try
+            {
+                tbl_DM_MovieSchedule_DTO foundMovieSchedule = dal.GetLastMovieSchedule_ByTheaterandMovie(theaterID, movieID);
+                return foundMovieSchedule;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public List<tbl_DM_MovieSchedule_DTO> GetMovieSchedule_ByMovie(long movieID)
+        {
+            try
+            {
+                return dal.GetMovieSchedule_ByMovie(movieID);
+            }catch(Exception ex)
             {
                 throw ex;
             }
