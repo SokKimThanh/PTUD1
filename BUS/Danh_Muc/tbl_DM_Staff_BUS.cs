@@ -181,5 +181,17 @@ namespace BUS.Danh_Muc
             }
 
         }
+
+        public tbl_DM_Staff_DTO GetStaff_ByID(int id)
+        {
+            tbl_DM_Staff_DAL objDAL = new tbl_DM_Staff_DAL();
+            try
+            {
+                return objDAL.GetStaff_ByID(id);
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

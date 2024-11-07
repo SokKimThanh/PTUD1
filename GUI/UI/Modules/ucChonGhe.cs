@@ -47,7 +47,6 @@ namespace GUI.UI.Modules
         public ucChonGhe()
         {
             InitializeComponent();
-            lblTitle.Text = "Chọn Ghế".ToUpper();
         }
         protected override void Load_Data()
         {
@@ -72,8 +71,8 @@ namespace GUI.UI.Modules
             //
             // Lấy kích thước group
             //
-            height = seatsLayoutControl.Height;
-            width = seatsLayoutControl.Width;
+            height = grpSeats.Height;
+            width = grpSeats.Width;
             int total = rows * columns;
 
             //
@@ -128,9 +127,9 @@ namespace GUI.UI.Modules
             labelLength = labelLength > maxLength ? maxLength : labelLength;
             //labelLength = maxLength;
 
-            paddingTopBottom = ((seatsLayoutControl.Height - (labelLength * rows) - ((spacing * rows) - 1)) / 2);
-            paddingLeftRight = (seatsLayoutControl.Width - (labelLength * columns) - (spacing * (columns - 1))) / 2;
-            paddingLeftRight_Couples = (seatsLayoutControl.Width - (labelLength * 2 * couples) - (spacing * (columns - 1))) / 2;
+            paddingTopBottom = ((grpSeats.Height - (labelLength * rows) - ((spacing * rows) - 1)) / 2);
+            paddingLeftRight = (grpSeats.Width - (labelLength * columns) - (spacing * (columns - 1))) / 2;
+            paddingLeftRight_Couples = (grpSeats.Width - (labelLength * 2 * couples) - (spacing * (columns - 1))) / 2;
 
             //
             // Tạo ghế đơn
@@ -188,7 +187,7 @@ namespace GUI.UI.Modules
                     //
                     // Thêm ghế vào view
                     //
-                    seatsLayoutControl.Controls.Add(label);
+                    grpSeats.Controls.Add(label);
                 }
 
                 //
@@ -245,7 +244,7 @@ namespace GUI.UI.Modules
                 //
                 // Thêm ghế vào view
                 //
-                seatsLayoutControl.Controls.Add(label);
+                grpSeats.Controls.Add(label);
             }
 
         }
@@ -286,7 +285,7 @@ namespace GUI.UI.Modules
         private void btnPrint_Click(object sender, EventArgs e)
         {
             int count = 0;
-            foreach (Control ctrl in seatsLayoutControl.Controls)
+            foreach (Control ctrl in grpSeats.Controls)
             {
                 if ((ctrl as Label).BackColor == colors["Green"])
                 {

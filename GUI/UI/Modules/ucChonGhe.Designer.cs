@@ -59,8 +59,6 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
-            this.seatsLayoutControl = new DevExpress.XtraLayout.LayoutControl();
-            this.seatsLayoutGroup = new DevExpress.XtraLayout.LayoutControlGroup();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutForm)).BeginInit();
             this.layoutForm.SuspendLayout();
@@ -80,8 +78,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seatsLayoutControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seatsLayoutGroup)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -279,9 +275,6 @@
             // 
             // grpSeats
             // 
-            this.grpSeats.Appearance.BackColor = System.Drawing.Color.White;
-            this.grpSeats.Appearance.Options.UseBackColor = true;
-            this.grpSeats.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.grpSeats.CaptionImageOptions.Image = global::GUI.Properties.Resources.info_16x16;
             this.grpSeats.Location = new System.Drawing.Point(12, 56);
             this.grpSeats.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
@@ -402,24 +395,6 @@
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
-            // seatsLayoutControl
-            // 
-            this.seatsLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.seatsLayoutControl.Location = new System.Drawing.Point(2, 23);
-            this.seatsLayoutControl.Name = "seatsLayoutControl";
-            this.seatsLayoutControl.Root = this.seatsLayoutGroup;
-            this.seatsLayoutControl.Size = new System.Drawing.Size(653, 272);
-            this.seatsLayoutControl.TabIndex = 0;
-            this.seatsLayoutControl.Text = "layoutControl1";
-            // 
-            // seatsLayoutGroup
-            // 
-            this.seatsLayoutGroup.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.seatsLayoutGroup.GroupBordersVisible = false;
-            this.seatsLayoutGroup.Name = "seatsLayoutGroup";
-            this.seatsLayoutGroup.Size = new System.Drawing.Size(653, 272);
-            this.seatsLayoutGroup.TextVisible = false;
-            // 
             // ucChonGhe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -452,8 +427,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seatsLayoutControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seatsLayoutGroup)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -490,7 +463,5 @@
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem btnHuy;
-        private DevExpress.XtraLayout.LayoutControl seatsLayoutControl;
-        private DevExpress.XtraLayout.LayoutControlGroup seatsLayoutGroup;
     }
 }
