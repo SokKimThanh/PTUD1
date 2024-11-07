@@ -29,6 +29,7 @@ namespace GUI.UI.Modules
         {
             InitializeComponent();
         }
+
         public void LoadData()
         {
             try

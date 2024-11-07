@@ -218,6 +218,12 @@
     <Compile Include="UI\ReportDesign\RP_InventoryDetail.Designer.cs">
       <DependentUpon>RP_InventoryDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ReportDesign\RP_PrintTicket.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\ReportDesign\RP_PrintTicket.Designer.cs">
+      <DependentUpon>RP_PrintTicket.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ReportDesign\RP_Sales.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -306,6 +312,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ReportDesign\RP_InventoryDetail.resx">
       <DependentUpon>RP_InventoryDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ReportDesign\RP_PrintTicket.resx">
+      <DependentUpon>RP_PrintTicket.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ReportDesign\RP_Sales.resx">
       <DependentUpon>RP_Sales.cs</DependentUpon>

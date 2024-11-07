@@ -316,3 +316,37 @@ ADD CONSTRAINT uq_product_name UNIQUE (PD_NAME);
 go
 ALTER TABLE tbl_DM_MovieSchedule
 ADD CONSTRAINT uq_movieschedule UNIQUE (MS_MOVIE_AutoID, MS_THEATER_AutoID, MS_START);
+
+-- Store Proceduces
+-- In vé
+go
+DROP PROCEDURE IF EXISTS sp_PrintTicket;
+
+go
+CREATE PROCEDURE sp_PrintTicket
+    @TicketID BIGINT
+AS
+BEGIN
+    SELECT 
+        t.TK_AutoID AS TicketID,
+        t.TK_SEATNAME AS SeatName,
+        m.MV_NAME AS MovieName,
+        th.TT_NAME AS TheaterName,
+        CONVERT(DATE, ms.MS_START) AS StartDate,
+        CONVERT(TIME, ms.MS_START) AS StartTime,
+		m.MV_PRICE AS Price,
+        s.ST_NAME AS StaffName,
+        m.MV_DURATION AS Duration
+    FROM 
+        tbl_DM_Ticket t
+    JOIN 
+        tbl_DM_MovieSchedule ms ON t.TK_MOVIESCHEDULE_AutoID = ms.MS_AutoID
+    JOIN 
+        tbl_DM_Movie m ON ms.MS_MOVIE_AutoID = m.MV_AutoID
+    JOIN 
+        tbl_DM_Theater th ON ms.MS_THEATER_AutoID = th.TT_AutoID
+    JOIN 
+        tbl_DM_Staff s ON t.TK_STAFF_AutoID = s.ST_AutoID
+    WHERE 
+        t.TK_AutoID = @TicketID;
+END;
