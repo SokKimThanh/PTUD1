@@ -41,11 +41,9 @@
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.groupBtn = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
-            this.btnHuy = new System.Windows.Forms.Button();
             this.btnThanh_Toan = new System.Windows.Forms.Button();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
@@ -73,6 +71,7 @@
             this.barDockControl2 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl3 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl4 = new DevExpress.XtraBars.BarDockControl();
+            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -82,7 +81,6 @@
             this.layoutControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -207,7 +205,6 @@
             // 
             // layoutControl2
             // 
-            this.layoutControl2.Controls.Add(this.btnHuy);
             this.layoutControl2.Controls.Add(this.btnThanh_Toan);
             this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl2.Location = new System.Drawing.Point(2, 23);
@@ -217,23 +214,12 @@
             this.layoutControl2.TabIndex = 2;
             this.layoutControl2.Text = "layoutControl2";
             // 
-            // btnHuy
-            // 
-            this.btnHuy.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHuy.Location = new System.Drawing.Point(12, 12);
-            this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(388, 27);
-            this.btnHuy.TabIndex = 5;
-            this.btnHuy.Text = "Hủy";
-            this.btnHuy.UseVisualStyleBackColor = true;
-            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
-            // 
             // btnThanh_Toan
             // 
             this.btnThanh_Toan.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThanh_Toan.Location = new System.Drawing.Point(404, 12);
+            this.btnThanh_Toan.Location = new System.Drawing.Point(12, 12);
             this.btnThanh_Toan.Name = "btnThanh_Toan";
-            this.btnThanh_Toan.Size = new System.Drawing.Size(388, 27);
+            this.btnThanh_Toan.Size = new System.Drawing.Size(780, 27);
             this.btnThanh_Toan.TabIndex = 4;
             this.btnThanh_Toan.Text = "Thanh toán";
             this.btnThanh_Toan.UseVisualStyleBackColor = true;
@@ -244,8 +230,7 @@
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem8,
-            this.layoutControlItem10});
+            this.layoutControlItem8});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(804, 51);
             this.layoutControlGroup1.TextVisible = false;
@@ -253,20 +238,11 @@
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.btnThanh_Toan;
-            this.layoutControlItem8.Location = new System.Drawing.Point(392, 0);
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(392, 31);
+            this.layoutControlItem8.Size = new System.Drawing.Size(784, 31);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
-            // 
-            // layoutControlItem10
-            // 
-            this.layoutControlItem10.Control = this.btnHuy;
-            this.layoutControlItem10.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(392, 31);
-            this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem10.TextVisible = false;
             // 
             // gridControl2
             // 
@@ -515,9 +491,10 @@
             this.barManager2.Form = this;
             this.barManager2.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.barButtonItem4,
-            this.btnThem_San_Pham});
+            this.btnThem_San_Pham,
+            this.barButtonItem5});
             this.barManager2.MainMenu = this.bar2;
-            this.barManager2.MaxItemId = 2;
+            this.barManager2.MaxItemId = 3;
             // 
             // bar2
             // 
@@ -526,6 +503,7 @@
             this.bar2.DockRow = 0;
             this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem5, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnThem_San_Pham, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem4, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar2.OptionsBar.MultiLine = true;
@@ -580,6 +558,13 @@
             this.barDockControl4.Manager = this.barManager2;
             this.barDockControl4.Size = new System.Drawing.Size(0, 428);
             // 
+            // barButtonItem5
+            // 
+            this.barButtonItem5.Caption = "Hủy";
+            this.barButtonItem5.Id = 2;
+            this.barButtonItem5.ImageOptions.Image = global::GUI.Properties.Resources.cancel_16x16;
+            this.barButtonItem5.Name = "barButtonItem5";
+            // 
             // ucChonThanhToan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -604,7 +589,6 @@
             this.layoutControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
@@ -661,11 +645,9 @@
         private DevExpress.XtraEditors.DateEdit dateEdit1;
         private DevExpress.XtraEditors.GroupControl groupBtn;
         private DevExpress.XtraLayout.LayoutControl layoutControl2;
-        private System.Windows.Forms.Button btnHuy;
         private System.Windows.Forms.Button btnThanh_Toan;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
         private DevExpress.XtraBars.BarDockControl barDockControl3;
         private DevExpress.XtraBars.BarManager barManager2;
@@ -675,5 +657,6 @@
         private DevExpress.XtraBars.BarDockControl barDockControl2;
         private DevExpress.XtraBars.BarDockControl barDockControl4;
         private DevExpress.XtraBars.BarButtonItem btnThem_San_Pham;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem5;
     }
 }
