@@ -11,7 +11,7 @@ namespace GUI.UI.Modules
     {
         private tbl_DM_Product_BUS data = new tbl_DM_Product_BUS();
         private string dgv_selected_id = "";
-
+ 
 
         public ucSanPham()
         {
@@ -142,11 +142,14 @@ namespace GUI.UI.Modules
                         {
                             Image image = Image.FromFile(o.PD_IMAGEURL);
                             pictureBox.Image = image;
+                             
                         }
                         catch
                         {
-
                             
+                            Image image = Image.FromFile(o.PD_IMAGEURL);
+                            // Tên 'no_image_256' là tên của hình trong Resources
+                            pictureBox.Image = Properties.Resources.no_image_256;
                         }
                     }
                     catch (Exception ex)

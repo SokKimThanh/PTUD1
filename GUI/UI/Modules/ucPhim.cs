@@ -1,5 +1,6 @@
 ﻿using BUS;
 using BUS.Danh_Muc;
+using DevExpress.Utils;
 using DevExpress.XtraEditors.Controls;
 using DTO.tbl_DTO;
 using System;
@@ -17,6 +18,7 @@ namespace GUI.UI.Modules
 
         private string dgv_selected_id = "";
         private long? cboAgeRating_selected_id = -1;// giá trị từ ComboBoxEdit
+
         public ucPhim()
         {
             InitializeComponent();
@@ -176,7 +178,7 @@ namespace GUI.UI.Modules
                         txtPrice.Text = o.MV_PRICE.ToString();
                         // Hiển thị dữ liệu lên combobox
                         cboAgeRating.EditValue = o.MV_AGERATING_AutoID;
-                        // Hiển thị hình ảnh trên PictureEdit 
+                        // Hiển thị hình ảnh trên PictureEdit
                         try
                         {
                             Image image = Image.FromFile(o.MV_POSTERURL);
@@ -184,8 +186,9 @@ namespace GUI.UI.Modules
                         }
                         catch
                         {
-
-
+                            // Nếu file không tồn tại, sử dụng hình từ Resources
+                            // Tên 'no_image_256' là tên của hình trong Resources
+                            pictureBox.Image = Properties.Resources.no_image_256;
                         }
                     }
                     catch (Exception ex)
