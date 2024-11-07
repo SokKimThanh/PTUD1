@@ -107,8 +107,8 @@
             this.ActionBar.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.ActionBar.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnHuy, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem1, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnLamMoi, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnLamMoi, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem1, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.ActionBar.OptionsBar.MultiLine = true;
             this.ActionBar.OptionsBar.UseWholeRow = true;
             this.ActionBar.Text = "Main menu";
@@ -125,7 +125,7 @@
             this.btnLamMoi.Caption = "Làm Mới";
             this.btnLamMoi.Hint = "Làm mới dữ liệu";
             this.btnLamMoi.Id = 3;
-            this.btnLamMoi.ImageOptions.Image = global::GUI.Properties.Resources.refreshpivottable_16x16;
+            this.btnLamMoi.ImageOptions.Image = global::GUI.Properties.Resources.refreshallpivottable_16x16;
             this.btnLamMoi.ImageOptions.LargeImage = global::GUI.Properties.Resources.refreshpivottable_32x32;
             this.btnLamMoi.Name = "btnLamMoi";
             // 

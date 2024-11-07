@@ -60,8 +60,8 @@
             this.ActionBar = new DevExpress.XtraBars.Bar();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -441,14 +441,6 @@
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
             // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "Làm mới";
-            this.barButtonItem1.Id = 0;
-            this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.barButtonItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
-            this.barButtonItem1.Name = "barButtonItem1";
-            // 
             // barButtonItem2
             // 
             this.barButtonItem2.Caption = "Hủy";
@@ -457,6 +449,14 @@
             this.barButtonItem2.ImageOptions.Image = global::GUI.Properties.Resources.cancel_16x161;
             this.barButtonItem2.ImageOptions.LargeImage = global::GUI.Properties.Resources.cancel_32x321;
             this.barButtonItem2.Name = "barButtonItem2";
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "Làm mới";
+            this.barButtonItem1.Id = 0;
+            this.barButtonItem1.ImageOptions.Image = global::GUI.Properties.Resources.refreshallpivottable_16x16;
+            this.barButtonItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.barButtonItem1.Name = "barButtonItem1";
             // 
             // barDockControlTop
             // 
