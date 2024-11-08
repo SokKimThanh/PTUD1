@@ -28,6 +28,7 @@ namespace GUI.UI.Modules
         public ucVe()
         {
             InitializeComponent();
+            lblTitle.Text = "VÉ";
         }
 
         public void LoadData()
@@ -82,6 +83,11 @@ namespace GUI.UI.Modules
                     }
                 }
             }
+        }
+
+        private void ucVe_Load(object sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }
