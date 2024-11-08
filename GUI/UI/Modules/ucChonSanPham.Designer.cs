@@ -150,35 +150,31 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlTop.Size = new System.Drawing.Size(775, 30);
+            this.barDockControlTop.Size = new System.Drawing.Size(664, 24);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 580);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 471);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlBottom.Size = new System.Drawing.Size(775, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(664, 0);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 30);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 550);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 447);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(775, 30);
+            this.barDockControlRight.Location = new System.Drawing.Point(664, 24);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 550);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 447);
             // 
             // barButtonItem1
             // 
@@ -204,11 +200,10 @@
             this.layoutControl1.Controls.Add(this.txtTong_Tien_San_Pham);
             this.layoutControl1.Controls.Add(this.txtSo_Luong);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 30);
-            this.layoutControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.layoutControl1.Location = new System.Drawing.Point(0, 24);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(775, 550);
+            this.layoutControl1.Size = new System.Drawing.Size(664, 447);
             this.layoutControl1.TabIndex = 4;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -216,12 +211,11 @@
             // 
             this.groupBtn.CaptionImageOptions.Image = global::GUI.Properties.Resources.forward_16x16;
             this.groupBtn.Controls.Add(this.layoutControl2);
-            this.groupBtn.Location = new System.Drawing.Point(12, 444);
-            this.groupBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBtn.MaximumSize = new System.Drawing.Size(0, 94);
-            this.groupBtn.MinimumSize = new System.Drawing.Size(0, 94);
+            this.groupBtn.Location = new System.Drawing.Point(11, 361);
+            this.groupBtn.MaximumSize = new System.Drawing.Size(0, 76);
+            this.groupBtn.MinimumSize = new System.Drawing.Size(0, 76);
             this.groupBtn.Name = "groupBtn";
-            this.groupBtn.Size = new System.Drawing.Size(751, 94);
+            this.groupBtn.Size = new System.Drawing.Size(642, 76);
             this.groupBtn.TabIndex = 15;
             this.groupBtn.Text = "Tiếp theo";
             // 
@@ -229,21 +223,19 @@
             // 
             this.layoutControl2.Controls.Add(this.btnXac_Nhan);
             this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl2.Location = new System.Drawing.Point(2, 28);
-            this.layoutControl2.Margin = new System.Windows.Forms.Padding(4);
+            this.layoutControl2.Location = new System.Drawing.Point(2, 23);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.Root = this.layoutControlGroup1;
-            this.layoutControl2.Size = new System.Drawing.Size(747, 64);
+            this.layoutControl2.Size = new System.Drawing.Size(638, 51);
             this.layoutControl2.TabIndex = 2;
             this.layoutControl2.Text = "layoutControl2";
             // 
             // btnXac_Nhan
             // 
             this.btnXac_Nhan.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXac_Nhan.Location = new System.Drawing.Point(12, 12);
-            this.btnXac_Nhan.Margin = new System.Windows.Forms.Padding(4);
+            this.btnXac_Nhan.Location = new System.Drawing.Point(11, 10);
             this.btnXac_Nhan.Name = "btnXac_Nhan";
-            this.btnXac_Nhan.Size = new System.Drawing.Size(723, 40);
+            this.btnXac_Nhan.Size = new System.Drawing.Size(616, 31);
             this.btnXac_Nhan.TabIndex = 4;
             this.btnXac_Nhan.Text = "Xác nhận";
             this.btnXac_Nhan.UseVisualStyleBackColor = true;
@@ -256,7 +248,7 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem8});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(747, 64);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(638, 51);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem8
@@ -264,45 +256,39 @@
             this.layoutControlItem8.Control = this.btnXac_Nhan;
             this.layoutControlItem8.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(727, 44);
+            this.layoutControlItem8.Size = new System.Drawing.Size(620, 35);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
             // gridControl2
             // 
-            this.gridControl2.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(5);
-            this.gridControl2.Location = new System.Drawing.Point(389, 134);
+            this.gridControl2.Location = new System.Drawing.Point(334, 111);
             this.gridControl2.MainView = this.grdHien_Thi_San_Pham;
-            this.gridControl2.Margin = new System.Windows.Forms.Padding(4);
             this.gridControl2.MenuManager = this.barManager1;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(362, 185);
+            this.gridControl2.Size = new System.Drawing.Size(308, 146);
             this.gridControl2.TabIndex = 14;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdHien_Thi_San_Pham});
             // 
             // grdHien_Thi_San_Pham
             // 
-            this.grdHien_Thi_San_Pham.DetailHeight = 431;
             this.grdHien_Thi_San_Pham.GridControl = this.gridControl2;
             this.grdHien_Thi_San_Pham.Name = "grdHien_Thi_San_Pham";
             // 
             // gridControl1
             // 
-            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(5);
-            this.gridControl1.Location = new System.Drawing.Point(24, 134);
+            this.gridControl1.Location = new System.Drawing.Point(22, 111);
             this.gridControl1.MainView = this.grdChon_San_Pham;
-            this.gridControl1.Margin = new System.Windows.Forms.Padding(4);
             this.gridControl1.MenuManager = this.barManager1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(361, 185);
+            this.gridControl1.Size = new System.Drawing.Size(308, 146);
             this.gridControl1.TabIndex = 13;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdChon_San_Pham});
             // 
             // grdChon_San_Pham
             // 
-            this.grdChon_San_Pham.DetailHeight = 431;
             this.grdChon_San_Pham.GridControl = this.gridControl1;
             this.grdChon_San_Pham.Name = "grdChon_San_Pham";
             // 
@@ -310,13 +296,12 @@
             // 
             this.lblTitle.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Bold);
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.lblTitle.Location = new System.Drawing.Point(12, 12);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTitle.MaximumSize = new System.Drawing.Size(0, 52);
-            this.lblTitle.MinimumSize = new System.Drawing.Size(0, 52);
+            this.lblTitle.Location = new System.Drawing.Point(11, 10);
+            this.lblTitle.MaximumSize = new System.Drawing.Size(0, 42);
+            this.lblTitle.MinimumSize = new System.Drawing.Size(0, 42);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Padding = new System.Windows.Forms.Padding(5);
-            this.lblTitle.Size = new System.Drawing.Size(751, 52);
+            this.lblTitle.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lblTitle.Size = new System.Drawing.Size(642, 42);
             this.lblTitle.TabIndex = 10;
             this.lblTitle.Text = "Title";
             // 
@@ -324,8 +309,7 @@
             // 
             this.txtTong_Tien_San_Pham.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTong_Tien_San_Pham.EditValue = ((short)(0));
-            this.txtTong_Tien_San_Pham.Location = new System.Drawing.Point(29, 372);
-            this.txtTong_Tien_San_Pham.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTong_Tien_San_Pham.Location = new System.Drawing.Point(25, 301);
             this.txtTong_Tien_San_Pham.Name = "txtTong_Tien_San_Pham";
             this.txtTong_Tien_San_Pham.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtTong_Tien_San_Pham.Properties.Appearance.ForeColor = System.Drawing.Color.Red;
@@ -336,7 +320,7 @@
             this.txtTong_Tien_San_Pham.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.txtTong_Tien_San_Pham.Properties.MaskSettings.Set("mask", "C0");
             this.txtTong_Tien_San_Pham.Properties.UseMaskAsDisplayFormat = true;
-            this.txtTong_Tien_San_Pham.Size = new System.Drawing.Size(717, 50);
+            this.txtTong_Tien_San_Pham.Size = new System.Drawing.Size(614, 42);
             this.txtTong_Tien_San_Pham.StyleController = this.layoutControl1;
             this.txtTong_Tien_San_Pham.TabIndex = 11;
             // 
@@ -347,9 +331,9 @@
             0,
             0,
             0});
-            this.txtSo_Luong.Location = new System.Drawing.Point(95, 106);
-            this.txtSo_Luong.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSo_Luong.Location = new System.Drawing.Point(81, 87);
             this.txtSo_Luong.Name = "txtSo_Luong";
+            this.txtSo_Luong.Properties.BeepOnError = true;
             this.txtSo_Luong.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtSo_Luong.Properties.DisplayFormat.FormatString = "d";
@@ -357,9 +341,11 @@
             this.txtSo_Luong.Properties.EditFormat.FormatString = "d";
             this.txtSo_Luong.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.txtSo_Luong.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
-            this.txtSo_Luong.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.DateTimeMaskManager));
-            this.txtSo_Luong.Properties.MaskSettings.Set("mask", "d");
-            this.txtSo_Luong.Size = new System.Drawing.Size(656, 24);
+            this.txtSo_Luong.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.txtSo_Luong.Properties.MaskSettings.Set("mask", "N0");
+            this.txtSo_Luong.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
+            this.txtSo_Luong.Properties.UseMaskAsDisplayFormat = true;
+            this.txtSo_Luong.Size = new System.Drawing.Size(561, 20);
             this.txtSo_Luong.StyleController = this.layoutControl1;
             this.txtSo_Luong.TabIndex = 12;
             this.txtSo_Luong.EditValueChanged += new System.EventHandler(this.txtSo_Luong_EditValueChanged);
@@ -374,7 +360,7 @@
             this.layoutControlItem4,
             this.layoutControlItem5});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(775, 550);
+            this.Root.Size = new System.Drawing.Size(664, 447);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
@@ -382,7 +368,7 @@
             this.layoutControlItem1.Control = this.lblTitle;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(755, 56);
+            this.layoutControlItem1.Size = new System.Drawing.Size(646, 46);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -393,10 +379,10 @@
             this.layoutControlItem6,
             this.layoutControlItem2,
             this.layoutControlItem3});
-            this.layoutAction.Location = new System.Drawing.Point(0, 56);
+            this.layoutAction.Location = new System.Drawing.Point(0, 46);
             this.layoutAction.Name = "layoutAction";
             this.layoutAction.OptionsItemText.TextToControlDistance = 3;
-            this.layoutAction.Size = new System.Drawing.Size(755, 267);
+            this.layoutAction.Size = new System.Drawing.Size(646, 215);
             this.layoutAction.Text = "Thao tác nhập liệu";
             // 
             // layoutControlItem6
@@ -406,26 +392,26 @@
             this.layoutControlItem6.CustomizationFormText = "Đánh giá độ tuổi";
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(731, 28);
+            this.layoutControlItem6.Size = new System.Drawing.Size(624, 24);
             this.layoutControlItem6.Text = "Số lượng:";
             this.layoutControlItem6.TextLocation = DevExpress.Utils.Locations.Left;
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(59, 16);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(49, 13);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.gridControl1;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 28);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(365, 189);
+            this.layoutControlItem2.Size = new System.Drawing.Size(312, 150);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.gridControl2;
-            this.layoutControlItem3.Location = new System.Drawing.Point(365, 28);
+            this.layoutControlItem3.Location = new System.Drawing.Point(312, 24);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(366, 189);
+            this.layoutControlItem3.Size = new System.Drawing.Size(312, 150);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
@@ -434,35 +420,34 @@
             this.layoutControlItem4.Control = this.txtTong_Tien_San_Pham;
             this.layoutControlItem4.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem4.CustomizationFormText = "Thanh toán:";
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 323);
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 261);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Padding = new DevExpress.XtraLayout.Utils.Padding(19, 19, 20, 20);
-            this.layoutControlItem4.Size = new System.Drawing.Size(755, 109);
+            this.layoutControlItem4.Padding = new DevExpress.XtraLayout.Utils.Padding(16, 16, 16, 16);
+            this.layoutControlItem4.Size = new System.Drawing.Size(646, 90);
             this.layoutControlItem4.Text = "Tổng tiền:";
             this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(59, 16);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(49, 13);
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.groupBtn;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 432);
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 351);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(755, 98);
+            this.layoutControlItem5.Size = new System.Drawing.Size(646, 80);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
             // ucChonSanPham
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.layoutControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ucChonSanPham";
-            this.Size = new System.Drawing.Size(775, 580);
+            this.Size = new System.Drawing.Size(664, 471);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);

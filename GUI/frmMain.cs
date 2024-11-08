@@ -28,12 +28,10 @@ namespace GUI
             { "accQLNhanVien", new ucNhanVien() },
             { "accQLPhanCa", new ucPhanCa() },
             { "accQLCaLamViec", new ucCaLamViec() },
-            //{ "accQLGhe", new ucGhe() },
             { "accQLDanhGiaDoTuoi", new ucDanhGiaDoTuoi() },
             { "accBaoCaoDoanhThu", new ucBaoCaoDoanhThu() },
             { "accBaoCaoThuChi", new ucBaoCaoThuChi() },
             { "accBaoCaoTonKho", new ucBaoCaoTonKho() },
-               { "accThanhToan", new ucChonThanhToan() },
         };
 
         private frmLoading frmLoad = null;

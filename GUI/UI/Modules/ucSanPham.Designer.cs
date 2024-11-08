@@ -241,16 +241,16 @@ namespace GUI.UI.Modules
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.lblTitle.Location = new System.Drawing.Point(18, 18);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(759, 26);
+            this.lblTitle.Size = new System.Drawing.Size(348, 26);
             this.lblTitle.TabIndex = 9;
             this.lblTitle.Text = "Title";
             // 
             // dgv
             // 
-            this.dgv.Location = new System.Drawing.Point(24, 318);
+            this.dgv.Location = new System.Drawing.Point(388, 45);
             this.dgv.MainView = this.gridView1;
             this.dgv.Name = "dgv";
-            this.dgv.Size = new System.Drawing.Size(747, 185);
+            this.dgv.Size = new System.Drawing.Size(383, 458);
             this.dgv.TabIndex = 8;
             this.dgv.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -267,7 +267,7 @@ namespace GUI.UI.Modules
             // 
             this.txtTenSanPham.Location = new System.Drawing.Point(144, 103);
             this.txtTenSanPham.Name = "txtTenSanPham";
-            this.txtTenSanPham.Size = new System.Drawing.Size(627, 20);
+            this.txtTenSanPham.Size = new System.Drawing.Size(216, 20);
             this.txtTenSanPham.StyleController = this.layoutForm;
             this.txtTenSanPham.TabIndex = 5;
             // 
@@ -282,7 +282,7 @@ namespace GUI.UI.Modules
             this.txtGiaTien.Properties.MaskSettings.Set("culture", "vi-VN");
             this.txtGiaTien.Properties.MaskSettings.Set("valueType", typeof(double));
             this.txtGiaTien.Properties.UseMaskAsDisplayFormat = true;
-            this.txtGiaTien.Size = new System.Drawing.Size(627, 20);
+            this.txtGiaTien.Size = new System.Drawing.Size(216, 20);
             this.txtGiaTien.StyleController = this.layoutForm;
             this.txtGiaTien.TabIndex = 11;
             // 
@@ -291,7 +291,7 @@ namespace GUI.UI.Modules
             this.txtUrlHinhAnh.Location = new System.Drawing.Point(144, 223);
             this.txtUrlHinhAnh.MenuManager = this.barManager1;
             this.txtUrlHinhAnh.Name = "txtUrlHinhAnh";
-            this.txtUrlHinhAnh.Size = new System.Drawing.Size(627, 20);
+            this.txtUrlHinhAnh.Size = new System.Drawing.Size(216, 20);
             this.txtUrlHinhAnh.StyleController = this.layoutForm;
             this.txtUrlHinhAnh.TabIndex = 12;
             // 
@@ -304,7 +304,7 @@ namespace GUI.UI.Modules
             this.txtSoLuong.Properties.MaskSettings.Set("mask", "d");
             this.txtSoLuong.Properties.MaskSettings.Set("culture", "vi-VN");
             this.txtSoLuong.Properties.UseMaskAsDisplayFormat = true;
-            this.txtSoLuong.Size = new System.Drawing.Size(627, 20);
+            this.txtSoLuong.Size = new System.Drawing.Size(216, 20);
             this.txtSoLuong.StyleController = this.layoutForm;
             this.txtSoLuong.TabIndex = 5;
             // 
@@ -328,7 +328,7 @@ namespace GUI.UI.Modules
             this.layoutTitle.MinSize = new System.Drawing.Size(36, 36);
             this.layoutTitle.Name = "layoutTitle";
             this.layoutTitle.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
-            this.layoutTitle.Size = new System.Drawing.Size(775, 42);
+            this.layoutTitle.Size = new System.Drawing.Size(364, 42);
             this.layoutTitle.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutTitle.Spacing = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
             this.layoutTitle.Text = "Title";
@@ -347,7 +347,7 @@ namespace GUI.UI.Modules
             this.layoutSoLuong});
             this.layoutAction.Location = new System.Drawing.Point(0, 42);
             this.layoutAction.Name = "layoutAction";
-            this.layoutAction.Size = new System.Drawing.Size(775, 231);
+            this.layoutAction.Size = new System.Drawing.Size(364, 465);
             this.layoutAction.Text = "Thao tác nhập liệu";
             // 
             // layoutControlItem2
@@ -355,7 +355,7 @@ namespace GUI.UI.Modules
             this.layoutControlItem2.Control = this.txtUrlHinhAnh;
             this.layoutControlItem2.Location = new System.Drawing.Point(120, 120);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(631, 66);
+            this.layoutControlItem2.Size = new System.Drawing.Size(220, 300);
             this.layoutControlItem2.Text = "Product URL:";
             this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(71, 13);
@@ -380,7 +380,7 @@ namespace GUI.UI.Modules
             this.layoutTenSP.CustomizationFormText = "Tên sản phẩm:";
             this.layoutTenSP.Location = new System.Drawing.Point(120, 0);
             this.layoutTenSP.Name = "layoutTenSP";
-            this.layoutTenSP.Size = new System.Drawing.Size(631, 40);
+            this.layoutTenSP.Size = new System.Drawing.Size(220, 40);
             this.layoutTenSP.Text = "Tên sản phẩm:";
             this.layoutTenSP.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutTenSP.TextSize = new System.Drawing.Size(71, 13);
@@ -392,7 +392,7 @@ namespace GUI.UI.Modules
             this.layoutGia.CustomizationFormText = "Giá:";
             this.layoutGia.Location = new System.Drawing.Point(120, 80);
             this.layoutGia.Name = "layoutGia";
-            this.layoutGia.Size = new System.Drawing.Size(631, 40);
+            this.layoutGia.Size = new System.Drawing.Size(220, 40);
             this.layoutGia.Text = "Giá:";
             this.layoutGia.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutGia.TextSize = new System.Drawing.Size(71, 13);
@@ -402,7 +402,7 @@ namespace GUI.UI.Modules
             this.layoutBtnHinh.Control = this.btnOpenImage;
             this.layoutBtnHinh.Location = new System.Drawing.Point(0, 160);
             this.layoutBtnHinh.Name = "layoutBtnHinh";
-            this.layoutBtnHinh.Size = new System.Drawing.Size(120, 26);
+            this.layoutBtnHinh.Size = new System.Drawing.Size(120, 260);
             this.layoutBtnHinh.Text = "Nút Thêm Hình";
             this.layoutBtnHinh.TextSize = new System.Drawing.Size(0, 0);
             this.layoutBtnHinh.TextVisible = false;
@@ -414,7 +414,7 @@ namespace GUI.UI.Modules
             this.layoutSoLuong.CustomizationFormText = "Số lượng:";
             this.layoutSoLuong.Location = new System.Drawing.Point(120, 40);
             this.layoutSoLuong.Name = "layoutSoLuong";
-            this.layoutSoLuong.Size = new System.Drawing.Size(631, 40);
+            this.layoutSoLuong.Size = new System.Drawing.Size(220, 40);
             this.layoutSoLuong.Text = "Số lượng:";
             this.layoutSoLuong.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutSoLuong.TextSize = new System.Drawing.Size(71, 13);
@@ -425,9 +425,9 @@ namespace GUI.UI.Modules
             this.layoutDGV.CustomizationFormText = "Danh sách dữ liệu";
             this.layoutDGV.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
-            this.layoutDGV.Location = new System.Drawing.Point(0, 273);
+            this.layoutDGV.Location = new System.Drawing.Point(364, 0);
             this.layoutDGV.Name = "layoutDGV";
-            this.layoutDGV.Size = new System.Drawing.Size(775, 234);
+            this.layoutDGV.Size = new System.Drawing.Size(411, 507);
             this.layoutDGV.Text = "Danh sách dữ liệu";
             // 
             // layoutControlItem1
@@ -436,7 +436,7 @@ namespace GUI.UI.Modules
             this.layoutControlItem1.CustomizationFormText = "dgvCaLamViec";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(751, 189);
+            this.layoutControlItem1.Size = new System.Drawing.Size(387, 462);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 

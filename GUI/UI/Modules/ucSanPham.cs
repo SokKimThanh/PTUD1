@@ -179,7 +179,6 @@ namespace GUI.UI.Modules
             pictureBox.Image = null;
         }
 
-
         /// <summary>
         /// Nhấp vào hình hiển thị dialog box chọn ảnh
         /// </summary>

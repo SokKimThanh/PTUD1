@@ -74,7 +74,14 @@ namespace GUI.UI.Modules
                 {
                     // Chuyển đường dẫn thành hình ảnh
                     Image img = Image.FromFile(imagePath);
-
+                    // Vẽ hình ảnh vào ô
+                    e.Graphics.DrawImage(img, e.Bounds);
+                    e.Handled = true; // Ngăn không vẽ dữ liệu mặc định lên ô
+                }
+                else
+                {
+                    // Chuyển đường dẫn thành hình ảnh
+                    Image img = Properties.Resources.gridview_no_image;
                     // Vẽ hình ảnh vào ô
                     e.Graphics.DrawImage(img, e.Bounds);
                     e.Handled = true; // Ngăn không vẽ dữ liệu mặc định lên ô
