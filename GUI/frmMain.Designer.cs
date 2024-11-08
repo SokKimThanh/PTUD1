@@ -34,6 +34,7 @@
             this.arrFunction = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.aceDanhMuc = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accDatVe = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accVe = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accQLPhim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accQLHoaDon = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accQLSanPham = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -87,6 +88,7 @@
             // 
             this.aceDanhMuc.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accDatVe,
+            this.accVe,
             this.accQLPhim,
             this.accQLHoaDon,
             this.accQLSanPham,
@@ -108,6 +110,13 @@
             this.accDatVe.Name = "accDatVe";
             this.accDatVe.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accDatVe.Text = "Đặt vé";
+            // 
+            // accVe
+            // 
+            this.accVe.ImageOptions.Image = global::GUI.Properties.Resources.tickets;
+            this.accVe.Name = "accVe";
+            this.accVe.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accVe.Text = "Vé";
             // 
             // accQLPhim
             // 
@@ -320,5 +329,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accQLDanhGiaDoTuoi;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accDatVe;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accNgonNgu;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accVe;
     }
 }

@@ -212,7 +212,6 @@ namespace GUI.UI.Modules
 
                         v_objLoad.Load_DataBase(sender, e);
                     }
-
                 }
             }
             catch (Exception ex)
