@@ -7,6 +7,7 @@ using GUI.UI.Modules;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -89,6 +90,9 @@ namespace GUI
             this.aceDanhMuc,
             this.aceBaoCao,
             this.aceHeThong});
+
+            if (this.aceDanhMuc.Elements.FirstOrDefault(it => it.Name == "accQLNhanVien") == null)
+                this.aceDanhMuc.Elements.Add(this.accQLNhanVien);
         }
 
         private void FunctionManager()
@@ -97,13 +101,21 @@ namespace GUI
             this.aceDanhMuc,
             this.aceBaoCao,
             this.aceHeThong});
+
+            if (this.aceDanhMuc.Elements.FirstOrDefault(it => it.Name == "accQLNhanVien") == null)
+                this.aceDanhMuc.Elements.Add(this.accQLNhanVien);
         }
 
         private void FunctionStaff()
         {
+            //Nhân viên thì k vào được chức năng báo cáo
+            this.aceDanhMuc.Elements.Remove(this.accQLNhanVien);
+
             arrFunction.Elements.AddRange(new AccordionControlElement[] {
             this.aceDanhMuc,
             this.aceHeThong});
+
+            
         }
 
         #endregion
@@ -190,6 +202,8 @@ namespace GUI
                 //Dựa vào phân quyền để load cây chức năng theo
                 int iLevel = objStaffController.LoadLevelByMaDangNhap(CCommon.MaDangNhap);
                 LoadFunctionByLevel(iLevel);
+
+                mainContainer.Controls.Clear();
             }
             catch (Exception ex)
             {

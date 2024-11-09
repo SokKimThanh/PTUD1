@@ -57,7 +57,7 @@ namespace GUI
                 {
                     using (StreamWriter objSW = new StreamWriter(objStream, Encoding.UTF8))
                     {
-                        string strMaDangNhap_MD5 = CUtility.MD5_Encrypt(txtTenDangNhap.Text);
+                        string strMaDangNhap_MD5 = txtTenDangNhap.Text;
                         string strMatKhau_MD5 = CUtility.MD5_Encrypt(txtMatKhau.Text);
 
                         // Ghi từng dòng

@@ -150,16 +150,8 @@ namespace BUS.Danh_Muc
 
                 strStep = "2";
                 //Kiểm tra xem có user nào tồn tại với mã đăng nhập
-                tbl_DM_Staff_DTO objUser = null;
-                foreach (tbl_DM_Staff_DTO objTemp in objDAL.GetList())
-                {
-                    if (CUtility.MD5_Encrypt(objTemp.ST_USERNAME.Trim()) == strMaDangNhap && objTemp.DELETED == 0)
-                    {
-                        objUser = objTemp;
-                        break;
-                    }
-                }
-
+                tbl_DM_Staff_DTO objUser = objDAL.GetDataByUserName(strMaDangNhap);
+               
                 if (objUser == null)
                     throw new Exception("Mã đăng nhập không tồn tại.");
 
