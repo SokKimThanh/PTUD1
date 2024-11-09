@@ -38,10 +38,14 @@ namespace GUI
                     throw new Exception("Chuỗi kết nối không tồn tại. Đóng chương trình");
 
                 v_iStep = 5;
+                CheckDatabaseExists();
+
+                v_iStep = 6;
                 if (Directory.Exists(CConfig.CM_Cinema_FileManagement_Folder) == false)
                     Directory.CreateDirectory(CConfig.CM_Cinema_FileManagement_Folder);
 
-                v_iStep = 6;
+                v_iStep = 7;
+
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new frmMain());
@@ -180,6 +184,29 @@ namespace GUI
                 }
             }
 
+        }
+
+        static void CheckDatabaseExists()
+        {
+            string v_strQuery = "SELECT database_id FROM sys.databases WHERE name = @databaseName";
+
+            using (SqlConnection v_conn = new SqlConnection(CConfig.CM_Cinema_DB_ConnectionString))
+            using (SqlCommand v_cmd = new SqlCommand(v_strQuery, v_conn))
+            {
+                v_cmd.Parameters.AddWithValue("@databaseName", "CM_Cinema_DB");
+
+                try
+                {
+                    v_conn.Open();
+                    object v_objRes = v_cmd.ExecuteScalar();
+                    if (v_objRes == null)
+                        throw new Exception("Database không tồn tại.");
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
         }
     }
 }
