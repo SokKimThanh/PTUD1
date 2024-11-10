@@ -243,5 +243,43 @@ namespace DAL
                 throw ex;
             }
         }
+        public List<tbl_DM_MovieSchedule_DTO> GetMovieSchedule_ByTheater(long theaterID)
+        {
+            try
+            {
+                List<tbl_DM_MovieSchedule_DTO> list = new List<tbl_DM_MovieSchedule_DTO>();
+                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString))
+                {
+                    //List<tbl_DM_MovieSchedule> result = db.tbl_DM_MovieSchedules.Where(item => item.MS_MOVIE_AutoID == movieID).OrderBy(item => item.MS_START).ToList();
+                    var result = from ms in db.tbl_DM_MovieSchedules
+                                 join mv in db.tbl_DM_Movies on ms.MS_MOVIE_AutoID equals mv.MV_AutoID
+                                 join tt in db.tbl_DM_Theaters on ms.MS_THEATER_AutoID equals tt.TT_AutoID
+                                 where ms.MS_THEATER_AutoID == theaterID && ms.DELETED == 0
+                                 orderby ms.MS_START ascending
+                                 select new
+                                 {
+                                     AutoID = ms.MS_AutoID,
+                                     Movie_AutoID = ms.MS_MOVIE_AutoID,
+                                     Movie_Name = mv.MV_NAME,
+                                     Theater_AutoID = ms.MS_THEATER_AutoID,
+                                     Theater_Name = tt.TT_NAME,
+                                     Start_Date = ms.MS_START,
+                                     End_Date = ms.MS_END,
+                                     Deleted = ms.DELETED
+                                 };
+
+                    foreach (var item in result)
+                    {
+                        list.Add(new tbl_DM_MovieSchedule_DTO(item.AutoID, (long)item.Movie_AutoID, item.Movie_Name, (long)item.Theater_AutoID, item.Theater_Name, item.Start_Date, item.End_Date, (int)item.Deleted));
+                    }
+
+                }
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

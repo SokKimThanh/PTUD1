@@ -50,8 +50,9 @@ namespace GUI.UI.Modules
         }
         protected override void Load_Data()
         {
-            if (strFunctionCode != "")
-                lblTitle.Text = strFunctionCode.ToUpper().Trim();
+            tbl_DM_MovieSchedule_DTO foundSchedule = movieScheBus.GetLastMovieSchedule_ByID(CCommon.suatChieuDuocChon);
+            string movieName = movieBus.Find(foundSchedule.Movie_AutoID).MV_NAME.Trim();
+            lblTitle.Text = "Phim được chọn: " + movieName + " | " + foundSchedule.StartDate.ToString("HH:mm");
             PrintSeats();
         }
 

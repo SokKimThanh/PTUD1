@@ -44,11 +44,14 @@ namespace DAL
                 using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString))
                 {
                     tbl_DM_Ticket foundTicket = db.tbl_DM_Tickets.SingleOrDefault(item => item.TK_AutoID == ticketID);
-                    //objRes.DELETED = 1;
-                    //objRes.UPDATED = DateTime.Now;
-                    //objRes.UPDATED_BY = strUpdated_By;
-                    //objRes.UPDATED_BY_FUNCTION = "Delete by ID";
-                    //DBDataContext.SubmitChanges();
+                    if (foundTicket != null)
+                    {
+                        foundTicket.DELETED = 1;
+                        foundTicket.UPDATED = DateTime.Now;
+                        foundTicket.UPDATED_BY = "Admin";
+                        foundTicket.UPDATED_BY_FUNCTION = "delete by id";
+                    }
+                    db.SubmitChanges();
                 }
             }
             catch (Exception ex)
@@ -108,8 +111,6 @@ namespace DAL
                 throw ex;
             }
         }
-
-
         public void AddData(tbl_DM_Ticket_DTO p_objData)
         {
             try

@@ -46,7 +46,16 @@ namespace BUS.Danh_Muc
                 throw ex;
             }
         }
-
+        public void RemoveData(long ticketID)
+        {
+            try
+            {
+                dal.RemoveData(ticketID);
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
         public void AddData(tbl_DM_Ticket_DTO p_objData)
         {
             try
