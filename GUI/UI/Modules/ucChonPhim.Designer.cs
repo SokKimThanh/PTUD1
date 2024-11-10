@@ -228,17 +228,18 @@
             this.dgvMovies.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvMovies});
             this.dgvMovies.DataSourceChanged += new System.EventHandler(this.dgvMovies_DataSourceChanged);
-            this.dgvMovies.Click += new System.EventHandler(this.dgvMovies_Click);
             // 
             // gvMovies
             // 
             this.gvMovies.DetailHeight = 431;
+            this.gvMovies.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.gvMovies.GridControl = this.dgvMovies;
             this.gvMovies.Name = "gvMovies";
             this.gvMovies.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
             this.gvMovies.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
             this.gvMovies.OptionsBehavior.Editable = false;
             this.gvMovies.OptionsBehavior.ReadOnly = true;
+            this.gvMovies.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gvMovies_RowCellClick);
             // 
             // txtDuration
             // 

@@ -47,16 +47,23 @@ namespace GUI.UI.Modules
             dgvMovies.RefreshDataSource();
 
             // Đặt ngày chọn ban đầu
+            dtpDate.Properties.MinValue = DateTime.Now;
             dtpDate.EditValue = dtpDate.Properties.MinValue;
 
-            // 
+            // Hiển thị danh sách suất chiếu của phim được chọn
             cboMovieSchedule.Properties.DisplayMember = "StartDate";
             cboMovieSchedule.Properties.ValueMember = "AutoID";
             cboMovieSchedule.Properties.Columns.Add(new LookUpColumnInfo("AutoID", "Mã"));
             cboMovieSchedule.Properties.Columns.Add(new LookUpColumnInfo("StartDate", "Suất chiếu", 80,
-                DevExpress.Utils.FormatType.DateTime, CConfig.Time_Format_String, true, DevExpress.Utils.HorzAlignment.Default));
+              DevExpress.Utils.FormatType.DateTime, CConfig.Time_Format_String, true, DevExpress.Utils.HorzAlignment.Default));
             cboMovieSchedule.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             cboMovieSchedule.Properties.DisplayFormat.FormatString = CConfig.Time_Format_String;
+        }
+        private void ClearData()
+        {
+            txtAgeRating.Text = string.Empty;
+            txtDuration.Text = string.Empty;
+            cboMovieSchedule.Clear();
         }
 
         // Phương thức khác
@@ -115,35 +122,11 @@ namespace GUI.UI.Modules
             }
         }
 
-        private void dgvMovies_Click(object sender, EventArgs e)
-        {
-            int[] dong = gvMovies.GetSelectedRows();
-            foreach (int i in dong)
-            {
-                if (i >= 0)
-                {
-                    try
-                    {
-                        string dgv_selected_id = gvMovies.GetRowCellValue(i, "MV_AutoID").ToString().Trim();
-                        tbl_DM_Movie_DTO o = moiveBus.Find(long.Parse(dgv_selected_id));
-                        tbl_DM_AgeRating_DTO foundAR = ageBus.Find((long)o.MV_AGERATING_AutoID);
-                        txtDuration.Text = o.MV_DURATION.ToString().Trim();
-                        txtAgeRating.Text = foundAR.AR_NOTE.ToString().Trim();
-                        cboMovieSchedule.Properties.DataSource = movieScheBus.GetMovieSchedule_ByMovie(o.MV_AutoID);
-                        cboMovieSchedule.ItemIndex = 0;
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Lỗi");
-                    }
-                }
-            }
-        }
-
         private void dtpDate_EditValueChanged(object sender, EventArgs e)
         {
             try
             {
+                dgvMovies.Refresh();
                 dgvMovies.DataSource = moiveBus.GetMovies_ByScheduleDate((DateTime)dtpDate.EditValue);
             }
             catch(Exception ex)
@@ -176,6 +159,35 @@ namespace GUI.UI.Modules
             gvMovies.Columns["MV_DURATION"].Caption = "Thời lượng";
             gvMovies.Columns["MV_AutoID"].Visible = false;
             gvMovies.Columns["MV_AGERATING_AutoID"].Visible = false;
+
+            // Chọn phim đầu tiên xuất hiện
+            if(gvMovies.Columns.Count > 0)
+                gvMovies.SelectRow(1);
+        }
+
+        private void gvMovies_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
+        {
+            int[] dong = gvMovies.GetSelectedRows();
+            foreach (int i in dong)
+            {
+                if (i >= 0)
+                {
+                    try
+                    {
+                        string dgv_selected_id = gvMovies.GetRowCellValue(i, "MV_AutoID").ToString().Trim();
+                        tbl_DM_Movie_DTO o = moiveBus.Find(long.Parse(dgv_selected_id));
+                        tbl_DM_AgeRating_DTO foundAR = ageBus.Find((long)o.MV_AGERATING_AutoID);
+                        txtDuration.Text = o.MV_DURATION.ToString().Trim();
+                        txtAgeRating.Text = foundAR.AR_NOTE.ToString().Trim();
+                        cboMovieSchedule.Properties.DataSource = movieScheBus.GetMovieSchedule_ByMovie(o.MV_AutoID);
+                        cboMovieSchedule.ItemIndex = 0;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Lỗi");
+                    }
+                }
+            }
         }
     }
 }
