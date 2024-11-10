@@ -57,7 +57,7 @@ namespace GUI.UI.Modules
 
         private void ucChonGhe_Load(object sender, System.EventArgs e)
         {
-            chosenTheater = theaterBus.FindByID(CCommon.suatChieuDuocChon);
+            chosenTheater = theaterBus.FindByID(movieScheBus.GetLastMovieSchedule_ByID(CCommon.suatChieuDuocChon).Theater_AutoID);
             price = (movieBus.Find((movieScheBus.GetLastMovieSchedule_ByID(CCommon.suatChieuDuocChon).Movie_AutoID)).MV_PRICE);
             rows = chosenTheater.Rows;
             columns = chosenTheater.Columns;

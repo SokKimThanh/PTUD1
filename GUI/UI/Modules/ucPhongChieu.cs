@@ -131,6 +131,7 @@ namespace GUI.UI.Modules
                     }
                 }
                 Load_Data();
+                MessageBox.Show("Cập nhật thông tin thành công !", "Thông báo",MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -166,7 +167,7 @@ namespace GUI.UI.Modules
                 if (i >= 0)
                 {
                     txtName.Text = gvTheaters.GetRowCellValue(i, "Name").ToString();
-                    cboStatus.SelectedIndex = (int)gvTheaters.GetRowCellValue(i, "Status") - 1;
+                    cboStatus.SelectedIndex = (int)gvTheaters.GetRowCellValue(i, "Status");
                     cboRows.SelectedIndex = (int)gvTheaters.GetRowCellValue(i, "Rows") - 1;
                     cboColumns.SelectedIndex = (int)gvTheaters.GetRowCellValue(i, "Columns") - 1;
                     cboCouples.SelectedIndex = (int)gvTheaters.GetRowCellValue(i, "Couples") - 1;
