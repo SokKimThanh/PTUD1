@@ -14,7 +14,7 @@ namespace GUI.UI.Modules
             this.layoutTitle.MaxSize = new System.Drawing.Size(0, 42);
             this.layoutTitle.MinSize = new System.Drawing.Size(36, 36);
             // Ngăn không cho phép sửa dữ liệu trực tiếp trên GridView
-            gridView1.OptionsBehavior.Editable = false;
+            gvHoaDonCT.OptionsBehavior.Editable = false;
         }
         protected override void Load_Data()
         {
@@ -32,19 +32,19 @@ namespace GUI.UI.Modules
                 v_objBill.BL_NAME = v_objStaffBus.GetStaff_ByID((int)v_objBill.BL_STAFF_AutoID).ST_NAME;
             }
 
-            dgv.DataSource = v_arrBill;
+            DgvHoaDonCT.DataSource = v_arrBill;
 
-            gridView1.Columns["BL_AutoID"].Visible = false;
-            gridView1.Columns["BL_PRODUCT_AutoID"].Visible = false;
-            gridView1.Columns["BL_STAFF_AutoID"].Visible = false;
+            gvHoaDonCT.Columns["BL_AutoID"].Visible = false;
+            gvHoaDonCT.Columns["BL_PRODUCT_AutoID"].Visible = false;
+            gvHoaDonCT.Columns["BL_STAFF_AutoID"].Visible = false;
 
-            gridView1.Columns["BL_PRODUCT_NAME"].Caption = LanguageController.GetLanguageDataLabel("Tên sản phẩm");
-            gridView1.Columns["BL_NAME"].Caption = LanguageController.GetLanguageDataLabel("Người tạo hóa đơn");
-            gridView1.Columns["BL_QUANTITY"].Caption = LanguageController.GetLanguageDataLabel("Số lượng");
-            gridView1.Columns["BL_PRICE"].Caption = LanguageController.GetLanguageDataLabel("Giá");
+            gvHoaDonCT.Columns["BL_PRODUCT_NAME"].Caption = LanguageController.GetLanguageDataLabel("Tên sản phẩm");
+            gvHoaDonCT.Columns["BL_NAME"].Caption = LanguageController.GetLanguageDataLabel("Người tạo hóa đơn");
+            gvHoaDonCT.Columns["BL_QUANTITY"].Caption = LanguageController.GetLanguageDataLabel("Số lượng");
+            gvHoaDonCT.Columns["BL_PRICE"].Caption = LanguageController.GetLanguageDataLabel("Giá");
 
 
-            FormatGridView(gridView1);
+            FormatGridView(gvHoaDonCT);
 
 
         }
