@@ -34,6 +34,7 @@
             this.arrFunction = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.aceDanhMuc = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accDatVe = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accVe = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accQLPhim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accQLHoaDon = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accQLSanPham = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -54,7 +55,6 @@
             this.accNgonNgu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.fluentFormDefaultManager1 = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
-            this.accThanhToan = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.arrFunction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).BeginInit();
@@ -63,7 +63,7 @@
             // mainContainer
             // 
             this.mainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainContainer.Location = new System.Drawing.Point(303, 39);
+            this.mainContainer.Location = new System.Drawing.Point(260, 31);
             this.mainContainer.Margin = new System.Windows.Forms.Padding(4);
             this.mainContainer.Name = "mainContainer";
             this.mainContainer.Size = new System.Drawing.Size(700, 608);
@@ -76,7 +76,7 @@
             this.aceDanhMuc,
             this.aceBaoCao,
             this.aceHeThong});
-            this.arrFunction.Location = new System.Drawing.Point(0, 39);
+            this.arrFunction.Location = new System.Drawing.Point(0, 31);
             this.arrFunction.Margin = new System.Windows.Forms.Padding(4);
             this.arrFunction.Name = "arrFunction";
             this.arrFunction.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
@@ -88,6 +88,7 @@
             // 
             this.aceDanhMuc.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accDatVe,
+            this.accVe,
             this.accQLPhim,
             this.accQLHoaDon,
             this.accQLSanPham,
@@ -97,8 +98,7 @@
             this.accQLPhanCa,
             this.accQLCaLamViec,
             this.accQLGhe,
-            this.accQLDanhGiaDoTuoi,
-            this.accThanhToan});
+            this.accQLDanhGiaDoTuoi});
             this.aceDanhMuc.Expanded = true;
             this.aceDanhMuc.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("aceDanhMuc.ImageOptions.Image")));
             this.aceDanhMuc.Name = "aceDanhMuc";
@@ -110,6 +110,13 @@
             this.accDatVe.Name = "accDatVe";
             this.accDatVe.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accDatVe.Text = "Đặt vé";
+            // 
+            // accVe
+            // 
+            this.accVe.ImageOptions.Image = global::GUI.Properties.Resources.tickets;
+            this.accVe.Name = "accVe";
+            this.accVe.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accVe.Text = "Vé";
             // 
             // accQLPhim
             // 
@@ -272,12 +279,6 @@
             // 
             this.fluentFormDefaultManager1.Form = this;
             // 
-            // accThanhToan
-            // 
-            this.accThanhToan.Name = "accThanhToan";
-            this.accThanhToan.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accThanhToan.Text = "ThanhToan";
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -328,6 +329,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accQLDanhGiaDoTuoi;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accDatVe;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accNgonNgu;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accThanhToan;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accVe;
     }
 }

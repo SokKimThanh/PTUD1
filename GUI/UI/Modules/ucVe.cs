@@ -17,7 +17,7 @@ using System.Xml.Linq;
 
 namespace GUI.UI.Modules
 {
-    public partial class ucVe : DevExpress.XtraEditors.XtraUserControl
+    public partial class ucVe : ucBase
     {
         private tbl_DM_Ticket_BUS ticketBus = new tbl_DM_Ticket_BUS();
         private tbl_DM_Movie_BUS movieBus = new tbl_DM_Movie_BUS();
@@ -28,6 +28,7 @@ namespace GUI.UI.Modules
         public ucVe()
         {
             InitializeComponent();
+            lblTitle.Text = "VÉ";
         }
 
         public void LoadData()
@@ -82,6 +83,11 @@ namespace GUI.UI.Modules
                     }
                 }
             }
+        }
+
+        private void ucVe_Load(object sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }

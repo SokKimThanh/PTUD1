@@ -35,7 +35,7 @@ namespace DAL
         public override List<tbl_DM_Staff_DTO> GetList()
         {
             List<tbl_DM_Staff_DTO> arrRes = new List<tbl_DM_Staff_DTO>();
-            List<tbl_DM_Staff> arrDB = DBDataContext.tbl_DM_Staffs.Where(it => it.DELETED == 0).OrderByDescending(it => it.ST_AutoID).ToList();
+            List<tbl_DM_Staff> arrDB = DBDataContext.tbl_DM_Staffs.Where(it => it.DELETED == 0 && it.ST_USERNAME.ToLower().Trim() != "admin").OrderByDescending(it => it.ST_AutoID).ToList();
 
             foreach (tbl_DM_Staff objDB in arrDB)
             {
@@ -128,7 +128,7 @@ namespace DAL
 
                 return objRes;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }

@@ -46,5 +46,17 @@ namespace BUS.Danh_Muc
                 throw ex;
             }
         }
+
+        public void AddData(tbl_DM_Ticket_DTO p_objData)
+        {
+            try
+            {
+                dal.AddData(p_objData);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

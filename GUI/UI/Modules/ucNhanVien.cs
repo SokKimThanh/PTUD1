@@ -47,7 +47,7 @@ namespace GUI.UI.Modules
             this.layoutTitle.MinSize = new System.Drawing.Size(36, 36);
             // Ngăn không cho phép sửa dữ liệu trực tiếp trên GridView
             grdData.OptionsBehavior.Editable = false;
-            
+
             grdData.RowClick += RowClick_Grid;
 
             //cbbLevel.Properties.Items.Add(LanguageController.GetLanguageDataLabel("Admin"));
@@ -95,7 +95,7 @@ namespace GUI.UI.Modules
             grdData.Columns["ST_LEVELText"].Caption = LanguageController.GetLanguageDataLabel("Level");
 
             FormatGridView(grdData);
-            
+
         }
 
         protected override void Add_Data()
@@ -171,7 +171,23 @@ namespace GUI.UI.Modules
         protected override void RemoveData(long iAuto_ID)
         {
             tbl_DM_Staff_BUS objBUS = new tbl_DM_Staff_BUS();
-            objBUS.RemoveData(iAuto_ID, strActive_User_Name, strFunctionCode);
+
+            // Lấy các chỉ số của các dòng được chọn
+            int[] v_arrRow_Select = grdData.GetSelectedRows();
+
+            if (v_arrRow_Select.Length > 1)
+            {
+                foreach (int v_row in v_arrRow_Select)
+                {
+                    tbl_DM_Staff_DTO v_objRow = grdData.GetRow(v_row) as tbl_DM_Staff_DTO;
+                    if (v_objRow != null)                   
+                        objBUS.RemoveData(v_objRow.ST_AutoID, strActive_User_Name, strFunctionCode);                  
+                }
+            }
+            else
+            {
+                objBUS.RemoveData(iAuto_ID, strActive_User_Name, strFunctionCode);
+            }
         }
 
         protected override void ObjectProcessing(object obj)

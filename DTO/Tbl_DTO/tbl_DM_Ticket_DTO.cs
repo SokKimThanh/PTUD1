@@ -23,6 +23,11 @@ namespace DTO.tbl_DTO
             this.Deleted = deleted;
         }
 
+        public tbl_DM_Ticket_DTO()
+        {
+            
+        }
+
         public long AutoID { get => autoID;}
         public string SeatName { get => seatName; set => seatName = value; }
         public long MovieScheID { get => movieScheID; set => movieScheID = value; }

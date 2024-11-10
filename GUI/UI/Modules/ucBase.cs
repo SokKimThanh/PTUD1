@@ -360,6 +360,8 @@ namespace GUI.UI.Modules
             objGrid.OptionsBehavior.AutoExpandAllGroups = true;
             objGrid.ScrollStyle = ScrollStyleFlags.LiveHorzScroll;
             objGrid.OptionsView.ShowIndicator = false;
+
+            objGrid.OptionsBehavior.Editable = false;
         }
     }
 }
