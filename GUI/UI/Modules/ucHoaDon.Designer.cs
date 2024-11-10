@@ -48,9 +48,6 @@
             this.layoutTitle = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutDGV = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.DgvHoaDon = new DevExpress.XtraGrid.GridControl();
-            this.gvHoaDon = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutForm)).BeginInit();
             this.layoutForm.SuspendLayout();
@@ -60,9 +57,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvHoaDon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvHoaDon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -111,16 +105,16 @@
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
             this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlTop.Size = new System.Drawing.Size(712, 24);
+            this.barDockControlTop.Size = new System.Drawing.Size(991, 24);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 457);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 618);
             this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlBottom.Size = new System.Drawing.Size(712, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(991, 0);
             // 
             // barDockControlLeft
             // 
@@ -129,16 +123,16 @@
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
             this.barDockControlLeft.Manager = this.barManager1;
             this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 433);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 594);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(712, 24);
+            this.barDockControlRight.Location = new System.Drawing.Point(991, 24);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 433);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 594);
             // 
             // btnThem
             // 
@@ -177,7 +171,6 @@
             // 
             // layoutForm
             // 
-            this.layoutForm.Controls.Add(this.DgvHoaDon);
             this.layoutForm.Controls.Add(this.lblTitle);
             this.layoutForm.Controls.Add(this.DgvHoaDonCT);
             this.layoutForm.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -185,7 +178,7 @@
             this.layoutForm.Name = "layoutForm";
             this.layoutForm.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(25, 428, 650, 400);
             this.layoutForm.Root = this.Root;
-            this.layoutForm.Size = new System.Drawing.Size(712, 433);
+            this.layoutForm.Size = new System.Drawing.Size(991, 594);
             this.layoutForm.TabIndex = 9;
             this.layoutForm.Text = "layoutControl1";
             // 
@@ -193,18 +186,18 @@
             // 
             this.lblTitle.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Bold);
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.lblTitle.Location = new System.Drawing.Point(17, 16);
+            this.lblTitle.Location = new System.Drawing.Point(18, 18);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(678, 20);
+            this.lblTitle.Size = new System.Drawing.Size(955, 20);
             this.lblTitle.TabIndex = 9;
             this.lblTitle.Text = "Title";
             // 
             // DgvHoaDonCT
             // 
-            this.DgvHoaDonCT.Location = new System.Drawing.Point(358, 77);
+            this.DgvHoaDonCT.Location = new System.Drawing.Point(24, 81);
             this.DgvHoaDonCT.MainView = this.gvHoaDonCT;
             this.DgvHoaDonCT.Name = "DgvHoaDonCT";
-            this.DgvHoaDonCT.Size = new System.Drawing.Size(332, 336);
+            this.DgvHoaDonCT.Size = new System.Drawing.Size(943, 489);
             this.DgvHoaDonCT.TabIndex = 8;
             this.DgvHoaDonCT.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvHoaDonCT});
@@ -222,7 +215,7 @@
             this.layoutTitle,
             this.layoutDGV});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(712, 433);
+            this.Root.Size = new System.Drawing.Size(991, 594);
             this.Root.TextVisible = false;
             // 
             // layoutTitle
@@ -233,7 +226,7 @@
             this.layoutTitle.MinSize = new System.Drawing.Size(36, 36);
             this.layoutTitle.Name = "layoutTitle";
             this.layoutTitle.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
-            this.layoutTitle.Size = new System.Drawing.Size(694, 36);
+            this.layoutTitle.Size = new System.Drawing.Size(971, 36);
             this.layoutTitle.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutTitle.Spacing = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
             this.layoutTitle.Text = "Title";
@@ -245,46 +238,21 @@
             this.layoutDGV.CaptionImageOptions.Image = global::GUI.Properties.Resources.newtablestyle_16x16;
             this.layoutDGV.CustomizationFormText = "Danh sách dữ liệu";
             this.layoutDGV.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1,
-            this.layoutControlItem4});
+            this.layoutControlItem1});
             this.layoutDGV.Location = new System.Drawing.Point(0, 36);
             this.layoutDGV.Name = "layoutDGV";
-            this.layoutDGV.Size = new System.Drawing.Size(694, 381);
+            this.layoutDGV.Size = new System.Drawing.Size(971, 538);
             this.layoutDGV.Text = "Danh sách dữ liệu";
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.DgvHoaDonCT;
             this.layoutControlItem1.CustomizationFormText = "dgvCaLamViec";
-            this.layoutControlItem1.Location = new System.Drawing.Point(336, 0);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(336, 340);
+            this.layoutControlItem1.Size = new System.Drawing.Size(947, 493);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
-            // 
-            // DgvHoaDon
-            // 
-            this.DgvHoaDon.Location = new System.Drawing.Point(22, 77);
-            this.DgvHoaDon.MainView = this.gvHoaDon;
-            this.DgvHoaDon.Name = "DgvHoaDon";
-            this.DgvHoaDon.Size = new System.Drawing.Size(332, 336);
-            this.DgvHoaDon.TabIndex = 10;
-            this.DgvHoaDon.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvHoaDon});
-            // 
-            // gvHoaDon
-            // 
-            this.gvHoaDon.GridControl = this.DgvHoaDon;
-            this.gvHoaDon.Name = "gvHoaDon";
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.DgvHoaDon;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(336, 340);
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
             // 
             // ucHoaDon
             // 
@@ -296,7 +264,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "ucHoaDon";
-            this.Size = new System.Drawing.Size(712, 457);
+            this.Size = new System.Drawing.Size(991, 618);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutForm)).EndInit();
             this.layoutForm.ResumeLayout(false);
@@ -306,9 +274,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvHoaDon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvHoaDon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -335,8 +300,5 @@
         private DevExpress.XtraLayout.LayoutControlGroup layoutDGV;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraGrid.GridControl DgvHoaDon;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvHoaDon;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
     }
 }
