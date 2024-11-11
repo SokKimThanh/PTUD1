@@ -180,8 +180,8 @@ namespace GUI.UI.Modules
                 foreach (int v_row in v_arrRow_Select)
                 {
                     tbl_DM_Staff_DTO v_objRow = grdData.GetRow(v_row) as tbl_DM_Staff_DTO;
-                    if (v_objRow != null)                   
-                        objBUS.RemoveData(v_objRow.ST_AutoID, strActive_User_Name, strFunctionCode);                  
+                    if (v_objRow != null)
+                        objBUS.RemoveData(v_objRow.ST_AutoID, strActive_User_Name, strFunctionCode);
                 }
             }
             else
@@ -192,7 +192,9 @@ namespace GUI.UI.Modules
 
         protected override void ObjectProcessing(object obj)
         {
-            objEdit = obj as tbl_DM_Staff_DTO;
+            objEdit = new tbl_DM_Staff_DTO();
+            CUtility.Clone_Entity(obj, objEdit);
+
             iAuto_ID = objEdit.ST_AutoID;
             txtNameStaff.Text = objEdit.ST_NAME.Trim();
             txtUserName.Text = objEdit.ST_USERNAME.Trim();
