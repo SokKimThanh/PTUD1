@@ -13,6 +13,12 @@ namespace GUI.UI.Modules
 {
     public partial class ucChonGhe : ucBase
     {
+        private tbl_DM_MovieSchedule_BUS movieScheBus = new tbl_DM_MovieSchedule_BUS();
+        private tbl_DM_Movie_BUS movieBus = new tbl_DM_Movie_BUS();
+        private tbl_DM_Theater_BUS theaterBus = new tbl_DM_Theater_BUS();
+        private tbl_DM_Ticket_BUS ticketBus = new tbl_DM_Ticket_BUS();
+        private tbl_DM_Theater_DTO chosenTheater;
+
         // Biến khởi tạo
         private int rows = 0;
         private int columns = 0;
@@ -28,12 +34,6 @@ namespace GUI.UI.Modules
             {"Gray",Color.FromArgb(115,115,115)},
             {"Green", Color.FromArgb(31,219,80) },
         };
-        private tbl_DM_MovieSchedule_BUS movieScheBus = new tbl_DM_MovieSchedule_BUS();
-        private tbl_DM_Movie_BUS movieBus = new tbl_DM_Movie_BUS();
-        private tbl_DM_Theater_BUS theaterBus = new tbl_DM_Theater_BUS();
-        private tbl_DM_Ticket_BUS ticketBus = new tbl_DM_Ticket_BUS();
-        private tbl_DM_Theater_DTO chosenTheater;
-
 
         // Các biến cấu thành các ghế 
         private int labelLength = 0;
@@ -50,8 +50,9 @@ namespace GUI.UI.Modules
         }
         protected override void Load_Data()
         {
-            if (strFunctionCode != "")
-                lblTitle.Text = strFunctionCode.ToUpper().Trim();
+            tbl_DM_MovieSchedule_DTO foundSchedule = movieScheBus.GetLastMovieSchedule_ByID(CCommon.suatChieuDuocChon);
+            string movieName = movieBus.Find(foundSchedule.Movie_AutoID).MV_NAME.Trim();
+            lblTitle.Text = "Phim được chọn: " + movieName + " | " + foundSchedule.StartDate.ToString("HH:mm");
             PrintSeats();
         }
 

@@ -28,7 +28,7 @@ namespace DTO.tbl_DTO
             this.Theater_AutoID = theater_AutoID;
             this.Theater_Name = theater_Name;
             this.StartDate = startDate;
-            this.StartDate = endDate;
+            this.EndDate = endDate;
             this.Deleted = deleted;
         }
 
@@ -39,14 +39,7 @@ namespace DTO.tbl_DTO
         public DateTime StartDate { 
             get => startDate; 
             set{
-                //if(value < DateTime.Now)
-                //{
-                //    throw new Exception("Lỗi chọn ngày trong quá khứ");
-                //}
-                //else
-                //{
-                //    startDate = value;
-                //}
+                
                 startDate = value;
             }
         }
