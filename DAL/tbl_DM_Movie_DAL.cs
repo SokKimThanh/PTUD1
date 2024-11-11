@@ -182,10 +182,21 @@ namespace DAL
                 using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext(_connectionString))
                 {
                     List<tbl_DM_Movie_DTO> result = new List<tbl_DM_Movie_DTO>();
-                    var list = from mv in db.tbl_DM_Movies
-                               join ms in db.tbl_DM_MovieSchedules on mv.MV_AutoID equals ms.MS_MOVIE_AutoID
-                               where ms.MS_START.Date == date.Date
-                               select mv;
+                    List<tbl_DM_Movie> list;
+                    if (date != DateTime.Now)
+                    {
+                        list = (from mv in db.tbl_DM_Movies
+                                join ms in db.tbl_DM_MovieSchedules on mv.MV_AutoID equals ms.MS_MOVIE_AutoID
+                                where ms.MS_START.Date == date.Date
+                                select mv).ToList();
+                    }
+                    else
+                    {
+                        list = (from mv in db.tbl_DM_Movies
+                                join ms in db.tbl_DM_MovieSchedules on mv.MV_AutoID equals ms.MS_MOVIE_AutoID
+                                where ms.MS_START >= date && ms.MS_START < date.AddDays(1)
+                                select mv).ToList();
+                    }
 
                     foreach (var item in list)
                     {

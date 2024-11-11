@@ -25,6 +25,8 @@ namespace GUI.UI.Modules
         private tbl_DM_Staff_BUS staffBus = new tbl_DM_Staff_BUS();
         private tbl_DM_MovieSchedule_BUS movieScheBus = new tbl_DM_MovieSchedule_BUS();
 
+        private long selectedTicketID = -1;
+
         public ucVe()
         {
             InitializeComponent();
@@ -64,18 +66,22 @@ namespace GUI.UI.Modules
                 {
                     try
                     {
-                        long id = (long)gvTickets.GetRowCellValue(i, "TK_AutoID");
-                        tbl_DM_Ticket_DTO o = ticketBus.GetTicket_ByID(id);
+                        selectedTicketID = (long)gvTickets.GetRowCellValue(i, "AutoID");
+                        // Lấy các dữ liệu từ các bảng khác
+                        tbl_DM_Ticket_DTO o = ticketBus.GetTicket_ByID(selectedTicketID);
                         tbl_DM_MovieSchedule_DTO foundSchedule = movieScheBus.GetLastMovieSchedule_ByID(o.MovieScheID);
                         tbl_DM_Movie_DTO foundMovie = movieBus.Find(foundSchedule.Movie_AutoID);
                         tbl_DM_Theater_DTO foundTheater = theaterBus.FindByID(foundSchedule.Theater_AutoID);
                         tbl_DM_Staff_DTO foundStaff = staffBus.GetStaff_ByID((int)o.StaffID);
+
+                        // Gán thông tin lên các trường dữ liệu
                         txtMovieName.Text = foundMovie.MV_NAME.Trim();
                         txtPrice.Text = foundMovie.MV_PRICE.ToString().Trim();
-                        txtSchedule.Text = foundSchedule.StartDate.ToString("dd/mm/yyyy HH:mm");
+                        txtSchedule.Text = foundSchedule.StartDate.ToString("dd/MM/yyyy HH:mm");
                         txtTheater.Text = foundTheater.Name.Trim();
                         txtStaff.Text = foundStaff.ST_NAME.Trim();
                         txtSeat.Text = o.SeatName.Trim();
+
                     }
                     catch (Exception ex)
                     {
@@ -88,6 +94,32 @@ namespace GUI.UI.Modules
         private void ucVe_Load(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if(selectedTicketID != -1)
+            {
+                DialogResult result = MessageBox.Show("Bạn có muốn xóa thông tin vé dưới đây khỏi danh sách ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        ticketBus.RemoveData(selectedTicketID);
+                        selectedTicketID = -1;
+                        LoadData();
+                        MessageBox.Show("Xóa thông tin vé thành công", "Thông báo");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Lỗi");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn 1 vé trong danh sách để thực hiện xóa", "Thông báo");
+            }
         }
     }
 }

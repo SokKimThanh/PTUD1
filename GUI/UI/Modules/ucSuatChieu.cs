@@ -2,6 +2,7 @@
 using DevExpress.XtraEditors.Controls;
 using DTO.tbl_DTO;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
@@ -30,43 +31,26 @@ namespace GUI.UI.Modules
             if (strFunctionCode != "")
                 lblTitle.Text = strFunctionCode.ToUpper().Trim();
 
+            // Hiển thị danh sách các lịch chiếu hiện có trong cơ sở dữ liệu
+            GetScheduleList(null);
+
             // Lấy danh sách phim
             cboMovies.Properties.DataSource = movie_bus.GetAll();
             cboMovies.Properties.DisplayMember = "MV_NAME";
             cboMovies.Properties.ValueMember = "MV_AutoID";
+            cboMovies.Properties.Columns.Clear();
             cboMovies.Properties.Columns.Add(new LookUpColumnInfo("MV_NAME", "Tên Phim"));
             cboMovies.Properties.Columns.Add(new LookUpColumnInfo("MV_PRICE", "Giá vé"));
-            cboMovies.SelectionStart = 0;
+            cboMovies.Properties.Columns.Add(new LookUpColumnInfo("MV_DURATION", "Thời lượng (phút)"));
 
             // Lấy danh sách phòng chiếu
             cboTheaters.Properties.DataSource = theater_bus.GetList();
             cboTheaters.Properties.DisplayMember = "Name";
             cboTheaters.Properties.ValueMember = "AutoID";
+            cboTheaters.Properties.Columns.Clear();
             cboTheaters.Properties.Columns.Add(new LookUpColumnInfo("AutoID", "Mã số"));
             cboTheaters.Properties.Columns.Add(new LookUpColumnInfo("Name", "Tên Rạp"));
-            cboTheaters.SelectionStart = 0;
-
-            // Lấy dữ liệu danh sách lịch chiếu
-            dgvMovieSchedules.DataSource = movieSche_bus.GetList();
-            dgvMovieSchedules.Refresh();
-
-            // Lấy suất chiếu cuối của phòng chiếu đang chọn
-            tbl_DM_MovieSchedule_DTO lastMovieSchedule = movieSche_bus.GetLastMovieSchedule_ByTheater((long)cboTheaters.EditValue);
-            if (lastMovieSchedule != null)
-            {
-                // Gắn giờ bắt đầu và giờ kết thúc
-                dtpStartDate.EditValue = lastMovieSchedule.StartDate;
-                dtpEndDate.EditValue = lastMovieSchedule.EndDate;
-            }
-            else
-            {
-                // Gắn giờ gần nhất hiện tại
-                dtpStartDate.EditValue = RoundUpToNearestHour(DateTime.Now);
-
-                // Gắn giờ kết thúc theo thời gian chiếu của phim
-                tbl_DM_Movie_DTO foundMovie = movie_bus.Find((long)cboMovies.EditValue);
-                dtpEndDate.EditValue = RoundUpToNearestHour(DateTime.Now).AddMinutes(foundMovie.MV_DURATION);
-            }
+            cboTheaters.ItemIndex = 0;
         }
         /// <summary>
         /// Nút thêm
@@ -208,5 +192,92 @@ namespace GUI.UI.Modules
             return new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, dateTime.Hour, 0, 0).AddHours(1);
         }
 
+        public void GetSetUpDate()
+        {
+            // Lấy suất chiếu cuối của phòng chiếu đang chọn
+            long theaterID = long.Parse(cboTheaters.EditValue.ToString().Trim());
+            tbl_DM_MovieSchedule_DTO lastMovieSchedule = movieSche_bus.GetLastMovieSchedule_ByTheater(theaterID);
+            tbl_DM_Movie_DTO foundMovie = movie_bus.Find((long)cboMovies.EditValue);
+
+            // Giờ bắt đầu mặc định là ngày mai nếu chưa có suất chiếu nào trong tương lai
+            DateTime startTime = RoundUpToNearestHour(DateTime.Now.AddDays(1));
+
+            if (lastMovieSchedule != null && lastMovieSchedule.EndDate > DateTime.Now)
+            {
+                // Chỉnh lại giờ bắt đầu
+                startTime = lastMovieSchedule.EndDate.AddMinutes(15);
+            }
+            dtpStartDate.EditValue = startTime;
+            dtpEndDate.EditValue = startTime.AddMinutes(foundMovie.MV_DURATION);
+        }
+
+        private void GetScheduleList(long? theaterID)
+        {
+            try
+            {
+                if(theaterID == null)
+                {
+                    // Lấy dữ liệu danh sách lịch chiếu
+                    dgvMovieSchedules.DataSource = movieSche_bus.GetList();
+                }
+                else
+                {
+                    List<tbl_DM_MovieSchedule_DTO> source = movieSche_bus.GetMovieSchedule_ByTheater(long.Parse(cboTheaters.EditValue.ToString().Trim()));
+                    dgvMovieSchedules.DataSource = source;
+                }
+                dgvMovieSchedules.Refresh();
+
+                // Đổi tên cột
+                gvMovieSchedules.Columns["Movie_Name"].Caption = "Tên Phim";
+                gvMovieSchedules.Columns["Theater_Name"].Caption = "Phòng";
+                gvMovieSchedules.Columns["StartDate"].Caption = "Giờ bắt đầu";
+                gvMovieSchedules.Columns["EndDate"].Caption = "Giờ kết thúc";
+                gvMovieSchedules.Columns["Movie_AutoID"].Visible = false;
+                gvMovieSchedules.Columns["Theater_AutoID"].Visible = false;
+                gvMovieSchedules.Columns["Deleted"].Visible = false;
+
+                // Đảo vị trí của các cột
+                gvMovieSchedules.Columns["Movie_Name"].AbsoluteIndex = 1;
+                gvMovieSchedules.Columns["Theater_Name"].AbsoluteIndex = 2;
+                gvMovieSchedules.Columns["StartDate"].AbsoluteIndex = 3;
+                gvMovieSchedules.Columns["EndDate"].AbsoluteIndex = 4;
+
+                // Tùy chỉnh kiểu hiển thị của giờ chiếu
+                gvMovieSchedules.Columns["StartDate"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+                gvMovieSchedules.Columns["StartDate"].DisplayFormat.FormatString = "dd/MM/yyyy HH:mm";
+                gvMovieSchedules.Columns["EndDate"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+                gvMovieSchedules.Columns["EndDate"].DisplayFormat.FormatString = "dd/MM/yyyy HH:mm";
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi");
+            }
+        }
+
+        private void cboTheaters_EditValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                cboMovies.Refresh();
+                cboMovies.ItemIndex = 0;
+                GetScheduleList((long)cboTheaters.EditValue);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi");
+            }
+        }
+
+        private void cboMovies_EditValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GetSetUpDate();
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi");
+            }
+        }
     }
 }

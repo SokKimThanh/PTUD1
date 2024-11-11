@@ -101,26 +101,32 @@ namespace GUI.UI.Modules
         {
             try
             {
-                //Lấy form chứa uc này ra
-                if (this.Parent is FluentDesignFormContainer v_objContainer)
+                if(CCommon.suatChieuDuocChon != -1)
                 {
-                    ucChonGhe v_objUC_Chon_Ghe = new ucChonGhe();
-
-                    // Nếu UserControl đã có trong mainContainer thì đưa nó lên trước
-                    if (v_objContainer.Controls.Contains(v_objUC_Chon_Ghe) == false)
+                    //Lấy form chứa uc này ra
+                    if (this.Parent is FluentDesignFormContainer v_objContainer)
                     {
-                        CCommon.suatChieuDuocChon = (long)cboMovieSchedule.EditValue;
+                        ucChonGhe v_objUC_Chon_Ghe = new ucChonGhe();
 
-                        // Clear toàn bộ những gì trên container
-                        v_objContainer.Controls.Clear();
+                        // Nếu UserControl đã có trong mainContainer thì đưa nó lên trước
+                        if (v_objContainer.Controls.Contains(v_objUC_Chon_Ghe) == false)
+                        {
 
-                        // Dock control vào container để nó chiếm toàn bộ diện tích
-                        v_objUC_Chon_Ghe.Dock = DockStyle.Fill;
+                            // Clear toàn bộ những gì trên container
+                            v_objContainer.Controls.Clear();
 
-                        // Thêm UserControl vào main container
-                        v_objContainer.Controls.Add(v_objUC_Chon_Ghe);
-                        v_objUC_Chon_Ghe.Load_DataBase(sender, e);
+                            // Dock control vào container để nó chiếm toàn bộ diện tích
+                            v_objUC_Chon_Ghe.Dock = DockStyle.Fill;
+
+                            // Thêm UserControl vào main container
+                            v_objContainer.Controls.Add(v_objUC_Chon_Ghe);
+                            v_objUC_Chon_Ghe.Load_DataBase(sender, e);
+                        }
                     }
+                }
+                else
+                {
+                    throw new Exception("Vui lòng chọn phim và 1 suất chiếu hiện có trong danh sách để tiếp tục");
                 }
             }
             catch (Exception ex)
@@ -133,8 +139,15 @@ namespace GUI.UI.Modules
         {
             try
             {
+                // Cập nhật lại danh sách các phim được chiếu trong ngày
                 dgvMovies.Refresh();
                 dgvMovies.DataSource = moiveBus.GetMovies_ByScheduleDate((DateTime)dtpDate.EditValue);
+
+                // Hủy chọn suất chiếu trước đó do đổi ngày 
+                CCommon.suatChieuDuocChon = -1;
+
+                // Xóa thông tin suất chiếu trước đó do đổi ngày
+                cboMovieSchedule.Properties.DataSource = null;
             }
             catch(Exception ex)
             {
@@ -188,12 +201,26 @@ namespace GUI.UI.Modules
                         txtAgeRating.Text = foundAR.AR_NOTE.ToString().Trim();
                         cboMovieSchedule.Properties.DataSource = movieScheBus.GetMovieSchedule_ByMovie(o.MV_AutoID);
                         cboMovieSchedule.ItemIndex = 0;
+
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message, "Lỗi");
                     }
                 }
+            }
+        }
+
+        private void cboMovieSchedule_EditValueChanged(object sender, EventArgs e)
+        {
+            if(cboMovieSchedule.Properties.DataSource != null)
+            {
+                // Cập nhật suất chiếu đang được chọn lên nhánh chính
+                CCommon.suatChieuDuocChon = (long)cboMovieSchedule.EditValue;
+            }
+            else
+            {
+                CCommon.suatChieuDuocChon = -1;
             }
         }
     }
