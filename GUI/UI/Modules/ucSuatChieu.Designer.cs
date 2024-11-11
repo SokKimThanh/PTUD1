@@ -246,6 +246,7 @@
             this.cboMovies.Size = new System.Drawing.Size(350, 22);
             this.cboMovies.StyleController = this.layoutForm;
             this.cboMovies.TabIndex = 5;
+            this.cboMovies.EditValueChanged += new System.EventHandler(this.cboMovies_EditValueChanged);
             // 
             // cboTheaters
             // 
