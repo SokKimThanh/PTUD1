@@ -1,6 +1,6 @@
 ﻿-- [Ngày]			[Người thực hiện]		[Mô tả thay đổi]
 -- 2024-11-06	| Admin				|	Thêm các phòng chiếu mới vào bảng tbl_DM_Theater
-
+-- 2024-11-11	| Admin				|	Cập nhật
 -- Cập nhật ngày 2024-11-06
 -- Thêm các phòng mới từ Phòng 1 đến Phòng 15 và các phòng chiếu đặc biệt IMAX, 4DX vào bảng tbl_DM_Theater
 use CM_Cinema_DB
@@ -381,23 +381,38 @@ VALUES
 (3, 6, 200.0, 3, 0, '2024-09-22', 'Admin', 'System', '2024-09-22', 'Admin', 'System');
 
 go
+-- Thêm loại chi phí cho từng sản phẩm
 INSERT INTO tbl_DM_ExpenseType (ET_NAME, ET_PRODUCT_AutoID, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION) 
-VALUES
--- Loại chi phí khác
-(N'Chi phí bảo trì và sửa chữa thiết bị', NULL, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-
--- Chi phí nguyên liệu
+VALUES 
 (N'Nhập: Bắp', 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-(N'Nhập: Coca-cola', 2, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-(N'Nhập: Sprite', 3, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-(N'Nhập: Fanta', 4, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+(N'Nhập: Coca-Cola', 2, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+(N'Nhập: Fanta', 3, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+(N'Nhập: Sprite', 4, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+(N'Nhập: Potato Chips', 5, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+(N'Nhập: Chocolate Bar', 6, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+(N'Nhập: Candy', 7, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+(N'Nhập: Orange Juice', 8, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+(N'Nhập: Apple Juice', 9, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+(N'Nhập: Mineral Water', 10, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+(N'Nhập: Lemon Tea', 11, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+(N'Nhập: Green Tea', 12, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+(N'Nhập: Milk Tea', 13, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+(N'Nhập: Espresso', 14, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+(N'Nhập: Latte', 15, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+(N'Nhập: Nachos', 16, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+(N'Nhập: Pretzels', 17, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+(N'Nhập: French Fries', 18, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+(N'Nhập: Chicken Nuggets', 19, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+(N'Nhập: Mini Pizza', 20, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+(N'Nhập: Grape Juice', 21, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+(N'Nhập: Pineapple Juice', 22, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+(N'Nhập: Mango Juice', 23, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+(N'Nhập: Strawberry Smoothie', 24, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+(N'Nhập: Banana Smoothie', 25, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
 
 -- Các loại chi phí hàng tháng
-(N'Chi phí Đá viên', NULL, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-(N'Chi phí tiền điện', NULL, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-(N'Chi phí tiền nước', NULL, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-(N'Ứng lương nhân viên', NULL, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-(N'Chi phí thuê mặt bằng', NULL, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+(N'Nhập: Đá viên', NULL, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+(N'Nhập: Ly nhựa tái chế', NULL, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
 
 -- Chi phí khác không cụ thể
 (N'Chi phí khác', NULL, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System');
@@ -407,34 +422,6 @@ go
 -- Thêm chi phí mặt bằng
 INSERT INTO tbl_SYS_Expense (EX_EXTYPE_AutoID, EX_QUANTITY, EX_PRICE, EX_REASON, EX_STATUS, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
 VALUES
-(10, 1, 20000000, N'Mặt bằng - khu vực phổ thông', 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-(10, 1, 50000000, N'Mặt bằng - khu vực trung tâm', 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-
--- Thêm chi phí thiết kế và thi công phòng chiếu
-(11, 1, 200000000, N'Thiết kế và thi công phòng chiếu', 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-
--- Thêm chi phí nội thất
-(11, 1, 80000000, N'Nội thất (bàn ghế, đồ trang trí, quầy pha chế cafe)', 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-
--- Thêm chi phí vận hành hàng tháng
-(11, 1, 5000000, N'Chi phí Internet, điện nước hàng tháng', 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-(9, 1, 7000000, N'Lương nhân viên hàng tháng', 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-
--- Thêm chi phí thiết bị
-(11, 1, 50000000, N'Máy chiếu phim', 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-(11, 1, 90000000, N'Hệ thống âm thanh', 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-
--- Thêm các chi phí khác
-(11, 1, 10000000, N'Chi phí quảng cáo và marketing', 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-(1, 1, 5000000, N'Chi phí bảo trì và sửa chữa thiết bị', 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
---bap
-(2, 1, 3000000, N'Nhập hàng', 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
---cola
-(3, 1, 3000000, N'Nhập hàng', 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
---sprite
-(4, 1, 3000000, N'Nhập hàng', 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
---fanta
-(5, 1, 3000000, N'Nhập hàng', 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'), 
 -- Nhập hàng vào kho trong các ngày cụ thể cho các sản phẩm khác nhau 
 (1, 50, 2500000.0, N'Nhập bắp', 1, 0, '2024-08-01', 'Admin', 'System', '2024-08-01', 'Admin', 'System'),
 (2, 40, 2000000.0, N'Nhập Coca-Cola', 1, 0, '2024-08-10', 'Admin', 'System', '2024-08-10', 'Admin', 'System'),

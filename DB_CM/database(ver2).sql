@@ -277,46 +277,6 @@ alter table tbl_SYS_Expense
 add constraint fk_expense_expensetype foreign key (EX_EXTYPE_AutoID) references tbl_DM_ExpenseType(ET_AutoID)
 
 
--- Khóa UNIQUE
--- Thêm khóa UNIQUE cho tbl_DM_Movie
-go
-alter table tbl_DM_Movie
-add constraint uq_movie unique (MV_NAME)
-
--- Thêm khóa UNIQUE cho tbl_DM_ExpenseType
--- Tên loại chi phí nên là duy nhất.
-go
-alter table tbl_DM_ExpenseType
-add constraint uq_expensetype unique (ET_NAME)
-
--- Thêm khóa UNIQUE cho tbl_DM_Theater
-go
-ALTER TABLE tbl_DM_Theater
--- Tên rạp chiếu phim nên là duy nhất.
-ADD CONSTRAINT uq_theater_name UNIQUE (TT_NAME);
-
--- Thêm khóa UNIQUE cho tbl_DM_Staff
--- Tên đăng nhập nên là duy nhất.
---go
---ALTER TABLE tbl_DM_Staff 
---ADD CONSTRAINT UQ_ST_USERNAME UNIQUE (ST_USERNAME);
-
--- Số chứng minh thư/căn cước công dân nên là duy nhất.
---ALTER TABLE tbl_DM_Staff 
---ADD CONSTRAINT UQ_ST_CIC UNIQUE (ST_CIC);
-
--- Thêm khóa UNIQUE cho tbl_DM_Product
---Tên sản phẩm nên là duy nhất.
-go
-ALTER TABLE tbl_DM_Product
-ADD CONSTRAINT uq_product_name UNIQUE (PD_NAME);
-
--- Thêm khóa UNIQUE cho tbl_DM_MovieSchedule
--- Một bộ phim không thể chiếu cùng lúc ở cùng một rạp.
-go
-ALTER TABLE tbl_DM_MovieSchedule
-ADD CONSTRAINT uq_movieschedule UNIQUE (MS_MOVIE_AutoID, MS_THEATER_AutoID, MS_START);
-
 -- Store Proceduces
 -- In vé
 go
