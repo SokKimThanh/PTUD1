@@ -185,5 +185,18 @@ namespace BUS.Danh_Muc
                 throw ex;
             }
         }
+
+        public tbl_DM_Staff_DTO GetStaff_ByUserName(string p_strUsername)
+        {
+            tbl_DM_Staff_DAL objDAL = new tbl_DM_Staff_DAL();
+            try
+            {
+                return objDAL.GetDataByUserName(p_strUsername);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
