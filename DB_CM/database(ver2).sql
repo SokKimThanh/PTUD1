@@ -95,6 +95,7 @@ TK_AutoID bigint primary key IDENTITY(1,1) not null,
 TK_SEATNAME nchar(3) not null,
 TK_MOVIESCHEDULE_AutoID bigint not null,
 TK_STAFF_AutoID bigint not null,
+TK_BILL_AutoID bigint,
 TK_STATUS int not null,
 DELETED int,
 CREATED datetime,
@@ -196,7 +197,6 @@ UPDATED_BY_FUNCTION nchar(100)
 go
 create table tbl_DM_Bill(
 BL_AutoID bigint primary key IDENTITY(1,1) not null,
-BL_TICKET_AutoID bigint,
 BL_STAFF_AutoID bigint not null,
 DELETED INT,
 CREATED datetime,
@@ -278,8 +278,8 @@ go
 alter table tbl_DM_Ticket
 add constraint fk_ticket_staff foreign key (TK_STAFF_AutoID) references tbl_DM_Staff(ST_AutoID)
 go
-alter table tbl_DM_Bill
-add constraint fk_bill_ticket foreign key (BL_TICKET_AutoID) references tbl_DM_Ticket(TK_AutoID)
+alter table tbl_DM_Ticket
+add constraint fk_ticket_bill foreign key (TK_BILL_AutoID) references tbl_DM_Bill(BL_AutoID)
 go
 alter table tbl_DM_StaffSchedule
 add constraint fk_staff_schedule foreign key (SS_STAFF_AutoID) references tbl_DM_Staff(ST_AutoID)
