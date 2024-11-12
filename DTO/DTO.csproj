@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="tbl_DTO\tbl_DM_Bill_DTO.cs" />
+    <Compile Include="tbl_DTO\tbl_DM_ExpenseType_DTO.cs" />
+    <Compile Include="tbl_DTO\tbl_SYS_Expense_DTO.cs" />
     <Compile Include="tbl_DTO\tbl_DM_Shift_DTO.cs" />
     <Compile Include="tbl_DTO\tbl_DM_MovieSchedule_DTO.cs" />
     <Compile Include="tbl_DTO\tbl_DM_StaffSchedule_DTO.cs" />
