@@ -1,5 +1,6 @@
 ﻿using DAL;
 using DTO.Common;
+using DTO.tbl_DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace BUS.Danh_Muc
         /// </summary>
         /// <param name="expense"></param>
         /// <returns></returns>
-        public long Add(tbl_SYS_Expense expense)
+        public long Add(tbl_SYS_Expense_DTO expense)
         {
             return data.Add(expense);
         }
@@ -38,7 +39,7 @@ namespace BUS.Danh_Muc
         /// </summary>
         /// <param name="expense"></param>
         /// <returns></returns>
-        public bool Update(tbl_SYS_Expense expense)
+        public bool Update(tbl_SYS_Expense_DTO expense)
         {
             return data.Update(expense);
         }
@@ -46,7 +47,7 @@ namespace BUS.Danh_Muc
         /// danh sach
         /// </summary>
         /// <returns></returns>
-        public List<tbl_SYS_Expense> GetAll()
+        public List<tbl_SYS_Expense_DTO> GetAll()
         {
             return data.GetAll();
         }
@@ -55,7 +56,7 @@ namespace BUS.Danh_Muc
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public tbl_SYS_Expense Find(long id)
+        public tbl_SYS_Expense_DTO Find(long id)
         {
             return data.Find(id);
         }

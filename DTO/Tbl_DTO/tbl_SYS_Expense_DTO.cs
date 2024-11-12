@@ -7,12 +7,12 @@ namespace DTO.tbl_DTO
     /// </summary>
     public class tbl_SYS_Expense_DTO
     {
-        private int eX_AutoID;
-        private int eX_EXTYPE_AutoID;
+        private long eX_AutoID;
+        private long eX_EXTYPE_AutoID;
         private double eX_QUANTITY;
         private double eX_PRICE;
         private string eX_REASON;
-        private int eX_STATUS;
+        private int? eX_STATUS;
         private int deleted;
         private DateTime created;
         private string createdBy;
@@ -21,7 +21,12 @@ namespace DTO.tbl_DTO
         private string updatedBy;
         private string updatedByFunction;
 
-        public tbl_SYS_Expense_DTO(int eX_AutoID, int eX_EXTYPE_AutoID, double eX_QUANTITY, double eX_PRICE, string eX_REASON, int eX_STATUS)
+        public tbl_SYS_Expense_DTO()
+        {
+        }
+
+        
+        public tbl_SYS_Expense_DTO(long eX_AutoID, long eX_EXTYPE_AutoID, double eX_QUANTITY, double eX_PRICE, string eX_REASON, int eX_STATUS)
         {
             this.eX_AutoID = eX_AutoID;
             this.eX_EXTYPE_AutoID = eX_EXTYPE_AutoID;
@@ -31,8 +36,8 @@ namespace DTO.tbl_DTO
             this.eX_STATUS = eX_STATUS;
         }
 
-        public int EX_AutoID { get => eX_AutoID; set => eX_AutoID = value; }
-        public int EX_EXTYPE_AutoID { get => eX_EXTYPE_AutoID; set => eX_EXTYPE_AutoID = value; }
+        public long EX_AutoID { get => eX_AutoID; set => eX_AutoID = value; }
+        public long EX_EXTYPE_AutoID { get => eX_EXTYPE_AutoID; set => eX_EXTYPE_AutoID = value; }
         public double EX_QUANTITY
         {
             get => eX_QUANTITY;
@@ -70,7 +75,7 @@ namespace DTO.tbl_DTO
             }
         }
 
-        public int EX_STATUS
+        public int? EX_STATUS
         {
             get => eX_STATUS;
             set

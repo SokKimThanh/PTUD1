@@ -22,7 +22,7 @@ namespace DAL
         /// <param name="expense"></param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public long Add(tbl_SYS_Expense expense)
+        public long Add(tbl_SYS_Expense_DTO expense)
         {
             try
             {
@@ -92,7 +92,7 @@ namespace DAL
         /// <param name="expense"></param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public bool Update(tbl_SYS_Expense expense)
+        public bool Update(tbl_SYS_Expense_DTO expense)
         {
             try
             {
@@ -127,9 +127,9 @@ namespace DAL
         /// </summary>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public List<tbl_SYS_Expense> GetAll()
+        public List<tbl_SYS_Expense_DTO> GetAll()
         {
-            List<tbl_SYS_Expense> result = new List<tbl_SYS_Expense>();
+            List<tbl_SYS_Expense_DTO> result = new List<tbl_SYS_Expense_DTO>();
 
             try
             {
@@ -140,7 +140,7 @@ namespace DAL
                     {
                         if (item.DELETED != 1)
                         {
-                            tbl_SYS_Expense entity = new tbl_SYS_Expense()
+                            tbl_SYS_Expense_DTO entity = new tbl_SYS_Expense_DTO()
                             {
                                 EX_AutoID = item.EX_AutoID,
                                 EX_STATUS = item.EX_STATUS,
@@ -166,7 +166,7 @@ namespace DAL
         /// <param name="id"></param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public tbl_SYS_Expense Find(long id)
+        public tbl_SYS_Expense_DTO Find(long id)
         {
             try
             {
@@ -174,7 +174,7 @@ namespace DAL
                 {
                     return dbContext.tbl_SYS_Expenses
                         .Where(t => t.EX_AutoID == id)
-                        .Select(item => new tbl_SYS_Expense
+                        .Select(item => new tbl_SYS_Expense_DTO
                         {
                             EX_AutoID = item.EX_AutoID,
                             EX_STATUS = item.EX_STATUS,
