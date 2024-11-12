@@ -1,7 +1,12 @@
-﻿--Tên sản phẩm.
---Số lượng tồn kho hiện tại.
---Đã bán ra bao nhiêu trong khoảng thời gian nhất định.
---Cảnh báo nếu số lượng tồn kho thấp dưới mức yêu cầu.
+﻿SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Sok Kim Thanh>
+-- Create date: <22/10/2024>
+-- Description:	<Báo cáo chi phí và tồn kho>
+-- =============================================
 
 drop proc if exists sp_GetExpenseReport
 drop proc if exists sp_GetDetailedExpenseReport
@@ -65,10 +70,10 @@ BEGIN
                 AND EX.CREATED BETWEEN @StartDate AND @EndDate), 0) AS ReceivedQuantity,
 
         -- Tính tổng số lượng bán trong khoảng thời gian
-        ISNULL((SELECT SUM(BL.BL_QUANTITY) 
-                FROM tbl_DM_Bill BL
-                WHERE BL.BL_PRODUCT_AutoID = PD.PD_AutoID
-                AND BL.CREATED BETWEEN @StartDate AND @EndDate), 0) AS SoldQuantity,
+        ISNULL((SELECT SUM(BD.BD_QUANTITY) 
+                FROM tbl_DM_BillDetail BD
+                WHERE BD.BD_PRODUCT_AutoID = PD.PD_AutoID
+                AND BD.CREATED BETWEEN @StartDate AND @EndDate), 0) AS SoldQuantity,
 
         -- Tồn kho hiện tại: số lượng ban đầu + số lượng nhập - số lượng bán
         (PD.PD_QUANTITY + 
@@ -76,14 +81,14 @@ BEGIN
                  FROM tbl_SYS_Expense EX
                  WHERE EX.EX_EXTYPE_AutoID = PD.PD_AutoID
                  AND EX.CREATED BETWEEN @StartDate AND @EndDate), 0) -
-         ISNULL((SELECT SUM(BL.BL_QUANTITY) 
-                 FROM tbl_DM_Bill BL
-                 WHERE BL.BL_PRODUCT_AutoID = PD.PD_AutoID
-                 AND BL.CREATED BETWEEN @StartDate AND @EndDate), 0)) AS CurrentStock,
+         ISNULL((SELECT SUM(BD.BD_QUANTITY) 
+                 FROM tbl_DM_BillDetail BD
+                 WHERE BD.BD_PRODUCT_AutoID = PD.PD_AutoID
+                 AND BD.CREATED BETWEEN @StartDate AND @EndDate), 0)) AS CurrentStock,
 
         PD.PD_PRICE AS UnitPrice,
         (PD.PD_QUANTITY * PD.PD_PRICE) AS TotalInventoryValue,    -- Tổng giá trị tồn kho còn lại
-        ISNULL(SUM(BL.BL_QUANTITY * BL.BL_PRICE), 0) AS TotalSoldValue,  -- Tổng tiền đã bán
+        ISNULL(SUM(BD.BD_QUANTITY * PD.PD_PRICE), 0) AS TotalSoldValue,  -- Tổng tiền đã bán
 
         -- Xác định Trạng thái tồn kho (Stock Status)
         CASE 
@@ -92,26 +97,26 @@ BEGIN
                          FROM tbl_SYS_Expense EX
                          WHERE EX.EX_EXTYPE_AutoID = PD.PD_AutoID
                          AND EX.CREATED BETWEEN @StartDate AND @EndDate), 0) -
-                 ISNULL((SELECT SUM(BL.BL_QUANTITY) 
-                         FROM tbl_DM_Bill BL
-                         WHERE BL.BL_PRODUCT_AutoID = PD.PD_AutoID
-                         AND BL.CREATED BETWEEN @StartDate AND @EndDate), 0)) < 10 THEN N'Cạn kiệt'
+                 ISNULL((SELECT SUM(BD.BD_QUANTITY) 
+                         FROM tbl_DM_BillDetail BD
+                         WHERE BD.BD_PRODUCT_AutoID = PD.PD_AutoID
+                         AND BD.CREATED BETWEEN @StartDate AND @EndDate), 0)) < 10 THEN N'Cạn kiệt'
             WHEN (PD.PD_QUANTITY + 
                  ISNULL((SELECT SUM(EX.EX_QUANTITY) 
                          FROM tbl_SYS_Expense EX
                          WHERE EX.EX_EXTYPE_AutoID = PD.PD_AutoID
                          AND EX.CREATED BETWEEN @StartDate AND @EndDate), 0) -
-                 ISNULL((SELECT SUM(BL.BL_QUANTITY) 
-                         FROM tbl_DM_Bill BL
-                         WHERE BL.BL_PRODUCT_AutoID = PD.PD_AutoID
-                         AND BL.CREATED BETWEEN @StartDate AND @EndDate), 0)) > 100 THEN N'Quá tải'
+                 ISNULL((SELECT SUM(BD.BD_QUANTITY) 
+                         FROM tbl_DM_BillDetail BD
+                         WHERE BD.BD_PRODUCT_AutoID = PD.PD_AutoID
+                         AND BD.CREATED BETWEEN @StartDate AND @EndDate), 0)) > 100 THEN N'Quá tải'
             ELSE N'Có sẵn'
         END AS StockStatus,
 
         -- Xác định Hiệu suất bán hàng (Sales Performance)
         CASE 
-            WHEN ISNULL(SUM(BL.BL_QUANTITY), 0) < 10 THEN N'Bán chậm'
-            WHEN ISNULL(SUM(BL.BL_QUANTITY), 0) BETWEEN 10 AND 50 THEN N'Ổn định'
+            WHEN ISNULL(SUM(BD.BD_QUANTITY), 0) < 10 THEN N'Bán chậm'
+            WHEN ISNULL(SUM(BD.BD_QUANTITY), 0) BETWEEN 10 AND 50 THEN N'Ổn định'
             ELSE N'Cháy hàng'
         END AS SalesPerformance,
 
@@ -122,25 +127,25 @@ BEGIN
                          FROM tbl_SYS_Expense EX
                          WHERE EX.EX_EXTYPE_AutoID = PD.PD_AutoID
                          AND EX.CREATED BETWEEN @StartDate AND @EndDate), 0) -
-                 ISNULL((SELECT SUM(BL.BL_QUANTITY) 
-                         FROM tbl_DM_Bill BL
-                         WHERE BL.BL_PRODUCT_AutoID = PD.PD_AutoID
-                         AND BL.CREATED BETWEEN @StartDate AND @EndDate), 0)) < 10 AND ISNULL(SUM(BL.BL_QUANTITY), 0) > 50 THEN N'Cần nhập hàng'
+                 ISNULL((SELECT SUM(BD.BD_QUANTITY) 
+                         FROM tbl_DM_BillDetail BD
+                         WHERE BD.BD_PRODUCT_AutoID = PD.PD_AutoID
+                         AND BD.CREATED BETWEEN @StartDate AND @EndDate), 0)) < 10 AND ISNULL(SUM(BD.BD_QUANTITY), 0) > 50 THEN N'Cần nhập hàng'
             WHEN (PD.PD_QUANTITY + 
                  ISNULL((SELECT SUM(EX.EX_QUANTITY) 
                          FROM tbl_SYS_Expense EX
                          WHERE EX.EX_EXTYPE_AutoID = PD.PD_AutoID
                          AND EX.CREATED BETWEEN @StartDate AND @EndDate), 0) -
-                 ISNULL((SELECT SUM(BL.BL_QUANTITY) 
-                         FROM tbl_DM_Bill BL
-                         WHERE BL.BL_PRODUCT_AutoID = PD.PD_AutoID
-                         AND BL.CREATED BETWEEN @StartDate AND @EndDate), 0)) > 100 AND ISNULL(SUM(BL.BL_QUANTITY), 0) < 10 THEN N'Cân nhắc mở khuyến mãi'
+                 ISNULL((SELECT SUM(BD.BD_QUANTITY) 
+                         FROM tbl_DM_BillDetail BD
+                         WHERE BD.BD_PRODUCT_AutoID = PD.PD_AutoID
+                         AND BD.CREATED BETWEEN @StartDate AND @EndDate), 0)) > 100 AND ISNULL(SUM(BD.BD_QUANTITY), 0) < 10 THEN N'Cân nhắc mở khuyến mãi'
             ELSE N'Tiếp tục bán'
         END AS RecommendedAction
 
     FROM tbl_DM_Product PD
-    LEFT JOIN tbl_DM_Bill BL ON PD.PD_AutoID = BL.BL_PRODUCT_AutoID
-        AND BL.CREATED BETWEEN @StartDate AND @EndDate -- Chỉ tính số lượng đã bán trong khoảng thời gian
+    LEFT JOIN tbl_DM_BillDetail BD ON PD.PD_AutoID = BD.BD_PRODUCT_AutoID
+        AND BD.CREATED BETWEEN @StartDate AND @EndDate -- Chỉ tính số lượng đã bán trong khoảng thời gian
     WHERE PD.DELETED = 0  -- Bỏ qua sản phẩm đã xóa
     GROUP BY PD.PD_AutoID, PD.PD_NAME, PD.PD_QUANTITY, PD.PD_PRICE
     HAVING 
@@ -151,35 +156,35 @@ BEGIN
                         FROM tbl_SYS_Expense EX
                         WHERE EX.EX_EXTYPE_AutoID = PD.PD_AutoID
                         AND EX.CREATED BETWEEN @StartDate AND @EndDate), 0) -
-                ISNULL((SELECT SUM(BL.BL_QUANTITY) 
-                        FROM tbl_DM_Bill BL
-                        WHERE BL.BL_PRODUCT_AutoID = PD.PD_AutoID
-                        AND BL.CREATED BETWEEN @StartDate AND @EndDate), 0)) < 10) OR
+                ISNULL((SELECT SUM(BD.BD_QUANTITY) 
+                        FROM tbl_DM_BillDetail BD
+                        WHERE BD.BD_PRODUCT_AutoID = PD.PD_AutoID
+                        AND BD.CREATED BETWEEN @StartDate AND @EndDate), 0)) < 10) OR
             (@StockStatus = 2 AND (PD.PD_QUANTITY +
                 ISNULL((SELECT SUM(EX.EX_QUANTITY) 
                         FROM tbl_SYS_Expense EX
                         WHERE EX.EX_EXTYPE_AutoID = PD.PD_AutoID
                         AND EX.CREATED BETWEEN @StartDate AND @EndDate), 0) -
-                ISNULL((SELECT SUM(BL.BL_QUANTITY) 
-                        FROM tbl_DM_Bill BL
-                        WHERE BL.BL_PRODUCT_AutoID = PD.PD_AutoID
-                        AND BL.CREATED BETWEEN @StartDate AND @EndDate), 0)) BETWEEN 10 AND 100) OR
+                ISNULL((SELECT SUM(BD.BD_QUANTITY) 
+                        FROM tbl_DM_BillDetail BD
+                        WHERE BD.BD_PRODUCT_AutoID = PD.PD_AutoID
+                        AND BD.CREATED BETWEEN @StartDate AND @EndDate), 0)) BETWEEN 10 AND 100) OR
             (@StockStatus = 3 AND (PD.PD_QUANTITY +
                 ISNULL((SELECT SUM(EX.EX_QUANTITY) 
                         FROM tbl_SYS_Expense EX
                         WHERE EX.EX_EXTYPE_AutoID = PD.PD_AutoID
                         AND EX.CREATED BETWEEN @StartDate AND @EndDate), 0) -
-                ISNULL((SELECT SUM(BL.BL_QUANTITY) 
-                        FROM tbl_DM_Bill BL
-                        WHERE BL.BL_PRODUCT_AutoID = PD.PD_AutoID
-                        AND BL.CREATED BETWEEN @StartDate AND @EndDate), 0)) > 100)
+                ISNULL((SELECT SUM(BD.BD_QUANTITY) 
+                        FROM tbl_DM_BillDetail BD
+                        WHERE BD.BD_PRODUCT_AutoID = PD.PD_AutoID
+                        AND BD.CREATED BETWEEN @StartDate AND @EndDate), 0)) > 100)
         )
         AND
         -- Lọc theo Hiệu suất bán hàng
         (
-            (@SalesPerformance = 1 AND ISNULL(SUM(BL.BL_QUANTITY), 0) < 10) OR
-            (@SalesPerformance = 2 AND ISNULL(SUM(BL.BL_QUANTITY), 0) BETWEEN 10 AND 50) OR
-            (@SalesPerformance = 3 AND ISNULL(SUM(BL.BL_QUANTITY), 0) > 50)
+            (@SalesPerformance = 1 AND ISNULL(SUM(BD.BD_QUANTITY), 0) < 10) OR
+            (@SalesPerformance = 2 AND ISNULL(SUM(BD.BD_QUANTITY), 0) BETWEEN 10 AND 50) OR
+            (@SalesPerformance = 3 AND ISNULL(SUM(BD.BD_QUANTITY), 0) > 50)
         )
     ORDER BY PD.PD_NAME ASC;
 END;
