@@ -180,8 +180,11 @@ namespace GUI.UI.Modules
             gvMovies.Columns["MV_AutoID"].Visible = false;
             gvMovies.Columns["MV_AGERATING_AutoID"].Visible = false;
 
+            // Đặt VisibleIndex của cột MV_POSTERURL về 0 để chuyển nó lên vị trí đầu tiên
+            gvMovies.Columns["MV_POSTERURL"].VisibleIndex = 0;
+
             // Chọn phim đầu tiên xuất hiện
-            if(gvMovies.Columns.Count > 0)
+            if (gvMovies.Columns.Count > 0)
                 gvMovies.SelectRow(1);
         }
 

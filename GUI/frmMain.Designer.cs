@@ -45,6 +45,8 @@
             this.accQLCaLamViec = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accQLGhe = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accQLDanhGiaDoTuoi = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accChiPhi = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accLoaiChiPhi = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aceBaoCao = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accBaoCaoDoanhThu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accBaoCaoThuChi = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -89,8 +91,8 @@
             this.aceDanhMuc.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accDatVe,
             this.accVe,
-            this.accQLPhim,
             this.accQLHoaDon,
+            this.accQLPhim,
             this.accQLSanPham,
             this.accQLPhongChieu,
             this.accQLSuatChieu,
@@ -98,7 +100,9 @@
             this.accQLPhanCa,
             this.accQLCaLamViec,
             this.accQLGhe,
-            this.accQLDanhGiaDoTuoi});
+            this.accQLDanhGiaDoTuoi,
+            this.accChiPhi,
+            this.accLoaiChiPhi});
             this.aceDanhMuc.Expanded = true;
             this.aceDanhMuc.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("aceDanhMuc.ImageOptions.Image")));
             this.aceDanhMuc.Name = "aceDanhMuc";
@@ -198,6 +202,20 @@
             this.accQLDanhGiaDoTuoi.Name = "accQLDanhGiaDoTuoi";
             this.accQLDanhGiaDoTuoi.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accQLDanhGiaDoTuoi.Text = "Đánh giá độ tuổi";
+            // 
+            // accChiPhi
+            // 
+            this.accChiPhi.ImageOptions.Image = global::GUI.Properties.Resources.add_16x16;
+            this.accChiPhi.Name = "accChiPhi";
+            this.accChiPhi.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accChiPhi.Text = "Chi phí";
+            // 
+            // accLoaiChiPhi
+            // 
+            this.accLoaiChiPhi.ImageOptions.Image = global::GUI.Properties.Resources.add_16x16;
+            this.accLoaiChiPhi.Name = "accLoaiChiPhi";
+            this.accLoaiChiPhi.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accLoaiChiPhi.Text = "Loại chi phí";
             // 
             // aceBaoCao
             // 
@@ -330,5 +348,7 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accDatVe;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accNgonNgu;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accVe;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accChiPhi;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accLoaiChiPhi;
     }
 }

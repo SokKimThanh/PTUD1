@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace GUI.UI.Modules
 {
-    public partial class ucChiPhi : DevExpress.XtraEditors.XtraUserControl
+    public partial class ucChiPhi : ucBase
     {
         public ucChiPhi()
         {
