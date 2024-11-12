@@ -136,6 +136,7 @@ namespace DAL
                         {
                             tbl_DM_ExpenseType_DTO entity = new tbl_DM_ExpenseType_DTO()
                             {
+                                ET_AutoID = item.ET_AutoID,
                                 ET_NAME = item.ET_NAME,
                                 ET_PRODUCT_AutoID = item.ET_PRODUCT_AutoID,
                             };

@@ -23,13 +23,13 @@ namespace GUI.UI.Modules
         /// <returns></returns>
         private tbl_DM_Product_DTO GetFormData()
         {
-            // Sử dụng constructor của tbl_DM_Product_DTO để tạo đối tượng product
+            // Sử dụng constructor của tbl_DM_Product_DTO để tạo đối tượng productBUS
             var product = new tbl_DM_Product_DTO();
             product.PD_NAME = txtTenSanPham.Text.Trim();
             product.PD_QUANTITY = double.Parse(txtSoLuong.Text.Trim());
             product.PD_PRICE = double.Parse(txtGiaTien.Text.ToString().Trim());
             product.PD_IMAGEURL = txtUrlHinhAnh.Text.Trim();
-            //product.PD_QUANTITY = double.Parse(txtSoLuong.ToString().Trim());
+            //productBUS.PD_QUANTITY = double.Parse(txtSoLuong.ToString().Trim());
             // edit selected id on datagridview
             if (dgv_selected_id != "")
             {

@@ -229,11 +229,11 @@
             this.txtName.StyleController = this.layoutForm;
             this.txtName.TabIndex = 5;
             // 
-            // cboStatus
+            // cboExpenseStatus
             // 
             this.cboStatus.EditValue = "";
             this.cboStatus.Location = new System.Drawing.Point(169, 105);
-            this.cboStatus.Name = "cboStatus";
+            this.cboStatus.Name = "cboExpenseStatus";
             this.cboStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboStatus.Properties.DropDownRows = 2;
