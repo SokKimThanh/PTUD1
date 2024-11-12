@@ -45,11 +45,13 @@
     <Compile Include="Bao_Cao\tbl_Report_BUS.cs" />
     <Compile Include="BasicMethods.cs" />
     <Compile Include="Danh_Muc\tbl_DM_Bill_BUS.cs" />
+    <Compile Include="Danh_Muc\tbl_DM_ExpenseType_BUS.cs" />
     <Compile Include="Danh_Muc\tbl_DM_Shift_BUS.cs" />
     <Compile Include="Danh_Muc\tbl_DM_StaffSchedule_BUS.cs" />
     <Compile Include="Danh_Muc\tbl_DM_Staff_BUS.cs" />
     <Compile Include="Danh_Muc\tbl_DM_Product_BUS.cs" />
     <Compile Include="Danh_Muc\tbl_DM_Ticket_BUS.cs" />
+    <Compile Include="Danh_Muc\tbl_SYS_Expense_BUS.cs" />
     <Compile Include="Sys\Ultilities.cs" />
     <Compile Include="Danh_Muc\tbl_DM_Movie_BUS.cs" />
     <Compile Include="Danh_Muc\tbl_DM_MovieSchedule_BUS.cs" />

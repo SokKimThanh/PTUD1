@@ -56,6 +56,7 @@
     </Compile>
     <Compile Include="tbl_DAL\InventorySettings.cs" />
     <Compile Include="tbl_DM_Bill_DAL.cs" />
+    <Compile Include="tbl_DM_ExpenseType_DAL.cs" />
     <Compile Include="tbl_DM_MovieSchedule_DAL.cs" />
     <Compile Include="tbl_DM_Movie_DAL.cs" />
     <Compile Include="tbl_DM_Product_DAL.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="tbl_Report_Expense_DAL.cs" />
     <Compile Include="tbl_Report_Inventory_DAL.cs" />
     <Compile Include="tbl_Report_Sales_DAL.cs" />
+    <Compile Include="tbl_SYS_Expense_DAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

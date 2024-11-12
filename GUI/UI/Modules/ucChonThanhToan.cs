@@ -57,7 +57,7 @@ namespace GUI.UI.Modules
             txtTong_Tien.Text = (Tong_Tien_Ghe + Tong_Tien_San_Pham).ToString();
 
             //Lấy obj staff
-            v_objUser = v_arrStaff.FirstOrDefault(it => it.ST_USERNAME.Trim() == CCommon.MaDangNhap);
+            v_objUser = v_objStaff_BUS.GetStaff_ByUserName(CCommon.MaDangNhap);
 
             //Tạo danh sách ghês 
             m_arrGhes.Clear();
