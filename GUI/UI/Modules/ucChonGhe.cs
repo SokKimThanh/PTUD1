@@ -380,10 +380,5 @@ namespace GUI.UI.Modules
                 MessageBox.Show(LanguageController.GetLanguageDataLabel(ex.Message), LanguageController.GetLanguageDataLabel("Lỗi"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void btnTiepTheo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            btnNext_Click(sender, e);
-        }
     }
 }
