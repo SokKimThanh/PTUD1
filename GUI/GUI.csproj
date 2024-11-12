@@ -135,9 +135,7 @@
     <Compile Include="UI\Modules\ucChiPhi.Designer.cs">
       <DependentUpon>ucChiPhi.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucChiPhiLoai.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="UI\Modules\ucChiPhiLoai.cs" />
     <Compile Include="UI\Modules\ucChiPhiLoai.Designer.cs">
       <DependentUpon>ucChiPhiLoai.cs</DependentUpon>
     </Compile>
