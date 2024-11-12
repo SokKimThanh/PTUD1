@@ -95,7 +95,8 @@ TK_AutoID bigint primary key IDENTITY(1,1) not null,
 TK_SEATNAME nchar(3) not null,
 TK_MOVIESCHEDULE_AutoID bigint not null,
 TK_STAFF_AutoID bigint not null,
-DELETED INT,
+TK_STATUS int not null,
+DELETED int,
 CREATED datetime,
 CREATED_BY nchar(50),
 CREATED_BY_FUNCTION nchar(100),
@@ -195,10 +196,23 @@ UPDATED_BY_FUNCTION nchar(100)
 go
 create table tbl_DM_Bill(
 BL_AutoID bigint primary key IDENTITY(1,1) not null,
-BL_PRODUCT_AutoID bigint not null,
-BL_QUANTITY float not null,
-BL_PRICE float not null,
+BL_TICKET_AutoID bigint,
 BL_STAFF_AutoID bigint not null,
+DELETED INT,
+CREATED datetime,
+CREATED_BY nchar(50),
+CREATED_BY_FUNCTION nchar(100),
+UPDATED datetime, 
+UPDATED_BY nchar(50),
+UPDATED_BY_FUNCTION nchar(100)
+)
+
+go
+create table tbl_DM_BillDetail(
+BD_AutoID bigint primary key IDENTITY(1,1) not null,
+BD_BILL_AutoID bigint not null,
+BD_PRODUCT_AutoID bigint not null,
+BD_QUANTITY int not null,
 DELETED INT,
 CREATED datetime,
 CREATED_BY nchar(50),
@@ -245,6 +259,12 @@ UPDATED_BY_FUNCTION nchar(100)
 go 
 alter table tbl_DM_Movie
 add constraint fk_movie_rating foreign key (MV_AGERATING_AutoID) references tbl_DM_AgeRating(AR_AutoID)
+go 
+alter table tbl_DM_BillDetail
+add constraint fk_billdetail_bill foreign key (BD_BILL_AutoID) references tbl_DM_Bill(BL_AutoID)
+go 
+alter table tbl_DM_BillDetail
+add constraint fk_billdetail_product foreign key (BD_PRODUCT_AutoID) references tbl_DM_Product(PD_AutoID)
 go
 alter table tbl_DM_MovieSchedule
 add constraint fk_movie_movieschedule foreign key (MS_MOVIE_AutoID) references tbl_DM_Movie(MV_AutoID)
@@ -258,14 +278,14 @@ go
 alter table tbl_DM_Ticket
 add constraint fk_ticket_staff foreign key (TK_STAFF_AutoID) references tbl_DM_Staff(ST_AutoID)
 go
+alter table tbl_DM_Bill
+add constraint fk_bill_ticket foreign key (BL_TICKET_AutoID) references tbl_DM_Ticket(TK_AutoID)
+go
 alter table tbl_DM_StaffSchedule
 add constraint fk_staff_schedule foreign key (SS_STAFF_AutoID) references tbl_DM_Staff(ST_AutoID)
 go
 alter table tbl_DM_StaffSchedule
 add constraint fk_shift_schedule foreign key (SS_SHIFT_AutoID) references tbl_DM_Shift(SF_AutoID)
-go
-alter table tbl_DM_Bill
-add constraint fk_bill_product foreign key (BL_PRODUCT_AutoID) references tbl_DM_Product(PD_AutoID)
 go
 alter table tbl_DM_Bill
 add constraint fk_bill_staff foreign key (BL_STAFF_AutoID) references tbl_DM_Staff(ST_AutoID)
