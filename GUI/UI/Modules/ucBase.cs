@@ -362,6 +362,60 @@ namespace GUI.UI.Modules
             objGrid.OptionsView.ShowIndicator = false;
 
             objGrid.OptionsBehavior.Editable = false;
+
+            //Tính toán lại lưới khi thay đổi size
+            objGrid.GridControl.SizeChanged += (sender, e) => Auto_Fix_Width_Grid(objGrid);
         }
+
+        #region Nhóm private
+
+        private void Auto_Fix_Width_Grid(GridView p_objGrid)
+        {
+            // Tính tổng chiều rộng của tất cả các cột ngoại trừ cột cuối
+            int v_iTotalWidth = p_objGrid.Columns.Where(v_objCol => v_objCol.Name != "LastCol" && v_objCol.Visible)
+                                            .Sum(v_objCol => v_objCol.Width);
+
+            // Tính chiều rộng còn lại cho cột cuối
+            int v_iRemainingWidth = p_objGrid.GridControl.Width - v_iTotalWidth - 10;  // 10 là độ dày của viền lưới
+
+
+            //Nếu kích thước sau khi tính toán <=0 thì xóa cột đi
+            if (v_iRemainingWidth <= 0)
+            {
+                Remove_Col_By_Name("LastCol", p_objGrid);
+                return;
+            }
+
+            GridColumn v_objLastColumn = p_objGrid.Columns.ColumnByName("LastCol");
+
+            //Nếu cột đã có thì chỉ cập nhật kích thước
+            if (v_objLastColumn != null)
+            {
+                v_objLastColumn.Width = v_iRemainingWidth;
+                return;
+            }
+
+            //Thêm mới cột nếu chưa
+            v_objLastColumn = new GridColumn
+            {
+                Name = "LastCol",
+                FieldName = "",
+                Visible = true,
+                Width = v_iRemainingWidth
+            };
+
+            v_objLastColumn.OptionsColumn.FixedWidth = false;
+            p_objGrid.Columns.Add(v_objLastColumn);
+        }
+
+        private void Remove_Col_By_Name(string p_strCol_Name, GridView p_objGrid)
+        {
+            GridColumn v_objCol_Remove = p_objGrid.Columns.ColumnByName(p_strCol_Name);
+
+            if (v_objCol_Remove != null)
+                p_objGrid.Columns.Remove(v_objCol_Remove);
+        }
+
+        #endregion
     }
 }
