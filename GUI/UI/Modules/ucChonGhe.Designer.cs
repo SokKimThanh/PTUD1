@@ -227,7 +227,7 @@
             this.lblTitle.ForeColor = System.Drawing.Color.Black;
             this.lblTitle.Location = new System.Drawing.Point(810, 92);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(237, 32);
+            this.lblTitle.Size = new System.Drawing.Size(237, 218);
             this.lblTitle.TabIndex = 9;
             this.lblTitle.Text = "Title";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -236,7 +236,7 @@
             // 
             this.txtTotalPrice.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTotalPrice.EditValue = ((short)(0));
-            this.txtTotalPrice.Location = new System.Drawing.Point(810, 172);
+            this.txtTotalPrice.Location = new System.Drawing.Point(810, 358);
             this.txtTotalPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTotalPrice.MenuManager = this.barManager1;
             this.txtTotalPrice.Name = "txtTotalPrice";
@@ -316,7 +316,7 @@
             // layoutTongCong
             // 
             this.layoutTongCong.Control = this.txtTotalPrice;
-            this.layoutTongCong.Location = new System.Drawing.Point(0, 64);
+            this.layoutTongCong.Location = new System.Drawing.Point(0, 250);
             this.layoutTongCong.Name = "layoutTongCong";
             this.layoutTongCong.Padding = new DevExpress.XtraLayout.Utils.Padding(16, 16, 16, 16);
             this.layoutTongCong.Size = new System.Drawing.Size(269, 78);
@@ -328,12 +328,9 @@
             // 
             this.layoutTitle.Control = this.lblTitle;
             this.layoutTitle.Location = new System.Drawing.Point(0, 0);
-            this.layoutTitle.MaxSize = new System.Drawing.Size(0, 64);
-            this.layoutTitle.MinSize = new System.Drawing.Size(36, 32);
             this.layoutTitle.Name = "layoutTitle";
             this.layoutTitle.Padding = new DevExpress.XtraLayout.Utils.Padding(16, 16, 16, 16);
-            this.layoutTitle.Size = new System.Drawing.Size(269, 64);
-            this.layoutTitle.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutTitle.Size = new System.Drawing.Size(269, 250);
             this.layoutTitle.Text = "Title";
             this.layoutTitle.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutTitle.TextSize = new System.Drawing.Size(0, 0);
@@ -352,15 +349,15 @@
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 143);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 329);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(269, 282);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(269, 96);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // simpleSeparator1
             // 
             this.simpleSeparator1.AllowHotTrack = false;
-            this.simpleSeparator1.Location = new System.Drawing.Point(0, 142);
+            this.simpleSeparator1.Location = new System.Drawing.Point(0, 328);
             this.simpleSeparator1.Name = "simpleSeparator1";
             this.simpleSeparator1.Size = new System.Drawing.Size(269, 1);
             // 
