@@ -431,8 +431,6 @@ VALUES
 (N'Chi phí khác', NULL, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System');
 
 go
--- Thêm 10 khoản chi phí vào bảng tbl_SYS_Expense
--- Thêm chi phí mặt bằng
 INSERT INTO tbl_SYS_Expense (EX_EXTYPE_AutoID, EX_QUANTITY, EX_PRICE, EX_REASON, EX_STATUS, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
 VALUES
 -- Nhập hàng vào kho trong các ngày cụ thể cho các sản phẩm khác nhau 
