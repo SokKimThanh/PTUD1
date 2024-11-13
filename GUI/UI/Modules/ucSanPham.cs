@@ -11,7 +11,7 @@ namespace GUI.UI.Modules
     {
         private tbl_DM_Product_BUS data = new tbl_DM_Product_BUS();
         private string dgv_selected_id = "";
- 
+        private string txtUrlHinhAnh = "";
 
         public ucSanPham()
         {
@@ -27,8 +27,8 @@ namespace GUI.UI.Modules
             var product = new tbl_DM_Product_DTO();
             product.PD_NAME = txtTenSanPham.Text.Trim();
             product.PD_QUANTITY = double.Parse(txtSoLuong.Text.Trim());
-            product.PD_PRICE = double.Parse(txtGiaTien.Text.ToString().Trim());
-            product.PD_IMAGEURL = txtUrlHinhAnh.Text.Trim();
+            product.PD_PRICE = double.Parse(txtGiaBan.Text.ToString().Trim());
+            product.PD_IMAGEURL = txtUrlHinhAnh.Trim();
             //productBUS.PD_QUANTITY = double.Parse(txtSoLuong.ToString().Trim());
             // edit selected id on datagridview
             if (dgv_selected_id != "")
@@ -42,7 +42,9 @@ namespace GUI.UI.Modules
         {
             if (strFunctionCode != "")
                 lblTitle.Text = strFunctionCode.ToUpper().Trim();
-
+            // chỉ xem ở sản phẩm, nhưng cập nhật ở chi phí
+            txtSoLuong.Enabled = false;
+            txtGiaGoc.Enabled = false;
             // tai du lieu dgv
             dgv.DataSource = data.GetAll();
             dgv.RefreshDataSource();
@@ -136,9 +138,9 @@ namespace GUI.UI.Modules
                         dgv_selected_id = gridView1.GetRowCellValue(i, "PD_AutoID").ToString().Trim();
                         tbl_DM_Product_DTO o = data.Find(long.Parse(dgv_selected_id));
                         txtTenSanPham.Text = o.PD_NAME;
-                        txtGiaTien.Text = o.PD_PRICE.ToString();
+                        txtGiaBan.Text = o.PD_PRICE.ToString();
                         txtSoLuong.Text = o.PD_QUANTITY.ToString();
-                        txtUrlHinhAnh.Text = o.PD_IMAGEURL;
+                        txtUrlHinhAnh = o.PD_IMAGEURL;
 
                         try
                         {
@@ -173,9 +175,8 @@ namespace GUI.UI.Modules
             dgv.DataSource = data.GetAll();
             dangThaoTac(false);
             txtTenSanPham.Text = string.Empty;
-            txtGiaTien.Text = string.Empty;
+            txtGiaBan.Text = string.Empty;
             txtSoLuong.Text = string.Empty;
-            txtUrlHinhAnh.Text = string.Empty;
             pictureBox.Image = null;
         }
 
@@ -198,7 +199,7 @@ namespace GUI.UI.Modules
                 string selectedMV_POSTERURL = openFileDialog.FileName;
 
                 // Hiển thị đường dẫn hình ảnh
-                txtUrlHinhAnh.Text = selectedMV_POSTERURL;
+                txtUrlHinhAnh = selectedMV_POSTERURL;
             }
         }
 
@@ -220,7 +221,7 @@ namespace GUI.UI.Modules
                 string selectedMV_POSTERURL = openFileDialog.FileName;
 
                 // Hiển thị đường dẫn hình ảnh trong TextBox hoặc Label
-                txtUrlHinhAnh.Text = selectedMV_POSTERURL;
+                txtUrlHinhAnh = selectedMV_POSTERURL;
             }
         }
 
