@@ -264,7 +264,7 @@
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(241, 57);
             this.lblTitle.TabIndex = 9;
-            this.lblTitle.Text = "Title";
+            this.lblTitle.Text = "Tên phim | Giờ chiếu";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtTotalPrice

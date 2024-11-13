@@ -166,6 +166,12 @@
     <Compile Include="UI\Modules\ucChonGhe.Designer.cs">
       <DependentUpon>ucChonGhe.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Modules\ucChonXacNhanThanhToan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Modules\ucChonXacNhanThanhToan.Designer.cs">
+      <DependentUpon>ucChonXacNhanThanhToan.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Modules\ucHoaDon.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -302,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Modules\ucChonSanPham.resx">
       <DependentUpon>ucChonSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Modules\ucChonXacNhanThanhToan.resx">
+      <DependentUpon>ucChonXacNhanThanhToan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Modules\ucDanhGiaDoTuoi.resx">
       <DependentUpon>ucDanhGiaDoTuoi.cs</DependentUpon>
