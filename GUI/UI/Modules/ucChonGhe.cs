@@ -380,5 +380,10 @@ namespace GUI.UI.Modules
                 MessageBox.Show(LanguageController.GetLanguageDataLabel(ex.Message), LanguageController.GetLanguageDataLabel("Lỗi"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void svgImageBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

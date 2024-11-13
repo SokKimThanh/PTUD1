@@ -242,6 +242,7 @@
             this.svgImageBox1.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("svgImageBox1.SvgImage")));
             this.svgImageBox1.TabIndex = 0;
             this.svgImageBox1.Text = "svgImageBox1";
+            this.svgImageBox1.Click += new System.EventHandler(this.svgImageBox1_Click);
             // 
             // grpSeats
             // 
@@ -352,7 +353,7 @@
             this.btnQuayLai.Location = new System.Drawing.Point(814, 528);
             this.btnQuayLai.Name = "btnQuayLai";
             this.btnQuayLai.Padding = new System.Windows.Forms.Padding(4);
-            this.btnQuayLai.Size = new System.Drawing.Size(74, 31);
+            this.btnQuayLai.Size = new System.Drawing.Size(114, 31);
             this.btnQuayLai.StyleController = this.layoutForm;
             this.btnQuayLai.TabIndex = 17;
             this.btnQuayLai.Text = "Quay lại";
@@ -361,10 +362,10 @@
             // 
             this.btnHuyChonPhim.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHuyChonPhim.Appearance.Options.UseFont = true;
-            this.btnHuyChonPhim.Location = new System.Drawing.Point(904, 528);
+            this.btnHuyChonPhim.Location = new System.Drawing.Point(944, 528);
             this.btnHuyChonPhim.Name = "btnHuyChonPhim";
             this.btnHuyChonPhim.Padding = new System.Windows.Forms.Padding(4);
-            this.btnHuyChonPhim.Size = new System.Drawing.Size(151, 31);
+            this.btnHuyChonPhim.Size = new System.Drawing.Size(111, 31);
             this.btnHuyChonPhim.StyleController = this.layoutForm;
             this.btnHuyChonPhim.TabIndex = 17;
             this.btnHuyChonPhim.Text = "Hủy";
@@ -501,7 +502,7 @@
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 465);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Padding = new DevExpress.XtraLayout.Utils.Padding(8, 8, 8, 8);
-            this.layoutControlItem4.Size = new System.Drawing.Size(90, 47);
+            this.layoutControlItem4.Size = new System.Drawing.Size(130, 47);
             this.layoutControlItem4.Text = "layoutControlItem1";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
@@ -511,10 +512,10 @@
             this.layoutControlItem6.Control = this.btnHuyChonPhim;
             this.layoutControlItem6.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem6.CustomizationFormText = "layoutControlItem1";
-            this.layoutControlItem6.Location = new System.Drawing.Point(90, 465);
+            this.layoutControlItem6.Location = new System.Drawing.Point(130, 465);
             this.layoutControlItem6.Name = "layoutControlItem6";
             this.layoutControlItem6.Padding = new DevExpress.XtraLayout.Utils.Padding(8, 8, 8, 8);
-            this.layoutControlItem6.Size = new System.Drawing.Size(167, 47);
+            this.layoutControlItem6.Size = new System.Drawing.Size(127, 47);
             this.layoutControlItem6.Text = "layoutControlItem1";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
