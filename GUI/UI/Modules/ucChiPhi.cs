@@ -94,7 +94,8 @@ namespace GUI.UI.Modules
         {
             // Sử dụng constructor của tbl_DM_Movie_DTO để tạo đối tượng entity
             var entity = new tbl_SYS_Expense_DTO();
-            entity.EX_PRICE = long.Parse(txtPrice.Text.Trim());
+            string price = txtPrice.Text.Replace("₫", "").Trim().Replace(".", "");
+            entity.EX_PRICE = long.Parse(price);
             entity.EX_REASON = txtReason.Text.Trim();
             entity.EX_STATUS = int.Parse(cboExpenseStatus.EditValue.ToString());
             entity.EX_QUANTITY = double.Parse(txtQuantity.Text.Trim());
@@ -196,6 +197,7 @@ namespace GUI.UI.Modules
 
                 // hiển thị nhập số lượng khi có id product
                 txtQuantity.Enabled = true;
+                txtPrice.Enabled = true;
             }
         }
 
@@ -233,14 +235,6 @@ namespace GUI.UI.Modules
                     }
                     dangThaoTac(true);
                 }
-            }
-        }
-
-        private void txtQuantity_EditValueChanged(object sender, EventArgs e)
-        {
-            if (cboExpenseType_selected_id != 0)
-            {
-                txtPrice.Text = (tbl_DM_Product_DTO.PD_PRICE * double.Parse(txtQuantity.Text.Trim())).ToString();
             }
         }
     }

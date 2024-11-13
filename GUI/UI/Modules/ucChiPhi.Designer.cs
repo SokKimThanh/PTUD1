@@ -110,10 +110,10 @@
             // 
             // dgv
             // 
-            this.dgv.Location = new System.Drawing.Point(24, 198);
+            this.dgv.Location = new System.Drawing.Point(24, 234);
             this.dgv.MainView = this.gridView1;
             this.dgv.Name = "dgv";
-            this.dgv.Size = new System.Drawing.Size(833, 366);
+            this.dgv.Size = new System.Drawing.Size(833, 330);
             this.dgv.TabIndex = 8;
             this.dgv.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -126,24 +126,24 @@
             // 
             // cboExpenseStatus
             // 
-            this.cboExpenseStatus.Location = new System.Drawing.Point(557, 129);
+            this.cboExpenseStatus.Location = new System.Drawing.Point(563, 123);
             this.cboExpenseStatus.Name = "cboExpenseStatus";
             this.cboExpenseStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboExpenseStatus.Properties.NullText = "";
-            this.cboExpenseStatus.Size = new System.Drawing.Size(300, 20);
+            this.cboExpenseStatus.Size = new System.Drawing.Size(288, 20);
             this.cboExpenseStatus.StyleController = this.layoutForm;
             this.cboExpenseStatus.TabIndex = 10;
             this.cboExpenseStatus.EditValueChanged += new System.EventHandler(this.cboStatus_EditValueChanged);
             // 
             // cboExpenseType
             // 
-            this.cboExpenseType.Location = new System.Drawing.Point(139, 81);
+            this.cboExpenseType.Location = new System.Drawing.Point(145, 87);
             this.cboExpenseType.Name = "cboExpenseType";
             this.cboExpenseType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cboExpenseType.Properties.NullText = "";
-            this.cboExpenseType.Size = new System.Drawing.Size(718, 20);
+            this.cboExpenseType.Size = new System.Drawing.Size(706, 20);
             this.cboExpenseType.StyleController = this.layoutForm;
             this.cboExpenseType.TabIndex = 10;
             this.cboExpenseType.EditValueChanged += new System.EventHandler(this.cboExpenseType_EditValueChanged);
@@ -151,11 +151,11 @@
             // txtReason
             // 
             this.txtReason.EditValue = "";
-            this.txtReason.Location = new System.Drawing.Point(139, 129);
+            this.txtReason.Location = new System.Drawing.Point(145, 123);
             this.txtReason.MenuManager = this.barManager1;
             this.txtReason.Name = "txtReason";
             this.txtReason.Properties.NullText = "[EditValue is null]";
-            this.txtReason.Size = new System.Drawing.Size(299, 20);
+            this.txtReason.Size = new System.Drawing.Size(287, 20);
             this.txtReason.StyleController = this.layoutForm;
             this.txtReason.TabIndex = 10;
             // 
@@ -266,30 +266,29 @@
             // txtPrice
             // 
             this.txtPrice.EditValue = "0";
-            this.txtPrice.Location = new System.Drawing.Point(557, 105);
+            this.txtPrice.Location = new System.Drawing.Point(563, 159);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Properties.BeepOnError = true;
             this.txtPrice.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.txtPrice.Properties.MaskSettings.Set("mask", "c0");
             this.txtPrice.Properties.NullText = "[EditValue is null]";
             this.txtPrice.Properties.UseMaskAsDisplayFormat = true;
-            this.txtPrice.Size = new System.Drawing.Size(300, 20);
+            this.txtPrice.Size = new System.Drawing.Size(288, 20);
             this.txtPrice.StyleController = this.layoutForm;
             this.txtPrice.TabIndex = 10;
             // 
             // txtQuantity
             // 
             this.txtQuantity.EditValue = "0";
-            this.txtQuantity.Location = new System.Drawing.Point(139, 105);
+            this.txtQuantity.Location = new System.Drawing.Point(145, 159);
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Properties.BeepOnError = true;
             this.txtQuantity.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.txtQuantity.Properties.MaskSettings.Set("mask", "d");
             this.txtQuantity.Properties.UseMaskAsDisplayFormat = true;
-            this.txtQuantity.Size = new System.Drawing.Size(299, 20);
+            this.txtQuantity.Size = new System.Drawing.Size(287, 20);
             this.txtQuantity.StyleController = this.layoutForm;
             this.txtQuantity.TabIndex = 10;
-            this.txtQuantity.EditValueChanged += new System.EventHandler(this.txtQuantity_EditValueChanged);
             // 
             // Root
             // 
@@ -326,9 +325,9 @@
             this.layoutDGV.CustomizationFormText = "Danh sách dữ liệu";
             this.layoutDGV.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
-            this.layoutDGV.Location = new System.Drawing.Point(0, 153);
+            this.layoutDGV.Location = new System.Drawing.Point(0, 189);
             this.layoutDGV.Name = "layoutDGV";
-            this.layoutDGV.Size = new System.Drawing.Size(861, 415);
+            this.layoutDGV.Size = new System.Drawing.Size(861, 379);
             this.layoutDGV.Text = "Danh sách dữ liệu";
             // 
             // layoutControlItem1
@@ -337,7 +336,7 @@
             this.layoutControlItem1.CustomizationFormText = "dgvCaLamViec";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(837, 370);
+            this.layoutControlItem1.Size = new System.Drawing.Size(837, 334);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -345,14 +344,14 @@
             // 
             this.layoutNhapDuLieu.CaptionImageOptions.Image = global::GUI.Properties.Resources.boreport2_16x161;
             this.layoutNhapDuLieu.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutExpenseType,
+            this.layoutReason,
             this.layoutPrice,
             this.layoutQuantity,
-            this.layoutStatus,
-            this.layoutReason,
-            this.layoutExpenseType});
+            this.layoutStatus});
             this.layoutNhapDuLieu.Location = new System.Drawing.Point(0, 36);
             this.layoutNhapDuLieu.Name = "layoutNhapDuLieu";
-            this.layoutNhapDuLieu.Size = new System.Drawing.Size(861, 117);
+            this.layoutNhapDuLieu.Size = new System.Drawing.Size(861, 153);
             this.layoutNhapDuLieu.Text = "Thao tác nhập dữ liệu";
             // 
             // layoutPrice
@@ -360,9 +359,10 @@
             this.layoutPrice.Control = this.txtPrice;
             this.layoutPrice.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutPrice.CustomizationFormText = "layoutControlItem2";
-            this.layoutPrice.Location = new System.Drawing.Point(418, 24);
+            this.layoutPrice.Location = new System.Drawing.Point(418, 72);
             this.layoutPrice.Name = "layoutPrice";
-            this.layoutPrice.Size = new System.Drawing.Size(419, 24);
+            this.layoutPrice.Padding = new DevExpress.XtraLayout.Utils.Padding(8, 8, 8, 8);
+            this.layoutPrice.Size = new System.Drawing.Size(419, 36);
             this.layoutPrice.Text = "Tổng tiền nhập hàng:";
             this.layoutPrice.TextSize = new System.Drawing.Size(103, 13);
             // 
@@ -371,9 +371,10 @@
             this.layoutQuantity.Control = this.txtQuantity;
             this.layoutQuantity.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutQuantity.CustomizationFormText = "layoutControlItem2";
-            this.layoutQuantity.Location = new System.Drawing.Point(0, 24);
+            this.layoutQuantity.Location = new System.Drawing.Point(0, 72);
             this.layoutQuantity.Name = "layoutQuantity";
-            this.layoutQuantity.Size = new System.Drawing.Size(418, 24);
+            this.layoutQuantity.Padding = new DevExpress.XtraLayout.Utils.Padding(8, 8, 8, 8);
+            this.layoutQuantity.Size = new System.Drawing.Size(418, 36);
             this.layoutQuantity.Text = "Số lượng nhập hàng:";
             this.layoutQuantity.TextSize = new System.Drawing.Size(103, 13);
             // 
@@ -382,18 +383,20 @@
             this.layoutStatus.Control = this.cboExpenseStatus;
             this.layoutStatus.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutStatus.CustomizationFormText = "layoutControlItem2";
-            this.layoutStatus.Location = new System.Drawing.Point(418, 48);
+            this.layoutStatus.Location = new System.Drawing.Point(418, 36);
             this.layoutStatus.Name = "layoutStatus";
-            this.layoutStatus.Size = new System.Drawing.Size(419, 24);
+            this.layoutStatus.Padding = new DevExpress.XtraLayout.Utils.Padding(8, 8, 8, 8);
+            this.layoutStatus.Size = new System.Drawing.Size(419, 36);
             this.layoutStatus.Text = "Trạng thái:";
             this.layoutStatus.TextSize = new System.Drawing.Size(103, 13);
             // 
             // layoutReason
             // 
             this.layoutReason.Control = this.txtReason;
-            this.layoutReason.Location = new System.Drawing.Point(0, 48);
+            this.layoutReason.Location = new System.Drawing.Point(0, 36);
             this.layoutReason.Name = "layoutReason";
-            this.layoutReason.Size = new System.Drawing.Size(418, 24);
+            this.layoutReason.Padding = new DevExpress.XtraLayout.Utils.Padding(8, 8, 8, 8);
+            this.layoutReason.Size = new System.Drawing.Size(418, 36);
             this.layoutReason.Text = "Lý do:";
             this.layoutReason.TextSize = new System.Drawing.Size(103, 13);
             // 
@@ -404,7 +407,8 @@
             this.layoutExpenseType.CustomizationFormText = "layoutControlItem2";
             this.layoutExpenseType.Location = new System.Drawing.Point(0, 0);
             this.layoutExpenseType.Name = "layoutExpenseType";
-            this.layoutExpenseType.Size = new System.Drawing.Size(837, 24);
+            this.layoutExpenseType.Padding = new DevExpress.XtraLayout.Utils.Padding(8, 8, 8, 8);
+            this.layoutExpenseType.Size = new System.Drawing.Size(837, 36);
             this.layoutExpenseType.Text = "Loại chi phí:";
             this.layoutExpenseType.TextSize = new System.Drawing.Size(103, 13);
             // 
