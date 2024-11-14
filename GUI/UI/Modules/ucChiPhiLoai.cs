@@ -45,7 +45,14 @@ namespace GUI.UI.Modules
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Lỗi: {ex.Message}");
+                if (ex.Message.Contains("UC_ET_NAME"))
+                {
+                    MessageBox.Show($"Lỗi: Loại chi phí đã tồn tại", "Thông báo");
+                }
+                else
+                {
+                    MessageBox.Show($"Có lỗi xảy ra: {ex.Message}");
+                }
             }
         }
 
@@ -61,7 +68,9 @@ namespace GUI.UI.Modules
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Có lỗi xảy ra: {ex.Message}");
+                    
+                        MessageBox.Show($"Có lỗi xảy ra: {ex.Message}");
+                     
                 }
             }
         }
@@ -76,7 +85,7 @@ namespace GUI.UI.Modules
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Lỗi: {ex.Message}");
+                MessageBox.Show($"Có lỗi xảy ra: {ex.Message}");
             }
         }
 
