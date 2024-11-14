@@ -24,9 +24,9 @@ namespace GUI.UI.Modules
         private readonly tbl_SYS_Expense_BUS data = new tbl_SYS_Expense_BUS();
         private readonly tbl_DM_Product_BUS productBUS = new tbl_DM_Product_BUS();
 
-        tbl_DM_Product_DTO tbl_DM_Product_DTO = new tbl_DM_Product_DTO();
+        tbl_DM_Product_DTO product_DTO = new tbl_DM_Product_DTO();
 
-        private string dgv_selected_id = "";
+        private string dgv_selected_id = "";// giá trị từ gridcontrol
         private long cboExpenseType_selected_id = 0;// giá trị từ ComboBoxEdit
         private long? cboStatus_selected_id = 0;// giá trị từ ComboBoxEdit
 
@@ -40,9 +40,12 @@ namespace GUI.UI.Modules
         {
             try
             {
-                tbl_SYS_Expense_DTO movie = GetFormData();
-
-                if (data.Add(movie) != 0)
+                tbl_SYS_Expense_DTO expense = GetFormData();
+                // cập nhật cộng thêm số lượng khi thêm chi phí theo loại chi phí thuộc sản phẩm nhập hàng
+                product_DTO.PD_QUANTITY = double.Parse(txtProductQuantity.Text) + expense.EX_QUANTITY;
+                productBUS.Update(product_DTO);
+                
+                if (data.Add(expense) != 0)
                 {
                     MessageBox.Show("Thêm mới thành công!", "Thông báo");
                     LoadForm();
@@ -95,15 +98,15 @@ namespace GUI.UI.Modules
             // Sử dụng constructor của tbl_DM_Movie_DTO để tạo đối tượng entity
             var entity = new tbl_SYS_Expense_DTO();
             string price = txtPrice.Text.Replace("₫", "").Trim().Replace(".", "");
-            entity.EX_PRICE = long.Parse(price);
-            entity.EX_REASON = txtReason.Text.Trim();
-            entity.EX_STATUS = int.Parse(cboExpenseStatus.EditValue.ToString());
-            entity.EX_QUANTITY = double.Parse(txtQuantity.Text.Trim());
-            entity.EX_EXTYPE_AutoID = int.Parse(cboExpenseType.EditValue.ToString());
-            // edit selected id on datagridview
+            entity.EX_PRICE = long.Parse(price);// tiền nhập hàng
+            entity.EX_REASON = txtReason.Text.Trim();// lý do nhập hàng
+            entity.EX_STATUS = int.Parse(cboExpenseStatus.EditValue.ToString());// trạng thái nhập hàng
+            entity.EX_QUANTITY = double.Parse(txtQuantity.Text.Trim());// số lượng sản phẩm nhập hàng
+            entity.EX_EXTYPE_AutoID = int.Parse(cboExpenseType.EditValue.ToString());// loại chi phí
+            //  selected id on datagridview
             if (dgv_selected_id != "")
             {
-                entity.EX_AutoID = long.Parse(dgv_selected_id);
+                entity.EX_AutoID = long.Parse(dgv_selected_id);// mã chi phí 
             }
             return entity;
         }
@@ -125,6 +128,8 @@ namespace GUI.UI.Modules
             txtPrice.Text = string.Empty;
             cboExpenseStatus.EditValue = null;
             cboExpenseType.EditValue = null;
+            txtProductQuantity.Text = string.Empty;
+            txtProductName.Text = string.Empty;
         }
 
         private void ucChiPhi_Load(object sender, EventArgs e)
@@ -191,10 +196,20 @@ namespace GUI.UI.Modules
                 cboExpenseType_selected_id = long.Parse(cboExpenseType.EditValue.ToString().Trim());
                 txtReason.Text = cboExpenseType.Text;
                 cboExpenseStatus.EditValue = 1;
-                tbl_DM_ExpenseType_DTO o = expenseTypeBUS.Find(cboExpenseType_selected_id);
+                //  Bước chuẩn bị: Tìm sản phẩm để cập nhật số lượng
+                //  khi thêm số lượng sản phẩm cho loại chi phí
+                //  theo số lần thêm hàng (thêm 1 dòng chi phí)
+                if (cboExpenseType_selected_id != 0)
+                {
+                    tbl_DM_ExpenseType_DTO o = expenseTypeBUS.Find(cboExpenseType_selected_id);
+                    product_DTO = productBUS.Find((long)o.ET_PRODUCT_AutoID);
 
-                tbl_DM_Product_DTO = productBUS.Find((long)o.ET_PRODUCT_AutoID);
+                    // Hiển thị số lượng tồn kho cho loại chi phí nhập
+                    txtProductQuantity.Text = product_DTO.PD_QUANTITY.ToString();
 
+                    // Hiển thị tên sản phẩm
+                    txtProductName.Text = product_DTO.PD_NAME;
+                }
                 // hiển thị nhập số lượng khi có id product
                 txtQuantity.Enabled = true;
                 txtPrice.Enabled = true;
@@ -228,6 +243,7 @@ namespace GUI.UI.Modules
                         // Hiển thị dữ liệu lên combobox
                         cboExpenseType.EditValue = o.EX_EXTYPE_AutoID;
                         cboExpenseStatus.EditValue = o.EX_STATUS;
+
                     }
                     catch (Exception ex)
                     {
