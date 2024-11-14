@@ -54,7 +54,7 @@ namespace GUI.UI.Modules
             tbl_DM_Staff_BUS v_objStaff_BUS = new tbl_DM_Staff_BUS();
             List<tbl_DM_Staff_DTO> v_arrStaff = v_objStaff_BUS.ListData();
 
-            txtTong_Tien.Text = (Tong_Tien_Ghe + Tong_Tien_San_Pham).ToString();
+            //txtTong_Tien.Text = (Tong_Tien_Ghe + Tong_Tien_San_Pham).ToString();
 
             //Lấy obj staff
             v_objUser = v_objStaff_BUS.GetStaff_ByUserName(CCommon.MaDangNhap);
@@ -71,27 +71,27 @@ namespace GUI.UI.Modules
             }
 
             //Lưới ghế
-            gridControl1.DataSource = m_arrGhes;
-            grdGhe.Columns["AutoID"].Visible = false;
-            grdGhe.Columns["StaffID"].Visible = false;
-            grdGhe.Columns["MovieScheID"].Visible = false;
-            grdGhe.Columns["Deleted"].Visible = false;
-            grdGhe.Columns["SeatName"].Caption = LanguageController.GetLanguageDataLabel("Tên ghế");
-            FormatGridView(grdGhe);
+            //gridControl1.DataSource = m_arrGhes;
+            //grdGhe.Columns["AutoID"].Visible = false;
+            //grdGhe.Columns["StaffID"].Visible = false;
+            //grdGhe.Columns["MovieScheID"].Visible = false;
+            //grdGhe.Columns["Deleted"].Visible = false;
+            //grdGhe.Columns["SeatName"].Caption = LanguageController.GetLanguageDataLabel("Tên ghế");
+            //FormatGridView(grdGhe);
 
             //Lưới sản phẩm
-            gridControl2.DataSource = Danh_Sach_San_Pham;
-            grdSan_Pham.Columns["PD_AutoID"].Visible = false;
-            grdSan_Pham.Columns["PD_NAME"].Caption = LanguageController.GetLanguageDataLabel("Tên");
-            grdSan_Pham.Columns["PD_IMAGEURL"].Caption = LanguageController.GetLanguageDataLabel("Hình ảnh");
-            grdSan_Pham.Columns["PD_QUANTITY"].Caption = LanguageController.GetLanguageDataLabel("Số lượng");
-            grdSan_Pham.Columns["PD_PRICE"].Caption = LanguageController.GetLanguageDataLabel("Giá");
-            FormatGridView(grdSan_Pham);
+            //gridControl2.DataSource = Danh_Sach_San_Pham;
+            //grdSan_Pham.Columns["PD_AutoID"].Visible = false;
+            //grdSan_Pham.Columns["PD_NAME"].Caption = LanguageController.GetLanguageDataLabel("Tên");
+            //grdSan_Pham.Columns["PD_IMAGEURL"].Caption = LanguageController.GetLanguageDataLabel("Hình ảnh");
+            //grdSan_Pham.Columns["PD_QUANTITY"].Caption = LanguageController.GetLanguageDataLabel("Số lượng");
+            //grdSan_Pham.Columns["PD_PRICE"].Caption = LanguageController.GetLanguageDataLabel("Giá");
+            //FormatGridView(grdSan_Pham);
 
-            txtMaHoaDon.Text = "HD" + DateTime.Now.ToString("ddMMyyyyHHmmss");
+            //txtMaHoaDon.Text = "HD" + DateTime.Now.ToString("ddMMyyyyHHmmss");
 
-            txtNgayHoaDon.Text = DateTime.Now.ToString("dd/MM/yyyy");
-            txtNhanVien.Text = v_objUser.ST_USERNAME;
+            //txtNgayHoaDon.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            //txtNhanVien.Text = v_objUser.ST_USERNAME;
         }
 
         private void btnThem_San_Pham_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
