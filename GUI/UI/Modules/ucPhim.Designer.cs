@@ -58,10 +58,10 @@ namespace GUI.UI.Modules
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutDGV = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
@@ -80,10 +80,10 @@ namespace GUI.UI.Modules
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             this.SuspendLayout();
@@ -409,30 +409,6 @@ namespace GUI.UI.Modules
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
-            // layoutControlItem9
-            // 
-            this.layoutControlItem9.Control = this.btnOpenImage;
-            this.layoutControlItem9.Location = new System.Drawing.Point(0, 160);
-            this.layoutControlItem9.MinSize = new System.Drawing.Size(90, 26);
-            this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Padding = new DevExpress.XtraLayout.Utils.Padding(8, 8, 8, 8);
-            this.layoutControlItem9.Size = new System.Drawing.Size(120, 48);
-            this.layoutControlItem9.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem9.Text = "ThemHinh";
-            this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem9.TextVisible = false;
-            // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.txtPrice;
-            this.layoutControlItem5.Location = new System.Drawing.Point(120, 156);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Padding = new DevExpress.XtraLayout.Utils.Padding(8, 8, 8, 8);
-            this.layoutControlItem5.Size = new System.Drawing.Size(441, 52);
-            this.layoutControlItem5.Text = "Giá vé:";
-            this.layoutControlItem5.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(86, 13);
-            // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.cboAgeRating;
@@ -453,6 +429,32 @@ namespace GUI.UI.Modules
             this.layoutControlItem10.Text = "Mô tả:";
             this.layoutControlItem10.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem10.TextSize = new System.Drawing.Size(86, 13);
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.txtPrice;
+            this.layoutControlItem5.Location = new System.Drawing.Point(120, 156);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Padding = new DevExpress.XtraLayout.Utils.Padding(8, 8, 8, 8);
+            this.layoutControlItem5.Size = new System.Drawing.Size(441, 52);
+            this.layoutControlItem5.Text = "Giá vé:";
+            this.layoutControlItem5.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(86, 13);
+            // 
+            // layoutControlItem9
+            // 
+            this.layoutControlItem9.AppearanceItemCaption.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.layoutControlItem9.AppearanceItemCaption.Options.UseBorderColor = true;
+            this.layoutControlItem9.Control = this.btnOpenImage;
+            this.layoutControlItem9.Location = new System.Drawing.Point(0, 160);
+            this.layoutControlItem9.MinSize = new System.Drawing.Size(90, 26);
+            this.layoutControlItem9.Name = "layoutControlItem9";
+            this.layoutControlItem9.Padding = new DevExpress.XtraLayout.Utils.Padding(8, 8, 8, 8);
+            this.layoutControlItem9.Size = new System.Drawing.Size(120, 48);
+            this.layoutControlItem9.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem9.Text = "ThemHinh";
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem9.TextVisible = false;
             // 
             // layoutDGV
             // 
@@ -502,10 +504,10 @@ namespace GUI.UI.Modules
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.ResumeLayout(false);

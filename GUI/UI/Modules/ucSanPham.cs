@@ -25,8 +25,7 @@ namespace GUI.UI.Modules
         {
             // Sử dụng constructor của tbl_DM_Product_DTO để tạo đối tượng productBUS
             var product = new tbl_DM_Product_DTO();
-            product.PD_NAME = txtTenSanPham.Text.Trim();
-            product.PD_QUANTITY = double.Parse(txtSoLuong.Text.Trim());
+            product.PD_NAME = txtTenSanPham.Text.Trim(); 
             product.PD_PRICE = double.Parse(txtGiaBan.Text.ToString().Trim());
             product.PD_IMAGEURL = txtUrlHinhAnh.Trim();
             //productBUS.PD_QUANTITY = double.Parse(txtSoLuong.ToString().Trim());
@@ -42,9 +41,6 @@ namespace GUI.UI.Modules
         {
             if (strFunctionCode != "")
                 lblTitle.Text = strFunctionCode.ToUpper().Trim();
-            // chỉ xem ở sản phẩm, nhưng cập nhật ở chi phí
-            txtSoLuong.Enabled = false;
-            txtGiaGoc.Enabled = false;
             // tai du lieu dgv
             dgv.DataSource = data.GetAll();
             dgv.RefreshDataSource();
@@ -66,7 +62,7 @@ namespace GUI.UI.Modules
             // Đặt tên tiếng Việt cho các cột
             gridView1.Columns["PD_NAME"].Caption = "Tên sản phẩm";
             gridView1.Columns["PD_PRICE"].Caption = "Giá tiền";
-            gridView1.Columns["PD_QUANTITY"].Caption = "Số lượng";
+            gridView1.Columns["PD_QUANTITY"].Caption = "Số lượng đang có";
             gridView1.Columns["PD_IMAGEURL"].Caption = "Đường dẫn Hình Ảnh";
             gridView1.Columns["PD_AutoID"].Visible = false;
 
@@ -139,7 +135,6 @@ namespace GUI.UI.Modules
                         tbl_DM_Product_DTO o = data.Find(long.Parse(dgv_selected_id));
                         txtTenSanPham.Text = o.PD_NAME;
                         txtGiaBan.Text = o.PD_PRICE.ToString();
-                        txtSoLuong.Text = o.PD_QUANTITY.ToString();
                         txtUrlHinhAnh = o.PD_IMAGEURL;
 
                         try
@@ -176,7 +171,6 @@ namespace GUI.UI.Modules
             dangThaoTac(false);
             txtTenSanPham.Text = string.Empty;
             txtGiaBan.Text = string.Empty;
-            txtSoLuong.Text = string.Empty;
             pictureBox.Image = null;
         }
 

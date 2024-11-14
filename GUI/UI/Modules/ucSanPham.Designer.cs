@@ -49,17 +49,13 @@ namespace GUI.UI.Modules
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.txtTenSanPham = new DevExpress.XtraEditors.TextEdit();
             this.txtGiaBan = new DevExpress.XtraEditors.TextEdit();
-            this.txtSoLuong = new DevExpress.XtraEditors.TextEdit();
-            this.txtGiaGoc = new DevExpress.XtraEditors.TextEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutAction = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutTenSP = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutGiaGoc = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutBtnHinh = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutSoLuong = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutTitle = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutGiaBan = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutGiaGoc = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutTenSP = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutDGV = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
@@ -71,17 +67,13 @@ namespace GUI.UI.Modules
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenSanPham.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGiaBan.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtGiaGoc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutAction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutTenSP)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutGiaGoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutBtnHinh)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutSoLuong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutGiaBan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutGiaGoc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutTenSP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
@@ -199,8 +191,6 @@ namespace GUI.UI.Modules
             this.layoutForm.Controls.Add(this.dgv);
             this.layoutForm.Controls.Add(this.txtTenSanPham);
             this.layoutForm.Controls.Add(this.txtGiaBan);
-            this.layoutForm.Controls.Add(this.txtSoLuong);
-            this.layoutForm.Controls.Add(this.txtGiaGoc);
             this.layoutForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutForm.Location = new System.Drawing.Point(0, 24);
             this.layoutForm.Name = "layoutForm";
@@ -275,7 +265,7 @@ namespace GUI.UI.Modules
             // 
             // txtGiaBan
             // 
-            this.txtGiaBan.Location = new System.Drawing.Point(150, 207);
+            this.txtGiaBan.Location = new System.Drawing.Point(150, 155);
             this.txtGiaBan.Name = "txtGiaBan";
             this.txtGiaBan.Properties.BeepOnError = true;
             this.txtGiaBan.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
@@ -287,34 +277,6 @@ namespace GUI.UI.Modules
             this.txtGiaBan.Size = new System.Drawing.Size(885, 20);
             this.txtGiaBan.StyleController = this.layoutForm;
             this.txtGiaBan.TabIndex = 11;
-            // 
-            // txtSoLuong
-            // 
-            this.txtSoLuong.Location = new System.Drawing.Point(150, 155);
-            this.txtSoLuong.Name = "txtSoLuong";
-            this.txtSoLuong.Properties.BeepOnError = true;
-            this.txtSoLuong.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-            this.txtSoLuong.Properties.MaskSettings.Set("mask", "d");
-            this.txtSoLuong.Properties.MaskSettings.Set("culture", "vi-VN");
-            this.txtSoLuong.Properties.UseMaskAsDisplayFormat = true;
-            this.txtSoLuong.Size = new System.Drawing.Size(885, 20);
-            this.txtSoLuong.StyleController = this.layoutForm;
-            this.txtSoLuong.TabIndex = 5;
-            // 
-            // txtGiaGoc
-            // 
-            this.txtGiaGoc.Location = new System.Drawing.Point(150, 259);
-            this.txtGiaGoc.Name = "txtGiaGoc";
-            this.txtGiaGoc.Properties.BeepOnError = true;
-            this.txtGiaGoc.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-            this.txtGiaGoc.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
-            this.txtGiaGoc.Properties.MaskSettings.Set("mask", "d");
-            this.txtGiaGoc.Properties.MaskSettings.Set("culture", "vi-VN");
-            this.txtGiaGoc.Properties.MaskSettings.Set("valueType", typeof(double));
-            this.txtGiaGoc.Properties.UseMaskAsDisplayFormat = true;
-            this.txtGiaGoc.Size = new System.Drawing.Size(885, 20);
-            this.txtGiaGoc.StyleController = this.layoutForm;
-            this.txtGiaGoc.TabIndex = 11;
             // 
             // Root
             // 
@@ -332,12 +294,10 @@ namespace GUI.UI.Modules
             this.layoutAction.CaptionImageOptions.Image = global::GUI.Properties.Resources.reviewallowuserstoeditranges_16x16;
             this.layoutAction.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem3,
-            this.layoutTenSP,
-            this.layoutGiaGoc,
             this.layoutBtnHinh,
-            this.layoutSoLuong,
             this.layoutTitle,
-            this.layoutGiaBan});
+            this.layoutGiaGoc,
+            this.layoutTenSP});
             this.layoutAction.Location = new System.Drawing.Point(0, 0);
             this.layoutAction.Name = "layoutAction";
             this.layoutAction.Size = new System.Drawing.Size(1045, 289);
@@ -357,33 +317,10 @@ namespace GUI.UI.Modules
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
-            // layoutTenSP
-            // 
-            this.layoutTenSP.Control = this.txtTenSanPham;
-            this.layoutTenSP.CustomizationFormText = "Tên sản phẩm:";
-            this.layoutTenSP.Location = new System.Drawing.Point(120, 36);
-            this.layoutTenSP.Name = "layoutTenSP";
-            this.layoutTenSP.Padding = new DevExpress.XtraLayout.Utils.Padding(8, 8, 8, 8);
-            this.layoutTenSP.Size = new System.Drawing.Size(901, 52);
-            this.layoutTenSP.Text = "Tên sản phẩm:";
-            this.layoutTenSP.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutTenSP.TextSize = new System.Drawing.Size(85, 13);
-            // 
-            // layoutGiaGoc
-            // 
-            this.layoutGiaGoc.Control = this.txtGiaBan;
-            this.layoutGiaGoc.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutGiaGoc.CustomizationFormText = "Giá:";
-            this.layoutGiaGoc.Location = new System.Drawing.Point(120, 140);
-            this.layoutGiaGoc.Name = "layoutGiaGoc";
-            this.layoutGiaGoc.Padding = new DevExpress.XtraLayout.Utils.Padding(8, 8, 8, 8);
-            this.layoutGiaGoc.Size = new System.Drawing.Size(901, 52);
-            this.layoutGiaGoc.Text = "Giá bán:";
-            this.layoutGiaGoc.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutGiaGoc.TextSize = new System.Drawing.Size(85, 13);
-            // 
             // layoutBtnHinh
             // 
+            this.layoutBtnHinh.AppearanceItemCaption.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.layoutBtnHinh.AppearanceItemCaption.Options.UseBorderColor = true;
             this.layoutBtnHinh.Control = this.btnOpenImage;
             this.layoutBtnHinh.Location = new System.Drawing.Point(0, 196);
             this.layoutBtnHinh.Name = "layoutBtnHinh";
@@ -392,19 +329,6 @@ namespace GUI.UI.Modules
             this.layoutBtnHinh.Text = "Nút Thêm Hình";
             this.layoutBtnHinh.TextSize = new System.Drawing.Size(0, 0);
             this.layoutBtnHinh.TextVisible = false;
-            // 
-            // layoutSoLuong
-            // 
-            this.layoutSoLuong.Control = this.txtSoLuong;
-            this.layoutSoLuong.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutSoLuong.CustomizationFormText = "Số lượng:";
-            this.layoutSoLuong.Location = new System.Drawing.Point(120, 88);
-            this.layoutSoLuong.Name = "layoutSoLuong";
-            this.layoutSoLuong.Padding = new DevExpress.XtraLayout.Utils.Padding(8, 8, 8, 8);
-            this.layoutSoLuong.Size = new System.Drawing.Size(901, 52);
-            this.layoutSoLuong.Text = "Số lượng tồn kho:";
-            this.layoutSoLuong.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutSoLuong.TextSize = new System.Drawing.Size(85, 13);
             // 
             // layoutTitle
             // 
@@ -421,18 +345,30 @@ namespace GUI.UI.Modules
             this.layoutTitle.TextSize = new System.Drawing.Size(0, 0);
             this.layoutTitle.TextVisible = false;
             // 
-            // layoutGiaBan
+            // layoutGiaGoc
             // 
-            this.layoutGiaBan.Control = this.txtGiaGoc;
-            this.layoutGiaBan.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutGiaBan.CustomizationFormText = "Giá:";
-            this.layoutGiaBan.Location = new System.Drawing.Point(120, 192);
-            this.layoutGiaBan.Name = "layoutGiaBan";
-            this.layoutGiaBan.Padding = new DevExpress.XtraLayout.Utils.Padding(8, 8, 8, 8);
-            this.layoutGiaBan.Size = new System.Drawing.Size(901, 52);
-            this.layoutGiaBan.Text = "Giá gốc:";
-            this.layoutGiaBan.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutGiaBan.TextSize = new System.Drawing.Size(85, 13);
+            this.layoutGiaGoc.Control = this.txtGiaBan;
+            this.layoutGiaGoc.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.layoutGiaGoc.CustomizationFormText = "Giá:";
+            this.layoutGiaGoc.Location = new System.Drawing.Point(120, 88);
+            this.layoutGiaGoc.Name = "layoutGiaGoc";
+            this.layoutGiaGoc.Padding = new DevExpress.XtraLayout.Utils.Padding(8, 8, 8, 8);
+            this.layoutGiaGoc.Size = new System.Drawing.Size(901, 156);
+            this.layoutGiaGoc.Text = "Giá bán:";
+            this.layoutGiaGoc.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutGiaGoc.TextSize = new System.Drawing.Size(71, 13);
+            // 
+            // layoutTenSP
+            // 
+            this.layoutTenSP.Control = this.txtTenSanPham;
+            this.layoutTenSP.CustomizationFormText = "Tên sản phẩm:";
+            this.layoutTenSP.Location = new System.Drawing.Point(120, 36);
+            this.layoutTenSP.Name = "layoutTenSP";
+            this.layoutTenSP.Padding = new DevExpress.XtraLayout.Utils.Padding(8, 8, 8, 8);
+            this.layoutTenSP.Size = new System.Drawing.Size(901, 52);
+            this.layoutTenSP.Text = "Tên sản phẩm:";
+            this.layoutTenSP.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutTenSP.TextSize = new System.Drawing.Size(71, 13);
             // 
             // layoutDGV
             // 
@@ -474,17 +410,13 @@ namespace GUI.UI.Modules
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenSanPham.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGiaBan.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtGiaGoc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutAction)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutTenSP)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutGiaGoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutBtnHinh)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutSoLuong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutGiaBan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutGiaGoc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutTenSP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
@@ -522,10 +454,6 @@ namespace GUI.UI.Modules
         private DevExpress.XtraEditors.SimpleButton btnOpenImage;
         private DevExpress.XtraLayout.LayoutControlItem layoutBtnHinh;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
-        private DevExpress.XtraEditors.TextEdit txtSoLuong;
-        private DevExpress.XtraLayout.LayoutControlItem layoutSoLuong;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private DevExpress.XtraEditors.TextEdit txtGiaGoc;
-        private DevExpress.XtraLayout.LayoutControlItem layoutGiaBan;
     }
 }

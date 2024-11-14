@@ -110,7 +110,10 @@ namespace DAL
             {
                 using (var dbContext = new CM_Cinema_DBDataContext(_connectionString))
                 {
-                    var list = dbContext.tbl_DM_Products.ToList();
+                    var list = dbContext.tbl_DM_Products
+                     .OrderByDescending(item => item.CREATED) // Sort by created date in descending order
+                     .ToList();
+
 
                     foreach (var item in list)
                     {
