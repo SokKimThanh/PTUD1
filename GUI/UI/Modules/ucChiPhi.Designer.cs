@@ -49,6 +49,7 @@
             this.txtPrice = new DevExpress.XtraEditors.TextEdit();
             this.txtQuantity = new DevExpress.XtraEditors.TextEdit();
             this.txtProductQuantity = new DevExpress.XtraEditors.TextEdit();
+            this.txtProductName = new DevExpress.XtraEditors.TextEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutTitle = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutDGV = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -56,12 +57,11 @@
             this.layoutNhapDuLieu = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutExpenseType = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutReason = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutPrice = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutQuantity = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutStatus = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutQuantity1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtProductName = new DevExpress.XtraEditors.TextEdit();
             this.layoutReason1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutPrice = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutForm)).BeginInit();
             this.layoutForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
@@ -73,6 +73,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQuantity.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProductQuantity.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProductName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).BeginInit();
@@ -80,12 +81,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutNhapDuLieu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutExpenseType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutReason)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutQuantity1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtProductName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutReason1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutPrice)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutForm
@@ -161,6 +161,7 @@
             // txtReason
             // 
             this.txtReason.EditValue = "";
+            this.txtReason.Enabled = false;
             this.txtReason.Location = new System.Drawing.Point(145, 123);
             this.txtReason.MenuManager = this.barManager1;
             this.txtReason.Name = "txtReason";
@@ -276,27 +277,27 @@
             // txtPrice
             // 
             this.txtPrice.EditValue = "0";
-            this.txtPrice.Location = new System.Drawing.Point(145, 195);
+            this.txtPrice.Location = new System.Drawing.Point(487, 195);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Properties.BeepOnError = true;
             this.txtPrice.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.txtPrice.Properties.MaskSettings.Set("mask", "c0");
             this.txtPrice.Properties.NullText = "[EditValue is null]";
             this.txtPrice.Properties.UseMaskAsDisplayFormat = true;
-            this.txtPrice.Size = new System.Drawing.Size(554, 20);
+            this.txtPrice.Size = new System.Drawing.Size(212, 20);
             this.txtPrice.StyleController = this.layoutForm;
             this.txtPrice.TabIndex = 10;
             // 
             // txtQuantity
             // 
             this.txtQuantity.EditValue = "0";
-            this.txtQuantity.Location = new System.Drawing.Point(487, 159);
+            this.txtQuantity.Location = new System.Drawing.Point(145, 195);
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Properties.BeepOnError = true;
             this.txtQuantity.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.txtQuantity.Properties.MaskSettings.Set("mask", "d");
             this.txtQuantity.Properties.UseMaskAsDisplayFormat = true;
-            this.txtQuantity.Size = new System.Drawing.Size(212, 20);
+            this.txtQuantity.Size = new System.Drawing.Size(211, 20);
             this.txtQuantity.StyleController = this.layoutForm;
             this.txtQuantity.TabIndex = 10;
             // 
@@ -311,9 +312,20 @@
             this.txtProductQuantity.Properties.MaskSettings.Set("mask", "d");
             this.txtProductQuantity.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
             this.txtProductQuantity.Properties.UseMaskAsDisplayFormat = true;
-            this.txtProductQuantity.Size = new System.Drawing.Size(211, 20);
+            this.txtProductQuantity.Size = new System.Drawing.Size(554, 20);
             this.txtProductQuantity.StyleController = this.layoutForm;
             this.txtProductQuantity.TabIndex = 10;
+            // 
+            // txtProductName
+            // 
+            this.txtProductName.EditValue = "";
+            this.txtProductName.Enabled = false;
+            this.txtProductName.Location = new System.Drawing.Point(487, 87);
+            this.txtProductName.Name = "txtProductName";
+            this.txtProductName.Properties.NullText = "[EditValue is null]";
+            this.txtProductName.Size = new System.Drawing.Size(212, 20);
+            this.txtProductName.StyleController = this.layoutForm;
+            this.txtProductName.TabIndex = 10;
             // 
             // Root
             // 
@@ -371,11 +383,11 @@
             this.layoutNhapDuLieu.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutExpenseType,
             this.layoutReason,
-            this.layoutQuantity,
             this.layoutStatus,
             this.layoutQuantity1,
             this.layoutReason1,
-            this.layoutPrice});
+            this.layoutPrice,
+            this.layoutQuantity});
             this.layoutNhapDuLieu.Location = new System.Drawing.Point(0, 36);
             this.layoutNhapDuLieu.Name = "layoutNhapDuLieu";
             this.layoutNhapDuLieu.Size = new System.Drawing.Size(709, 189);
@@ -403,27 +415,15 @@
             this.layoutReason.Text = "Lý do:";
             this.layoutReason.TextSize = new System.Drawing.Size(103, 13);
             // 
-            // layoutPrice
-            // 
-            this.layoutPrice.Control = this.txtPrice;
-            this.layoutPrice.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutPrice.CustomizationFormText = "layoutControlItem2";
-            this.layoutPrice.Location = new System.Drawing.Point(0, 108);
-            this.layoutPrice.Name = "layoutPrice";
-            this.layoutPrice.Padding = new DevExpress.XtraLayout.Utils.Padding(8, 8, 8, 8);
-            this.layoutPrice.Size = new System.Drawing.Size(685, 36);
-            this.layoutPrice.Text = "Tổng tiền nhập hàng:";
-            this.layoutPrice.TextSize = new System.Drawing.Size(103, 13);
-            // 
             // layoutQuantity
             // 
             this.layoutQuantity.Control = this.txtQuantity;
             this.layoutQuantity.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutQuantity.CustomizationFormText = "layoutControlItem2";
-            this.layoutQuantity.Location = new System.Drawing.Point(342, 72);
+            this.layoutQuantity.Location = new System.Drawing.Point(0, 108);
             this.layoutQuantity.Name = "layoutQuantity";
             this.layoutQuantity.Padding = new DevExpress.XtraLayout.Utils.Padding(8, 8, 8, 8);
-            this.layoutQuantity.Size = new System.Drawing.Size(343, 36);
+            this.layoutQuantity.Size = new System.Drawing.Size(342, 36);
             this.layoutQuantity.Text = "Số lượng nhập hàng:";
             this.layoutQuantity.TextSize = new System.Drawing.Size(103, 13);
             // 
@@ -447,19 +447,9 @@
             this.layoutQuantity1.Location = new System.Drawing.Point(0, 72);
             this.layoutQuantity1.Name = "layoutQuantity1";
             this.layoutQuantity1.Padding = new DevExpress.XtraLayout.Utils.Padding(8, 8, 8, 8);
-            this.layoutQuantity1.Size = new System.Drawing.Size(342, 36);
+            this.layoutQuantity1.Size = new System.Drawing.Size(685, 36);
             this.layoutQuantity1.Text = "Tồn kho:";
             this.layoutQuantity1.TextSize = new System.Drawing.Size(103, 13);
-            // 
-            // txtProductName
-            // 
-            this.txtProductName.EditValue = "";
-            this.txtProductName.Location = new System.Drawing.Point(487, 87);
-            this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Properties.NullText = "[EditValue is null]";
-            this.txtProductName.Size = new System.Drawing.Size(212, 20);
-            this.txtProductName.StyleController = this.layoutForm;
-            this.txtProductName.TabIndex = 10;
             // 
             // layoutReason1
             // 
@@ -472,6 +462,18 @@
             this.layoutReason1.Size = new System.Drawing.Size(343, 36);
             this.layoutReason1.Text = "Sản phẩm:";
             this.layoutReason1.TextSize = new System.Drawing.Size(103, 13);
+            // 
+            // layoutPrice
+            // 
+            this.layoutPrice.Control = this.txtPrice;
+            this.layoutPrice.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.layoutPrice.CustomizationFormText = "layoutControlItem2";
+            this.layoutPrice.Location = new System.Drawing.Point(342, 108);
+            this.layoutPrice.Name = "layoutPrice";
+            this.layoutPrice.Padding = new DevExpress.XtraLayout.Utils.Padding(8, 8, 8, 8);
+            this.layoutPrice.Size = new System.Drawing.Size(343, 36);
+            this.layoutPrice.Text = "Tổng tiền nhập hàng:";
+            this.layoutPrice.TextSize = new System.Drawing.Size(103, 13);
             // 
             // ucChiPhi
             // 
@@ -496,6 +498,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQuantity.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProductQuantity.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProductName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).EndInit();
@@ -503,12 +506,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutNhapDuLieu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutExpenseType)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutReason)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutQuantity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutQuantity1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtProductName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutReason1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutPrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

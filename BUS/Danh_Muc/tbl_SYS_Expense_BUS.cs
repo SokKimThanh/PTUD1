@@ -60,5 +60,14 @@ namespace BUS.Danh_Muc
         {
             return data.Find(id);
         }
+        /// <summary>
+        /// Số lượng tồn kho của sản phẩm theo loại chi phí hiện tại
+        /// </summary>
+        /// <param name="id">ExpenseType_AutoID</param>
+        /// <exception cref="Exception"></exception>
+        public double GetQuantityProduct(long id)
+        {
+            return data.GetQuantityProduct(id);
+        }
     }
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static DevExpress.Xpo.Helpers.AssociatedCollectionCriteriaHelper;
 
 namespace DAL
 {
@@ -32,7 +33,7 @@ namespace DAL
                     {
                         EX_EXTYPE_AutoID = expense.EX_EXTYPE_AutoID,
                         EX_PRICE = expense.EX_PRICE,
-                        EX_QUANTITY = expense.EX_PRICE,
+                        EX_QUANTITY = expense.EX_QUANTITY,
                         EX_REASON = expense.EX_REASON,
                         EX_STATUS = expense.EX_STATUS,
 
@@ -46,6 +47,8 @@ namespace DAL
                     };
                     dbContext.tbl_SYS_Expenses.InsertOnSubmit(entity);
                     dbContext.SubmitChanges();
+
+                    UpdateQuantityProduct(expense.EX_EXTYPE_AutoID);// cập nhật số lượng tồn kho khi thêm chi phí
 
                     return entity.EX_AutoID; // Trả về id vừa được thêm
                 }
@@ -101,10 +104,11 @@ namespace DAL
                     var entity = dbContext.tbl_SYS_Expenses.SingleOrDefault(t => t.EX_AutoID == expense.EX_AutoID);
                     if (entity != null)
                     {
+
                         entity.EX_AutoID = expense.EX_AutoID;
                         entity.EX_EXTYPE_AutoID = expense.EX_EXTYPE_AutoID;
                         entity.EX_PRICE = expense.EX_PRICE;
-                        entity.EX_QUANTITY = expense.EX_PRICE;
+                        entity.EX_QUANTITY = expense.EX_QUANTITY;
                         entity.EX_REASON = expense.EX_REASON;
                         entity.EX_STATUS = expense.EX_STATUS;
 
@@ -112,6 +116,12 @@ namespace DAL
                         entity.UPDATED_BY = CCommon.MaDangNhap;
                         entity.UPDATED_BY_FUNCTION = "Update";
                         dbContext.SubmitChanges();
+                        
+                        
+
+                        UpdateQuantityProduct(expense.EX_EXTYPE_AutoID); // cập nhật số lượng tồn kho khi sửa chi phí
+
+
                         return true; // Thao tác thành công
                     }
                     return false; // Không tìm thấy entity để cập nhật
@@ -184,6 +194,60 @@ namespace DAL
                             EX_EXTYPE_AutoID = item.EX_EXTYPE_AutoID,
                         })
                         .SingleOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Lỗi thực thi thao tác với DB: {ex.Message}");
+            }
+        }
+        /// <summary>
+        /// Cập nhật số lượng tồn kho của sản phẩm theo loại chi phí mỗi khi nhập thêm hàng mới
+        /// </summary>
+        /// <param name="id">ExpenseType_AutoID</param>
+        /// <exception cref="Exception"></exception>
+        private void UpdateQuantityProduct(long id)
+        {
+            try
+            {
+                using (var dbContext = new CM_Cinema_DBDataContext(_connectionString))
+                {
+                    var expenseListByExpenseType = dbContext.tbl_SYS_Expenses.Where(item => item.EX_EXTYPE_AutoID == id).ToList();
+
+                    var result = expenseListByExpenseType.Sum(item => item.EX_QUANTITY);
+
+                    var expenseType = dbContext.tbl_DM_ExpenseTypes.SingleOrDefault(item => item.ET_AutoID == id);
+
+                    var product = dbContext.tbl_DM_Products.SingleOrDefault(item => item.PD_AutoID == expenseType.ET_PRODUCT_AutoID);
+
+                    product.PD_QUANTITY = result;
+
+                    dbContext.SubmitChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Lỗi thực thi thao tác với DB: {ex.Message}");
+            }
+        }
+        /// <summary>
+        /// Số lượng tồn kho của sản phẩm theo loại chi phí hiện tại
+        /// </summary>
+        /// <param name="id">ExpenseType_AutoID</param>
+        /// <exception cref="Exception"></exception>
+        public double GetQuantityProduct(long id)
+        {
+            try
+            {
+                using (var dbContext = new CM_Cinema_DBDataContext(_connectionString))
+                {
+                    var result = dbContext.tbl_SYS_Expenses.
+                        Where(item => item.EX_EXTYPE_AutoID == id).
+                        Sum(item => item.EX_QUANTITY);
+                    var expenseType = dbContext.tbl_DM_ExpenseTypes.SingleOrDefault(item => item.ET_AutoID == id);
+                    var product = dbContext.tbl_DM_Products.SingleOrDefault(item => item.PD_AutoID == expenseType.ET_PRODUCT_AutoID);
+
+                    return result;
                 }
             }
             catch (Exception ex)

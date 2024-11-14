@@ -41,10 +41,7 @@ namespace GUI.UI.Modules
             try
             {
                 tbl_SYS_Expense_DTO expense = GetFormData();
-                // cập nhật cộng thêm số lượng khi thêm chi phí theo loại chi phí thuộc sản phẩm nhập hàng
-                product_DTO.PD_QUANTITY = double.Parse(txtProductQuantity.Text) + expense.EX_QUANTITY;
-                productBUS.Update(product_DTO);
-                
+
                 if (data.Add(expense) != 0)
                 {
                     MessageBox.Show("Thêm mới thành công!", "Thông báo");
@@ -190,29 +187,46 @@ namespace GUI.UI.Modules
 
         private void cboExpenseType_EditValueChanged(object sender, EventArgs e)
         {
-            // lay id
-            if (cboExpenseType.EditValue != null)
+            try
             {
-                cboExpenseType_selected_id = long.Parse(cboExpenseType.EditValue.ToString().Trim());
-                txtReason.Text = cboExpenseType.Text;
-                cboExpenseStatus.EditValue = 1;
-                //  Bước chuẩn bị: Tìm sản phẩm để cập nhật số lượng
-                //  khi thêm số lượng sản phẩm cho loại chi phí
-                //  theo số lần thêm hàng (thêm 1 dòng chi phí)
-                if (cboExpenseType_selected_id != 0)
+                // lay id
+                if (cboExpenseType.EditValue != null)
                 {
-                    tbl_DM_ExpenseType_DTO o = expenseTypeBUS.Find(cboExpenseType_selected_id);
-                    product_DTO = productBUS.Find((long)o.ET_PRODUCT_AutoID);
+                    cboExpenseType_selected_id = long.Parse(cboExpenseType.EditValue.ToString().Trim());
+                    txtReason.Text = cboExpenseType.Text;
+                    cboExpenseStatus.EditValue = 1;
+                    try
+                    {
+                        //  Bước chuẩn bị: Tìm sản phẩm để cập nhật số lượng
+                        //  khi thêm số lượng sản phẩm cho loại chi phí
+                        //  theo số lần thêm hàng (thêm 1 dòng chi phí)
+                        if (cboExpenseType_selected_id != 0)
+                        {
+                            tbl_DM_ExpenseType_DTO o = expenseTypeBUS.Find(cboExpenseType_selected_id);
+                            product_DTO = productBUS.Find((long)o.ET_PRODUCT_AutoID);
+                            if (product_DTO != null)
+                            {
+                                // Hiển thị số lượng tồn kho cho loại chi phí nhập
+                                txtProductQuantity.Text = data.GetQuantityProduct(cboExpenseType_selected_id).ToString();
 
-                    // Hiển thị số lượng tồn kho cho loại chi phí nhập
-                    txtProductQuantity.Text = product_DTO.PD_QUANTITY.ToString();
-
-                    // Hiển thị tên sản phẩm
-                    txtProductName.Text = product_DTO.PD_NAME;
+                                // Hiển thị tên sản phẩm
+                                txtProductName.Text = product_DTO.PD_NAME;
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Vui lòng thêm loại chi phí tương ứng với sản phẩm.", "Thông báo");
+                    }
+                    
+                    // hiển thị nhập số lượng khi có id product
+                    txtQuantity.Enabled = true;
+                    txtPrice.Enabled = true;
                 }
-                // hiển thị nhập số lượng khi có id product
-                txtQuantity.Enabled = true;
-                txtPrice.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Có lỗi xảy ra: {ex.Message}");
             }
         }
 
