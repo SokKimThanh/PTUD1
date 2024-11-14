@@ -214,7 +214,7 @@ namespace GUI.UI.Modules
                             }
                         }
                     }
-                    catch (Exception ex)
+                    catch 
                     {
                         MessageBox.Show($"Vui lòng thêm loại chi phí tương ứng với sản phẩm.", "Thông báo");
                     }
