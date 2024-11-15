@@ -210,8 +210,45 @@ VALUES
     (16, 3, '2024-11-13 10:00:00', '2024-11-13 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Frozen tại Theater 3
     (17, 2, '2024-11-13 13:00:00', '2024-11-13 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Finding Nemo tại Theater 2
     (18, 1, '2024-11-13 16:00:00', '2024-11-13 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Shrek tại Theater 1
-    (19, 3, '2024-11-14 10:00:00', '2024-11-14 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Toy Story tại Theater 3
-    (20, 2, '2024-11-14 13:00:00', '2024-11-14 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System');  -- Monsters, Inc. tại Theater 2
+	-- new 10 dong
+	(19, 3, '2024-11-14 10:00:00', '2024-11-14 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Toy Story tại Theater 3    
+	(20, 2, '2024-11-14 13:00:00', '2024-11-14 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(21, 4, '2024-11-14 16:00:00', '2024-11-14 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(22, 5, '2024-11-15 10:00:00', '2024-11-15 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(23, 6, '2024-11-15 13:00:00', '2024-11-15 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(24, 4, '2024-11-15 16:00:00', '2024-11-15 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(25, 5, '2024-11-16 10:00:00', '2024-11-16 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(26, 6, '2024-11-16 13:00:00', '2024-11-16 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(27, 4, '2024-11-16 16:00:00', '2024-11-16 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(28, 5, '2024-11-17 10:00:00', '2024-11-17 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(29, 6, '2024-11-17 13:00:00', '2024-11-17 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(30, 4, '2024-11-17 16:00:00', '2024-11-17 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+	-- new 10 dong
+	(19, 3, '2024-11-18 10:00:00', '2024-11-18 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),    
+	(20, 2, '2024-11-18 13:00:00', '2024-11-18 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(21, 4, '2024-11-18 16:00:00', '2024-11-18 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(22, 5, '2024-11-19 10:00:00', '2024-11-19 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(23, 6, '2024-11-19 13:00:00', '2024-11-19 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(24, 4, '2024-11-19 16:00:00', '2024-11-19 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(25, 5, '2024-11-20 10:00:00', '2024-11-20 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(26, 6, '2024-11-20 13:00:00', '2024-11-20 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(27, 4, '2024-11-20 16:00:00', '2024-11-20 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(28, 5, '2024-11-21 10:00:00', '2024-11-21 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(29, 6, '2024-11-21 13:00:00', '2024-11-21 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(30, 4, '2024-11-21 16:00:00', '2024-11-21 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+	-- new 10 dong
+	(31, 3, '2024-11-22 10:00:00', '2024-11-22 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),    
+	(31, 2, '2024-11-22 13:00:00', '2024-11-22 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(31, 4, '2024-11-22 16:00:00', '2024-11-22 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(32, 5, '2024-11-23 10:00:00', '2024-11-23 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(32, 6, '2024-11-23 13:00:00', '2024-11-23 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(32, 4, '2024-11-23 16:00:00', '2024-11-23 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(33, 5, '2024-11-24 10:00:00', '2024-11-24 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(33, 6, '2024-11-24 13:00:00', '2024-11-24 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(33, 4, '2024-11-24 16:00:00', '2024-11-24 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(34, 5, '2024-11-25 10:00:00', '2024-11-25 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(34, 6, '2024-11-25 13:00:00', '2024-11-25 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(34, 4, '2024-11-25 16:00:00', '2024-11-25 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System');
 
 -- Thêm dữ liệu vào bảng tbl_DM_Staff (nhân viên)
 go
@@ -306,7 +343,7 @@ VALUES
 -- Thêm dữ liệu vào bảng tbl_DM_Ticket (vé)
 -- TK_STATUS giả định là trạng thái vé (ví dụ: 1 là vé đã bán).
 -- DELETED là cột đánh dấu xóa (0 là chưa xóa).
-go
+GO
 INSERT INTO tbl_DM_Ticket 
     (TK_SEATNAME, TK_MOVIESCHEDULE_AutoID, TK_STAFF_AutoID, TK_STATUS, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
 VALUES
@@ -334,36 +371,37 @@ VALUES
     ('B5', 2, 1, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
     ('C5', 3, 1, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
     ('D5', 4, 1, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System');
-go
--- Thêm dữ liệu vào bảng tbl_DM_Bill khớp với các vé trong tbl_DM_Ticket
-INSERT INTO tbl_DM_Bill (BL_TICKET_AutoID, BL_STAFF_AutoID, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
-VALUES
-    (1, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Khớp với vé 'A1'
-    (2, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Khớp với vé 'A2'
-    (3, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Khớp với vé 'B1'
-    (4, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Khớp với vé 'C1'
-    (5, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Khớp với vé 'A3'
-    (6, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Khớp với vé 'A4'
-    (7, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Khớp với vé 'B2'
-    (8, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Khớp với vé 'B3'
-    (9, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Khớp với vé 'B4'
-    (10, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'), -- Khớp với vé 'C2'
-    (11, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'), -- Khớp với vé 'C3'
-    (12, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'), -- Khớp với vé 'C4'
-    (13, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'), -- Khớp với vé 'D1'
-    (14, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'), -- Khớp với vé 'D2'
-    (15, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'), -- Khớp với vé 'D3'
-    (16, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'), -- Khớp với vé 'D4'
-    (17, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'), -- Khớp với vé 'E1'
-    (18, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'), -- Khớp với vé 'E2'
-    (19, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'), -- Khớp với vé 'E3'
-    (20, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'), -- Khớp với vé 'E4'
-    (21, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'), -- Khớp với vé 'A5'
-    (22, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'), -- Khớp với vé 'B5'
-    (23, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'), -- Khớp với vé 'C5'
-    (24, 1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System');  -- Khớp với vé 'D5'
+GO
 
-go
+-- Thêm dữ liệu vào bảng tbl_DM_Bill khớp với các vé trong tbl_DM_Ticket
+INSERT INTO tbl_DM_Bill 
+    (BL_STAFF_AutoID, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
+VALUES
+    (1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Khớp với vé 'A1'
+    (1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Khớp với vé 'A2'
+    (1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Khớp với vé 'B1'
+    (1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Khớp với vé 'C1'
+    (1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Khớp với vé 'A3'
+    (1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Khớp với vé 'A4'
+    (1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Khớp với vé 'B2'
+    (1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Khớp với vé 'B3'
+    (1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Khớp với vé 'B4'
+    (1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'), -- Khớp với vé 'C2'
+    (1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'), -- Khớp với vé 'C3'
+    (1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'), -- Khớp với vé 'C4'
+    (1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'), -- Khớp với vé 'D1'
+    (1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'), -- Khớp với vé 'D2'
+    (1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'), -- Khớp với vé 'D3'
+    (1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'), -- Khớp với vé 'D4'
+    (1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'), -- Khớp với vé 'E1'
+    (1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'), -- Khớp với vé 'E2'
+    (1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'), -- Khớp với vé 'E3'
+    (1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'), -- Khớp với vé 'E4'
+    (1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'), -- Khớp với vé 'A5'
+    (1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'), -- Khớp với vé 'B5'
+    (1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'), -- Khớp với vé 'C5'
+    (1, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System');  -- Khớp với vé 'D5'
+GO
 -- Thêm dữ liệu vào bảng tbl_DM_BillDetail khớp với các hóa đơn trong tbl_DM_Bill
 INSERT INTO tbl_DM_BillDetail (BD_BILL_AutoID, BD_PRODUCT_AutoID, BD_QUANTITY, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
 VALUES
