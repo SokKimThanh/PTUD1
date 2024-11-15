@@ -78,7 +78,7 @@ namespace GUI.UI.Modules
             {
                 tbl_DM_Product_DTO product = GetFormData();
                 tbl_DM_ExpenseType_DTO expenseType = GetFormExpenseTypeData();
-                if (data.Add(product) != 0)
+                if (data.Add(product) != 0 && expenseType_BUS.Add(expenseType) != 0)
                 {
                     MessageBox.Show("Thêm mới thành công!", "Thông báo");
                     LoadForm();
