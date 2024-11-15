@@ -1,4 +1,5 @@
 ﻿using BUS.Danh_Muc;
+using DTO.Common;
 using DTO.tbl_DTO;
 using System;
 using System.Drawing;
@@ -10,6 +11,7 @@ namespace GUI.UI.Modules
     public partial class ucSanPham : ucBase
     {
         private tbl_DM_Product_BUS data = new tbl_DM_Product_BUS();
+        private tbl_DM_ExpenseType_BUS expenseType_BUS = new tbl_DM_ExpenseType_BUS();
         private string dgv_selected_id = "";
         private string txtUrlHinhAnh = "";
 
@@ -25,7 +27,7 @@ namespace GUI.UI.Modules
         {
             // Sử dụng constructor của tbl_DM_Product_DTO để tạo đối tượng productBUS
             var product = new tbl_DM_Product_DTO();
-            product.PD_NAME = txtTenSanPham.Text.Trim(); 
+            product.PD_NAME = txtTenSanPham.Text.Trim();
             product.PD_PRICE = double.Parse(txtGiaBan.Text.ToString().Trim());
             product.PD_IMAGEURL = txtUrlHinhAnh.Trim();
             //productBUS.PD_QUANTITY = double.Parse(txtSoLuong.ToString().Trim());
@@ -75,7 +77,7 @@ namespace GUI.UI.Modules
             try
             {
                 tbl_DM_Product_DTO product = GetFormData();
-
+                tbl_DM_ExpenseType_DTO expenseType = GetFormExpenseTypeData();
                 if (data.Add(product) != 0)
                 {
                     MessageBox.Show("Thêm mới thành công!", "Thông báo");
@@ -88,6 +90,22 @@ namespace GUI.UI.Modules
             }
 
         }
+
+        private tbl_DM_ExpenseType_DTO GetFormExpenseTypeData()
+        {
+            // Sử dụng constructor của tbl_DM_Product_DTO để tạo đối tượng productBUS
+            var expenseType = new tbl_DM_ExpenseType_DTO();
+            expenseType.ET_NAME = "Nhập: " + txtTenSanPham.Text.Trim();
+            expenseType.CREATED = DateTime.Now;
+            expenseType.CREATED_BY = CCommon.MaDangNhap;
+            expenseType.UPDATED_BY = CCommon.MaDangNhap;
+            expenseType.UPDATED = DateTime.Now;
+            expenseType.CREATED_BY_FUNCTION = "GetFormExpenseTypeData";
+            expenseType.UPDATED_BY_FUNCTION = "GetFormExpenseTypeData";
+
+            return expenseType;
+        }
+
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (MessageBox.Show("Bạn có muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
