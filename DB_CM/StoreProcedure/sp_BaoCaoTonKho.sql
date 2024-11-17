@@ -5,7 +5,7 @@ GO
 -- =============================================
 -- Author:		<Sok Kim Thanh>
 -- Create date: <22/10/2024>
--- Description:	<Tồn kho tổng quan và chi tiết>
+-- Description:	<Tồn kho và chi phí>
 -- =============================================
 go
 drop proc if exists sp_TonKhoChiTiet

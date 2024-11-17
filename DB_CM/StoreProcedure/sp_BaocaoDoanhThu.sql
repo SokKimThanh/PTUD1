@@ -1,4 +1,13 @@
-﻿drop proc if exists sp_DoanhThuVe
+﻿SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Sok Kim Thanh>
+-- Create date: <17/11/2024>
+-- Description:	<Báo cáo doanh thu vé và sản phẩm>
+-- =============================================
+drop proc if exists sp_DoanhThuVe
 drop proc if exists sp_DoanhThuSanPham
 
 go

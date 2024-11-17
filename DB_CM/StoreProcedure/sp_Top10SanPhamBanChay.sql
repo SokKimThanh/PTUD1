@@ -1,4 +1,16 @@
-﻿CREATE PROCEDURE sp_GetTopSellingProducts
+﻿SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Sok Kim Thanh>
+-- Create date: <17/11/2024>
+-- Description:	<Top 10 san pham ban chay>
+-- =============================================
+go
+drop proc if exists sp_Top10SanPhamBanChay
+go
+CREATE PROCEDURE sp_Top10SanPhamBanChay
     @StartDate DATETIME,
     @EndDate DATETIME,
     @TopN INT = 10 -- Số lượng sản phẩm muốn lấy

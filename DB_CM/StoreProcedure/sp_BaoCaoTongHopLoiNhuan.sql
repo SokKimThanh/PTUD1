@@ -5,7 +5,7 @@ GO
 -- =============================================
 -- Author:		<Sok Kim Thanh>
 -- Create date: <17/11/2024>
--- Description:	<Tổng hợp lợi nhuận>
+-- Description:	<Báo cáo tổng hợp lợi nhuận>
 -- =============================================
 go
 drop proc if exists sp_TongHopLoiNhuan
