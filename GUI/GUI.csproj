@@ -233,6 +233,18 @@
     <Compile Include="UI\Modules\ucVe.Designer.cs">
       <DependentUpon>ucVe.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ReportDesign\RP_BaoCaoChiPhi.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\ReportDesign\RP_BaoCaoChiPhi.Designer.cs">
+      <DependentUpon>RP_BaoCaoChiPhi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ReportDesign\RP_BaoCaoDoanhThu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\ReportDesign\RP_BaoCaoDoanhThu.Designer.cs">
+      <DependentUpon>RP_BaoCaoDoanhThu.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ReportDesign\RP_Expense.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -375,6 +387,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Modules\ucVe.resx">
       <DependentUpon>ucVe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ReportDesign\RP_BaoCaoChiPhi.resx">
+      <DependentUpon>RP_BaoCaoChiPhi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ReportDesign\RP_BaoCaoDoanhThu.resx">
+      <DependentUpon>RP_BaoCaoDoanhThu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ReportDesign\RP_Expense.resx">
       <DependentUpon>RP_Expense.cs</DependentUpon>
