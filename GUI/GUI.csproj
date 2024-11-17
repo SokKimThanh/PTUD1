@@ -409,8 +409,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="UI\ReportDesign\tbl_rp_detailed_sales_ui.repx" />
-    <None Include="UI\ReportDesign\tbl_rp_sales_ui.repx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\add_32x32.png" />
