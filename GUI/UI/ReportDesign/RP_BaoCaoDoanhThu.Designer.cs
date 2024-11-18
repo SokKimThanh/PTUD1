@@ -264,11 +264,11 @@
             // 
             // xrTable3
             // 
-            this.xrTable3.LocationFloat = new DevExpress.Utils.PointFloat(68.46568F, 154.4027F);
+            this.xrTable3.LocationFloat = new DevExpress.Utils.PointFloat(0F, 154.4027F);
             this.xrTable3.Name = "xrTable3";
             this.xrTable3.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow3});
-            this.xrTable3.SizeF = new System.Drawing.SizeF(515.625F, 22.99999F);
+            this.xrTable3.SizeF = new System.Drawing.SizeF(627.0001F, 22.99998F);
             // 
             // xrTableRow3
             // 

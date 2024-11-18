@@ -56,8 +56,6 @@
             this.tableCell1 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell2 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell3 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.tableCell4 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.tableCell5 = new DevExpress.XtraReports.UI.XRTableCell();
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.Title = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DetailCaption1 = new DevExpress.XtraReports.UI.XRControlStyle();
@@ -80,8 +78,6 @@
             this.xrTableCell8 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell9 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell10 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.tableCell10 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.tableCell9 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell8 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell7 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell6 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -268,9 +264,7 @@
             this.tableRow1.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
             this.tableCell1,
             this.tableCell2,
-            this.tableCell3,
-            this.tableCell4,
-            this.tableCell5});
+            this.tableCell3});
             this.tableRow1.Name = "tableRow1";
             this.tableRow1.Weight = 1D;
             // 
@@ -300,24 +294,6 @@
             this.tableCell3.Text = "Tổng tiền nhập";
             this.tableCell3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.tableCell3.Weight = 0.18443905577367667D;
-            // 
-            // tableCell4
-            // 
-            this.tableCell4.Name = "tableCell4";
-            this.tableCell4.StyleName = "DetailCaption1";
-            this.tableCell4.StylePriority.UseTextAlignment = false;
-            this.tableCell4.Text = "Tổng số lượng bán";
-            this.tableCell4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.tableCell4.Weight = 0.20169003155766702D;
-            // 
-            // tableCell5
-            // 
-            this.tableCell5.Name = "tableCell5";
-            this.tableCell5.StyleName = "DetailCaption1";
-            this.tableCell5.StylePriority.UseTextAlignment = false;
-            this.tableCell5.Text = "Tổng doanh thu";
-            this.tableCell5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.tableCell5.Weight = 0.15645484535061582D;
             // 
             // sqlDataSource1
             // 
@@ -547,28 +523,6 @@
             this.xrTableCell10.Text = "Năm:";
             this.xrTableCell10.Weight = 100D;
             // 
-            // tableCell10
-            // 
-            this.tableCell10.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[TotalRevenue]")});
-            this.tableCell10.Name = "tableCell10";
-            this.tableCell10.StyleName = "DetailData1";
-            this.tableCell10.StylePriority.UseTextAlignment = false;
-            this.tableCell10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.tableCell10.TextFormatString = "{0:C0}";
-            this.tableCell10.Weight = 0.15645482588787468D;
-            // 
-            // tableCell9
-            // 
-            this.tableCell9.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[TotalSoldQuantity]")});
-            this.tableCell9.Name = "tableCell9";
-            this.tableCell9.StyleName = "DetailData1";
-            this.tableCell9.StylePriority.UseTextAlignment = false;
-            this.tableCell9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.tableCell9.TextFormatString = "{0:N0}";
-            this.tableCell9.Weight = 0.20169003155766702D;
-            // 
             // tableCell8
             // 
             this.tableCell8.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
@@ -606,9 +560,7 @@
             this.tableRow2.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
             this.tableCell6,
             this.tableCell7,
-            this.tableCell8,
-            this.tableCell9,
-            this.tableCell10});
+            this.tableCell8});
             this.tableRow2.Name = "tableRow2";
             this.tableRow2.Weight = 11.5D;
             // 
@@ -686,8 +638,6 @@
         private DevExpress.XtraReports.UI.XRTableCell tableCell1;
         private DevExpress.XtraReports.UI.XRTableCell tableCell2;
         private DevExpress.XtraReports.UI.XRTableCell tableCell3;
-        private DevExpress.XtraReports.UI.XRTableCell tableCell4;
-        private DevExpress.XtraReports.UI.XRTableCell tableCell5;
         private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
         private DevExpress.XtraReports.UI.XRControlStyle Title;
         private DevExpress.XtraReports.UI.XRControlStyle DetailCaption1;
@@ -712,8 +662,6 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel6;
         private DevExpress.XtraReports.UI.XRLabel xrLabel5;
         private DevExpress.XtraReports.UI.XRLabel xrLabel4;
-        private DevExpress.XtraReports.UI.XRTableCell tableCell10;
-        private DevExpress.XtraReports.UI.XRTableCell tableCell9;
         private DevExpress.XtraReports.UI.XRTableCell tableCell8;
         private DevExpress.XtraReports.UI.XRTableCell tableCell7;
         private DevExpress.XtraReports.UI.XRTableCell tableCell6;
