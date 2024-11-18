@@ -97,7 +97,7 @@ namespace DAL
                                  select tk;
                     foreach (var item in result)
                     {
-                        list.Add(new tbl_DM_Ticket_DTO(item.TK_AutoID, item.TK_SEATNAME, item.TK_MOVIESCHEDULE_AutoID, item.TK_STAFF_AutoID, (int)item.DELETED));
+                        list.Add(new tbl_DM_Ticket_DTO(item.TK_AutoID, item.TK_SEATNAME, item.TK_MOVIESCHEDULE_AutoID, item.TK_BILL_AutoID, item.TK_STAFF_AutoID, (int)item.DELETED));
                     }
                     return list;
                 }
@@ -123,7 +123,7 @@ namespace DAL
                     tbl_DM_Ticket foundTicket = db.tbl_DM_Tickets.SingleOrDefault(item => item.TK_AutoID == ticketID);
                     if (foundTicket != null)
                     {
-                        tbl_DM_Ticket_DTO result = new tbl_DM_Ticket_DTO(foundTicket.TK_AutoID, foundTicket.TK_SEATNAME, foundTicket.TK_MOVIESCHEDULE_AutoID, foundTicket.TK_STAFF_AutoID, (int)foundTicket.DELETED);
+                        tbl_DM_Ticket_DTO result = new tbl_DM_Ticket_DTO(foundTicket.TK_AutoID, foundTicket.TK_SEATNAME, foundTicket.TK_MOVIESCHEDULE_AutoID, foundTicket.TK_BILL_AutoID, foundTicket.TK_STAFF_AutoID, (int)foundTicket.DELETED);
                         return result;
                     }
                     else

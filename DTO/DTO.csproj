@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="tbl_DTO\tbl_DM_BillDetail_DTO.cs" />
     <Compile Include="tbl_DTO\tbl_DM_Bill_DTO.cs" />
     <Compile Include="tbl_DTO\tbl_DM_ExpenseType_DTO.cs" />
     <Compile Include="tbl_DTO\tbl_SYS_Expense_DTO.cs" />

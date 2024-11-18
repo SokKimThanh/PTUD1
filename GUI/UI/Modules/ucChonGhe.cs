@@ -23,7 +23,7 @@ namespace GUI.UI.Modules
         private int rows = 0;
         private int columns = 0;
         private int couples = 0;
-        private int maxLength = 30;
+        private int maxLength = 50;
         private int height = 0;
         private int width = 0;
         private string[] chosenSeatNames = new string[0];
@@ -37,7 +37,7 @@ namespace GUI.UI.Modules
 
         // Các biến cấu thành các ghế 
         private int labelLength = 0;
-        private int spacing = 20;
+        private int spacing = 5;
         private int paddingTopBottom = 0;
         private int paddingLeftRight = 0;
         private int paddingLeftRight_Couples = 0;
