@@ -80,23 +80,25 @@ namespace GUI
 
                     // Xây dựng chuỗi kết nối với xác thực Windows (Integrated Security)
                     string v_strConnectionString = $"Server={v_strIntance};Database=CM_Cinema_DB;Integrated Security=True;";
-
-                    try
+                    if (v_strIntance != "")
                     {
-                        using (SqlConnection conn = new SqlConnection(v_strConnectionString))
+                        try
                         {
-                            conn.Open();
+                            using (SqlConnection conn = new SqlConnection(v_strConnectionString))
+                            {
+                                conn.Open();
 
-                            // Lưu chuỗi kết nối khi thành công
-                            CConfig.CM_Cinema_DB_ConnectionString = v_strConnectionString;
+                                // Lưu chuỗi kết nối khi thành công
+                                CConfig.CM_Cinema_DB_ConnectionString = v_strConnectionString;
 
-                            conn.Close();
-                            break; // Dừng lại nếu kết nối thành công
+                                conn.Close();
+                                break; // Dừng lại nếu kết nối thành công
+                            }
                         }
-                    }
-                    catch (Exception)
-                    {
-                    }
+                        catch (Exception)
+                        {
+                        }
+                    }                   
                 }
 
                 v_objSearch.Dispose();
@@ -177,6 +179,13 @@ namespace GUI
                     if (string.IsNullOrEmpty(CConfig.CM_Cinema_DB_ConnectionString))
                         throw new Exception("Chuỗi kết nối không tồn tại trong app.config.");
 
+                    //Nếu không lấy đc chuỗi kết nối thì lấy từ file app config
+                    using (SqlConnection conn = new SqlConnection(CConfig.CM_Cinema_DB_ConnectionString))
+                    {
+                        conn.Open();
+
+                        conn.Close();
+                    }
                 }
                 catch (Exception)
                 {
@@ -207,6 +216,11 @@ namespace GUI
                     throw ex;
                 }
             }
+        }
+
+        static void Config_SqlExpress()
+        {
+            CConfig.CM_Cinema_DB_ConnectionString = "Data Source=.\\sqlexpress;Initial Catalog=CM_Cinema_DB;Integrated Security=True;Encrypt=False";
         }
     }
 }

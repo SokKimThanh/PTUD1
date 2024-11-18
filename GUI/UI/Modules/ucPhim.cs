@@ -18,7 +18,7 @@ namespace GUI.UI.Modules
 
         private string dgv_selected_id = "";
         private long? cboAgeRating_selected_id = -1;// giá trị từ ComboBoxEdit
-
+        private string txtUrlHinhAnh = "";
         public ucPhim()
         {
             InitializeComponent();
@@ -32,7 +32,7 @@ namespace GUI.UI.Modules
             // Sử dụng constructor của tbl_DM_Movie_DTO để tạo đối tượng movie
             var movie = new tbl_DM_Movie_DTO();
             movie.MV_NAME = txtName.Text;
-            movie.MV_POSTERURL = txtUrlHinhAnh.Text;
+            movie.MV_POSTERURL = txtUrlHinhAnh;
             movie.MV_DESCRIPTION = txtDescription.Text;
             movie.MV_PRICE = double.Parse(txtPrice.Text.Trim());
             movie.MV_DURATION = int.Parse(txtDurations.Text.Trim());
@@ -177,7 +177,7 @@ namespace GUI.UI.Modules
                         txtName.Text = o.MV_NAME;
                         txtDescription.Text = o.MV_DESCRIPTION;
                         txtDurations.Text = o.MV_DURATION.ToString();
-                        txtUrlHinhAnh.Text = o.MV_POSTERURL;
+                        txtUrlHinhAnh = o.MV_POSTERURL;
                         txtPrice.Text = o.MV_PRICE.ToString();
                         // Hiển thị dữ liệu lên combobox
                         cboAgeRating.EditValue = o.MV_AGERATING_AutoID;
@@ -218,7 +218,7 @@ namespace GUI.UI.Modules
             txtName.Text = string.Empty;
             txtDescription.Text = string.Empty;
             txtDurations.Text = string.Empty;
-            txtUrlHinhAnh.Text = string.Empty;
+            txtUrlHinhAnh = string.Empty;
             txtPrice.Text = string.Empty;
             cboAgeRating.EditValue = null;
             pictureBox.Image = null;
@@ -251,7 +251,7 @@ namespace GUI.UI.Modules
                 string selectedMV_POSTERURL = openFileDialog.FileName;
 
                 // Hiển thị đường dẫn hình ảnh
-                txtUrlHinhAnh.Text = selectedMV_POSTERURL;
+                txtUrlHinhAnh = selectedMV_POSTERURL;
             }
         }
 
@@ -273,7 +273,7 @@ namespace GUI.UI.Modules
                 string selectedMV_POSTERURL = openFileDialog.FileName;
 
                 // Hiển thị đường dẫn hình ảnh trong TextBox hoặc Label
-                txtUrlHinhAnh.Text = selectedMV_POSTERURL;
+                txtUrlHinhAnh = selectedMV_POSTERURL;
             }
         }
 

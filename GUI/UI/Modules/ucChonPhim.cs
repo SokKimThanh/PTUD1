@@ -4,6 +4,10 @@ using DevExpress.ClipboardSource.SpreadsheetML;
 using DevExpress.XtraBars.FluentDesignSystem;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraEditors.Repository;
+using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Layout;
+using DevExpress.XtraGrid;
 using DevExpress.XtraReports.UI;
 using DTO.Common;
 using DTO.Custom;
@@ -19,6 +23,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using DevExpress.XtraLayout;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraExport.Helpers;
 
 namespace GUI.UI.Modules
 {
@@ -39,6 +46,7 @@ namespace GUI.UI.Modules
         private void ucChonPhim_Load(object sender, EventArgs e)
         {
             LoadData();
+            SetupLayoutView();
         }
         private void LoadData()
         {
@@ -62,7 +70,7 @@ namespace GUI.UI.Modules
         private void ClearData()
         {
             txtAgeRating.Text = string.Empty;
-            txtDuration.Text = string.Empty;
+            txtThoiLuong.Text = string.Empty;
             cboMovieSchedule.Clear();
         }
 
@@ -73,7 +81,7 @@ namespace GUI.UI.Modules
             if (e.Column.FieldName == "MV_POSTERURL")
             {
                 // Lấy đường dẫn từ ô hiện tại
-                string imagePath = gvMovies.GetRowCellValue(e.RowHandle, e.Column).ToString();
+                string imagePath = layoutView1.GetRowCellValue(e.RowHandle, e.Column).ToString();
 
 
                 // Kiểm tra nếu file tồn tại
@@ -101,7 +109,7 @@ namespace GUI.UI.Modules
         {
             try
             {
-                if(CCommon.suatChieuDuocChon != -1)
+                if (CCommon.suatChieuDuocChon != -1)
                 {
                     //Lấy form chứa uc này ra
                     if (this.Parent is FluentDesignFormContainer v_objContainer)
@@ -149,7 +157,7 @@ namespace GUI.UI.Modules
                 // Xóa thông tin suất chiếu trước đó do đổi ngày
                 cboMovieSchedule.Properties.DataSource = null;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Lỗi");
             }
@@ -158,46 +166,49 @@ namespace GUI.UI.Modules
         private void dgvMovies_DataSourceChanged(object sender, EventArgs e)
         {
             // Đặt chiều cao dòng phù hợp với kích thước của hình ảnh
-            gvMovies.RowHeight = 150;
+            //layoutView1.RowHeight = 150;
 
             var width_img = 100;
             // đặt chiều rộng cột hình ảnh
-            gvMovies.Columns["MV_POSTERURL"].Width = width_img;
+            layoutView1.Columns["MV_POSTERURL"].Width = width_img;
 
             // Đặt độ rộng tối thiểu và tối đa cho một cột cụ thể
-            gvMovies.Columns["MV_POSTERURL"].MinWidth = width_img;
-            gvMovies.Columns["MV_POSTERURL"].MaxWidth = width_img;
+            layoutView1.Columns["MV_POSTERURL"].MinWidth = width_img;
+            layoutView1.Columns["MV_POSTERURL"].MaxWidth = width_img;
 
             // Vẽ thủ công hình ảnh hiển thị trên lưới 
-            gvMovies.CustomDrawCell += gridView1_CustomDrawCell;
+            //layoutView1.CustomDrawCell += gridView1_CustomDrawCell;
 
             // Đặt tên tiếng Việt cho các cột
-            gvMovies.Columns["MV_POSTERURL"].Caption = "Poster";
-            gvMovies.Columns["MV_NAME"].Caption = "Tên Phim";
-            gvMovies.Columns["MV_PRICE"].Caption = "Giá";
-            gvMovies.Columns["MV_DESCRIPTION"].Caption = "Mô tả";
-            gvMovies.Columns["MV_DURATION"].Caption = "Thời lượng";
-            gvMovies.Columns["MV_AutoID"].Visible = false;
-            gvMovies.Columns["MV_AGERATING_AutoID"].Visible = false;
+            layoutView1.Columns["MV_POSTERURL"].Caption = "Poster";
+            layoutView1.Columns["MV_NAME"].Caption = "Tên Phim";
+            layoutView1.Columns["MV_PRICE"].Caption = "Giá";
+            layoutView1.Columns["MV_DESCRIPTION"].Caption = "Mô tả";
+            layoutView1.Columns["MV_DURATION"].Caption = "Thời lượng";
+            layoutView1.Columns["MV_AutoID"].Visible = false;
+            layoutView1.Columns["MV_AGERATING_AutoID"].Visible = false;
+
+            // Đặt VisibleIndex của cột MV_POSTERURL về 0 để chuyển nó lên vị trí đầu tiên
+            layoutView1.Columns["MV_POSTERURL"].VisibleIndex = 0;
 
             // Chọn phim đầu tiên xuất hiện
-            if(gvMovies.Columns.Count > 0)
-                gvMovies.SelectRow(1);
+            if (layoutView1.Columns.Count > 0)
+                layoutView1.SelectRow(1);
         }
 
-        private void gvMovies_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
+        private void gridControl1_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
         {
-            int[] dong = gvMovies.GetSelectedRows();
+            int[] dong = layoutView1.GetSelectedRows();
             foreach (int i in dong)
             {
                 if (i >= 0)
                 {
                     try
                     {
-                        string dgv_selected_id = gvMovies.GetRowCellValue(i, "MV_AutoID").ToString().Trim();
+                        string dgv_selected_id = layoutView1.GetRowCellValue(i, "MV_AutoID").ToString().Trim();
                         tbl_DM_Movie_DTO o = moiveBus.Find(long.Parse(dgv_selected_id));
                         tbl_DM_AgeRating_DTO foundAR = ageBus.Find((long)o.MV_AGERATING_AutoID);
-                        txtDuration.Text = o.MV_DURATION.ToString().Trim();
+                        txtThoiLuong.Text = o.MV_DURATION.ToString().Trim();
                         txtAgeRating.Text = foundAR.AR_NOTE.ToString().Trim();
                         cboMovieSchedule.Properties.DataSource = movieScheBus.GetMovieSchedule_ByMovie(o.MV_AutoID);
                         cboMovieSchedule.ItemIndex = 0;
@@ -213,7 +224,7 @@ namespace GUI.UI.Modules
 
         private void cboMovieSchedule_EditValueChanged(object sender, EventArgs e)
         {
-            if(cboMovieSchedule.Properties.DataSource != null)
+            if (cboMovieSchedule.Properties.DataSource != null)
             {
                 // Cập nhật suất chiếu đang được chọn lên nhánh chính
                 CCommon.suatChieuDuocChon = (long)cboMovieSchedule.EditValue;
@@ -221,6 +232,109 @@ namespace GUI.UI.Modules
             else
             {
                 CCommon.suatChieuDuocChon = -1;
+            }
+        }
+        public void SetupLayoutView()
+        {
+            // Set the card's minimum size.
+            layoutView1.CardMinSize = new Size(300, 350);
+
+            // Ngăn không cho phép sửa dữ liệu trực tiếp trên Layoutview
+            layoutView1.OptionsBehavior.Editable = false;
+
+            // Duyệt qua tất cả các cột và ẩn các cột không cần thiết
+            foreach (LayoutViewColumn column in layoutView1.Columns)
+            {
+                // ẩn tất cả cột không cần thiết
+                column.Visible = false;
+
+                // tắt cái tiêu đề của field
+                column.LayoutViewField.TextVisible = false;
+            }
+
+            // Tạo cột hình ảnh không có sẵn trong dữ liệu (Unbound)
+            LayoutViewColumn hinhAnhColumn = layoutView1.Columns.AddField("PosterImage");
+            // tắt cái tiêu đề của field
+            hinhAnhColumn.LayoutViewField.TextVisible = false;
+            hinhAnhColumn.UnboundType = DevExpress.Data.UnboundColumnType.Object;
+            hinhAnhColumn.Visible = true;
+            hinhAnhColumn.Caption = "Hình ảnh";
+
+            // Thiết lập LayoutViewField cho cột hình ảnh
+            LayoutViewField hinhAnhField = hinhAnhColumn.LayoutViewField;
+            hinhAnhField.TextVisible = false;
+            hinhAnhField.SizeConstraintsType = SizeConstraintsType.Default;
+
+            // Thiết lập RepositoryItemPictureEdit để hiển thị hình ảnh
+            RepositoryItemPictureEdit pictureEdit = new RepositoryItemPictureEdit();
+            pictureEdit.SizeMode = PictureSizeMode.Zoom; // Thử chế độ Zoom thay vì Squeeze
+            pictureEdit.PictureAlignment = ContentAlignment.MiddleCenter; // Căn giữa hình ảnh
+            dgvMovies.RepositoryItems.Add(pictureEdit);
+            hinhAnhColumn.ColumnEdit = pictureEdit;
+
+            // Tìm cột MV_NAME và cấu hình nếu cột tồn tại
+            LayoutViewColumn tenPhim = layoutView1.Columns.ColumnByFieldName("MV_NAME");
+            if (tenPhim != null)
+            {
+                tenPhim.Visible = true;
+                tenPhim.Caption = "Tên phim";
+            }
+            else
+            {
+                Console.WriteLine("Cột 'MV_NAME' không tồn tại trong LayoutView.");
+            }
+        }
+
+
+        /// <summary>
+        /// Thêm cột hình ảnh khi hiển thị card
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void layoutView1_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
+        {
+            if (e.Column.FieldName == "PosterImage" && e.IsGetData)
+            {
+                // Lấy đường dẫn từ cột MV_POSTERURL của bản ghi hiện tại
+                string imagePath = layoutView1.GetRowCellValue(e.ListSourceRowIndex, "MV_POSTERURL")?.ToString();
+
+                // Kiểm tra nếu file tồn tại
+                if (!string.IsNullOrEmpty(imagePath) && File.Exists(imagePath))
+                {
+                    // Đọc hình ảnh từ đường dẫn
+                    e.Value = Image.FromFile(imagePath);
+                }
+                else
+                {
+                    // Nếu không có hình ảnh, sử dụng hình ảnh mặc định
+                    e.Value = Properties.Resources.picture_card_no_image;
+                }
+            }
+        }
+
+        private void dgvMovies_Click(object sender, EventArgs e)
+        {
+            int[] dong = layoutView1.GetSelectedRows();
+            foreach (int i in dong)
+            {
+                if (i >= 0)
+                {
+                    try
+                    {
+                        string dgv_selected_id = layoutView1.GetRowCellValue(i, "MV_AutoID").ToString().Trim();
+                        tbl_DM_Movie_DTO o = moiveBus.Find(long.Parse(dgv_selected_id));
+                        tbl_DM_AgeRating_DTO foundAR = ageBus.Find((long)o.MV_AGERATING_AutoID);
+                        txtThoiLuong.Text = o.MV_DURATION.ToString().Trim();
+                        txtAgeRating.Text = foundAR.AR_NOTE.ToString().Trim();
+                        cboMovieSchedule.Properties.DataSource = movieScheBus.GetMovieSchedule_ByMovie(o.MV_AutoID);
+                        cboMovieSchedule.ItemIndex = 0;
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Lỗi");
+                    }
+                }
             }
         }
     }

@@ -34,6 +34,8 @@ namespace GUI
             { "accBaoCaoDoanhThu", new ucBaoCaoDoanhThu() },
             { "accBaoCaoThuChi", new ucBaoCaoThuChi() },
             { "accBaoCaoTonKho", new ucBaoCaoTonKho() },
+            { "accChiPhi", new ucChiPhi() },
+            { "accLoaiChiPhi", new ucChiPhiLoai() },
         };
 
         private frmLoading frmLoad = null;

@@ -1,4 +1,5 @@
-﻿using DTO.Custom;
+﻿using DTO.Common;
+using DTO.Custom;
 using DTO.tbl_DTO;
 using System;
 using System.Collections.Generic;
@@ -30,10 +31,10 @@ namespace DAL
 
 
                         CREATED = DateTime.Now,
-                        CREATED_BY = "Admin",
+                        CREATED_BY = CCommon.MaDangNhap,
                         CREATED_BY_FUNCTION = "Add",
                         UPDATED = DateTime.Now,
-                        UPDATED_BY = "admin",
+                        UPDATED_BY = CCommon.MaDangNhap,
                         UPDATED_BY_FUNCTION = "Add"
                     };
                     dbContext.tbl_DM_Movies.InsertOnSubmit(entity);
@@ -61,7 +62,7 @@ namespace DAL
                     {
                         entity.DELETED = 1;
                         entity.UPDATED = DateTime.Now;
-                        entity.UPDATED_BY = "admin";
+                        entity.UPDATED_BY = CCommon.MaDangNhap;
                         entity.UPDATED_BY_FUNCTION = "Remove";
                         dbContext.SubmitChanges();
                         return true; // Thao tác thành công
@@ -93,7 +94,7 @@ namespace DAL
                         entity.MV_AGERATING_AutoID = movie.MV_AGERATING_AutoID;
 
                         entity.UPDATED = DateTime.Now;
-                        entity.UPDATED_BY = "admin";
+                        entity.UPDATED_BY = CCommon.MaDangNhap;
                         entity.UPDATED_BY_FUNCTION = "Update";
                         dbContext.SubmitChanges();
                         return true; // Thao tác thành công

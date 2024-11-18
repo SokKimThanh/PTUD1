@@ -1,4 +1,5 @@
-﻿using DTO.Custom;
+﻿using DTO.Common;
+using DTO.Custom;
 using DTO.tbl_DTO;
 using System;
 using System.Collections.Generic;
@@ -23,10 +24,10 @@ namespace DAL
                         AR_NAME = ageRating.AR_NAME,
                         AR_NOTE = ageRating.AR_NOTE,
                         CREATED = DateTime.Now,
-                        CREATED_BY = "Admin",
+                        CREATED_BY = CCommon.MaDangNhap,
                         CREATED_BY_FUNCTION = "Add",
                         UPDATED = DateTime.Now,
-                        UPDATED_BY = "admin",
+                        UPDATED_BY = CCommon.MaDangNhap,
                         UPDATED_BY_FUNCTION = "Add"
                     };
                     dbContext.tbl_DM_AgeRatings.InsertOnSubmit(entity);
@@ -52,7 +53,7 @@ namespace DAL
                     {
                         entity.DELETED = 1;
                         entity.UPDATED = DateTime.Now;
-                        entity.UPDATED_BY = "admin";
+                        entity.UPDATED_BY = CCommon.MaDangNhap;
                         entity.UPDATED_BY_FUNCTION = "Remove";
                         dbContext.SubmitChanges();
                     }
@@ -77,7 +78,7 @@ namespace DAL
                         entity.AR_NAME = ageRating.AR_NAME;
                         entity.AR_NOTE = ageRating.AR_NOTE;
                         entity.UPDATED = DateTime.Now;
-                        entity.UPDATED_BY = "admin";
+                        entity.UPDATED_BY = CCommon.MaDangNhap;
                         entity.UPDATED_BY_FUNCTION = "Update";
                         dbContext.SubmitChanges();
                     }
