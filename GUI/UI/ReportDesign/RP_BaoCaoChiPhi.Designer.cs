@@ -170,7 +170,7 @@
             // 
             // xrPictureBox1
             // 
-            this.xrPictureBox1.ImageUrl = "E:\\hinhdownload\\Logo.svg";
+            this.xrPictureBox1.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource(global::GUI.Properties.Resources.Logo, true);
             this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrPictureBox1.Name = "xrPictureBox1";
             this.xrPictureBox1.SizeF = new System.Drawing.SizeF(100F, 100F);
@@ -401,7 +401,7 @@
             this.xrLabel3,
             this.xrTable2,
             this.xrTable3});
-            this.ReportFooter.HeightF = 184.153F;
+            this.ReportFooter.HeightF = 213.2086F;
             this.ReportFooter.Name = "ReportFooter";
             // 
             // xrLabel7
