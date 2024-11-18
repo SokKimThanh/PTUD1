@@ -245,6 +245,12 @@
     <Compile Include="UI\ReportDesign\RP_BaoCaoDoanhThu.Designer.cs">
       <DependentUpon>RP_BaoCaoDoanhThu.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ReportDesign\RP_BaoCaoTonKho.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\ReportDesign\RP_BaoCaoTonKho.Designer.cs">
+      <DependentUpon>RP_BaoCaoTonKho.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ReportDesign\RP_Expense.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -393,6 +399,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ReportDesign\RP_BaoCaoDoanhThu.resx">
       <DependentUpon>RP_BaoCaoDoanhThu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ReportDesign\RP_BaoCaoTonKho.resx">
+      <DependentUpon>RP_BaoCaoTonKho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ReportDesign\RP_Expense.resx">
       <DependentUpon>RP_Expense.cs</DependentUpon>
