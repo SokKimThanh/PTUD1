@@ -1,4 +1,5 @@
-﻿using DTO.Custom;
+﻿using DTO.Common;
+using DTO.Custom;
 using DTO.tbl_DTO;
 using System;
 using System.Collections.Generic;
@@ -19,18 +20,17 @@ namespace DAL
                 {
                     var entity = new tbl_DM_Product
                     {
-                        DELETED = 0,
                         PD_NAME = product.PD_NAME,
                         PD_QUANTITY = product.PD_QUANTITY,
                         PD_IMAGEURL = product.PD_IMAGEURL,
                         PD_PRICE = product.PD_PRICE,
 
-
+                        DELETED = 0,
                         CREATED = DateTime.Now,
-                        CREATED_BY = "Admin",
+                        CREATED_BY = CCommon.MaDangNhap,
                         CREATED_BY_FUNCTION = "Add",
                         UPDATED = DateTime.Now,
-                        UPDATED_BY = "admin",
+                        UPDATED_BY = CCommon.MaDangNhap,
                         UPDATED_BY_FUNCTION = "Add"
                     };
                     dbContext.tbl_DM_Products.InsertOnSubmit(entity);
@@ -58,7 +58,7 @@ namespace DAL
                     {
                         entity.DELETED = 1;
                         entity.UPDATED = DateTime.Now;
-                        entity.UPDATED_BY = "admin";
+                        entity.UPDATED_BY = CCommon.MaDangNhap;
                         entity.UPDATED_BY_FUNCTION = "Remove";
                         dbContext.SubmitChanges();
                         return true; // Thao tác thành công
@@ -88,7 +88,7 @@ namespace DAL
                         entity.PD_PRICE = product.PD_PRICE;
 
                         entity.UPDATED = DateTime.Now;
-                        entity.UPDATED_BY = "admin";
+                        entity.UPDATED_BY = CCommon.MaDangNhap;
                         entity.UPDATED_BY_FUNCTION = "Update";
                         dbContext.SubmitChanges();
                         return true; // Thao tác thành công
@@ -110,7 +110,10 @@ namespace DAL
             {
                 using (var dbContext = new CM_Cinema_DBDataContext(_connectionString))
                 {
-                    var list = dbContext.tbl_DM_Products.ToList();
+                    var list = dbContext.tbl_DM_Products
+                     .OrderByDescending(item => item.CREATED) // Sort by created date in descending order
+                     .ToList();
+
 
                     foreach (var item in list)
                     {

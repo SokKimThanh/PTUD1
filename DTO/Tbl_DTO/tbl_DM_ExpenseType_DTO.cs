@@ -7,9 +7,9 @@ namespace DTO.tbl_DTO
     /// </summary>
     public class tbl_DM_ExpenseType_DTO
     {
-        private int eT_AutoID;
+        private long eT_AutoID;
         private string eT_NAME;
-        private int? eT_PRODUCT_AutoID;
+        private long? eT_PRODUCT_AutoID;
         private int deleted;
         private DateTime created;
         private string createdBy;
@@ -18,14 +18,16 @@ namespace DTO.tbl_DTO
         private string updatedBy;
         private string updatedByFunction;
 
-        public tbl_DM_ExpenseType_DTO(int eT_AutoID, string eT_NAME, int? eT_PRODUCT_AutoID)
+        public tbl_DM_ExpenseType_DTO() { }
+
+        public tbl_DM_ExpenseType_DTO(long eT_AutoID, string eT_NAME, long? eT_PRODUCT_AutoID)
         {
             this.eT_AutoID = eT_AutoID;
             this.eT_NAME = eT_NAME;
             this.eT_PRODUCT_AutoID = eT_PRODUCT_AutoID;
         }
 
-        public int ET_AutoID { get => eT_AutoID; set => eT_AutoID = value; }
+        public long ET_AutoID { get => eT_AutoID; set => eT_AutoID = value; }
         public string ET_NAME
         {
             get => eT_NAME;
@@ -37,7 +39,7 @@ namespace DTO.tbl_DTO
                     throw new ArgumentException("ET_NAME không được trống và không dài hơn 50 ký tự.");
             }
         }
-        public int? ET_PRODUCT_AutoID { get => eT_PRODUCT_AutoID; set => eT_PRODUCT_AutoID = value; }
+        public long? ET_PRODUCT_AutoID { get => eT_PRODUCT_AutoID; set => eT_PRODUCT_AutoID = value; }
 
         // Các property với ràng buộc dữ liệu
         public int DELETED

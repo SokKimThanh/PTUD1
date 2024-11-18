@@ -337,15 +337,22 @@ namespace GUI.UI.Modules
                 MessageBox.Show(LanguageController.GetLanguageDataLabel(ex.Message), LanguageController.GetLanguageDataLabel("Lỗi"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-        }
+        } 
 
+        private void btnLamMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            grpSeats.Controls.Clear();
+            PrintSeats();
+            totalPrice = 0;
+            txtTotalPrice.Text = totalPrice.ToString();
+        }
 
         /// <summary>
         /// Nút hủy
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnHuy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             try
             {
@@ -374,12 +381,9 @@ namespace GUI.UI.Modules
             }
         }
 
-        private void btnLamMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void svgImageBox1_Click(object sender, EventArgs e)
         {
-            grpSeats.Controls.Clear();
-            PrintSeats();
-            totalPrice = 0;
-            txtTotalPrice.Text = totalPrice.ToString();
+
         }
     }
 }

@@ -76,11 +76,11 @@ namespace GUI.UI.Modules
 
                         // Gán thông tin lên các trường dữ liệu
                         txtMovieName.Text = foundMovie.MV_NAME.Trim();
-                        txtPrice.Text = foundMovie.MV_PRICE.ToString().Trim();
-                        txtSchedule.Text = foundSchedule.StartDate.ToString("dd/MM/yyyy HH:mm");
-                        txtTheater.Text = foundTheater.Name.Trim();
-                        txtStaff.Text = foundStaff.ST_NAME.Trim();
-                        txtSeat.Text = o.SeatName.Trim();
+                        cboStatusTicket.Text = foundMovie.MV_PRICE.ToString().Trim();
+                        txtMovieScheduleDate.Text = foundSchedule.StartDate.ToString("dd/MM/yyyy HH:mm");
+                        txtTheaterName.Text = foundTheater.Name.Trim();
+                        //txtStaff.Text = foundStaff.ST_NAME.Trim();
+                        txtSeatName.Text = o.SeatName.Trim();
 
                     }
                     catch (Exception ex)
@@ -98,9 +98,9 @@ namespace GUI.UI.Modules
 
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if(selectedTicketID != -1)
+            if (selectedTicketID != -1)
             {
-                DialogResult result = MessageBox.Show("Bạn có muốn xóa thông tin vé dưới đây khỏi danh sách ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("Bạn có muốn xóa thông tin vé dưới đây khỏi danh sách?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
                     try
@@ -119,6 +119,15 @@ namespace GUI.UI.Modules
             else
             {
                 MessageBox.Show("Vui lòng chọn 1 vé trong danh sách để thực hiện xóa", "Thông báo");
+            }
+        }
+
+        private void btnIn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có muốn in vé 'txtTicketID.Text'?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+
             }
         }
     }
