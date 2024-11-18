@@ -36,7 +36,7 @@ namespace GUI.UI.Modules
             gridView1.Columns["TotalExpenses"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             gridView1.Columns["TotalExpenses"].DisplayFormat.FormatString = "c0"; // Định dạng tiền tệ
         }
-        public void executeReport()
+        public void ExecuteReport()
         {
             if (DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) &&
                 DateTime.TryParse(txtEndDate.Text.Trim(), out endDate))
@@ -79,7 +79,7 @@ namespace GUI.UI.Modules
         }
         private void btnThucThi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            executeReport();
+            ExecuteReport();
         }
         private void btnLamMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -93,7 +93,7 @@ namespace GUI.UI.Modules
 
                 dgv.DataSource = data.GetExpenseReport(startDate, endDate);
 
-                var report = new RP_Expense();
+                var report = new RP_BaoCaoChiPhi();
                 report.Add(startDate, endDate);
 
                 // Hiển thị báo cáo
