@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CM_Cinema_DB" Class="CM_Cinema_DBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=CM_Cinema_DB;Integrated Security=True;Encrypt=False" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="CM_Cinema_DBConnectionString6" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=HOSHIKISHIRO\SQLEXPRESS;Initial Catalog=CM_Cinema_DB;Integrated Security=True;Encrypt=False;Trust Server Certificate=True" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="CM_Cinema_DBConnectionString7" Provider="System.Data.SqlClient" />
   <Table Name="dbo.tbl_DM_AgeRating" Member="tbl_DM_AgeRatings">
     <Type Name="tbl_DM_AgeRating">
       <Column Name="AR_AutoID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -35,9 +35,6 @@
   <Table Name="dbo.tbl_DM_Bill" Member="tbl_DM_Bills">
     <Type Name="tbl_DM_Bill">
       <Column Name="BL_AutoID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="BL_PRODUCT_AutoID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="BL_QUANTITY" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Column Name="BL_PRICE" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="BL_STAFF_AutoID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Column Name="DELETED" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="CREATED" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
@@ -46,8 +43,26 @@
       <Column Name="UPDATED" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="UPDATED_BY" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
       <Column Name="UPDATED_BY_FUNCTION" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
-      <Association Name="tbl_DM_Product_tbl_DM_Bill" Member="tbl_DM_Product" ThisKey="BL_PRODUCT_AutoID" OtherKey="PD_AutoID" Type="tbl_DM_Product" IsForeignKey="true" />
+      <Association Name="tbl_DM_Bill_tbl_DM_BillDetail" Member="tbl_DM_BillDetails" ThisKey="BL_AutoID" OtherKey="BD_BILL_AutoID" Type="tbl_DM_BillDetail" />
+      <Association Name="tbl_DM_Bill_tbl_DM_Ticket" Member="tbl_DM_Tickets" ThisKey="BL_AutoID" OtherKey="TK_BILL_AutoID" Type="tbl_DM_Ticket" />
       <Association Name="tbl_DM_Staff_tbl_DM_Bill" Member="tbl_DM_Staff" ThisKey="BL_STAFF_AutoID" OtherKey="ST_AutoID" Type="tbl_DM_Staff" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_DM_BillDetail" Member="tbl_DM_BillDetails">
+    <Type Name="tbl_DM_BillDetail">
+      <Column Name="BD_AutoID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BD_BILL_AutoID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="BD_PRODUCT_AutoID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="BD_QUANTITY" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DELETED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CREATED" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATED_BY" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="CREATED_BY_FUNCTION" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="UPDATED" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATED_BY" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="UPDATED_BY_FUNCTION" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Association Name="tbl_DM_Bill_tbl_DM_BillDetail" Member="tbl_DM_Bill" ThisKey="BD_BILL_AutoID" OtherKey="BL_AutoID" Type="tbl_DM_Bill" IsForeignKey="true" />
+      <Association Name="tbl_DM_Product_tbl_DM_BillDetail" Member="tbl_DM_Product" ThisKey="BD_PRODUCT_AutoID" OtherKey="PD_AutoID" Type="tbl_DM_Product" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_DM_ExpenseType" Member="tbl_DM_ExpenseTypes">
@@ -119,7 +134,7 @@
       <Column Name="UPDATED" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="UPDATED_BY" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
       <Column Name="UPDATED_BY_FUNCTION" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
-      <Association Name="tbl_DM_Product_tbl_DM_Bill" Member="tbl_DM_Bills" ThisKey="PD_AutoID" OtherKey="BL_PRODUCT_AutoID" Type="tbl_DM_Bill" />
+      <Association Name="tbl_DM_Product_tbl_DM_BillDetail" Member="tbl_DM_BillDetails" ThisKey="PD_AutoID" OtherKey="BD_PRODUCT_AutoID" Type="tbl_DM_BillDetail" />
       <Association Name="tbl_DM_Product_tbl_DM_ExpenseType" Member="tbl_DM_ExpenseTypes" ThisKey="PD_AutoID" OtherKey="ET_PRODUCT_AutoID" Type="tbl_DM_ExpenseType" />
     </Type>
   </Table>
@@ -183,6 +198,8 @@
       <Column Name="TK_SEATNAME" Type="System.String" DbType="NChar(3) NOT NULL" CanBeNull="false" />
       <Column Name="TK_MOVIESCHEDULE_AutoID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Column Name="TK_STAFF_AutoID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="TK_BILL_AutoID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="TK_STATUS" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="DELETED" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="CREATED" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="CREATED_BY" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
@@ -190,6 +207,7 @@
       <Column Name="UPDATED" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="UPDATED_BY" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
       <Column Name="UPDATED_BY_FUNCTION" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Association Name="tbl_DM_Bill_tbl_DM_Ticket" Member="tbl_DM_Bill" ThisKey="TK_BILL_AutoID" OtherKey="BL_AutoID" Type="tbl_DM_Bill" IsForeignKey="true" />
       <Association Name="tbl_DM_Movie_tbl_DM_Ticket" Member="tbl_DM_Movie" ThisKey="TK_MOVIESCHEDULE_AutoID" OtherKey="MV_AutoID" Type="tbl_DM_Movie" IsForeignKey="true" />
       <Association Name="tbl_DM_Staff_tbl_DM_Ticket" Member="tbl_DM_Staff" ThisKey="TK_STAFF_AutoID" OtherKey="ST_AutoID" Type="tbl_DM_Staff" IsForeignKey="true" />
     </Type>

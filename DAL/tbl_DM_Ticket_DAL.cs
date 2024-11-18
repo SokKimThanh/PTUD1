@@ -15,6 +15,10 @@ namespace DAL
     {
         private readonly string _connectionString = CConfig.CM_Cinema_DB_ConnectionString;
 
+        /// <summary>
+        /// Lấy danh sách các vé chưa xóa
+        /// </summary>
+        /// <returns></returns>
         public List<tbl_DM_Ticket_DTO> GetList()
         {
             try
@@ -27,7 +31,29 @@ namespace DAL
                                  select tk;
                     foreach (var item in result)
                     {
-                        list.Add(new tbl_DM_Ticket_DTO(item.TK_AutoID, item.TK_SEATNAME, item.TK_MOVIESCHEDULE_AutoID, item.TK_STAFF_AutoID, (int)item.DELETED));
+                        list.Add(new tbl_DM_Ticket_DTO(item.TK_AutoID, item.TK_SEATNAME, item.TK_MOVIESCHEDULE_AutoID, item.TK_BILL_AutoID, item.TK_STAFF_AutoID, (int)item.DELETED));
+                    }
+                    return list;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public List<tbl_DM_Ticket_DTO> GetList_Deleted()
+        {
+            try
+            {
+                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString))
+                {
+                    List<tbl_DM_Ticket_DTO> list = new List<tbl_DM_Ticket_DTO>();
+                    var result = from tk in db.tbl_DM_Tickets
+                                 where tk.DELETED == 1
+                                 select tk;
+                    foreach (var item in result)
+                    {
+                        list.Add(new tbl_DM_Ticket_DTO(item.TK_AutoID, item.TK_SEATNAME, item.TK_MOVIESCHEDULE_AutoID, item.TK_BILL_AutoID, item.TK_STAFF_AutoID, (int)item.DELETED));
                     }
                     return list;
                 }

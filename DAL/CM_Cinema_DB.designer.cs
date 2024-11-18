@@ -39,6 +39,9 @@ namespace DAL
     partial void Inserttbl_DM_Bill(tbl_DM_Bill instance);
     partial void Updatetbl_DM_Bill(tbl_DM_Bill instance);
     partial void Deletetbl_DM_Bill(tbl_DM_Bill instance);
+    partial void Inserttbl_DM_BillDetail(tbl_DM_BillDetail instance);
+    partial void Updatetbl_DM_BillDetail(tbl_DM_BillDetail instance);
+    partial void Deletetbl_DM_BillDetail(tbl_DM_BillDetail instance);
     partial void Inserttbl_DM_ExpenseType(tbl_DM_ExpenseType instance);
     partial void Updatetbl_DM_ExpenseType(tbl_DM_ExpenseType instance);
     partial void Deletetbl_DM_ExpenseType(tbl_DM_ExpenseType instance);
@@ -72,7 +75,7 @@ namespace DAL
     #endregion
 		
 		public CM_Cinema_DBDataContext() : 
-				base(global::DAL.Properties.Settings.Default.CM_Cinema_DBConnectionString6, mappingSource)
+				base(global::DAL.Properties.Settings.Default.CM_Cinema_DBConnectionString7, mappingSource)
 		{
 			OnCreated();
 		}
@@ -122,6 +125,14 @@ namespace DAL
 			get
 			{
 				return this.GetTable<tbl_DM_Bill>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_DM_BillDetail> tbl_DM_BillDetails
+		{
+			get
+			{
+				return this.GetTable<tbl_DM_BillDetail>();
 			}
 		}
 		
@@ -870,12 +881,6 @@ namespace DAL
 		
 		private long _BL_AutoID;
 		
-		private long _BL_PRODUCT_AutoID;
-		
-		private double _BL_QUANTITY;
-		
-		private double _BL_PRICE;
-		
 		private long _BL_STAFF_AutoID;
 		
 		private System.Nullable<int> _DELETED;
@@ -892,7 +897,9 @@ namespace DAL
 		
 		private string _UPDATED_BY_FUNCTION;
 		
-		private EntityRef<tbl_DM_Product> _tbl_DM_Product;
+		private EntitySet<tbl_DM_BillDetail> _tbl_DM_BillDetails;
+		
+		private EntitySet<tbl_DM_Ticket> _tbl_DM_Tickets;
 		
 		private EntityRef<tbl_DM_Staff> _tbl_DM_Staff;
 		
@@ -902,12 +909,6 @@ namespace DAL
     partial void OnCreated();
     partial void OnBL_AutoIDChanging(long value);
     partial void OnBL_AutoIDChanged();
-    partial void OnBL_PRODUCT_AutoIDChanging(long value);
-    partial void OnBL_PRODUCT_AutoIDChanged();
-    partial void OnBL_QUANTITYChanging(double value);
-    partial void OnBL_QUANTITYChanged();
-    partial void OnBL_PRICEChanging(double value);
-    partial void OnBL_PRICEChanged();
     partial void OnBL_STAFF_AutoIDChanging(long value);
     partial void OnBL_STAFF_AutoIDChanged();
     partial void OnDELETEDChanging(System.Nullable<int> value);
@@ -928,7 +929,8 @@ namespace DAL
 		
 		public tbl_DM_Bill()
 		{
-			this._tbl_DM_Product = default(EntityRef<tbl_DM_Product>);
+			this._tbl_DM_BillDetails = new EntitySet<tbl_DM_BillDetail>(new Action<tbl_DM_BillDetail>(this.attach_tbl_DM_BillDetails), new Action<tbl_DM_BillDetail>(this.detach_tbl_DM_BillDetails));
+			this._tbl_DM_Tickets = new EntitySet<tbl_DM_Ticket>(new Action<tbl_DM_Ticket>(this.attach_tbl_DM_Tickets), new Action<tbl_DM_Ticket>(this.detach_tbl_DM_Tickets));
 			this._tbl_DM_Staff = default(EntityRef<tbl_DM_Staff>);
 			OnCreated();
 		}
@@ -949,70 +951,6 @@ namespace DAL
 					this._BL_AutoID = value;
 					this.SendPropertyChanged("BL_AutoID");
 					this.OnBL_AutoIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BL_PRODUCT_AutoID", DbType="BigInt NOT NULL")]
-		public long BL_PRODUCT_AutoID
-		{
-			get
-			{
-				return this._BL_PRODUCT_AutoID;
-			}
-			set
-			{
-				if ((this._BL_PRODUCT_AutoID != value))
-				{
-					if (this._tbl_DM_Product.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnBL_PRODUCT_AutoIDChanging(value);
-					this.SendPropertyChanging();
-					this._BL_PRODUCT_AutoID = value;
-					this.SendPropertyChanged("BL_PRODUCT_AutoID");
-					this.OnBL_PRODUCT_AutoIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BL_QUANTITY", DbType="Float NOT NULL")]
-		public double BL_QUANTITY
-		{
-			get
-			{
-				return this._BL_QUANTITY;
-			}
-			set
-			{
-				if ((this._BL_QUANTITY != value))
-				{
-					this.OnBL_QUANTITYChanging(value);
-					this.SendPropertyChanging();
-					this._BL_QUANTITY = value;
-					this.SendPropertyChanged("BL_QUANTITY");
-					this.OnBL_QUANTITYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BL_PRICE", DbType="Float NOT NULL")]
-		public double BL_PRICE
-		{
-			get
-			{
-				return this._BL_PRICE;
-			}
-			set
-			{
-				if ((this._BL_PRICE != value))
-				{
-					this.OnBL_PRICEChanging(value);
-					this.SendPropertyChanging();
-					this._BL_PRICE = value;
-					this.SendPropertyChanged("BL_PRICE");
-					this.OnBL_PRICEChanged();
 				}
 			}
 		}
@@ -1181,37 +1119,29 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_DM_Product_tbl_DM_Bill", Storage="_tbl_DM_Product", ThisKey="BL_PRODUCT_AutoID", OtherKey="PD_AutoID", IsForeignKey=true)]
-		public tbl_DM_Product tbl_DM_Product
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_DM_Bill_tbl_DM_BillDetail", Storage="_tbl_DM_BillDetails", ThisKey="BL_AutoID", OtherKey="BD_BILL_AutoID")]
+		public EntitySet<tbl_DM_BillDetail> tbl_DM_BillDetails
 		{
 			get
 			{
-				return this._tbl_DM_Product.Entity;
+				return this._tbl_DM_BillDetails;
 			}
 			set
 			{
-				tbl_DM_Product previousValue = this._tbl_DM_Product.Entity;
-				if (((previousValue != value) 
-							|| (this._tbl_DM_Product.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._tbl_DM_Product.Entity = null;
-						previousValue.tbl_DM_Bills.Remove(this);
-					}
-					this._tbl_DM_Product.Entity = value;
-					if ((value != null))
-					{
-						value.tbl_DM_Bills.Add(this);
-						this._BL_PRODUCT_AutoID = value.PD_AutoID;
-					}
-					else
-					{
-						this._BL_PRODUCT_AutoID = default(long);
-					}
-					this.SendPropertyChanged("tbl_DM_Product");
-				}
+				this._tbl_DM_BillDetails.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_DM_Bill_tbl_DM_Ticket", Storage="_tbl_DM_Tickets", ThisKey="BL_AutoID", OtherKey="TK_BILL_AutoID")]
+		public EntitySet<tbl_DM_Ticket> tbl_DM_Tickets
+		{
+			get
+			{
+				return this._tbl_DM_Tickets;
+			}
+			set
+			{
+				this._tbl_DM_Tickets.Assign(value);
 			}
 		}
 		
@@ -1245,6 +1175,414 @@ namespace DAL
 						this._BL_STAFF_AutoID = default(long);
 					}
 					this.SendPropertyChanged("tbl_DM_Staff");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_tbl_DM_BillDetails(tbl_DM_BillDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_DM_Bill = this;
+		}
+		
+		private void detach_tbl_DM_BillDetails(tbl_DM_BillDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_DM_Bill = null;
+		}
+		
+		private void attach_tbl_DM_Tickets(tbl_DM_Ticket entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_DM_Bill = this;
+		}
+		
+		private void detach_tbl_DM_Tickets(tbl_DM_Ticket entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_DM_Bill = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_DM_BillDetail")]
+	public partial class tbl_DM_BillDetail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _BD_AutoID;
+		
+		private long _BD_BILL_AutoID;
+		
+		private long _BD_PRODUCT_AutoID;
+		
+		private int _BD_QUANTITY;
+		
+		private System.Nullable<int> _DELETED;
+		
+		private System.Nullable<System.DateTime> _CREATED;
+		
+		private string _CREATED_BY;
+		
+		private string _CREATED_BY_FUNCTION;
+		
+		private System.Nullable<System.DateTime> _UPDATED;
+		
+		private string _UPDATED_BY;
+		
+		private string _UPDATED_BY_FUNCTION;
+		
+		private EntityRef<tbl_DM_Bill> _tbl_DM_Bill;
+		
+		private EntityRef<tbl_DM_Product> _tbl_DM_Product;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnBD_AutoIDChanging(long value);
+    partial void OnBD_AutoIDChanged();
+    partial void OnBD_BILL_AutoIDChanging(long value);
+    partial void OnBD_BILL_AutoIDChanged();
+    partial void OnBD_PRODUCT_AutoIDChanging(long value);
+    partial void OnBD_PRODUCT_AutoIDChanged();
+    partial void OnBD_QUANTITYChanging(int value);
+    partial void OnBD_QUANTITYChanged();
+    partial void OnDELETEDChanging(System.Nullable<int> value);
+    partial void OnDELETEDChanged();
+    partial void OnCREATEDChanging(System.Nullable<System.DateTime> value);
+    partial void OnCREATEDChanged();
+    partial void OnCREATED_BYChanging(string value);
+    partial void OnCREATED_BYChanged();
+    partial void OnCREATED_BY_FUNCTIONChanging(string value);
+    partial void OnCREATED_BY_FUNCTIONChanged();
+    partial void OnUPDATEDChanging(System.Nullable<System.DateTime> value);
+    partial void OnUPDATEDChanged();
+    partial void OnUPDATED_BYChanging(string value);
+    partial void OnUPDATED_BYChanged();
+    partial void OnUPDATED_BY_FUNCTIONChanging(string value);
+    partial void OnUPDATED_BY_FUNCTIONChanged();
+    #endregion
+		
+		public tbl_DM_BillDetail()
+		{
+			this._tbl_DM_Bill = default(EntityRef<tbl_DM_Bill>);
+			this._tbl_DM_Product = default(EntityRef<tbl_DM_Product>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BD_AutoID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long BD_AutoID
+		{
+			get
+			{
+				return this._BD_AutoID;
+			}
+			set
+			{
+				if ((this._BD_AutoID != value))
+				{
+					this.OnBD_AutoIDChanging(value);
+					this.SendPropertyChanging();
+					this._BD_AutoID = value;
+					this.SendPropertyChanged("BD_AutoID");
+					this.OnBD_AutoIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BD_BILL_AutoID", DbType="BigInt NOT NULL")]
+		public long BD_BILL_AutoID
+		{
+			get
+			{
+				return this._BD_BILL_AutoID;
+			}
+			set
+			{
+				if ((this._BD_BILL_AutoID != value))
+				{
+					if (this._tbl_DM_Bill.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBD_BILL_AutoIDChanging(value);
+					this.SendPropertyChanging();
+					this._BD_BILL_AutoID = value;
+					this.SendPropertyChanged("BD_BILL_AutoID");
+					this.OnBD_BILL_AutoIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BD_PRODUCT_AutoID", DbType="BigInt NOT NULL")]
+		public long BD_PRODUCT_AutoID
+		{
+			get
+			{
+				return this._BD_PRODUCT_AutoID;
+			}
+			set
+			{
+				if ((this._BD_PRODUCT_AutoID != value))
+				{
+					if (this._tbl_DM_Product.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBD_PRODUCT_AutoIDChanging(value);
+					this.SendPropertyChanging();
+					this._BD_PRODUCT_AutoID = value;
+					this.SendPropertyChanged("BD_PRODUCT_AutoID");
+					this.OnBD_PRODUCT_AutoIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BD_QUANTITY", DbType="Int NOT NULL")]
+		public int BD_QUANTITY
+		{
+			get
+			{
+				return this._BD_QUANTITY;
+			}
+			set
+			{
+				if ((this._BD_QUANTITY != value))
+				{
+					this.OnBD_QUANTITYChanging(value);
+					this.SendPropertyChanging();
+					this._BD_QUANTITY = value;
+					this.SendPropertyChanged("BD_QUANTITY");
+					this.OnBD_QUANTITYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DELETED", DbType="Int")]
+		public System.Nullable<int> DELETED
+		{
+			get
+			{
+				return this._DELETED;
+			}
+			set
+			{
+				if ((this._DELETED != value))
+				{
+					this.OnDELETEDChanging(value);
+					this.SendPropertyChanging();
+					this._DELETED = value;
+					this.SendPropertyChanged("DELETED");
+					this.OnDELETEDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CREATED
+		{
+			get
+			{
+				return this._CREATED;
+			}
+			set
+			{
+				if ((this._CREATED != value))
+				{
+					this.OnCREATEDChanging(value);
+					this.SendPropertyChanging();
+					this._CREATED = value;
+					this.SendPropertyChanged("CREATED");
+					this.OnCREATEDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY", DbType="NChar(50)")]
+		public string CREATED_BY
+		{
+			get
+			{
+				return this._CREATED_BY;
+			}
+			set
+			{
+				if ((this._CREATED_BY != value))
+				{
+					this.OnCREATED_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CREATED_BY = value;
+					this.SendPropertyChanged("CREATED_BY");
+					this.OnCREATED_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY_FUNCTION", DbType="NChar(100)")]
+		public string CREATED_BY_FUNCTION
+		{
+			get
+			{
+				return this._CREATED_BY_FUNCTION;
+			}
+			set
+			{
+				if ((this._CREATED_BY_FUNCTION != value))
+				{
+					this.OnCREATED_BY_FUNCTIONChanging(value);
+					this.SendPropertyChanging();
+					this._CREATED_BY_FUNCTION = value;
+					this.SendPropertyChanged("CREATED_BY_FUNCTION");
+					this.OnCREATED_BY_FUNCTIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED", DbType="DateTime")]
+		public System.Nullable<System.DateTime> UPDATED
+		{
+			get
+			{
+				return this._UPDATED;
+			}
+			set
+			{
+				if ((this._UPDATED != value))
+				{
+					this.OnUPDATEDChanging(value);
+					this.SendPropertyChanging();
+					this._UPDATED = value;
+					this.SendPropertyChanged("UPDATED");
+					this.OnUPDATEDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY", DbType="NChar(50)")]
+		public string UPDATED_BY
+		{
+			get
+			{
+				return this._UPDATED_BY;
+			}
+			set
+			{
+				if ((this._UPDATED_BY != value))
+				{
+					this.OnUPDATED_BYChanging(value);
+					this.SendPropertyChanging();
+					this._UPDATED_BY = value;
+					this.SendPropertyChanged("UPDATED_BY");
+					this.OnUPDATED_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY_FUNCTION", DbType="NChar(100)")]
+		public string UPDATED_BY_FUNCTION
+		{
+			get
+			{
+				return this._UPDATED_BY_FUNCTION;
+			}
+			set
+			{
+				if ((this._UPDATED_BY_FUNCTION != value))
+				{
+					this.OnUPDATED_BY_FUNCTIONChanging(value);
+					this.SendPropertyChanging();
+					this._UPDATED_BY_FUNCTION = value;
+					this.SendPropertyChanged("UPDATED_BY_FUNCTION");
+					this.OnUPDATED_BY_FUNCTIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_DM_Bill_tbl_DM_BillDetail", Storage="_tbl_DM_Bill", ThisKey="BD_BILL_AutoID", OtherKey="BL_AutoID", IsForeignKey=true)]
+		public tbl_DM_Bill tbl_DM_Bill
+		{
+			get
+			{
+				return this._tbl_DM_Bill.Entity;
+			}
+			set
+			{
+				tbl_DM_Bill previousValue = this._tbl_DM_Bill.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_DM_Bill.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_DM_Bill.Entity = null;
+						previousValue.tbl_DM_BillDetails.Remove(this);
+					}
+					this._tbl_DM_Bill.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_DM_BillDetails.Add(this);
+						this._BD_BILL_AutoID = value.BL_AutoID;
+					}
+					else
+					{
+						this._BD_BILL_AutoID = default(long);
+					}
+					this.SendPropertyChanged("tbl_DM_Bill");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_DM_Product_tbl_DM_BillDetail", Storage="_tbl_DM_Product", ThisKey="BD_PRODUCT_AutoID", OtherKey="PD_AutoID", IsForeignKey=true)]
+		public tbl_DM_Product tbl_DM_Product
+		{
+			get
+			{
+				return this._tbl_DM_Product.Entity;
+			}
+			set
+			{
+				tbl_DM_Product previousValue = this._tbl_DM_Product.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_DM_Product.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_DM_Product.Entity = null;
+						previousValue.tbl_DM_BillDetails.Remove(this);
+					}
+					this._tbl_DM_Product.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_DM_BillDetails.Add(this);
+						this._BD_PRODUCT_AutoID = value.PD_AutoID;
+					}
+					else
+					{
+						this._BD_PRODUCT_AutoID = default(long);
+					}
+					this.SendPropertyChanged("tbl_DM_Product");
 				}
 			}
 		}
@@ -2526,7 +2864,7 @@ namespace DAL
 		
 		private string _UPDATED_BY_FUNCTION;
 		
-		private EntitySet<tbl_DM_Bill> _tbl_DM_Bills;
+		private EntitySet<tbl_DM_BillDetail> _tbl_DM_BillDetails;
 		
 		private EntitySet<tbl_DM_ExpenseType> _tbl_DM_ExpenseTypes;
 		
@@ -2562,7 +2900,7 @@ namespace DAL
 		
 		public tbl_DM_Product()
 		{
-			this._tbl_DM_Bills = new EntitySet<tbl_DM_Bill>(new Action<tbl_DM_Bill>(this.attach_tbl_DM_Bills), new Action<tbl_DM_Bill>(this.detach_tbl_DM_Bills));
+			this._tbl_DM_BillDetails = new EntitySet<tbl_DM_BillDetail>(new Action<tbl_DM_BillDetail>(this.attach_tbl_DM_BillDetails), new Action<tbl_DM_BillDetail>(this.detach_tbl_DM_BillDetails));
 			this._tbl_DM_ExpenseTypes = new EntitySet<tbl_DM_ExpenseType>(new Action<tbl_DM_ExpenseType>(this.attach_tbl_DM_ExpenseTypes), new Action<tbl_DM_ExpenseType>(this.detach_tbl_DM_ExpenseTypes));
 			OnCreated();
 		}
@@ -2807,16 +3145,16 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_DM_Product_tbl_DM_Bill", Storage="_tbl_DM_Bills", ThisKey="PD_AutoID", OtherKey="BL_PRODUCT_AutoID")]
-		public EntitySet<tbl_DM_Bill> tbl_DM_Bills
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_DM_Product_tbl_DM_BillDetail", Storage="_tbl_DM_BillDetails", ThisKey="PD_AutoID", OtherKey="BD_PRODUCT_AutoID")]
+		public EntitySet<tbl_DM_BillDetail> tbl_DM_BillDetails
 		{
 			get
 			{
-				return this._tbl_DM_Bills;
+				return this._tbl_DM_BillDetails;
 			}
 			set
 			{
-				this._tbl_DM_Bills.Assign(value);
+				this._tbl_DM_BillDetails.Assign(value);
 			}
 		}
 		
@@ -2853,13 +3191,13 @@ namespace DAL
 			}
 		}
 		
-		private void attach_tbl_DM_Bills(tbl_DM_Bill entity)
+		private void attach_tbl_DM_BillDetails(tbl_DM_BillDetail entity)
 		{
 			this.SendPropertyChanging();
 			entity.tbl_DM_Product = this;
 		}
 		
-		private void detach_tbl_DM_Bills(tbl_DM_Bill entity)
+		private void detach_tbl_DM_BillDetails(tbl_DM_BillDetail entity)
 		{
 			this.SendPropertyChanging();
 			entity.tbl_DM_Product = null;
@@ -4064,6 +4402,10 @@ namespace DAL
 		
 		private long _TK_STAFF_AutoID;
 		
+		private System.Nullable<long> _TK_BILL_AutoID;
+		
+		private int _TK_STATUS;
+		
 		private System.Nullable<int> _DELETED;
 		
 		private System.Nullable<System.DateTime> _CREATED;
@@ -4077,6 +4419,8 @@ namespace DAL
 		private string _UPDATED_BY;
 		
 		private string _UPDATED_BY_FUNCTION;
+		
+		private EntityRef<tbl_DM_Bill> _tbl_DM_Bill;
 		
 		private EntityRef<tbl_DM_Movie> _tbl_DM_Movie;
 		
@@ -4094,6 +4438,10 @@ namespace DAL
     partial void OnTK_MOVIESCHEDULE_AutoIDChanged();
     partial void OnTK_STAFF_AutoIDChanging(long value);
     partial void OnTK_STAFF_AutoIDChanged();
+    partial void OnTK_BILL_AutoIDChanging(System.Nullable<long> value);
+    partial void OnTK_BILL_AutoIDChanged();
+    partial void OnTK_STATUSChanging(int value);
+    partial void OnTK_STATUSChanged();
     partial void OnDELETEDChanging(System.Nullable<int> value);
     partial void OnDELETEDChanged();
     partial void OnCREATEDChanging(System.Nullable<System.DateTime> value);
@@ -4112,6 +4460,7 @@ namespace DAL
 		
 		public tbl_DM_Ticket()
 		{
+			this._tbl_DM_Bill = default(EntityRef<tbl_DM_Bill>);
 			this._tbl_DM_Movie = default(EntityRef<tbl_DM_Movie>);
 			this._tbl_DM_Staff = default(EntityRef<tbl_DM_Staff>);
 			OnCreated();
@@ -4201,6 +4550,50 @@ namespace DAL
 					this._TK_STAFF_AutoID = value;
 					this.SendPropertyChanged("TK_STAFF_AutoID");
 					this.OnTK_STAFF_AutoIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TK_BILL_AutoID", DbType="BigInt")]
+		public System.Nullable<long> TK_BILL_AutoID
+		{
+			get
+			{
+				return this._TK_BILL_AutoID;
+			}
+			set
+			{
+				if ((this._TK_BILL_AutoID != value))
+				{
+					if (this._tbl_DM_Bill.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnTK_BILL_AutoIDChanging(value);
+					this.SendPropertyChanging();
+					this._TK_BILL_AutoID = value;
+					this.SendPropertyChanged("TK_BILL_AutoID");
+					this.OnTK_BILL_AutoIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TK_STATUS", DbType="Int NOT NULL")]
+		public int TK_STATUS
+		{
+			get
+			{
+				return this._TK_STATUS;
+			}
+			set
+			{
+				if ((this._TK_STATUS != value))
+				{
+					this.OnTK_STATUSChanging(value);
+					this.SendPropertyChanging();
+					this._TK_STATUS = value;
+					this.SendPropertyChanged("TK_STATUS");
+					this.OnTK_STATUSChanged();
 				}
 			}
 		}
@@ -4341,6 +4734,40 @@ namespace DAL
 					this._UPDATED_BY_FUNCTION = value;
 					this.SendPropertyChanged("UPDATED_BY_FUNCTION");
 					this.OnUPDATED_BY_FUNCTIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_DM_Bill_tbl_DM_Ticket", Storage="_tbl_DM_Bill", ThisKey="TK_BILL_AutoID", OtherKey="BL_AutoID", IsForeignKey=true)]
+		public tbl_DM_Bill tbl_DM_Bill
+		{
+			get
+			{
+				return this._tbl_DM_Bill.Entity;
+			}
+			set
+			{
+				tbl_DM_Bill previousValue = this._tbl_DM_Bill.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_DM_Bill.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_DM_Bill.Entity = null;
+						previousValue.tbl_DM_Tickets.Remove(this);
+					}
+					this._tbl_DM_Bill.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_DM_Tickets.Add(this);
+						this._TK_BILL_AutoID = value.BL_AutoID;
+					}
+					else
+					{
+						this._TK_BILL_AutoID = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("tbl_DM_Bill");
 				}
 			}
 		}
