@@ -305,40 +305,40 @@ go
 -- Thêm dữ liệu vào bảng tbl_DM_Product
 INSERT INTO tbl_DM_Product (PD_NAME, PD_QUANTITY, PD_PRICE, PD_IMAGEURL, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
 VALUES 
-(N'Bắp', 100, 50.0, 'url_to_popcorn_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('Coca-Cola', 200, 20.0, 'url_to_coke_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('Fanta', 200, 20.0, 'url_to_fanta_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('Sprite', 200, 20.0, 'url_to_sprite_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+(N'Bắp', 100, 15000, 'url_to_popcorn_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('Coca-Cola', 200, 15000, 'url_to_coke_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('Fanta', 200, 15000, 'url_to_fanta_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('Sprite', 200, 15000, 'url_to_sprite_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
 -- Thêm một số loại snack
-('Potato Chips', 150, 25.0, 'url_to_chips_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('Chocolate Bar', 100, 30.0, 'url_to_chocolate_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('Candy', 180, 15.0, 'url_to_candy_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('Potato Chips', 150, 25000.0, 'url_to_chips_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('Chocolate Bar', 100, 30000.0, 'url_to_chocolate_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('Candy', 180, 500.0, 'url_to_candy_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
 
 -- Thêm các loại nước ép và đồ uống khác
-('Orange Juice', 120, 25.0, 'url_to_orange_juice_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('Apple Juice', 100, 30.0, 'url_to_apple_juice_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('Mineral Water', 250, 15.0, 'url_to_water_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('Orange Juice', 120, 15000.0, 'url_to_orange_juice_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('Apple Juice', 100, 15000.0, 'url_to_apple_juice_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('Mineral Water', 250, 15000.0, 'url_to_water_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
 
 -- Thêm một số sản phẩm đồ uống khác
-('Lemon Tea', 150, 25.0, 'url_to_lemon_tea_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('Green Tea', 130, 28.0, 'url_to_green_tea_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('Milk Tea', 140, 35.0, 'url_to_milk_tea_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('Espresso', 100, 40.0, 'url_to_espresso_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('Latte', 90, 45.0, 'url_to_latte_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('Lemon Tea', 150, 15000.0, 'url_to_lemon_tea_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('Green Tea', 130, 15000.0, 'url_to_green_tea_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('Milk Tea', 140, 15000.0, 'url_to_milk_tea_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('Espresso', 100, 15000.0, 'url_to_espresso_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('Latte', 90, 15000.0, 'url_to_latte_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
 
 -- Thêm một số loại snack khác
-('Nachos', 100, 30.0, 'url_to_nachos_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('Pretzels', 80, 25.0, 'url_to_pretzels_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('French Fries', 120, 20.0, 'url_to_french_fries_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('Chicken Nuggets', 100, 35.0, 'url_to_chicken_nuggets_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('Mini Pizza', 70, 50.0, 'url_to_mini_pizza_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('Nachos', 100, 30000.0, 'url_to_nachos_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('Pretzels', 80, 25000.0, 'url_to_pretzels_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('French Fries', 120, 20000.0, 'url_to_french_fries_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('Chicken Nuggets', 100, 35000.0, 'url_to_chicken_nuggets_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('Mini Pizza', 70, 50000.0, 'url_to_mini_pizza_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
 
 -- Thêm một số loại nước ép trái cây
-('Grape Juice', 100, 30.0, 'url_to_grape_juice_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('Pineapple Juice', 110, 30.0, 'url_to_pineapple_juice_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('Mango Juice', 90, 35.0, 'url_to_mango_juice_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('Strawberry Smoothie', 80, 40.0, 'url_to_strawberry_smoothie_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
-('Banana Smoothie', 85, 40.0, 'url_to_banana_smoothie_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System');
+('Grape Juice', 100, 15000.0, 'url_to_grape_juice_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('Pineapple Juice', 110, 15000.0, 'url_to_pineapple_juice_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('Mango Juice', 90, 15000.0, 'url_to_mango_juice_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('Strawberry Smoothie', 80, 15000.0, 'url_to_strawberry_smoothie_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+('Banana Smoothie', 85, 15000.0, 'url_to_banana_smoothie_image', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System');
  
 -- Thêm dữ liệu vào bảng tbl_DM_Ticket (vé)
 -- TK_STATUS giả định là trạng thái vé (ví dụ: 1 là vé đã bán).
@@ -467,52 +467,102 @@ VALUES
 
 -- Chi phí khác không cụ thể
 (N'Chi phí khác', NULL, 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System');
+ 
 
 go
 INSERT INTO tbl_SYS_Expense (EX_EXTYPE_AutoID, EX_QUANTITY, EX_PRICE, EX_REASON, EX_STATUS, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
 VALUES
 -- Nhập hàng vào kho trong các ngày cụ thể cho các sản phẩm khác nhau 
-(1, 50, 2500000.0, N'Nhập bắp', 1, 0, '2024-08-01', 'Admin', 'System', '2024-08-01', 'Admin', 'System'),
-(2, 40, 2000000.0, N'Nhập Coca-Cola', 1, 0, '2024-08-10', 'Admin', 'System', '2024-08-10', 'Admin', 'System'),
-(3, 30, 1500000.0, N'Nhập Sprite', 1, 0, '2024-08-15', 'Admin', 'System', '2024-08-15', 'Admin', 'System'),
-(4, 20, 1000000.0, N'Nhập Fanta', 1, 0, '2024-08-20', 'Admin', 'System', '2024-08-20', 'Admin', 'System'),
-(1, 60, 3000000.0, N'Nhập bắp', 1, 0, '2024-09-01', 'Admin', 'System', '2024-09-01', 'Admin', 'System'),
-(2, 55, 2750000.0, N'Nhập Coca-Cola', 1, 0, '2024-09-10', 'Admin', 'System', '2024-09-10', 'Admin', 'System'),
-(3, 45, 2250000.0, N'Nhập Sprite', 1, 0, '2024-09-15', 'Admin', 'System', '2024-09-15', 'Admin', 'System'),
-(4, 35, 1750000.0, N'Nhập Fanta', 1, 0, '2024-09-20', 'Admin', 'System', '2024-09-20', 'Admin', 'System'),
-(1, 75, 3750000.0, N'Nhập bắp', 1, 0, '2024-10-01', 'Admin', 'System', '2024-10-01', 'Admin', 'System'),
-(2, 65, 3250000.0, N'Nhập Coca-Cola', 1, 0, '2024-10-10', 'Admin', 'System', '2024-10-10', 'Admin', 'System'),
-(3, 50, 2500000.0, N'Nhập Sprite', 1, 0, '2024-10-15', 'Admin', 'System', '2024-10-15', 'Admin', 'System'),
-(4, 45, 2250000.0, N'Nhập Fanta', 1, 0, '2024-10-20', 'Admin', 'System', '2024-10-20', 'Admin', 'System'),
-(1, 80, 4000000.0, N'Nhập bắp', 1, 0, '2024-11-01', 'Admin', 'System', '2024-11-01', 'Admin', 'System'),
-(2, 70, 3500000.0, N'Nhập Coca-Cola', 1, 0, '2024-11-05', 'Admin', 'System', '2024-11-05', 'Admin', 'System'),
-(3, 55, 2750000.0, N'Nhập Sprite', 1, 0, '2024-11-10', 'Admin', 'System', '2024-11-10', 'Admin', 'System'),
-(4, 40, 2000000.0, N'Nhập Fanta', 1, 0, '2024-11-15', 'Admin', 'System', '2024-11-15', 'Admin', 'System'),
+(1, 50, 500000, N'Nhập bắp', 1, 0, '2024-08-01', 'Admin', 'System', '2024-08-01', 'Admin', 'System'),
+(2, 40, 280000, N'Nhập Coca-Cola', 1, 0, '2024-08-10', 'Admin', 'System', '2024-08-10', 'Admin', 'System'),
+(3, 30, 210000, N'Nhập Sprite', 1, 0, '2024-08-15', 'Admin', 'System', '2024-08-15', 'Admin', 'System'),
+(4, 20, 140000, N'Nhập Fanta', 1, 0, '2024-08-20', 'Admin', 'System', '2024-08-20', 'Admin', 'System'),
+(1, 60, 600000, N'Nhập bắp', 1, 0, '2024-09-01', 'Admin', 'System', '2024-09-01', 'Admin', 'System'),
+(2, 55, 500000, N'Nhập Coca-Cola', 1, 0, '2024-09-10', 'Admin', 'System', '2024-09-10', 'Admin', 'System'),
+(3, 40, 280000, N'Nhập Sprite', 1, 0, '2024-09-15', 'Admin', 'System', '2024-09-15', 'Admin', 'System'),
+(4, 30, 210000, N'Nhập Fanta', 1, 0, '2024-09-20', 'Admin', 'System', '2024-09-20', 'Admin', 'System'),
+(1, 70, 700000, N'Nhập bắp', 1, 0, '2024-10-01', 'Admin', 'System', '2024-10-01', 'Admin', 'System'),
+(2, 60, 420000, N'Nhập Coca-Cola', 1, 0, '2024-10-10', 'Admin', 'System', '2024-10-10', 'Admin', 'System'),
+(3, 50, 350000, N'Nhập Sprite', 1, 0, '2024-10-15', 'Admin', 'System', '2024-10-15', 'Admin', 'System'),
+(4, 40, 280000, N'Nhập Fanta', 1, 0, '2024-10-20', 'Admin', 'System', '2024-10-20', 'Admin', 'System'),
+(1, 80, 800000, N'Nhập bắp', 1, 0, '2024-11-01', 'Admin', 'System', '2024-11-01', 'Admin', 'System'),
+(2, 70, 490000, N'Nhập Coca-Cola', 1, 0, '2024-11-05', 'Admin', 'System', '2024-11-05', 'Admin', 'System'),
+(3, 50, 350000, N'Nhập Sprite', 1, 0, '2024-11-10', 'Admin', 'System', '2024-11-10', 'Admin', 'System'),
+(4, 40, 280000, N'Nhập Fanta', 1, 0, '2024-11-15', 'Admin', 'System', '2024-11-15', 'Admin', 'System'),
 
 -- Nhập kho cho sản phẩm bắp nhưng với số lượng nhỏ để phản ánh tình trạng cạn kiệt do cháy hàng
-(1, 10, 250000.0, N'Nhập bắp số lượng nhỏ', 1, 0, '2024-08-25', 'Admin', 'System', '2024-08-25', 'Admin', 'System'),
-(1, 5, 125000.0, N'Nhập bắp số lượng rất nhỏ', 1, 0, '2024-09-18', 'Admin', 'System', '2024-09-18', 'Admin', 'System'),
-(1, 8, 200000.0, N'Nhập bắp số lượng nhỏ lẻ', 1, 0, '2024-10-01', 'Admin', 'System', '2024-10-01', 'Admin', 'System'),
+(1, 10, 100000, N'Nhập bắp số lượng nhỏ', 1, 0, '2024-08-25', 'Admin', 'System', '2024-08-25', 'Admin', 'System'),
+(1, 5, 50000, N'Nhập bắp số lượng rất nhỏ', 1, 0, '2024-09-18', 'Admin', 'System', '2024-09-18', 'Admin', 'System'),
+(1, 8, 80000, N'Nhập bắp số lượng nhỏ lẻ', 1, 0, '2024-10-01', 'Admin', 'System', '2024-10-01', 'Admin', 'System'),
  
 
 -- Nhập hàng cho sản phẩm "Bắp" để đạt trạng thái có sẵn hoặc quá tải
  
-(1, 15, 100000.0, N'Nhập bắp', 1, 0, '2024-09-01', 'Admin', 'System', '2024-09-01', 'Admin', 'System'),
-(1, 12, 100000.0, N'Nhập bắp', 1, 0, '2024-09-07', 'Admin', 'System', '2024-09-07', 'Admin', 'System'),
-(1, 18, 100000.0, N'Nhập bắp', 1, 0, '2024-09-14', 'Admin', 'System', '2024-09-14', 'Admin', 'System'),
-(1, 9, 100000.0, N'Nhập bắp', 1, 0, '2024-09-20', 'Admin', 'System', '2024-09-20', 'Admin', 'System'),
-(1, 5, 100000.0, N'Nhập bắp', 1, 0, '2024-09-25', 'Admin', 'System', '2024-09-25', 'Admin', 'System'),
+(1, 15, 150000.0, N'Nhập bắp', 1, 0, '2024-09-01', 'Admin', 'System', '2024-09-01', 'Admin', 'System'),
+(1, 12, 120000.0, N'Nhập bắp', 1, 0, '2024-09-07', 'Admin', 'System', '2024-09-07', 'Admin', 'System'),
+(1, 18, 180000.0, N'Nhập bắp', 1, 0, '2024-09-14', 'Admin', 'System', '2024-09-14', 'Admin', 'System'),
+(1, 9, 90000.0, N'Nhập bắp', 1, 0, '2024-09-20', 'Admin', 'System', '2024-09-20', 'Admin', 'System'),
+(1, 5, 50000.0, N'Nhập bắp', 1, 0, '2024-09-25', 'Admin', 'System', '2024-09-25', 'Admin', 'System'),
 
 -- Nhập hàng cho sản phẩm "Coca-Cola" để duy trì trạng thái tồn kho
-(2, 15, 100000.0, N'Nhập Coca-Cola', 1, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System'),
-(2, 12, 100000.0, N'Nhập Coca-Cola', 1, 0, '2024-09-08', 'Admin', 'System', '2024-09-08', 'Admin', 'System'),
-(2, 10, 100000.0, N'Nhập Coca-Cola', 1, 0, '2024-09-15', 'Admin', 'System', '2024-09-15', 'Admin', 'System'),
-(2, 9, 100000.0, N'Nhập Coca-Cola', 1, 0, '2024-09-22', 'Admin', 'System', '2024-09-22', 'Admin', 'System'),
-(2, 7, 100000.0, N'Nhập Coca-Cola', 1, 0, '2024-09-28', 'Admin', 'System', '2024-09-28', 'Admin', 'System'),
+(2, 15, 105000.0, N'Nhập Coca-Cola', 1, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System'),
+(2, 12, 84000.0, N'Nhập Coca-Cola', 1, 0, '2024-09-08', 'Admin', 'System', '2024-09-08', 'Admin', 'System'),
+(2, 10, 70000.0, N'Nhập Coca-Cola', 1, 0, '2024-09-15', 'Admin', 'System', '2024-09-15', 'Admin', 'System'),
+(2, 9, 90000.0, N'Nhập Coca-Cola', 1, 0, '2024-09-22', 'Admin', 'System', '2024-09-22', 'Admin', 'System'),
+(2, 7, 70000.0, N'Nhập Coca-Cola', 1, 0, '2024-09-28', 'Admin', 'System', '2024-09-28', 'Admin', 'System'),
 
 -- Nhập hàng cho sản phẩm "Sprite" để đạt trạng thái khuyến mãi bán chậm
-(3, 8, 100000.0, N'Nhập Sprite', 1, 0, '2024-09-03', 'Admin', 'System', '2024-09-03', 'Admin', 'System'),
-(3, 6, 100000.0, N'Nhập Sprite', 1, 0, '2024-09-09', 'Admin', 'System', '2024-09-09', 'Admin', 'System'),
-(3, 10, 100000.0, N'Nhập Sprite', 1, 0, '2024-09-16', 'Admin', 'System', '2024-09-16', 'Admin', 'System'),
-(3, 5, 100000.0, N'Nhập Sprite', 1, 0, '2024-09-23', 'Admin', 'System', '2024-09-23', 'Admin', 'System'),
-(3, 7, 100000.0, N'Nhập Sprite', 1, 0, '2024-09-29', 'Admin', 'System', '2024-09-29', 'Admin', 'System');
+(3, 8, 56000.0, N'Nhập Sprite', 1, 0, '2024-09-03', 'Admin', 'System', '2024-09-03', 'Admin', 'System'),
+(3, 6, 48000.0, N'Nhập Sprite', 1, 0, '2024-09-09', 'Admin', 'System', '2024-09-09', 'Admin', 'System'),
+(3, 10, 70000.0, N'Nhập Sprite', 1, 0, '2024-09-16', 'Admin', 'System', '2024-09-16', 'Admin', 'System'),
+(3, 5, 35000.0, N'Nhập Sprite', 1, 0, '2024-09-23', 'Admin', 'System', '2024-09-23', 'Admin', 'System'),
+(3, 7, 49000.0, N'Nhập Sprite', 1, 0, '2024-09-29', 'Admin', 'System', '2024-09-29', 'Admin', 'System'),
+
+-- Chi phí cho sản phẩm 5 (Potato Chips)
+(5, 50, 250000, N'Nhập: Potato Chips', 1, 0, '2024-09-01', 'Admin', 'System', '2024-09-01', 'Admin', 'System'),
+(5, 50, 250000, N'Nhập: Potato Chips', 1, 0, '2024-09-01', 'Admin', 'System', '2024-09-01', 'Admin', 'System'),
+(5, 50, 250000, N'Nhập: Potato Chips', 1, 0, '2024-09-01', 'Admin', 'System', '2024-09-01', 'Admin', 'System'),
+(5, 50, 250000, N'Nhập: Potato Chips', 1, 0, '2024-09-01', 'Admin', 'System', '2024-09-01', 'Admin', 'System'),
+
+-- socola
+(6, 50, 250000, N'Nhập: Chocolate Bar', 1, 0, '2024-09-01', 'Admin', 'System', '2024-09-01', 'Admin', 'System'),
+(6, 50, 250000, N'Nhập: Chocolate Bar', 1, 0, '2024-09-01', 'Admin', 'System', '2024-09-01', 'Admin', 'System'),
+-- candy
+(7, 60, 250000, N'Nhập: Candy', 1, 0, '2024-09-01', 'Admin', 'System', '2024-09-01', 'Admin', 'System'),
+(7, 60, 250000, N'Nhập: Candy', 1, 0, '2024-09-01', 'Admin', 'System', '2024-09-01', 'Admin', 'System'),
+(7, 60, 250000, N'Nhập: Candy', 1, 0, '2024-09-01', 'Admin', 'System', '2024-09-01', 'Admin', 'System'),
+(7, 60, 250000, N'Nhập: Candy', 1, 0, '2024-09-01', 'Admin', 'System', '2024-09-01', 'Admin', 'System'),
+
+-- Insert another 20 rows with different dates into tbl_SYS_Expense
+ 
+(6, 50, 120000, N'Nhập: Chocolate Bar', 1, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System'),
+(7, 60, 250000, N'Nhập: Candy', 1, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System'),
+(8, 90, 110000, N'Nhập: Orange Juice', 1, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System'),
+(9, 80, 90000, N'Nhập: Apple Juice', 1, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System'),
+(10, 100, 50000, N'Nhập: Mineral Water', 1, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System'),
+(11, 120, 70000, N'Nhập: Lemon Tea', 1, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System'),
+(12, 130, 65000, N'Nhập: Green Tea', 1, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System'),
+(13, 110, 75000, N'Nhập: Milk Tea', 1, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System'),
+(14, 70, 95000, N'Nhập: Espresso', 1, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System'),
+(15, 60, 105000, N'Nhập: Latte', 1, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System'),
+(16, 200, 55000, N'Nhập: Nachos', 1, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System'),
+(17, 150, 65000, N'Nhập: Pretzels', 1, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System'),
+(18, 100, 70000, N'Nhập: French Fries', 1, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System'),
+(19, 120, 80000, N'Nhập: Chicken Nuggets', 1, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System'),
+(20, 80, 120000, N'Nhập: Mini Pizza', 1, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System'),
+
+(8, 90, 110000, N'Nhập: Orange Juice', 1, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System'),
+(9, 80, 90000, N'Nhập: Apple Juice', 1, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System'),
+(10, 100, 50000, N'Nhập: Mineral Water', 1, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System'),
+(11, 120, 70000, N'Nhập: Lemon Tea', 1, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System'),
+(12, 130, 65000, N'Nhập: Green Tea', 1, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System'),
+(13, 110, 75000, N'Nhập: Milk Tea', 1, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System'),
+(14, 70, 95000, N'Nhập: Espresso', 1, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System'),
+(15, 60, 105000, N'Nhập: Latte', 1, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System'),
+(16, 200, 55000, N'Nhập: Nachos', 1, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System'),
+(17, 150, 65000, N'Nhập: Pretzels', 1, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System'),
+(18, 100, 70000, N'Nhập: French Fries', 1, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System'),
+(19, 120, 80000, N'Nhập: Chicken Nuggets', 1, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System'),
+(20, 80, 120000, N'Nhập: Mini Pizza', 1, 0, '2024-09-02', 'Admin', 'System', '2024-09-02', 'Admin', 'System');
+
+

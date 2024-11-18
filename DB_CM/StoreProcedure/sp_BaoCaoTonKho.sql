@@ -77,12 +77,12 @@ BEGIN
             ELSE ISNULL(TR.TotalTicketRevenue, 0)
         END AS ProfitLoss,                                          -- Lợi nhuận
         CASE 
-            WHEN ISNULL(R.TotalReceived, 0) = 0 THEN 0
-            ELSE (ISNULL(S.TotalSold, 0) * 100.0 / ISNULL(R.TotalReceived, 0))
-        END AS SalesPerformancePercentage,                         -- Hiệu suất bán hàng (%)
+			WHEN ISNULL(R.TotalReceived, 0) = 0 THEN 0
+			ELSE ROUND(ISNULL(S.TotalSold, 0) * 100.0 / ISNULL(R.TotalReceived, 0), 2)
+		END AS SalesPerformancePercentage,                         -- Hiệu suất bán hàng (%)
         CASE 
-            WHEN ISNULL(R.TotalReceived, 0) = 0 THEN N'Không nhập hàng'
-            WHEN (ISNULL(S.TotalSold, 0) * 100.0 / ISNULL(R.TotalReceived, 0)) < @SalesPerformanceThreshold THEN N'Hiệu suất thấp'
+            WHEN ISNULL(R.TotalReceived, 0) = 0 THEN N'Cần nhập hàng'
+            WHEN (ISNULL(S.TotalSold, 0) * 100.0 / ISNULL(R.TotalReceived, 0)) < @SalesPerformanceThreshold THEN N'Bán chậm'
             ELSE N'Hiệu suất cao'
         END AS SalesPerformanceCategory,                           -- Phân loại hiệu suất
         CASE 
@@ -95,7 +95,7 @@ BEGIN
         END AS InventoryAgeStatus,                                 -- Sản phẩm tồn kho lâu ngày
         CASE 
             WHEN ISNULL(S.ProductRevenue, 0) - ISNULL(R.UnitCost, 0) * ISNULL(S.TotalSold, 0) < 0 
-            THEN ROUND(ISNULL(R.UnitCost, 0) * (1 + @DesiredProfitMargin), 2)
+            THEN ROUND(ISNULL(R.UnitCost, 0) * (1 + @DesiredProfitMargin), 0)
             ELSE NULL
         END AS SuggestedPrice                                      -- Giá bán đề xuất khi bán lỗ
     FROM tbl_DM_Product PD
