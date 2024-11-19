@@ -75,27 +75,12 @@ namespace GUI.UI.Modules
             if (DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) &&
                 DateTime.TryParse(txtEndDate.Text.Trim(), out endDate))
             {
-                if (rptViewReport.SelectedIndex == 0) // Tổng quan
-                {
-                    dgv.DataSource = data.GetAllSalesReport(startDate, endDate);
-                    var report = new RP_Sales();
-                    report.Add(startDate, endDate);
+                var report = new RP_BaoCaoDoanhThu();
+                report.Add(startDate, endDate);
 
-                    // Hiển thị báo cáo
-                    var printTool = new ReportPrintTool(report);
-                    printTool.ShowPreview();
-                }
-                else // Chi tiết
-                {
-                    dgv.DataSource = data.GetDetailSaleReport(startDate, endDate);
-                    // Bỏ chọn bên dưới để triển khai xem trước báo cáo chi tiết
-                    var detailedReport = new RP_SalesDetails();
-
-                    detailedReport.Add(startDate, endDate);
-
-                    var printTool2 = new ReportPrintTool(detailedReport);
-                    detailedReport.ShowPreview();  // Hiển thị báo cáo trong cửa sổ xem trước
-                }
+                // Hiển thị báo cáo
+                var printTool = new ReportPrintTool(report);
+                printTool.ShowPreview();
             }
             else
             {

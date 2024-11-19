@@ -1,4 +1,6 @@
-﻿using DevExpress.XtraReports.UI;
+﻿using BUS.Danh_Muc;
+using DevExpress.XtraReports.UI;
+using DTO.Common;
 using System;
 using System.Collections;
 using System.ComponentModel;
@@ -12,6 +14,18 @@ namespace GUI.UI.ReportDesign
         {
             InitializeComponent();
         }
+        private tbl_DM_Staff_BUS tbl_DM_Staff_BUS = new tbl_DM_Staff_BUS();
+        public void Add(DateTime _startDate, DateTime _endDate)
+        {
+            // Truyền tham số vào báo cáo           
+            this.Parameters["StartDate"].Value = _startDate;
+            this.Parameters["EndDate"].Value = _endDate;
+            this.Parameters["NguoiLapBaoCao"].Value = tbl_DM_Staff_BUS.GetStaff_ByUserName(CCommon.MaDangNhap).ST_NAME;
 
+            // Tắt field nhập parameter khi preview
+            this.Parameters["StartDate"].Visible = false;
+            this.Parameters["EndDate"].Visible = false;
+            this.Parameters["NguoiLapBaoCao"].Visible = false;
+        }
     }
 }
