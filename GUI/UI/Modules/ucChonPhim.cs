@@ -210,7 +210,7 @@ namespace GUI.UI.Modules
                         tbl_DM_AgeRating_DTO foundAR = ageBus.Find((long)o.MV_AGERATING_AutoID);
                         txtThoiLuong.Text = o.MV_DURATION.ToString().Trim();
                         txtAgeRating.Text = foundAR.AR_NOTE.ToString().Trim();
-                        cboMovieSchedule.Properties.DataSource = movieScheBus.GetMovieSchedule_ByMovie(o.MV_AutoID);
+                        cboMovieSchedule.Properties.DataSource = movieScheBus.GetMovieSchedule_ByMovieDate(o.MV_AutoID, (DateTime)dtpDate.EditValue);
                         cboMovieSchedule.ItemIndex = 0;
 
                     }
@@ -324,9 +324,10 @@ namespace GUI.UI.Modules
                         string dgv_selected_id = layoutView1.GetRowCellValue(i, "MV_AutoID").ToString().Trim();
                         tbl_DM_Movie_DTO o = moiveBus.Find(long.Parse(dgv_selected_id));
                         tbl_DM_AgeRating_DTO foundAR = ageBus.Find((long)o.MV_AGERATING_AutoID);
+                        txtTenPhim.Text = o.MV_NAME.ToString().Trim();
                         txtThoiLuong.Text = o.MV_DURATION.ToString().Trim();
                         txtAgeRating.Text = foundAR.AR_NOTE.ToString().Trim();
-                        cboMovieSchedule.Properties.DataSource = movieScheBus.GetMovieSchedule_ByMovie(o.MV_AutoID);
+                        cboMovieSchedule.Properties.DataSource = movieScheBus.GetMovieSchedule_ByMovieDate(o.MV_AutoID, (DateTime)dtpDate.EditValue);
                         cboMovieSchedule.ItemIndex = 0;
 
                     }

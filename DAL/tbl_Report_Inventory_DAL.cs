@@ -25,39 +25,37 @@ namespace DAL
                 var report = (from pd in db.tbl_DM_Products
                               where pd.DELETED == 0
 
-                              // Tổng số lượng bán
-                              let soldQuantity = db.tbl_DM_Bills
-                                                   .Where(bl => bl.BL_PRODUCT_AutoID == pd.PD_AutoID)
-                                                   .Sum(bl => (int?)bl.BL_QUANTITY) ?? 0
+                              //// Tổng số lượng bán
+                              //let soldQuantity = db.tbl_DM_Bills
+                              //                     .Where(bl => bl.BL_PRODUCT_AutoID == pd.PD_AutoID)
+                              //                     .Sum(bl => (int?)bl.BL_QUANTITY) ?? 0
 
-                              // Tổng số lượng nhập
-                              let receivedQuantity = db.tbl_SYS_Expenses
-                                                       .Where(ex => ex.EX_EXTYPE_AutoID == pd.PD_AutoID)
-                                                       .Sum(ex => (int?)ex.EX_QUANTITY) ?? 0
+                              //// Tổng số lượng nhập
+                              //let receivedQuantity = db.tbl_SYS_Expenses
+                              //                         .Where(ex => ex.EX_EXTYPE_AutoID == pd.PD_AutoID)
+                              //                         .Sum(ex => (int?)ex.EX_QUANTITY) ?? 0
 
-                              // Tính tồn kho hiện tại
-                              let currentStock = pd.PD_QUANTITY + receivedQuantity - soldQuantity
+                              //// Tính tồn kho hiện tại
+                              //let currentStock = pd.PD_QUANTITY + receivedQuantity - soldQuantity
 
-                              // Đánh giá trạng thái tồn kho và hiệu suất bán hàng
-                              let stockStatus = currentStock < InventorySettings.LowStockThreshold ? "Cạn kiệt" :
-                                                currentStock > InventorySettings.OverstockThreshold ? "Quá tải" : "Có sẵn"
-                              let salesPerformance = soldQuantity < InventorySettings.SlowSalesThreshold ? "Bán chậm" :
-                                                     soldQuantity >= InventorySettings.SlowSalesThreshold 
-                                                     && soldQuantity <= InventorySettings.StableSalesThreshold ? "Ổn định" : "Cháy hàng"
+                              //// Đánh giá trạng thái tồn kho và hiệu suất bán hàng
+                              //let stockStatus = currentStock < InventorySettings.LowStockThreshold ? "Cạn kiệt" :
+                              //                  currentStock > InventorySettings.OverstockThreshold ? "Quá tải" : "Có sẵn"
+                              //let salesPerformance = soldQuantity < InventorySettings.SlowSalesThreshold ? "Bán chậm" :
+                              //                       soldQuantity >= InventorySettings.SlowSalesThreshold 
+                              //                       && soldQuantity <= InventorySettings.StableSalesThreshold ? "Ổn định" : "Cháy hàng"
 
                               select new tbl_Report_Inventory_DTO
                               {
                                   //ProductID = pd.PD_AutoID,
                                   ProductName = pd.PD_NAME,
-                                  CurrentStock = currentStock,
-                                  SoldQuantity = soldQuantity,
+                                  //CurrentStock = currentStock,
+                                  //SoldQuantity = soldQuantity,
                                   UnitPrice = pd.PD_PRICE,
-                                  TotalInventoryValue = currentStock * pd.PD_PRICE,
-                                  SalesPerformance = salesPerformance,
-                                  StockStatus = stockStatus,
-                                  RecommendedAction = (salesPerformance == "Cháy hàng" && stockStatus == "Cạn kiệt") ? "Cần nhập hàng" :
-                                                      (salesPerformance == "Bán chậm" && stockStatus == "Quá tải") ? "Cân nhắc chạy khuyến mãi" :
-                                                      "Tiếp tục bán"
+                                  //TotalInventoryValue = currentStock * pd.PD_PRICE,
+                                  //SalesPerformance = salesPerformance,
+                                  //StockStatus = stockStatus,
+                                  //RecommendedAction = (salesPerformance == "Cháy hàng" && stockStatus == "Cạn kiệt") ? "Cần nhập hàng" : (salesPerformance == "Bán chậm" && stockStatus == "Quá tải") ? "Cân nhắc chạy khuyến mãi" : "Tiếp tục bán"
                               })
                 .OrderBy(r => r.ProductName)
                 .ToList();
@@ -77,46 +75,40 @@ namespace DAL
                 var report = (from pd in db.tbl_DM_Products
                               where pd.DELETED == 0
 
-                              // Tổng số lượng bán trong khoảng thời gian
-                              let soldQuantity = db.tbl_DM_Bills
-                                                   .Where(bl => bl.BL_PRODUCT_AutoID == pd.PD_AutoID
-                                                                && bl.CREATED >= startDate
-                                                                && bl.CREATED <= endDate)
-                                                   .Sum(bl => (int?)bl.BL_QUANTITY) ?? 0
+                              //// Tổng số lượng bán trong khoảng thời gian
+                              //let soldQuantity = db.tbl_DM_Bills
+                              //                     .Where(bl => bl.BL_PRODUCT_AutoID == pd.PD_AutoID
+                              //                                  && bl.CREATED >= startDate
+                              //                                  && bl.CREATED <= endDate)
+                              //                     .Sum(bl => (int?)bl.BL_QUANTITY) ?? 0
 
-                              // Tổng số lượng nhập trong khoảng thời gian
-                              let receivedQuantity = db.tbl_SYS_Expenses
-                                                       .Where(ex => ex.EX_EXTYPE_AutoID == pd.PD_AutoID
-                                                                    && ex.CREATED >= startDate
-                                                                    && ex.CREATED <= endDate)
-                                                       .Sum(ex => (int?)ex.EX_QUANTITY) ?? 0
+                              //// Tổng số lượng nhập trong khoảng thời gian
+                              //let receivedQuantity = db.tbl_SYS_Expenses
+                              //                         .Where(ex => ex.EX_EXTYPE_AutoID == pd.PD_AutoID
+                              //                                      && ex.CREATED >= startDate
+                              //                                      && ex.CREATED <= endDate)
+                              //                         .Sum(ex => (int?)ex.EX_QUANTITY) ?? 0
 
-                              // Tính tồn kho hiện tại dựa trên số lượng ban đầu, đã nhập và đã bán
-                              let currentStock = pd.PD_QUANTITY + receivedQuantity - soldQuantity
+                              //// Tính tồn kho hiện tại dựa trên số lượng ban đầu, đã nhập và đã bán
+                              //let currentStock = pd.PD_QUANTITY + receivedQuantity - soldQuantity
 
                               select new tbl_Report_Inventory_DTO
                               {
                                   //ProductID = pd.PD_AutoID,
                                   ProductName = pd.PD_NAME,
-                                  CurrentStock = currentStock,
-                                  SoldQuantity = soldQuantity,
+                                  //CurrentStock = currentStock,
+                                  //SoldQuantity = soldQuantity,
                                   UnitPrice = pd.PD_PRICE,
-                                  TotalInventoryValue = currentStock * pd.PD_PRICE,
+                                  //TotalInventoryValue = currentStock * pd.PD_PRICE,
 
                                   // Xác định trạng thái tồn kho
-                                  StockStatus = currentStock < InventorySettings.LowStockThreshold ? "Cạn kiệt" :
-                                                currentStock > InventorySettings.OverstockThreshold ? "Quá tải" : "Có sẵn",
+                                  //StockStatus = currentStock < InventorySettings.LowStockThreshold ? "Cạn kiệt" : currentStock > InventorySettings.OverstockThreshold ? "Quá tải" : "Có sẵn",
 
                                   // Xác định hiệu suất bán hàng
-                                  SalesPerformance = soldQuantity < InventorySettings.SlowSalesThreshold ? "Bán chậm" :
-                                                     soldQuantity >= InventorySettings.SlowSalesThreshold && 
-                                                     soldQuantity <= InventorySettings.StableSalesThreshold ? "Ổn định" : "Cháy hàng",
+                                  //SalesPerformance = soldQuantity < InventorySettings.SlowSalesThreshold ? "Bán chậm" : soldQuantity >= InventorySettings.SlowSalesThreshold && soldQuantity <= InventorySettings.StableSalesThreshold ? "Ổn định" : "Cháy hàng",
 
                                   // Đề xuất hành động
-                                  RecommendedAction = (currentStock < InventorySettings.LowStockThreshold && 
-                                                    soldQuantity > InventorySettings.StableSalesThreshold) ? "Cần nhập hàng" :
-                                                      (currentStock > InventorySettings.OverstockThreshold && 
-                                                      soldQuantity < InventorySettings.SlowSalesThreshold) ? "Cân nhắc mở khuyến mãi" : "Tiếp tục bán"
+                                  //RecommendedAction = (currentStock < InventorySettings.LowStockThreshold && soldQuantity > InventorySettings.StableSalesThreshold) ? "Cần nhập hàng" : (currentStock > InventorySettings.OverstockThreshold && soldQuantity < InventorySettings.SlowSalesThreshold) ? "Cân nhắc mở khuyến mãi" : "Tiếp tục bán"
                               })
                       .Where(r =>
                           (stockStatus == 1 && r.StockStatus == "Cạn kiệt") ||
