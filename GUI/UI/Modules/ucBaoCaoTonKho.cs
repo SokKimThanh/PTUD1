@@ -95,23 +95,6 @@ namespace GUI.UI.Modules
             gridView1.Columns["TotalRevenue"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             gridView1.Columns["TotalRevenue"].DisplayFormat.FormatString = "c0"; // Định dạng tiền tệ
         }
-
-        private void txtStockStatus_EditValueChanged(object sender, EventArgs e)
-        {
-            if (txtStockStatus.EditValue != null && txtStockStatus.SelectedItem is ComboBoxItem selectedItem)
-            {
-                stock_status_selectedID = selectedItem.Id;
-            }
-        }
-
-        private void txtSalesPerformance_EditValueChanged(object sender, EventArgs e)
-        {
-            if (txtSalesPerformance.EditValue != null && txtSalesPerformance.SelectedItem is ComboBoxItem selectedItem)
-            {
-                sales_performance_selectedID = selectedItem.Id;
-            }
-        }
-
         private void txtStartDate_EditValueChanged(object sender, EventArgs e)
         {
             startDate = txtStartDate.DateTime;
@@ -136,16 +119,14 @@ namespace GUI.UI.Modules
 
             if (rptViewReport.SelectedIndex == 0)
             {
-                txtSalesPerformance.Enabled = false;
-                txtStockStatus.Enabled = false;
+
                 txtStartDate.Enabled = false;
                 txtEndDate.Enabled = false;
                 dgv.DataSource = data.GetInventoryReport(startDate, endDate);
             }
             else
             {
-                txtSalesPerformance.Enabled = true;
-                txtStockStatus.Enabled = true;
+
                 txtStartDate.Enabled = true;
                 txtEndDate.Enabled = true;
                 if (!DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) &&
@@ -210,21 +191,6 @@ namespace GUI.UI.Modules
         {
             try
             {
-                // Tạo danh sách với ID và Name
-                var SalesPerformanceListItem = new List<ComboBoxItem> {
-                new ComboBoxItem { Id = 1, Name = "Bán chậm" },
-                new ComboBoxItem { Id = 2, Name = "Ổn định" },
-                new ComboBoxItem { Id = 3, Name = "Cháy hàng" }
-            };
-                var StockStatusListItem = new List<ComboBoxItem> {
-                new ComboBoxItem { Id = 1, Name = "Cạn kiệt" },
-                new ComboBoxItem { Id = 2, Name = "Có sẵn" },
-                new ComboBoxItem { Id = 3, Name = "Quá tải" }
-            };
-
-                // Gán danh sách đối tượng vào ComboBoxEdit
-                txtSalesPerformance.Properties.Items.AddRange(SalesPerformanceListItem);
-                txtStockStatus.Properties.Items.AddRange(StockStatusListItem);
 
                 // Mặc định hiển thị báo cáo tổng quan
                 rptViewReport.SelectedIndex = 0;
@@ -242,14 +208,7 @@ namespace GUI.UI.Modules
                 txtStartDate.EditValue = startDate;
                 txtEndDate.EditValue = endDate;
 
-                gridView1.Columns.Clear(); // Xóa cột cũ trước khi gán dữ liệu mới
-
-                // Mặc định trạng thái của kho va san pham
-                txtSalesPerformance.SelectedIndex = 0;
-                txtStockStatus.SelectedIndex = 0;
-
-                sales_performance_selectedID = int.Parse(txtSalesPerformance.SelectedIndex.ToString());
-                stock_status_selectedID = int.Parse(txtStockStatus.SelectedIndex.ToString());
+                gridView1.Columns.Clear(); // Xóa cột cũ trước khi gán dữ liệu mới 
 
                 if (rptViewReport.SelectedIndex == 0)
                 {
