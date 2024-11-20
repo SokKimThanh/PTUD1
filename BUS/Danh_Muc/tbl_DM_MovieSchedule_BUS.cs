@@ -118,11 +118,11 @@ namespace BUS.Danh_Muc
                 throw ex;
             }
         }
-        public List<tbl_DM_MovieSchedule_DTO> GetMovieSchedule_ByMovie(long movieID)
+        public List<tbl_DM_MovieSchedule_DTO> GetMovieSchedule_ByMovieDate(long movieID, DateTime date)
         {
             try
             {
-                return dal.GetMovieSchedule_ByMovie(movieID);
+                return dal.GetMovieSchedule_ByMovieDate(movieID, date);
             }catch(Exception ex)
             {
                 throw ex;

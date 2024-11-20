@@ -205,7 +205,7 @@ namespace DAL
                 throw ex;
             }
         }
-        public List<tbl_DM_MovieSchedule_DTO> GetMovieSchedule_ByMovie(long movieID)
+        public List<tbl_DM_MovieSchedule_DTO> GetMovieSchedule_ByMovieDate(long movieID, DateTime date)
         {
             try
             {
@@ -216,7 +216,7 @@ namespace DAL
                     var result = from ms in db.tbl_DM_MovieSchedules
                                  join mv in db.tbl_DM_Movies on ms.MS_MOVIE_AutoID equals mv.MV_AutoID
                                  join tt in db.tbl_DM_Theaters on ms.MS_THEATER_AutoID equals tt.TT_AutoID
-                                 where ms.MS_MOVIE_AutoID == movieID
+                                 where ms.MS_MOVIE_AutoID == movieID && ms.MS_START.Date == date.Date
                                  orderby ms.MS_START ascending
                                  select new
                                  {
