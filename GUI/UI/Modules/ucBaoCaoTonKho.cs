@@ -14,8 +14,8 @@ namespace GUI.UI.Modules
     public partial class ucBaoCaoTonKho : ucBase
     {
         private tbl_Report_BUS data = new tbl_Report_BUS();
-        private int stock_status_selectedID;        // 1 = Cạn kiệt, 2 = Có sẵn, 3 = Quá tải
-        private int sales_performance_selectedID;   // 1 = Bán chậm, 2 = Ổn định, 3 = Cháy hàng
+        //private int stock_status_selectedID;        // 1 = Cạn kiệt, 2 = Có sẵn, 3 = Quá tải
+        //private int sales_performance_selectedID;   // 1 = Bán chậm, 2 = Ổn định, 3 = Cháy hàng
         private DateTime startDate = new DateTime();
         private DateTime endDate = new DateTime();
 
@@ -162,21 +162,25 @@ namespace GUI.UI.Modules
         }
         public void executeReport()
         {
+            if (!DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) && !DateTime.TryParse(txtEndDate.Text.Trim(), out endDate))
+            {
+                MessageBox.Show("Vui lòng nhập đúng định dạng ngày!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-            gridView1.Columns.Clear(); // Xóa cột cũ trước khi gán dữ liệu mới 
+            DateTime.TryParse(txtStartDate.Text.Trim(), out startDate);
+            DateTime.TryParse(txtEndDate.Text.Trim(), out endDate);
+
+            gridView1.Columns.Clear(); // Xóa cột cũ trước khi gán dữ liệu mới
 
             if (rptViewReport.SelectedIndex == 0)
             {
+
                 dgv.DataSource = data.GetInventoryReport(startDate, endDate);
             }
             else
             {
-                if (!DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) &&
-                !DateTime.TryParse(txtEndDate.Text.Trim(), out endDate))
-                {
-                    MessageBox.Show("Vui lòng nhập đúng định dạng ngày!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+
                 dgv.DataSource = data.GetInventoryReportByStatusAndDate(startDate, endDate);
             }
             // Định dạng cột theo tổng quan hoặc chi tiết

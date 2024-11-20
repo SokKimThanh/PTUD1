@@ -281,6 +281,7 @@
             // txtStartDate
             // 
             this.txtStartDate.EditValue = null;
+            this.txtStartDate.Enabled = false;
             this.txtStartDate.Location = new System.Drawing.Point(87, 87);
             this.txtStartDate.Name = "txtStartDate";
             this.txtStartDate.Properties.BeepOnError = true;
@@ -300,6 +301,7 @@
             // txtEndDate
             // 
             this.txtEndDate.EditValue = null;
+            this.txtEndDate.Enabled = false;
             this.txtEndDate.Location = new System.Drawing.Point(87, 111);
             this.txtEndDate.Name = "txtEndDate";
             this.txtEndDate.Properties.BeepOnError = true;
