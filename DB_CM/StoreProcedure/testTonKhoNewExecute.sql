@@ -12,6 +12,9 @@ DECLARE @TopN INT = 10;
 
 EXEC sp_TonKhoChiTiet @StartDate, @EndDate, @SalesPerformanceThreshold, @MinStockThreshold, @DesiredProfitMargin;
 
+EXEC sp_TonKhoTongQuan @StartDate, @EndDate, @SalesPerformanceThreshold, @MinStockThreshold, @DesiredProfitMargin;
+
+
 --EXEC sp_TongHopLoiNhuan @StartDate, @EndDate, @LoiNhuanVe, @LoiNhuanSanPham;
 
 --EXEC sp_DoanhThuVe @StartDate, @EndDate
