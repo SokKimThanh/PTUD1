@@ -372,6 +372,11 @@ namespace GUI
 
             base.WndProc(ref message);
         }
+
+        private void mainContainer_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
