@@ -54,6 +54,7 @@
             this.txtQuantity = new DevExpress.XtraEditors.TextEdit();
             this.btnQuayLai = new DevExpress.XtraEditors.SimpleButton();
             this.btnHuyChonPhim = new DevExpress.XtraEditors.SimpleButton();
+            this.txtQuantity1 = new DevExpress.XtraEditors.LookUpEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.groupChonGhe = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -67,9 +68,9 @@
             this.layoutTongCong2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutCBO = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutForm)).BeginInit();
             this.layoutForm.SuspendLayout();
@@ -78,6 +79,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalPrice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTheaterName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQuantity.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtQuantity1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupChonGhe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
@@ -91,9 +93,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutTongCong2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutCBO)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -224,6 +226,7 @@
             this.layoutForm.Controls.Add(this.txtQuantity);
             this.layoutForm.Controls.Add(this.btnQuayLai);
             this.layoutForm.Controls.Add(this.btnHuyChonPhim);
+            this.layoutForm.Controls.Add(this.txtQuantity1);
             this.layoutForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutForm.Location = new System.Drawing.Point(0, 24);
             this.layoutForm.Name = "layoutForm";
@@ -262,7 +265,7 @@
             this.lblTitle.ForeColor = System.Drawing.Color.Black;
             this.lblTitle.Location = new System.Drawing.Point(814, 63);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(241, 57);
+            this.lblTitle.Size = new System.Drawing.Size(241, 163);
             this.lblTitle.TabIndex = 9;
             this.lblTitle.Text = "Tên phim | Giờ chiếu";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -271,7 +274,7 @@
             // 
             this.txtTotalPrice.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTotalPrice.EditValue = ((short)(0));
-            this.txtTotalPrice.Location = new System.Drawing.Point(814, 264);
+            this.txtTotalPrice.Location = new System.Drawing.Point(814, 426);
             this.txtTotalPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTotalPrice.MenuManager = this.barManager1;
             this.txtTotalPrice.Name = "txtTotalPrice";
@@ -308,7 +311,7 @@
             // 
             this.txtTheaterName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTheaterName.EditValue = "";
-            this.txtTheaterName.Location = new System.Drawing.Point(814, 152);
+            this.txtTheaterName.Location = new System.Drawing.Point(814, 258);
             this.txtTheaterName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTheaterName.Name = "txtTheaterName";
             this.txtTheaterName.Properties.Appearance.BackColor = System.Drawing.Color.White;
@@ -329,7 +332,7 @@
             // 
             this.txtQuantity.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtQuantity.EditValue = "";
-            this.txtQuantity.Location = new System.Drawing.Point(814, 208);
+            this.txtQuantity.Location = new System.Drawing.Point(814, 314);
             this.txtQuantity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Properties.Appearance.BackColor = System.Drawing.Color.White;
@@ -369,6 +372,29 @@
             this.btnHuyChonPhim.StyleController = this.layoutForm;
             this.btnHuyChonPhim.TabIndex = 17;
             this.btnHuyChonPhim.Text = "Hủy";
+            // 
+            // txtQuantity1
+            // 
+            this.txtQuantity1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtQuantity1.EditValue = "";
+            this.txtQuantity1.Location = new System.Drawing.Point(814, 370);
+            this.txtQuantity1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtQuantity1.Name = "txtQuantity1";
+            this.txtQuantity1.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.txtQuantity1.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtQuantity1.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.txtQuantity1.Properties.Appearance.Options.UseBackColor = true;
+            this.txtQuantity1.Properties.Appearance.Options.UseFont = true;
+            this.txtQuantity1.Properties.Appearance.Options.UseForeColor = true;
+            this.txtQuantity1.Properties.BeepOnError = true;
+            this.txtQuantity1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.txtQuantity1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtQuantity1.Properties.NullText = "";
+            this.txtQuantity1.Size = new System.Drawing.Size(241, 24);
+            this.txtQuantity1.StyleController = this.layoutForm;
+            this.txtQuantity1.TabIndex = 11;
+            this.txtQuantity1.ToolTip = "Tổng số tiền tạm tính";
             // 
             // Root
             // 
@@ -414,7 +440,8 @@
             this.layoutTongCong1,
             this.layoutTongCong2,
             this.layoutControlItem4,
-            this.layoutControlItem6});
+            this.layoutControlItem6,
+            this.layoutCBO});
             this.layoutAction.Location = new System.Drawing.Point(772, 0);
             this.layoutAction.Name = "layoutAction";
             this.layoutAction.Size = new System.Drawing.Size(281, 557);
@@ -433,9 +460,9 @@
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 245);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 407);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(257, 172);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(257, 10);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // simpleSeparator1
@@ -451,7 +478,7 @@
             this.layoutTitle.Location = new System.Drawing.Point(0, 0);
             this.layoutTitle.Name = "layoutTitle";
             this.layoutTitle.Padding = new DevExpress.XtraLayout.Utils.Padding(8, 8, 8, 8);
-            this.layoutTitle.Size = new System.Drawing.Size(257, 73);
+            this.layoutTitle.Size = new System.Drawing.Size(257, 179);
             this.layoutTitle.Text = "Title";
             this.layoutTitle.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutTitle.TextSize = new System.Drawing.Size(0, 0);
@@ -460,7 +487,7 @@
             // layoutTongCong
             // 
             this.layoutTongCong.Control = this.txtTotalPrice;
-            this.layoutTongCong.Location = new System.Drawing.Point(0, 185);
+            this.layoutTongCong.Location = new System.Drawing.Point(0, 347);
             this.layoutTongCong.Name = "layoutTongCong";
             this.layoutTongCong.Padding = new DevExpress.XtraLayout.Utils.Padding(8, 8, 8, 8);
             this.layoutTongCong.Size = new System.Drawing.Size(257, 60);
@@ -473,7 +500,7 @@
             this.layoutTongCong1.Control = this.txtTheaterName;
             this.layoutTongCong1.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutTongCong1.CustomizationFormText = "Tổng cộng:";
-            this.layoutTongCong1.Location = new System.Drawing.Point(0, 73);
+            this.layoutTongCong1.Location = new System.Drawing.Point(0, 179);
             this.layoutTongCong1.Name = "layoutTongCong1";
             this.layoutTongCong1.Padding = new DevExpress.XtraLayout.Utils.Padding(8, 8, 8, 8);
             this.layoutTongCong1.Size = new System.Drawing.Size(257, 56);
@@ -486,7 +513,7 @@
             this.layoutTongCong2.Control = this.txtQuantity;
             this.layoutTongCong2.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutTongCong2.CustomizationFormText = "Tổng cộng:";
-            this.layoutTongCong2.Location = new System.Drawing.Point(0, 129);
+            this.layoutTongCong2.Location = new System.Drawing.Point(0, 235);
             this.layoutTongCong2.Name = "layoutTongCong2";
             this.layoutTongCong2.Padding = new DevExpress.XtraLayout.Utils.Padding(8, 8, 8, 8);
             this.layoutTongCong2.Size = new System.Drawing.Size(257, 56);
@@ -519,6 +546,19 @@
             this.layoutControlItem6.Text = "layoutControlItem1";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
+            // 
+            // layoutCBO
+            // 
+            this.layoutCBO.Control = this.txtQuantity1;
+            this.layoutCBO.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.layoutCBO.CustomizationFormText = "cbo";
+            this.layoutCBO.Location = new System.Drawing.Point(0, 291);
+            this.layoutCBO.Name = "layoutCBO";
+            this.layoutCBO.Padding = new DevExpress.XtraLayout.Utils.Padding(8, 8, 8, 8);
+            this.layoutCBO.Size = new System.Drawing.Size(257, 56);
+            this.layoutCBO.Text = "cbo";
+            this.layoutCBO.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutCBO.TextSize = new System.Drawing.Size(83, 13);
             // 
             // layoutControlItem2
             // 
@@ -567,6 +607,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalPrice.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTheaterName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQuantity.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtQuantity1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupChonGhe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
@@ -580,9 +621,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutTongCong2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutCBO)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -610,7 +651,6 @@
         private DevExpress.XtraEditors.GroupControl grpSeats;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
-        private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
         private DevExpress.XtraBars.BarButtonItem btnThemSanPham;
         private DevExpress.XtraBars.BarButtonItem btnHuy;
         private DevExpress.XtraLayout.LayoutControlGroup groupChonGhe;
@@ -630,5 +670,7 @@
         private DevExpress.XtraEditors.SimpleButton btnHuyChonPhim;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
+        private DevExpress.XtraEditors.LookUpEdit txtQuantity1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutCBO;
     }
 }
