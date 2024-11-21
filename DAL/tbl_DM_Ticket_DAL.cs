@@ -31,7 +31,7 @@ namespace DAL
                                  select tk;
                     foreach (var item in result)
                     {
-                        list.Add(new tbl_DM_Ticket_DTO(item.TK_AutoID, item.TK_SEATNAME, item.TK_MOVIESCHEDULE_AutoID, item.TK_BILL_AutoID, item.TK_STAFF_AutoID, (int)item.DELETED));
+                        list.Add(new tbl_DM_Ticket_DTO(item.TK_AutoID, item.TK_SEATNAME, item.TK_MOVIESCHEDULE_AutoID, item.TK_BILL_AutoID, item.TK_STAFF_AutoID, (int)item.DELETED, (DateTime)item.CREATED));
                     }
                     return list;
                 }
@@ -53,7 +53,7 @@ namespace DAL
                                  select tk;
                     foreach (var item in result)
                     {
-                        list.Add(new tbl_DM_Ticket_DTO(item.TK_AutoID, item.TK_SEATNAME, item.TK_MOVIESCHEDULE_AutoID, item.TK_BILL_AutoID, item.TK_STAFF_AutoID, (int)item.DELETED));
+                        list.Add(new tbl_DM_Ticket_DTO(item.TK_AutoID, item.TK_SEATNAME, item.TK_MOVIESCHEDULE_AutoID, item.TK_BILL_AutoID, item.TK_STAFF_AutoID, (int)item.DELETED, (DateTime)item.CREATED));
                     }
                     return list;
                 }
@@ -97,7 +97,7 @@ namespace DAL
                                  select tk;
                     foreach (var item in result)
                     {
-                        list.Add(new tbl_DM_Ticket_DTO(item.TK_AutoID, item.TK_SEATNAME, item.TK_MOVIESCHEDULE_AutoID, item.TK_BILL_AutoID, item.TK_STAFF_AutoID, (int)item.DELETED));
+                        list.Add(new tbl_DM_Ticket_DTO(item.TK_AutoID, item.TK_SEATNAME, item.TK_MOVIESCHEDULE_AutoID, item.TK_BILL_AutoID, item.TK_STAFF_AutoID, (int)item.DELETED, (DateTime)item.CREATED));
                     }
                     return list;
                 }
@@ -123,7 +123,7 @@ namespace DAL
                     tbl_DM_Ticket foundTicket = db.tbl_DM_Tickets.SingleOrDefault(item => item.TK_AutoID == ticketID);
                     if (foundTicket != null)
                     {
-                        tbl_DM_Ticket_DTO result = new tbl_DM_Ticket_DTO(foundTicket.TK_AutoID, foundTicket.TK_SEATNAME, foundTicket.TK_MOVIESCHEDULE_AutoID, foundTicket.TK_BILL_AutoID, foundTicket.TK_STAFF_AutoID, (int)foundTicket.DELETED);
+                        tbl_DM_Ticket_DTO result = new tbl_DM_Ticket_DTO(foundTicket.TK_AutoID, foundTicket.TK_SEATNAME, foundTicket.TK_MOVIESCHEDULE_AutoID, foundTicket.TK_BILL_AutoID, foundTicket.TK_STAFF_AutoID, (int)foundTicket.DELETED, (DateTime)foundTicket.CREATED);
                         return result;
                     }
                     else
@@ -163,6 +163,38 @@ namespace DAL
                 throw;
             }
 
+        }
+        public List<TicketItem_DTO> GetTicket_ForShow(int deleted)
+        {
+            try
+            {
+                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString))
+                {
+                    List<TicketItem_DTO> list = new List<TicketItem_DTO>();
+                    var result = from tk in db.tbl_DM_Tickets
+                                 join ms in db.tbl_DM_MovieSchedules on tk.TK_MOVIESCHEDULE_AutoID equals ms.MS_AutoID
+                                 join mv in db.tbl_DM_Movies on ms.MS_MOVIE_AutoID equals mv.MV_AutoID
+                                 join tt in db.tbl_DM_Theaters on ms.MS_THEATER_AutoID equals tt.TT_AutoID
+                                 where tk.DELETED == deleted
+                                 select new
+                                 {
+                                     AutoID = tk.TK_AutoID,
+                                     MovieName = mv.MV_NAME,
+                                     TheaterName = tt.TT_NAME,
+                                     SeatName = tk.TK_SEATNAME,
+                                     Price = mv.MV_PRICE,
+                                 };
+                    foreach (var item in result)
+                    {
+                        list.Add(new TicketItem_DTO(item.AutoID,item.MovieName,item.SeatName,item.TheaterName,item.Price));
+                    }
+                    return list;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

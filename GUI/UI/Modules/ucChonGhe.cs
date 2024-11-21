@@ -53,7 +53,11 @@ namespace GUI.UI.Modules
             tbl_DM_MovieSchedule_DTO foundSchedule = movieScheBus.GetLastMovieSchedule_ByID(CCommon.suatChieuDuocChon);
             string movieName = movieBus.Find(foundSchedule.Movie_AutoID).MV_NAME.Trim();
             lblTitle.Text = "Phim được chọn: " + movieName + " | " + foundSchedule.StartDate.ToString("HH:mm");
-            PrintSeats();
+
+            if (this.Parent is FluentDesignFormContainer v_objMain_Container)
+            {
+                v_objMain_Container.SizeChanged += (sender, e) => PrintSeats();
+            }
         }
 
         private void ucChonGhe_Load(object sender, System.EventArgs e)
@@ -69,6 +73,8 @@ namespace GUI.UI.Modules
 
         public void PrintSeats()
         {
+            grpSeats.Controls.Clear();
+
             //
             // Lấy kích thước group
             //
@@ -285,7 +291,7 @@ namespace GUI.UI.Modules
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            
+
             string text = "";
             foreach (string item in chosenSeatNames)
             {
@@ -337,7 +343,7 @@ namespace GUI.UI.Modules
                 MessageBox.Show(LanguageController.GetLanguageDataLabel(ex.Message), LanguageController.GetLanguageDataLabel("Lỗi"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-        } 
+        }
 
         private void btnLamMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {

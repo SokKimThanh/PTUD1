@@ -12,6 +12,15 @@ namespace GUI.UI.ReportDesign
         {
             InitializeComponent();
         }
-
+        public void BindParameter(string parameter)
+        {
+            try
+            {
+                prmTicketID.Value = parameter;
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

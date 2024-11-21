@@ -12,6 +12,9 @@ namespace GUI.UI.Modules
         public ucPhongChieu()
         {
             InitializeComponent();
+            gvTheaters.OptionsView.ShowGroupPanel = false;
+            gvTheaters.OptionsFind.AlwaysVisible = true;
+            ActionBar.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Top;
         }
 
         /// <summary>

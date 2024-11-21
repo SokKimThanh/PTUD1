@@ -1,9 +1,11 @@
 ﻿using BUS.Danh_Muc;
 using DevExpress.ClipboardSource.SpreadsheetML;
+using DevExpress.Office.Drawing;
 using DevExpress.XtraEditors;
 using DevExpress.XtraReports.UI;
 using DTO;
 using DTO.tbl_DTO;
+using GUI.UI.ReportDesign;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,13 +33,18 @@ namespace GUI.UI.Modules
         {
             InitializeComponent();
             lblTitle.Text = "VÉ";
+            Dictionary<int, string> status = new Dictionary<int, string>();
+            status.Add(0, "Đang sử dụng");
+            status.Add(1, "Đã xóa");
+            cboStatusTicket.Properties.DataSource = status;
+            cboStatusTicket.EditValue = 0;
         }
 
         public void LoadData()
         {
             try
             {
-                dgvTickets.DataSource = ticketBus.GetList();
+                dgvTickets.DataSource = ticketBus.GetTicket_ForShow((int)cboStatusTicket.EditValue);
             }
             catch (Exception ex)
             {
@@ -66,7 +73,7 @@ namespace GUI.UI.Modules
                 {
                     try
                     {
-                        selectedTicketID = (long)gvTickets.GetRowCellValue(i, "AutoID");
+                        selectedTicketID = (long)gvTickets.GetRowCellValue(i, "ID");
                         // Lấy các dữ liệu từ các bảng khác
                         tbl_DM_Ticket_DTO o = ticketBus.GetTicket_ByID(selectedTicketID);
                         tbl_DM_MovieSchedule_DTO foundSchedule = movieScheBus.GetLastMovieSchedule_ByID(o.MovieScheID);
@@ -75,6 +82,8 @@ namespace GUI.UI.Modules
                         tbl_DM_Staff_DTO foundStaff = staffBus.GetStaff_ByID((int)o.StaffID);
 
                         // Gán thông tin lên các trường dữ liệu
+                        txtTicketID.Text = selectedTicketID.ToString().Trim();
+                        txtCreateDate.Text = o.Created.ToString("dd/MM/yyyy HH:mm:ss");
                         txtMovieName.Text = foundMovie.MV_NAME.Trim();
                         cboStatusTicket.Text = foundMovie.MV_PRICE.ToString().Trim();
                         txtMovieScheduleDate.Text = foundSchedule.StartDate.ToString("dd/MM/yyyy HH:mm");
@@ -124,11 +133,27 @@ namespace GUI.UI.Modules
 
         private void btnIn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có muốn in vé 'txtTicketID.Text'?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            if (selectedTicketID != -1)
             {
+                DialogResult result = MessageBox.Show("Bạn có muốn in vé "+txtTicketID.Text+" ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    // Tạo vé
+                    RP_PrintTicket report = new RP_PrintTicket();
+                    report.BindParameter(selectedTicketID.ToString());
+                    report.CreateDocument();
 
+                    // In vé không cần review
+                    ReportPrintTool tool = new ReportPrintTool(report);
+                    tool.Print();
+                    MessageBox.Show("Đã in thành công", "Thông báo");
+                }
             }
+        }
+
+        private void cboStatusTicket_EditValueChanged(object sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }
