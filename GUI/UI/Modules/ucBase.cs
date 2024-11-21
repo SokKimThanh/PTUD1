@@ -360,7 +360,9 @@ namespace GUI.UI.Modules
             objGrid.OptionsBehavior.AutoExpandAllGroups = true;
             objGrid.ScrollStyle = ScrollStyleFlags.LiveHorzScroll;
             objGrid.OptionsView.ShowIndicator = false;
-
+            objGrid.OptionsCustomization.AllowGroup = false; // Tắt grouping
+            objGrid.OptionsView.ShowGroupPanel = false;      // Ẩn Group Panel
+            objGrid.OptionsFind.AlwaysVisible = true;        // Giữ thanh tìm kiếm
             objGrid.OptionsBehavior.Editable = false;
 
             //Tính toán lại lưới khi thay đổi size
