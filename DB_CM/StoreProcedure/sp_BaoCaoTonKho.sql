@@ -112,21 +112,25 @@ go
 CREATE PROCEDURE sp_TonKhoTongQuan
     @StartDate DATETIME,                  -- Ngày bắt đầu
     @EndDate DATETIME,                    -- Ngày kết thúc
-    @SalesPerformanceThreshold INT = 50   -- Ngưỡng phần trăm hiệu suất bán hàng (mặc định 50%)
+    @SalesPerformanceThreshold INT = 50,  -- Ngưỡng phần trăm hiệu suất bán hàng (mặc định 50%)
+    @MinStockThreshold INT = 50           -- Lượng tồn kho tối thiểu (mặc định 50 sản phẩm)
 AS
 BEGIN
     SET NOCOUNT ON;
 
-    -- Truy vấn lấy dữ liệu báo cáo
+    -- Truy vấn chính
     SELECT 
-        PD.PD_AutoID AS ProductID,
-        PD.PD_NAME AS ProductName,
+        PD.PD_AutoID AS ProductID,                                 -- Mã sản phẩm
+        PD.PD_NAME AS ProductName,                                 -- Tên sản phẩm
 
-        -- Tính tổng số lượng nhập
+        -- Tổng số lượng nhập
         ISNULL(SUM(EX.EX_QUANTITY), 0) AS TotalReceived,
 
-        -- Tính tổng số lượng bán
+        -- Tổng số lượng bán
         ISNULL(SUM(BD.BD_QUANTITY), 0) AS TotalSold,
+
+        -- Số lượng còn tồn kho
+        ISNULL(SUM(EX.EX_QUANTITY), 0) - ISNULL(SUM(BD.BD_QUANTITY), 0) AS RemainingStock,
 
         -- Tính hiệu suất bán hàng (%)
         CASE 
@@ -140,13 +144,34 @@ BEGIN
             WHEN (ISNULL(SUM(BD.BD_QUANTITY), 0) * 100.0 / ISNULL(SUM(EX.EX_QUANTITY), 0)) < @SalesPerformanceThreshold THEN N'Bán chậm'
             WHEN (ISNULL(SUM(BD.BD_QUANTITY), 0) * 100.0 / ISNULL(SUM(EX.EX_QUANTITY), 0)) BETWEEN @SalesPerformanceThreshold AND (@SalesPerformanceThreshold + 20) THEN N'Hiệu suất ổn định'
             ELSE N'Mặt hàng hot'
-        END AS SalesPerformanceCategory
+        END AS SalesPerformanceCategory,
+
+        -- Trạng thái tồn kho
+        CASE
+            WHEN (ISNULL(SUM(EX.EX_QUANTITY), 0) - ISNULL(SUM(BD.BD_QUANTITY), 0)) < @MinStockThreshold THEN N'Cần nhập hàng'
+            ELSE N'Tồn kho đủ'
+        END AS StockStatus,
+
+        -- Tổng chi phí nhập hàng
+        ISNULL(SUM(EX.EX_PRICE), 0) AS TotalImportCost,
+
+        -- Tổng doanh thu từ sản phẩm
+        ISNULL(SUM(BD.BD_QUANTITY * P.PD_PRICE), 0) AS TotalRevenue,
+
+        -- Lợi nhuận từ sản phẩm
+        CASE 
+            WHEN ISNULL(SUM(EX.EX_PRICE), 0) > 0 THEN 
+                ISNULL(SUM(BD.BD_QUANTITY * P.PD_PRICE), 0) - ISNULL(SUM(EX.EX_PRICE), 0)
+            ELSE ISNULL(SUM(BD.BD_QUANTITY * P.PD_PRICE), 0)
+        END AS Profit
 
     FROM tbl_DM_Product PD
     LEFT JOIN tbl_SYS_Expense EX ON EX.EX_EXTYPE_AutoID = PD.PD_AutoID AND EX.CREATED BETWEEN @StartDate AND @EndDate
     LEFT JOIN tbl_DM_BillDetail BD ON BD.BD_PRODUCT_AutoID = PD.PD_AutoID AND BD.CREATED BETWEEN @StartDate AND @EndDate
+    LEFT JOIN tbl_DM_Product P ON BD.BD_PRODUCT_AutoID = P.PD_AutoID
     WHERE PD.DELETED = 0
     GROUP BY PD.PD_AutoID, PD.PD_NAME
     ORDER BY PD.PD_NAME ASC;
 END;
 GO
+

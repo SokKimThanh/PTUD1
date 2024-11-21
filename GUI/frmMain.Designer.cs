@@ -52,11 +52,11 @@
             this.accBaoCaoThuChi = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accBaoCaoTonKho = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aceHeThong = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accCaiDat = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accDangXuat = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accThoat = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.fluentFormDefaultManager1 = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
-            this.accCaiDat = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.arrFunction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).BeginInit();
@@ -65,10 +65,10 @@
             // mainContainer
             // 
             this.mainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainContainer.Location = new System.Drawing.Point(260, 31);
+            this.mainContainer.Location = new System.Drawing.Point(48, 31);
             this.mainContainer.Margin = new System.Windows.Forms.Padding(4);
             this.mainContainer.Name = "mainContainer";
-            this.mainContainer.Size = new System.Drawing.Size(700, 608);
+            this.mainContainer.Size = new System.Drawing.Size(912, 608);
             this.mainContainer.TabIndex = 0;
             // 
             // arrFunction
@@ -81,8 +81,11 @@
             this.arrFunction.Location = new System.Drawing.Point(0, 31);
             this.arrFunction.Margin = new System.Windows.Forms.Padding(4);
             this.arrFunction.Name = "arrFunction";
-            this.arrFunction.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
-            this.arrFunction.Size = new System.Drawing.Size(260, 608);
+            this.arrFunction.OptionsMinimizing.AllowMinimizeMode = DevExpress.Utils.DefaultBoolean.True;
+            this.arrFunction.OptionsMinimizing.State = DevExpress.XtraBars.Navigation.AccordionControlState.Minimized;
+            this.arrFunction.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Fluent;
+            this.arrFunction.ShowFilterControl = DevExpress.XtraBars.Navigation.ShowFilterControl.Always;
+            this.arrFunction.Size = new System.Drawing.Size(48, 608);
             this.arrFunction.TabIndex = 1;
             this.arrFunction.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -259,6 +262,13 @@
             this.aceHeThong.Name = "aceHeThong";
             this.aceHeThong.Text = "Hệ thống";
             // 
+            // accCaiDat
+            // 
+            this.accCaiDat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accCaiDat.ImageOptions.Image")));
+            this.accCaiDat.Name = "accCaiDat";
+            this.accCaiDat.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accCaiDat.Text = "Cài đặt";
+            // 
             // accDangXuat
             // 
             this.accDangXuat.ImageOptions.Image = global::GUI.Properties.Resources.reset_16x161;
@@ -289,13 +299,6 @@
             // fluentFormDefaultManager1
             // 
             this.fluentFormDefaultManager1.Form = this;
-            // 
-            // accCaiDat
-            // 
-            this.accCaiDat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accCaiDat.ImageOptions.Image")));
-            this.accCaiDat.Name = "accCaiDat";
-            this.accCaiDat.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accCaiDat.Text = "Cài đặt";
             // 
             // frmMain
             // 

@@ -10,14 +10,14 @@ namespace BUS.Bao_Cao
 {
     public class tbl_Report_BUS
     {
-        private tbl_Report_Sales_DAL data = new tbl_Report_Sales_DAL();
-        private tbl_Report_Expense_DAL ex = new tbl_Report_Expense_DAL();
+        private tbl_Report_Sales_DAL sales_DAL = new tbl_Report_Sales_DAL();
+        private tbl_Report_Expense_DAL expense_DAL = new tbl_Report_Expense_DAL();
         private tbl_Report_Inventory_DAL inventory_DAL = new tbl_Report_Inventory_DAL();
 
         // Hàm báo cáo doanh thu
         public List<tbl_Report_Sales_DTO> GetAllSalesReport(DateTime ngayBatDau, DateTime ngayKetThuc)
         {
-            return data.GetSalesReport(ngayBatDau, ngayKetThuc);
+            return sales_DAL.GetSalesReport(ngayBatDau, ngayKetThuc);
         }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace BUS.Bao_Cao
         /// <returns></returns>
         public object GetDetailSaleReport(DateTime startDate, DateTime endDate)
         {
-            return data.GetDetailSaleReport(startDate, endDate);
+            return sales_DAL.GetDetailSaleReport(startDate, endDate);
         }
 
         /// <summary>
@@ -39,23 +39,35 @@ namespace BUS.Bao_Cao
         /// <returns></returns>
         public List<tbl_Report_Expense_DTO> GetExpenseReport(DateTime startDate, DateTime endDate)
         {
-            return ex.GetExpenseReport(startDate, endDate);
+            return expense_DAL.GetExpenseReport(startDate, endDate);
         }
-        // hàm báo cáo tồn kho
-        public List<tbl_Report_Inventory_DTO> GetInventoryReport()
+        /// <summary>
+        /// hàm báo cáo tồn kho
+        /// </summary>
+        /// <param name="startDate"></param>
+        /// <param name="endDate"></param>
+        /// <returns></returns>
+        public List<tbl_Report_Inventory_DTO> GetInventoryReport(DateTime startDate, DateTime endDate)
         {
-            return inventory_DAL.GetInventoryReport();
+            return inventory_DAL.GetInventoryReport(startDate, endDate);
         }
-        public List<tbl_Report_Inventory_DTO> GetInventoryReportByStatusAndDate(int stockStatus,         // 1 = Cạn kiệt, 2 = Có sẵn, 3 = Quá tải
-            int salesPerformance,    // 1 = Bán chậm, 2 = Ổn định, 3 = Cháy hàng
-            DateTime startDate,
-            DateTime endDate)
+        /// <summary>
+        /// Báo cáo tồn kho chi tiết
+        /// </summary>
+        /// <param name="startDate"></param>
+        /// <param name="endDate"></param>
+        /// <param name="salesPerformanceThreshold"></param>
+        /// <param name="minStockThreshold"></param>
+        /// <param name="desiredProfitMargin"></param>
+        /// <returns></returns>
+        public List<tbl_Report_Inventory_DTO> GetInventoryReportByStatusAndDate(
+              DateTime startDate,
+              DateTime endDate, int salesPerformanceThreshold = 50,         // hiệu suất bán hàng
+              int minStockThreshold = 50,    // ngưỡng tồn kho
+              double desiredProfitMargin = 0.2 // lợi nhuận mong muốn
+            )
         {
-            return inventory_DAL.GetInventoryReportByStatusAndDate(
-                stockStatus,         // 1 = Cạn kiệt, 2 = Có sẵn, 3 = Quá tải
-              salesPerformance,    // 1 = Bán chậm, 2 = Ổn định, 3 = Cháy hàng
-              startDate,
-              endDate);
+            return inventory_DAL.GetInventoryReportByStatusAndDate(startDate, endDate, salesPerformanceThreshold, minStockThreshold, desiredProfitMargin);
         }
     }
 }

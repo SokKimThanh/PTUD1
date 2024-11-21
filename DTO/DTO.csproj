@@ -67,6 +67,7 @@
     <Compile Include="tbl_DTO\tbl_DM_Product_DTO.cs" />
     <Compile Include="tbl_DTO\TicketItem_DTO.cs" />
     <Compile Include="Utility\CUtility.cs" />
+    <Compile Include="Utility\DateUtils.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

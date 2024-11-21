@@ -8,16 +8,19 @@ using System.Runtime.InteropServices.ComTypes;
 using DevExpress.XtraEditors;
 using System.Collections.Generic;
 using GUI.UI.Component;
-
+using DTO.Utility;
 namespace GUI.UI.Modules
 {
     public partial class ucBaoCaoTonKho : ucBase
     {
         private tbl_Report_BUS data = new tbl_Report_BUS();
-        private int stock_status_selectedID;        // 1 = Cạn kiệt, 2 = Có sẵn, 3 = Quá tải
-        private int sales_performance_selectedID;   // 1 = Bán chậm, 2 = Ổn định, 3 = Cháy hàng
-        private DateTime startDate;
-        private DateTime endDate;
+        //private int stock_status_selectedID;        // 1 = Cạn kiệt, 2 = Có sẵn, 3 = Quá tải
+        //private int sales_performance_selectedID;   // 1 = Bán chậm, 2 = Ổn định, 3 = Cháy hàng
+        private DateTime startDate = new DateTime();
+        private DateTime endDate = new DateTime();
+
+        // Đặt khoảng thời gian cho năm hiện tại
+        int year = DateTime.Now.Year;
 
 
         public ucBaoCaoTonKho()
@@ -25,6 +28,9 @@ namespace GUI.UI.Modules
             InitializeComponent();
             // Ngăn không cho phép sửa dữ liệu trực tiếp trên GridView
             gridView1.OptionsBehavior.Editable = false;
+
+            DateTime.TryParse($"{year}/01/01", out startDate);
+            DateTime.TryParse($"{year}/12/31", out endDate);
         }
 
         protected override void Load_Data()
@@ -38,39 +44,57 @@ namespace GUI.UI.Modules
         /// </summary>
         private void ConfigureGridColumns()
         {
+            // Ghi tiếng việt cho các cột
             gridView1.Columns["ProductID"].Visible = false;
             gridView1.Columns["ProductName"].Caption = "Tên Sản phẩm";
-            gridView1.Columns["CurrentStock"].Caption = "Tồn kho";
-            gridView1.Columns["SoldQuantity"].Caption = "Đã bán";
-            gridView1.Columns["UnitPrice"].Caption = "Đơn giá";
-            gridView1.Columns["TotalInventoryValue"].Caption = "Tổng giá trị kho";
-            gridView1.Columns["SalesPerformance"].Caption = "Hiệu suất bán hàng";
-            gridView1.Columns["StockStatus"].Caption = "Tình trạng kho";
-            gridView1.Columns["RecommendedAction"].Caption = "Gợi ý hành động";
+            gridView1.Columns["ReceivedQuantity"].Caption = "SL Nhập";
+            gridView1.Columns["RemainingStock"].Caption = "Số lượng còn tồn kho";
+            gridView1.Columns["SoldQuantity"].Caption = "SL bán";
+            gridView1.Columns["SalesPerformancePercentage"].Caption = "Tính hiệu suất bán hàng (%)";
+            gridView1.Columns["SalesPerformanceCategory"].Caption = "Phân loại hiệu suất bán hàng";
+            gridView1.Columns["StockStatus"].Caption = "Trạng thái tồn kho";
+            gridView1.Columns["TotalImportCost"].Caption = "Tổng chi phí nhập hàng";
+            gridView1.Columns["TotalRevenue"].Caption = "Tổng doanh thu từ sản phẩm";
+            gridView1.Columns["TotalReceived"].Caption = "Tổng số lượng nhập";
+            gridView1.Columns["TotalSold"].Caption = "Tổng số lượng bán";
+            gridView1.Columns["Profit"].Caption = "Lợi nhuận từ sản phẩm";
+
+            if (rptViewReport.SelectedIndex == 0)
+            {
+                gridView1.Columns["SalesPerformancePercentage"].Visible = false;
+                gridView1.Columns["SalesPerformanceCategory"].Visible = false;
+                gridView1.Columns["StockStatus"].Visible = false;
+                gridView1.Columns["TotalImportCost"].Visible = false;
+                gridView1.Columns["TotalRevenue"].Visible = false;
+                gridView1.Columns["TotalReceived"].Visible = false;
+                gridView1.Columns["TotalSold"].Visible = false;
+                gridView1.Columns["Profit"].Visible = false;
+            }
+            else
+            {
+                gridView1.Columns["ReceivedQuantity"].Visible = false;
+                gridView1.Columns["SoldQuantity"].Visible = false;
+            }
 
             // Định dạng cột Tổng doanh thu
-            gridView1.Columns["UnitPrice"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            gridView1.Columns["UnitPrice"].DisplayFormat.FormatString = "c0"; // Định dạng tiền tệ
-            gridView1.Columns["TotalInventoryValue"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            gridView1.Columns["TotalInventoryValue"].DisplayFormat.FormatString = "c0"; // Định dạng tiền tệ
-        }
+            gridView1.Columns["TotalImportCost"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gridView1.Columns["TotalImportCost"].DisplayFormat.FormatString = "c0"; // Định dạng tiền tệ
 
-        private void txtStockStatus_EditValueChanged(object sender, EventArgs e)
-        {
-            if (txtStockStatus.EditValue != null && txtStockStatus.SelectedItem is ComboBoxItem selectedItem)
-            {
-                stock_status_selectedID = selectedItem.Id;
-            }
-        }
+            gridView1.Columns["SalesPerformancePercentage"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gridView1.Columns["SalesPerformancePercentage"].DisplayFormat.FormatString = "n0"; // Định dạng tiền tệ
 
-        private void txtSalesPerformance_EditValueChanged(object sender, EventArgs e)
-        {
-            if (txtSalesPerformance.EditValue != null && txtSalesPerformance.SelectedItem is ComboBoxItem selectedItem)
-            {
-                sales_performance_selectedID = selectedItem.Id;
-            }
-        }
+            gridView1.Columns["ReceivedQuantity"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gridView1.Columns["ReceivedQuantity"].DisplayFormat.FormatString = "N0"; // Định dạng tiền tệ
 
+            gridView1.Columns["Profit"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gridView1.Columns["Profit"].DisplayFormat.FormatString = "c0"; // Định dạng tiền tệ
+
+            gridView1.Columns["TotalImportCost"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gridView1.Columns["TotalImportCost"].DisplayFormat.FormatString = "c0"; // Định dạng tiền tệ
+
+            gridView1.Columns["TotalRevenue"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gridView1.Columns["TotalRevenue"].DisplayFormat.FormatString = "c0"; // Định dạng tiền tệ
+        }
         private void txtStartDate_EditValueChanged(object sender, EventArgs e)
         {
             startDate = txtStartDate.DateTime;
@@ -95,16 +119,14 @@ namespace GUI.UI.Modules
 
             if (rptViewReport.SelectedIndex == 0)
             {
-                txtSalesPerformance.Enabled = false;
-                txtStockStatus.Enabled = false;
+
                 txtStartDate.Enabled = false;
                 txtEndDate.Enabled = false;
-                dgv.DataSource = data.GetInventoryReport();
+                dgv.DataSource = data.GetInventoryReport(startDate, endDate);
             }
             else
             {
-                txtSalesPerformance.Enabled = true;
-                txtStockStatus.Enabled = true;
+
                 txtStartDate.Enabled = true;
                 txtEndDate.Enabled = true;
                 if (!DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) &&
@@ -113,7 +135,7 @@ namespace GUI.UI.Modules
                     MessageBox.Show("Vui lòng nhập đúng định dạng ngày!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                dgv.DataSource = data.GetInventoryReportByStatusAndDate(stock_status_selectedID, sales_performance_selectedID, startDate, endDate);
+                dgv.DataSource = data.GetInventoryReportByStatusAndDate(startDate, endDate);
             }
             ConfigureGridColumns();
 
@@ -140,22 +162,26 @@ namespace GUI.UI.Modules
         }
         public void executeReport()
         {
+            if (!DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) && !DateTime.TryParse(txtEndDate.Text.Trim(), out endDate))
+            {
+                MessageBox.Show("Vui lòng nhập đúng định dạng ngày!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-            gridView1.Columns.Clear(); // Xóa cột cũ trước khi gán dữ liệu mới 
+            DateTime.TryParse(txtStartDate.Text.Trim(), out startDate);
+            DateTime.TryParse(txtEndDate.Text.Trim(), out endDate);
+
+            gridView1.Columns.Clear(); // Xóa cột cũ trước khi gán dữ liệu mới
 
             if (rptViewReport.SelectedIndex == 0)
             {
-                dgv.DataSource = data.GetInventoryReport();
+
+                dgv.DataSource = data.GetInventoryReport(startDate, endDate);
             }
             else
             {
-                if (!DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) &&
-                !DateTime.TryParse(txtEndDate.Text.Trim(), out endDate))
-                {
-                    MessageBox.Show("Vui lòng nhập đúng định dạng ngày!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                dgv.DataSource = data.GetInventoryReportByStatusAndDate(stock_status_selectedID, sales_performance_selectedID, startDate, endDate);
+
+                dgv.DataSource = data.GetInventoryReportByStatusAndDate(startDate, endDate);
             }
             // Định dạng cột theo tổng quan hoặc chi tiết
             ConfigureGridColumns();
@@ -167,55 +193,45 @@ namespace GUI.UI.Modules
 
         public void executeReportDefault()
         {
-            // Tạo danh sách với ID và Name
-            var SalesPerformanceListItem = new List<ComboBoxItem> {
-                new ComboBoxItem { Id = 1, Name = "Bán chậm" },
-                new ComboBoxItem { Id = 2, Name = "Ổn định" },
-                new ComboBoxItem { Id = 3, Name = "Cháy hàng" }
-            };
-            var StockStatusListItem = new List<ComboBoxItem> {
-                new ComboBoxItem { Id = 1, Name = "Cạn kiệt" },
-                new ComboBoxItem { Id = 2, Name = "Có sẵn" },
-                new ComboBoxItem { Id = 3, Name = "Quá tải" }
-            };
-
-            // Gán danh sách đối tượng vào ComboBoxEdit
-            txtSalesPerformance.Properties.Items.AddRange(SalesPerformanceListItem);
-            txtStockStatus.Properties.Items.AddRange(StockStatusListItem);
-
-            // Mặc định hiển thị báo cáo tổng quan
-            rptViewReport.SelectedIndex = 0;
-
-            // Đặt khoảng thời gian cho năm hiện tại
-            startDate = new DateTime(DateTime.Now.Year, 1, 1);
-            endDate = new DateTime(DateTime.Now.Year, 12, 31);
-
-            // Hiển thị năm hiện tại lên các điều khiển
-            txtStartDate.EditValue = startDate;
-            txtEndDate.EditValue = endDate;
-
-            gridView1.Columns.Clear(); // Xóa cột cũ trước khi gán dữ liệu mới
-
-            // Mặc định trạng thái của kho va san pham
-            txtSalesPerformance.SelectedIndex = 0;
-            txtStockStatus.SelectedIndex = 0;
-
-            sales_performance_selectedID = int.Parse(txtSalesPerformance.SelectedIndex.ToString());
-            stock_status_selectedID = int.Parse(txtStockStatus.SelectedIndex.ToString());
-
-            if (rptViewReport.SelectedIndex == 0)
+            try
             {
-                dgv.DataSource = data.GetInventoryReport();
+
+                // Mặc định hiển thị báo cáo tổng quan
+                rptViewReport.SelectedIndex = 0;
+
+
+
+
+
+                if (startDate < new DateTime(1753, 1, 1) || endDate > new DateTime(9999, 12, 31))
+                {
+                    MessageBox.Show("Ngày tháng phải nằm trong khoảng từ 1/1/1753 đến 12/31/9999!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                // Hiển thị năm hiện tại lên các điều khiển
+                txtStartDate.EditValue = startDate;
+                txtEndDate.EditValue = endDate;
+
+                gridView1.Columns.Clear(); // Xóa cột cũ trước khi gán dữ liệu mới 
+
+                if (rptViewReport.SelectedIndex == 0)
+                {
+                    dgv.DataSource = data.GetInventoryReport(startDate, endDate);
+                }
+                else
+                {
+                    dgv.DataSource = data.GetInventoryReportByStatusAndDate(startDate, endDate);
+                }
+
+                ConfigureGridColumns();
+
+                // Refresh lại DataGridView để hiển thị dữ liệu mới
+                dgv.Refresh();
             }
-            else
+            catch (Exception ex)
             {
-                dgv.DataSource = data.GetInventoryReportByStatusAndDate(stock_status_selectedID, sales_performance_selectedID, startDate, endDate);
+                MessageBox.Show("Lỗi: " + ex.Message, "Thông báo");
             }
-
-            ConfigureGridColumns();
-
-            // Refresh lại DataGridView để hiển thị dữ liệu mới
-            dgv.Refresh();
         }
 
         private void btnLamMoi_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
