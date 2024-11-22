@@ -14,8 +14,9 @@ namespace DTO.tbl_DTO
         private long? billID;
         private long staffID;
         private int deleted;
+        private DateTime created;
 
-        public tbl_DM_Ticket_DTO(long autoID, string seatName, long movieScheID, long? billID, long staffID, int deleted)
+        public tbl_DM_Ticket_DTO(long autoID, string seatName, long movieScheID, long? billID, long staffID, int deleted, DateTime created)
         {
             this.autoID = autoID;
             this.SeatName = seatName;
@@ -23,6 +24,7 @@ namespace DTO.tbl_DTO
             this.BillID = billID;
             this.StaffID = staffID;
             this.Deleted = deleted;
+            this.Created = created;
         }
 
         public tbl_DM_Ticket_DTO()
@@ -36,5 +38,6 @@ namespace DTO.tbl_DTO
         public long StaffID { get => staffID; set => staffID = value; }
         public int Deleted { get => deleted; set => deleted = value; }
         public long? BillID { get => billID; set => billID = value; }
+        public DateTime Created { get => created; set => created = value; }
     }
 }

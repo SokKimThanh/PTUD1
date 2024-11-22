@@ -50,6 +50,7 @@ namespace GUI.UI.Modules
         }
         private void LoadData()
         {
+            //btnTiepTuc.Enabled = false;
             // tai du lieu dgv
             dgvMovies.DataSource = moiveBus.GetAll();
             dgvMovies.RefreshDataSource();
@@ -149,6 +150,7 @@ namespace GUI.UI.Modules
             {
                 // Cập nhật lại danh sách các phim được chiếu trong ngày
                 dgvMovies.Refresh();
+                
                 dgvMovies.DataSource = moiveBus.GetMovies_ByScheduleDate((DateTime)dtpDate.EditValue);
 
                 // Hủy chọn suất chiếu trước đó do đổi ngày 
@@ -193,7 +195,9 @@ namespace GUI.UI.Modules
 
             // Chọn phim đầu tiên xuất hiện
             if (layoutView1.Columns.Count > 0)
+            {
                 layoutView1.SelectRow(1);
+            }
         }
 
         private void gridControl1_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
@@ -284,7 +288,6 @@ namespace GUI.UI.Modules
                 Console.WriteLine("Cột 'MV_NAME' không tồn tại trong LayoutView.");
             }
         }
-
 
         /// <summary>
         /// Thêm cột hình ảnh khi hiển thị card
