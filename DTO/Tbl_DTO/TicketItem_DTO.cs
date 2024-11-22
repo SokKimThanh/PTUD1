@@ -12,9 +12,9 @@ namespace DTO.tbl_DTO
         private string _MovieName;
         private string _SeatName;
         private string _TheaterName;
-        private int _Price;
+        private double _Price;
 
-        public TicketItem_DTO(long iD, string movieName, string seatName, string theaterName, int price)
+        public TicketItem_DTO(long iD, string movieName, string seatName, string theaterName, double price)
         {
             _ID = iD;
             MovieName = movieName;
@@ -27,6 +27,6 @@ namespace DTO.tbl_DTO
         public string MovieName { get => _MovieName; set => _MovieName = value; }
         public string SeatName { get => _SeatName; set => _SeatName = value; }
         public string TheaterName { get => _TheaterName; set => _TheaterName = value; }
-        public int Price { get => _Price; set => _Price = value; }
+        public double Price { get => _Price; set => _Price = value; }
     }
 }

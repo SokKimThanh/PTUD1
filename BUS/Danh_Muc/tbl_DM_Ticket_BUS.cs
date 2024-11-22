@@ -67,5 +67,15 @@ namespace BUS.Danh_Muc
                 throw;
             }
         }
+        public List<TicketItem_DTO> GetTicket_ForShow(int deleted)
+        {
+            try
+            {
+                return dal.GetTicket_ForShow(deleted);
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

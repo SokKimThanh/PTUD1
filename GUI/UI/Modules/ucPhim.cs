@@ -187,7 +187,7 @@ namespace GUI.UI.Modules
                             Image image = Image.FromFile(o.MV_POSTERURL);
                             pictureBox.Image = image;
                         }
-                        catch
+                        catch(Exception)
                         {
                             // Nếu file không tồn tại, sử dụng hình từ Resources
                             pictureBox.Image = Properties.Resources.picture_box_no_image;
