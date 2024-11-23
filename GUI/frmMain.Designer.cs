@@ -66,10 +66,10 @@
             // mainContainer
             // 
             this.mainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainContainer.Location = new System.Drawing.Point(250, 31);
+            this.mainContainer.Location = new System.Drawing.Point(48, 31);
             this.mainContainer.Margin = new System.Windows.Forms.Padding(4);
             this.mainContainer.Name = "mainContainer";
-            this.mainContainer.Size = new System.Drawing.Size(710, 608);
+            this.mainContainer.Size = new System.Drawing.Size(912, 608);
             this.mainContainer.TabIndex = 0;
             this.mainContainer.Click += new System.EventHandler(this.mainContainer_Click);
             // 
@@ -88,8 +88,9 @@
             this.arrFunction.Name = "arrFunction";
             this.arrFunction.OptionsHamburgerMenu.HighlightRootElements = DevExpress.Utils.DefaultBoolean.True;
             this.arrFunction.OptionsMinimizing.AllowMinimizeMode = DevExpress.Utils.DefaultBoolean.True;
+            this.arrFunction.OptionsMinimizing.State = DevExpress.XtraBars.Navigation.AccordionControlState.Minimized;
             this.arrFunction.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Fluent;
-            this.arrFunction.Size = new System.Drawing.Size(250, 608);
+            this.arrFunction.Size = new System.Drawing.Size(48, 608);
             this.arrFunction.TabIndex = 1;
             this.arrFunction.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
