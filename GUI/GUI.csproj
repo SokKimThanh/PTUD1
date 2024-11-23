@@ -971,6 +971,8 @@
     <Content Include="obj\Debug\gui.exe.licenses" />
     <Content Include="obj\Debug\GUI.pdb" />
     <Content Include="obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
+    <None Include="Resources\properties_32x32.png" />
+    <None Include="Resources\Logo32.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />

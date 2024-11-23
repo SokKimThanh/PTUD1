@@ -32,10 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.mainContainer = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
             this.arrFunction = new DevExpress.XtraBars.Navigation.AccordionControl();
-            this.aceDanhMuc = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.aceDatVe = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accDatVe = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accVe = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accQLHoaDon = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accVe = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.aceDanhMuc = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accQLPhim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accQLSanPham = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accQLPhongChieu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -66,7 +67,7 @@
             // 
             this.mainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainContainer.Location = new System.Drawing.Point(250, 31);
-            this.mainContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mainContainer.Margin = new System.Windows.Forms.Padding(4);
             this.mainContainer.Name = "mainContainer";
             this.mainContainer.Size = new System.Drawing.Size(710, 608);
             this.mainContainer.TabIndex = 0;
@@ -78,11 +79,12 @@
             this.arrFunction.Appearance.AccordionControl.Options.UseBackColor = true;
             this.arrFunction.Dock = System.Windows.Forms.DockStyle.Left;
             this.arrFunction.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.aceDatVe,
             this.aceDanhMuc,
             this.aceBaoCao,
             this.aceHeThong});
             this.arrFunction.Location = new System.Drawing.Point(0, 31);
-            this.arrFunction.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.arrFunction.Margin = new System.Windows.Forms.Padding(4);
             this.arrFunction.Name = "arrFunction";
             this.arrFunction.OptionsHamburgerMenu.HighlightRootElements = DevExpress.Utils.DefaultBoolean.True;
             this.arrFunction.OptionsMinimizing.AllowMinimizeMode = DevExpress.Utils.DefaultBoolean.True;
@@ -91,12 +93,43 @@
             this.arrFunction.TabIndex = 1;
             this.arrFunction.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
+            // aceDatVe
+            // 
+            this.aceDatVe.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.accDatVe,
+            this.accQLHoaDon,
+            this.accVe});
+            this.aceDatVe.Expanded = true;
+            this.aceDatVe.Hint = "Đặt vé xem phim";
+            this.aceDatVe.ImageOptions.Image = global::GUI.Properties.Resources.Logo32;
+            this.aceDatVe.Name = "aceDatVe";
+            this.aceDatVe.Text = "Đặt vé";
+            // 
+            // accDatVe
+            // 
+            this.accDatVe.ImageOptions.Image = global::GUI.Properties.Resources.iconsetredtoblack4_16x162;
+            this.accDatVe.Name = "accDatVe";
+            this.accDatVe.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accDatVe.Text = "Đặt vé";
+            // 
+            // accQLHoaDon
+            // 
+            this.accQLHoaDon.Hint = "Quản lý Hóa Đơn";
+            this.accQLHoaDon.ImageOptions.Image = global::GUI.Properties.Resources.tickets;
+            this.accQLHoaDon.Name = "accQLHoaDon";
+            this.accQLHoaDon.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accQLHoaDon.Text = "Hóa Đơn";
+            // 
+            // accVe
+            // 
+            this.accVe.ImageOptions.Image = global::GUI.Properties.Resources.tickets;
+            this.accVe.Name = "accVe";
+            this.accVe.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accVe.Text = "Vé";
+            // 
             // aceDanhMuc
             // 
             this.aceDanhMuc.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.accDatVe,
-            this.accVe,
-            this.accQLHoaDon,
             this.accQLPhim,
             this.accQLSanPham,
             this.accQLPhongChieu,
@@ -113,28 +146,6 @@
             this.aceDanhMuc.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("aceDanhMuc.ImageOptions.Image")));
             this.aceDanhMuc.Name = "aceDanhMuc";
             this.aceDanhMuc.Text = "Quản lý";
-            // 
-            // accDatVe
-            // 
-            this.accDatVe.ImageOptions.Image = global::GUI.Properties.Resources.iconsetredtoblack4_16x162;
-            this.accDatVe.Name = "accDatVe";
-            this.accDatVe.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accDatVe.Text = "Đặt vé";
-            // 
-            // accVe
-            // 
-            this.accVe.ImageOptions.Image = global::GUI.Properties.Resources.tickets;
-            this.accVe.Name = "accVe";
-            this.accVe.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accVe.Text = "Vé";
-            // 
-            // accQLHoaDon
-            // 
-            this.accQLHoaDon.Hint = "Quản lý Hóa Đơn";
-            this.accQLHoaDon.ImageOptions.Image = global::GUI.Properties.Resources.apply_16x16;
-            this.accQLHoaDon.Name = "accQLHoaDon";
-            this.accQLHoaDon.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accQLHoaDon.Text = "Hóa Đơn";
             // 
             // accQLPhim
             // 
@@ -261,9 +272,7 @@
             this.accCaiDat,
             this.accDangXuat,
             this.accThoat});
-            this.aceHeThong.Expanded = true;
-            this.aceHeThong.Hint = "Cài đặt và thoát";
-            this.aceHeThong.ImageOptions.Image = global::GUI.Properties.Resources.database_32x32;
+            this.aceHeThong.ImageOptions.Image = global::GUI.Properties.Resources.properties_32x32;
             this.aceHeThong.Name = "aceHeThong";
             this.aceHeThong.Text = "Hệ thống";
             // 
@@ -295,7 +304,7 @@
             this.fluentDesignFormControl1.FluentDesignForm = this;
             this.fluentDesignFormControl1.Location = new System.Drawing.Point(0, 0);
             this.fluentDesignFormControl1.Manager = this.fluentFormDefaultManager1;
-            this.fluentDesignFormControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fluentDesignFormControl1.Margin = new System.Windows.Forms.Padding(4);
             this.fluentDesignFormControl1.Name = "fluentDesignFormControl1";
             this.fluentDesignFormControl1.Size = new System.Drawing.Size(960, 31);
             this.fluentDesignFormControl1.TabIndex = 2;
@@ -316,7 +325,7 @@
             this.Controls.Add(this.fluentDesignFormControl1);
             this.FluentDesignFormControl = this.fluentDesignFormControl1;
             this.IconOptions.Image = global::GUI.Properties.Resources.Logo;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMain";
             this.NavigationControl = this.arrFunction;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -358,5 +367,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accChiPhi;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accLoaiChiPhi;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accCaiDat;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement aceDatVe;
     }
 }
