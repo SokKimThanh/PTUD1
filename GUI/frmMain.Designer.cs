@@ -74,7 +74,7 @@
             // 
             // arrFunction
             // 
-            this.arrFunction.Appearance.AccordionControl.BackColor = System.Drawing.Color.Navy;
+            this.arrFunction.Appearance.AccordionControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(100)))), ((int)(((byte)(145)))));
             this.arrFunction.Appearance.AccordionControl.Options.UseBackColor = true;
             this.arrFunction.Dock = System.Windows.Forms.DockStyle.Left;
             this.arrFunction.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
