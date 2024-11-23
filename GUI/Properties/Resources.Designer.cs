@@ -653,6 +653,16 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap database_32x321 {
+            get {
+                object obj = ResourceManager.GetObject("database_32x321", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap deletelist_16x16 {
             get {
                 object obj = ResourceManager.GetObject("deletelist_16x16", resourceCulture);
@@ -1103,6 +1113,26 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MenuCM_Project {
+            get {
+                object obj = ResourceManager.GetObject("MenuCM_Project", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MenuCM_ProjectSmall {
+            get {
+                object obj = ResourceManager.GetObject("MenuCM_ProjectSmall", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap newtablestyle_16x16 {
             get {
                 object obj = ResourceManager.GetObject("newtablestyle_16x16", resourceCulture);
@@ -1506,6 +1536,16 @@ namespace GUI.Properties {
         internal static System.Drawing.Bitmap tableproperties_16x16 {
             get {
                 object obj = ResourceManager.GetObject("tableproperties_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap technology_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("technology_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
