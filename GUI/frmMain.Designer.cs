@@ -109,6 +109,7 @@
             this.accChiPhi,
             this.accLoaiChiPhi});
             this.aceDanhMuc.Expanded = true;
+            this.aceDanhMuc.Hint = "Quản lý danh mục";
             this.aceDanhMuc.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("aceDanhMuc.ImageOptions.Image")));
             this.aceDanhMuc.Name = "aceDanhMuc";
             this.aceDanhMuc.Text = "Quản lý";
@@ -228,6 +229,7 @@
             this.accBaoCaoDoanhThu,
             this.accBaoCaoThuChi,
             this.accBaoCaoTonKho});
+            this.aceBaoCao.Hint = "Báo cáo số liệu";
             this.aceBaoCao.ImageOptions.Image = global::GUI.Properties.Resources.report2_32x32;
             this.aceBaoCao.Name = "aceBaoCao";
             this.aceBaoCao.Text = "Báo cáo";
@@ -260,6 +262,7 @@
             this.accDangXuat,
             this.accThoat});
             this.aceHeThong.Expanded = true;
+            this.aceHeThong.Hint = "Cài đặt và thoát";
             this.aceHeThong.ImageOptions.Image = global::GUI.Properties.Resources.database_32x32;
             this.aceHeThong.Name = "aceHeThong";
             this.aceHeThong.Text = "Hệ thống";
