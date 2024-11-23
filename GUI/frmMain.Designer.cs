@@ -35,9 +35,9 @@
             this.aceDatVe = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accDatVe = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accQLHoaDon = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accVe = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aceDanhMuc = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accQLPhim = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accVe = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accQLSanPham = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accQLPhongChieu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accQLSuatChieu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -97,8 +97,7 @@
             // 
             this.aceDatVe.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accDatVe,
-            this.accQLHoaDon,
-            this.accVe});
+            this.accQLHoaDon});
             this.aceDatVe.Expanded = true;
             this.aceDatVe.Hint = "Đặt vé xem phim";
             this.aceDatVe.ImageOptions.Image = global::GUI.Properties.Resources.Logo32;
@@ -107,7 +106,7 @@
             // 
             // accDatVe
             // 
-            this.accDatVe.ImageOptions.Image = global::GUI.Properties.Resources.iconsetredtoblack4_16x162;
+            this.accDatVe.ImageOptions.Image = global::GUI.Properties.Resources.coupon;
             this.accDatVe.Name = "accDatVe";
             this.accDatVe.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accDatVe.Text = "Đặt vé";
@@ -115,22 +114,16 @@
             // accQLHoaDon
             // 
             this.accQLHoaDon.Hint = "Quản lý Hóa Đơn";
-            this.accQLHoaDon.ImageOptions.Image = global::GUI.Properties.Resources.tickets;
+            this.accQLHoaDon.ImageOptions.Image = global::GUI.Properties.Resources.financial_16x161;
             this.accQLHoaDon.Name = "accQLHoaDon";
             this.accQLHoaDon.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accQLHoaDon.Text = "Hóa Đơn";
-            // 
-            // accVe
-            // 
-            this.accVe.ImageOptions.Image = global::GUI.Properties.Resources.tickets;
-            this.accVe.Name = "accVe";
-            this.accVe.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accVe.Text = "Vé";
             // 
             // aceDanhMuc
             // 
             this.aceDanhMuc.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accQLPhim,
+            this.accVe,
             this.accQLSanPham,
             this.accQLPhongChieu,
             this.accQLSuatChieu,
@@ -145,7 +138,7 @@
             this.aceDanhMuc.Hint = "Quản lý danh mục";
             this.aceDanhMuc.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("aceDanhMuc.ImageOptions.Image")));
             this.aceDanhMuc.Name = "aceDanhMuc";
-            this.aceDanhMuc.Text = "Quản lý";
+            this.aceDanhMuc.Text = "Quản lý danh mục";
             // 
             // accQLPhim
             // 
@@ -154,6 +147,13 @@
             this.accQLPhim.Name = "accQLPhim";
             this.accQLPhim.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accQLPhim.Text = "Phim";
+            // 
+            // accVe
+            // 
+            this.accVe.ImageOptions.Image = global::GUI.Properties.Resources.add_16x169;
+            this.accVe.Name = "accVe";
+            this.accVe.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accVe.Text = "Vé";
             // 
             // accQLSanPham
             // 

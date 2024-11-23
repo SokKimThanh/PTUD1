@@ -971,6 +971,13 @@
     <Content Include="obj\Debug\gui.exe.licenses" />
     <Content Include="obj\Debug\GUI.pdb" />
     <Content Include="obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
+    <None Include="Resources\coupon.png" />
+    <None Include="Resources\TicketDesignIcon16.png" />
+    <None Include="Resources\financial_16x161.png" />
+    <None Include="Resources\financial_32x32.png" />
+    <None Include="Resources\ticket512.png" />
+    <None Include="Resources\ticket16.png" />
+    <None Include="Resources\tickets1.png" />
     <None Include="Resources\properties_32x32.png" />
     <None Include="Resources\Logo32.png" />
   </ItemGroup>

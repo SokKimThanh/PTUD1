@@ -633,6 +633,16 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap coupon {
+            get {
+                object obj = ResourceManager.GetObject("coupon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap currency_16x16 {
             get {
                 object obj = ResourceManager.GetObject("currency_16x16", resourceCulture);
@@ -826,6 +836,26 @@ namespace GUI.Properties {
         internal static System.Drawing.Bitmap financial_16x16 {
             get {
                 object obj = ResourceManager.GetObject("financial_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap financial_16x161 {
+            get {
+                object obj = ResourceManager.GetObject("financial_16x161", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap financial_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("financial_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1573,9 +1603,49 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ticket16 {
+            get {
+                object obj = ResourceManager.GetObject("ticket16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ticket512 {
+            get {
+                object obj = ResourceManager.GetObject("ticket512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TicketDesignIcon16 {
+            get {
+                object obj = ResourceManager.GetObject("TicketDesignIcon16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap tickets {
             get {
                 object obj = ResourceManager.GetObject("tickets", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tickets1 {
+            get {
+                object obj = ResourceManager.GetObject("tickets1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
