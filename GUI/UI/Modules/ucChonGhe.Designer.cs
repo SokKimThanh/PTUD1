@@ -564,7 +564,7 @@
             this.layoutCBO.Name = "layoutCBO";
             this.layoutCBO.Padding = new DevExpress.XtraLayout.Utils.Padding(9, 9, 10, 10);
             this.layoutCBO.Size = new System.Drawing.Size(302, 72);
-            this.layoutCBO.Text = "cbo";
+            this.layoutCBO.Text = "Loại:";
             this.layoutCBO.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutCBO.TextSize = new System.Drawing.Size(100, 16);
             // 
