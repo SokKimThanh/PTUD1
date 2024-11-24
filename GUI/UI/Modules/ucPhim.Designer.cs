@@ -241,7 +241,7 @@ namespace GUI.UI.Modules
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureBox.Properties.ShowZoomSubMenu = DevExpress.Utils.DefaultBoolean.True;
-            this.pictureBox.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
+            this.pictureBox.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
             this.pictureBox.Size = new System.Drawing.Size(116, 156);
             this.pictureBox.StyleController = this.layoutForm;
             this.pictureBox.TabIndex = 15;
