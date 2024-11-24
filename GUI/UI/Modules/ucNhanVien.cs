@@ -184,10 +184,6 @@ namespace GUI.UI.Modules
                         objBUS.RemoveData(v_objRow.ST_AutoID, strActive_User_Name, strFunctionCode);
                 }
             }
-            else
-            {
-                objBUS.RemoveData(iAuto_ID, strActive_User_Name, strFunctionCode);
-            }
         }
 
         protected override void ObjectProcessing(object obj)

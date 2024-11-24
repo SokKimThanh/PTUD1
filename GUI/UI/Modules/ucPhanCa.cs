@@ -4,6 +4,7 @@ using DevExpress.XtraCharts.Native;
 using DevExpress.XtraEditors.Controls;
 using DTO.Custom;
 using DTO.tbl_DTO;
+using DTO.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -144,17 +145,13 @@ namespace GUI.UI.Modules
 
         protected override void ObjectProcessing(object obj)
         {
-            objEdit = obj as tbl_DM_StaffSchedule_DTO;
+            objEdit = new tbl_DM_StaffSchedule_DTO();
+            CUtility.Clone_Entity(obj, objEdit);
 
             iAuto_ID = objEdit.SS_AutoID;
 
-            List<tbl_DM_Shift_DTO> arrShifts = cbbCaLamViec.Properties.DataSource as List<tbl_DM_Shift_DTO>;
             cbbCaLamViec.EditValue = objEdit.SS_SHIFT_AutoID;
-
-
-            List<tbl_DM_Staff_DTO> arrStaft = cbbNhanVien.Properties.DataSource as List<tbl_DM_Staff_DTO>;
             cbbNhanVien.EditValue = objEdit.SS_STAFF_AutoID;
-
         }
     }
 }

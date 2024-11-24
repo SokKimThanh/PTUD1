@@ -26,7 +26,6 @@ namespace GUI.UI.Modules
         private int maxLength = 50;
         private int height = 0;
         private int width = 0;
-        private string[] chosenSeatNames = new string[0];
         private double price = 0;
         private double totalPrice = 0;
         private Dictionary<string, Color> colors = new Dictionary<string, Color>()
@@ -289,18 +288,6 @@ namespace GUI.UI.Modules
             //lblSeat.Text = name;
         }
 
-        private void btnPrint_Click(object sender, EventArgs e)
-        {
-
-            string text = "";
-            foreach (string item in chosenSeatNames)
-            {
-                text += item + "\n";
-            }
-
-            MessageBox.Show(text);
-        }
-
         private void btnNext_Click(object sender, EventArgs e)
         {
             try
@@ -319,18 +306,21 @@ namespace GUI.UI.Modules
                         // Dock control vào container để nó chiếm toàn bộ diện tích
                         v_objLoad.Dock = DockStyle.Fill;
 
-                        int count = 0;
-                        foreach (Control ctrl in grpSeats.Controls)
+                        List<string> v_arrGhe_Da_Chon = new List<string>();
+
+                        //Lấy danh sách ghế được chọn
+                        for (int i = 0; i < grpSeats.Controls.Count; i++)
                         {
-                            if ((ctrl as Label).BackColor == colors["Green"])
+                            Label v_objLabel = grpSeats.Controls[i] as Label;
+                            if (v_objLabel != null && v_objLabel.BackColor == colors["Green"])
                             {
-                                Array.Resize(ref chosenSeatNames, chosenSeatNames.Length + 1);
-                                chosenSeatNames[count] = ctrl.Text.Trim();
-                                count++;
+                                v_arrGhe_Da_Chon.Add(v_objLabel.Text.Trim());
                             }
                         }
-                        v_objLoad.Danh_Sach_Ten_Ghe = chosenSeatNames;
-                        v_objLoad.Tong_Tien_Ghe = totalPrice;
+                        //
+
+                        //Map vào uc kia
+                        CCommon.Danh_Sach_Ghe_Da_Chon = v_arrGhe_Da_Chon;
 
                         // Thêm UserControl vào main container
                         v_objContainer.Controls.Add(v_objLoad);
