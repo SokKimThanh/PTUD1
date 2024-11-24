@@ -20,6 +20,7 @@ namespace GUI.UI.Modules
         private tbl_DM_Theater_DTO chosenTheater;
 
         // Biến khởi tạo
+        private int count = 0;
         private int rows = 0;
         private int columns = 0;
         private int couples = 0;
@@ -40,6 +41,7 @@ namespace GUI.UI.Modules
             {0, "Mua ngay" },
             {1, "Đặt trước" },
         };
+
         // Các biến cấu thành các ghế 
         private int labelLength = 0;
         private int spacing = 5;
@@ -77,6 +79,9 @@ namespace GUI.UI.Modules
             // Hiện thị các trạng thái của vé đang chọn
             cboTicketStatus.Properties.DataSource = ticketStatuses;
             cboTicketStatus.ItemIndex = 0;
+
+            // Hiển thị số lượng vé đang đặt
+            txtQuantity.Text = count.ToString().Trim();
         }
 
         private void ucChonGhe_Load(object sender, System.EventArgs e)
@@ -308,7 +313,12 @@ namespace GUI.UI.Modules
 
             if (currentPanel.BackColor == colors["Gray"])
             {
+                // Đổi màu ghế
                 currentPanel.BackColor = colors["Green"];
+
+                // Thay đổi số lượng vé đang đặt
+                count++;
+
                 totalPrice += actualPrice;
                 if (currentPanel.Text.Contains("CP"))
                 {
@@ -317,7 +327,12 @@ namespace GUI.UI.Modules
             }
             else if (currentPanel.BackColor == colors["Green"])
             {
+                // Đổi màu ghế
                 currentPanel.BackColor = colors["Gray"];
+
+                // Thay đổi số lượng vé đang đặt
+                count--;
+
                 totalPrice -= actualPrice;
                 if (currentPanel.Text.Contains("CP"))
                 {
@@ -328,14 +343,6 @@ namespace GUI.UI.Modules
             {
                 MessageBox.Show("Ghế đã có người đặt", "Thông báo");
             }
-            int count = 0;
-            foreach (Label item in grpSeats.Controls)
-            {
-                if (item.BackColor == colors["Green"])
-                {
-                    count++;
-                }
-            }
             txtQuantity.Text = count.ToString().Trim();
             txtTotalPrice.Text = totalPrice.ToString();
         }
@@ -344,6 +351,12 @@ namespace GUI.UI.Modules
         {
             try
             {
+                // Kiểm tra số lượng vé đang đặt
+                if(count == 0)
+                {
+                    throw new Exception("Vui lòng chọn ít nhất 1 ghế để tiếp tục thanh toán");
+                }
+
                 //Lấy form chứa uc này ra
                 if (this.Parent is FluentDesignFormContainer v_objContainer)
                 {

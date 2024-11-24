@@ -339,6 +339,7 @@
             this.FluentDesignFormControl = this.fluentDesignFormControl1;
             this.IconOptions.Image = global::GUI.Properties.Resources.Logo;
             this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.MaximizeBox = false;
             this.Name = "frmMain";
             this.NavigationControl = this.arrFunction;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

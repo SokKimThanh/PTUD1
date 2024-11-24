@@ -27,15 +27,17 @@ namespace GUI.UI.Modules
         private tbl_DM_Staff_BUS staffBus = new tbl_DM_Staff_BUS();
         private tbl_DM_MovieSchedule_BUS movieScheBus = new tbl_DM_MovieSchedule_BUS();
 
+        Dictionary<int, string> status = new Dictionary<int, string>()
+        {
+            {0, "Mua tại quầy" },
+            {1, "Đặt trước" },
+        };
         private long selectedTicketID = -1;
 
         public ucVe()
         {
             InitializeComponent();
             lblTitle.Text = "VÉ";
-            Dictionary<int, string> status = new Dictionary<int, string>();
-            status.Add(0, "Đang sử dụng");
-            status.Add(1, "Đã xóa");
             cboStatusTicket.Properties.DataSource = status;
             cboStatusTicket.EditValue = 0;
         }
@@ -74,6 +76,7 @@ namespace GUI.UI.Modules
                     try
                     {
                         selectedTicketID = (long)gvTickets.GetRowCellValue(i, "ID");
+
                         // Lấy các dữ liệu từ các bảng khác
                         tbl_DM_Ticket_DTO o = ticketBus.GetTicket_ByID(selectedTicketID);
                         tbl_DM_MovieSchedule_DTO foundSchedule = movieScheBus.GetLastMovieSchedule_ByID(o.MovieScheID);

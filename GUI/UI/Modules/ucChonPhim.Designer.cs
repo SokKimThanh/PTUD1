@@ -40,12 +40,12 @@
             this.layoutViewCard1 = new DevExpress.XtraGrid.Views.Layout.LayoutViewCard();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.btnTiepTuc = new DevExpress.XtraEditors.SimpleButton();
             this.lblTitle = new System.Windows.Forms.Label();
             this.txtThoiLuong = new DevExpress.XtraEditors.TextEdit();
@@ -180,8 +180,19 @@
             this.layoutView1.DetailHeight = 431;
             this.layoutView1.GridControl = this.dgvMovies;
             this.layoutView1.Name = "layoutView1";
-            this.layoutView1.OptionsView.CardsAlignment = DevExpress.XtraGrid.Views.Layout.CardsAlignment.Near;
+            this.layoutView1.OptionsBehavior.AllowExpandCollapse = false;
+            this.layoutView1.OptionsCustomization.AllowFilter = false;
+            this.layoutView1.OptionsCustomization.AllowSort = false;
+            this.layoutView1.OptionsCustomization.ShowGroupCardCaptions = false;
+            this.layoutView1.OptionsCustomization.ShowGroupCardIndents = false;
+            this.layoutView1.OptionsCustomization.ShowGroupCards = false;
+            this.layoutView1.OptionsCustomization.ShowGroupFields = false;
+            this.layoutView1.OptionsCustomization.ShowGroupHiddenItems = false;
+            this.layoutView1.OptionsCustomization.ShowGroupLayout = false;
+            this.layoutView1.OptionsCustomization.ShowGroupLayoutTreeView = false;
+            this.layoutView1.OptionsCustomization.ShowGroupView = false;
             this.layoutView1.OptionsView.ShowCardCaption = false;
+            this.layoutView1.OptionsView.ShowCardExpandButton = false;
             this.layoutView1.OptionsView.ViewMode = DevExpress.XtraGrid.Views.Layout.LayoutViewMode.MultiColumn;
             this.layoutView1.TemplateCard = this.layoutViewCard1;
             this.layoutView1.CustomUnboundColumnData += new DevExpress.XtraGrid.Views.Base.CustomColumnDataEventHandler(this.layoutView1_CustomUnboundColumnData);
@@ -192,6 +203,8 @@
             this.layoutViewCard1.GroupBordersVisible = false;
             this.layoutViewCard1.HeaderButtonsLocation = DevExpress.Utils.GroupElementLocation.AfterText;
             this.layoutViewCard1.Name = "layoutViewCard1";
+            this.layoutViewCard1.OptionsCustomization.AllowDrag = DevExpress.XtraLayout.ItemDragDropMode.Disable;
+            this.layoutViewCard1.OptionsCustomization.AllowDrop = DevExpress.XtraLayout.ItemDragDropMode.Disable;
             this.layoutViewCard1.OptionsItemText.TextToControlDistance = 5;
             this.layoutViewCard1.Text = "TemplateCard";
             // 
@@ -221,15 +234,6 @@
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
-            // 
-            // barButtonItem2
-            // 
-            this.barButtonItem2.Caption = "Hủy";
-            this.barButtonItem2.Hint = "Hủy bỏ chọn phim";
-            this.barButtonItem2.Id = 1;
-            this.barButtonItem2.ImageOptions.Image = global::GUI.Properties.Resources.cancel_16x161;
-            this.barButtonItem2.ImageOptions.LargeImage = global::GUI.Properties.Resources.cancel_32x321;
-            this.barButtonItem2.Name = "barButtonItem2";
             // 
             // barButtonItem1
             // 
@@ -274,6 +278,15 @@
             this.barDockControl1.Manager = this.barManager1;
             this.barDockControl1.Margin = new System.Windows.Forms.Padding(5);
             this.barDockControl1.Size = new System.Drawing.Size(0, 937);
+            // 
+            // barButtonItem2
+            // 
+            this.barButtonItem2.Caption = "Hủy";
+            this.barButtonItem2.Hint = "Hủy bỏ chọn phim";
+            this.barButtonItem2.Id = 1;
+            this.barButtonItem2.ImageOptions.Image = global::GUI.Properties.Resources.cancel_16x161;
+            this.barButtonItem2.ImageOptions.LargeImage = global::GUI.Properties.Resources.cancel_32x321;
+            this.barButtonItem2.Name = "barButtonItem2";
             // 
             // btnTiepTuc
             // 
