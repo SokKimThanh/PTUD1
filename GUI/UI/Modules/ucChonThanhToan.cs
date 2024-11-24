@@ -268,6 +268,8 @@ namespace GUI.UI.Modules
             tbl_DM_Product_BUS v_objBus = new tbl_DM_Product_BUS();
             List<tbl_DM_Product_DTO> v_arrData = v_objBus.GetAll();
             grdControl_San_Pham.DataSource = v_arrData;
+
+            grdControl_San_Pham.DataSource = v_arrData;
         }
 
         private void Load_Danh_Sach_San_Pham_Chon()
@@ -316,7 +318,9 @@ namespace GUI.UI.Modules
                 SizeMode = PictureSizeMode.Zoom,
                 PictureAlignment = ContentAlignment.MiddleCenter
             };
+
             grdControl_San_Pham.RepositoryItems.Add(v_objPicture);
+
             v_objImage_Col.ColumnEdit = v_objPicture;
 
             // Thêm cột vào LayoutView
