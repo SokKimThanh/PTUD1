@@ -1,3 +1,4 @@
+
 ﻿go
 use master
 
@@ -5,376 +6,460 @@ go
 drop database if exists CM_Cinema_DB
 
 go
-create database CM_Cinema_DB
-
-go
-use CM_Cinema_DB
-
-go
--- Bảng phân loại độ tuổi
--- Xếp loại độ tuổi phù hợp để xem 1 phim bất kỳ
-create table tbl_DM_AgeRating(
-AR_AutoID bigint primary key IDENTITY(1,1) not null,
-AR_NAME nvarchar(150) not null,
-AR_NOTE nvarchar(MAX),
-DELETED INT,
-CREATED datetime,
-CREATED_BY nchar(50),
-CREATED_BY_FUNCTION nchar(100),
-UPDATED datetime, 
-UPDATED_BY nchar(50),
-UPDATED_BY_FUNCTION nchar(100)
-)
-
-go
--- Bảng phim
--- Quản lý các thông tin của các bộ phim có tại hệ thống
--- Thời lượng được tính bằng phút
-create table tbl_DM_Movie(
-MV_AutoID bigint primary key IDENTITY(1,1) not null,
-MV_NAME nvarchar(250) not null,
-MV_PRICE float not null,
-MV_DURATION int not null,
-MV_POSTERURL nvarchar(MAX) not null,
-MV_DESCRIPTION nvarchar(MAX) not null,
-MV_AGERATING_AutoID bigint,
-DELETED INT,
-CREATED datetime,
-CREATED_BY nchar(50),
-CREATED_BY_FUNCTION nchar(100),
-UPDATED datetime, 
-UPDATED_BY nchar(50),
-UPDATED_BY_FUNCTION nchar(100)
-)
-
-go
--- Bảng phòng xem phim
--- Quản lý các thông tin của phòng xem phim (VD: số lượng ghế, tên phòng)
-create table tbl_DM_Theater(
-TT_AutoID bigint primary key IDENTITY(1,1) not null,
-TT_NAME nvarchar(250) not null,
-TT_STATUS int not null,
-TT_ROWS int not null,
-TT_COLS int not null,
-TT_COUPLES int not null,
-DELETED INT,
-CREATED datetime,
-CREATED_BY nchar(50),
-CREATED_BY_FUNCTION nchar(100),
-UPDATED datetime, 
-UPDATED_BY nchar(50),
-UPDATED_BY_FUNCTION nchar(100)
-)
-
-go 
--- Bảng nhân viên
--- Quản lý thông tin của các nhân viên làm việc tại hệ thống
-create table tbl_DM_Staff(
-ST_AutoID bigint primary key IDENTITY(1,1) not null,
-ST_USERNAME nchar(50) not null,
-ST_PASSWORD nchar(200) not null,
-ST_NAME nvarchar(250) not null,
-ST_PHONE char(10) not null,
-ST_CIC char(12) not null,
-ST_NOTE nvarchar(MAX),
-ST_LEVEL int not null,
-DELETED INT,
-CREATED datetime,
-CREATED_BY nchar(50),
-CREATED_BY_FUNCTION nchar(100),
-UPDATED datetime, 
-UPDATED_BY nchar(50),
-UPDATED_BY_FUNCTION nchar(100)
-)
-
-go
--- Bảng vé
--- Quản lý thông tin của các vé được bán ra (VD: địa chỉ rạp phim, người bán, tên phim, giờ chiếu,...)
-create table tbl_DM_Ticket(
-TK_AutoID bigint primary key IDENTITY(1,1) not null,
-TK_SEATNAME nchar(3) not null,
-TK_MOVIESCHEDULE_AutoID bigint not null,
-TK_STAFF_AutoID bigint not null,
-TK_BILL_AutoID bigint,
-TK_STATUS int not null,
-DELETED int,
-CREATED datetime,
-CREATED_BY nchar(50),
-CREATED_BY_FUNCTION nchar(100),
-UPDATED datetime, 
-UPDATED_BY nchar(50),
-UPDATED_BY_FUNCTION nchar(100)
-)
-
-go
--- Bảng lịch chiếu phim
--- Quản lý lịch chiếu phim bao gồm tên phim, ngày chiếu, giờ chiếu
-create table tbl_DM_MovieSchedule(
-MS_AutoID bigint primary key IDENTITY(1,1) not null,
-MS_MOVIE_AutoID bigint not null,
-MS_THEATER_AutoID bigint not null,
-MS_START datetime not null,
-MS_END datetime not null,
-DELETED INT,
-CREATED datetime,
-CREATED_BY nchar(50),
-CREATED_BY_FUNCTION nchar(100),
-UPDATED datetime, 
-UPDATED_BY nchar(50),
-UPDATED_BY_FUNCTION nchar(100)
-)
-
-go
--- Bảng ca làm
--- Quản lý các ca làm hiện có tại hệ thống
-create table tbl_DM_Shift(
-SF_AutoID bigint primary key IDENTITY(1,1) not null,
-SF_NAME nvarchar(150) not null,
-SF_START datetime not null,
-SF_END datetime not null,
-DELETED INT,
-CREATED datetime,
-CREATED_BY nchar(50),
-CREATED_BY_FUNCTION nchar(100),
-UPDATED datetime, 
-UPDATED_BY nchar(50),
-UPDATED_BY_FUNCTION nchar(100)
-)
-
-go
--- Bảng phân công cho nhân viên
--- Quản lý lịch làm việc của nhân viên tại hệ thống
-create table tbl_DM_StaffSchedule(
-SS_AutoID bigint primary key IDENTITY(1,1) not null,
-SS_STAFF_AutoID bigint,
-SS_SHIFT_AutoID bigint,
-DELETED INT,
-CREATED datetime,
-CREATED_BY nchar(50),
-CREATED_BY_FUNCTION nchar(100),
-UPDATED datetime, 
-UPDATED_BY nchar(50),
-UPDATED_BY_FUNCTION nchar(100)
-)
-
-go
--- Bảng ngôn ngữ
--- Quản lý các đoạn văn bản được dịch sang các ngôn ngữ khác nhau
-create table tbl_Sys_Language(
-   Lang_AutoID bigint primary key IDENTITY(1,1) not null,
-   Eng_Lang nvarchar(255), 
-   VN_Lang nvarchar(255),
-   JP_Lang nvarchar(255),
-   KR_Lang nvarchar(255),
-   CN_Lang nvarchar(255),
-   DELETED INT,
-   CREATED datetime,
-   CREATED_BY nchar(50),
-   CREATED_BY_FUNCTION nchar(100),
-   UPDATED datetime, 
-   UPDATED_BY nchar(50),
-   UPDATED_BY_FUNCTION nchar(100)
-);
-
---Bảng thức ăn/uống
--- Quản lý thức ăn/uống
-go
-create table tbl_DM_Product(
-PD_AutoID bigint primary key IDENTITY(1,1) not null,
-PD_NAME nvarchar(250) not null,
-PD_QUANTITY float not null,
-PD_PRICE float not null,
-PD_IMAGEURL nvarchar(MAX) not null,
-DELETED INT,
-CREATED datetime,
-CREATED_BY nchar(50),
-CREATED_BY_FUNCTION nchar(100),
-UPDATED datetime, 
-UPDATED_BY nchar(50),
-UPDATED_BY_FUNCTION nchar(100)
-)
-
-go
-create table tbl_DM_Bill(
-BL_AutoID bigint primary key IDENTITY(1,1) not null,
-BL_STAFF_AutoID bigint not null,
-DELETED INT,
-CREATED datetime,
-CREATED_BY nchar(50),
-CREATED_BY_FUNCTION nchar(100),
-UPDATED datetime, 
-UPDATED_BY nchar(50),
-UPDATED_BY_FUNCTION nchar(100)
-)
-
-go
-create table tbl_DM_BillDetail(
-BD_AutoID bigint primary key IDENTITY(1,1) not null,
-BD_BILL_AutoID bigint not null,
-BD_PRODUCT_AutoID bigint not null,
-BD_QUANTITY int not null,
-DELETED INT,
-CREATED datetime,
-CREATED_BY nchar(50),
-CREATED_BY_FUNCTION nchar(100),
-UPDATED datetime, 
-UPDATED_BY nchar(50),
-UPDATED_BY_FUNCTION nchar(100)
-)
-
-go
-create table tbl_DM_ExpenseType(
-ET_AutoID bigint primary key IDENTITY(1,1) not null,
-ET_NAME nvarchar(50) not null,
-ET_PRODUCT_AutoID bigint,
-DELETED INT,
-CREATED datetime,
-CREATED_BY nchar(50),
-CREATED_BY_FUNCTION nchar(100),
-UPDATED datetime, 
-UPDATED_BY nchar(50),
-UPDATED_BY_FUNCTION nchar(100)
-)
-
-go
-create table tbl_SYS_Expense(
-EX_AutoID bigint primary key IDENTITY(1,1) not null,
-EX_EXTYPE_AutoID bigint not null,
-EX_QUANTITY float not null,
-EX_PRICE float not null,
-EX_REASON nvarchar(100) not null,
-EX_STATUS int,
-DELETED INT,
-CREATED datetime,
-CREATED_BY nchar(50),
-CREATED_BY_FUNCTION nchar(100),
-UPDATED datetime, 
-UPDATED_BY nchar(50),
-UPDATED_BY_FUNCTION nchar(100)
-)
-
---
--- Khoá ngoại (optional)
---
-go 
-alter table tbl_DM_Movie
-add constraint fk_movie_rating foreign key (MV_AGERATING_AutoID) references tbl_DM_AgeRating(AR_AutoID)
-go 
-alter table tbl_DM_BillDetail
-add constraint fk_billdetail_bill foreign key (BD_BILL_AutoID) references tbl_DM_Bill(BL_AutoID)
-go 
-alter table tbl_DM_BillDetail
-add constraint fk_billdetail_product foreign key (BD_PRODUCT_AutoID) references tbl_DM_Product(PD_AutoID)
-go
-alter table tbl_DM_MovieSchedule
-add constraint fk_movie_movieschedule foreign key (MS_MOVIE_AutoID) references tbl_DM_Movie(MV_AutoID)
-go
-alter table tbl_DM_MovieSchedule
-add constraint fk_theater_movieschedule foreign key (MS_THEATER_AutoID) references tbl_DM_Theater(TT_AutoID)
-go
-alter table tbl_DM_Ticket
-add constraint fk_ticket_movieschedule foreign key (TK_MOVIESCHEDULE_AutoID) references tbl_DM_MovieSchedule(MS_AutoID)
-go
-alter table tbl_DM_Ticket
-add constraint fk_ticket_staff foreign key (TK_STAFF_AutoID) references tbl_DM_Staff(ST_AutoID)
-go
-alter table tbl_DM_Ticket
-add constraint fk_ticket_bill foreign key (TK_BILL_AutoID) references tbl_DM_Bill(BL_AutoID)
-go
-alter table tbl_DM_StaffSchedule
-add constraint fk_staff_schedule foreign key (SS_STAFF_AutoID) references tbl_DM_Staff(ST_AutoID)
-go
-alter table tbl_DM_StaffSchedule
-add constraint fk_shift_schedule foreign key (SS_SHIFT_AutoID) references tbl_DM_Shift(SF_AutoID)
-go
-alter table tbl_DM_Bill
-add constraint fk_bill_staff foreign key (BL_STAFF_AutoID) references tbl_DM_Staff(ST_AutoID)
-go
-alter table tbl_DM_ExpenseType
-add constraint fk_expensetype_product foreign key (ET_PRODUCT_AutoID) references tbl_DM_Product(PD_AutoID)
-go
-alter table tbl_SYS_Expense
-add constraint fk_expense_expensetype foreign key (EX_EXTYPE_AutoID) references tbl_DM_ExpenseType(ET_AutoID)
-
--- Khóa UNIQUE
--- Thêm khóa UNIQUE cho tbl_DM_Movie
-go
-alter table tbl_DM_Movie
-add constraint uq_movie unique (MV_NAME)
- 
--- Thêm khóa UNIQUE cho tbl_DM_Theater
-go
-ALTER TABLE tbl_DM_Theater
--- Tên rạp chiếu phim nên là duy nhất.
-ADD CONSTRAINT uq_theater_name UNIQUE (TT_NAME);
-
--- Thêm khóa UNIQUE cho tbl_DM_Staff
--- Tên đăng nhập nên là duy nhất.
---go
---ALTER TABLE tbl_DM_Staff 
---ADD CONSTRAINT UQ_ST_USERNAME UNIQUE (ST_USERNAME);
-
--- Số chứng minh thư/căn cước công dân nên là duy nhất.
---ALTER TABLE tbl_DM_Staff 
---ADD CONSTRAINT UQ_ST_CIC UNIQUE (ST_CIC);
-
--- Thêm khóa UNIQUE cho tbl_DM_Product
---Tên sản phẩm nên là duy nhất.
-go
-ALTER TABLE tbl_DM_Product
-ADD CONSTRAINT uq_product_name UNIQUE (PD_NAME);
-
--- Thêm khóa UNIQUE cho tbl_DM_MovieSchedule
--- Một bộ phim không thể chiếu cùng lúc ở cùng một rạp.
-go
-ALTER TABLE tbl_DM_MovieSchedule
-ADD CONSTRAINT uq_movieschedule UNIQUE (MS_MOVIE_AutoID, MS_THEATER_AutoID, MS_START);
-
-
--- Thêm ràng buộc UNIQUE cho ET_NAME
-ALTER TABLE tbl_DM_ExpenseType
-ADD CONSTRAINT UC_ET_NAME UNIQUE (ET_NAME);
-
--- Đặt giá trị mặc định cho ET_PRODUCT_AutoID là NULL (nếu chưa có)
-ALTER TABLE tbl_DM_ExpenseType
-ADD CONSTRAINT DF_ET_PRODUCT_AutoID DEFAULT NULL FOR ET_PRODUCT_AutoID;
-
--- Đặt giá trị mặc định và ràng buộc kiểm tra cho EX_QUANTITY
-ALTER TABLE tbl_SYS_Expense
-ADD CONSTRAINT DF_EX_QUANTITY DEFAULT 0 FOR EX_QUANTITY;
-
-ALTER TABLE tbl_SYS_Expense
-ADD CONSTRAINT CHK_EX_QUANTITY CHECK (EX_QUANTITY >= 0);
-
--- Đặt giá trị mặc định và ràng buộc kiểm tra cho EX_PRICE
-ALTER TABLE tbl_SYS_Expense
-ADD CONSTRAINT DF_EX_PRICE DEFAULT 0 FOR EX_PRICE;
-
-ALTER TABLE tbl_SYS_Expense
-ADD CONSTRAINT CHK_EX_PRICE CHECK (EX_PRICE >= 0);
-
--- Đặt giá trị mặc định cho EX_REASON là NULL
-ALTER TABLE tbl_SYS_Expense
-ADD CONSTRAINT DF_EX_REASON DEFAULT NULL FOR EX_REASON;
-
--- Đặt giá trị mặc định và ràng buộc kiểm tra cho EX_STATUS
-ALTER TABLE tbl_SYS_Expense
-ADD CONSTRAINT DF_EX_STATUS DEFAULT 0 FOR EX_STATUS;
-
-ALTER TABLE tbl_SYS_Expense
-ADD CONSTRAINT CHK_EX_STATUS CHECK (EX_STATUS BETWEEN 0 AND 3);
-
--- Đặt giá trị mặc định và ràng buộc kiểm tra cho DELETED
-ALTER TABLE tbl_SYS_Expense
-ADD CONSTRAINT DF_DELETED DEFAULT 0 FOR DELETED;
-
-ALTER TABLE tbl_SYS_Expense
-ADD CONSTRAINT CHK_DELETED CHECK (DELETED IN (0, 1));
-
--- Đặt giá trị mặc định cho CREATED là thời gian hiện tại
-ALTER TABLE tbl_SYS_Expense
-ADD CONSTRAINT DF_CREATED DEFAULT GETDATE() FOR CREATED;
-
--- Đặt giá trị mặc định cho UPDATED là thời gian hiện tại
-ALTER TABLE tbl_SYS_Expense
-ADD CONSTRAINT DF_UPDATED DEFAULT GETDATE() FOR UPDATED;
+USE [CM_Cinema_DB]
+GO
+/****** Object:  Table [dbo].[tbl_DM_AgeRating]    Script Date: 25/11/2024 5:44:44 SA ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbl_DM_AgeRating](
+	[AR_AutoID] [bigint] IDENTITY(1,1) NOT NULL,
+	[AR_NAME] [nvarchar](150) NOT NULL,
+	[AR_NOTE] [nvarchar](max) NULL,
+	[DELETED] [int] NULL,
+	[CREATED] [datetime] NULL,
+	[CREATED_BY] [nchar](50) NULL,
+	[CREATED_BY_FUNCTION] [nchar](100) NULL,
+	[UPDATED] [datetime] NULL,
+	[UPDATED_BY] [nchar](50) NULL,
+	[UPDATED_BY_FUNCTION] [nchar](100) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[AR_AutoID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbl_DM_Bill]    Script Date: 25/11/2024 5:44:44 SA ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbl_DM_Bill](
+	[BL_AutoID] [bigint] IDENTITY(1,1) NOT NULL,
+	[BL_STAFF_AutoID] [bigint] NOT NULL,
+	[BL_Bill_Code] [nvarchar](50) NULL,
+	[BL_Total_Price] [float] NULL,
+	[DELETED] [int] NULL,
+	[CREATED] [datetime] NULL,
+	[CREATED_BY] [nchar](50) NULL,
+	[CREATED_BY_FUNCTION] [nchar](100) NULL,
+	[UPDATED] [datetime] NULL,
+	[UPDATED_BY] [nchar](50) NULL,
+	[UPDATED_BY_FUNCTION] [nchar](100) NULL,
+ CONSTRAINT [PK__tbl_DM_B__CB880EEECB093816] PRIMARY KEY CLUSTERED 
+(
+	[BL_AutoID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbl_DM_BillDetail]    Script Date: 25/11/2024 5:44:44 SA ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbl_DM_BillDetail](
+	[BD_AutoID] [bigint] IDENTITY(1,1) NOT NULL,
+	[BD_BILL_AutoID] [bigint] NOT NULL,
+	[BD_PRODUCT_AutoID] [bigint] NOT NULL,
+	[BD_QUANTITY] [float] NOT NULL,
+	[DELETED] [int] NULL,
+	[CREATED] [datetime] NULL,
+	[CREATED_BY] [nchar](50) NULL,
+	[CREATED_BY_FUNCTION] [nchar](100) NULL,
+	[UPDATED] [datetime] NULL,
+	[UPDATED_BY] [nchar](50) NULL,
+	[UPDATED_BY_FUNCTION] [nchar](100) NULL,
+ CONSTRAINT [PK__tbl_DM_B__860994DECCE0310C] PRIMARY KEY CLUSTERED 
+(
+	[BD_AutoID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbl_DM_ExpenseType]    Script Date: 25/11/2024 5:44:44 SA ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbl_DM_ExpenseType](
+	[ET_AutoID] [bigint] IDENTITY(1,1) NOT NULL,
+	[ET_NAME] [nvarchar](50) NOT NULL,
+	[ET_PRODUCT_AutoID] [bigint] NULL,
+	[DELETED] [int] NULL,
+	[CREATED] [datetime] NULL,
+	[CREATED_BY] [nchar](50) NULL,
+	[CREATED_BY_FUNCTION] [nchar](100) NULL,
+	[UPDATED] [datetime] NULL,
+	[UPDATED_BY] [nchar](50) NULL,
+	[UPDATED_BY_FUNCTION] [nchar](100) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ET_AutoID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [UC_ET_NAME] UNIQUE NONCLUSTERED 
+(
+	[ET_NAME] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbl_DM_Movie]    Script Date: 25/11/2024 5:44:44 SA ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbl_DM_Movie](
+	[MV_AutoID] [bigint] IDENTITY(1,1) NOT NULL,
+	[MV_NAME] [nvarchar](250) NOT NULL,
+	[MV_PRICE] [float] NOT NULL,
+	[MV_DURATION] [int] NOT NULL,
+	[MV_POSTERURL] [varchar](max) NOT NULL,
+	[MV_DESCRIPTION] [nvarchar](max) NOT NULL,
+	[MV_AGERATING_AutoID] [bigint] NULL,
+	[DELETED] [int] NULL,
+	[CREATED] [datetime] NULL,
+	[CREATED_BY] [nchar](50) NULL,
+	[CREATED_BY_FUNCTION] [nchar](100) NULL,
+	[UPDATED] [datetime] NULL,
+	[UPDATED_BY] [nchar](50) NULL,
+	[UPDATED_BY_FUNCTION] [nchar](100) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[MV_AutoID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [uq_movie] UNIQUE NONCLUSTERED 
+(
+	[MV_NAME] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbl_DM_MovieSchedule]    Script Date: 25/11/2024 5:44:44 SA ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbl_DM_MovieSchedule](
+	[MS_AutoID] [bigint] IDENTITY(1,1) NOT NULL,
+	[MS_MOVIE_AutoID] [bigint] NOT NULL,
+	[MS_THEATER_AutoID] [bigint] NOT NULL,
+	[MS_START] [datetime] NOT NULL,
+	[MS_END] [datetime] NOT NULL,
+	[DELETED] [int] NULL,
+	[CREATED] [datetime] NULL,
+	[CREATED_BY] [nchar](50) NULL,
+	[CREATED_BY_FUNCTION] [nchar](100) NULL,
+	[UPDATED] [datetime] NULL,
+	[UPDATED_BY] [nchar](50) NULL,
+	[UPDATED_BY_FUNCTION] [nchar](100) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[MS_AutoID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [uq_movieschedule] UNIQUE NONCLUSTERED 
+(
+	[MS_MOVIE_AutoID] ASC,
+	[MS_THEATER_AutoID] ASC,
+	[MS_START] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbl_DM_Product]    Script Date: 25/11/2024 5:44:44 SA ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbl_DM_Product](
+	[PD_AutoID] [bigint] IDENTITY(1,1) NOT NULL,
+	[PD_NAME] [nvarchar](250) NOT NULL,
+	[PD_QUANTITY] [float] NOT NULL,
+	[PD_PRICE] [float] NOT NULL,
+	[PD_IMAGEURL] [nvarchar](max) NULL,
+	[DELETED] [int] NULL,
+	[CREATED] [datetime] NULL,
+	[CREATED_BY] [nchar](50) NULL,
+	[CREATED_BY_FUNCTION] [nchar](100) NULL,
+	[UPDATED] [datetime] NULL,
+	[UPDATED_BY] [nchar](50) NULL,
+	[UPDATED_BY_FUNCTION] [nchar](100) NULL,
+ CONSTRAINT [PK__tbl_DM_P__36607AE7B792B05D] PRIMARY KEY CLUSTERED 
+(
+	[PD_AutoID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [uq_product_name] UNIQUE NONCLUSTERED 
+(
+	[PD_NAME] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbl_DM_Shift]    Script Date: 25/11/2024 5:44:44 SA ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbl_DM_Shift](
+	[SF_AutoID] [bigint] IDENTITY(1,1) NOT NULL,
+	[SF_NAME] [nvarchar](150) NOT NULL,
+	[SF_START] [datetime] NOT NULL,
+	[SF_END] [datetime] NOT NULL,
+	[DELETED] [int] NULL,
+	[CREATED] [datetime] NULL,
+	[CREATED_BY] [nchar](50) NULL,
+	[CREATED_BY_FUNCTION] [nchar](100) NULL,
+	[UPDATED] [datetime] NULL,
+	[UPDATED_BY] [nchar](50) NULL,
+	[UPDATED_BY_FUNCTION] [nchar](100) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[SF_AutoID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbl_DM_Staff]    Script Date: 25/11/2024 5:44:44 SA ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbl_DM_Staff](
+	[ST_AutoID] [bigint] IDENTITY(1,1) NOT NULL,
+	[ST_USERNAME] [nchar](50) NOT NULL,
+	[ST_PASSWORD] [nchar](200) NOT NULL,
+	[ST_NAME] [nvarchar](250) NOT NULL,
+	[ST_PHONE] [char](10) NOT NULL,
+	[ST_CIC] [char](12) NOT NULL,
+	[ST_NOTE] [nvarchar](max) NULL,
+	[ST_LEVEL] [int] NOT NULL,
+	[DELETED] [int] NULL,
+	[CREATED] [datetime] NULL,
+	[CREATED_BY] [nchar](50) NULL,
+	[CREATED_BY_FUNCTION] [nchar](100) NULL,
+	[UPDATED] [datetime] NULL,
+	[UPDATED_BY] [nchar](50) NULL,
+	[UPDATED_BY_FUNCTION] [nchar](100) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ST_AutoID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbl_DM_StaffSchedule]    Script Date: 25/11/2024 5:44:44 SA ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbl_DM_StaffSchedule](
+	[SS_AutoID] [bigint] IDENTITY(1,1) NOT NULL,
+	[SS_STAFF_AutoID] [bigint] NULL,
+	[SS_SHIFT_AutoID] [bigint] NULL,
+	[DELETED] [int] NULL,
+	[CREATED] [datetime] NULL,
+	[CREATED_BY] [nchar](50) NULL,
+	[CREATED_BY_FUNCTION] [nchar](100) NULL,
+	[UPDATED] [datetime] NULL,
+	[UPDATED_BY] [nchar](50) NULL,
+	[UPDATED_BY_FUNCTION] [nchar](100) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[SS_AutoID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbl_DM_Theater]    Script Date: 25/11/2024 5:44:44 SA ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbl_DM_Theater](
+	[TT_AutoID] [bigint] IDENTITY(1,1) NOT NULL,
+	[TT_NAME] [nvarchar](250) NOT NULL,
+	[TT_STATUS] [int] NOT NULL,
+	[TT_ROWS] [int] NOT NULL,
+	[TT_COLS] [int] NOT NULL,
+	[TT_COUPLES] [int] NOT NULL,
+	[DELETED] [int] NULL,
+	[CREATED] [datetime] NULL,
+	[CREATED_BY] [nchar](50) NULL,
+	[CREATED_BY_FUNCTION] [nchar](100) NULL,
+	[UPDATED] [datetime] NULL,
+	[UPDATED_BY] [nchar](50) NULL,
+	[UPDATED_BY_FUNCTION] [nchar](100) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[TT_AutoID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [uq_theater_name] UNIQUE NONCLUSTERED 
+(
+	[TT_NAME] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbl_DM_Ticket]    Script Date: 25/11/2024 5:44:44 SA ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbl_DM_Ticket](
+	[TK_AutoID] [bigint] IDENTITY(1,1) NOT NULL,
+	[TK_SEATNAME] [nchar](3) NOT NULL,
+	[TK_MOVIESCHEDULE_AutoID] [bigint] NOT NULL,
+	[TK_STAFF_AutoID] [bigint] NOT NULL,
+	[TK_BILL_AutoID] [bigint] NULL,
+	[TK_STATUS] [int] NOT NULL,
+	[DELETED] [int] NULL,
+	[CREATED] [datetime] NULL,
+	[CREATED_BY] [nchar](50) NULL,
+	[CREATED_BY_FUNCTION] [nchar](100) NULL,
+	[UPDATED] [datetime] NULL,
+	[UPDATED_BY] [nchar](50) NULL,
+	[UPDATED_BY_FUNCTION] [nchar](100) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[TK_AutoID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbl_SYS_Expense]    Script Date: 25/11/2024 5:44:44 SA ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbl_SYS_Expense](
+	[EX_AutoID] [bigint] IDENTITY(1,1) NOT NULL,
+	[EX_EXTYPE_AutoID] [bigint] NOT NULL,
+	[EX_QUANTITY] [float] NOT NULL,
+	[EX_PRICE] [float] NOT NULL,
+	[EX_REASON] [nvarchar](100) NOT NULL,
+	[EX_STATUS] [int] NULL,
+	[DELETED] [int] NULL,
+	[CREATED] [datetime] NULL,
+	[CREATED_BY] [nchar](50) NULL,
+	[CREATED_BY_FUNCTION] [nchar](100) NULL,
+	[UPDATED] [datetime] NULL,
+	[UPDATED_BY] [nchar](50) NULL,
+	[UPDATED_BY_FUNCTION] [nchar](100) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[EX_AutoID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tbl_Sys_Language]    Script Date: 25/11/2024 5:44:44 SA ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tbl_Sys_Language](
+	[Lang_AutoID] [bigint] IDENTITY(1,1) NOT NULL,
+	[Eng_Lang] [nvarchar](255) NULL,
+	[VN_Lang] [nvarchar](255) NULL,
+	[JP_Lang] [nvarchar](255) NULL,
+	[KR_Lang] [nvarchar](255) NULL,
+	[CN_Lang] [nvarchar](255) NULL,
+	[DELETED] [int] NULL,
+	[CREATED] [datetime] NULL,
+	[CREATED_BY] [nchar](50) NULL,
+	[CREATED_BY_FUNCTION] [nchar](100) NULL,
+	[UPDATED] [datetime] NULL,
+	[UPDATED_BY] [nchar](50) NULL,
+	[UPDATED_BY_FUNCTION] [nchar](100) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Lang_AutoID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[tbl_DM_ExpenseType] ADD  CONSTRAINT [DF_ET_PRODUCT_AutoID]  DEFAULT (NULL) FOR [ET_PRODUCT_AutoID]
+GO
+ALTER TABLE [dbo].[tbl_SYS_Expense] ADD  CONSTRAINT [DF_EX_QUANTITY]  DEFAULT ((0)) FOR [EX_QUANTITY]
+GO
+ALTER TABLE [dbo].[tbl_SYS_Expense] ADD  CONSTRAINT [DF_EX_PRICE]  DEFAULT ((0)) FOR [EX_PRICE]
+GO
+ALTER TABLE [dbo].[tbl_SYS_Expense] ADD  CONSTRAINT [DF_EX_REASON]  DEFAULT (NULL) FOR [EX_REASON]
+GO
+ALTER TABLE [dbo].[tbl_SYS_Expense] ADD  CONSTRAINT [DF_EX_STATUS]  DEFAULT ((0)) FOR [EX_STATUS]
+GO
+ALTER TABLE [dbo].[tbl_SYS_Expense] ADD  CONSTRAINT [DF_DELETED]  DEFAULT ((0)) FOR [DELETED]
+GO
+ALTER TABLE [dbo].[tbl_SYS_Expense] ADD  CONSTRAINT [DF_CREATED]  DEFAULT (getdate()) FOR [CREATED]
+GO
+ALTER TABLE [dbo].[tbl_SYS_Expense] ADD  CONSTRAINT [DF_UPDATED]  DEFAULT (getdate()) FOR [UPDATED]
+GO
+ALTER TABLE [dbo].[tbl_DM_Bill]  WITH CHECK ADD  CONSTRAINT [fk_bill_staff] FOREIGN KEY([BL_STAFF_AutoID])
+REFERENCES [dbo].[tbl_DM_Staff] ([ST_AutoID])
+GO
+ALTER TABLE [dbo].[tbl_DM_Bill] CHECK CONSTRAINT [fk_bill_staff]
+GO
+ALTER TABLE [dbo].[tbl_DM_BillDetail]  WITH CHECK ADD  CONSTRAINT [fk_billdetail_bill] FOREIGN KEY([BD_BILL_AutoID])
+REFERENCES [dbo].[tbl_DM_Bill] ([BL_AutoID])
+GO
+ALTER TABLE [dbo].[tbl_DM_BillDetail] CHECK CONSTRAINT [fk_billdetail_bill]
+GO
+ALTER TABLE [dbo].[tbl_DM_BillDetail]  WITH CHECK ADD  CONSTRAINT [fk_billdetail_product] FOREIGN KEY([BD_PRODUCT_AutoID])
+REFERENCES [dbo].[tbl_DM_Product] ([PD_AutoID])
+GO
+ALTER TABLE [dbo].[tbl_DM_BillDetail] CHECK CONSTRAINT [fk_billdetail_product]
+GO
+ALTER TABLE [dbo].[tbl_DM_ExpenseType]  WITH CHECK ADD  CONSTRAINT [fk_expensetype_product] FOREIGN KEY([ET_PRODUCT_AutoID])
+REFERENCES [dbo].[tbl_DM_Product] ([PD_AutoID])
+GO
+ALTER TABLE [dbo].[tbl_DM_ExpenseType] CHECK CONSTRAINT [fk_expensetype_product]
+GO
+ALTER TABLE [dbo].[tbl_DM_Movie]  WITH CHECK ADD  CONSTRAINT [fk_movie_rating] FOREIGN KEY([MV_AGERATING_AutoID])
+REFERENCES [dbo].[tbl_DM_AgeRating] ([AR_AutoID])
+GO
+ALTER TABLE [dbo].[tbl_DM_Movie] CHECK CONSTRAINT [fk_movie_rating]
+GO
+ALTER TABLE [dbo].[tbl_DM_MovieSchedule]  WITH CHECK ADD  CONSTRAINT [fk_movie_movieschedule] FOREIGN KEY([MS_MOVIE_AutoID])
+REFERENCES [dbo].[tbl_DM_Movie] ([MV_AutoID])
+GO
+ALTER TABLE [dbo].[tbl_DM_MovieSchedule] CHECK CONSTRAINT [fk_movie_movieschedule]
+GO
+ALTER TABLE [dbo].[tbl_DM_MovieSchedule]  WITH CHECK ADD  CONSTRAINT [fk_theater_movieschedule] FOREIGN KEY([MS_THEATER_AutoID])
+REFERENCES [dbo].[tbl_DM_Theater] ([TT_AutoID])
+GO
+ALTER TABLE [dbo].[tbl_DM_MovieSchedule] CHECK CONSTRAINT [fk_theater_movieschedule]
+GO
+ALTER TABLE [dbo].[tbl_DM_StaffSchedule]  WITH CHECK ADD  CONSTRAINT [fk_shift_schedule] FOREIGN KEY([SS_SHIFT_AutoID])
+REFERENCES [dbo].[tbl_DM_Shift] ([SF_AutoID])
+GO
+ALTER TABLE [dbo].[tbl_DM_StaffSchedule] CHECK CONSTRAINT [fk_shift_schedule]
+GO
+ALTER TABLE [dbo].[tbl_DM_StaffSchedule]  WITH CHECK ADD  CONSTRAINT [fk_staff_schedule] FOREIGN KEY([SS_STAFF_AutoID])
+REFERENCES [dbo].[tbl_DM_Staff] ([ST_AutoID])
+GO
+ALTER TABLE [dbo].[tbl_DM_StaffSchedule] CHECK CONSTRAINT [fk_staff_schedule]
+GO
+ALTER TABLE [dbo].[tbl_DM_Ticket]  WITH CHECK ADD  CONSTRAINT [fk_ticket_bill] FOREIGN KEY([TK_BILL_AutoID])
+REFERENCES [dbo].[tbl_DM_Bill] ([BL_AutoID])
+GO
+ALTER TABLE [dbo].[tbl_DM_Ticket] CHECK CONSTRAINT [fk_ticket_bill]
+GO
+ALTER TABLE [dbo].[tbl_DM_Ticket]  WITH CHECK ADD  CONSTRAINT [fk_ticket_movieschedule] FOREIGN KEY([TK_MOVIESCHEDULE_AutoID])
+REFERENCES [dbo].[tbl_DM_MovieSchedule] ([MS_AutoID])
+GO
+ALTER TABLE [dbo].[tbl_DM_Ticket] CHECK CONSTRAINT [fk_ticket_movieschedule]
+GO
+ALTER TABLE [dbo].[tbl_DM_Ticket]  WITH CHECK ADD  CONSTRAINT [fk_ticket_staff] FOREIGN KEY([TK_STAFF_AutoID])
+REFERENCES [dbo].[tbl_DM_Staff] ([ST_AutoID])
+GO
+ALTER TABLE [dbo].[tbl_DM_Ticket] CHECK CONSTRAINT [fk_ticket_staff]
+GO
+ALTER TABLE [dbo].[tbl_SYS_Expense]  WITH CHECK ADD  CONSTRAINT [fk_expense_expensetype] FOREIGN KEY([EX_EXTYPE_AutoID])
+REFERENCES [dbo].[tbl_DM_ExpenseType] ([ET_AutoID])
+GO
+ALTER TABLE [dbo].[tbl_SYS_Expense] CHECK CONSTRAINT [fk_expense_expensetype]
+GO
+ALTER TABLE [dbo].[tbl_SYS_Expense]  WITH CHECK ADD  CONSTRAINT [CHK_DELETED] CHECK  (([DELETED]=(1) OR [DELETED]=(0)))
+GO
+ALTER TABLE [dbo].[tbl_SYS_Expense] CHECK CONSTRAINT [CHK_DELETED]
+GO
+ALTER TABLE [dbo].[tbl_SYS_Expense]  WITH CHECK ADD  CONSTRAINT [CHK_EX_PRICE] CHECK  (([EX_PRICE]>=(0)))
+GO
+ALTER TABLE [dbo].[tbl_SYS_Expense] CHECK CONSTRAINT [CHK_EX_PRICE]
+GO
+ALTER TABLE [dbo].[tbl_SYS_Expense]  WITH CHECK ADD  CONSTRAINT [CHK_EX_QUANTITY] CHECK  (([EX_QUANTITY]>=(0)))
+GO
+ALTER TABLE [dbo].[tbl_SYS_Expense] CHECK CONSTRAINT [CHK_EX_QUANTITY]
+GO
+ALTER TABLE [dbo].[tbl_SYS_Expense]  WITH CHECK ADD  CONSTRAINT [CHK_EX_STATUS] CHECK  (([EX_STATUS]>=(0) AND [EX_STATUS]<=(3)))
+GO
+ALTER TABLE [dbo].[tbl_SYS_Expense] CHECK CONSTRAINT [CHK_EX_STATUS]
+GO
