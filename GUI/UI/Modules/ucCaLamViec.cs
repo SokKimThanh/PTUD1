@@ -106,7 +106,9 @@ namespace GUI.UI.Modules
 
         protected override void ObjectProcessing(object obj)
         {
-            objEdit = obj as tbl_DM_Shift_DTO;
+            objEdit = new tbl_DM_Shift_DTO();
+            CUtility.Clone_Entity(obj, objEdit);
+
             iAuto_ID = objEdit.SF_AutoID;
             txtTCLV.Text = objEdit.SF_NAME.Trim();
             dtmFrom.Time = objEdit.SF_START;
