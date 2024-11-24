@@ -66,10 +66,10 @@
             // mainContainer
             // 
             this.mainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainContainer.Location = new System.Drawing.Point(250, 31);
-            this.mainContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mainContainer.Location = new System.Drawing.Point(292, 39);
+            this.mainContainer.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.mainContainer.Name = "mainContainer";
-            this.mainContainer.Size = new System.Drawing.Size(710, 608);
+            this.mainContainer.Size = new System.Drawing.Size(828, 747);
             this.mainContainer.TabIndex = 0;
             this.mainContainer.Click += new System.EventHandler(this.mainContainer_Click);
             // 
@@ -83,13 +83,13 @@
             this.aceDanhMuc,
             this.aceBaoCao,
             this.aceHeThong});
-            this.arrFunction.Location = new System.Drawing.Point(0, 31);
-            this.arrFunction.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.arrFunction.Location = new System.Drawing.Point(0, 39);
+            this.arrFunction.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.arrFunction.Name = "arrFunction";
             this.arrFunction.OptionsHamburgerMenu.HighlightRootElements = DevExpress.Utils.DefaultBoolean.True;
             this.arrFunction.OptionsMinimizing.AllowMinimizeMode = DevExpress.Utils.DefaultBoolean.True;
             this.arrFunction.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Fluent;
-            this.arrFunction.Size = new System.Drawing.Size(250, 608);
+            this.arrFunction.Size = new System.Drawing.Size(292, 747);
             this.arrFunction.TabIndex = 1;
             this.arrFunction.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -303,9 +303,9 @@
             this.fluentDesignFormControl1.FluentDesignForm = this;
             this.fluentDesignFormControl1.Location = new System.Drawing.Point(0, 0);
             this.fluentDesignFormControl1.Manager = this.fluentFormDefaultManager1;
-            this.fluentDesignFormControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fluentDesignFormControl1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.fluentDesignFormControl1.Name = "fluentDesignFormControl1";
-            this.fluentDesignFormControl1.Size = new System.Drawing.Size(960, 31);
+            this.fluentDesignFormControl1.Size = new System.Drawing.Size(1120, 39);
             this.fluentDesignFormControl1.TabIndex = 2;
             this.fluentDesignFormControl1.TabStop = false;
             // 
@@ -315,16 +315,17 @@
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(960, 639);
+            this.ClientSize = new System.Drawing.Size(1120, 786);
             this.ControlContainer = this.mainContainer;
             this.Controls.Add(this.mainContainer);
             this.Controls.Add(this.arrFunction);
             this.Controls.Add(this.fluentDesignFormControl1);
             this.FluentDesignFormControl = this.fluentDesignFormControl1;
             this.IconOptions.Image = global::GUI.Properties.Resources.Logo;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.MaximizeBox = false;
             this.Name = "frmMain";
             this.NavigationControl = this.arrFunction;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -14,6 +14,7 @@ namespace GUI.UI.Modules
         private tbl_DM_Movie_BUS movie_bus = new tbl_DM_Movie_BUS();
         private tbl_DM_Theater_BUS theater_bus = new tbl_DM_Theater_BUS();
         private tbl_DM_MovieSchedule_BUS movieSche_bus = new tbl_DM_MovieSchedule_BUS();
+        private tbl_DM_Ticket_BUS ticket_bus = new tbl_DM_Ticket_BUS(); 
         private int cleaningTime = 30;
         private int roundUpMinute = 5;
         #endregion
@@ -151,6 +152,11 @@ namespace GUI.UI.Modules
                             id = (long)gvMovieSchedules.GetRowCellValue(i, "AutoID");
                         }
                     }
+                    List<tbl_DM_Ticket_DTO> foundTickets = ticket_bus.GetList_ByMovieSchedule(id);
+                    if(foundTickets.Count > 0)
+                    {
+                        throw new Exception("Suất chiếu đã có khách đặt vé, không thể thay đổi thông tin !");
+                    }
                     DateTime startDate = (DateTime)dtpStartDate.EditValue;
                     DateTime endDate = (DateTime)dtpEndDate.EditValue;
 
@@ -160,7 +166,7 @@ namespace GUI.UI.Modules
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message,"Lỗi");
                 }
             }
         }
