@@ -276,7 +276,7 @@ namespace GUI.UI.Modules
 
             // Thiết lập RepositoryItemPictureEdit để hiển thị hình ảnh
             RepositoryItemPictureEdit pictureEdit = new RepositoryItemPictureEdit();
-            pictureEdit.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch; // Stretch to fit
+            pictureEdit.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze; // Stretch to fit
             pictureEdit.PictureAlignment = ContentAlignment.MiddleCenter; // Center the image
             dgvMovies.RepositoryItems.Add(pictureEdit);
             hinhAnhColumn.ColumnEdit = pictureEdit;
