@@ -15,6 +15,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,7 @@ namespace GUI.UI.Modules
 {
     public partial class ucChonThanhToan : ucBase
     {
+        tbl_DM_Product_BUS v_objBus = new tbl_DM_Product_BUS();
 
         public ucChonThanhToan()
         {
@@ -33,14 +35,17 @@ namespace GUI.UI.Modules
 
         protected override void Load_Data()
         {
+            
+
+            //Load trên giao diện
+            Load_Danh_Sach_San_Pham(); 
+
             //Set up cho cart
             SetupLayoutView();
 
-            //Load trên giao diện
-            Load_Danh_Sach_San_Pham();
+            //Lấy danh sách sản phẩm 
             Load_Danh_Sach_San_Pham_Chon();
 
-            //Lấy danh sách sản phẩm 
         }
 
         private void btnThem_San_Pham_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -119,9 +124,8 @@ namespace GUI.UI.Modules
         #region Nhóm private
         private void Load_Danh_Sach_San_Pham()
         {
-            tbl_DM_Product_BUS v_objBus = new tbl_DM_Product_BUS();
-            List<tbl_DM_Product_DTO> v_arrData = v_objBus.GetAll();
-            grdControl_San_Pham.DataSource = v_arrData;
+            gvSanPham.DataSource = v_objBus.GetAll();
+            gvSanPham.RefreshDataSource();
         }
 
         private void Load_Danh_Sach_San_Pham_Chon()
@@ -140,47 +144,81 @@ namespace GUI.UI.Modules
         public void SetupLayoutView()
         {
             // Set the card's minimum size.
-            viewCart.CardMinSize = new Size(300, 350);
+            layoutView1.CardMinSize = new Size(300, 350);
+            layoutView1.OptionsCustomization.AllowFilter = false;
+            layoutView1.OptionsCustomization.ShowGroupView = false;
 
             // Ngăn không cho phép sửa dữ liệu trực tiếp trên Layoutview
-            viewCart.OptionsBehavior.Editable = false;
+            layoutView1.OptionsBehavior.Editable = false;
 
             // Duyệt qua tất cả các cột và ẩn các cột không cần thiết
-            foreach (LayoutViewColumn v_objCol in viewCart.Columns)
+            foreach (LayoutViewColumn column in layoutView1.Columns)
             {
                 // ẩn tất cả cột không cần thiết
-                v_objCol.Visible = false;
+                column.Visible = false;
 
                 // tắt cái tiêu đề của field
-                v_objCol.LayoutViewField.TextVisible = false;
+                column.LayoutViewField.TextVisible = false;
             }
 
             // Tạo cột hình ảnh không có sẵn trong dữ liệu (Unbound)
-            LayoutViewColumn v_objImg_Col = viewCart.Columns.AddField("PD_IMAGEURL");
+            LayoutViewColumn hinhAnhColumn = layoutView1.Columns.AddField("PosterImage");
             // tắt cái tiêu đề của field
-            v_objImg_Col.LayoutViewField.TextVisible = false;
-            v_objImg_Col.UnboundType = DevExpress.Data.UnboundColumnType.Object;
-            v_objImg_Col.Visible = true;
-            v_objImg_Col.Caption = "Hình ảnh";
+            hinhAnhColumn.LayoutViewField.TextVisible = false;
+            hinhAnhColumn.UnboundType = DevExpress.Data.UnboundColumnType.Object;
+            hinhAnhColumn.Visible = true;
+            hinhAnhColumn.Caption = "Hình ảnh";
 
             // Thiết lập LayoutViewField cho cột hình ảnh
-            LayoutViewField v_objLayout_Field = v_objImg_Col.LayoutViewField;
-            v_objLayout_Field.TextVisible = false;
-            v_objLayout_Field.SizeConstraintsType = SizeConstraintsType.Default;
+            LayoutViewField hinhAnhField = hinhAnhColumn.LayoutViewField;
+            hinhAnhField.TextVisible = false;
+            hinhAnhField.SizeConstraintsType = SizeConstraintsType.Custom;
+            hinhAnhField.MinSize = new Size(300, 350); // Minimum size of the card
+            hinhAnhField.MaxSize = new Size(300, 350); // Maximum size of the card
+            hinhAnhField.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0); // Remove any padding
 
             // Thiết lập RepositoryItemPictureEdit để hiển thị hình ảnh
-            RepositoryItemPictureEdit v_objPicture = new RepositoryItemPictureEdit();
-            v_objPicture.SizeMode = PictureSizeMode.Zoom; // Thử chế độ Zoom thay vì Squeeze
-            v_objPicture.PictureAlignment = ContentAlignment.MiddleCenter; // Căn giữa hình ảnh
-            grdControl_San_Pham.RepositoryItems.Add(v_objPicture);
-            v_objImg_Col.ColumnEdit = v_objPicture;
+            RepositoryItemPictureEdit pictureEdit = new RepositoryItemPictureEdit();
+            pictureEdit.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze; // Stretch to fit
+            pictureEdit.PictureAlignment = ContentAlignment.MiddleCenter; // Center the image
+            gvSanPham.RepositoryItems.Add(pictureEdit);
+            hinhAnhColumn.ColumnEdit = pictureEdit;
 
-            // Tìm cột PD_IMAGEURL và cấu hình nếu cột tồn tại
-            LayoutViewColumn v_objCol_Res = viewCart.Columns.ColumnByFieldName("PD_IMAGEURL");
-            if (v_objCol_Res != null)
+            // Tìm cột PD_NAME và cấu hình nếu cột tồn tại
+            LayoutViewColumn tenSanPham = layoutView1.Columns.ColumnByFieldName("PD_NAME");
+            if (tenSanPham != null)
             {
-                v_objCol_Res.Visible = true;
-                v_objCol_Res.Caption = "Tên sản phẩm";
+                tenSanPham.Visible = true;
+                tenSanPham.Caption = "Tên phim";
+            }
+            else
+            {
+                Console.WriteLine("Cột 'PD_NAME' không tồn tại trong LayoutView.");
+            }
+        }
+        /// <summary>
+        /// Thêm cột hình ảnh khi hiển thị card
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void layoutView1_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
+        {
+            if (e.Column.FieldName == "PosterImage" && e.IsGetData)
+            {
+                // Lấy đường dẫn từ cột MV_POSTERURL của bản ghi hiện tại
+                string imagePath = layoutView1.GetRowCellValue(e.ListSourceRowIndex, "PD_IMAGEURL")?.ToString();
+
+                // Kiểm tra nếu file tồn tại
+                if (!string.IsNullOrEmpty(imagePath) && File.Exists(imagePath))
+                {
+                    // Đọc hình ảnh từ đường dẫn
+                    e.Value = Image.FromFile(imagePath);
+                }
+                else
+                {
+                    // Nếu không có hình ảnh, sử dụng hình ảnh mặc định
+                    e.Value = Properties.Resources.picture_card_no_image;
+                }
             }
         }
 
