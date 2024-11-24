@@ -1,7 +1,9 @@
 ﻿using BUS.Danh_Muc;
+using DevExpress.Office.Model;
 using DTO.Common;
 using DTO.tbl_DTO;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -15,6 +17,9 @@ namespace GUI.UI.Modules
         private string dgv_selected_id = "";
         private string txtUrlHinhAnh = "";
         private double txtSoLuong = 0;
+
+        // Từ điển cache hình ảnh
+        private Dictionary<string, Image> imageCache = new Dictionary<string, Image>();
 
         public ucSanPham()
         {
@@ -45,6 +50,7 @@ namespace GUI.UI.Modules
             if (strFunctionCode != "")
                 lblTitle.Text = strFunctionCode.ToUpper().Trim();
             // tai du lieu dgv
+            ClearImageCache();
             dgv.DataSource = data.GetAll();
             dgv.RefreshDataSource();
 
@@ -193,79 +199,131 @@ namespace GUI.UI.Modules
             pictureBox.Image = null;
         }
 
-        /// <summary>
-        /// Nhấp vào hình hiển thị dialog box chọn ảnh
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void pictureBox_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif";
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                // Hiển thị hình ảnh trên PictureEdit
-                pictureBox.Image = Image.FromFile(openFileDialog.FileName);
-
-                // Lấy đường dẫn đầy đủ của file đã chọn
-                string selectedMV_POSTERURL = openFileDialog.FileName;
-
-                // Hiển thị đường dẫn hình ảnh
-                txtUrlHinhAnh = selectedMV_POSTERURL;
-            }
-        }
 
         /// <summary>
-        /// Nút thêm hình nếu người dùng thích bấm
+        /// Chọn hình ảnh bằng cách nhấp vào nút chọn hình ảnh
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnOpenImage_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif";
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                // Hiển thị hình ảnh trên PictureEdit
-                pictureBox.Image = Image.FromFile(openFileDialog.FileName);
-
-                // Lấy đường dẫn đầy đủ của file đã chọn
-                string selectedMV_POSTERURL = openFileDialog.FileName;
-
-                // Hiển thị đường dẫn hình ảnh trong TextBox hoặc Label
-                txtUrlHinhAnh = selectedMV_POSTERURL;
-            }
+            ChonHinhAnh();
+        }
+        /// <summary>
+        /// Chọn hình ảnh bằng cách nhấp vào khung hình
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pictureBox_Click(object sender, EventArgs e)
+        {
+            ChonHinhAnh();
         }
 
-        private void gridView1_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+        /// <summary>
+        /// Chọn một hình ảnh không vượt qua 500kb
+        /// </summary>
+        private void ChonHinhAnh()
         {
-            // Kiểm tra nếu cột hiện tại là cột chứa đường dẫn hình ảnh
-            if (e.Column.FieldName == "PD_IMAGEURL")
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                // Lấy đường dẫn từ ô hiện tại
-                string imagePath = gridView1.GetRowCellValue(e.RowHandle, e.Column).ToString();
+                txtUrlHinhAnh = openFileDialog.FileName;
 
-
-                // Kiểm tra nếu file tồn tại
-                if (File.Exists(imagePath))
+                // Kiểm tra kích thước file
+                FileInfo fileInfo = new FileInfo(txtUrlHinhAnh);
+                if (fileInfo.Length > 500 * 1024) // 500 KB
                 {
-                    // Chuyển đường dẫn thành hình ảnh
-                    Image img = Image.FromFile(imagePath);
-
-                    // Vẽ hình ảnh vào ô
-                    e.Graphics.DrawImage(img, e.Bounds);
-                    e.Handled = true; // Ngăn không vẽ dữ liệu mặc định lên ô
+                    MessageBox.Show(
+                        "Hình ảnh vượt quá 500 KB. Vui lòng chọn hình ảnh có kích thước nhỏ hơn.",
+                        "Thông báo",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+                    txtUrlHinhAnh = string.Empty; // Xóa giá trị nếu file không hợp lệ
                 }
                 else
                 {
-                    // Chuyển đường dẫn thành hình ảnh
-                    Image img = Properties.Resources.gridview_no_image;
-                    // Vẽ hình ảnh vào ô
-                    e.Graphics.DrawImage(img, e.Bounds);
-                    e.Handled = true; // Ngăn không vẽ dữ liệu mặc định lên ô
+                    // Hiển thị hình ảnh nếu kích thước hợp lệ
+                    pictureBox.Image = Image.FromFile(txtUrlHinhAnh);
                 }
             }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void gridView1_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+        {
+            if (e.Column.FieldName == "PD_IMAGEURL")
+            {
+                string imagePath = gridView1.GetRowCellValue(e.RowHandle, e.Column)?.ToString();
+
+                Image img;
+                if (!string.IsNullOrEmpty(imagePath) && File.Exists(imagePath))
+                {
+                    // Kiểm tra cache
+                    if (!imageCache.TryGetValue(imagePath, out img))
+                    {
+                        // Nếu hình ảnh chưa có trong cache, tạo mới
+                        img = Image.FromFile(imagePath);
+                        Image resizedImg = ResizeImage(img, e.Bounds.Width);
+
+                        // Lưu hình ảnh đã resize vào cache
+                        imageCache[imagePath] = resizedImg;
+
+                        // Giải phóng hình ảnh gốc
+                        img.Dispose();
+                        img = resizedImg;
+                    }
+                }
+                else
+                {
+                    // Sử dụng hình ảnh mặc định, không cần cache
+                    img = Properties.Resources.gridview_no_image;
+                }
+
+                // Vẽ hình ảnh từ cache hoặc mặc định
+                e.Graphics.DrawImage(img, e.Bounds);
+                e.Handled = true;
+            }
+        }
+        /// <summary>
+        /// Resize theo chiều ngang, giữ tỷ lệ dọc
+        /// </summary>
+        /// <param name="img"></param>
+        /// <param name="targetWidth"></param>
+        /// <returns></returns>
+        private Image ResizeImage(Image img, int targetWidth)
+        {
+            // Tính toán chiều cao mới dựa trên tỷ lệ
+            int originalWidth = img.Width;
+            int originalHeight = img.Height;
+            float scale = (float)targetWidth / originalWidth; // Tỷ lệ chiều ngang
+            int targetHeight = (int)(originalHeight * scale); // Chiều cao giữ tỷ lệ
+
+            // Tạo một hình ảnh mới với kích thước tính toán
+            Bitmap resizedImg = new Bitmap(targetWidth, targetHeight);
+            using (Graphics g = Graphics.FromImage(resizedImg))
+            {
+                // Đảm bảo chất lượng khi resize
+                g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                g.DrawImage(img, 0, 0, targetWidth, targetHeight);
+            }
+            return resizedImg;
+        }
+        /// <summary>
+        /// xóa cache từ điển
+        /// </summary>
+        private void ClearImageCache()
+        {
+            foreach (var img in imageCache.Values)
+            {
+                img.Dispose(); // Giải phóng tài nguyên hình ảnh
+            }
+            imageCache.Clear();
         }
     }
 }
