@@ -242,6 +242,8 @@ namespace GUI.UI.Modules
         {
             // Set the card's minimum size.
             layoutView1.CardMinSize = new Size(300, 350);
+            layoutView1.OptionsCustomization.AllowFilter = false;
+            layoutView1.OptionsCustomization.ShowGroupView = false;
 
             // Ngăn không cho phép sửa dữ liệu trực tiếp trên Layoutview
             layoutView1.OptionsBehavior.Editable = false;
@@ -267,12 +269,15 @@ namespace GUI.UI.Modules
             // Thiết lập LayoutViewField cho cột hình ảnh
             LayoutViewField hinhAnhField = hinhAnhColumn.LayoutViewField;
             hinhAnhField.TextVisible = false;
-            hinhAnhField.SizeConstraintsType = SizeConstraintsType.Default;
+            hinhAnhField.SizeConstraintsType = SizeConstraintsType.Custom;
+            hinhAnhField.MinSize = new Size(300, 350); // Minimum size of the card
+            hinhAnhField.MaxSize = new Size(300, 350); // Maximum size of the card
+            hinhAnhField.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0); // Remove any padding
 
             // Thiết lập RepositoryItemPictureEdit để hiển thị hình ảnh
             RepositoryItemPictureEdit pictureEdit = new RepositoryItemPictureEdit();
-            pictureEdit.SizeMode = PictureSizeMode.Zoom; // Thử chế độ Zoom thay vì Squeeze
-            pictureEdit.PictureAlignment = ContentAlignment.MiddleCenter; // Căn giữa hình ảnh
+            pictureEdit.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch; // Stretch to fit
+            pictureEdit.PictureAlignment = ContentAlignment.MiddleCenter; // Center the image
             dgvMovies.RepositoryItems.Add(pictureEdit);
             hinhAnhColumn.ColumnEdit = pictureEdit;
 

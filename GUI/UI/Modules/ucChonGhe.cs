@@ -373,6 +373,7 @@ namespace GUI.UI.Modules
 
                         //Map vào uc kia
                         CCommon.Danh_Sach_Ghe_Da_Chon = v_arrGhe_Da_Chon;
+                        CCommon.loaiVeDangDat = (int)cboTicketStatus.EditValue;
 
                         // Thêm UserControl vào main container
                         v_objContainer.Controls.Add(v_objLoad);

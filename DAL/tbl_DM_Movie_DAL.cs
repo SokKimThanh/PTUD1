@@ -108,7 +108,7 @@ namespace DAL
             }
         }
 
-        // Lấy danh sách Movie
+        // Lấy danh sách phim
         public List<tbl_DM_Movie_DTO> GetAll()
         {
             List<tbl_DM_Movie_DTO> result = new List<tbl_DM_Movie_DTO>();
@@ -117,6 +117,42 @@ namespace DAL
                 using (var dbContext = new CM_Cinema_DBDataContext(_connectionString))
                 {
                     var list = dbContext.tbl_DM_Movies.ToList();
+
+                    foreach (var item in list)
+                    {
+                        if (item.DELETED != 1)
+                        {
+                            tbl_DM_Movie_DTO entity = new tbl_DM_Movie_DTO()
+                            {
+                                MV_AutoID = item.MV_AutoID,
+                                MV_POSTERURL = item.MV_POSTERURL,
+                                MV_DESCRIPTION = item.MV_DESCRIPTION,
+                                MV_DURATION = item.MV_DURATION,
+                                MV_NAME = item.MV_NAME,
+                                MV_PRICE = item.MV_PRICE,
+                                MV_AGERATING_AutoID = item.MV_AGERATING_AutoID,
+                            };
+                            result.Add(entity);
+                        }
+                    }
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Lỗi thực thi thao tác với DB: {ex.Message}");
+            }
+        }
+
+        // Lấy danh sách phim theo thời lượng
+        public List<tbl_DM_Movie_DTO> GetAll_ByDuration(int duration)
+        {
+            List<tbl_DM_Movie_DTO> result = new List<tbl_DM_Movie_DTO>();
+            try
+            {
+                using (var dbContext = new CM_Cinema_DBDataContext(_connectionString))
+                {
+                    var list = dbContext.tbl_DM_Movies.Where(mv => mv.MV_DURATION == duration).ToList();
 
                     foreach (var item in list)
                     {

@@ -46,6 +46,23 @@ namespace BUS.Danh_Muc
         {
             return data.GetAll();
         }
+
+        /// <summary>
+        /// Lấy danh sách phim theo thời lượng
+        /// </summary>
+        /// <param name="duration"></param>
+        /// <returns></returns>
+        public List<tbl_DM_Movie_DTO> GetAll_ByDuration(int duration)
+        {
+            try
+            {
+                return data.GetAll_ByDuration(duration);
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         /// <summary>
         /// Lấy danh sách phim theo ngày chiếu
         /// </summary>

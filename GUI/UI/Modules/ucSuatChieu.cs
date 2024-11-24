@@ -28,6 +28,12 @@ namespace GUI.UI.Modules
             gvMovieSchedules.OptionsBehavior.Editable = false;
         }
 
+        private void IsUsing(bool isUsing)
+        {
+            btnThem.Enabled = !isUsing;
+            btnCapNhat.Enabled = isUsing;
+            btnXoa.Enabled = isUsing;
+        }
         protected override void Load_Data()
         {
             if (strFunctionCode != "")
@@ -37,6 +43,7 @@ namespace GUI.UI.Modules
             GetScheduleList(null);
 
             // Lấy danh sách phim
+            cboMovies.Properties.DataSource = null;
             cboMovies.Properties.DataSource = movie_bus.GetAll();
             cboMovies.Properties.DisplayMember = "MV_NAME";
             cboMovies.Properties.ValueMember = "MV_AutoID";
@@ -46,6 +53,7 @@ namespace GUI.UI.Modules
             cboMovies.Properties.Columns.Add(new LookUpColumnInfo("MV_DURATION", "Thời lượng (phút)"));
 
             // Lấy danh sách phòng chiếu
+            cboTheaters.Properties.DataSource = null;
             cboTheaters.Properties.DataSource = theater_bus.GetList();
             cboTheaters.Properties.DisplayMember = "Name";
             cboTheaters.Properties.ValueMember = "AutoID";
@@ -53,6 +61,9 @@ namespace GUI.UI.Modules
             cboTheaters.Properties.Columns.Add(new LookUpColumnInfo("AutoID", "Mã số"));
             cboTheaters.Properties.Columns.Add(new LookUpColumnInfo("Name", "Tên Rạp"));
             cboTheaters.ItemIndex = 0;
+
+            // Làm mới thao tác
+            IsUsing(false);
         }
         /// <summary>
         /// Nút thêm
@@ -70,9 +81,10 @@ namespace GUI.UI.Modules
                 // Thêm dữ liệu vào danh sách
                 movieSche_bus.AddData((long)cboMovies.EditValue, (long)cboTheaters.EditValue, startDate, endDate);
 
+                MessageBox.Show("Thêm lịch chiếu mới thành công", "Thông báo");
+
                 Load_Data();
 
-                MessageBox.Show("Thêm lịch chiếu mới thành công", "Thông báo");
             }
             catch (Exception ex)
             {
@@ -109,9 +121,9 @@ namespace GUI.UI.Modules
                         }
                     }
                     movieSche_bus.RemoveData(id);
+                    MessageBox.Show("Xóa thông tin lịch chiếu thành công", "Thông báo");
+                    Load_Data();
                 }
-                Load_Data();
-                MessageBox.Show("Xóa thông tin lịch chiếu thành công", "Thông báo");
             }
             catch (Exception ex)
             {
@@ -125,26 +137,31 @@ namespace GUI.UI.Modules
         /// <param name="e"></param>
         private void btnCapNhat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            try
+            DialogResult re = MessageBox.Show("Bạn có muốn đổi thông tin lịch chiếu này ?", "Thông báo",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            if(re == DialogResult.Yes)
             {
-                long id = -1;
-                int[] cacDong = gvMovieSchedules.GetSelectedRows();
-                foreach (int i in cacDong)
+                try
                 {
-                    if (i >= 0)
+                    long id = -1;
+                    int[] cacDong = gvMovieSchedules.GetSelectedRows();
+                    foreach (int i in cacDong)
                     {
-                        id = (long)gvMovieSchedules.GetRowCellValue(i, "AutoID");
+                        if (i >= 0)
+                        {
+                            id = (long)gvMovieSchedules.GetRowCellValue(i, "AutoID");
+                        }
                     }
-                }
-                DateTime startDate = (DateTime)dtpStartDate.EditValue;
-                DateTime endDate = (DateTime)dtpEndDate.EditValue;
+                    DateTime startDate = (DateTime)dtpStartDate.EditValue;
+                    DateTime endDate = (DateTime)dtpEndDate.EditValue;
 
-                movieSche_bus.UpdateData(id, (long)cboMovies.EditValue, (long)cboTheaters.EditValue, startDate, endDate, 0);
-                Load_Data();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+                    movieSche_bus.UpdateData(id, (long)cboMovies.EditValue, (long)cboTheaters.EditValue, startDate, endDate, 0);
+                    MessageBox.Show("Thay đổi thông tin lịch chiếu thành công", "Thông báo");
+                    Load_Data();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
         /// <summary>
@@ -178,11 +195,25 @@ namespace GUI.UI.Modules
                 {
                     if (i >= 0)
                     {
+                        // Lấy danh sách phim có cùng thời lượng
+                        cboMovies.Properties.DataSource = null;
+                        cboMovies.Properties.DataSource = movie_bus.GetAll_ByDuration(movie_bus.Find((long)gvMovieSchedules.GetRowCellValue(i, "Movie_AutoID")).MV_DURATION);
+                        cboMovies.Properties.DisplayMember = "MV_NAME";
+                        cboMovies.Properties.ValueMember = "MV_AutoID";
+                        cboMovies.Properties.Columns.Clear();
+                        cboMovies.Properties.Columns.Add(new LookUpColumnInfo("MV_NAME", "Tên Phim"));
+                        cboMovies.Properties.Columns.Add(new LookUpColumnInfo("MV_PRICE", "Giá vé"));
+                        cboMovies.Properties.Columns.Add(new LookUpColumnInfo("MV_DURATION", "Thời lượng (phút)"));
+
+
+
                         cboMovies.EditValue = gvMovieSchedules.GetRowCellValue(i, "Movie_AutoID");
                         cboTheaters.EditValue = gvMovieSchedules.GetRowCellValue(i, "Theater_AutoID");
                         DateTime startDate = (DateTime)gvMovieSchedules.GetRowCellValue(i, "StartDate");
+                        DateTime endDate = (DateTime)gvMovieSchedules.GetRowCellValue(i, "EndDate");
                         dtpStartDate.EditValue = startDate;
-                        dtpEndDate.EditValue = startDate;
+                        dtpEndDate.EditValue = endDate;
+                        IsUsing(true);
                     }
                 }
             }catch(Exception ex)
@@ -294,6 +325,7 @@ namespace GUI.UI.Modules
                 cboMovies.ItemIndex = 0;
                 GetScheduleList((long)cboTheaters.EditValue);
                 GetSetUpDate();
+                IsUsing(false);
             }
             catch(Exception ex)
             {
@@ -310,7 +342,8 @@ namespace GUI.UI.Modules
         {
             try
             {
-                GetSetUpDate();
+                if(btnThem.Enabled)
+                    GetSetUpDate();
             }catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, "Lỗi");
