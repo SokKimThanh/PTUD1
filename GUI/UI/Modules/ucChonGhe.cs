@@ -52,7 +52,7 @@ namespace GUI.UI.Modules
             tbl_DM_MovieSchedule_DTO foundSchedule = movieScheBus.GetLastMovieSchedule_ByID(CCommon.suatChieuDuocChon);
             string movieName = movieBus.Find(foundSchedule.Movie_AutoID).MV_NAME.Trim();
             lblTitle.Text = "Phim được chọn: " + movieName + " | " + foundSchedule.StartDate.ToString("HH:mm");
-
+            PrintSeats();
             if (this.Parent is FluentDesignFormContainer v_objMain_Container)
             {
                 v_objMain_Container.SizeChanged += (sender, e) => PrintSeats();
