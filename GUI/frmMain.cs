@@ -390,7 +390,7 @@ namespace GUI
         {
             while (true)
             {
-                string currentTime = DateTime.Now.ToString(CConfig.Full_DateTime_Format_String);
+                string currentTime = DateTime.Now.ToString(CConfig.Time_Format_String);
                 // Sử dụng Form hoặc Control cha để gọi BeginInvoke
                 this.BeginInvoke(new Action(() =>
                 {
