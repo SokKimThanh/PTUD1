@@ -1,7 +1,11 @@
 ﻿using BUS.Danh_Muc;
 using BUS.Sys;
+using DevExpress.XtraCharts.Native;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid;
 using DTO.tbl_DTO;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace GUI.UI.Modules
 {
@@ -14,39 +18,46 @@ namespace GUI.UI.Modules
             this.layoutTitle.MaxSize = new System.Drawing.Size(0, 42);
             this.layoutTitle.MinSize = new System.Drawing.Size(36, 36);
             // Ngăn không cho phép sửa dữ liệu trực tiếp trên GridView
-            gvHoaDonCT.OptionsBehavior.Editable = false;
+            grdData.OptionsBehavior.Editable = false;
         }
         protected override void Load_Data()
         {
             if (strFunctionCode != "")
                 lblTitle.Text = strFunctionCode.ToUpper().Trim();
-
-            tbl_DM_Bill_BUS v_objBillBus = new tbl_DM_Bill_BUS();
-            tbl_DM_Staff_BUS v_objStaffBus = new tbl_DM_Staff_BUS();
-            tbl_DM_Product_BUS v_objProductBus = new tbl_DM_Product_BUS();
-
-            List<tbl_DM_Bill_DTO> v_arrBill = v_objBillBus.List_Data();
-            foreach (tbl_DM_Bill_DTO v_objBill in v_arrBill)
+            tbl_DM_Bill_BUS v_objBill_Bus = new tbl_DM_Bill_BUS();
+            tbl_DM_Ticket_BUS v_objTiket = new tbl_DM_Ticket_BUS();
+            tbl_DM_BillDetail_BUS v_objBillDetail = new tbl_DM_BillDetail_BUS();
+            tbl_DM_Product_BUS v_objBus = new tbl_DM_Product_BUS();
+            List<tbl_DM_Bill_DTO> v_arrData = v_objBill_Bus.List_Data();
+            foreach (tbl_DM_Bill_DTO v_objItem in v_arrData)
             {
-                v_objBill.BL_PRODUCT_NAME = v_objProductBus.Find(v_objBill.BL_PRODUCT_AutoID).PD_NAME;
-                v_objBill.BL_NAME = v_objStaffBus.GetStaff_ByID((int)v_objBill.BL_STAFF_AutoID).ST_NAME;
+                v_objItem.Tiket = v_objTiket.List_Data_By_Bill_ID(v_objItem.BL_AutoID);
+                v_objItem.Bill_Detail = v_objBillDetail.List_Data_By_Bill_ID(v_objItem.BL_AutoID);
+
+                foreach (tbl_DM_BillDetail_DTO v_objDetail in v_objItem.Bill_Detail)
+                {
+                    v_objDetail.Product_Name = v_objBus.Find(v_objDetail.BD_PRODUCT_AutoID).PD_NAME;
+                }
             }
 
-            DgvHoaDonCT.DataSource = v_arrBill;
+            dgv.DataSource = v_arrData;
+            grdData.Columns["BL_AutoID"].Visible = false;
+            grdData.Columns["BL_STAFF_AutoID"].Visible = false;
+            //grdData.Columns["Bill_Detail"].Visible = false;
+            //grdData.Columns["Tiket"].Visible = false;
 
-            gvHoaDonCT.Columns["BL_AutoID"].Visible = false;
-            gvHoaDonCT.Columns["BL_PRODUCT_AutoID"].Visible = false;
-            gvHoaDonCT.Columns["BL_STAFF_AutoID"].Visible = false;
+            grdData.Columns["BL_Bill_Code"].Caption = LanguageController.GetLanguageDataLabel("Mã hóa đơn");
+            grdData.Columns["BL_Total_Price"].Caption = LanguageController.GetLanguageDataLabel("Tổng giá trị");
+            FormatGridView(grdData);
 
-            gvHoaDonCT.Columns["BL_PRODUCT_NAME"].Caption = LanguageController.GetLanguageDataLabel("Tên sản phẩm");
-            gvHoaDonCT.Columns["BL_NAME"].Caption = LanguageController.GetLanguageDataLabel("Người tạo hóa đơn");
-            gvHoaDonCT.Columns["BL_QUANTITY"].Caption = LanguageController.GetLanguageDataLabel("Số lượng");
-            gvHoaDonCT.Columns["BL_PRICE"].Caption = LanguageController.GetLanguageDataLabel("Giá");
+            grdData.Columns["CREATED"].Visible = true;
+            grdData.Columns["CREATED_BY"].Visible = true;
 
+            grdData.Columns["CREATED"].Caption = LanguageController.GetLanguageDataLabel("Ngày giờ tạo");
+            grdData.Columns["CREATED_BY"].Caption = LanguageController.GetLanguageDataLabel("Người tạo");
 
-            FormatGridView(gvHoaDonCT);
-
-
+            GridLevelTree v_objTree = dgv.LevelTree;
         }
+
     }
 }

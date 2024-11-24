@@ -22,6 +22,19 @@ namespace BUS.Danh_Muc
                 throw ex;
             }
         }
+
+        public List<tbl_DM_Ticket_DTO> List_Data_By_Bill_ID(long p_lngBill_ID)
+        {
+            try
+            {
+                return dal.List_Data_By_Bill_ID(p_lngBill_ID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public bool SeatExist_ByMovieSchedule(string seatName, long movieScheduleID)
         {
             return dal.SeatExist_ByMovieSchedule(seatName, movieScheduleID);

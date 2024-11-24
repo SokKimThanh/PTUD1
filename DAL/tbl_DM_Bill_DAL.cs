@@ -54,6 +54,44 @@ namespace DAL
         {
             throw new NotImplementedException();
         }
+
+        public tbl_DM_Bill_DTO Get_Data_By_ID(long p_lngAuto_ID)
+        {
+            try
+            {
+                tbl_DM_Bill_DTO v_objRes = new tbl_DM_Bill_DTO();
+                tbl_DM_Bill v_objBill = DBDataContext.tbl_DM_Bills.FirstOrDefault(it => it.BL_AutoID == p_lngAuto_ID);
+
+                if (v_objBill != null)
+                {
+                    CUtility.Clone_Entity(v_objBill, v_objRes);
+                }
+                return v_objRes;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public tbl_DM_Bill_DTO Get_Data_By_Code(string p_strCode)
+        {
+            try
+            {
+                tbl_DM_Bill_DTO v_objRes = new tbl_DM_Bill_DTO();
+                tbl_DM_Bill v_objBill = DBDataContext.tbl_DM_Bills.FirstOrDefault(it => it.BL_Bill_Code.Trim() == p_strCode.Trim());
+
+                if (v_objBill != null)
+                {
+                    CUtility.Clone_Entity(v_objBill, v_objRes);
+                }
+                return v_objRes;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 
 }

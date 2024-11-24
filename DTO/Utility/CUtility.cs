@@ -55,7 +55,8 @@ namespace DTO.Utility
                     object objValue = objPropSoucre.GetValue(objSource);
 
                     // Gán giá trị vào objTarget
-                    objPropTarget.SetValue(objTarget, objValue);
+                    if (objValue != null)
+                        objPropTarget.SetValue(objTarget, objValue);
                 }
             }
         }
