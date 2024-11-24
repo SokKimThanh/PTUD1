@@ -77,5 +77,15 @@ namespace BUS.Danh_Muc
                 throw ex;
             }
         }
+        public tbl_DM_Ticket_DTO GetTicket_BySeatName(string seatName, long movieScheduleID)
+        {
+            try
+            {
+                return dal.GetTicket_BySeatName(seatName, movieScheduleID);
+            }catch(Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }
