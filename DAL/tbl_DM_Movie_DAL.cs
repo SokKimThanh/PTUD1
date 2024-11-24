@@ -224,7 +224,10 @@ namespace DAL
                     {
                         list = (from mv in db.tbl_DM_Movies
                                 join ms in db.tbl_DM_MovieSchedules on mv.MV_AutoID equals ms.MS_MOVIE_AutoID
-                                where ms.MS_START.Date == date.Date
+                               
+                                let ms_start = ms.MS_START.Date
+
+                                where ms_start == date.Date
                                 select mv).ToList();
                     }
                     else
