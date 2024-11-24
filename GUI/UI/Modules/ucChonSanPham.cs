@@ -176,11 +176,6 @@ namespace GUI.UI.Modules
                         // Thêm UserControl vào main container
                         v_objContainer.Controls.Add(v_objLoad);
 
-                        v_objLoad.Danh_Sach_Ten_Ghe = Danh_Sach_Ten_Ghe;
-                        v_objLoad.Tong_Tien_Ghe = Tong_Tien_Ghe;
-                        v_objLoad.Tong_Tien_San_Pham = Convert.ToDouble(Regex.Match(txtTong_Tien_San_Pham.Text, @"\d+").Value);
-                        v_objLoad.Danh_Sach_San_Pham = m_arrSP_Da_Chon.Where(it => it.PD_QUANTITY > 0).ToList(); //Lấy những dòng > 0
-
                         v_objLoad.Load_DataBase(sender, e);
 
                     }

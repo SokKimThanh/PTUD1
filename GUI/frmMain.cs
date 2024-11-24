@@ -89,6 +89,7 @@ namespace GUI
         private void FunctionADMIN()
         {
             arrFunction.Elements.AddRange(new AccordionControlElement[] {
+                this.aceDatVe,
             this.aceDanhMuc,
             this.aceBaoCao,
             this.aceHeThong});
@@ -100,6 +101,7 @@ namespace GUI
         private void FunctionManager()
         {
             arrFunction.Elements.AddRange(new AccordionControlElement[] {
+                 this.aceDatVe,
             this.aceDanhMuc,
             this.aceBaoCao,
             this.aceHeThong});
@@ -114,10 +116,11 @@ namespace GUI
             this.aceDanhMuc.Elements.Remove(this.accQLNhanVien);
 
             arrFunction.Elements.AddRange(new AccordionControlElement[] {
+            this.aceDatVe,
             this.aceDanhMuc,
             this.aceHeThong});
 
-            
+
         }
 
         #endregion

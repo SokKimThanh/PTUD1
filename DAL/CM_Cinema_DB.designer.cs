@@ -75,7 +75,7 @@ namespace DAL
     #endregion
 		
 		public CM_Cinema_DBDataContext() : 
-				base(global::DAL.Properties.Settings.Default.CM_Cinema_DBConnectionString7, mappingSource)
+				base(global::DAL.Properties.Settings.Default.CM_Cinema_DBConnectionString8, mappingSource)
 		{
 			OnCreated();
 		}
@@ -2985,7 +2985,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PD_IMAGEURL", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PD_IMAGEURL", DbType="NVarChar(MAX)")]
 		public string PD_IMAGEURL
 		{
 			get

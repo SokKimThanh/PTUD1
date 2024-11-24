@@ -14,6 +14,7 @@ namespace GUI.UI.Modules
         private tbl_DM_ExpenseType_BUS expenseType_BUS = new tbl_DM_ExpenseType_BUS();
         private string dgv_selected_id = "";
         private string txtUrlHinhAnh = "";
+        private double txtSoLuong = 0;
 
         public ucSanPham()
         {
@@ -30,7 +31,7 @@ namespace GUI.UI.Modules
             product.PD_NAME = txtTenSanPham.Text.Trim();
             product.PD_PRICE = double.Parse(txtGiaBan.Text.ToString().Trim());
             product.PD_IMAGEURL = txtUrlHinhAnh.Trim();
-            //productBUS.PD_QUANTITY = double.Parse(txtSoLuong.ToString().Trim());
+            product.PD_QUANTITY = txtSoLuong;
             // edit selected id on datagridview
             if (dgv_selected_id != "")
             {
@@ -154,7 +155,7 @@ namespace GUI.UI.Modules
                         txtTenSanPham.Text = o.PD_NAME;
                         txtGiaBan.Text = o.PD_PRICE.ToString();
                         txtUrlHinhAnh = o.PD_IMAGEURL;
-
+                        txtSoLuong = o.PD_QUANTITY;
                         try
                         {
                             Image image = Image.FromFile(o.PD_IMAGEURL);
