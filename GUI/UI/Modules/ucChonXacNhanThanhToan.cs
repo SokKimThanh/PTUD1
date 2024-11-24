@@ -11,12 +11,17 @@ using System.Windows.Forms;
 
 namespace GUI.UI.Modules
 {
-    public partial class ucChonXacNhanThanhToan : DevExpress.XtraEditors.XtraUserControl
+    public partial class ucChonXacNhanThanhToan : ucBase
     {
         public ucChonXacNhanThanhToan()
         {
             InitializeComponent();
             lblTitle.Text = "Xác nhận thanh toán".ToUpper();
+        }
+
+        protected override void Load_Data()
+        {
+            
         }
     }
 }

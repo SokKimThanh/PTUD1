@@ -31,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.DataAccess.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
@@ -42,8 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bao_Cao\Bill_Report.cs" />
     <Compile Include="Bao_Cao\tbl_Report_BUS.cs" />
     <Compile Include="BasicMethods.cs" />
+    <Compile Include="Danh_Muc\tbl_DM_BillDetail_BUS.cs" />
     <Compile Include="Danh_Muc\tbl_DM_Bill_BUS.cs" />
     <Compile Include="Danh_Muc\tbl_DM_ExpenseType_BUS.cs" />
     <Compile Include="Danh_Muc\tbl_DM_Shift_BUS.cs" />

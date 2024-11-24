@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI
@@ -209,6 +211,8 @@ namespace GUI
                 LoadFunctionByLevel(iLevel);
 
                 mainContainer.Controls.Clear();
+
+                Task.Run(() => TimeExcute());
             }
             catch (Exception ex)
             {
@@ -380,7 +384,22 @@ namespace GUI
         {
 
         }
+
+
+        private void TimeExcute()
+        {
+            while (true)
+            {
+                string currentTime = DateTime.Now.ToString(CConfig.Time_Format_String);
+                // Sử dụng Form hoặc Control cha để gọi BeginInvoke
+                this.BeginInvoke(new Action(() =>
+                {
+                    lblTime.Caption = currentTime;
+                }));
+
+                Thread.Sleep(1000); // Thêm delay để tránh vòng lặp quá nhanh
+            }
+        }
+
     }
 }
-
-

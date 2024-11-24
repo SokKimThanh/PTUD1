@@ -16,7 +16,11 @@ namespace DTO.tbl_DTO
         private long staffID;
         private int deleted;
         private DateTime created;
-
+        private string strCREATED_BY;
+        private string strCREATED_BY_FUNCTION;
+        private DateTime? dtmUPDATED;
+        private string strUPDATED_BY;
+        private string strUPDATED_BY_FUNCTION;
         public tbl_DM_Ticket_DTO(long autoID, string seatName, int status, long movieScheID, long? billID, long staffID, int deleted, DateTime created)
         {
             this.autoID = autoID;
@@ -34,7 +38,7 @@ namespace DTO.tbl_DTO
             
         }
 
-        public long AutoID { get => autoID;}
+        public long AutoID { get => autoID; set => autoID = value; }
         public string SeatName { get => seatName; set => seatName = value; }
         public long MovieScheID { get => movieScheID; set => movieScheID = value; }
         public long StaffID { get => staffID; set => staffID = value; }
@@ -42,5 +46,10 @@ namespace DTO.tbl_DTO
         public long? BillID { get => billID; set => billID = value; }
         public DateTime Created { get => created; set => created = value; }
         public int Status { get => status; set => status = value; }
+        public string CREATED_BY { get => strCREATED_BY; set => strCREATED_BY = value; }
+        public string CREATED_BY_FUNCTION { get => strCREATED_BY_FUNCTION; set => strCREATED_BY_FUNCTION = value; }
+        public DateTime? UPDATED { get => dtmUPDATED; set => dtmUPDATED = value; }
+        public string UPDATED_BY { get => strUPDATED_BY; set => strUPDATED_BY = value; }
+        public string UPDATED_BY_FUNCTION { get => strUPDATED_BY_FUNCTION; set => strUPDATED_BY_FUNCTION = value; }
     }
 }

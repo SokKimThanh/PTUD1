@@ -10,9 +10,9 @@
         public string ProductName { get; set; }
         public double ReceivedQuantity { get; set; } 
         public double RemainingStock { get; set; }
-        public int SoldQuantity { get; set; }
+        public double SoldQuantity { get; set; }
         public double TotalReceived { get; set; }
-        public int TotalSold { get; set; }
+        public double TotalSold { get; set; }
         public double SalesPerformancePercentage { get; set; }
         public string SalesPerformanceCategory { get; set; }
         public string StockStatus { get; set; }

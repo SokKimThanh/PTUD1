@@ -883,6 +883,10 @@ namespace DAL
 		
 		private long _BL_STAFF_AutoID;
 		
+		private string _BL_Bill_Code;
+		
+		private System.Nullable<double> _BL_Total_Price;
+		
 		private System.Nullable<int> _DELETED;
 		
 		private System.Nullable<System.DateTime> _CREATED;
@@ -911,6 +915,10 @@ namespace DAL
     partial void OnBL_AutoIDChanged();
     partial void OnBL_STAFF_AutoIDChanging(long value);
     partial void OnBL_STAFF_AutoIDChanged();
+    partial void OnBL_Bill_CodeChanging(string value);
+    partial void OnBL_Bill_CodeChanged();
+    partial void OnBL_Total_PriceChanging(System.Nullable<double> value);
+    partial void OnBL_Total_PriceChanged();
     partial void OnDELETEDChanging(System.Nullable<int> value);
     partial void OnDELETEDChanged();
     partial void OnCREATEDChanging(System.Nullable<System.DateTime> value);
@@ -975,6 +983,46 @@ namespace DAL
 					this._BL_STAFF_AutoID = value;
 					this.SendPropertyChanged("BL_STAFF_AutoID");
 					this.OnBL_STAFF_AutoIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BL_Bill_Code", DbType="NVarChar(50)")]
+		public string BL_Bill_Code
+		{
+			get
+			{
+				return this._BL_Bill_Code;
+			}
+			set
+			{
+				if ((this._BL_Bill_Code != value))
+				{
+					this.OnBL_Bill_CodeChanging(value);
+					this.SendPropertyChanging();
+					this._BL_Bill_Code = value;
+					this.SendPropertyChanged("BL_Bill_Code");
+					this.OnBL_Bill_CodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BL_Total_Price", DbType="Float")]
+		public System.Nullable<double> BL_Total_Price
+		{
+			get
+			{
+				return this._BL_Total_Price;
+			}
+			set
+			{
+				if ((this._BL_Total_Price != value))
+				{
+					this.OnBL_Total_PriceChanging(value);
+					this.SendPropertyChanging();
+					this._BL_Total_Price = value;
+					this.SendPropertyChanged("BL_Total_Price");
+					this.OnBL_Total_PriceChanged();
 				}
 			}
 		}
@@ -1236,7 +1284,7 @@ namespace DAL
 		
 		private long _BD_PRODUCT_AutoID;
 		
-		private int _BD_QUANTITY;
+		private double _BD_QUANTITY;
 		
 		private System.Nullable<int> _DELETED;
 		
@@ -1266,7 +1314,7 @@ namespace DAL
     partial void OnBD_BILL_AutoIDChanged();
     partial void OnBD_PRODUCT_AutoIDChanging(long value);
     partial void OnBD_PRODUCT_AutoIDChanged();
-    partial void OnBD_QUANTITYChanging(int value);
+    partial void OnBD_QUANTITYChanging(double value);
     partial void OnBD_QUANTITYChanged();
     partial void OnDELETEDChanging(System.Nullable<int> value);
     partial void OnDELETEDChanged();
@@ -1359,8 +1407,8 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BD_QUANTITY", DbType="Int NOT NULL")]
-		public int BD_QUANTITY
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BD_QUANTITY", DbType="Float NOT NULL")]
+		public double BD_QUANTITY
 		{
 			get
 			{

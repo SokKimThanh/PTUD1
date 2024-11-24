@@ -58,6 +58,7 @@
             this.accThoat = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.fluentFormDefaultManager1 = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
+            this.lblTime = new DevExpress.XtraBars.BarHeaderItem();
             ((System.ComponentModel.ISupportInitialize)(this.arrFunction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).BeginInit();
@@ -66,10 +67,10 @@
             // mainContainer
             // 
             this.mainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainContainer.Location = new System.Drawing.Point(292, 39);
+            this.mainContainer.Location = new System.Drawing.Point(60, 39);
             this.mainContainer.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.mainContainer.Name = "mainContainer";
-            this.mainContainer.Size = new System.Drawing.Size(828, 747);
+            this.mainContainer.Size = new System.Drawing.Size(1060, 747);
             this.mainContainer.TabIndex = 0;
             this.mainContainer.Click += new System.EventHandler(this.mainContainer_Click);
             // 
@@ -88,8 +89,9 @@
             this.arrFunction.Name = "arrFunction";
             this.arrFunction.OptionsHamburgerMenu.HighlightRootElements = DevExpress.Utils.DefaultBoolean.True;
             this.arrFunction.OptionsMinimizing.AllowMinimizeMode = DevExpress.Utils.DefaultBoolean.True;
+            this.arrFunction.OptionsMinimizing.State = DevExpress.XtraBars.Navigation.AccordionControlState.Minimized;
             this.arrFunction.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Fluent;
-            this.arrFunction.Size = new System.Drawing.Size(292, 747);
+            this.arrFunction.Size = new System.Drawing.Size(60, 747);
             this.arrFunction.TabIndex = 1;
             this.arrFunction.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -301,6 +303,8 @@
             // fluentDesignFormControl1
             // 
             this.fluentDesignFormControl1.FluentDesignForm = this;
+            this.fluentDesignFormControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.lblTime});
             this.fluentDesignFormControl1.Location = new System.Drawing.Point(0, 0);
             this.fluentDesignFormControl1.Manager = this.fluentFormDefaultManager1;
             this.fluentDesignFormControl1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
@@ -308,10 +312,20 @@
             this.fluentDesignFormControl1.Size = new System.Drawing.Size(1120, 39);
             this.fluentDesignFormControl1.TabIndex = 2;
             this.fluentDesignFormControl1.TabStop = false;
+            this.fluentDesignFormControl1.TitleItemLinks.Add(this.lblTime);
             // 
             // fluentFormDefaultManager1
             // 
             this.fluentFormDefaultManager1.Form = this;
+            this.fluentFormDefaultManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.lblTime});
+            this.fluentFormDefaultManager1.MaxItemId = 1;
+            // 
+            // lblTime
+            // 
+            this.lblTime.Caption = "Thời gian";
+            this.lblTime.Id = 0;
+            this.lblTime.Name = "lblTime";
             // 
             // frmMain
             // 
@@ -368,5 +382,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accLoaiChiPhi;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accCaiDat;
         private DevExpress.XtraBars.Navigation.AccordionControlElement aceDatVe;
+        private DevExpress.XtraBars.BarHeaderItem lblTime;
     }
 }
