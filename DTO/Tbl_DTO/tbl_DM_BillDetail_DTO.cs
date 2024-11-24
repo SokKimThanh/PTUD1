@@ -19,7 +19,7 @@ namespace DTO.tbl_DTO
         private DateTime? dtmUPDATED;
         private string strUPDATED_BY;
         private string strUPDATED_BY_FUNCTION;
-
+        private string m_strProduct_Name;
         public tbl_DM_BillDetail_DTO(long bD_AutoID, long bD_BILL_AutoID, long bD_PRODUCT_AutoID, double bD_QUANTITY, int dELETED)
         {
             BD_AutoID = bD_AutoID;
@@ -42,6 +42,8 @@ namespace DTO.tbl_DTO
             dtmUPDATED = null;
             strUPDATED_BY = "";
             strUPDATED_BY_FUNCTION = "";
+
+            m_strProduct_Name = "";
         }
 
         public long BD_AutoID { get => _BD_AutoID; set => _BD_AutoID = value; }
@@ -55,5 +57,7 @@ namespace DTO.tbl_DTO
         public DateTime?UPDATED { get => dtmUPDATED; set => dtmUPDATED = value; }
         public string UPDATED_BY { get => strUPDATED_BY; set => strUPDATED_BY = value; }
         public string UPDATED_BY_FUNCTION { get => strUPDATED_BY_FUNCTION; set => strUPDATED_BY_FUNCTION = value; }
+        public string Product_Name { get => m_strProduct_Name; set => m_strProduct_Name = value; }
+
     }
 }

@@ -439,5 +439,42 @@ namespace GUI.UI.Modules
 
             CCommon.loaiVeDangDat = (int)cboTicketStatus.EditValue;
         }
+
+        private void btnHuyChonPhim_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Clear toàn bộ các biến trong common và định tuyến về chọn phim
+                CCommon.suatChieuDuocChon = -1;
+                CCommon.Danh_Sach_Ghe_Da_Chon = new List<string>();
+                CCommon.loaiVeDangDat = -1;
+
+
+                //Lấy form chứa uc này ra
+                if (this.Parent is FluentDesignFormContainer v_objContainer)
+                {
+                    ucChonPhim v_objLoad = new ucChonPhim();
+
+                    if (v_objContainer.Controls.Contains(v_objLoad) == false)
+                    {
+                        // Clear toàn bộ những gì trên container
+                        v_objContainer.Controls.Clear();
+
+                        // Dock control vào container để nó chiếm toàn bộ diện tích
+                        v_objLoad.Dock = DockStyle.Fill;
+
+                        // Thêm UserControl vào main container
+                        v_objContainer.Controls.Add(v_objLoad);
+                    }
+
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(LanguageController.GetLanguageDataLabel(ex.Message), LanguageController.GetLanguageDataLabel("Lỗi"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
     }
 }

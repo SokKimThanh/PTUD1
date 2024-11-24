@@ -10,5 +10,7 @@ namespace DTO.Common
 
         public static List<string> Danh_Sach_Ghe_Da_Chon { get; set; } = new List<string>();
         public static int loaiVeDangDat = -1;
+
+        public static string Printer_Name { get; set; } = "";
     }
 }

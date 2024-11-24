@@ -37,19 +37,19 @@
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
-            this.btnQuay_Lai = new DevExpress.XtraEditors.SimpleButton();
             this.btnThanh_Toan = new DevExpress.XtraEditors.SimpleButton();
             this.txtDanh_Sach_Ten_Ve = new DevExpress.XtraEditors.TextEdit();
             this.txtSo_Luong = new DevExpress.XtraEditors.TextEdit();
             this.txtTong_Tien = new DevExpress.XtraEditors.TextEdit();
+            this.txtMa_Hoa_Don = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.grdControl_San_Pham_Da_Chon = new DevExpress.XtraGrid.GridControl();
             this.grdData = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -66,10 +66,6 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.txtMa_Hoa_Don = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtDanh_Sach_Ten_Ve11 = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdControl_San_Pham)).BeginInit();
@@ -82,14 +78,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDanh_Sach_Ten_Ve.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSo_Luong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTong_Tien.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMa_Hoa_Don.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdControl_San_Pham_Da_Chon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
@@ -100,10 +97,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutSanPham)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMa_Hoa_Don.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDanh_Sach_Ten_Ve11.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -185,13 +178,11 @@
             // layoutControl3
             // 
             this.layoutControl3.Controls.Add(this.btnHuy);
-            this.layoutControl3.Controls.Add(this.btnQuay_Lai);
             this.layoutControl3.Controls.Add(this.btnThanh_Toan);
             this.layoutControl3.Controls.Add(this.txtDanh_Sach_Ten_Ve);
             this.layoutControl3.Controls.Add(this.txtSo_Luong);
             this.layoutControl3.Controls.Add(this.txtTong_Tien);
             this.layoutControl3.Controls.Add(this.txtMa_Hoa_Don);
-            this.layoutControl3.Controls.Add(this.txtDanh_Sach_Ten_Ve11);
             this.layoutControl3.Location = new System.Drawing.Point(12, 168);
             this.layoutControl3.Margin = new System.Windows.Forms.Padding(4);
             this.layoutControl3.Name = "layoutControl3";
@@ -205,26 +196,14 @@
             // 
             this.btnHuy.Appearance.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHuy.Appearance.Options.UseFont = true;
-            this.btnHuy.Location = new System.Drawing.Point(171, 367);
+            this.btnHuy.Location = new System.Drawing.Point(19, 438);
             this.btnHuy.Margin = new System.Windows.Forms.Padding(4);
             this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(134, 30);
+            this.btnHuy.Size = new System.Drawing.Size(286, 30);
             this.btnHuy.StyleController = this.layoutControl3;
             this.btnHuy.TabIndex = 7;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
-            // 
-            // btnQuay_Lai
-            // 
-            this.btnQuay_Lai.Appearance.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuay_Lai.Appearance.Options.UseFont = true;
-            this.btnQuay_Lai.Location = new System.Drawing.Point(19, 367);
-            this.btnQuay_Lai.Margin = new System.Windows.Forms.Padding(4);
-            this.btnQuay_Lai.Name = "btnQuay_Lai";
-            this.btnQuay_Lai.Size = new System.Drawing.Size(134, 30);
-            this.btnQuay_Lai.StyleController = this.layoutControl3;
-            this.btnQuay_Lai.TabIndex = 6;
-            this.btnQuay_Lai.Text = "Quay lại";
             // 
             // btnThanh_Toan
             // 
@@ -232,7 +211,7 @@
             this.btnThanh_Toan.Appearance.ForeColor = System.Drawing.Color.Red;
             this.btnThanh_Toan.Appearance.Options.UseFont = true;
             this.btnThanh_Toan.Appearance.Options.UseForeColor = true;
-            this.btnThanh_Toan.Location = new System.Drawing.Point(19, 318);
+            this.btnThanh_Toan.Location = new System.Drawing.Point(19, 389);
             this.btnThanh_Toan.Margin = new System.Windows.Forms.Padding(4);
             this.btnThanh_Toan.Name = "btnThanh_Toan";
             this.btnThanh_Toan.Size = new System.Drawing.Size(286, 29);
@@ -286,6 +265,17 @@
             this.txtTong_Tien.StyleController = this.layoutControl3;
             this.txtTong_Tien.TabIndex = 4;
             // 
+            // txtMa_Hoa_Don
+            // 
+            this.txtMa_Hoa_Don.Location = new System.Drawing.Point(19, 39);
+            this.txtMa_Hoa_Don.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMa_Hoa_Don.Name = "txtMa_Hoa_Don";
+            this.txtMa_Hoa_Don.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMa_Hoa_Don.Properties.Appearance.Options.UseFont = true;
+            this.txtMa_Hoa_Don.Size = new System.Drawing.Size(286, 32);
+            this.txtMa_Hoa_Don.StyleController = this.layoutControl3;
+            this.txtMa_Hoa_Don.TabIndex = 4;
+            // 
             // layoutControlGroup2
             // 
             this.layoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -296,10 +286,8 @@
             this.layoutControlItem7,
             this.emptySpaceItem1,
             this.layoutControlItem8,
-            this.layoutControlItem9,
             this.layoutControlItem10,
-            this.layoutControlItem2,
-            this.layoutControlItem3});
+            this.layoutControlItem2});
             this.layoutControlGroup2.Name = "Root";
             this.layoutControlGroup2.Size = new System.Drawing.Size(324, 488);
             this.layoutControlGroup2.TextVisible = false;
@@ -346,38 +334,41 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 288);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(304, 10);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(304, 81);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.btnThanh_Toan;
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 298);
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 369);
             this.layoutControlItem8.Name = "layoutControlItem8";
             this.layoutControlItem8.Padding = new DevExpress.XtraLayout.Utils.Padding(9, 9, 10, 10);
             this.layoutControlItem8.Size = new System.Drawing.Size(304, 49);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
-            // layoutControlItem9
-            // 
-            this.layoutControlItem9.Control = this.btnQuay_Lai;
-            this.layoutControlItem9.Location = new System.Drawing.Point(0, 347);
-            this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Padding = new DevExpress.XtraLayout.Utils.Padding(9, 9, 10, 10);
-            this.layoutControlItem9.Size = new System.Drawing.Size(152, 50);
-            this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem9.TextVisible = false;
-            // 
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.btnHuy;
-            this.layoutControlItem10.Location = new System.Drawing.Point(152, 347);
+            this.layoutControlItem10.Location = new System.Drawing.Point(0, 418);
             this.layoutControlItem10.Name = "layoutControlItem10";
             this.layoutControlItem10.Padding = new DevExpress.XtraLayout.Utils.Padding(9, 9, 10, 10);
-            this.layoutControlItem10.Size = new System.Drawing.Size(152, 50);
+            this.layoutControlItem10.Size = new System.Drawing.Size(304, 50);
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem10.TextVisible = false;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.txtMa_Hoa_Don;
+            this.layoutControlItem2.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.layoutControlItem2.CustomizationFormText = "Mã hóa đơn:";
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Padding = new DevExpress.XtraLayout.Utils.Padding(9, 9, 10, 10);
+            this.layoutControlItem2.Size = new System.Drawing.Size(304, 71);
+            this.layoutControlItem2.Text = "Mã hóa đơn:";
+            this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(72, 16);
             // 
             // grdControl_San_Pham_Da_Chon
             // 
@@ -542,54 +533,6 @@
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 757);
             // 
-            // txtMa_Hoa_Don
-            // 
-            this.txtMa_Hoa_Don.Location = new System.Drawing.Point(19, 39);
-            this.txtMa_Hoa_Don.Margin = new System.Windows.Forms.Padding(4);
-            this.txtMa_Hoa_Don.Name = "txtMa_Hoa_Don";
-            this.txtMa_Hoa_Don.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMa_Hoa_Don.Properties.Appearance.Options.UseFont = true;
-            this.txtMa_Hoa_Don.Size = new System.Drawing.Size(286, 32);
-            this.txtMa_Hoa_Don.StyleController = this.layoutControl3;
-            this.txtMa_Hoa_Don.TabIndex = 4;
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.txtMa_Hoa_Don;
-            this.layoutControlItem2.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItem2.CustomizationFormText = "Mã hóa đơn:";
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Padding = new DevExpress.XtraLayout.Utils.Padding(9, 9, 10, 10);
-            this.layoutControlItem2.Size = new System.Drawing.Size(304, 71);
-            this.layoutControlItem2.Text = "Mã hóa đơn:";
-            this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(72, 16);
-            // 
-            // txtDanh_Sach_Ten_Ve11
-            // 
-            this.txtDanh_Sach_Ten_Ve11.Location = new System.Drawing.Point(19, 436);
-            this.txtDanh_Sach_Ten_Ve11.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDanh_Sach_Ten_Ve11.Name = "txtDanh_Sach_Ten_Ve11";
-            this.txtDanh_Sach_Ten_Ve11.Properties.Appearance.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDanh_Sach_Ten_Ve11.Properties.Appearance.Options.UseFont = true;
-            this.txtDanh_Sach_Ten_Ve11.Size = new System.Drawing.Size(286, 32);
-            this.txtDanh_Sach_Ten_Ve11.StyleController = this.layoutControl3;
-            this.txtDanh_Sach_Ten_Ve11.TabIndex = 4;
-            // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.txtDanh_Sach_Ten_Ve11;
-            this.layoutControlItem3.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItem3.CustomizationFormText = "Vé:";
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 397);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Padding = new DevExpress.XtraLayout.Utils.Padding(9, 9, 10, 10);
-            this.layoutControlItem3.Size = new System.Drawing.Size(304, 71);
-            this.layoutControlItem3.Text = "Vé:";
-            this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(72, 16);
-            // 
             // ucChonThanhToan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -614,14 +557,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDanh_Sach_Ten_Ve.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSo_Luong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTong_Tien.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMa_Hoa_Don.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdControl_San_Pham_Da_Chon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
@@ -632,10 +576,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutSanPham)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMa_Hoa_Don.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDanh_Sach_Ten_Ve11.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -658,14 +598,12 @@
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraLayout.LayoutControlItem layoutThanhToan;
         private DevExpress.XtraEditors.SimpleButton btnHuy;
-        private DevExpress.XtraEditors.SimpleButton btnQuay_Lai;
         private DevExpress.XtraEditors.SimpleButton btnThanh_Toan;
         private DevExpress.XtraEditors.TextEdit txtSo_Luong;
         private DevExpress.XtraEditors.TextEdit txtTong_Tien;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
         private DevExpress.XtraGrid.GridControl grdControl_San_Pham;
         private DevExpress.XtraGrid.Views.Layout.LayoutView viewCart;
@@ -682,7 +620,5 @@
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraEditors.TextEdit txtMa_Hoa_Don;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        private DevExpress.XtraEditors.TextEdit txtDanh_Sach_Ten_Ve11;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
     }
 }

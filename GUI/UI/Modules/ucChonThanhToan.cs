@@ -10,8 +10,10 @@ using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Layout;
 using DevExpress.XtraGrid.Views.Layout.ViewInfo;
 using DevExpress.XtraLayout;
+using DevExpress.XtraReports.UI;
 using DTO.Common;
 using DTO.tbl_DTO;
+using GUI.UI.ReportDesign;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -98,6 +100,12 @@ namespace GUI.UI.Modules
         {
             try
             {
+                //Clear toàn bộ các biến trong common và định tuyến về chọn phim
+                CCommon.suatChieuDuocChon = -1;
+                CCommon.Danh_Sach_Ghe_Da_Chon = new List<string>();
+                CCommon.loaiVeDangDat = -1;
+
+
                 //Lấy form chứa uc này ra
                 if (this.Parent is FluentDesignFormContainer v_objContainer)
                 {
@@ -113,8 +121,6 @@ namespace GUI.UI.Modules
 
                         // Thêm UserControl vào main container
                         v_objContainer.Controls.Add(v_objLoad);
-
-                        v_objLoad.Load_DataBase(sender, e);
                     }
 
                 }
@@ -200,12 +206,25 @@ namespace GUI.UI.Modules
 
                             v_objBillDetail_BUS.AddData(v_objDetail);
                         }
+                        List<tbl_DM_Ticket_DTO> v_arrTiket = v_objTicket_BUS.GetList().Where(it => it.BillID == v_objBill_Res.BL_AutoID).ToList();
+
+                        foreach (tbl_DM_Ticket_DTO v_objItem in v_arrTiket)
+                        {
+                            // Tạo vé
+                            RP_PrintTicket report = new RP_PrintTicket();
+                            report.BindParameter(v_objItem.AutoID.ToString());
+                            report.CreateDocument();
+
+                            // Thiết lập máy in
+                            ReportPrintTool tool = new ReportPrintTool(report);
+                            if (CCommon.Printer_Name != "")
+                                tool.PrinterSettings.PrinterName = CCommon.Printer_Name; // Thay "Tên máy in của bạn" bằng tên máy in thực tế
+
+                            // In vé không cần review
+                            tool.Print();
+                        }
 
                     }
-
-                    //Tiến hành hiện report hóa đơn
-                    // Tạo đối tượng Bill_Report với mã hóa đơn
-                    Bill_Report billReport = new Bill_Report(v_objBill_Res.BL_Bill_Code);
 
                     MessageBox.Show(LanguageController.GetLanguageDataLabel("Thanh toán thành công!"), LanguageController.GetLanguageDataLabel("Thông báo"), MessageBoxButtons.OK, MessageBoxIcon.None);
 

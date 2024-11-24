@@ -52,7 +52,6 @@
             this.btnTiepTucThanhToan = new DevExpress.XtraEditors.SimpleButton();
             this.txtTheaterName = new DevExpress.XtraEditors.TextEdit();
             this.txtQuantity = new DevExpress.XtraEditors.TextEdit();
-            this.btnQuayLai = new DevExpress.XtraEditors.SimpleButton();
             this.btnHuyChonPhim = new DevExpress.XtraEditors.SimpleButton();
             this.cboTicketStatus = new DevExpress.XtraEditors.LookUpEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -66,7 +65,6 @@
             this.layoutTongCong = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutTongCong1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutTongCong2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutCBO = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -91,7 +89,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutTongCong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTongCong1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTongCong2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutCBO)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
@@ -226,7 +223,6 @@
             this.layoutForm.Controls.Add(this.btnTiepTucThanhToan);
             this.layoutForm.Controls.Add(this.txtTheaterName);
             this.layoutForm.Controls.Add(this.txtQuantity);
-            this.layoutForm.Controls.Add(this.btnQuayLai);
             this.layoutForm.Controls.Add(this.btnHuyChonPhim);
             this.layoutForm.Controls.Add(this.cboTicketStatus);
             this.layoutForm.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -357,31 +353,19 @@
             this.txtQuantity.TabIndex = 11;
             this.txtQuantity.ToolTip = "Tổng số tiền tạm tính";
             // 
-            // btnQuayLai
-            // 
-            this.btnQuayLai.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuayLai.Appearance.Options.UseFont = true;
-            this.btnQuayLai.Location = new System.Drawing.Point(949, 657);
-            this.btnQuayLai.Margin = new System.Windows.Forms.Padding(4);
-            this.btnQuayLai.Name = "btnQuayLai";
-            this.btnQuayLai.Padding = new System.Windows.Forms.Padding(5);
-            this.btnQuayLai.Size = new System.Drawing.Size(137, 38);
-            this.btnQuayLai.StyleController = this.layoutForm;
-            this.btnQuayLai.TabIndex = 17;
-            this.btnQuayLai.Text = "Quay lại";
-            // 
             // btnHuyChonPhim
             // 
             this.btnHuyChonPhim.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHuyChonPhim.Appearance.Options.UseFont = true;
-            this.btnHuyChonPhim.Location = new System.Drawing.Point(1104, 657);
+            this.btnHuyChonPhim.Location = new System.Drawing.Point(949, 657);
             this.btnHuyChonPhim.Margin = new System.Windows.Forms.Padding(4);
             this.btnHuyChonPhim.Name = "btnHuyChonPhim";
             this.btnHuyChonPhim.Padding = new System.Windows.Forms.Padding(5);
-            this.btnHuyChonPhim.Size = new System.Drawing.Size(133, 38);
+            this.btnHuyChonPhim.Size = new System.Drawing.Size(288, 38);
             this.btnHuyChonPhim.StyleController = this.layoutForm;
             this.btnHuyChonPhim.TabIndex = 17;
             this.btnHuyChonPhim.Text = "Hủy";
+            this.btnHuyChonPhim.Click += new System.EventHandler(this.btnHuyChonPhim_Click);
             // 
             // cboTicketStatus
             // 
@@ -451,7 +435,6 @@
             this.layoutTongCong,
             this.layoutTongCong1,
             this.layoutTongCong2,
-            this.layoutControlItem4,
             this.layoutControlItem6,
             this.layoutCBO});
             this.layoutAction.Location = new System.Drawing.Point(906, 0);
@@ -533,28 +516,15 @@
             this.layoutTongCong2.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutTongCong2.TextSize = new System.Drawing.Size(100, 16);
             // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.btnQuayLai;
-            this.layoutControlItem4.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItem4.CustomizationFormText = "layoutControlItem1";
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 587);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Padding = new DevExpress.XtraLayout.Utils.Padding(9, 9, 10, 10);
-            this.layoutControlItem4.Size = new System.Drawing.Size(155, 58);
-            this.layoutControlItem4.Text = "layoutControlItem1";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
-            // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.btnHuyChonPhim;
             this.layoutControlItem6.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem6.CustomizationFormText = "layoutControlItem1";
-            this.layoutControlItem6.Location = new System.Drawing.Point(155, 587);
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 587);
             this.layoutControlItem6.Name = "layoutControlItem6";
             this.layoutControlItem6.Padding = new DevExpress.XtraLayout.Utils.Padding(9, 9, 10, 10);
-            this.layoutControlItem6.Size = new System.Drawing.Size(151, 58);
+            this.layoutControlItem6.Size = new System.Drawing.Size(306, 58);
             this.layoutControlItem6.Text = "layoutControlItem1";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
@@ -632,7 +602,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutTongCong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTongCong1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTongCong2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutCBO)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
@@ -679,9 +648,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutTongCong1;
         private DevExpress.XtraEditors.TextEdit txtQuantity;
         private DevExpress.XtraLayout.LayoutControlItem layoutTongCong2;
-        private DevExpress.XtraEditors.SimpleButton btnQuayLai;
         private DevExpress.XtraEditors.SimpleButton btnHuyChonPhim;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
         private DevExpress.XtraEditors.LookUpEdit cboTicketStatus;
         private DevExpress.XtraLayout.LayoutControlItem layoutCBO;

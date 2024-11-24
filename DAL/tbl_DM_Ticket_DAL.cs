@@ -116,15 +116,15 @@ namespace DAL
                 using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString))
                 {
                     List<tbl_DM_Ticket_DTO> list = new List<tbl_DM_Ticket_DTO>();
-                    var result = from tk in db.tbl_DM_Tickets
-                                 where tk.TK_BILL_AutoID == p_lngBill_ID
-                                 select tk;
-                    foreach (var item in result)
+                    foreach (var item in db.tbl_DM_Tickets.Where(it=>it.TK_BILL_AutoID == p_lngBill_ID))
                     {
-                        tbl_DM_Ticket_DTO v_objItem = new tbl_DM_Ticket_DTO();
+                        tbl_DM_Ticket_DTO v_objRes = new tbl_DM_Ticket_DTO(item.TK_AutoID, item.TK_SEATNAME, item.TK_STATUS, item.TK_MOVIESCHEDULE_AutoID, item.TK_BILL_AutoID, item.TK_STAFF_AutoID, (int)item.DELETED, (DateTime)item.CREATED);
+                        v_objRes.CREATED_BY = item.CREATED_BY;
+                        v_objRes.UPDATED_BY = item.UPDATED_BY;
+                        v_objRes.CREATED_BY_FUNCTION = item.CREATED_BY_FUNCTION;
+                        v_objRes.UPDATED_BY_FUNCTION = item.UPDATED_BY_FUNCTION;
 
-                        CUtility.Clone_Entity(item, v_objItem);
-                        list.Add(v_objItem);
+                        list.Add(v_objRes);
                     }
                     return list;
                 }
@@ -218,7 +218,7 @@ namespace DAL
                                  };
                     foreach (var item in result)
                     {
-                        list.Add(new TicketItem_DTO(item.AutoID,item.MovieName,item.SeatName,item.TheaterName,item.Price));
+                        list.Add(new TicketItem_DTO(item.AutoID, item.MovieName, item.SeatName, item.TheaterName, item.Price));
                     }
                     return list;
                 }
@@ -243,7 +243,7 @@ namespace DAL
                     return result;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
