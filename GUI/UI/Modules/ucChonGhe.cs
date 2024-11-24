@@ -31,9 +31,15 @@ namespace GUI.UI.Modules
         private Dictionary<string, Color> colors = new Dictionary<string, Color>()
         {
             {"Gray",Color.FromArgb(115,115,115)},
-            {"Green", Color.FromArgb(31,219,80) },
+            {"Green", Color.FromArgb(31,219,80)},
+            { "Blue", Color.FromArgb(53,154,239)}
         };
 
+        private Dictionary<int, string> ticketStatuses = new Dictionary<int, string>()
+        {
+            {0, "Mua ngay" },
+            {1, "Đặt trước" },
+        };
         // Các biến cấu thành các ghế 
         private int labelLength = 0;
         private int spacing = 5;
@@ -50,13 +56,27 @@ namespace GUI.UI.Modules
         protected override void Load_Data()
         {
             tbl_DM_MovieSchedule_DTO foundSchedule = movieScheBus.GetLastMovieSchedule_ByID(CCommon.suatChieuDuocChon);
+
+            // Hiển thị tên phim và suất chiếu
             string movieName = movieBus.Find(foundSchedule.Movie_AutoID).MV_NAME.Trim();
             lblTitle.Text = "Phim được chọn: " + movieName + " | " + foundSchedule.StartDate.ToString("HH:mm");
+
+            // Hiển thị tên phòng chiếu
+            string theatername = theaterBus.FindByID(foundSchedule.Theater_AutoID).Name.Trim();
+            txtTheaterName.Text = theatername;
+
+            // Hiện thị danh sách các ghế có thể chọn
             PrintSeats();
+
+            // Thay đổi kích thước ghế khi kích thước xung quanh thay đổi
             if (this.Parent is FluentDesignFormContainer v_objMain_Container)
             {
                 v_objMain_Container.SizeChanged += (sender, e) => PrintSeats();
             }
+
+            // Hiện thị các trạng thái của vé đang chọn
+            cboTicketStatus.Properties.DataSource = ticketStatuses;
+            cboTicketStatus.ItemIndex = 0;
         }
 
         private void ucChonGhe_Load(object sender, System.EventArgs e)
@@ -83,8 +103,9 @@ namespace GUI.UI.Modules
 
             //
             // Gắn trạng thái ghế ngẫu nhiên
-            // 0: Ghế trống (màu xám)
-            // 1: Ghế đã được đặt (màu đỏ)
+            // 0: Ghế đã được đặt (màu đỏ)
+            // 1: Ghế đã đặt trước (màu xanh)
+            // 2: Ghế trống (màu xám)
             //
             int[,] seats_Single = new int[rows, columns]; // Ghế đơn
             int[] seats_Couple = new int[couples]; // Ghế đôi
@@ -93,22 +114,24 @@ namespace GUI.UI.Modules
                 for (int col = 0; col < columns; col++)
                 {
                     // Kiểm tra các vé đặt ghế đơn của suất chiếu hiện tại
-                    if (ticketBus.SeatExist_ByMovieSchedule(Convert.ToChar(row + 65) + String.Format("{0:00}", col + 1), CCommon.suatChieuDuocChon))
+                    tbl_DM_Ticket_DTO foundTicket = ticketBus.GetTicket_BySeatName(Convert.ToChar(row + 65) + String.Format("{0:00}", col + 1), CCommon.suatChieuDuocChon);
+                    if (foundTicket != null)
                     {
-                        seats_Single[row, col] = 1;
+                        seats_Single[row, col] = foundTicket.Status;
                     }
                     else
                     {
-                        seats_Single[row, col] = 0;
+                        seats_Single[row, col] = 2;
                     }
                 }
             }
             for (int couple = 0; couple < couples; couple++)
             {
                 // Kiểm tra các vé đặt ghế đôi của suất chiếu hiện tại
-                if (ticketBus.SeatExist_ByMovieSchedule("CP" + String.Format("{0:00}", couple + 1), CCommon.suatChieuDuocChon))
+                tbl_DM_Ticket_DTO foundTicket = ticketBus.GetTicket_BySeatName("CP" + String.Format("{0:00}", couple + 1), CCommon.suatChieuDuocChon);
+                if (foundTicket != null)
                 {
-                    seats_Couple[couple] = 1;
+                    seats_Couple[couple] = foundTicket.Status;
                 }
                 else
                 {
@@ -183,7 +206,18 @@ namespace GUI.UI.Modules
                     //
                     // Tô màu ô dựa theo trạng thái của ghế
                     //
-                    label.BackColor = seats_Single[row, col] != 0 ? Color.Red : colors["Gray"];
+                    switch (seats_Single[row, col])
+                    {
+                        case 0:
+                            label.BackColor = Color.Red;
+                            break;
+                        case 1:
+                            label.BackColor = colors["Blue"];
+                            break;
+                        default:
+                            label.BackColor = colors["Gray"];
+                            break;
+                    }
 
                     //
                     // Lưu vị trí ghế vừa thêm
@@ -240,7 +274,18 @@ namespace GUI.UI.Modules
                 //
                 // Tô màu ô dựa theo trạng thái của ghế
                 //
-                label.BackColor = seats_Couple[couple] != 0 ? Color.Red : colors["Gray"];
+                switch (seats_Couple[couple])
+                {
+                    case 0:
+                        label.BackColor = Color.Red;
+                        break;
+                    case 1:
+                        label.BackColor = colors["Blue"];
+                        break;
+                    default:
+                        label.BackColor = colors["Gray"];
+                        break;
+                }
 
                 //
                 // Lưu vị trí ghế vừa thêm
@@ -259,33 +304,40 @@ namespace GUI.UI.Modules
         {
             Label currentPanel = (sender as Label);
             string name = currentPanel.Name;
+            double actualPrice = (int)cboTicketStatus.EditValue == 0 ? price : price / 2;
 
-            //lblNotification.Text = "";
             if (currentPanel.BackColor == colors["Gray"])
             {
                 currentPanel.BackColor = colors["Green"];
-                totalPrice += price;
+                totalPrice += actualPrice;
                 if (currentPanel.Text.Contains("CP"))
                 {
-                    totalPrice += price;
+                    totalPrice += actualPrice;
                 }
-                txtTotalPrice.Text = totalPrice.ToString();
             }
             else if (currentPanel.BackColor == colors["Green"])
             {
                 currentPanel.BackColor = colors["Gray"];
-                totalPrice -= price;
+                totalPrice -= actualPrice;
                 if (currentPanel.Text.Contains("CP"))
                 {
-                    totalPrice -= price;
+                    totalPrice -= actualPrice;
                 }
-                txtTotalPrice.Text = totalPrice.ToString();
             }
             else
             {
-                //lblNotification.Text = "Ghế đã có người đặt";
+                MessageBox.Show("Ghế đã có người đặt", "Thông báo");
             }
-            //lblSeat.Text = name;
+            int count = 0;
+            foreach (Label item in grpSeats.Controls)
+            {
+                if (item.BackColor == colors["Green"])
+                {
+                    count++;
+                }
+            }
+            txtQuantity.Text = count.ToString().Trim();
+            txtTotalPrice.Text = totalPrice.ToString();
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -378,6 +430,12 @@ namespace GUI.UI.Modules
         private void svgImageBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cboTicketStatus_EditValueChanged(object sender, EventArgs e)
+        {
+            totalPrice = (int)cboTicketStatus.EditValue == 0 ? totalPrice * 2 : totalPrice / 2;
+            txtTotalPrice.Text = totalPrice.ToString();
         }
     }
 }
