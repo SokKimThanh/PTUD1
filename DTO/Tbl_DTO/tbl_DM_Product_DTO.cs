@@ -114,5 +114,10 @@ namespace DTO.tbl_DTO
                 }
             }
         }
+
+        public double PD_TRI_GIA
+        {
+            get => pD_PRICE * pD_QUANTITY;
+        }
     }
 }

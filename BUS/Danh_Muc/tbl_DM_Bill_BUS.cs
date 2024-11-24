@@ -35,5 +35,31 @@ namespace BUS.Danh_Muc
                 throw;
             }
         }
+
+        public tbl_DM_Bill_DTO Get_Data_By_ID(long p_lngAuto_ID)
+        {
+            tbl_DM_Bill_DAL v_objDal = new tbl_DM_Bill_DAL();
+            try
+            {
+                return v_objDal.Get_Data_By_ID(p_lngAuto_ID);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public tbl_DM_Bill_DTO Get_Data_By_Code(string p_strCode)
+        {
+            tbl_DM_Bill_DAL v_objDal = new tbl_DM_Bill_DAL();
+            try
+            {
+                return v_objDal.Get_Data_By_Code(p_strCode);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

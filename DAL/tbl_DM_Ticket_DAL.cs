@@ -1,5 +1,6 @@
 ﻿using DTO.Custom;
 using DTO.tbl_DTO;
+using DTO.Utility;
 using System;
 using System.Collections.Generic;
 using System.Data.Linq;
@@ -107,6 +108,32 @@ namespace DAL
                 throw ex;
             }
         }
+
+        public List<tbl_DM_Ticket_DTO> List_Data_By_Bill_ID(long p_lngBill_ID)
+        {
+            try
+            {
+                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString))
+                {
+                    List<tbl_DM_Ticket_DTO> list = new List<tbl_DM_Ticket_DTO>();
+                    var result = from tk in db.tbl_DM_Tickets
+                                 where tk.TK_BILL_AutoID == p_lngBill_ID
+                                 select tk;
+                    foreach (var item in result)
+                    {
+                        tbl_DM_Ticket_DTO v_objItem = new tbl_DM_Ticket_DTO();
+
+                        CUtility.Clone_Entity(item, v_objItem);
+                        list.Add(v_objItem);
+                    }
+                    return list;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public bool SeatExist_ByMovieSchedule(string seatName, long movieScheduleID)
         {
             using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString))
@@ -145,8 +172,13 @@ namespace DAL
                 v_objRes.TK_STAFF_AutoID = p_objData.StaffID;
                 v_objRes.TK_MOVIESCHEDULE_AutoID = p_objData.MovieScheID;
                 v_objRes.TK_SEATNAME = p_objData.SeatName;
-                v_objRes.CREATED_BY = "admin";
-                v_objRes.UPDATED_BY = "admin";
+                v_objRes.TK_BILL_AutoID = p_objData.BillID;
+                v_objRes.TK_STATUS = p_objData.Status;
+
+                v_objRes.CREATED_BY_FUNCTION = p_objData.CREATED_BY_FUNCTION;
+                v_objRes.UPDATED_BY_FUNCTION = p_objData.UPDATED_BY_FUNCTION;
+                v_objRes.CREATED_BY = p_objData.CREATED_BY;
+                v_objRes.UPDATED_BY = p_objData.UPDATED_BY;
                 v_objRes.CREATED = DateTime.Now;
                 v_objRes.UPDATED = DateTime.Now;
                 v_objRes.DELETED = 0;

@@ -371,7 +371,7 @@ namespace GUI.UI.Modules
                         }
                         //Map vào uc kia
                         CCommon.Danh_Sach_Ghe_Da_Chon = v_arrGhe_Da_Chon;
-
+                        v_objLoad.Tong_Gia_Ghe = totalPrice;
                         // Thêm UserControl vào main container
                         v_objContainer.Controls.Add(v_objLoad);
                         v_objLoad.Load_DataBase(sender, e);
@@ -436,6 +436,8 @@ namespace GUI.UI.Modules
         {
             totalPrice = (int)cboTicketStatus.EditValue == 0 ? totalPrice * 2 : totalPrice / 2;
             txtTotalPrice.Text = totalPrice.ToString();
+
+            CCommon.loaiVeDangDat = (int)cboTicketStatus.EditValue;
         }
     }
 }
