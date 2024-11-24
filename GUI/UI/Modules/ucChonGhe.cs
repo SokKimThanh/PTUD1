@@ -317,8 +317,6 @@ namespace GUI.UI.Modules
                                 v_arrGhe_Da_Chon.Add(v_objLabel.Text.Trim());
                             }
                         }
-                        //
-
                         //Map vào uc kia
                         CCommon.Danh_Sach_Ghe_Da_Chon = v_arrGhe_Da_Chon;
 

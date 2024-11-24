@@ -15,10 +15,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static DevExpress.Skins.SolidColorHelper;
 
 namespace GUI.UI.Modules
 {
@@ -139,50 +141,74 @@ namespace GUI.UI.Modules
 
         public void SetupLayoutView()
         {
-            // Set the card's minimum size.
+            // Thiết lập kích thước tối thiểu cho card
             viewCart.CardMinSize = new Size(300, 350);
 
-            // Ngăn không cho phép sửa dữ liệu trực tiếp trên Layoutview
+            // Ngăn không cho phép sửa dữ liệu trực tiếp
             viewCart.OptionsBehavior.Editable = false;
 
-            // Duyệt qua tất cả các cột và ẩn các cột không cần thiết
+            // Ẩn tất cả các cột mặc định
             foreach (LayoutViewColumn v_objCol in viewCart.Columns)
             {
-                // ẩn tất cả cột không cần thiết
                 v_objCol.Visible = false;
-
-                // tắt cái tiêu đề của field
                 v_objCol.LayoutViewField.TextVisible = false;
             }
 
-            // Tạo cột hình ảnh không có sẵn trong dữ liệu (Unbound)
-            LayoutViewColumn v_objImg_Col = viewCart.Columns.AddField("PD_IMAGEURL");
-            // tắt cái tiêu đề của field
-            v_objImg_Col.LayoutViewField.TextVisible = false;
-            v_objImg_Col.UnboundType = DevExpress.Data.UnboundColumnType.Object;
-            v_objImg_Col.Visible = true;
-            v_objImg_Col.Caption = "Hình ảnh";
-
-            // Thiết lập LayoutViewField cho cột hình ảnh
-            LayoutViewField v_objLayout_Field = v_objImg_Col.LayoutViewField;
-            v_objLayout_Field.TextVisible = false;
-            v_objLayout_Field.SizeConstraintsType = SizeConstraintsType.Default;
+            // Tạo cột hiển thị hình ảnh (Unbound Column)
+            LayoutViewColumn v_objImage_Col = new LayoutViewColumn
+            {
+                FieldName = "PD_IMAGEURL",
+                Caption = "Hình ảnh",
+                Visible = true,
+                UnboundType = DevExpress.Data.UnboundColumnType.Object
+            };
 
             // Thiết lập RepositoryItemPictureEdit để hiển thị hình ảnh
-            RepositoryItemPictureEdit v_objPicture = new RepositoryItemPictureEdit();
-            v_objPicture.SizeMode = PictureSizeMode.Zoom; // Thử chế độ Zoom thay vì Squeeze
-            v_objPicture.PictureAlignment = ContentAlignment.MiddleCenter; // Căn giữa hình ảnh
-            grdControl_San_Pham.RepositoryItems.Add(v_objPicture);
-            v_objImg_Col.ColumnEdit = v_objPicture;
-
-            // Tìm cột PD_IMAGEURL và cấu hình nếu cột tồn tại
-            LayoutViewColumn v_objCol_Res = viewCart.Columns.ColumnByFieldName("PD_IMAGEURL");
-            if (v_objCol_Res != null)
+            RepositoryItemPictureEdit v_objPicture = new RepositoryItemPictureEdit
             {
-                v_objCol_Res.Visible = true;
-                v_objCol_Res.Caption = "Tên sản phẩm";
+                SizeMode = PictureSizeMode.Zoom,
+                PictureAlignment = ContentAlignment.MiddleCenter
+            };
+            grdControl_San_Pham.RepositoryItems.Add(v_objPicture);
+            v_objImage_Col.ColumnEdit = v_objPicture;
+
+            // Thêm cột vào LayoutView
+            viewCart.Columns.Add(v_objImage_Col);
+
+            // Tùy chỉnh sự kiện CustomUnboundColumnData để gán giá trị hình ảnh
+            viewCart.CustomUnboundColumnData += (sender, e) =>
+            {
+                if (e.Column.FieldName == "PD_IMAGEURL" && e.IsGetData)
+                {
+                    // Thay thế GetImageByRowHandle bằng logic của bạn để lấy hình ảnh
+                    e.Value = GetImageByRowHandle(e.ListSourceRowIndex);
+                }
+            };
+
+            // Cấu hình thêm các cột khác (ví dụ: tên sản phẩm)
+            LayoutViewColumn v_objCol_Name = viewCart.Columns.ColumnByFieldName("PD_NAME");
+            if (v_objCol_Name != null)
+            {
+                v_objCol_Name.Visible = true;
+                v_objCol_Name.Caption = "Tên sản phẩm";
+                v_objCol_Name.LayoutViewField.TextVisible = true;
             }
         }
+
+        // Hàm để lấy hình ảnh từ dữ liệu (cần tùy chỉnh theo ứng dụng thực tế)
+        private Image GetImageByRowHandle(int p_iRowHandle)
+        {
+            // Ví dụ: Tải hình ảnh từ cơ sở dữ liệu hoặc URL
+            string v_strImage_Url = viewCart.GetRowCellValue(p_iRowHandle, "PD_IMAGEURL")?.ToString();
+            // Kiểm tra nếu file tồn tại
+            if (string.IsNullOrEmpty(v_strImage_Url) == false && File.Exists(v_strImage_Url))
+            {
+                // Đọc hình ảnh từ đường dẫn
+                return Image.FromFile(v_strImage_Url);
+            }
+            return null; // Nếu không có hình ảnh, trả về null
+        }
+
 
         #endregion
     }
