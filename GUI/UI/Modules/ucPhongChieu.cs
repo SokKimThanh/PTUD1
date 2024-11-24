@@ -18,6 +18,17 @@ namespace GUI.UI.Modules
         }
 
         /// <summary>
+        /// Tùy chỉnh các nút theo thao tác
+        /// </summary>
+        /// <param name="isUsing"></param>
+        private void IsUsing(bool isUsing)
+        {
+            btnThem.Enabled = !isUsing;
+            btnCapNhat.Enabled = isUsing;
+            btnXoa.Enabled = isUsing;
+        }
+
+        /// <summary>
         /// Tải dữ liệu lên các thành phần của màn hình
         /// </summary>
         protected override void Load_Data()
@@ -44,12 +55,16 @@ namespace GUI.UI.Modules
                 cboRows.SelectedIndex = 0;
                 cboColumns.SelectedIndex = 0;
                 cboCouples.SelectedIndex = 0;
+
+                // Lấy thao tác mặc định
+                IsUsing(false);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
+
         /// <summary>
         /// Nút thêm
         /// </summary>
@@ -59,13 +74,15 @@ namespace GUI.UI.Modules
         {
             try
             {
+                if (txtName.Text.Trim().Length == 0)
+                    throw new Exception("Vui lòng nhập tên phòng chiếu mới");
                 tbl_DM_Theater_DTO newItem = new tbl_DM_Theater_DTO(null, txtName.Text, cboStatus.SelectedIndex, cboRows.SelectedIndex + 1, cboColumns.SelectedIndex + 1, cboCouples.SelectedIndex + 1, 0);
                 theater_bus.AddData(newItem);
                 Load_Data();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message,"Lỗi");
             }
         }
         /// <summary>
@@ -101,6 +118,7 @@ namespace GUI.UI.Modules
                         }
                     }
                 }
+                MessageBox.Show("Xóa thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Load_Data();
             }
             catch (Exception ex)
@@ -133,8 +151,8 @@ namespace GUI.UI.Modules
                         theater_bus.UpdateData(editTheater);
                     }
                 }
+                MessageBox.Show("Cập nhật thông tin thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Load_Data();
-                MessageBox.Show("Cập nhật thông tin thành công !", "Thông báo",MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -174,6 +192,9 @@ namespace GUI.UI.Modules
                     cboRows.SelectedIndex = (int)gvTheaters.GetRowCellValue(i, "Rows") - 1;
                     cboColumns.SelectedIndex = (int)gvTheaters.GetRowCellValue(i, "Columns") - 1;
                     cboCouples.SelectedIndex = (int)gvTheaters.GetRowCellValue(i, "Couples") - 1;
+
+                    // Lấy thao tác
+                    IsUsing(true);
                 }
             }
         }

@@ -67,6 +67,8 @@ namespace GUI.UI.Modules
               DevExpress.Utils.FormatType.DateTime, CConfig.Time_Format_String, true, DevExpress.Utils.HorzAlignment.Default));
             cboMovieSchedule.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             cboMovieSchedule.Properties.DisplayFormat.FormatString = CConfig.Time_Format_String;
+
+            
         }
         private void ClearData()
         {
@@ -260,6 +262,7 @@ namespace GUI.UI.Modules
 
             // Tạo cột hình ảnh không có sẵn trong dữ liệu (Unbound)
             LayoutViewColumn hinhAnhColumn = layoutView1.Columns.AddField("PosterImage");
+
             // tắt cái tiêu đề của field
             hinhAnhColumn.LayoutViewField.TextVisible = false;
             hinhAnhColumn.UnboundType = DevExpress.Data.UnboundColumnType.Object;
@@ -267,31 +270,31 @@ namespace GUI.UI.Modules
             hinhAnhColumn.Caption = "Hình ảnh";
 
             // Thiết lập LayoutViewField cho cột hình ảnh
-            LayoutViewField hinhAnhField = hinhAnhColumn.LayoutViewField;
-            hinhAnhField.TextVisible = false;
-            hinhAnhField.SizeConstraintsType = SizeConstraintsType.Custom;
-            hinhAnhField.MinSize = new Size(300, 350); // Minimum size of the card
-            hinhAnhField.MaxSize = new Size(300, 350); // Maximum size of the card
-            hinhAnhField.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0); // Remove any padding
+            hinhAnhColumn.LayoutViewField.TextVisible = false;
+            hinhAnhColumn.LayoutViewField.SizeConstraintsType = SizeConstraintsType.Custom;
+            hinhAnhColumn.LayoutViewField.MinSize = new Size(300, 350); // Minimum size of the card
+            hinhAnhColumn.LayoutViewField.MaxSize = new Size(300, 350); // Maximum size of the card
+            hinhAnhColumn.LayoutViewField.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0); // Remove any padding
 
             // Thiết lập RepositoryItemPictureEdit để hiển thị hình ảnh
             RepositoryItemPictureEdit pictureEdit = new RepositoryItemPictureEdit();
-            pictureEdit.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze; // Stretch to fit
+            pictureEdit.SizeMode = PictureSizeMode.Stretch; // Stretch to fit
             pictureEdit.PictureAlignment = ContentAlignment.MiddleCenter; // Center the image
             dgvMovies.RepositoryItems.Add(pictureEdit);
             hinhAnhColumn.ColumnEdit = pictureEdit;
 
-            // Tìm cột MV_NAME và cấu hình nếu cột tồn tại
-            LayoutViewColumn tenPhim = layoutView1.Columns.ColumnByFieldName("MV_NAME");
-            if (tenPhim != null)
+            // Tìm cột PD_NAME và cấu hình nếu cột tồn tại
+            LayoutViewColumn tenSanPham = layoutView1.Columns.ColumnByFieldName("MV_NAME");
+            if (tenSanPham != null)
             {
-                tenPhim.Visible = true;
-                tenPhim.Caption = "Tên phim";
+                tenSanPham.Visible = true;
+                tenSanPham.Caption = "Tên phim";
             }
             else
             {
                 Console.WriteLine("Cột 'MV_NAME' không tồn tại trong LayoutView.");
             }
+
         }
 
         /// <summary>

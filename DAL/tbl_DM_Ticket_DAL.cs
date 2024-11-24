@@ -236,14 +236,14 @@ namespace DAL
                                  join ms in db.tbl_DM_MovieSchedules on tk.TK_MOVIESCHEDULE_AutoID equals ms.MS_AutoID
                                  join mv in db.tbl_DM_Movies on ms.MS_MOVIE_AutoID equals mv.MV_AutoID
                                  join tt in db.tbl_DM_Theaters on ms.MS_THEATER_AutoID equals tt.TT_AutoID
-                                 where tk.DELETED == deleted
+                                 where tk.TK_STATUS == deleted
                                  select new
                                  {
                                      AutoID = tk.TK_AutoID,
                                      MovieName = mv.MV_NAME,
                                      TheaterName = tt.TT_NAME,
                                      SeatName = tk.TK_SEATNAME,
-                                     Price = mv.MV_PRICE,
+                                     Price = tk.TK_STATUS == 0 ? mv.MV_PRICE : mv.MV_PRICE/2,
                                  };
                     foreach (var item in result)
                     {

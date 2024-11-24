@@ -193,62 +193,62 @@ go
 INSERT INTO tbl_DM_MovieSchedule (MS_MOVIE_AutoID, MS_THEATER_AutoID, MS_START, MS_END, DELETED, CREATED, CREATED_BY, CREATED_BY_FUNCTION, UPDATED, UPDATED_BY, UPDATED_BY_FUNCTION)
 VALUES
     (1, 1, '2024-12-08 10:00:00', '2024-12-08 12:00:00' , 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Inception tại Theater 1
-    (2, 2, '2024-12-08 13:00:00', '2024-12-08 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- The Matrix tại Theater 2
-    (3, 1, '2024-12-08 16:00:00', '2024-12-08 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Interstellar tại Theater 1
-    (4, 3, '2024-12-09 10:00:00', '2024-12-09 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Avatar tại Theater 3
-    (5, 2, '2024-12-09 13:00:00', '2024-12-09 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Titanic tại Theater 2
-    (6, 1, '2024-12-09 16:00:00', '2024-12-09 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Joker tại Theater 1
-    (7, 3, '2024-12-10 10:00:00', '2024-12-10 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- The Godfather tại Theater 3
-    (8, 2, '2024-12-10 13:00:00', '2024-12-10 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Star Wars tại Theater 2
-    (9, 1, '2024-12-10 16:00:00', '2024-12-10 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Gladiator tại Theater 1
-    (10, 3, '2024-12-11 10:00:00', '2024-12-11 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Lord of the Rings tại Theater 3
-    (11, 2, '2024-12-11 13:00:00', '2024-12-11 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Schindler's List tại Theater 2
-    (12, 1, '2024-12-11 16:00:00', '2024-12-11 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- The Dark Knight tại Theater 1
-    (13, 3, '2024-12-12 10:00:00', '2024-12-12 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Forrest Gump tại Theater 3
-    (14, 2, '2024-12-12 13:00:00', '2024-12-12 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- The Avengers tại Theater 2
-    (15, 1, '2024-12-12 16:00:00', '2024-12-12 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Black Panther tại Theater 1
-    (16, 3, '2024-12-13 10:00:00', '2024-12-13 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Frozen tại Theater 3
-    (17, 2, '2024-12-13 13:00:00', '2024-12-13 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Finding Nemo tại Theater 2
-    (18, 1, '2024-12-13 16:00:00', '2024-12-13 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Shrek tại Theater 1
+    (1, 2, '2024-12-08 13:00:00', '2024-12-08 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- The Matrix tại Theater 2
+    (1, 1, '2024-12-08 12:30:00', '2024-12-08 14:30:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Interstellar tại Theater 1
+    (1, 3, '2024-12-09 10:00:00', '2024-12-09 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Avatar tại Theater 3
+    (1, 2, '2024-12-09 13:00:00', '2024-12-09 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Titanic tại Theater 2
+    (1, 1, '2024-12-09 16:00:00', '2024-12-09 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Joker tại Theater 1
+    (1, 3, '2024-12-10 10:00:00', '2024-12-10 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- The Godfather tại Theater 3
+    (1, 2, '2024-12-10 13:00:00', '2024-12-10 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Star Wars tại Theater 2
+    (1, 1, '2024-12-10 16:00:00', '2024-12-10 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Gladiator tại Theater 1
+    (1, 3, '2024-12-11 10:00:00', '2024-12-11 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Lord of the Rings tại Theater 3
+    (1, 2, '2024-12-11 13:00:00', '2024-12-11 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Schindler's List tại Theater 2
+    (1, 1, '2024-12-11 16:00:00', '2024-12-11 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- The Dark Knight tại Theater 1
+    (1, 3, '2024-12-12 10:00:00', '2024-12-12 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Forrest Gump tại Theater 3
+    (1, 2, '2024-12-12 13:00:00', '2024-12-12 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- The Avengers tại Theater 2
+    (1, 1, '2024-12-12 16:00:00', '2024-12-12 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Black Panther tại Theater 1
+    (1, 3, '2024-12-13 10:00:00', '2024-12-13 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Frozen tại Theater 3
+    (15, 2, '2024-12-13 13:00:00', '2024-12-13 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Finding Nemo tại Theater 2
+    (15, 1, '2024-12-13 16:00:00', '2024-12-13 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Shrek tại Theater 1
 	-- new 10 dong
-	(19, 3, '2024-12-14 10:00:00', '2024-12-14 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Toy Story tại Theater 3    
-	(20, 2, '2024-12-14 13:00:00', '2024-12-14 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
-	(21, 4, '2024-12-14 16:00:00', '2024-12-14 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
-	(22, 5, '2024-12-15 10:00:00', '2024-12-15 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
-	(23, 6, '2024-12-15 13:00:00', '2024-12-15 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
-	(24, 4, '2024-12-15 16:00:00', '2024-12-15 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
-	(25, 5, '2024-12-16 10:00:00', '2024-12-16 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
-	(26, 6, '2024-12-16 13:00:00', '2024-12-16 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
-	(27, 4, '2024-12-16 16:00:00', '2024-12-16 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
-	(28, 5, '2024-12-17 10:00:00', '2024-12-17 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
-	(29, 6, '2024-12-17 13:00:00', '2024-12-17 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
-	(30, 4, '2024-12-17 16:00:00', '2024-12-17 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+	(2, 3, '2024-12-14 10:00:00', '2024-12-14 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  -- Toy Story tại Theater 3    
+	(2, 2, '2024-12-14 13:00:00', '2024-12-14 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(2, 4, '2024-12-14 16:00:00', '2024-12-14 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(2, 5, '2024-12-15 10:00:00', '2024-12-15 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(2, 6, '2024-12-15 13:00:00', '2024-12-15 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(2, 4, '2024-12-15 16:00:00', '2024-12-15 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(2, 5, '2024-12-16 10:00:00', '2024-12-16 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(2, 6, '2024-12-16 13:00:00', '2024-12-16 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(2, 4, '2024-12-16 16:00:00', '2024-12-16 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(2, 5, '2024-12-17 10:00:00', '2024-12-17 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(2, 6, '2024-12-17 13:00:00', '2024-12-17 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(2, 4, '2024-12-17 16:00:00', '2024-12-17 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
 	-- new 10 dong
-	(19, 3, '2024-12-18 10:00:00', '2024-12-18 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),    
-	(20, 2, '2024-12-18 13:00:00', '2024-12-18 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
-	(21, 4, '2024-12-18 16:00:00', '2024-12-18 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
-	(22, 5, '2024-12-19 10:00:00', '2024-12-19 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
-	(23, 6, '2024-12-19 13:00:00', '2024-12-19 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
-	(24, 4, '2024-12-19 16:00:00', '2024-12-19 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
-	(25, 5, '2024-12-20 10:00:00', '2024-12-20 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
-	(26, 6, '2024-12-20 13:00:00', '2024-12-20 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
-	(27, 4, '2024-12-20 16:00:00', '2024-12-20 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
-	(28, 5, '2024-12-21 10:00:00', '2024-12-21 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
-	(29, 6, '2024-12-21 13:00:00', '2024-12-21 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
-	(30, 4, '2024-12-21 16:00:00', '2024-12-21 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
+	(4, 3, '2024-12-18 10:00:00', '2024-12-18 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),    
+	(4, 2, '2024-12-18 13:00:00', '2024-12-18 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(4, 4, '2024-12-18 16:00:00', '2024-12-18 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(4, 5, '2024-12-19 10:00:00', '2024-12-19 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(4, 6, '2024-12-19 13:00:00', '2024-12-19 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(4, 4, '2024-12-19 16:00:00', '2024-12-19 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(4, 5, '2024-12-20 10:00:00', '2024-12-20 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(4, 6, '2024-12-20 13:00:00', '2024-12-20 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(4, 4, '2024-12-20 16:00:00', '2024-12-20 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(4, 5, '2024-12-21 10:00:00', '2024-12-21 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(4, 6, '2024-12-21 13:00:00', '2024-12-21 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(4, 4, '2024-12-21 16:00:00', '2024-12-21 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),
 	-- new 10 dong
-	(31, 3, '2024-12-22 10:00:00', '2024-12-22 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),    
-	(31, 2, '2024-12-22 13:00:00', '2024-12-22 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
-	(31, 4, '2024-12-22 16:00:00', '2024-12-22 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
-	(32, 5, '2024-12-23 10:00:00', '2024-12-23 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
-	(32, 6, '2024-12-23 13:00:00', '2024-12-23 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
-	(32, 4, '2024-12-23 16:00:00', '2024-12-23 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
-	(33, 5, '2024-12-24 10:00:00', '2024-12-24 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
-	(33, 6, '2024-12-24 13:00:00', '2024-12-24 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
-	(33, 4, '2024-12-24 16:00:00', '2024-12-24 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
-	(34, 5, '2024-12-25 10:00:00', '2024-12-25 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
-	(34, 6, '2024-12-25 13:00:00', '2024-12-25 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
-	(34, 4, '2024-12-25 16:00:00', '2024-12-25 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System');
+	(3, 3, '2024-12-22 10:00:00', '2024-12-22 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),    
+	(3, 2, '2024-12-22 13:00:00', '2024-12-22 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(3, 4, '2024-12-22 16:00:00', '2024-12-22 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(3, 5, '2024-12-23 10:00:00', '2024-12-23 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(3, 6, '2024-12-23 13:00:00', '2024-12-23 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(3, 4, '2024-12-23 16:00:00', '2024-12-23 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(3, 5, '2024-12-24 10:00:00', '2024-12-24 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(3, 6, '2024-12-24 13:00:00', '2024-12-24 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(3, 4, '2024-12-24 16:00:00', '2024-12-24 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(3, 5, '2024-12-25 10:00:00', '2024-12-25 12:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(3, 6, '2024-12-25 13:00:00', '2024-12-25 15:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System'),  
+	(3, 4, '2024-12-25 16:00:00', '2024-12-25 18:00:00', 0, CURRENT_TIMESTAMP, 'Admin', 'System', CURRENT_TIMESTAMP, 'Admin', 'System');
 
 -- Thêm dữ liệu vào bảng tbl_DM_Staff (nhân viên)
 go
