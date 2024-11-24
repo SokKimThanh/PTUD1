@@ -14,6 +14,8 @@ namespace GUI.UI.Modules
         private tbl_DM_Movie_BUS movie_bus = new tbl_DM_Movie_BUS();
         private tbl_DM_Theater_BUS theater_bus = new tbl_DM_Theater_BUS();
         private tbl_DM_MovieSchedule_BUS movieSche_bus = new tbl_DM_MovieSchedule_BUS();
+        private int cleaningTime = 30;
+        private int roundUpMinute = 5;
         #endregion
 
         public ucSuatChieu()
@@ -62,7 +64,7 @@ namespace GUI.UI.Modules
             try
             {
                 // Lấy ngày và giờ đã chọn
-                DateTime startDate = (DateTime)dtpEndDate.EditValue;
+                DateTime startDate = (DateTime)dtpStartDate.EditValue;
                 DateTime endDate = (DateTime)dtpEndDate.EditValue;
 
                 // Thêm dữ liệu vào danh sách
@@ -220,10 +222,10 @@ namespace GUI.UI.Modules
             if (lastMovieSchedule != null && lastMovieSchedule.EndDate > DateTime.Now)
             {
                 // Chỉnh lại giờ bắt đầu
-                startTime = lastMovieSchedule.EndDate.AddMinutes(15);
-                if(startTime.Minute%10 != 0)
+                startTime = lastMovieSchedule.EndDate.AddMinutes(cleaningTime);
+                if(startTime.Minute% roundUpMinute != 0)
                 {
-                    startTime = startTime.AddMinutes(10 - startTime.Minute % 10);
+                    startTime = startTime.AddMinutes(roundUpMinute - startTime.Minute % roundUpMinute);
                 }
             }
             dtpStartDate.EditValue = startTime;
