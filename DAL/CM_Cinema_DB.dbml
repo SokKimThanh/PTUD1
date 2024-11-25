@@ -197,7 +197,7 @@
   <Table Name="dbo.tbl_DM_Ticket" Member="tbl_DM_Tickets">
     <Type Name="tbl_DM_Ticket">
       <Column Name="TK_AutoID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TK_SEATNAME" Type="System.String" DbType="NChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="TK_SEATNAME" Type="System.String" DbType="NChar(4) NOT NULL" CanBeNull="false" />
       <Column Name="TK_MOVIESCHEDULE_AutoID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Column Name="TK_STAFF_AutoID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Column Name="TK_BILL_AutoID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />

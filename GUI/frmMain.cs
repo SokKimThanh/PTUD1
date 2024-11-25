@@ -393,15 +393,23 @@ namespace GUI
         {
             while (true)
             {
-                string currentTime = DateTime.Now.ToString(CConfig.Time_Format_String);
-
-                // Sử dụng Form hoặc Control cha để gọi BeginInvoke
-                this.BeginInvoke(new Action(() =>
+                try
                 {
-                    lblTime.Caption = currentTime;
-                }));
+                    string currentTime = DateTime.Now.ToString(CConfig.Time_Format_String);
 
-                Thread.Sleep(1000); // Tránh vòng lặp quá nhanh
+                    // Sử dụng Form hoặc Control cha để gọi BeginInvoke
+                    this.BeginInvoke(new Action(() =>
+                    {
+                        lblTime.Caption = currentTime;
+                    }));
+
+                    Thread.Sleep(1000); // Tránh vòng lặp quá nhanh
+                }
+                catch (Exception)
+                {
+
+                }
+
             }
         }
 

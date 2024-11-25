@@ -211,6 +211,7 @@
             this.grdData.DetailHeight = 431;
             this.grdData.GridControl = this.dgv;
             this.grdData.Name = "grdData";
+            this.grdData.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.grdData_RowClick);
             // 
             // Root
             // 

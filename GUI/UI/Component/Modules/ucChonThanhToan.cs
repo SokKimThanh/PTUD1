@@ -45,7 +45,7 @@ namespace GUI.UI.Modules
 
         protected override void Load_Data()
         {
-            
+
             strFunctionCode = "Thanh toán";
 
             //Load trên giao diện
@@ -214,18 +214,23 @@ namespace GUI.UI.Modules
 
                         foreach (tbl_DM_Ticket_DTO v_objItem in v_arrTiket)
                         {
-                            // Tạo vé
-                            RP_PrintTicket report = new RP_PrintTicket();
-                            report.BindParameter(v_objItem.AutoID.ToString());
-                            report.CreateDocument();
+                            try
+                            {
+                                // Tạo vé
+                                RP_PrintTicket report = new RP_PrintTicket();
+                                report.BindParameter(v_objItem.AutoID.ToString());
+                                report.CreateDocument();
 
-                            // Thiết lập máy in
-                            ReportPrintTool tool = new ReportPrintTool(report);
-                            if (CCommon.Printer_Name != "")
-                                tool.PrinterSettings.PrinterName = CCommon.Printer_Name; // Thay "Tên máy in của bạn" bằng tên máy in thực tế
+                                // Thiết lập máy in
+                                ReportPrintTool tool = new ReportPrintTool(report);
+                                if (CCommon.Printer_Name != "")
+                                    tool.PrinterSettings.PrinterName = CCommon.Printer_Name; // Thay "Tên máy in của bạn" bằng tên máy in thực tế
 
-                            // In vé không cần review
-                            tool.Print();
+                                // In vé không cần review
+                                tool.Print();
+                            }
+                            catch (Exception) { }
+
                         }
 
                     }
@@ -288,7 +293,7 @@ namespace GUI.UI.Modules
             grdData.Columns["PD_TRI_GIA"].Caption = LanguageController.GetLanguageDataLabel("Tổng giá");
 
             FormatGridView(grdData);
-        } 
+        }
 
         public void SetupLayoutView()
         {
@@ -400,11 +405,12 @@ namespace GUI.UI.Modules
                     if (v_objFormSL.Status_Close == false)
                     {
                         v_objSP_Chon.PD_QUANTITY = v_objFormSL.Get_SL();
-                        m_arrSan_Pham_Da_Chon.Add(v_objSP_Chon);
+                        if (v_objSP_Chon.PD_QUANTITY > 0)
+                            m_arrSan_Pham_Da_Chon.Add(v_objSP_Chon);
                         grdData.RefreshData();
 
                         //Cập nhật tổng tiền
-                        m_dblTong_Tien = Tong_Gia_Ghe + v_objSP_Chon.PD_TRI_GIA;
+                        m_dblTong_Tien = Tong_Gia_Ghe + m_arrSan_Pham_Da_Chon.Sum(it => it.PD_TRI_GIA);
                         txtTong_Tien.Text = m_dblTong_Tien.ToString();
                     }
                 }
@@ -438,10 +444,16 @@ namespace GUI.UI.Modules
                 if (v_objFormSL.Status_Close == false)
                 {
                     v_objSP_Da_Chon.PD_QUANTITY = v_objFormSL.Get_SL();
+                    if (v_objSP_Da_Chon.PD_QUANTITY == 0)
+                    {
+                        tbl_DM_Product_DTO v_objRemove = m_arrSan_Pham_Da_Chon.FirstOrDefault(it => it.PD_AutoID == v_objSP_Da_Chon.PD_AutoID);
+                        m_arrSan_Pham_Da_Chon.Remove(v_objRemove);
+                    }    
                     grdData.RefreshData();
 
                     //Cập nhật tổng tiền
-                    m_dblTong_Tien = Tong_Gia_Ghe + v_objSP_Da_Chon.PD_TRI_GIA;
+
+                    m_dblTong_Tien = Tong_Gia_Ghe + m_arrSan_Pham_Da_Chon.Sum(it => it.PD_TRI_GIA);
                     txtTong_Tien.Text = m_dblTong_Tien.ToString();
                 }
             }
