@@ -21,9 +21,10 @@ namespace GUI
             InitializeComponent();
 
             txtSan_Pham.Enabled = false;
+            txtSo_Luong.Focus();
         }
 
-        public void Set_Data(string p_strSan_Pham, double p_dblSo_Luong = 0)
+        public void Set_Data(string p_strSan_Pham, double p_dblSo_Luong = 1)
         {
             txtSan_Pham.Text = p_strSan_Pham.Trim();
             txtSo_Luong.Text = p_dblSo_Luong.ToString();

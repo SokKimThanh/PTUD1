@@ -379,7 +379,7 @@
             // 
             this.layoutDGV.Control = this.grdControl_San_Pham_Da_Chon;
             this.layoutDGV.Location = new System.Drawing.Point(0, 0);
-            this.layoutDGV.MinSize = new System.Drawing.Size(116, 50);
+            this.layoutDGV.MinSize = new System.Drawing.Size(116, 100);
             this.layoutDGV.Name = "layoutDGV";
             this.layoutDGV.Padding = new DevExpress.XtraLayout.Utils.Padding(8, 8, 8, 8);
             this.layoutDGV.Size = new System.Drawing.Size(276, 177);
