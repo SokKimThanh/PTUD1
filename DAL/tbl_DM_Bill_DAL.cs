@@ -111,6 +111,11 @@ namespace DAL
                 throw;
             }
         }
+
+        public override void UpdateData(tbl_DM_Bill_DTO obj)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }
