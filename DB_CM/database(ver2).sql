@@ -6,6 +6,9 @@ go
 drop database if exists CM_Cinema_DB
 
 go
+create database CM_Cinema_DB
+
+go
 USE [CM_Cinema_DB]
 GO
 /****** Object:  Table [dbo].[tbl_DM_AgeRating]    Script Date: 25/11/2024 5:44:44 SA ******/
