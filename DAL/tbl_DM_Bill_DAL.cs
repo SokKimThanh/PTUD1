@@ -116,6 +116,26 @@ namespace DAL
         {
             throw new NotImplementedException();
         }
+
+        public void UpdateData(long p_lngAuto_ID, double v_dblGia)
+        {
+            try
+            {
+
+                tbl_DM_Bill v_objRes = DBDataContext.tbl_DM_Bills.SingleOrDefault(it => it.BL_AutoID == p_lngAuto_ID);
+                if (v_objRes != null)
+                {
+                    v_objRes.BL_Total_Price = v_dblGia;
+                }
+
+                DBDataContext.SubmitChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
     }
 
 }

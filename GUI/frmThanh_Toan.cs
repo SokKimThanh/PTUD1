@@ -11,40 +11,38 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class frmNhap_SL : DevExpress.XtraEditors.XtraForm
+    public partial class frmThanh_Toan : DevExpress.XtraEditors.XtraForm
     {
-
         public bool Status_Close = false;
-
-        public frmNhap_SL()
+        private double m_dblPrice = 0;
+        public frmThanh_Toan()
         {
             InitializeComponent();
 
-            txtSan_Pham.Enabled = false;
+            txtMa_HD.Enabled = false;
+            txtGia.Enabled = false;
+            btnHuy.Click += btnHuy_Click;
         }
 
-        public void Set_Data(string p_strSan_Pham, double p_dblSo_Luong = 0, string p_strTitle = "")
+        public void Set_Data(string p_strTitle, double p_dblTien)
         {
-            if (p_strTitle != "")
-            {
-                lblSan_Pham.Text = p_strTitle;
-            }
-            txtSan_Pham.Text = p_strSan_Pham.Trim();
-
-            txtSo_Luong.Text = p_dblSo_Luong.ToString();
+            m_dblPrice = p_dblTien;
+            txtMa_HD.Text = p_strTitle;
+            txtGia.Text = p_dblTien.ToString();
         }
 
-        public double Get_SL()
+        private void labelControl2_Click(object sender, EventArgs e)
         {
-            return Convert.ToDouble(txtSo_Luong.Text);
+
         }
 
         private void btnXac_Nhan_Click(object sender, EventArgs e)
         {
             try
             {
-                if (Convert.ToDouble(txtSo_Luong.Text) <= 0)
-                    throw new Exception("Vui lòng nhập số lượng > 0");
+                if (Convert.ToDouble(txtGia.Text) <= 0)
+                    throw new Exception("Vui lòng nhập giá > 0");
+
                 Status_Close = false;
                 this.Close();
             }
@@ -53,6 +51,11 @@ namespace GUI
                 MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        public double Get_Gia()
+        {
+            return m_dblPrice;
+        }
+
         protected override void WndProc(ref Message message)
         {
             const int WM_SYSCOMMAND = 0x0112;

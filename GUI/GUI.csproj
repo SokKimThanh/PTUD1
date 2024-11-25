@@ -105,6 +105,12 @@
     <Compile Include="frmNhap_SL.Designer.cs">
       <DependentUpon>frmNhap_SL.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmThanh_Toan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThanh_Toan.Designer.cs">
+      <DependentUpon>frmThanh_Toan.cs</DependentUpon>
+    </Compile>
     <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -298,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmNhap_SL.resx">
       <DependentUpon>frmNhap_SL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThanh_Toan.resx">
+      <DependentUpon>frmThanh_Toan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\GUI.frmLoading.resources" />
     <EmbeddedResource Include="obj\Debug\GUI.frmLogin.resources" />
