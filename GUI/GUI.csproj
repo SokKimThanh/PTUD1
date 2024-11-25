@@ -110,133 +110,133 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\Component\ComboBoxItem.cs" />
     <Compile Include="UI\Component\ExpenseStatus.cs" />
-    <Compile Include="UI\Modules\ucBaoCaoDoanhThu.cs">
+    <Compile Include="UI\Component\Modules\ucBaoCaoDoanhThu.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Modules\ucBaoCaoDoanhThu.Designer.cs">
+    <Compile Include="UI\Component\Modules\ucBaoCaoDoanhThu.Designer.cs">
       <DependentUpon>ucBaoCaoDoanhThu.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucBaoCaoThuChi.cs">
+    <Compile Include="UI\Component\Modules\ucBaoCaoThuChi.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Modules\ucBaoCaoThuChi.Designer.cs">
+    <Compile Include="UI\Component\Modules\ucBaoCaoThuChi.Designer.cs">
       <DependentUpon>ucBaoCaoThuChi.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucBaoCaoTonKho.cs">
+    <Compile Include="UI\Component\Modules\ucBaoCaoTonKho.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Modules\ucBaoCaoTonKho.Designer.cs">
+    <Compile Include="UI\Component\Modules\ucBaoCaoTonKho.Designer.cs">
       <DependentUpon>ucBaoCaoTonKho.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucBase.cs">
+    <Compile Include="UI\Component\Modules\ucBase.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Modules\ucCaiDat.cs">
+    <Compile Include="UI\Component\Modules\ucCaiDat.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Modules\ucCaiDat.Designer.cs">
+    <Compile Include="UI\Component\Modules\ucCaiDat.Designer.cs">
       <DependentUpon>ucCaiDat.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucCaLamViec.cs">
+    <Compile Include="UI\Component\Modules\ucCaLamViec.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Modules\ucCaLamViec.Designer.cs">
+    <Compile Include="UI\Component\Modules\ucCaLamViec.Designer.cs">
       <DependentUpon>ucCaLamViec.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucChiPhi.cs">
+    <Compile Include="UI\Component\Modules\ucChiPhi.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Modules\ucChiPhi.Designer.cs">
+    <Compile Include="UI\Component\Modules\ucChiPhi.Designer.cs">
       <DependentUpon>ucChiPhi.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucChiPhiLoai.cs">
+    <Compile Include="UI\Component\Modules\ucChiPhiLoai.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Modules\ucChiPhiLoai.Designer.cs">
+    <Compile Include="UI\Component\Modules\ucChiPhiLoai.Designer.cs">
       <DependentUpon>ucChiPhiLoai.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucChonPhim.cs">
+    <Compile Include="UI\Component\Modules\ucChonPhim.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Modules\ucChonPhim.Designer.cs">
+    <Compile Include="UI\Component\Modules\ucChonPhim.Designer.cs">
       <DependentUpon>ucChonPhim.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucChonSanPham.cs">
+    <Compile Include="UI\Component\Modules\ucChonSanPham.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Modules\ucChonSanPham.Designer.cs">
+    <Compile Include="UI\Component\Modules\ucChonSanPham.Designer.cs">
       <DependentUpon>ucChonSanPham.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucChonGhe.cs">
+    <Compile Include="UI\Component\Modules\ucChonGhe.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Modules\ucChonGhe.Designer.cs">
+    <Compile Include="UI\Component\Modules\ucChonGhe.Designer.cs">
       <DependentUpon>ucChonGhe.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucChonXacNhanThanhToan.cs">
+    <Compile Include="UI\Component\Modules\ucChonXacNhanThanhToan.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Modules\ucChonXacNhanThanhToan.Designer.cs">
+    <Compile Include="UI\Component\Modules\ucChonXacNhanThanhToan.Designer.cs">
       <DependentUpon>ucChonXacNhanThanhToan.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucHoaDon.cs">
+    <Compile Include="UI\Component\Modules\ucHoaDon.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Modules\ucHoaDon.Designer.cs">
+    <Compile Include="UI\Component\Modules\ucHoaDon.Designer.cs">
       <DependentUpon>ucHoaDon.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucNhanVien.cs">
+    <Compile Include="UI\Component\Modules\ucNhanVien.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Modules\ucNhanVien.Designer.cs">
+    <Compile Include="UI\Component\Modules\ucNhanVien.Designer.cs">
       <DependentUpon>ucNhanVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucPhanCa.cs">
+    <Compile Include="UI\Component\Modules\ucPhanCa.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Modules\ucPhanCa.Designer.cs">
+    <Compile Include="UI\Component\Modules\ucPhanCa.Designer.cs">
       <DependentUpon>ucPhanCa.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucPhim.cs">
+    <Compile Include="UI\Component\Modules\ucPhim.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Modules\ucPhim.Designer.cs">
+    <Compile Include="UI\Component\Modules\ucPhim.Designer.cs">
       <DependentUpon>ucPhim.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucPhongChieu.cs">
+    <Compile Include="UI\Component\Modules\ucPhongChieu.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Modules\ucPhongChieu.Designer.cs">
+    <Compile Include="UI\Component\Modules\ucPhongChieu.Designer.cs">
       <DependentUpon>ucPhongChieu.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucSanPham.cs">
+    <Compile Include="UI\Component\Modules\ucSanPham.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Modules\ucSanPham.Designer.cs">
+    <Compile Include="UI\Component\Modules\ucSanPham.Designer.cs">
       <DependentUpon>ucSanPham.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucSuatChieu.cs">
+    <Compile Include="UI\Component\Modules\ucSuatChieu.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Modules\ucSuatChieu.Designer.cs">
+    <Compile Include="UI\Component\Modules\ucSuatChieu.Designer.cs">
       <DependentUpon>ucSuatChieu.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucDanhGiaDoTuoi.cs">
+    <Compile Include="UI\Component\Modules\ucDanhGiaDoTuoi.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Modules\ucDanhGiaDoTuoi.Designer.cs">
+    <Compile Include="UI\Component\Modules\ucDanhGiaDoTuoi.Designer.cs">
       <DependentUpon>ucDanhGiaDoTuoi.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucChonThanhToan.cs">
+    <Compile Include="UI\Component\Modules\ucChonThanhToan.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Modules\ucChonThanhToan.Designer.cs">
+    <Compile Include="UI\Component\Modules\ucChonThanhToan.Designer.cs">
       <DependentUpon>ucChonThanhToan.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Modules\ucVe.cs">
+    <Compile Include="UI\Component\Modules\ucVe.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Modules\ucVe.Designer.cs">
+    <Compile Include="UI\Component\Modules\ucVe.Designer.cs">
       <DependentUpon>ucVe.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\ReportDesign\RP_BaoCaoChiPhi.cs">
@@ -340,68 +340,68 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UI\Modules\ucBaoCaoDoanhThu.resx">
+    <EmbeddedResource Include="UI\Component\Modules\ucBaoCaoDoanhThu.resx">
       <DependentUpon>ucBaoCaoDoanhThu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Modules\ucBaoCaoThuChi.resx">
+    <EmbeddedResource Include="UI\Component\Modules\ucBaoCaoThuChi.resx">
       <DependentUpon>ucBaoCaoThuChi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Modules\ucBaoCaoTonKho.resx">
+    <EmbeddedResource Include="UI\Component\Modules\ucBaoCaoTonKho.resx">
       <DependentUpon>ucBaoCaoTonKho.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Modules\ucCaiDat.resx">
+    <EmbeddedResource Include="UI\Component\Modules\ucCaiDat.resx">
       <DependentUpon>ucCaiDat.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Modules\ucCaLamViec.resx">
+    <EmbeddedResource Include="UI\Component\Modules\ucCaLamViec.resx">
       <DependentUpon>ucCaLamViec.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Modules\ucChiPhi.resx">
+    <EmbeddedResource Include="UI\Component\Modules\ucChiPhi.resx">
       <DependentUpon>ucChiPhi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Modules\ucChiPhiLoai.resx">
+    <EmbeddedResource Include="UI\Component\Modules\ucChiPhiLoai.resx">
       <DependentUpon>ucChiPhiLoai.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Modules\ucChonPhim.resx">
+    <EmbeddedResource Include="UI\Component\Modules\ucChonPhim.resx">
       <DependentUpon>ucChonPhim.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Modules\ucChonSanPham.resx">
+    <EmbeddedResource Include="UI\Component\Modules\ucChonSanPham.resx">
       <DependentUpon>ucChonSanPham.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Modules\ucChonXacNhanThanhToan.resx">
+    <EmbeddedResource Include="UI\Component\Modules\ucChonXacNhanThanhToan.resx">
       <DependentUpon>ucChonXacNhanThanhToan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Modules\ucDanhGiaDoTuoi.resx">
+    <EmbeddedResource Include="UI\Component\Modules\ucDanhGiaDoTuoi.resx">
       <DependentUpon>ucDanhGiaDoTuoi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Modules\ucChonGhe.resx">
+    <EmbeddedResource Include="UI\Component\Modules\ucChonGhe.resx">
       <DependentUpon>ucChonGhe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Modules\ucHoaDon.resx">
+    <EmbeddedResource Include="UI\Component\Modules\ucHoaDon.resx">
       <DependentUpon>ucHoaDon.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Modules\ucNhanVien.resx">
+    <EmbeddedResource Include="UI\Component\Modules\ucNhanVien.resx">
       <DependentUpon>ucNhanVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Modules\ucPhanCa.resx">
+    <EmbeddedResource Include="UI\Component\Modules\ucPhanCa.resx">
       <DependentUpon>ucPhanCa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Modules\ucPhim.resx">
+    <EmbeddedResource Include="UI\Component\Modules\ucPhim.resx">
       <DependentUpon>ucPhim.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Modules\ucPhongChieu.resx">
+    <EmbeddedResource Include="UI\Component\Modules\ucPhongChieu.resx">
       <DependentUpon>ucPhongChieu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Modules\ucSanPham.resx">
+    <EmbeddedResource Include="UI\Component\Modules\ucSanPham.resx">
       <DependentUpon>ucSanPham.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Modules\ucSuatChieu.resx">
+    <EmbeddedResource Include="UI\Component\Modules\ucSuatChieu.resx">
       <DependentUpon>ucSuatChieu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Modules\ucChonThanhToan.resx">
+    <EmbeddedResource Include="UI\Component\Modules\ucChonThanhToan.resx">
       <DependentUpon>ucChonThanhToan.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Modules\ucVe.resx">
+    <EmbeddedResource Include="UI\Component\Modules\ucVe.resx">
       <DependentUpon>ucVe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ReportDesign\RP_BaoCaoChiPhi.resx">

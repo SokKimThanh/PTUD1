@@ -23,8 +23,9 @@ namespace GUI
         /// </summary>
         private Dictionary<string, ucBase> dicFunction = new Dictionary<string, ucBase>()
         {
-           { "accDatVe", new ucChonPhim() },
-           { "accVe", new ucVe() },
+            { "accCaiDat", new ucCaiDat() },
+            { "accDatVe", new ucChonPhim() },
+            { "accVe", new ucVe() },
             { "accQLHoaDon", new ucHoaDon() },
             { "accQLPhim", new ucPhim() },
             { "accQLSanPham", new ucSanPham() },

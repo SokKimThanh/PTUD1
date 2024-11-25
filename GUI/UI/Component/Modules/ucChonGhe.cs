@@ -140,7 +140,7 @@ namespace GUI.UI.Modules
                 }
                 else
                 {
-                    seats_Couple[couple] = 0;
+                    seats_Couple[couple] = 2;
                 }
             }
 
