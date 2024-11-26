@@ -25,7 +25,7 @@ namespace DTO.tbl_DTO
         {
         }
 
-        
+
         public tbl_SYS_Expense_DTO(long eX_AutoID, long eX_EXTYPE_AutoID, double eX_QUANTITY, double eX_PRICE, string eX_REASON, int eX_STATUS)
         {
             this.eX_AutoID = eX_AutoID;

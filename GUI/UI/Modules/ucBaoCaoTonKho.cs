@@ -1,14 +1,9 @@
 ﻿using BUS.Bao_Cao;
 using DevExpress.XtraReports.UI;
-using GUI.UI.ReportDesign;
-using System.Windows.Forms;
-using System;
-using DevExpress.XtraRichEdit.Model;
-using System.Runtime.InteropServices.ComTypes;
-using DevExpress.XtraEditors;
-using System.Collections.Generic;
 using GUI.UI.Component;
-using DTO.Utility;
+using GUI.UI.ReportDesign;
+using System;
+using System.Windows.Forms;
 namespace GUI.UI.Modules
 {
     public partial class ucBaoCaoTonKho : ucBase
@@ -31,7 +26,7 @@ namespace GUI.UI.Modules
         // Component layout allow show/hide control menu customize
         LayoutControlCustom layoutControlCustom = new LayoutControlCustom();
 
-        
+
         public ucBaoCaoTonKho()
         {
             InitializeComponent();

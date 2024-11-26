@@ -1,20 +1,10 @@
 ﻿using BUS.Danh_Muc;
-using DevExpress.ClipboardSource.SpreadsheetML;
-using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
-using DevExpress.XtraReports.UI;
 using DTO.tbl_DTO;
+using GUI.UI.Component;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
-using GUI.UI.Component;
 
 namespace GUI.UI.Modules
 {
@@ -239,11 +229,11 @@ namespace GUI.UI.Modules
                             }
                         }
                     }
-                    catch 
+                    catch
                     {
                         MessageBox.Show($"Vui lòng thêm loại chi phí tương ứng với sản phẩm.", "Thông báo");
                     }
-                    
+
                     // hiển thị nhập số lượng khi có id product
                     txtQuantity.Enabled = true;
                     txtPrice.Enabled = true;

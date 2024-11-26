@@ -33,6 +33,9 @@ namespace DAL
     partial void Inserttbl_DM_AgeRating(tbl_DM_AgeRating instance);
     partial void Updatetbl_DM_AgeRating(tbl_DM_AgeRating instance);
     partial void Deletetbl_DM_AgeRating(tbl_DM_AgeRating instance);
+    partial void Inserttbl_Sys_Language(tbl_Sys_Language instance);
+    partial void Updatetbl_Sys_Language(tbl_Sys_Language instance);
+    partial void Deletetbl_Sys_Language(tbl_Sys_Language instance);
     partial void Inserttbl_DM_Bill(tbl_DM_Bill instance);
     partial void Updatetbl_DM_Bill(tbl_DM_Bill instance);
     partial void Deletetbl_DM_Bill(tbl_DM_Bill instance);
@@ -69,9 +72,6 @@ namespace DAL
     partial void Inserttbl_SYS_Expense(tbl_SYS_Expense instance);
     partial void Updatetbl_SYS_Expense(tbl_SYS_Expense instance);
     partial void Deletetbl_SYS_Expense(tbl_SYS_Expense instance);
-    partial void Inserttbl_Sys_Language(tbl_Sys_Language instance);
-    partial void Updatetbl_Sys_Language(tbl_Sys_Language instance);
-    partial void Deletetbl_Sys_Language(tbl_Sys_Language instance);
     #endregion
 		
 		public CM_Cinema_DBDataContext() : 
@@ -109,6 +109,14 @@ namespace DAL
 			get
 			{
 				return this.GetTable<tbl_DM_AgeRating>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_Sys_Language> tbl_Sys_Languages
+		{
+			get
+			{
+				return this.GetTable<tbl_Sys_Language>();
 			}
 		}
 		
@@ -205,14 +213,6 @@ namespace DAL
 			get
 			{
 				return this.GetTable<tbl_SYS_Expense>();
-			}
-		}
-		
-		public System.Data.Linq.Table<tbl_Sys_Language> tbl_Sys_Languages
-		{
-			get
-			{
-				return this.GetTable<tbl_Sys_Language>();
 			}
 		}
 	}
@@ -523,6 +523,356 @@ namespace DAL
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_Sys_Language")]
+	public partial class tbl_Sys_Language : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _Lang_AutoID;
+		
+		private string _Eng_Lang;
+		
+		private string _VN_Lang;
+		
+		private string _JP_Lang;
+		
+		private string _KR_Lang;
+		
+		private string _CN_Lang;
+		
+		private System.Nullable<int> _DELETED;
+		
+		private System.Nullable<System.DateTime> _CREATED;
+		
+		private string _CREATED_BY;
+		
+		private string _CREATED_BY_FUNCTION;
+		
+		private System.Nullable<System.DateTime> _UPDATED;
+		
+		private string _UPDATED_BY;
+		
+		private string _UPDATED_BY_FUNCTION;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnLang_AutoIDChanging(long value);
+    partial void OnLang_AutoIDChanged();
+    partial void OnEng_LangChanging(string value);
+    partial void OnEng_LangChanged();
+    partial void OnVN_LangChanging(string value);
+    partial void OnVN_LangChanged();
+    partial void OnJP_LangChanging(string value);
+    partial void OnJP_LangChanged();
+    partial void OnKR_LangChanging(string value);
+    partial void OnKR_LangChanged();
+    partial void OnCN_LangChanging(string value);
+    partial void OnCN_LangChanged();
+    partial void OnDELETEDChanging(System.Nullable<int> value);
+    partial void OnDELETEDChanged();
+    partial void OnCREATEDChanging(System.Nullable<System.DateTime> value);
+    partial void OnCREATEDChanged();
+    partial void OnCREATED_BYChanging(string value);
+    partial void OnCREATED_BYChanged();
+    partial void OnCREATED_BY_FUNCTIONChanging(string value);
+    partial void OnCREATED_BY_FUNCTIONChanged();
+    partial void OnUPDATEDChanging(System.Nullable<System.DateTime> value);
+    partial void OnUPDATEDChanged();
+    partial void OnUPDATED_BYChanging(string value);
+    partial void OnUPDATED_BYChanged();
+    partial void OnUPDATED_BY_FUNCTIONChanging(string value);
+    partial void OnUPDATED_BY_FUNCTIONChanged();
+    #endregion
+		
+		public tbl_Sys_Language()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lang_AutoID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long Lang_AutoID
+		{
+			get
+			{
+				return this._Lang_AutoID;
+			}
+			set
+			{
+				if ((this._Lang_AutoID != value))
+				{
+					this.OnLang_AutoIDChanging(value);
+					this.SendPropertyChanging();
+					this._Lang_AutoID = value;
+					this.SendPropertyChanged("Lang_AutoID");
+					this.OnLang_AutoIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Eng_Lang", DbType="NVarChar(255)")]
+		public string Eng_Lang
+		{
+			get
+			{
+				return this._Eng_Lang;
+			}
+			set
+			{
+				if ((this._Eng_Lang != value))
+				{
+					this.OnEng_LangChanging(value);
+					this.SendPropertyChanging();
+					this._Eng_Lang = value;
+					this.SendPropertyChanged("Eng_Lang");
+					this.OnEng_LangChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VN_Lang", DbType="NVarChar(255)")]
+		public string VN_Lang
+		{
+			get
+			{
+				return this._VN_Lang;
+			}
+			set
+			{
+				if ((this._VN_Lang != value))
+				{
+					this.OnVN_LangChanging(value);
+					this.SendPropertyChanging();
+					this._VN_Lang = value;
+					this.SendPropertyChanged("VN_Lang");
+					this.OnVN_LangChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JP_Lang", DbType="NVarChar(255)")]
+		public string JP_Lang
+		{
+			get
+			{
+				return this._JP_Lang;
+			}
+			set
+			{
+				if ((this._JP_Lang != value))
+				{
+					this.OnJP_LangChanging(value);
+					this.SendPropertyChanging();
+					this._JP_Lang = value;
+					this.SendPropertyChanged("JP_Lang");
+					this.OnJP_LangChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KR_Lang", DbType="NVarChar(255)")]
+		public string KR_Lang
+		{
+			get
+			{
+				return this._KR_Lang;
+			}
+			set
+			{
+				if ((this._KR_Lang != value))
+				{
+					this.OnKR_LangChanging(value);
+					this.SendPropertyChanging();
+					this._KR_Lang = value;
+					this.SendPropertyChanged("KR_Lang");
+					this.OnKR_LangChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CN_Lang", DbType="NVarChar(255)")]
+		public string CN_Lang
+		{
+			get
+			{
+				return this._CN_Lang;
+			}
+			set
+			{
+				if ((this._CN_Lang != value))
+				{
+					this.OnCN_LangChanging(value);
+					this.SendPropertyChanging();
+					this._CN_Lang = value;
+					this.SendPropertyChanged("CN_Lang");
+					this.OnCN_LangChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DELETED", DbType="Int")]
+		public System.Nullable<int> DELETED
+		{
+			get
+			{
+				return this._DELETED;
+			}
+			set
+			{
+				if ((this._DELETED != value))
+				{
+					this.OnDELETEDChanging(value);
+					this.SendPropertyChanging();
+					this._DELETED = value;
+					this.SendPropertyChanged("DELETED");
+					this.OnDELETEDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CREATED
+		{
+			get
+			{
+				return this._CREATED;
+			}
+			set
+			{
+				if ((this._CREATED != value))
+				{
+					this.OnCREATEDChanging(value);
+					this.SendPropertyChanging();
+					this._CREATED = value;
+					this.SendPropertyChanged("CREATED");
+					this.OnCREATEDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY", DbType="NChar(50)")]
+		public string CREATED_BY
+		{
+			get
+			{
+				return this._CREATED_BY;
+			}
+			set
+			{
+				if ((this._CREATED_BY != value))
+				{
+					this.OnCREATED_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CREATED_BY = value;
+					this.SendPropertyChanged("CREATED_BY");
+					this.OnCREATED_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY_FUNCTION", DbType="NChar(100)")]
+		public string CREATED_BY_FUNCTION
+		{
+			get
+			{
+				return this._CREATED_BY_FUNCTION;
+			}
+			set
+			{
+				if ((this._CREATED_BY_FUNCTION != value))
+				{
+					this.OnCREATED_BY_FUNCTIONChanging(value);
+					this.SendPropertyChanging();
+					this._CREATED_BY_FUNCTION = value;
+					this.SendPropertyChanged("CREATED_BY_FUNCTION");
+					this.OnCREATED_BY_FUNCTIONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED", DbType="DateTime")]
+		public System.Nullable<System.DateTime> UPDATED
+		{
+			get
+			{
+				return this._UPDATED;
+			}
+			set
+			{
+				if ((this._UPDATED != value))
+				{
+					this.OnUPDATEDChanging(value);
+					this.SendPropertyChanging();
+					this._UPDATED = value;
+					this.SendPropertyChanged("UPDATED");
+					this.OnUPDATEDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY", DbType="NChar(50)")]
+		public string UPDATED_BY
+		{
+			get
+			{
+				return this._UPDATED_BY;
+			}
+			set
+			{
+				if ((this._UPDATED_BY != value))
+				{
+					this.OnUPDATED_BYChanging(value);
+					this.SendPropertyChanging();
+					this._UPDATED_BY = value;
+					this.SendPropertyChanged("UPDATED_BY");
+					this.OnUPDATED_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY_FUNCTION", DbType="NChar(100)")]
+		public string UPDATED_BY_FUNCTION
+		{
+			get
+			{
+				return this._UPDATED_BY_FUNCTION;
+			}
+			set
+			{
+				if ((this._UPDATED_BY_FUNCTION != value))
+				{
+					this.OnUPDATED_BY_FUNCTIONChanging(value);
+					this.SendPropertyChanging();
+					this._UPDATED_BY_FUNCTION = value;
+					this.SendPropertyChanged("UPDATED_BY_FUNCTION");
+					this.OnUPDATED_BY_FUNCTIONChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_DM_Bill")]
 	public partial class tbl_DM_Bill : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -532,6 +882,8 @@ namespace DAL
 		private long _BL_AutoID;
 		
 		private long _BL_STAFF_AutoID;
+		
+		private System.Nullable<int> _BL_Trang_Thai_ID;
 		
 		private string _BL_Bill_Code;
 		
@@ -565,6 +917,8 @@ namespace DAL
     partial void OnBL_AutoIDChanged();
     partial void OnBL_STAFF_AutoIDChanging(long value);
     partial void OnBL_STAFF_AutoIDChanged();
+    partial void OnBL_Trang_Thai_IDChanging(System.Nullable<int> value);
+    partial void OnBL_Trang_Thai_IDChanged();
     partial void OnBL_Bill_CodeChanging(string value);
     partial void OnBL_Bill_CodeChanged();
     partial void OnBL_Total_PriceChanging(System.Nullable<double> value);
@@ -633,6 +987,26 @@ namespace DAL
 					this._BL_STAFF_AutoID = value;
 					this.SendPropertyChanged("BL_STAFF_AutoID");
 					this.OnBL_STAFF_AutoIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BL_Trang_Thai_ID", DbType="Int")]
+		public System.Nullable<int> BL_Trang_Thai_ID
+		{
+			get
+			{
+				return this._BL_Trang_Thai_ID;
+			}
+			set
+			{
+				if ((this._BL_Trang_Thai_ID != value))
+				{
+					this.OnBL_Trang_Thai_IDChanging(value);
+					this.SendPropertyChanging();
+					this._BL_Trang_Thai_ID = value;
+					this.SendPropertyChanged("BL_Trang_Thai_ID");
+					this.OnBL_Trang_Thai_IDChanged();
 				}
 			}
 		}
@@ -5303,356 +5677,6 @@ namespace DAL
 						this._EX_EXTYPE_AutoID = default(long);
 					}
 					this.SendPropertyChanged("tbl_DM_ExpenseType");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_Sys_Language")]
-	public partial class tbl_Sys_Language : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private long _Lang_AutoID;
-		
-		private string _Eng_Lang;
-		
-		private string _VN_Lang;
-		
-		private string _JP_Lang;
-		
-		private string _KR_Lang;
-		
-		private string _CN_Lang;
-		
-		private System.Nullable<int> _DELETED;
-		
-		private System.Nullable<System.DateTime> _CREATED;
-		
-		private string _CREATED_BY;
-		
-		private string _CREATED_BY_FUNCTION;
-		
-		private System.Nullable<System.DateTime> _UPDATED;
-		
-		private string _UPDATED_BY;
-		
-		private string _UPDATED_BY_FUNCTION;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnLang_AutoIDChanging(long value);
-    partial void OnLang_AutoIDChanged();
-    partial void OnEng_LangChanging(string value);
-    partial void OnEng_LangChanged();
-    partial void OnVN_LangChanging(string value);
-    partial void OnVN_LangChanged();
-    partial void OnJP_LangChanging(string value);
-    partial void OnJP_LangChanged();
-    partial void OnKR_LangChanging(string value);
-    partial void OnKR_LangChanged();
-    partial void OnCN_LangChanging(string value);
-    partial void OnCN_LangChanged();
-    partial void OnDELETEDChanging(System.Nullable<int> value);
-    partial void OnDELETEDChanged();
-    partial void OnCREATEDChanging(System.Nullable<System.DateTime> value);
-    partial void OnCREATEDChanged();
-    partial void OnCREATED_BYChanging(string value);
-    partial void OnCREATED_BYChanged();
-    partial void OnCREATED_BY_FUNCTIONChanging(string value);
-    partial void OnCREATED_BY_FUNCTIONChanged();
-    partial void OnUPDATEDChanging(System.Nullable<System.DateTime> value);
-    partial void OnUPDATEDChanged();
-    partial void OnUPDATED_BYChanging(string value);
-    partial void OnUPDATED_BYChanged();
-    partial void OnUPDATED_BY_FUNCTIONChanging(string value);
-    partial void OnUPDATED_BY_FUNCTIONChanged();
-    #endregion
-		
-		public tbl_Sys_Language()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lang_AutoID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public long Lang_AutoID
-		{
-			get
-			{
-				return this._Lang_AutoID;
-			}
-			set
-			{
-				if ((this._Lang_AutoID != value))
-				{
-					this.OnLang_AutoIDChanging(value);
-					this.SendPropertyChanging();
-					this._Lang_AutoID = value;
-					this.SendPropertyChanged("Lang_AutoID");
-					this.OnLang_AutoIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Eng_Lang", DbType="NVarChar(255)")]
-		public string Eng_Lang
-		{
-			get
-			{
-				return this._Eng_Lang;
-			}
-			set
-			{
-				if ((this._Eng_Lang != value))
-				{
-					this.OnEng_LangChanging(value);
-					this.SendPropertyChanging();
-					this._Eng_Lang = value;
-					this.SendPropertyChanged("Eng_Lang");
-					this.OnEng_LangChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VN_Lang", DbType="NVarChar(255)")]
-		public string VN_Lang
-		{
-			get
-			{
-				return this._VN_Lang;
-			}
-			set
-			{
-				if ((this._VN_Lang != value))
-				{
-					this.OnVN_LangChanging(value);
-					this.SendPropertyChanging();
-					this._VN_Lang = value;
-					this.SendPropertyChanged("VN_Lang");
-					this.OnVN_LangChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JP_Lang", DbType="NVarChar(255)")]
-		public string JP_Lang
-		{
-			get
-			{
-				return this._JP_Lang;
-			}
-			set
-			{
-				if ((this._JP_Lang != value))
-				{
-					this.OnJP_LangChanging(value);
-					this.SendPropertyChanging();
-					this._JP_Lang = value;
-					this.SendPropertyChanged("JP_Lang");
-					this.OnJP_LangChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KR_Lang", DbType="NVarChar(255)")]
-		public string KR_Lang
-		{
-			get
-			{
-				return this._KR_Lang;
-			}
-			set
-			{
-				if ((this._KR_Lang != value))
-				{
-					this.OnKR_LangChanging(value);
-					this.SendPropertyChanging();
-					this._KR_Lang = value;
-					this.SendPropertyChanged("KR_Lang");
-					this.OnKR_LangChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CN_Lang", DbType="NVarChar(255)")]
-		public string CN_Lang
-		{
-			get
-			{
-				return this._CN_Lang;
-			}
-			set
-			{
-				if ((this._CN_Lang != value))
-				{
-					this.OnCN_LangChanging(value);
-					this.SendPropertyChanging();
-					this._CN_Lang = value;
-					this.SendPropertyChanged("CN_Lang");
-					this.OnCN_LangChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DELETED", DbType="Int")]
-		public System.Nullable<int> DELETED
-		{
-			get
-			{
-				return this._DELETED;
-			}
-			set
-			{
-				if ((this._DELETED != value))
-				{
-					this.OnDELETEDChanging(value);
-					this.SendPropertyChanging();
-					this._DELETED = value;
-					this.SendPropertyChanged("DELETED");
-					this.OnDELETEDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CREATED
-		{
-			get
-			{
-				return this._CREATED;
-			}
-			set
-			{
-				if ((this._CREATED != value))
-				{
-					this.OnCREATEDChanging(value);
-					this.SendPropertyChanging();
-					this._CREATED = value;
-					this.SendPropertyChanged("CREATED");
-					this.OnCREATEDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY", DbType="NChar(50)")]
-		public string CREATED_BY
-		{
-			get
-			{
-				return this._CREATED_BY;
-			}
-			set
-			{
-				if ((this._CREATED_BY != value))
-				{
-					this.OnCREATED_BYChanging(value);
-					this.SendPropertyChanging();
-					this._CREATED_BY = value;
-					this.SendPropertyChanged("CREATED_BY");
-					this.OnCREATED_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATED_BY_FUNCTION", DbType="NChar(100)")]
-		public string CREATED_BY_FUNCTION
-		{
-			get
-			{
-				return this._CREATED_BY_FUNCTION;
-			}
-			set
-			{
-				if ((this._CREATED_BY_FUNCTION != value))
-				{
-					this.OnCREATED_BY_FUNCTIONChanging(value);
-					this.SendPropertyChanging();
-					this._CREATED_BY_FUNCTION = value;
-					this.SendPropertyChanged("CREATED_BY_FUNCTION");
-					this.OnCREATED_BY_FUNCTIONChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED", DbType="DateTime")]
-		public System.Nullable<System.DateTime> UPDATED
-		{
-			get
-			{
-				return this._UPDATED;
-			}
-			set
-			{
-				if ((this._UPDATED != value))
-				{
-					this.OnUPDATEDChanging(value);
-					this.SendPropertyChanging();
-					this._UPDATED = value;
-					this.SendPropertyChanged("UPDATED");
-					this.OnUPDATEDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY", DbType="NChar(50)")]
-		public string UPDATED_BY
-		{
-			get
-			{
-				return this._UPDATED_BY;
-			}
-			set
-			{
-				if ((this._UPDATED_BY != value))
-				{
-					this.OnUPDATED_BYChanging(value);
-					this.SendPropertyChanging();
-					this._UPDATED_BY = value;
-					this.SendPropertyChanged("UPDATED_BY");
-					this.OnUPDATED_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATED_BY_FUNCTION", DbType="NChar(100)")]
-		public string UPDATED_BY_FUNCTION
-		{
-			get
-			{
-				return this._UPDATED_BY_FUNCTION;
-			}
-			set
-			{
-				if ((this._UPDATED_BY_FUNCTION != value))
-				{
-					this.OnUPDATED_BY_FUNCTIONChanging(value);
-					this.SendPropertyChanging();
-					this._UPDATED_BY_FUNCTION = value;
-					this.SendPropertyChanged("UPDATED_BY_FUNCTION");
-					this.OnUPDATED_BY_FUNCTIONChanged();
 				}
 			}
 		}

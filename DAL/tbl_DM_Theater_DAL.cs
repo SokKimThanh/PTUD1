@@ -55,7 +55,7 @@ namespace DAL
                     // Khởi tạo danh sách các phòng chiếu
                     List<tbl_DM_Theater_DTO> list = new List<tbl_DM_Theater_DTO>();
                     // Chuyển kiểu dữ liệu từ context sang DTO
-                    foreach (tbl_DM_Theater item in db.tbl_DM_Theaters.Where(item=> item.DELETED == 0 && item.TT_STATUS == 1).ToList())
+                    foreach (tbl_DM_Theater item in db.tbl_DM_Theaters.Where(item => item.DELETED == 0 && item.TT_STATUS == 1).ToList())
                     {
                         list.Add(new tbl_DM_Theater_DTO(item.TT_AutoID, item.TT_NAME, item.TT_STATUS, item.TT_ROWS, item.TT_COLS, item.TT_COUPLES, (int)item.DELETED));
                     }

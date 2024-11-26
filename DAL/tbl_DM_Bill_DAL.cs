@@ -1,11 +1,8 @@
-﻿using DevExpress.CodeParser.Diagnostics;
-using DTO.tbl_DTO;
+﻿using DTO.tbl_DTO;
 using DTO.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL
 {
@@ -135,7 +132,24 @@ namespace DAL
                 throw;
             }
         }
+        public void UpdateData(long p_lngAuto_ID, int p_iTrang_Thai)
+        {
+            try
+            {
 
+                tbl_DM_Bill v_objRes = DBDataContext.tbl_DM_Bills.SingleOrDefault(it => it.BL_AutoID == p_lngAuto_ID);
+                if (v_objRes != null)
+                {
+                    v_objRes.BL_Trang_Thai_ID = p_iTrang_Thai;
+                }
+
+                DBDataContext.SubmitChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 
 }

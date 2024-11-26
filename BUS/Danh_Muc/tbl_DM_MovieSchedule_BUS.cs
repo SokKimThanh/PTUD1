@@ -2,9 +2,6 @@
 using DTO.tbl_DTO;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BUS.Danh_Muc
 {
@@ -20,8 +17,9 @@ namespace BUS.Danh_Muc
         {
             try
             {
-                dal.AddData(new tbl_DM_MovieSchedule_DTO(null,movie_AutoID,null,theater_AutoID,null,startDate, endDate,0));
-            }catch(Exception ex)
+                dal.AddData(new tbl_DM_MovieSchedule_DTO(null, movie_AutoID, null, theater_AutoID, null, startDate, endDate, 0));
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -91,7 +89,7 @@ namespace BUS.Danh_Muc
                 //    throw new NullReferenceException("Không tìm thấy ca");
                 //}
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -101,7 +99,8 @@ namespace BUS.Danh_Muc
             try
             {
                 return dal.GetLastMovieSchedule_ByID(id);
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -113,7 +112,7 @@ namespace BUS.Danh_Muc
                 tbl_DM_MovieSchedule_DTO foundMovieSchedule = dal.GetLastMovieSchedule_ByTheaterandMovie(theaterID, movieID);
                 return foundMovieSchedule;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -123,7 +122,8 @@ namespace BUS.Danh_Muc
             try
             {
                 return dal.GetMovieSchedule_ByMovieDate(movieID, date);
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -133,7 +133,8 @@ namespace BUS.Danh_Muc
             try
             {
                 return dal.GetMovieSchedule_ByTheater(theaterID);
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }

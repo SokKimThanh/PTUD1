@@ -1,14 +1,14 @@
-﻿using System.Collections.Generic;
-using System.Drawing;
-using System.Windows.Forms;
-using System;
-using DevExpress.XtraBars.FluentDesignSystem;
+﻿using BUS.Danh_Muc;
 using BUS.Sys;
-using BUS.Danh_Muc;
+using DevExpress.XtraBars.FluentDesignSystem;
 using DTO;
 using DTO.Common;
 using DTO.tbl_DTO;
 using GUI.UI.Component;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace GUI.UI.Modules
 {
@@ -51,7 +51,7 @@ namespace GUI.UI.Modules
         private int paddingLeftRight_Couples = 0;
         private int minPadding = 20;
         private Point previousPanelPoint;
-         
+
         // Component Barmanager menu layout custom
         BarManagerLayoutCustom barManagerLayoutCustom = new BarManagerLayoutCustom();
 
@@ -89,9 +89,9 @@ namespace GUI.UI.Modules
 
             // Hiển thị số lượng vé đang đặt
             txtQuantity.Text = count.ToString().Trim();
-             
+
             barManagerLayoutCustom.BarManagerCustom = barManager1;
-              
+
             // Tùy chỉnh vô hiệu hóa chuột phải design mode trên menu
             barManagerLayoutCustom.DisableCustomization();
 
@@ -370,7 +370,7 @@ namespace GUI.UI.Modules
             try
             {
                 // Kiểm tra số lượng vé đang đặt
-                if(count == 0)
+                if (count == 0)
                 {
                     throw new Exception("Vui lòng chọn ít nhất 1 ghế để tiếp tục thanh toán");
                 }

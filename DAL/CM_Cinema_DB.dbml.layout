@@ -1,180 +1,180 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.375, 25" name="CM_Cinema_DB">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.375, 25.125" name="CM_Cinema_DB">
   <DataContextMoniker Name="/CM_Cinema_DBDataContext" />
   <nestedChildShapes>
-    <classShape Id="20474aef-43e6-48cd-98ef-32d1ccd236c8" absoluteBounds="1.5, 22, 2, 2.7324039713541666">
+    <classShape Id="880f19ab-bf8a-4fc1-b8cb-751cbaa1b1e6" absoluteBounds="1.5, 22.125, 2, 2.7324039713541666">
       <DataClassMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_AgeRating" />
       <nestedChildShapes>
-        <elementListCompartment Id="54b30a7b-4a1d-45ad-a343-ace3349ac9a2" absoluteBounds="1.5150000000000001, 22.46, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="0ff39bb0-67d6-46e4-977d-da1e729d7f9d" absoluteBounds="1.5150000000000001, 22.585, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="111394e1-f4d6-4a93-8603-09a2054dd485" absoluteBounds="3.5, 9.875, 2, 2.9247054036458309">
-      <DataClassMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_Bill" />
-      <nestedChildShapes>
-        <elementListCompartment Id="ef86ddf3-125f-46d6-b3e7-6fecefd5397b" absoluteBounds="3.515, 10.335, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="a83b653a-8234-40a4-8276-d635bac64545" absoluteBounds="6.25, 9.875, 2, 2.9247054036458309">
-      <DataClassMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_BillDetail" />
-      <nestedChildShapes>
-        <elementListCompartment Id="faa4628c-c012-412a-a636-58697f1012f6" absoluteBounds="6.265, 10.335, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="3cb86fa6-9257-4ba1-9583-ce9c331d4a7d" absoluteBounds="6.25, 1.125, 2, 2.7324039713541666">
-      <DataClassMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_ExpenseType" />
-      <nestedChildShapes>
-        <elementListCompartment Id="ffc4e10f-41f0-4db0-8d9c-ba54ef926613" absoluteBounds="6.265, 1.585, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="fddcda5e-847b-47a4-b1fc-4c3f9952478e" absoluteBounds="0.75, 17.625, 2, 3.5016097005208309">
-      <DataClassMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_Movie" />
-      <nestedChildShapes>
-        <elementListCompartment Id="f685c31d-80f0-44c1-9a8f-0e07f6d5913b" absoluteBounds="0.765, 18.085, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="a7fc6fc2-52a3-407f-adcc-8959793bbec9" absoluteBounds="3.5, 15.875, 2, 3.1170068359375023">
-      <DataClassMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_MovieSchedule" />
-      <nestedChildShapes>
-        <elementListCompartment Id="29040b3c-fed8-4504-8850-3211bb102a89" absoluteBounds="3.515, 16.335, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="be5d06ca-0f96-4651-8254-bd88819b12fc" absoluteBounds="3.5, 0.75, 2, 3.1170068359375005">
-      <DataClassMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_Product" />
-      <nestedChildShapes>
-        <elementListCompartment Id="401ea9b0-bebd-4afd-ba5a-331bea7e141e" absoluteBounds="3.515, 1.21, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="104485e8-e8c2-4d88-b94c-487ff4172f6b" absoluteBounds="0.75, 1.375, 2, 2.9247054036458326">
-      <DataClassMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_Shift" />
-      <nestedChildShapes>
-        <elementListCompartment Id="eb6a23db-e1c2-4585-8635-00049f91f754" absoluteBounds="0.765, 1.835, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="a2631e0a-bc96-4bae-a64a-7e45e906bc75" absoluteBounds="0.75, 6, 2, 3.6939111328124978">
-      <DataClassMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_Staff" />
-      <nestedChildShapes>
-        <elementListCompartment Id="6e3a440a-c297-4370-9808-340dd4e2e331" absoluteBounds="0.765, 6.46, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="731072d9-741c-402e-818e-2eecbdc7caa3" absoluteBounds="3.5, 5.5, 2, 2.7324039713541675">
-      <DataClassMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_StaffSchedule" />
-      <nestedChildShapes>
-        <elementListCompartment Id="173b61e9-2580-478f-9235-e589a502ffc3" absoluteBounds="3.515, 5.96, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="5bad4c9d-f2b6-4185-9f71-02da2391cb57" absoluteBounds="6.25, 5.75, 2, 3.3093082682291675">
-      <DataClassMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_Ticket" />
-      <nestedChildShapes>
-        <elementListCompartment Id="ec54abb9-e728-4179-a97c-5c38667c73d0" absoluteBounds="6.265, 6.21, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="71292150-7f5d-4b51-89fa-e255b87fbc47" absoluteBounds="0.75, 13.625, 2, 3.3093082682291666">
-      <DataClassMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_Theater" />
-      <nestedChildShapes>
-        <elementListCompartment Id="b21426e5-1d28-4f27-afb2-10efa0723981" absoluteBounds="0.765, 14.085, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="68c35d6a-2282-4392-b103-8f48aa60749f" absoluteBounds="9, 6.5, 2, 3.3093082682291675">
-      <DataClassMoniker Name="/CM_Cinema_DBDataContext/tbl_SYS_Expense" />
-      <nestedChildShapes>
-        <elementListCompartment Id="25b2c5ae-0d81-4ea4-8ff5-369463b19e32" absoluteBounds="9.015, 6.96, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="3d803e28-8ba6-4b45-b172-7f32b6d8447f" absoluteBounds="8.75, 2, 2, 3.3093082682291666">
+    <classShape Id="09ed24d4-fc28-4bfe-968b-173ec28ce2b1" absoluteBounds="8.75, 2, 2, 3.3093082682291666">
       <DataClassMoniker Name="/CM_Cinema_DBDataContext/tbl_Sys_Language" />
       <nestedChildShapes>
-        <elementListCompartment Id="eba9f855-5846-43fb-8b0b-89a980c0fd85" absoluteBounds="8.765, 2.46, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="f8d3250d-1c1f-491c-bba6-f39087e4449c" absoluteBounds="8.765, 2.46, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5c38afea-dbed-4b11-95f9-8aaf17345536" absoluteBounds="3.5, 9.75, 2, 3.1170068359375023">
+      <DataClassMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_Bill" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5fc3f646-21aa-401f-af67-d7891187844a" absoluteBounds="3.515, 10.21, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fbbfbdc6-6bf4-4577-803b-4245e83f0b22" absoluteBounds="6.25, 9.875, 2, 2.9247054036458309">
+      <DataClassMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_BillDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="15289a62-f247-4d80-9d4d-7b8a7cddf321" absoluteBounds="6.265, 10.335, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cb966a35-ee6b-404f-a669-dcad6116aeb2" absoluteBounds="6.25, 1.125, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_ExpenseType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c09b9e6f-7b46-4d18-b89e-b9f7ae17fa43" absoluteBounds="6.265, 1.585, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a78c4119-9d4f-4310-8e06-7f07bd16b4ce" absoluteBounds="0.75, 17.75, 2, 3.5016097005208309">
+      <DataClassMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_Movie" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c05b6b4d-69a0-4ad1-a537-f393af0a2b57" absoluteBounds="0.765, 18.21, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="27de2134-634b-4d12-904f-435ca38e4cbf" absoluteBounds="3.5, 15.875, 2, 3.1170068359375023">
+      <DataClassMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_MovieSchedule" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7a5aa5c5-ad69-41c9-b751-5238887017ee" absoluteBounds="3.515, 16.335, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="16c1dbfc-3d1c-4dd3-bbe3-e058f9a4590e" absoluteBounds="3.5, 0.75, 2, 3.1170068359375005">
+      <DataClassMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_Product" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2e00c4b0-63b4-473b-bb8f-6d2d5fa32ac2" absoluteBounds="3.515, 1.21, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6134f52d-9eb6-4887-ae9b-7d294fae2571" absoluteBounds="0.75, 1.375, 2, 2.9247054036458326">
+      <DataClassMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_Shift" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fb3f1fc0-c3d6-4736-9017-61fedd6c0a9d" absoluteBounds="0.765, 1.835, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ddd15ba3-fdda-4563-b183-ef50502cda36" absoluteBounds="0.75, 6, 2, 3.6939111328124978">
+      <DataClassMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_Staff" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e9a689d1-ebc2-435e-9e98-3509edb03c8d" absoluteBounds="0.765, 6.46, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="51e5eca6-bf46-4519-a1a9-6de49e97fc68" absoluteBounds="3.5, 5.5, 2, 2.7324039713541675">
+      <DataClassMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_StaffSchedule" />
+      <nestedChildShapes>
+        <elementListCompartment Id="13f95fe0-279f-420b-82a2-4293d10a1939" absoluteBounds="3.515, 5.96, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e386eea0-910f-47c2-931a-4d2a8a26e7de" absoluteBounds="6.25, 5.75, 2, 3.3093082682291675">
+      <DataClassMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_Ticket" />
+      <nestedChildShapes>
+        <elementListCompartment Id="94d1d0e6-aee0-4e8d-96be-07115c9373d8" absoluteBounds="6.265, 6.21, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="32e5697c-c7a8-431c-88bc-308f072e357d" absoluteBounds="0.75, 13.625, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_Theater" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6745af6f-b37e-46ca-bb6b-bade9d265683" absoluteBounds="0.765, 14.085, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="60bc8473-110b-4011-95ec-0b732b32ef52" absoluteBounds="9, 6.5, 2, 3.3093082682291675">
+      <DataClassMoniker Name="/CM_Cinema_DBDataContext/tbl_SYS_Expense" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2cf4dc57-5ab9-4d94-a75f-913eee6c9ec7" absoluteBounds="9.015, 6.96, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <associationConnector edgePoints="[(5.5 : 11.3373527018229); (5.85416666666667 : 11.3373527018229 : JumpStart); (6.02083333333333 : 11.3373527018229 : JumpEnd); (6.25 : 11.3373527018229)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_Bill/tbl_DM_Bill_tbl_DM_BillDetail" />
       <nodes>
-        <classShapeMoniker Id="111394e1-f4d6-4a93-8603-09a2054dd485" />
-        <classShapeMoniker Id="a83b653a-8234-40a4-8276-d635bac64545" />
+        <classShapeMoniker Id="5c38afea-dbed-4b11-95f9-8aaf17345536" />
+        <classShapeMoniker Id="fbbfbdc6-6bf4-4577-803b-4245e83f0b22" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.125 : 22); (2.125 : 21.1266097005208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.125 : 22.125); (2.125 : 21.2516097005208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_AgeRating/tbl_DM_AgeRating_tbl_DM_Movie" />
       <nodes>
-        <classShapeMoniker Id="20474aef-43e6-48cd-98ef-32d1ccd236c8" />
-        <classShapeMoniker Id="fddcda5e-847b-47a4-b1fc-4c3f9952478e" />
+        <classShapeMoniker Id="880f19ab-bf8a-4fc1-b8cb-751cbaa1b1e6" />
+        <classShapeMoniker Id="a78c4119-9d4f-4310-8e06-7f07bd16b4ce" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 18.3085034179688); (3.5 : 18.3085034179688)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 18.3710034179688); (3.5 : 18.3710034179688)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_Movie/tbl_DM_Movie_tbl_DM_MovieSchedule" />
       <nodes>
-        <classShapeMoniker Id="fddcda5e-847b-47a4-b1fc-4c3f9952478e" />
-        <classShapeMoniker Id="a7fc6fc2-52a3-407f-adcc-8959793bbec9" />
+        <classShapeMoniker Id="a78c4119-9d4f-4310-8e06-7f07bd16b4ce" />
+        <classShapeMoniker Id="27de2134-634b-4d12-904f-435ca38e4cbf" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(5.5 : 3.86546737439904); (5.875 : 4.24046737439904); (5.875 : 10.5749243509115); (6.25 : 10.5749243509115)]" fixedFrom="NotFixed" fixedTo="Algorithm">
       <AssociationMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_Product/tbl_DM_Product_tbl_DM_BillDetail" />
       <nodes>
-        <classShapeMoniker Id="be5d06ca-0f96-4651-8254-bd88819b12fc" />
-        <classShapeMoniker Id="a83b653a-8234-40a4-8276-d635bac64545" />
+        <classShapeMoniker Id="16c1dbfc-3d1c-4dd3-bbe3-e058f9a4590e" />
+        <classShapeMoniker Id="fbbfbdc6-6bf4-4577-803b-4245e83f0b22" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(5.5 : 2.49120198567708); (6.25 : 2.49120198567708)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_Product/tbl_DM_Product_tbl_DM_ExpenseType" />
       <nodes>
-        <classShapeMoniker Id="be5d06ca-0f96-4651-8254-bd88819b12fc" />
-        <classShapeMoniker Id="3cb86fa6-9257-4ba1-9583-ce9c331d4a7d" />
+        <classShapeMoniker Id="16c1dbfc-3d1c-4dd3-bbe3-e058f9a4590e" />
+        <classShapeMoniker Id="cb966a35-ee6b-404f-a669-dcad6116aeb2" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.75 : 9.6939111328125); (1.75 : 11.3373527018229); (3.5 : 11.3373527018229)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.75 : 9.6939111328125); (1.75 : 11.3085034179688); (3.5 : 11.3085034179688)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_Staff/tbl_DM_Staff_tbl_DM_Bill" />
       <nodes>
-        <classShapeMoniker Id="a2631e0a-bc96-4bae-a64a-7e45e906bc75" />
-        <classShapeMoniker Id="111394e1-f4d6-4a93-8603-09a2054dd485" />
+        <classShapeMoniker Id="ddd15ba3-fdda-4563-b183-ef50502cda36" />
+        <classShapeMoniker Id="5c38afea-dbed-4b11-95f9-8aaf17345536" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.75 : 4.29970540364583); (3.125 : 4.67470540364583); (3.125 : 6.86620198567708); (3.5 : 6.86620198567708)]" fixedFrom="NotFixed" fixedTo="Algorithm">
       <AssociationMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_Shift/tbl_DM_Shift_tbl_DM_StaffSchedule" />
       <nodes>
-        <classShapeMoniker Id="104485e8-e8c2-4d88-b94c-487ff4172f6b" />
-        <classShapeMoniker Id="731072d9-741c-402e-818e-2eecbdc7caa3" />
+        <classShapeMoniker Id="6134f52d-9eb6-4887-ae9b-7d294fae2571" />
+        <classShapeMoniker Id="51e5eca6-bf46-4519-a1a9-6de49e97fc68" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.75 : 7.61180297851562); (3.5 : 7.61180297851562)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_Staff/tbl_DM_Staff_tbl_DM_StaffSchedule" />
       <nodes>
-        <classShapeMoniker Id="a2631e0a-bc96-4bae-a64a-7e45e906bc75" />
-        <classShapeMoniker Id="731072d9-741c-402e-818e-2eecbdc7caa3" />
+        <classShapeMoniker Id="ddd15ba3-fdda-4563-b183-ef50502cda36" />
+        <classShapeMoniker Id="51e5eca6-bf46-4519-a1a9-6de49e97fc68" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 9.93653746153846); (5.81607443490112 : 9.62046302663734 : JumpStart); (5.99642556509888 : 9.44011189643958 : JumpEnd); (6.0625 : 9.37403746153846); (6.0625 : 7.40465413411458); (6.25 : 7.40465413411458)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 9.81153746153846); (5.81607443490112 : 9.49546302663734 : JumpStart); (5.99642556509888 : 9.31511189643958 : JumpEnd); (6.0625 : 9.24903746153846); (6.0625 : 7.40465413411458); (6.25 : 7.40465413411458)]" fixedFrom="NotFixed" fixedTo="Algorithm">
       <AssociationMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_Bill/tbl_DM_Bill_tbl_DM_Ticket" />
       <nodes>
-        <classShapeMoniker Id="111394e1-f4d6-4a93-8603-09a2054dd485" />
-        <classShapeMoniker Id="5bad4c9d-f2b6-4185-9f71-02da2391cb57" />
+        <classShapeMoniker Id="5c38afea-dbed-4b11-95f9-8aaf17345536" />
+        <classShapeMoniker Id="e386eea0-910f-47c2-931a-4d2a8a26e7de" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(5.5 : 15.9365374615385); (5.9375 : 15.4990374615385); (5.9375 : 8.26323320117188); (5.97916666666667 : 8.26323320117188 : JumpStart); (6.14583333333333 : 8.26323320117188 : JumpEnd); (6.25 : 8.26323320117188)]" fixedFrom="NotFixed" fixedTo="Algorithm">
       <AssociationMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_MovieSchedule/tbl_DM_MovieSchedule_tbl_DM_Ticket" />
       <nodes>
-        <classShapeMoniker Id="a7fc6fc2-52a3-407f-adcc-8959793bbec9" />
-        <classShapeMoniker Id="5bad4c9d-f2b6-4185-9f71-02da2391cb57" />
+        <classShapeMoniker Id="27de2134-634b-4d12-904f-435ca38e4cbf" />
+        <classShapeMoniker Id="e386eea0-910f-47c2-931a-4d2a8a26e7de" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.75 : 8.72377073470052); (5.79166666666667 : 8.72377073470052 : JumpStart); (6.14583333333333 : 8.72377073470052 : JumpEnd); (6.25 : 8.72377073470052)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_Staff/tbl_DM_Staff_tbl_DM_Ticket" />
       <nodes>
-        <classShapeMoniker Id="a2631e0a-bc96-4bae-a64a-7e45e906bc75" />
-        <classShapeMoniker Id="5bad4c9d-f2b6-4185-9f71-02da2391cb57" />
+        <classShapeMoniker Id="ddd15ba3-fdda-4563-b183-ef50502cda36" />
+        <classShapeMoniker Id="e386eea0-910f-47c2-931a-4d2a8a26e7de" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.75 : 16.4046541341146); (3.5 : 16.4046541341146)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_Theater/tbl_DM_Theater_tbl_DM_MovieSchedule" />
       <nodes>
-        <classShapeMoniker Id="71292150-7f5d-4b51-89fa-e255b87fbc47" />
-        <classShapeMoniker Id="a7fc6fc2-52a3-407f-adcc-8959793bbec9" />
+        <classShapeMoniker Id="32e5697c-c7a8-431c-88bc-308f072e357d" />
+        <classShapeMoniker Id="27de2134-634b-4d12-904f-435ca38e4cbf" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(8.25 : 1.53125); (10.90625 : 1.53125); (10.90625 : 6.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_ExpenseType/tbl_DM_ExpenseType_tbl_SYS_Expense" />
       <nodes>
-        <classShapeMoniker Id="3cb86fa6-9257-4ba1-9583-ce9c331d4a7d" />
-        <classShapeMoniker Id="68c35d6a-2282-4392-b103-8f48aa60749f" />
+        <classShapeMoniker Id="cb966a35-ee6b-404f-a669-dcad6116aeb2" />
+        <classShapeMoniker Id="60bc8473-110b-4011-95ec-0b732b32ef52" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

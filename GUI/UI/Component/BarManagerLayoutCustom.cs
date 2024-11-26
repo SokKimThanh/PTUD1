@@ -1,10 +1,4 @@
 ﻿using DevExpress.XtraBars;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GUI.UI.Component
 {
@@ -26,7 +20,7 @@ namespace GUI.UI.Component
             // Vô hiệu hóa tùy chỉnh trên BarManager
             BarManagerCustom.AllowCustomization = false;
             BarManagerCustom.AllowQuickCustomization = false; // ẩn nút add or remove button
-        } 
+        }
 
         /// <summary>
         /// Thanh công cụ chỉ có thể được cố định ở một vị trí cụ thể và không thể kéo
@@ -38,7 +32,7 @@ namespace GUI.UI.Component
             {
                 bar.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Top; // Chỉ cho phép dock ở trên
             }
-        } 
+        }
 
     }
 }

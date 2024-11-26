@@ -2,9 +2,6 @@
 using DTO.tbl_DTO;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BUS.Danh_Muc
 {
@@ -17,7 +14,20 @@ namespace BUS.Danh_Muc
             {
                 v_objDal.AddData(p_objData);
             }
-            catch(Exception)
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void UpdateData(long p_lngAuto_ID, int p_iTrang_Thai)
+        {
+            tbl_DM_Bill_DAL v_objDal = new tbl_DM_Bill_DAL();
+            try
+            {
+                v_objDal.UpdateData(p_lngAuto_ID, p_iTrang_Thai);
+            }
+            catch (Exception)
             {
                 throw;
             }
@@ -36,13 +46,12 @@ namespace BUS.Danh_Muc
             }
         }
 
-
         public List<tbl_DM_Bill_DTO> List_Data()
         {
             tbl_DM_Bill_DAL v_objDal = new tbl_DM_Bill_DAL();
             try
             {
-               return v_objDal.GetList();
+                return v_objDal.GetList();
             }
             catch (Exception)
             {

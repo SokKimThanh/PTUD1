@@ -1,14 +1,8 @@
 ﻿using DTO.Custom;
 using DTO.tbl_DTO;
-using DTO.Utility;
 using System;
 using System.Collections.Generic;
-using System.Data.Linq;
 using System.Linq;
-using System.Runtime.Remoting;
-using System.Runtime.Remoting.Metadata.W3cXsd2001;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL
 {
@@ -243,7 +237,7 @@ namespace DAL
                                      MovieName = mv.MV_NAME,
                                      TheaterName = tt.TT_NAME,
                                      SeatName = tk.TK_SEATNAME,
-                                     Price = tk.TK_STATUS == 0 ? mv.MV_PRICE : mv.MV_PRICE/2,
+                                     Price = tk.TK_STATUS == 0 ? mv.MV_PRICE : mv.MV_PRICE / 2,
                                  };
                     foreach (var item in result)
                     {

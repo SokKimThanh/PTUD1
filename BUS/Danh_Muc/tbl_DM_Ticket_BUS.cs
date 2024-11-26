@@ -2,9 +2,6 @@
 using DTO.tbl_DTO;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BUS.Danh_Muc
 {
@@ -44,7 +41,8 @@ namespace BUS.Danh_Muc
             try
             {
                 return dal.GetList();
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -54,7 +52,8 @@ namespace BUS.Danh_Muc
             try
             {
                 return dal.GetTicket_ByID(id);
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -64,7 +63,8 @@ namespace BUS.Danh_Muc
             try
             {
                 dal.RemoveData(ticketID);
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -97,7 +97,8 @@ namespace BUS.Danh_Muc
             try
             {
                 return dal.GetTicket_ForShow(deleted);
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -107,7 +108,8 @@ namespace BUS.Danh_Muc
             try
             {
                 return dal.GetTicket_BySeatName(seatName, movieScheduleID);
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 throw e;
             }

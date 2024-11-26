@@ -57,7 +57,8 @@ namespace BUS.Danh_Muc
             try
             {
                 return data.GetAll_ByDuration(duration);
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -73,7 +74,8 @@ namespace BUS.Danh_Muc
             try
             {
                 return data.GetMovies_ByScheduleDate(date);
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }

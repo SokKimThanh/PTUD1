@@ -1,12 +1,9 @@
-﻿using DTO.Common;
-using DTO.Custom;
+﻿using DTO.Custom;
 using DTO.tbl_DTO;
 using DTO.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL
 {

@@ -1,17 +1,8 @@
 ﻿using BUS.Danh_Muc;
-using DevExpress.ClipboardSource.SpreadsheetML;
-using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DTO.tbl_DTO;
 using GUI.UI.Component;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI.UI.Modules
@@ -93,9 +84,9 @@ namespace GUI.UI.Modules
                 }
                 catch (Exception ex)
                 {
-                    
-                        MessageBox.Show($"Có lỗi xảy ra: {ex.Message}");
-                     
+
+                    MessageBox.Show($"Có lỗi xảy ra: {ex.Message}");
+
                 }
             }
         }
@@ -214,8 +205,8 @@ namespace GUI.UI.Modules
             var entity = new tbl_DM_ExpenseType_DTO();
             entity.ET_NAME = txtExpenseTypeName.Text.Trim();// lý do nhập hàng 
             try
-            { 
-                if(cboSanPham.EditValue != null)
+            {
+                if (cboSanPham.EditValue != null)
                 {
                     entity.ET_PRODUCT_AutoID = int.Parse(cboSanPham.EditValue.ToString());// sản phẩm
                 }
@@ -223,7 +214,7 @@ namespace GUI.UI.Modules
             catch
             {
                 MessageBox.Show("Vui lòng chọn sản phẩm", "Lỗi");
-            }           
+            }
             //  selected id on datagridview
             if (dgv_selected_id != "")
             {

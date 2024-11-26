@@ -1,10 +1,6 @@
 ﻿using BUS.Danh_Muc;
-using DevExpress.XtraReports.UI;
 using DTO.Common;
 using System;
-using System.Collections;
-using System.ComponentModel;
-using System.Drawing;
 
 namespace GUI.UI.ReportDesign
 {

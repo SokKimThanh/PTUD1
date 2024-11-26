@@ -5,7 +5,6 @@ using GUI.UI.Component;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace GUI.UI.Modules
 {
@@ -15,7 +14,7 @@ namespace GUI.UI.Modules
         private tbl_DM_Movie_BUS movie_bus = new tbl_DM_Movie_BUS();
         private tbl_DM_Theater_BUS theater_bus = new tbl_DM_Theater_BUS();
         private tbl_DM_MovieSchedule_BUS movieSche_bus = new tbl_DM_MovieSchedule_BUS();
-        private tbl_DM_Ticket_BUS ticket_bus = new tbl_DM_Ticket_BUS(); 
+        private tbl_DM_Ticket_BUS ticket_bus = new tbl_DM_Ticket_BUS();
         private int cleaningTime = 30;
         private int roundUpMinute = 5;
 
@@ -36,7 +35,7 @@ namespace GUI.UI.Modules
             this.layoutTitle.MaxSize = new System.Drawing.Size(0, 42);
             this.layoutTitle.MinSize = new System.Drawing.Size(36, 36);
             // Ngăn không cho phép sửa dữ liệu trực tiếp trên GridView
-            gvMovieSchedules.OptionsBehavior.Editable = false; 
+            gvMovieSchedules.OptionsBehavior.Editable = false;
 
             barManagerLayoutCustom.BarManagerCustom = barManager1;
 
@@ -116,11 +115,11 @@ namespace GUI.UI.Modules
                 string msg = ex.Message;
                 if (msg.Contains("UNIQUE"))
                 {
-                    MessageBox.Show("Không thể thực hiện thao tác thêm do trùng lịch","Lỗi");
+                    MessageBox.Show("Không thể thực hiện thao tác thêm do trùng lịch", "Lỗi");
                 }
                 else
                 {
-                    MessageBox.Show(ex.Message,"Lỗi");
+                    MessageBox.Show(ex.Message, "Lỗi");
                 }
             }
         }
@@ -134,7 +133,7 @@ namespace GUI.UI.Modules
             try
             {
                 DialogResult re = MessageBox.Show("Bạn muốn xóa lịch chiếu này chứ ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if(re == DialogResult.Yes)
+                if (re == DialogResult.Yes)
                 {
                     long id = -1;
                     int[] cacDong = gvMovieSchedules.GetSelectedRows();
@@ -162,8 +161,8 @@ namespace GUI.UI.Modules
         /// <param name="e"></param>
         private void btnCapNhat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            DialogResult re = MessageBox.Show("Bạn có muốn đổi thông tin lịch chiếu này ?", "Thông báo",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-            if(re == DialogResult.Yes)
+            DialogResult re = MessageBox.Show("Bạn có muốn đổi thông tin lịch chiếu này ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (re == DialogResult.Yes)
             {
                 try
                 {
@@ -177,7 +176,7 @@ namespace GUI.UI.Modules
                         }
                     }
                     List<tbl_DM_Ticket_DTO> foundTickets = ticket_bus.GetList_ByMovieSchedule(id);
-                    if(foundTickets.Count > 0)
+                    if (foundTickets.Count > 0)
                     {
                         throw new Exception("Suất chiếu đã có khách đặt vé, không thể thay đổi thông tin !");
                     }
@@ -190,7 +189,7 @@ namespace GUI.UI.Modules
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message,"Lỗi");
+                    MessageBox.Show(ex.Message, "Lỗi");
                 }
             }
         }
@@ -246,7 +245,8 @@ namespace GUI.UI.Modules
                         IsUsing(true);
                     }
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -284,7 +284,7 @@ namespace GUI.UI.Modules
             {
                 // Chỉnh lại giờ bắt đầu
                 startTime = lastMovieSchedule.EndDate.AddMinutes(cleaningTime);
-                if(startTime.Minute% roundUpMinute != 0)
+                if (startTime.Minute % roundUpMinute != 0)
                 {
                     startTime = startTime.AddMinutes(roundUpMinute - startTime.Minute % roundUpMinute);
                 }
@@ -301,7 +301,7 @@ namespace GUI.UI.Modules
         {
             try
             {
-                if(theaterID == null)
+                if (theaterID == null)
                 {
                     // Lấy dữ liệu danh sách lịch chiếu
                     dgvMovieSchedules.DataSource = movieSche_bus.GetList();
@@ -336,7 +336,7 @@ namespace GUI.UI.Modules
                 gvMovieSchedules.Columns["EndDate"].DisplayFormat.FormatString = "dd/MM/yyyy HH:mm";
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Lỗi");
             }
@@ -357,7 +357,7 @@ namespace GUI.UI.Modules
                 GetSetUpDate();
                 IsUsing(false);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Lỗi");
             }
@@ -372,9 +372,10 @@ namespace GUI.UI.Modules
         {
             try
             {
-                if(btnThem.Enabled)
+                if (btnThem.Enabled)
                     GetSetUpDate();
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Lỗi");
             }

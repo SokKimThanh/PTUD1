@@ -1,9 +1,6 @@
 ﻿using DTO.Custom;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DTO.tbl_DTO
 {
@@ -11,8 +8,9 @@ namespace DTO.tbl_DTO
     {
         private long iBL_AutoID;
         private long iBL_STAFF_AutoID;
+        private int iBL_Trang_Thai_ID;
         private string m_strBL_Bill_Code;
-        private double dblBL_Total_Price;      
+        private double dblBL_Total_Price;
         private int iDELETED;
         private DateTime? dtmCREATED;
         private string strCREATED_BY;
@@ -30,6 +28,7 @@ namespace DTO.tbl_DTO
             iBL_AutoID = 0;
             m_strBL_Bill_Code = "";
             iBL_STAFF_AutoID = 0;
+            iBL_Trang_Thai_ID = 0;
             dblBL_Total_Price = 0;
             dtmCREATED = null;
             strCREATED_BY = "";
@@ -56,5 +55,24 @@ namespace DTO.tbl_DTO
         public double BL_Total_Price { get => dblBL_Total_Price; set => dblBL_Total_Price = value; }
         public List<tbl_DM_BillDetail_DTO> Bill_Detail { get => m_arrBill_Detail; set => m_arrBill_Detail = value; }
         public List<tbl_DM_Ticket_DTO> Tiket { get => m_arrTiket; set => m_arrTiket = value; }
+        public int BL_Trang_Thai_ID { get => iBL_Trang_Thai_ID; set => iBL_Trang_Thai_ID = value; }
+
+        public string BL_Trang_Thai_Text
+        {
+            get
+            {
+                switch (iBL_Trang_Thai_ID)
+                {
+                    case (int)ETrang_Thai_ID.Chua_Hoan_Thanh:
+                        return "Chưa hoàn thành";
+                    case (int)ETrang_Thai_ID.Huy:
+                        return "Hủy";
+                    case (int)ETrang_Thai_ID.Hoan_Thanh:
+                        return "Hoàn thành";
+                }
+                return "";
+            }
+        }
+
     }
 }

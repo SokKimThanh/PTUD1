@@ -1,5 +1,4 @@
 ﻿using BUS.Danh_Muc;
-using DevExpress.Charts.Native;
 using DTO;
 using GUI.UI.Component;
 using System;
@@ -109,7 +108,7 @@ namespace GUI.UI.Modules
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message,"Lỗi");
+                MessageBox.Show(ex.Message, "Lỗi");
             }
         }
         /// <summary>

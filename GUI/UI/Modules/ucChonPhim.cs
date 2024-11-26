@@ -1,32 +1,18 @@
 ﻿using BUS.Danh_Muc;
 using BUS.Sys;
-using DevExpress.ClipboardSource.SpreadsheetML;
 using DevExpress.XtraBars.FluentDesignSystem;
-using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Columns;
-using DevExpress.XtraGrid.Views.Layout;
-using DevExpress.XtraGrid;
-using DevExpress.XtraReports.UI;
+using DevExpress.XtraLayout;
 using DTO.Common;
 using DTO.Custom;
 using DTO.tbl_DTO;
+using GUI.UI.Component;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
-using DevExpress.XtraLayout;
-using DevExpress.XtraGrid.Views.Grid;
-using DevExpress.XtraExport.Helpers;
-using GUI.UI.Component;
 
 namespace GUI.UI.Modules
 {
@@ -35,7 +21,7 @@ namespace GUI.UI.Modules
         private tbl_DM_Movie_BUS moiveBus = new tbl_DM_Movie_BUS();
         private tbl_DM_AgeRating_BUS ageBus = new tbl_DM_AgeRating_BUS();
         private tbl_DM_MovieSchedule_BUS movieScheBus = new tbl_DM_MovieSchedule_BUS();
-         
+
         // Component Barmanager menu layout custom
         BarManagerLayoutCustom barManagerLayoutCustom = new BarManagerLayoutCustom();
 
@@ -54,10 +40,10 @@ namespace GUI.UI.Modules
         {
             LoadData();
             SetupLayoutView();
-             
+
 
             barManagerLayoutCustom.BarManagerCustom = barManager1;
-             
+
             // Tùy chỉnh vô hiệu hóa chuột phải design mode trên menu
             barManagerLayoutCustom.DisableCustomization();
 
@@ -87,7 +73,7 @@ namespace GUI.UI.Modules
             cboMovieSchedule.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             cboMovieSchedule.Properties.DisplayFormat.FormatString = CConfig.Time_Format_String;
 
-            
+
         }
         private void ClearData()
         {
@@ -171,7 +157,7 @@ namespace GUI.UI.Modules
             {
                 // Cập nhật lại danh sách các phim được chiếu trong ngày
                 dgvMovies.Refresh();
-                
+
                 dgvMovies.DataSource = moiveBus.GetMovies_ByScheduleDate((DateTime)dtpDate.EditValue);
 
                 // Hủy chọn suất chiếu trước đó do đổi ngày 

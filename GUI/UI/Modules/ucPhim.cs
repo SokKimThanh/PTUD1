@@ -1,13 +1,10 @@
-﻿using BUS;
-using BUS.Danh_Muc;
-using DevExpress.Utils;
+﻿using BUS.Danh_Muc;
 using DevExpress.XtraEditors.Controls;
 using DTO.tbl_DTO;
 using GUI.UI.Component;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
 

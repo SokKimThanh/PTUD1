@@ -1,8 +1,4 @@
-﻿using DevExpress.XtraReports.UI;
-using System;
-using System.Collections;
-using System.ComponentModel;
-using System.Drawing;
+﻿using System;
 
 namespace GUI.UI.ReportDesign
 {
@@ -17,7 +13,8 @@ namespace GUI.UI.ReportDesign
             try
             {
                 prmTicketID.Value = parameter;
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }

@@ -1,32 +1,24 @@
-﻿using BUS.Bao_Cao;
-using BUS.Danh_Muc;
+﻿using BUS.Danh_Muc;
 using BUS.Sys;
 using DevExpress.XtraBars.FluentDesignSystem;
-using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
-using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Columns;
-using DevExpress.XtraGrid.Views.Layout;
 using DevExpress.XtraGrid.Views.Layout.ViewInfo;
 using DevExpress.XtraLayout;
 using DevExpress.XtraReports.UI;
 using DTO.Common;
+using DTO.Custom;
 using DTO.tbl_DTO;
 using GUI.UI.Component;
 using GUI.UI.ReportDesign;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Management;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static DevExpress.Skins.SolidColorHelper;
 
 namespace GUI.UI.Modules
 {
@@ -53,13 +45,13 @@ namespace GUI.UI.Modules
             lblTitle.Text = "THANH TOÁN";
 
             // Ngăn không cho phép chỉnh sửa trực tiếp trên GridView
-            grdData.OptionsBehavior.Editable = false; 
+            grdData.OptionsBehavior.Editable = false;
 
             barManagerLayoutCustom.BarManagerCustom = barManager1;
 
             // Tùy chỉnh hiển thị find panel trên grid view
             gridViewLayoutCustom.ConfigureFindPanel(grdData);
-              
+
             // Tùy chỉnh vô hiệu hóa chuột phải design mode trên menu
             barManagerLayoutCustom.DisableCustomization();
 
@@ -180,6 +172,12 @@ namespace GUI.UI.Modules
 
                     v_objNewBill.BL_STAFF_AutoID = v_objStaff.ST_AutoID;
 
+                    //Nếu là đặt trước thì bill chưa hoàn thành
+                    if (CCommon.loaiVeDangDat == 0)
+                        v_objNewBill.BL_Trang_Thai_ID = (int)ETrang_Thai_ID.Hoan_Thanh;
+                    else
+                        v_objNewBill.BL_Trang_Thai_ID = (int)ETrang_Thai_ID.Chua_Hoan_Thanh;
+
                     v_objNewBill.DELETED = 0;
                     v_objNewBill.CREATED = DateTime.Now;
                     v_objNewBill.CREATED_BY = strActive_User_Name;
@@ -194,6 +192,7 @@ namespace GUI.UI.Modules
 
                     if (v_objBill_Res != null)
                     {
+                        #region Tính toán dựa trên thực tế
                         //Tạo vé dựa trên sách ghế
                         tbl_DM_Ticket_BUS v_objTicket_BUS = new tbl_DM_Ticket_BUS();
 
@@ -260,6 +259,7 @@ namespace GUI.UI.Modules
 
                         }
 
+                        #endregion
                     }
 
                     MessageBox.Show(LanguageController.GetLanguageDataLabel("Thanh toán thành công!"), LanguageController.GetLanguageDataLabel("Thông báo"), MessageBoxButtons.OK, MessageBoxIcon.None);
@@ -475,7 +475,7 @@ namespace GUI.UI.Modules
                     {
                         tbl_DM_Product_DTO v_objRemove = m_arrSan_Pham_Da_Chon.FirstOrDefault(it => it.PD_AutoID == v_objSP_Da_Chon.PD_AutoID);
                         m_arrSan_Pham_Da_Chon.Remove(v_objRemove);
-                    }    
+                    }
                     grdData.RefreshData();
 
                     //Cập nhật tổng tiền

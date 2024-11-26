@@ -8,7 +8,7 @@
     {
         public long ProductID { get; set; }
         public string ProductName { get; set; }
-        public double ReceivedQuantity { get; set; } 
+        public double ReceivedQuantity { get; set; }
         public double RemainingStock { get; set; }
         public double SoldQuantity { get; set; }
         public double TotalReceived { get; set; }

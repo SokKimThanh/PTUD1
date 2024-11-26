@@ -1,9 +1,4 @@
-﻿using DTO.Custom;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace DTO.tbl_DTO
 {
@@ -27,7 +22,7 @@ namespace DTO.tbl_DTO
             iSF_AutoID = 0;
             strSF_NAME = "";
             dtmSF_START = DateTime.Now;
-            dtmSF_END = DateTime.Now;       
+            dtmSF_END = DateTime.Now;
             iDELETED = 0;
             dtmCREATED = null;
             strCREATED_BY = "";

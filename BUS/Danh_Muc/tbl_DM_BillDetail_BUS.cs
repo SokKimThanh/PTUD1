@@ -1,11 +1,7 @@
 ﻿using DAL;
 using DTO.tbl_DTO;
-using Microsoft.SqlServer.Server;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BUS.Danh_Muc
 {

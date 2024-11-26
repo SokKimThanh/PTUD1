@@ -1,23 +1,11 @@
 ﻿using BUS.Danh_Muc;
 using BUS.Sys;
-using DevExpress.XtraEditors;
-using DevExpress.XtraExport.Helpers;
-using DevExpress.XtraGrid.Columns;
-using DevExpress.XtraGrid.Views.Grid;
 using DTO.Custom;
 using DTO.tbl_DTO;
 using DTO.Utility;
 using GUI.UI.Component;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.Remoting;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GUI.UI.Modules
 {
@@ -65,7 +53,7 @@ namespace GUI.UI.Modules
             cbbLevel.Properties.Items.Add(LanguageController.GetLanguageDataLabel("Staff"));
 
             cbbLevel.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            
+
             barManagerLayoutCustom.BarManagerCustom = barManager1;
 
             // Tùy chỉnh hiển thị find panel trên grid view

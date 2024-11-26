@@ -1,15 +1,8 @@
-﻿using DAL.tbl_DAL;
-using DevExpress.DataAccess.Sql;
-using DTO.Custom;
+﻿using DTO.Custom;
 using DTO.tbl_DTO;
 using System;
 using System.Collections.Generic;
-using System.Data.Linq;
 using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
-using System.Runtime.Remoting.Contexts;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL
 {
@@ -99,7 +92,7 @@ namespace DAL
                             let totalSold = g.Sum(x => x.bd != null ? x.bd.BD_QUANTITY : 0)
                             let remainingStock = totalReceived - totalSold
 
-                            let percent = totalSold * 100.0 / totalReceived 
+                            let percent = totalSold * 100.0 / totalReceived
                             let salesPerformancePercentage = totalReceived == 0 ? 0 : percent
 
                             let totalImportCost = g.Sum(x => x.ex != null ? x.ex.EX_PRICE : 0)

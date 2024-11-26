@@ -5,7 +5,6 @@ using DTO.tbl_DTO;
 using DTO.Utility;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace BUS.Danh_Muc
 {
@@ -151,7 +150,7 @@ namespace BUS.Danh_Muc
                 strStep = "2";
                 //Kiểm tra xem có user nào tồn tại với mã đăng nhập
                 tbl_DM_Staff_DTO objUser = objDAL.GetDataByUserName(strMaDangNhap);
-               
+
                 if (objUser == null)
                     throw new Exception("Mã đăng nhập không tồn tại.");
 
@@ -180,7 +179,8 @@ namespace BUS.Danh_Muc
             try
             {
                 return objDAL.GetStaff_ByID(id);
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }

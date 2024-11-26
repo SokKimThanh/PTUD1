@@ -4,8 +4,6 @@ using DTO.tbl_DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL
 {
@@ -101,7 +99,7 @@ namespace DAL
                         entity.ET_AutoID = expenseType.ET_AutoID;
                         entity.ET_NAME = expenseType.ET_NAME;
                         entity.ET_PRODUCT_AutoID = expenseType.ET_PRODUCT_AutoID;
-                        
+
                         entity.UPDATED = DateTime.Now;
                         entity.UPDATED_BY = CCommon.MaDangNhap;
                         entity.UPDATED_BY_FUNCTION = "Update";

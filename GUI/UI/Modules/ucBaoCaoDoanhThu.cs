@@ -1,9 +1,4 @@
 ﻿using BUS.Bao_Cao;
-using DevExpress.DataAccess.EntityFramework;
-using DevExpress.XtraEditors;
-using DevExpress.XtraGrid.Views.Grid;
-using DevExpress.XtraLayout;
-using DevExpress.XtraPrinting;
 using DevExpress.XtraReports.UI;
 using GUI.UI.Component;
 using GUI.UI.ReportDesign;
@@ -32,9 +27,9 @@ namespace GUI.UI.Modules
             InitializeComponent();
 
             // Ngăn không cho phép chỉnh sửa trực tiếp trên GridView
-            gridView1.OptionsBehavior.Editable = false; 
+            gridView1.OptionsBehavior.Editable = false;
 
-            barManagerLayoutCustom.BarManagerCustom = barManager1; 
+            barManagerLayoutCustom.BarManagerCustom = barManager1;
 
             // Tùy chỉnh hiển thị find panel trên grid view
             gridViewLayoutCustom.ConfigureFindPanel(gridView1);
@@ -44,7 +39,7 @@ namespace GUI.UI.Modules
 
             // Tùy chỉnh vô hiệu hóa kéo thu nhỏ di chuyển menu
             barManagerLayoutCustom.DisableMoving();
-             
+
             // Tùy chỉnh vô hiệu hóa design mode menu con của layout control 
             layoutControlCustom.DisableLayoutCustomization(layoutForm);
         }

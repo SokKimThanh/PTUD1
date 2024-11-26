@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlTypes;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DTO.tbl_DTO
 {
@@ -36,10 +31,12 @@ namespace DTO.tbl_DTO
         public long? AutoID { get => autoID; set => autoID = value; }
         public long Movie_AutoID { get => movie_AutoID; set => movie_AutoID = value; }
         public long Theater_AutoID { get => theater_AutoID; set => theater_AutoID = value; }
-        public DateTime StartDate { 
-            get => startDate; 
-            set{
-                
+        public DateTime StartDate
+        {
+            get => startDate;
+            set
+            {
+
                 startDate = value;
             }
         }

@@ -1,16 +1,10 @@
-﻿using DevExpress.DataAccess.Sql;
-using DevExpress.XtraReports.UI;
-using DTO.Custom;
-using System;
-using System.Collections;
-using System.ComponentModel;
-using System.Drawing;
+﻿using System;
 
 namespace GUI.UI.ReportDesign
 {
     public partial class RP_Sales : DevExpress.XtraReports.UI.XtraReport
     {
-    
+
 
         public RP_Sales()
         {

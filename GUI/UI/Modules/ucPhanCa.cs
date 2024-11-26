@@ -1,6 +1,5 @@
 ﻿using BUS.Danh_Muc;
 using BUS.Sys;
-using DevExpress.XtraCharts.Native;
 using DevExpress.XtraEditors.Controls;
 using DTO.Custom;
 using DTO.tbl_DTO;
@@ -9,7 +8,6 @@ using GUI.UI.Component;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Remoting;
 
 namespace GUI.UI.Modules
 {

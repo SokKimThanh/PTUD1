@@ -8,13 +8,11 @@ using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
 using System.IO;
+using System.Linq;
 using System.Management;
 using System.Text;
 using System.Threading.Tasks;
-using System.Threading;
 using System.Windows.Forms;
-using static DevExpress.XtraEditors.Mask.MaskSettings;
-using System.Linq;
 
 namespace GUI
 {
@@ -343,8 +341,6 @@ namespace GUI
 
                 foreach (tbl_DM_Bill_DTO v_objData in v_objBill_Bus.List_Data())
                 {
-                    // Lấy tiền của hóa đơn
-                    double v_dblPrice = v_objData.BL_Total_Price;
 
                     //Tính tiền cần thanh toán dựa trên ghế và sản phẩm
                     v_objData.Bill_Detail = v_objBill_Detail_BUS.List_Data_By_Bill_ID(v_objData.BL_AutoID);
@@ -389,7 +385,7 @@ namespace GUI
                         if (v_dblTong_Tien_Ve + v_dblTong_Tien_SP > v_objData.BL_Total_Price)
                         {
                             //Tiến hành xóa theo hóa đơn
-                            v_objBill_Bus.RemoveData(v_objData.BL_AutoID, CCommon.MaDangNhap, "Auto_Delete");
+                            v_objBill_Bus.UpdateData(v_objData.BL_AutoID, (int)ETrang_Thai_ID.Huy);
                             v_objBill_Detail_BUS.RemoveData(v_objData.BL_AutoID, CCommon.MaDangNhap, "Auto_Delete");
                             v_objTiket_BUS.RemoveData_By_Bill_ID(v_objData.BL_AutoID, CCommon.MaDangNhap, "Auto_Delete");
                         }

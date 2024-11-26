@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DTO.tbl_DTO
 {
@@ -35,7 +31,7 @@ namespace DTO.tbl_DTO
 
         public tbl_DM_Ticket_DTO()
         {
-            
+
         }
 
         public long AutoID { get => autoID; set => autoID = value; }

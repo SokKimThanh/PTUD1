@@ -90,7 +90,8 @@ namespace BUS.Danh_Muc
             try
             {
                 return dal.FindByID(id);
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }

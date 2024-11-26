@@ -3,7 +3,6 @@ using BUS.Sys;
 using DevExpress.XtraBars.Navigation;
 using DTO.Common;
 using DTO.Custom;
-using DTO.tbl_DTO;
 using GUI.UI.Modules;
 using System;
 using System.Collections.Generic;

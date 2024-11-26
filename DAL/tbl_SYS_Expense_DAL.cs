@@ -4,9 +4,6 @@ using DTO.tbl_DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static DevExpress.Xpo.Helpers.AssociatedCollectionCriteriaHelper;
 
 namespace DAL
 {
@@ -116,8 +113,8 @@ namespace DAL
                         entity.UPDATED_BY = CCommon.MaDangNhap;
                         entity.UPDATED_BY_FUNCTION = "Update";
                         dbContext.SubmitChanges();
-                        
-                        
+
+
 
                         UpdateQuantityProduct(expense.EX_EXTYPE_AutoID); // cập nhật số lượng tồn kho khi sửa chi phí
 

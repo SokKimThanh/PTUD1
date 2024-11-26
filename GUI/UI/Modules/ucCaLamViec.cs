@@ -6,7 +6,6 @@ using DTO.Utility;
 using GUI.UI.Component;
 using System;
 using System.Collections.Generic;
-using System.Runtime.Remoting;
 
 namespace GUI.UI.Modules
 {
@@ -31,7 +30,7 @@ namespace GUI.UI.Modules
             this.layoutTitle.MaxSize = new System.Drawing.Size(0, 42);
             this.layoutTitle.MinSize = new System.Drawing.Size(36, 36);
             // Ngăn không cho phép sửa dữ liệu trực tiếp trên GridView
-            grdData.OptionsBehavior.Editable = false; 
+            grdData.OptionsBehavior.Editable = false;
 
             barManagerLayoutCustom.BarManagerCustom = barManager1;
 
@@ -56,7 +55,7 @@ namespace GUI.UI.Modules
             btnThem.ItemClick += Add_DataBase;
             btnXoa.ItemClick += Remove_DataBase;
             btnCapNhat.ItemClick += Update_DataBase;
-            btnLamMoi.ItemClick += Refresh_Load_DataBase;          
+            btnLamMoi.ItemClick += Refresh_Load_DataBase;
             grdData.RowClick += RowClick_Grid;
 
         }

@@ -1,7 +1,4 @@
 ﻿using BUS.Danh_Muc;
-using DevExpress.ClipboardSource.SpreadsheetML;
-using DevExpress.Office.Drawing;
-using DevExpress.XtraEditors;
 using DevExpress.XtraReports.UI;
 using DTO;
 using DTO.tbl_DTO;
@@ -9,14 +6,7 @@ using GUI.UI.Component;
 using GUI.UI.ReportDesign;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace GUI.UI.Modules
 {
@@ -165,7 +155,7 @@ namespace GUI.UI.Modules
         {
             if (selectedTicketID != -1)
             {
-                DialogResult result = MessageBox.Show("Bạn có muốn in vé "+txtTicketID.Text+" ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("Bạn có muốn in vé " + txtTicketID.Text + " ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
                     // Tạo vé

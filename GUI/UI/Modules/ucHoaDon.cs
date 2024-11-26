@@ -1,16 +1,14 @@
 ﻿using BUS.Danh_Muc;
 using BUS.Sys;
-using DevExpress.XtraCharts.Native;
-using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Views.Grid;
+using DTO.Custom;
 using DTO.tbl_DTO;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using System;
-using DTO.Common;
-using System.Linq;
 using GUI.UI.Component;
-using DevExpress.XtraExport.Helpers;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace GUI.UI.Modules
 {
@@ -32,7 +30,7 @@ namespace GUI.UI.Modules
             this.layoutTitle.MinSize = new System.Drawing.Size(36, 36);
             // Ngăn không cho phép sửa dữ liệu trực tiếp trên GridView
             grdData.OptionsBehavior.Editable = false;
-             
+
             barManagerLayoutCustom.BarManagerCustom = barManager1;
 
             // Tùy chỉnh hiển thị find panel trên grid view
@@ -70,11 +68,14 @@ namespace GUI.UI.Modules
             dgv.DataSource = v_arrData;
             grdData.Columns["BL_AutoID"].Visible = false;
             grdData.Columns["BL_STAFF_AutoID"].Visible = false;
+            grdData.Columns["BL_Trang_Thai_ID"].Visible = false;
             //grdData.Columns["Bill_Detail"].Visible = false;
             //grdData.Columns["Tiket"].Visible = false;
 
             grdData.Columns["BL_Bill_Code"].Caption = LanguageController.GetLanguageDataLabel("Mã hóa đơn");
             grdData.Columns["BL_Total_Price"].Caption = LanguageController.GetLanguageDataLabel("Tổng giá trị");
+            grdData.Columns["BL_Trang_Thai_Text"].Caption = LanguageController.GetLanguageDataLabel("Tổng giá trị");
+
             FormatGridView(grdData);
 
             grdData.Columns["CREATED"].Visible = true;
@@ -152,8 +153,6 @@ namespace GUI.UI.Modules
                         }
                     }
 
-
-
                     if (v_objRes != null)
                     {
                         if ((v_dblTong_Tien_SP + v_dblTong_Tien_Ve) - v_objRes.BL_Total_Price > 0)
@@ -165,6 +164,7 @@ namespace GUI.UI.Modules
                             if (v_objForm.Status_Close == false)
                             {
                                 v_objRes.BL_Total_Price += v_objForm.Get_Gia();
+                                v_objBill_Bus.UpdateData(v_objRes.BL_AutoID, (int)ETrang_Thai_ID.Hoan_Thanh);
                                 v_objBill_Bus.UpdateData(v_objRes.BL_AutoID, v_objRes.BL_Total_Price);
                             }
                         }

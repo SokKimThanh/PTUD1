@@ -15,10 +15,28 @@
       <Association Name="tbl_DM_AgeRating_tbl_DM_Movie" Member="tbl_DM_Movies" ThisKey="AR_AutoID" OtherKey="MV_AGERATING_AutoID" Type="tbl_DM_Movie" />
     </Type>
   </Table>
+  <Table Name="dbo.tbl_Sys_Language" Member="tbl_Sys_Languages">
+    <Type Name="tbl_Sys_Language">
+      <Column Name="Lang_AutoID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Eng_Lang" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="VN_Lang" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="JP_Lang" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="KR_Lang" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CN_Lang" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DELETED" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CREATED" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CREATED_BY" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="CREATED_BY_FUNCTION" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="UPDATED" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATED_BY" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="UPDATED_BY_FUNCTION" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.tbl_DM_Bill" Member="tbl_DM_Bills">
     <Type Name="tbl_DM_Bill">
       <Column Name="BL_AutoID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="BL_STAFF_AutoID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="BL_Trang_Thai_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="BL_Bill_Code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="BL_Total_Price" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="DELETED" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -231,23 +249,6 @@
       <Column Name="UPDATED_BY" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
       <Column Name="UPDATED_BY_FUNCTION" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
       <Association Name="tbl_DM_ExpenseType_tbl_SYS_Expense" Member="tbl_DM_ExpenseType" ThisKey="EX_EXTYPE_AutoID" OtherKey="ET_AutoID" Type="tbl_DM_ExpenseType" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tbl_Sys_Language" Member="tbl_Sys_Languages">
-    <Type Name="tbl_Sys_Language">
-      <Column Name="Lang_AutoID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Eng_Lang" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="VN_Lang" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="JP_Lang" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="KR_Lang" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="CN_Lang" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="DELETED" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CREATED" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="CREATED_BY" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
-      <Column Name="CREATED_BY_FUNCTION" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
-      <Column Name="UPDATED" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="UPDATED_BY" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
-      <Column Name="UPDATED_BY_FUNCTION" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

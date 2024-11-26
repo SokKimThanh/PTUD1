@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DTO.tbl_DTO
 {
@@ -54,7 +50,7 @@ namespace DTO.tbl_DTO
         public DateTime? CREATED { get => dtmCREATED; set => dtmCREATED = value; }
         public string CREATED_BY { get => strCREATED_BY; set => strCREATED_BY = value; }
         public string CREATED_BY_FUNCTION { get => strCREATED_BY_FUNCTION; set => strCREATED_BY_FUNCTION = value; }
-        public DateTime?UPDATED { get => dtmUPDATED; set => dtmUPDATED = value; }
+        public DateTime? UPDATED { get => dtmUPDATED; set => dtmUPDATED = value; }
         public string UPDATED_BY { get => strUPDATED_BY; set => strUPDATED_BY = value; }
         public string UPDATED_BY_FUNCTION { get => strUPDATED_BY_FUNCTION; set => strUPDATED_BY_FUNCTION = value; }
         public string Product_Name { get => m_strProduct_Name; set => m_strProduct_Name = value; }
