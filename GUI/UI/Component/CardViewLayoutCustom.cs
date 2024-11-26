@@ -32,13 +32,20 @@ namespace GUI.UI.Component
         public GridControl GridControl1 { get; set; }
 
         /// <summary>
+        /// Set the card's minimum size.
+        /// </summary>
+        public Size MiniSizeDefault { get; set; } = new Size(300, 350);
+        public Size MiniSizeUpdate { get; set; } = new Size(150, 180);
+        public Size FullSizeField { get; set; } = new Size(150, 200);
+
+        /// <summary>
         /// Tùy chỉnh field đang hiển thị trong card
         /// </summary>
         public void SetupLayoutView()
         {
             LayoutView1.OptionsBehavior.AutoPopulateColumns = false;
             // Set the card's minimum size.
-            LayoutView1.CardMinSize = new Size(300, 350);
+            LayoutView1.CardMinSize = MiniSizeDefault; // default
             LayoutView1.OptionsCustomization.AllowFilter = false;
             LayoutView1.OptionsCustomization.ShowGroupView = false;
 
@@ -78,12 +85,12 @@ namespace GUI.UI.Component
 
             colPhoto.ColumnEdit = riPictureEdit;
 
-            // Set the card's minimum size.
-            LayoutView1.CardMinSize = new Size(150, 180);
+            // Set the card's minimum size udate
+            LayoutView1.CardMinSize = MiniSizeUpdate;
 
             fieldPhoto.TextVisible = false;
             fieldPhoto.SizeConstraintsType = SizeConstraintsType.Custom;
-            fieldPhoto.MaxSize = fieldPhoto.MinSize = new Size(150, 200);
+            fieldPhoto.MaxSize = fieldPhoto.MinSize = FullSizeField;
 
 
             LayoutView1.CustomUnboundColumnData += LayoutView1_CustomUnboundColumnData;
