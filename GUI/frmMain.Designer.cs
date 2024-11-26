@@ -71,7 +71,7 @@
             this.mainContainer.Appearance.Options.UseBackColor = true;
             this.mainContainer.Name = "mainContainer";
             // 
-            // arrFunction
+            // accordionControl
             // 
             resources.ApplyResources(this.accordionControl, "accordionControl");
             this.accordionControl.AllowItemSelection = true;

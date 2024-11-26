@@ -54,7 +54,7 @@ namespace GUI
         private void LoadFunctionByLevel(int iLevel)
         {
             //Xóa hết chức năng trên menu đi
-            arrFunction.Elements.Clear();
+            accordionControl.Elements.Clear();
             switch (iLevel)
             {
                 case (int)ELevel.Admin:
@@ -71,13 +71,10 @@ namespace GUI
             }
 
             //Duyệt qua cây chức năng sau khi đã load
-            foreach (AccordionControlElement objFunctionC1 in arrFunction.Elements)
+            foreach (AccordionControlElement objFunctionC1 in accordionControl.Elements)
             {
                 objFunctionC1.Text = LanguageController.GetLanguageDataLabel(objFunctionC1.Text);
                 objFunctionC1.Hint = LanguageController.GetLanguageDataLabel(objFunctionC1.Hint);
-                //Kiểm tra xem có tồn tại chức năng con không
-                if (objFunctionC1.Elements.Count == 0)
-                    continue;
 
                 foreach (AccordionControlElement objFunctionC2 in objFunctionC1.Elements)
                 {
@@ -92,7 +89,7 @@ namespace GUI
 
         private void FunctionADMIN()
         {
-            arrFunction.Elements.AddRange(new AccordionControlElement[] {
+            accordionControl.Elements.AddRange(new AccordionControlElement[] {
                 this.aceDatVe,
             this.aceDanhMuc,
             this.aceBaoCao,
@@ -104,7 +101,7 @@ namespace GUI
 
         private void FunctionManager()
         {
-            arrFunction.Elements.AddRange(new AccordionControlElement[] {
+            accordionControl.Elements.AddRange(new AccordionControlElement[] {
                  this.aceDatVe,
             this.aceDanhMuc,
             this.aceBaoCao,
@@ -119,7 +116,7 @@ namespace GUI
             //Nhân viên thì k vào được chức năng báo cáo
             this.aceDanhMuc.Elements.Remove(this.accQLNhanVien);
 
-            arrFunction.Elements.AddRange(new AccordionControlElement[] {
+            accordionControl.Elements.AddRange(new AccordionControlElement[] {
             this.aceDatVe,
             this.aceDanhMuc,
             this.aceHeThong});
@@ -410,7 +407,7 @@ namespace GUI
 
         private void arrFunction_ElementClick(object sender, ElementClickEventArgs e)
         {
-            arrFunction.FindForm().Activate(); 
+            accordionControl.FindForm().Activate(); 
         }
     }
 }
