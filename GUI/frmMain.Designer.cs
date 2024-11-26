@@ -70,7 +70,6 @@
             this.mainContainer.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.mainContainer.Appearance.Options.UseBackColor = true;
             this.mainContainer.Name = "mainContainer";
-            this.mainContainer.Click += new System.EventHandler(this.mainContainer_Click);
             // 
             // accordionControl
             // 

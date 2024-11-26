@@ -12,5 +12,7 @@ namespace DTO.Common
         public static int loaiVeDangDat = -1;
 
         public static string Printer_Name { get; set; } = "";
+
+
     }
 }

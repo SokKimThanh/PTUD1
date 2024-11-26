@@ -75,9 +75,6 @@ namespace GUI
             {
                 objFunctionC1.Text = LanguageController.GetLanguageDataLabel(objFunctionC1.Text);
                 objFunctionC1.Hint = LanguageController.GetLanguageDataLabel(objFunctionC1.Hint);
-                //Kiểm tra xem có tồn tại chức năng con không
-                if (objFunctionC1.Elements.Count == 0)
-                    continue;
 
                 foreach (AccordionControlElement objFunctionC2 in objFunctionC1.Elements)
                 {
@@ -369,13 +366,9 @@ namespace GUI
             const int WM_SYSCOMMAND = 0x0112;
             const int SC_MOVE = 0xF010;
             const int SC_SIZE = 0xF000; // Mã lệnh cho thay đổi kích thước
-            const int WM_CONTEXTMENU = 0x007B;
+                                        // Các mã lệnh khác có thể liên quan
 
-            if (message.Msg == WM_CONTEXTMENU)
-            {
-                // Chặn menu ngữ cảnh
-                return;
-            } 
+            const int WM_NCLBUTTONDBLCLK = 0x00A3; //double click on a title bar a.k.a. non-client area of the form
 
             switch (message.Msg)
             {
@@ -384,16 +377,15 @@ namespace GUI
                     if (command == SC_MOVE || command == SC_SIZE)
                         return; // Chặn cả di chuyển và thay đổi kích thước
                     break;
+
+
+                case WM_NCLBUTTONDBLCLK:
+                    message.Result = IntPtr.Zero;
+                    return;
             }
 
             base.WndProc(ref message);
         }
-
-        private void mainContainer_Click(object sender, EventArgs e)
-        {
-
-        }
-
 
 
         private void TimeExcute()
@@ -410,19 +402,18 @@ namespace GUI
                         lblTime.Caption = currentTime;
                     }));
 
-                    Thread.Sleep(1000); // Tránh vòng lặp quá nhanh
+                    Thread.Sleep(1000); // Thêm delay để tránh vòng lặp quá nhanh
                 }
                 catch (Exception)
                 {
 
                 }
-
             }
         }
 
         private void arrFunction_ElementClick(object sender, ElementClickEventArgs e)
         {
-            accordionControl.FindForm().Activate(); 
+            accordionControl.FindForm().Activate();
         }
     }
 }
