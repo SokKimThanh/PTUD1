@@ -54,7 +54,7 @@ namespace GUI
         private void LoadFunctionByLevel(int iLevel)
         {
             //Xóa hết chức năng trên menu đi
-            accordionControl.Elements.Clear();
+            arrFunction.Elements.Clear();
             switch (iLevel)
             {
                 case (int)ELevel.Admin:
@@ -71,7 +71,7 @@ namespace GUI
             }
 
             //Duyệt qua cây chức năng sau khi đã load
-            foreach (AccordionControlElement objFunctionC1 in accordionControl.Elements)
+            foreach (AccordionControlElement objFunctionC1 in arrFunction.Elements)
             {
                 objFunctionC1.Text = LanguageController.GetLanguageDataLabel(objFunctionC1.Text);
                 objFunctionC1.Hint = LanguageController.GetLanguageDataLabel(objFunctionC1.Hint);
@@ -92,7 +92,7 @@ namespace GUI
 
         private void FunctionADMIN()
         {
-            accordionControl.Elements.AddRange(new AccordionControlElement[] {
+            arrFunction.Elements.AddRange(new AccordionControlElement[] {
                 this.aceDatVe,
             this.aceDanhMuc,
             this.aceBaoCao,
@@ -104,7 +104,7 @@ namespace GUI
 
         private void FunctionManager()
         {
-            accordionControl.Elements.AddRange(new AccordionControlElement[] {
+            arrFunction.Elements.AddRange(new AccordionControlElement[] {
                  this.aceDatVe,
             this.aceDanhMuc,
             this.aceBaoCao,
@@ -119,7 +119,7 @@ namespace GUI
             //Nhân viên thì k vào được chức năng báo cáo
             this.aceDanhMuc.Elements.Remove(this.accQLNhanVien);
 
-            accordionControl.Elements.AddRange(new AccordionControlElement[] {
+            arrFunction.Elements.AddRange(new AccordionControlElement[] {
             this.aceDatVe,
             this.aceDanhMuc,
             this.aceHeThong});
@@ -410,7 +410,7 @@ namespace GUI
 
         private void arrFunction_ElementClick(object sender, ElementClickEventArgs e)
         {
-            accordionControl.FindForm().Activate(); 
+            arrFunction.FindForm().Activate(); 
         }
     }
 }
