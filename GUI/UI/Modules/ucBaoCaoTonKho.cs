@@ -22,7 +22,16 @@ namespace GUI.UI.Modules
         // Đặt khoảng thời gian cho năm hiện tại
         int year = DateTime.Now.Year;
 
+        // Component grid view layout custom
+        GridViewLayoutCustom gridViewLayoutCustom = new GridViewLayoutCustom();
 
+        // Component Barmanager menu layout custom
+        BarManagerLayoutCustom barManagerLayoutCustom = new BarManagerLayoutCustom();
+
+        // Component layout allow show/hide control menu customize
+        LayoutControlCustom layoutControlCustom = new LayoutControlCustom();
+
+        
         public ucBaoCaoTonKho()
         {
             InitializeComponent();
@@ -31,6 +40,23 @@ namespace GUI.UI.Modules
 
             DateTime.TryParse($"{year}/01/01", out startDate);
             DateTime.TryParse($"{year}/12/31", out endDate);
+
+            // Ngăn không cho phép chỉnh sửa trực tiếp trên GridView
+            gridView1.OptionsBehavior.Editable = false;
+
+            barManagerLayoutCustom.BarManagerCustom = barManager1;
+
+            // Tùy chỉnh hiển thị find panel trên grid view
+            gridViewLayoutCustom.ConfigureFindPanel(gridView1);
+
+            // Tùy chỉnh vô hiệu hóa chuột phải design mode trên menu
+            barManagerLayoutCustom.DisableCustomization();
+
+            // Tùy chỉnh vô hiệu hóa kéo thu nhỏ di chuyển menu
+            barManagerLayoutCustom.DisableMoving();
+
+            // Tùy chỉnh vô hiệu hóa design mode menu con của layout control 
+            layoutControlCustom.DisableLayoutCustomization(layoutForm);
         }
 
         protected override void Load_Data()

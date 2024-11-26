@@ -5,6 +5,7 @@ using DevExpress.XtraEditors.Controls;
 using DTO.Custom;
 using DTO.tbl_DTO;
 using DTO.Utility;
+using GUI.UI.Component;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,15 @@ namespace GUI.UI.Modules
     public partial class ucPhanCa : ucBase
     {
         private tbl_DM_StaffSchedule_DTO objEdit = null;
+
+        // Component grid view layout custom
+        GridViewLayoutCustom gridViewLayoutCustom = new GridViewLayoutCustom();
+
+        // Component Barmanager menu layout custom
+        BarManagerLayoutCustom barManagerLayoutCustom = new BarManagerLayoutCustom();
+
+        // Component layout allow show/hide control menu customize
+        LayoutControlCustom layoutControlCustom = new LayoutControlCustom();
         public ucPhanCa()
         {
             InitializeComponent();
@@ -23,6 +33,20 @@ namespace GUI.UI.Modules
             this.layoutTitle.MinSize = new System.Drawing.Size(36, 36);
             // Ngăn không cho phép sửa dữ liệu trực tiếp trên GridView
             grdData.OptionsBehavior.Editable = false;
+
+            barManagerLayoutCustom.BarManagerCustom = barManager1;
+
+            // Tùy chỉnh hiển thị find panel trên grid view
+            gridViewLayoutCustom.ConfigureFindPanel(grdData);
+
+            // Tùy chỉnh vô hiệu hóa chuột phải design mode trên menu
+            barManagerLayoutCustom.DisableCustomization();
+
+            // Tùy chỉnh vô hiệu hóa kéo thu nhỏ di chuyển menu
+            barManagerLayoutCustom.DisableMoving();
+
+            // Tùy chỉnh vô hiệu hóa design mode menu con của layout control 
+            layoutControlCustom.DisableLayoutCustomization(layoutForm);
 
         }
         protected override void Load_FirstBase()

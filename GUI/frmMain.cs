@@ -369,6 +369,13 @@ namespace GUI
             const int WM_SYSCOMMAND = 0x0112;
             const int SC_MOVE = 0xF010;
             const int SC_SIZE = 0xF000; // Mã lệnh cho thay đổi kích thước
+            const int WM_CONTEXTMENU = 0x007B;
+
+            if (message.Msg == WM_CONTEXTMENU)
+            {
+                // Chặn menu ngữ cảnh
+                return;
+            } 
 
             switch (message.Msg)
             {

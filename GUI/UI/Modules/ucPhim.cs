@@ -3,6 +3,7 @@ using BUS.Danh_Muc;
 using DevExpress.Utils;
 using DevExpress.XtraEditors.Controls;
 using DTO.tbl_DTO;
+using GUI.UI.Component;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -25,9 +26,34 @@ namespace GUI.UI.Modules
         // Từ điển cache hình ảnh
         private Dictionary<string, Image> imageCache = new Dictionary<string, Image>();
 
+        // Component grid view layout custom
+        GridViewLayoutCustom gridViewLayoutCustom = new GridViewLayoutCustom();
+
+        // Component Barmanager menu layout custom
+        BarManagerLayoutCustom barManagerLayoutCustom = new BarManagerLayoutCustom();
+
+        // Component layout allow show/hide control menu customize
+        LayoutControlCustom layoutControlCustom = new LayoutControlCustom();
         public ucPhim()
         {
             InitializeComponent();
+
+            // Ngăn không cho phép sửa dữ liệu trực tiếp trên GridView
+            gridView1.OptionsBehavior.Editable = false;
+
+            barManagerLayoutCustom.BarManagerCustom = barManager1;
+
+            // Tùy chỉnh hiển thị find panel trên grid view
+            gridViewLayoutCustom.ConfigureFindPanel(gridView1);
+
+            // Tùy chỉnh vô hiệu hóa chuột phải design mode trên menu
+            barManagerLayoutCustom.DisableCustomization();
+
+            // Tùy chỉnh vô hiệu hóa kéo thu nhỏ di chuyển menu
+            barManagerLayoutCustom.DisableMoving();
+
+            // Tùy chỉnh vô hiệu hóa design mode menu con của layout control 
+            layoutControlCustom.DisableLayoutCustomization(layoutForm);
         }
         /// <summary>
         /// Lấy dữ liệu từ form

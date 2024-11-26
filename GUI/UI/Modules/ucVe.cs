@@ -5,6 +5,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraReports.UI;
 using DTO;
 using DTO.tbl_DTO;
+using GUI.UI.Component;
 using GUI.UI.ReportDesign;
 using System;
 using System.Collections.Generic;
@@ -34,12 +35,38 @@ namespace GUI.UI.Modules
         };
         private long selectedTicketID = -1;
 
+        // Component grid view layout custom
+        GridViewLayoutCustom gridViewLayoutCustom = new GridViewLayoutCustom();
+
+        // Component Barmanager menu layout custom
+        BarManagerLayoutCustom barManagerLayoutCustom = new BarManagerLayoutCustom();
+
+        // Component layout allow show/hide control menu customize
+        LayoutControlCustom layoutControlCustom = new LayoutControlCustom();
+
         public ucVe()
         {
             InitializeComponent();
             lblTitle.Text = "VÉ";
             cboStatusTicket.Properties.DataSource = status;
             cboStatusTicket.EditValue = 0;
+
+            // Ngăn không cho phép sửa dữ liệu trực tiếp trên GridView
+            gvTickets.OptionsBehavior.Editable = false;
+
+            barManagerLayoutCustom.BarManagerCustom = barManager1;
+
+            // Tùy chỉnh hiển thị find panel trên grid view
+            gridViewLayoutCustom.ConfigureFindPanel(gvTickets);
+
+            // Tùy chỉnh vô hiệu hóa chuột phải design mode trên menu
+            barManagerLayoutCustom.DisableCustomization();
+
+            // Tùy chỉnh vô hiệu hóa kéo thu nhỏ di chuyển menu
+            barManagerLayoutCustom.DisableMoving();
+
+            // Tùy chỉnh vô hiệu hóa design mode menu con của layout control 
+            layoutControlCustom.DisableLayoutCustomization(layoutForm);
         }
 
         public void LoadData()

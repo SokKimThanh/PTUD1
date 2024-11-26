@@ -9,11 +9,21 @@ using System.Windows.Forms;
 using System;
 using DTO.Common;
 using System.Linq;
+using GUI.UI.Component;
+using DevExpress.XtraExport.Helpers;
 
 namespace GUI.UI.Modules
 {
     public partial class ucHoaDon : ucBase
     {
+        // Component grid view layout custom
+        GridViewLayoutCustom gridViewLayoutCustom = new GridViewLayoutCustom();
+
+        // Component Barmanager menu layout custom
+        BarManagerLayoutCustom barManagerLayoutCustom = new BarManagerLayoutCustom();
+
+        // Component layout allow show/hide control menu customize
+        LayoutControlCustom layoutControlCustom = new LayoutControlCustom();
         public ucHoaDon()
         {
             InitializeComponent();
@@ -22,6 +32,20 @@ namespace GUI.UI.Modules
             this.layoutTitle.MinSize = new System.Drawing.Size(36, 36);
             // Ngăn không cho phép sửa dữ liệu trực tiếp trên GridView
             grdData.OptionsBehavior.Editable = false;
+             
+            barManagerLayoutCustom.BarManagerCustom = barManager1;
+
+            // Tùy chỉnh hiển thị find panel trên grid view
+            gridViewLayoutCustom.ConfigureFindPanel(grdData);
+
+            // Tùy chỉnh vô hiệu hóa chuột phải design mode trên menu
+            barManagerLayoutCustom.DisableCustomization();
+
+            // Tùy chỉnh vô hiệu hóa kéo thu nhỏ di chuyển menu
+            barManagerLayoutCustom.DisableMoving();
+
+            // Tùy chỉnh vô hiệu hóa design mode menu con của layout control 
+            layoutControlCustom.DisableLayoutCustomization(layoutForm);
         }
         protected override void Load_Data()
         {

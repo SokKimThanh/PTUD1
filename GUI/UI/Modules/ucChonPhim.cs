@@ -26,6 +26,7 @@ using System.Xml.Linq;
 using DevExpress.XtraLayout;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraExport.Helpers;
+using GUI.UI.Component;
 
 namespace GUI.UI.Modules
 {
@@ -34,6 +35,12 @@ namespace GUI.UI.Modules
         private tbl_DM_Movie_BUS moiveBus = new tbl_DM_Movie_BUS();
         private tbl_DM_AgeRating_BUS ageBus = new tbl_DM_AgeRating_BUS();
         private tbl_DM_MovieSchedule_BUS movieScheBus = new tbl_DM_MovieSchedule_BUS();
+         
+        // Component Barmanager menu layout custom
+        BarManagerLayoutCustom barManagerLayoutCustom = new BarManagerLayoutCustom();
+
+        // Component layout allow show/hide control menu customize
+        LayoutControlCustom layoutControlCustom = new LayoutControlCustom();
 
         //Khởi tạo giao diện
         public ucChonPhim()
@@ -47,6 +54,18 @@ namespace GUI.UI.Modules
         {
             LoadData();
             SetupLayoutView();
+             
+
+            barManagerLayoutCustom.BarManagerCustom = barManager1;
+             
+            // Tùy chỉnh vô hiệu hóa chuột phải design mode trên menu
+            barManagerLayoutCustom.DisableCustomization();
+
+            // Tùy chỉnh vô hiệu hóa kéo thu nhỏ di chuyển menu
+            barManagerLayoutCustom.DisableMoving();
+
+            // Tùy chỉnh vô hiệu hóa design mode menu con của layout control 
+            layoutControlCustom.DisableLayoutCustomization(layoutForm);
         }
         private void LoadData()
         {

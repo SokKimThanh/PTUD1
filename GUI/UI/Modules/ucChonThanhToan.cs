@@ -13,6 +13,7 @@ using DevExpress.XtraLayout;
 using DevExpress.XtraReports.UI;
 using DTO.Common;
 using DTO.tbl_DTO;
+using GUI.UI.Component;
 using GUI.UI.ReportDesign;
 using System;
 using System.Collections.Generic;
@@ -37,10 +38,36 @@ namespace GUI.UI.Modules
 
         private double m_dblTong_Tien = 0;
 
+        // Component grid view layout custom
+        GridViewLayoutCustom gridViewLayoutCustom = new GridViewLayoutCustom();
+
+        // Component Barmanager menu layout custom
+        BarManagerLayoutCustom barManagerLayoutCustom = new BarManagerLayoutCustom();
+
+        // Component layout allow show/hide control menu customize
+        LayoutControlCustom layoutControlCustom = new LayoutControlCustom();
+
         public ucChonThanhToan()
         {
             InitializeComponent();
             lblTitle.Text = "THANH TOÁN";
+
+            // Ngăn không cho phép chỉnh sửa trực tiếp trên GridView
+            grdData.OptionsBehavior.Editable = false; 
+
+            barManagerLayoutCustom.BarManagerCustom = barManager1;
+
+            // Tùy chỉnh hiển thị find panel trên grid view
+            gridViewLayoutCustom.ConfigureFindPanel(grdData);
+              
+            // Tùy chỉnh vô hiệu hóa chuột phải design mode trên menu
+            barManagerLayoutCustom.DisableCustomization();
+
+            // Tùy chỉnh vô hiệu hóa kéo thu nhỏ di chuyển menu
+            barManagerLayoutCustom.DisableMoving();
+
+            // Tùy chỉnh vô hiệu hóa design mode menu con của layout control 
+            layoutControlCustom.DisableLayoutCustomization(layoutForm);
         }
 
         protected override void Load_Data()
