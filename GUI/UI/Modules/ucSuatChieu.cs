@@ -1,6 +1,7 @@
 ﻿using BUS.Danh_Muc;
 using DevExpress.XtraEditors.Controls;
 using DTO.tbl_DTO;
+using GUI.UI.Component;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -17,6 +18,15 @@ namespace GUI.UI.Modules
         private tbl_DM_Ticket_BUS ticket_bus = new tbl_DM_Ticket_BUS(); 
         private int cleaningTime = 30;
         private int roundUpMinute = 5;
+
+        // Component grid view layout custom
+        GridViewLayoutCustom gridViewLayoutCustom = new GridViewLayoutCustom();
+
+        // Component Barmanager menu layout custom
+        BarManagerLayoutCustom barManagerLayoutCustom = new BarManagerLayoutCustom();
+
+        // Component layout allow show/hide control menu customize
+        LayoutControlCustom layoutControlCustom = new LayoutControlCustom();
         #endregion
 
         public ucSuatChieu()
@@ -26,7 +36,21 @@ namespace GUI.UI.Modules
             this.layoutTitle.MaxSize = new System.Drawing.Size(0, 42);
             this.layoutTitle.MinSize = new System.Drawing.Size(36, 36);
             // Ngăn không cho phép sửa dữ liệu trực tiếp trên GridView
-            gvMovieSchedules.OptionsBehavior.Editable = false;
+            gvMovieSchedules.OptionsBehavior.Editable = false; 
+
+            barManagerLayoutCustom.BarManagerCustom = barManager1;
+
+            // Tùy chỉnh hiển thị find panel trên grid view
+            gridViewLayoutCustom.ConfigureFindPanel(gvMovieSchedules);
+
+            // Tùy chỉnh vô hiệu hóa chuột phải design mode trên menu
+            barManagerLayoutCustom.DisableCustomization();
+
+            // Tùy chỉnh vô hiệu hóa kéo thu nhỏ di chuyển menu
+            barManagerLayoutCustom.DisableMoving();
+
+            // Tùy chỉnh vô hiệu hóa design mode menu con của layout control 
+            layoutControlCustom.DisableLayoutCustomization(layoutForm);
         }
 
         private void IsUsing(bool isUsing)

@@ -1,4 +1,5 @@
-﻿using DTO.tbl_DTO;
+﻿using DevExpress.CodeParser.Diagnostics;
+using DTO.tbl_DTO;
 using DTO.Utility;
 using System;
 using System.Collections.Generic;
@@ -45,9 +46,27 @@ namespace DAL
             }
         }
 
-        public override void UpdateData(tbl_DM_Bill_DTO obj)
+        public void RemoveData(long p_lngAuto_ID, string p_strUpdated_By, string p_strUpdated_By_Function)
         {
-            throw new NotImplementedException();
+            try
+            {
+                tbl_DM_Bill v_objRes = DBDataContext.tbl_DM_Bills.SingleOrDefault(it => it.BL_AutoID == p_lngAuto_ID);
+                if (v_objRes != null)
+                {
+                    v_objRes.DELETED = 1;
+                    v_objRes.UPDATED = DateTime.Now;
+                    v_objRes.UPDATED_BY = p_strUpdated_By;
+                    v_objRes.UPDATED_BY_FUNCTION = p_strUpdated_By_Function;
+
+
+                    DBDataContext.SubmitChanges();
+                }
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public override void RemoveData(int id)
@@ -92,6 +111,31 @@ namespace DAL
                 throw;
             }
         }
+
+        public override void UpdateData(tbl_DM_Bill_DTO obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateData(long p_lngAuto_ID, double v_dblGia)
+        {
+            try
+            {
+
+                tbl_DM_Bill v_objRes = DBDataContext.tbl_DM_Bills.SingleOrDefault(it => it.BL_AutoID == p_lngAuto_ID);
+                if (v_objRes != null)
+                {
+                    v_objRes.BL_Total_Price = v_dblGia;
+                }
+
+                DBDataContext.SubmitChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
     }
 
 }

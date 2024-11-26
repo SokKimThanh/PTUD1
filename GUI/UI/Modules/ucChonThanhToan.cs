@@ -13,6 +13,7 @@ using DevExpress.XtraLayout;
 using DevExpress.XtraReports.UI;
 using DTO.Common;
 using DTO.tbl_DTO;
+using GUI.UI.Component;
 using GUI.UI.ReportDesign;
 using System;
 using System.Collections.Generic;
@@ -37,19 +38,52 @@ namespace GUI.UI.Modules
 
         private double m_dblTong_Tien = 0;
 
+        // Component grid view layout custom
+        GridViewLayoutCustom gridViewLayoutCustom = new GridViewLayoutCustom();
+
+        // Component Barmanager menu layout custom
+        BarManagerLayoutCustom barManagerLayoutCustom = new BarManagerLayoutCustom();
+
+        // Component layout allow show/hide control menu customize
+        LayoutControlCustom layoutControlCustom = new LayoutControlCustom();
+
+        // Component layout view custom for template card
+        CardViewLayoutCustom cardViewLayoutCustom = new CardViewLayoutCustom();
+
         public ucChonThanhToan()
         {
             InitializeComponent();
             lblTitle.Text = "THANH TOÁN";
+
+            // Ngăn không cho phép chỉnh sửa trực tiếp trên GridView
+            grdData.OptionsBehavior.Editable = false;
+
+            barManagerLayoutCustom.BarManagerCustom = barManager1;
+
+            // Tùy chỉnh hiển thị find panel trên grid view
+            gridViewLayoutCustom.ConfigureFindPanel(grdData);
+
+            // Tùy chỉnh vô hiệu hóa chuột phải design mode trên menu
+            barManagerLayoutCustom.DisableCustomization();
+
+            // Tùy chỉnh vô hiệu hóa kéo thu nhỏ di chuyển menu
+            barManagerLayoutCustom.DisableMoving();
+
+            // Tùy chỉnh vô hiệu hóa design mode menu con của layout control 
+            layoutControlCustom.DisableLayoutCustomization(layoutForm);
         }
 
         protected override void Load_Data()
         {
-            //Set up cho cart
-            SetupLayoutView();
+
             strFunctionCode = "Thanh toán";
+
             //Load trên giao diện
             Load_Danh_Sach_San_Pham();
+
+            //Set up cho cart
+            SetupLayoutView();
+
             Load_Danh_Sach_San_Pham_Chon();
             m_dblTong_Tien = Tong_Gia_Ghe;
             txtDanh_Sach_Ten_Ve.Text = string.Join(", ", CCommon.Danh_Sach_Ghe_Da_Chon);
@@ -210,18 +244,23 @@ namespace GUI.UI.Modules
 
                         foreach (tbl_DM_Ticket_DTO v_objItem in v_arrTiket)
                         {
-                            // Tạo vé
-                            RP_PrintTicket report = new RP_PrintTicket();
-                            report.BindParameter(v_objItem.AutoID.ToString());
-                            report.CreateDocument();
+                            try
+                            {
+                                // Tạo vé
+                                RP_PrintTicket report = new RP_PrintTicket();
+                                report.BindParameter(v_objItem.AutoID.ToString());
+                                report.CreateDocument();
 
-                            // Thiết lập máy in
-                            ReportPrintTool tool = new ReportPrintTool(report);
-                            if (CCommon.Printer_Name != "")
-                                tool.PrinterSettings.PrinterName = CCommon.Printer_Name; // Thay "Tên máy in của bạn" bằng tên máy in thực tế
+                                // Thiết lập máy in
+                                ReportPrintTool tool = new ReportPrintTool(report);
+                                if (CCommon.Printer_Name != "")
+                                    tool.PrinterSettings.PrinterName = CCommon.Printer_Name; // Thay "Tên máy in của bạn" bằng tên máy in thực tế
 
-                            // In vé không cần review
-                            tool.Print();
+                                // In vé không cần review
+                                tool.Print();
+                            }
+                            catch (Exception) { }
+
                         }
 
                     }
@@ -267,7 +306,7 @@ namespace GUI.UI.Modules
         {
             tbl_DM_Product_BUS v_objBus = new tbl_DM_Product_BUS();
             List<tbl_DM_Product_DTO> v_arrData = v_objBus.GetAll();
-            grdControl_San_Pham.DataSource = v_arrData;
+            gvSanPham.DataSource = v_arrData;
         }
 
         private void Load_Danh_Sach_San_Pham_Chon()
@@ -288,61 +327,51 @@ namespace GUI.UI.Modules
 
         public void SetupLayoutView()
         {
-            // Thiết lập kích thước tối thiểu cho card
-            viewCart.CardMinSize = new Size(300, 350);
+            cardViewLayoutCustom.LayoutView1 = layoutView1;
+            cardViewLayoutCustom.GridControl1 = gvSanPham;
+            cardViewLayoutCustom.ImageURLFieldName = "PD_IMAGEURL";
+            cardViewLayoutCustom.SetupLayoutView();
+            cardViewLayoutCustom.AddPhoto();
 
-            // Ngăn không cho phép sửa dữ liệu trực tiếp
-            viewCart.OptionsBehavior.Editable = false;
-
-            // Ẩn tất cả các cột mặc định
-            foreach (LayoutViewColumn v_objCol in viewCart.Columns)
+            // Tìm cột PD_NAME và cấu hình nếu cột tồn tại
+            LayoutViewColumn tenSanPham = layoutView1.Columns.ColumnByFieldName("PD_NAME");
+            if (tenSanPham != null)
             {
-                v_objCol.Visible = false;
-                v_objCol.LayoutViewField.TextVisible = false;
+                tenSanPham.Visible = true;
+                tenSanPham.Caption = "Tên sản phẩm";
             }
-
-            // Tạo cột hiển thị hình ảnh (Unbound Column)
-            LayoutViewColumn v_objImage_Col = new LayoutViewColumn
+            else
             {
-                FieldName = "PD_IMAGEURL",
-                Caption = "Hình ảnh",
-                Visible = true,
-                UnboundType = DevExpress.Data.UnboundColumnType.Object
-            };
-
-            // Thiết lập RepositoryItemPictureEdit để hiển thị hình ảnh
-            RepositoryItemPictureEdit v_objPicture = new RepositoryItemPictureEdit
-            {
-                SizeMode = PictureSizeMode.Zoom,
-                PictureAlignment = ContentAlignment.MiddleCenter
-            };
-            grdControl_San_Pham.RepositoryItems.Add(v_objPicture);
-            v_objImage_Col.ColumnEdit = v_objPicture;
-
-            // Thêm cột vào LayoutView
-            viewCart.Columns.Add(v_objImage_Col);
-
-            // Tùy chỉnh sự kiện CustomUnboundColumnData để gán giá trị hình ảnh
-            viewCart.CustomUnboundColumnData += (sender, e) =>
-            {
-                if (e.Column.FieldName == "PD_IMAGEURL" && e.IsGetData)
-                {
-                    // Thay thế GetImageByRowHandle bằng logic của bạn để lấy hình ảnh
-                    e.Value = GetImageByRowHandle(e.ListSourceRowIndex);
-                }
-            };
-
-            // Cấu hình thêm các cột khác (ví dụ: tên sản phẩm)
-            LayoutViewColumn v_objCol_Name = viewCart.Columns.ColumnByFieldName("PD_NAME");
-            if (v_objCol_Name != null)
-            {
-                v_objCol_Name.Visible = true;
-                v_objCol_Name.Caption = "Tên sản phẩm";
-                v_objCol_Name.LayoutViewField.TextVisible = true;
+                Console.WriteLine("Cột 'PD_NAME' không tồn tại trong LayoutView.");
             }
-
             //Thêm sự kiện click 
-            viewCart.MouseDown += ViewCart_MouseDown;
+            layoutView1.MouseDown += ViewCart_MouseDown;
+        }
+
+        /// <summary>
+        /// Thêm cột hình ảnh khi hiển thị card
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void layoutView1_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
+        {
+            if (e.Column.FieldName == "PosterImage" && e.IsGetData)
+            {
+                // Lấy đường dẫn từ cột MV_POSTERURL của bản ghi hiện tại
+                string imagePath = layoutView1.GetRowCellValue(e.ListSourceRowIndex, "PD_IMAGEURL")?.ToString();
+
+                // Kiểm tra nếu file tồn tại
+                if (!string.IsNullOrEmpty(imagePath) && File.Exists(imagePath))
+                {
+                    // Đọc hình ảnh từ đường dẫn
+                    e.Value = Image.FromFile(imagePath);
+                }
+                else
+                {
+                    // Nếu không có hình ảnh, sử dụng hình ảnh mặc định
+                    e.Value = Properties.Resources.picture_card_no_image;
+                }
+            }
         }
 
         //Hàm lấy view cart
@@ -351,13 +380,13 @@ namespace GUI.UI.Modules
             tbl_DM_Product_BUS v_objBus = new tbl_DM_Product_BUS();
 
             // Lấy thông tin vị trí chuột
-            LayoutViewHitInfo v_objMouse_Location = viewCart.CalcHitInfo(e.Location);
+            LayoutViewHitInfo v_objMouse_Location = layoutView1.CalcHitInfo(e.Location);
 
             // Kiểm tra nếu vị trí chuột nằm trên một card
             if (v_objMouse_Location.InCard)
             {
                 // Lấy dữ liệu từ ô Auto_ID
-                long v_lngSan_Pham_ID = Convert.ToInt64(viewCart.GetRowCellValue(v_objMouse_Location.RowHandle, "PD_AutoID"));
+                long v_lngSan_Pham_ID = Convert.ToInt64(layoutView1.GetRowCellValue(v_objMouse_Location.RowHandle, "PD_AutoID"));
 
                 //Lấy obj ra
                 tbl_DM_Product_DTO v_objSP_Chon = v_objBus.Find(v_lngSan_Pham_ID);
@@ -371,11 +400,12 @@ namespace GUI.UI.Modules
                     if (v_objFormSL.Status_Close == false)
                     {
                         v_objSP_Chon.PD_QUANTITY = v_objFormSL.Get_SL();
-                        m_arrSan_Pham_Da_Chon.Add(v_objSP_Chon);
+                        if (v_objSP_Chon.PD_QUANTITY > 0)
+                            m_arrSan_Pham_Da_Chon.Add(v_objSP_Chon);
                         grdData.RefreshData();
 
                         //Cập nhật tổng tiền
-                        m_dblTong_Tien = Tong_Gia_Ghe + v_objSP_Chon.PD_TRI_GIA;
+                        m_dblTong_Tien = Tong_Gia_Ghe + m_arrSan_Pham_Da_Chon.Sum(it => it.PD_TRI_GIA);
                         txtTong_Tien.Text = m_dblTong_Tien.ToString();
                     }
                 }
@@ -386,7 +416,7 @@ namespace GUI.UI.Modules
         private Image GetImageByRowHandle(int p_iRowHandle)
         {
             // Ví dụ: Tải hình ảnh từ cơ sở dữ liệu hoặc URL
-            string v_strImage_Url = viewCart.GetRowCellValue(p_iRowHandle, "PD_IMAGEURL")?.ToString();
+            string v_strImage_Url = layoutView1.GetRowCellValue(p_iRowHandle, "PD_IMAGEURL")?.ToString();
             // Kiểm tra nếu file tồn tại
             if (string.IsNullOrEmpty(v_strImage_Url) == false && File.Exists(v_strImage_Url))
             {
@@ -409,10 +439,16 @@ namespace GUI.UI.Modules
                 if (v_objFormSL.Status_Close == false)
                 {
                     v_objSP_Da_Chon.PD_QUANTITY = v_objFormSL.Get_SL();
+                    if (v_objSP_Da_Chon.PD_QUANTITY == 0)
+                    {
+                        tbl_DM_Product_DTO v_objRemove = m_arrSan_Pham_Da_Chon.FirstOrDefault(it => it.PD_AutoID == v_objSP_Da_Chon.PD_AutoID);
+                        m_arrSan_Pham_Da_Chon.Remove(v_objRemove);
+                    }
                     grdData.RefreshData();
 
                     //Cập nhật tổng tiền
-                    m_dblTong_Tien = Tong_Gia_Ghe + v_objSP_Da_Chon.PD_TRI_GIA;
+
+                    m_dblTong_Tien = Tong_Gia_Ghe + m_arrSan_Pham_Da_Chon.Sum(it => it.PD_TRI_GIA);
                     txtTong_Tien.Text = m_dblTong_Tien.ToString();
                 }
             }

@@ -3,6 +3,7 @@ using BUS.Sys;
 using DTO.Custom;
 using DTO.tbl_DTO;
 using DTO.Utility;
+using GUI.UI.Component;
 using System;
 using System.Collections.Generic;
 using System.Runtime.Remoting;
@@ -14,6 +15,15 @@ namespace GUI.UI.Modules
         private List<tbl_DM_Shift_DTO> arrData = new List<tbl_DM_Shift_DTO>();
         private tbl_DM_Shift_DTO objEdit = null;
 
+        // Component grid view layout custom
+        GridViewLayoutCustom gridViewLayoutCustom = new GridViewLayoutCustom();
+
+        // Component Barmanager menu layout custom
+        BarManagerLayoutCustom barManagerLayoutCustom = new BarManagerLayoutCustom();
+
+        // Component layout allow show/hide control menu customize
+        LayoutControlCustom layoutControlCustom = new LayoutControlCustom();
+
         public ucCaLamViec()
         {
             InitializeComponent();
@@ -21,7 +31,21 @@ namespace GUI.UI.Modules
             this.layoutTitle.MaxSize = new System.Drawing.Size(0, 42);
             this.layoutTitle.MinSize = new System.Drawing.Size(36, 36);
             // Ngăn không cho phép sửa dữ liệu trực tiếp trên GridView
-            grdData.OptionsBehavior.Editable = false;
+            grdData.OptionsBehavior.Editable = false; 
+
+            barManagerLayoutCustom.BarManagerCustom = barManager1;
+
+            // Tùy chỉnh hiển thị find panel trên grid view
+            gridViewLayoutCustom.ConfigureFindPanel(grdData);
+
+            // Tùy chỉnh vô hiệu hóa chuột phải design mode trên menu
+            barManagerLayoutCustom.DisableCustomization();
+
+            // Tùy chỉnh vô hiệu hóa kéo thu nhỏ di chuyển menu
+            barManagerLayoutCustom.DisableMoving();
+
+            // Tùy chỉnh vô hiệu hóa design mode menu con của layout control 
+            layoutControlCustom.DisableLayoutCustomization(layoutForm);
         }
 
         protected override void Load_FirstBase()

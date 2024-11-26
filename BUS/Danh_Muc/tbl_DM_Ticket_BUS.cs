@@ -69,6 +69,18 @@ namespace BUS.Danh_Muc
                 throw ex;
             }
         }
+
+        public void RemoveData_By_Bill_ID(long p_lngBill_ID, string p_strUpdated_By, string p_strUpdated_By_Function)
+        {
+            try
+            {
+                dal.RemoveData(p_lngBill_ID, p_strUpdated_By, p_strUpdated_By_Function);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public void AddData(tbl_DM_Ticket_DTO p_objData)
         {
             try

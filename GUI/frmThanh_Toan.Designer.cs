@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class frmNhap_SL
+    partial class frmThanh_Toan
     {
         /// <summary>
         /// Required designer variable.
@@ -30,25 +30,25 @@
         {
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnHuy = new System.Windows.Forms.Button();
-            this.txtSan_Pham = new DevExpress.XtraEditors.TextEdit();
+            this.txtMa_HD = new DevExpress.XtraEditors.TextEdit();
             this.btnXac_Nhan = new System.Windows.Forms.Button();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.lblSan_Pham = new DevExpress.XtraEditors.LabelControl();
-            this.txtSo_Luong = new DevExpress.XtraEditors.SpinEdit();
+            this.txtGia = new DevExpress.XtraEditors.SpinEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSan_Pham.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSo_Luong.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMa_HD.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGia.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
             this.panelControl1.Controls.Add(this.btnHuy);
-            this.panelControl1.Controls.Add(this.txtSan_Pham);
+            this.panelControl1.Controls.Add(this.txtMa_HD);
             this.panelControl1.Controls.Add(this.btnXac_Nhan);
             this.panelControl1.Controls.Add(this.labelControl2);
             this.panelControl1.Controls.Add(this.lblSan_Pham);
-            this.panelControl1.Controls.Add(this.txtSo_Luong);
+            this.panelControl1.Controls.Add(this.txtGia);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
@@ -63,14 +63,13 @@
             this.btnHuy.TabIndex = 5;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.UseVisualStyleBackColor = true;
-            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
-            // txtSan_Pham
+            // txtMa_HD
             // 
-            this.txtSan_Pham.Location = new System.Drawing.Point(116, 26);
-            this.txtSan_Pham.Name = "txtSan_Pham";
-            this.txtSan_Pham.Size = new System.Drawing.Size(191, 22);
-            this.txtSan_Pham.TabIndex = 3;
+            this.txtMa_HD.Location = new System.Drawing.Point(116, 26);
+            this.txtMa_HD.Name = "txtMa_HD";
+            this.txtMa_HD.Size = new System.Drawing.Size(191, 22);
+            this.txtMa_HD.TabIndex = 3;
             // 
             // btnXac_Nhan
             // 
@@ -86,35 +85,35 @@
             // 
             this.labelControl2.Location = new System.Drawing.Point(22, 68);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(51, 16);
+            this.labelControl2.Size = new System.Drawing.Size(39, 16);
             this.labelControl2.TabIndex = 1;
-            this.labelControl2.Text = "Số lượng";
+            this.labelControl2.Text = "Còn lại";
+            this.labelControl2.Click += new System.EventHandler(this.labelControl2_Click);
             // 
             // lblSan_Pham
             // 
             this.lblSan_Pham.Location = new System.Drawing.Point(22, 29);
             this.lblSan_Pham.Name = "lblSan_Pham";
-            this.lblSan_Pham.Size = new System.Drawing.Size(58, 16);
+            this.lblSan_Pham.Size = new System.Drawing.Size(47, 16);
             this.lblSan_Pham.TabIndex = 0;
-            this.lblSan_Pham.Text = "Sản phẩm";
+            this.lblSan_Pham.Text = "Hóa đơn";
             // 
-            // txtSo_Luong
+            // txtGia
             // 
-            this.txtSo_Luong.EditValue = new decimal(new int[] {
+            this.txtGia.EditValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.txtSo_Luong.Location = new System.Drawing.Point(116, 65);
-            this.txtSo_Luong.Name = "txtSo_Luong";
-            this.txtSo_Luong.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.txtGia.Location = new System.Drawing.Point(116, 65);
+            this.txtGia.Name = "txtGia";
+            this.txtGia.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtSo_Luong.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
-            this.txtSo_Luong.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
-            this.txtSo_Luong.Size = new System.Drawing.Size(191, 24);
-            this.txtSo_Luong.TabIndex = 4;
+            this.txtGia.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
+            this.txtGia.Size = new System.Drawing.Size(191, 24);
+            this.txtGia.TabIndex = 4;
             // 
-            // frmNhap_SL
+            // frmThanh_Toan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -123,14 +122,14 @@
             this.Controls.Add(this.panelControl1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmNhap_SL";
+            this.Name = "frmThanh_Toan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Nhập số lượng";
+            this.Text = "Số tiền cần thanh toán";
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSan_Pham.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSo_Luong.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMa_HD.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGia.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -141,8 +140,8 @@
         private System.Windows.Forms.Button btnXac_Nhan;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl lblSan_Pham;
-        private DevExpress.XtraEditors.TextEdit txtSan_Pham;
-        private DevExpress.XtraEditors.SpinEdit txtSo_Luong;
+        private DevExpress.XtraEditors.TextEdit txtMa_HD;
+        private DevExpress.XtraEditors.SpinEdit txtGia;
         private System.Windows.Forms.Button btnHuy;
     }
 }

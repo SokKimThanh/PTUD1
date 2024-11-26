@@ -3,6 +3,7 @@ using BUS.Sys;
 using DevExpress.XtraBars.Navigation;
 using DTO.Common;
 using DTO.Custom;
+using DTO.tbl_DTO;
 using GUI.UI.Modules;
 using System;
 using System.Collections.Generic;
@@ -22,8 +23,9 @@ namespace GUI
         /// </summary>
         private Dictionary<string, ucBase> dicFunction = new Dictionary<string, ucBase>()
         {
-           { "accDatVe", new ucChonPhim() },
-           { "accVe", new ucVe() },
+            { "accCaiDat", new ucCaiDat() },
+            { "accDatVe", new ucChonPhim() },
+            { "accVe", new ucVe() },
             { "accQLHoaDon", new ucHoaDon() },
             { "accQLPhim", new ucPhim() },
             { "accQLSanPham", new ucSanPham() },
@@ -52,7 +54,7 @@ namespace GUI
         private void LoadFunctionByLevel(int iLevel)
         {
             //Xóa hết chức năng trên menu đi
-            arrFunction.Elements.Clear();
+            accordionControl.Elements.Clear();
             switch (iLevel)
             {
                 case (int)ELevel.Admin:
@@ -69,13 +71,10 @@ namespace GUI
             }
 
             //Duyệt qua cây chức năng sau khi đã load
-            foreach (AccordionControlElement objFunctionC1 in arrFunction.Elements)
+            foreach (AccordionControlElement objFunctionC1 in accordionControl.Elements)
             {
                 objFunctionC1.Text = LanguageController.GetLanguageDataLabel(objFunctionC1.Text);
                 objFunctionC1.Hint = LanguageController.GetLanguageDataLabel(objFunctionC1.Hint);
-                //Kiểm tra xem có tồn tại chức năng con không
-                if (objFunctionC1.Elements.Count == 0)
-                    continue;
 
                 foreach (AccordionControlElement objFunctionC2 in objFunctionC1.Elements)
                 {
@@ -90,7 +89,7 @@ namespace GUI
 
         private void FunctionADMIN()
         {
-            arrFunction.Elements.AddRange(new AccordionControlElement[] {
+            accordionControl.Elements.AddRange(new AccordionControlElement[] {
                 this.aceDatVe,
             this.aceDanhMuc,
             this.aceBaoCao,
@@ -102,7 +101,7 @@ namespace GUI
 
         private void FunctionManager()
         {
-            arrFunction.Elements.AddRange(new AccordionControlElement[] {
+            accordionControl.Elements.AddRange(new AccordionControlElement[] {
                  this.aceDatVe,
             this.aceDanhMuc,
             this.aceBaoCao,
@@ -117,7 +116,7 @@ namespace GUI
             //Nhân viên thì k vào được chức năng báo cáo
             this.aceDanhMuc.Elements.Remove(this.accQLNhanVien);
 
-            arrFunction.Elements.AddRange(new AccordionControlElement[] {
+            accordionControl.Elements.AddRange(new AccordionControlElement[] {
             this.aceDatVe,
             this.aceDanhMuc,
             this.aceHeThong});
@@ -367,6 +366,9 @@ namespace GUI
             const int WM_SYSCOMMAND = 0x0112;
             const int SC_MOVE = 0xF010;
             const int SC_SIZE = 0xF000; // Mã lệnh cho thay đổi kích thước
+                                        // Các mã lệnh khác có thể liên quan
+
+            const int WM_NCLBUTTONDBLCLK = 0x00A3; //double click on a title bar a.k.a. non-client area of the form
 
             switch (message.Msg)
             {
@@ -375,14 +377,14 @@ namespace GUI
                     if (command == SC_MOVE || command == SC_SIZE)
                         return; // Chặn cả di chuyển và thay đổi kích thước
                     break;
+
+
+                case WM_NCLBUTTONDBLCLK:
+                    message.Result = IntPtr.Zero;
+                    return;
             }
 
             base.WndProc(ref message);
-        }
-
-        private void mainContainer_Click(object sender, EventArgs e)
-        {
-
         }
 
 
@@ -390,16 +392,28 @@ namespace GUI
         {
             while (true)
             {
-                string currentTime = DateTime.Now.ToString(CConfig.Time_Format_String);
-                // Sử dụng Form hoặc Control cha để gọi BeginInvoke
-                this.BeginInvoke(new Action(() =>
+                try
                 {
-                    lblTime.Caption = currentTime;
-                }));
+                    string currentTime = DateTime.Now.ToString(CConfig.Time_Format_String);
 
-                Thread.Sleep(1000); // Thêm delay để tránh vòng lặp quá nhanh
+                    // Sử dụng Form hoặc Control cha để gọi BeginInvoke
+                    this.BeginInvoke(new Action(() =>
+                    {
+                        lblTime.Caption = currentTime;
+                    }));
+
+                    Thread.Sleep(1000); // Thêm delay để tránh vòng lặp quá nhanh
+                }
+                catch (Exception)
+                {
+
+                }
             }
         }
 
+        private void arrFunction_ElementClick(object sender, ElementClickEventArgs e)
+        {
+            accordionControl.FindForm().Activate();
+        }
     }
 }

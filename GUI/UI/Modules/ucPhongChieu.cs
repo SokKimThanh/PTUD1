@@ -1,6 +1,7 @@
 ﻿using BUS.Danh_Muc;
 using DevExpress.Charts.Native;
 using DTO;
+using GUI.UI.Component;
 using System;
 using System.Windows.Forms;
 
@@ -9,12 +10,38 @@ namespace GUI.UI.Modules
     public partial class ucPhongChieu : ucBase
     {
         private tbl_DM_Theater_BUS theater_bus = new tbl_DM_Theater_BUS();
+
+        // Component grid view layout custom
+        GridViewLayoutCustom gridViewLayoutCustom = new GridViewLayoutCustom();
+
+        // Component Barmanager menu layout custom
+        BarManagerLayoutCustom barManagerLayoutCustom = new BarManagerLayoutCustom();
+
+        // Component layout allow show/hide control menu customize
+        LayoutControlCustom layoutControlCustom = new LayoutControlCustom();
         public ucPhongChieu()
         {
             InitializeComponent();
             gvTheaters.OptionsView.ShowGroupPanel = false;
             gvTheaters.OptionsFind.AlwaysVisible = true;
             ActionBar.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Top;
+
+            // Ngăn không cho phép sửa dữ liệu trực tiếp trên GridView
+            gvTheaters.OptionsBehavior.Editable = false;
+
+            barManagerLayoutCustom.BarManagerCustom = barManager1;
+
+            // Tùy chỉnh hiển thị find panel trên grid view
+            gridViewLayoutCustom.ConfigureFindPanel(gvTheaters);
+
+            // Tùy chỉnh vô hiệu hóa chuột phải design mode trên menu
+            barManagerLayoutCustom.DisableCustomization();
+
+            // Tùy chỉnh vô hiệu hóa kéo thu nhỏ di chuyển menu
+            barManagerLayoutCustom.DisableMoving();
+
+            // Tùy chỉnh vô hiệu hóa design mode menu con của layout control 
+            layoutControlCustom.DisableLayoutCustomization(layoutForm);
         }
 
         /// <summary>

@@ -81,6 +81,30 @@ namespace DAL
 
             return v_arrRes;
         }
+        public void RemoveData(long p_lngAuto_ID, string p_strUpdated_By, string p_strUpdated_By_Function)
+        {
+            try
+            {
+                List<tbl_DM_BillDetail> v_arrRes = DBDataContext.tbl_DM_BillDetails.Where(it => it.BD_AutoID == p_lngAuto_ID).ToList();
+                foreach (tbl_DM_BillDetail v_objRes in v_arrRes)
+                {
+                    if (v_objRes != null)
+                    {
+                        v_objRes.DELETED = 1;
+                        v_objRes.UPDATED = DateTime.Now;
+                        v_objRes.UPDATED_BY = p_strUpdated_By;
+                        v_objRes.UPDATED_BY_FUNCTION = p_strUpdated_By_Function;
+
+
+                        DBDataContext.SubmitChanges();
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
         public override void RemoveData(int id)
         {

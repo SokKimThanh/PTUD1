@@ -23,6 +23,20 @@ namespace BUS.Danh_Muc
             }
         }
 
+        public void UpdateData(long p_lngAuto_ID, double p_dblGia)
+        {
+            tbl_DM_Bill_DAL v_objDal = new tbl_DM_Bill_DAL();
+            try
+            {
+                v_objDal.UpdateData(p_lngAuto_ID, p_dblGia);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
         public List<tbl_DM_Bill_DTO> List_Data()
         {
             tbl_DM_Bill_DAL v_objDal = new tbl_DM_Bill_DAL();
@@ -55,6 +69,19 @@ namespace BUS.Danh_Muc
             try
             {
                 return v_objDal.Get_Data_By_Code(p_strCode);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void RemoveData(long p_lngAuto_ID, string p_strUpdated_By, string p_strUpdated_By_Function)
+        {
+            tbl_DM_Bill_DAL v_objDal = new tbl_DM_Bill_DAL();
+            try
+            {
+                v_objDal.RemoveData(p_lngAuto_ID, p_strUpdated_By, p_strUpdated_By_Function);
             }
             catch (Exception)
             {

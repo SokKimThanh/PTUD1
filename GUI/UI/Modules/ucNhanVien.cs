@@ -7,6 +7,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using DTO.Custom;
 using DTO.tbl_DTO;
 using DTO.Utility;
+using GUI.UI.Component;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,6 +28,14 @@ namespace GUI.UI.Modules
 
         private List<string> arrLevel = new List<string>();
 
+        // Component grid view layout custom
+        GridViewLayoutCustom gridViewLayoutCustom = new GridViewLayoutCustom();
+
+        // Component Barmanager menu layout custom
+        BarManagerLayoutCustom barManagerLayoutCustom = new BarManagerLayoutCustom();
+
+        // Component layout allow show/hide control menu customize
+        LayoutControlCustom layoutControlCustom = new LayoutControlCustom();
         public ucNhanVien()
         {
             InitializeComponent();
@@ -56,6 +65,20 @@ namespace GUI.UI.Modules
             cbbLevel.Properties.Items.Add(LanguageController.GetLanguageDataLabel("Staff"));
 
             cbbLevel.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            
+            barManagerLayoutCustom.BarManagerCustom = barManager1;
+
+            // Tùy chỉnh hiển thị find panel trên grid view
+            gridViewLayoutCustom.ConfigureFindPanel(grdData);
+
+            // Tùy chỉnh vô hiệu hóa chuột phải design mode trên menu
+            barManagerLayoutCustom.DisableCustomization();
+
+            // Tùy chỉnh vô hiệu hóa kéo thu nhỏ di chuyển menu
+            barManagerLayoutCustom.DisableMoving();
+
+            // Tùy chỉnh vô hiệu hóa design mode menu con của layout control 
+            layoutControlCustom.DisableLayoutCustomization(layoutForm);
         }
 
         protected override void Load_Data()

@@ -2,9 +2,11 @@
 using BUS.Sys;
 using DevExpress.XtraBars.FluentDesignSystem;
 using DevExpress.XtraEditors;
+using DevExpress.XtraExport.Helpers;
 using DevExpress.XtraGrid.Views.Grid;
 using DTO.tbl_DTO;
 using DTO.Utility;
+using GUI.UI.Component;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,19 +23,17 @@ namespace GUI.UI.Modules
     public partial class ucChonSanPham : ucBase
     {
         private List<tbl_DM_Product_DTO> m_arrSP_Chon = new List<tbl_DM_Product_DTO>();
-        public string[] Danh_Sach_Ten_Ghe
-        {
-            get;
-            set;
-        }
+        public string[] Danh_Sach_Ten_Ghe { get; set; }
+        public double Tong_Tien_Ghe { get; set; }
 
-        public double Tong_Tien_Ghe
-        {
-            get;
-            set;
-        }
+        // Component grid view layout custom
+        GridViewLayoutCustom gridViewLayoutCustom = new GridViewLayoutCustom();
 
+        // Component Barmanager menu layout custom
+        BarManagerLayoutCustom barManagerLayoutCustom = new BarManagerLayoutCustom();
 
+        // Component layout allow show/hide control menu customize
+        LayoutControlCustom layoutControlCustom = new LayoutControlCustom();
         public ucChonSanPham()
         {
             InitializeComponent();
@@ -66,6 +66,29 @@ namespace GUI.UI.Modules
             grdHien_Thi_San_Pham.Columns["PD_QUANTITY"].Caption = LanguageController.GetLanguageDataLabel("Số lượng");
             grdHien_Thi_San_Pham.Columns["PD_PRICE"].Caption = LanguageController.GetLanguageDataLabel("Giá");
             FormatGridView(grdHien_Thi_San_Pham);
+
+            // Ngăn không cho phép chỉnh sửa trực tiếp trên GridView
+            grdChon_San_Pham.OptionsBehavior.Editable = false;
+
+            // Ngăn không cho phép chỉnh sửa trực tiếp trên GridView
+            grdHien_Thi_San_Pham.OptionsBehavior.Editable = false;
+
+            barManagerLayoutCustom.BarManagerCustom = barManager1;
+
+            // Tùy chỉnh hiển thị find panel trên grid view
+            gridViewLayoutCustom.ConfigureFindPanel(grdChon_San_Pham);
+
+            // Tùy chỉnh hiển thị find panel trên grid view
+            gridViewLayoutCustom.ConfigureFindPanel(grdHien_Thi_San_Pham);
+
+            // Tùy chỉnh vô hiệu hóa chuột phải design mode trên menu
+            barManagerLayoutCustom.DisableCustomization();
+
+            // Tùy chỉnh vô hiệu hóa kéo thu nhỏ di chuyển menu
+            barManagerLayoutCustom.DisableMoving();
+
+            // Tùy chỉnh vô hiệu hóa design mode menu con của layout control 
+            layoutControlCustom.DisableLayoutCustomization(layoutForm);
         }
 
 

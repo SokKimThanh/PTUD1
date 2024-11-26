@@ -1,5 +1,7 @@
-﻿using DTO.Common;
+﻿using BUS.Danh_Muc;
+using DTO.Common;
 using DTO.Custom;
+using DTO.tbl_DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,8 +10,11 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Management;
 using System.Text;
+using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 using static DevExpress.XtraEditors.Mask.MaskSettings;
+using System.Linq;
 
 namespace GUI
 {
@@ -50,6 +55,9 @@ namespace GUI
                 Save_Connection();
 
                 v_iStep = 8;
+                Task.Run(() => Auto_Delete_Tiket());
+
+                v_iStep = 9;
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new frmMain());
@@ -317,6 +325,85 @@ namespace GUI
             {
                 throw;
             }
+        }
+
+
+        private static async Task<int> Auto_Delete_Tiket()
+        {
+            await Task.Delay(1);
+            DateTime v_dtmStart = DateTime.Now;
+            try
+            {
+                tbl_DM_Bill_BUS v_objBill_Bus = new tbl_DM_Bill_BUS();
+                tbl_DM_BillDetail_BUS v_objBill_Detail_BUS = new tbl_DM_BillDetail_BUS();
+                tbl_DM_Ticket_BUS v_objTiket_BUS = new tbl_DM_Ticket_BUS();
+                tbl_DM_Product_BUS v_objProduct_BUS = new tbl_DM_Product_BUS();
+                tbl_DM_MovieSchedule_BUS v_objMovieSchedule_Bus = new tbl_DM_MovieSchedule_BUS();
+                tbl_DM_Movie_BUS v_objMovie_Bus = new tbl_DM_Movie_BUS();
+
+                foreach (tbl_DM_Bill_DTO v_objData in v_objBill_Bus.List_Data())
+                {
+                    // Lấy tiền của hóa đơn
+                    double v_dblPrice = v_objData.BL_Total_Price;
+
+                    //Tính tiền cần thanh toán dựa trên ghế và sản phẩm
+                    v_objData.Bill_Detail = v_objBill_Detail_BUS.List_Data_By_Bill_ID(v_objData.BL_AutoID);
+                    v_objData.Tiket = v_objTiket_BUS.List_Data_By_Bill_ID(v_objData.BL_AutoID);
+
+
+                    double v_dblTong_Tien_SP = 0;
+                    foreach (tbl_DM_BillDetail_DTO v_objBillDetail in v_objData.Bill_Detail)
+                    {
+                        tbl_DM_Product_DTO v_objSP = v_objProduct_BUS.Find(v_objBillDetail.BD_PRODUCT_AutoID);
+                        if (v_objSP != null)
+                        {
+                            v_dblTong_Tien_SP += v_objSP.PD_PRICE * v_objBillDetail.BD_QUANTITY;
+                        }
+                    }
+
+
+                    tbl_DM_Ticket_DTO v_objTiket = v_objData.Tiket.FirstOrDefault(it => it.BillID == v_objData.BL_AutoID);
+                    if (v_objTiket != null)
+                    {
+                        //Lấy suất chiếu
+                        double v_dblTong_Tien_Ve = 0;
+
+                        tbl_DM_MovieSchedule_DTO v_objMovieSchedule = v_objMovieSchedule_Bus.GetLastMovieSchedule_ByID(v_objTiket.MovieScheID);
+                        if (v_objMovieSchedule_Bus != null)
+                        {
+                            if ((DateTime.Now - v_objMovieSchedule.EndDate).TotalMilliseconds < 0)
+                            {
+                                continue;
+                            }
+
+                            //Lấy phim
+                            tbl_DM_Movie_DTO v_objMovie = v_objMovie_Bus.Find(v_objMovieSchedule.Movie_AutoID);
+
+                            if (v_objMovie != null)
+                            {
+                                v_dblTong_Tien_Ve = v_objData.Tiket.Count * v_objMovie.MV_PRICE;
+                            }
+                        }
+
+                        //Tính dựa trên thực tế
+                        if (v_dblTong_Tien_Ve + v_dblTong_Tien_SP > v_objData.BL_Total_Price)
+                        {
+                            //Tiến hành xóa theo hóa đơn
+                            v_objBill_Bus.RemoveData(v_objData.BL_AutoID, CCommon.MaDangNhap, "Auto_Delete");
+                            v_objBill_Detail_BUS.RemoveData(v_objData.BL_AutoID, CCommon.MaDangNhap, "Auto_Delete");
+                            v_objTiket_BUS.RemoveData_By_Bill_ID(v_objData.BL_AutoID, CCommon.MaDangNhap, "Auto_Delete");
+                        }
+                    }
+
+                }
+
+            }
+            catch (Exception)
+            {
+
+            }
+
+            return (DateTime.Now - v_dtmStart).Milliseconds;
         }
     }
 }

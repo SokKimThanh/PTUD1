@@ -1,8 +1,11 @@
 ﻿using BUS.Bao_Cao;
 using DevExpress.DataAccess.EntityFramework;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraLayout;
 using DevExpress.XtraPrinting;
 using DevExpress.XtraReports.UI;
+using GUI.UI.Component;
 using GUI.UI.ReportDesign;
 using System;
 using System.Windows.Forms;
@@ -15,11 +18,35 @@ namespace GUI.UI.Modules
         private DateTime startDate;
         private DateTime endDate;
 
+        // Component grid view layout custom
+        GridViewLayoutCustom gridViewLayoutCustom = new GridViewLayoutCustom();
+
+        // Component Barmanager menu layout custom
+        BarManagerLayoutCustom barManagerLayoutCustom = new BarManagerLayoutCustom();
+
+        // Component layout allow show/hide control menu customize
+        LayoutControlCustom layoutControlCustom = new LayoutControlCustom();
+
         public ucBaoCaoDoanhThu()
         {
             InitializeComponent();
+
             // Ngăn không cho phép chỉnh sửa trực tiếp trên GridView
-            gridView1.OptionsBehavior.Editable = false;
+            gridView1.OptionsBehavior.Editable = false; 
+
+            barManagerLayoutCustom.BarManagerCustom = barManager1; 
+
+            // Tùy chỉnh hiển thị find panel trên grid view
+            gridViewLayoutCustom.ConfigureFindPanel(gridView1);
+
+            // Tùy chỉnh vô hiệu hóa chuột phải design mode trên menu
+            barManagerLayoutCustom.DisableCustomization();
+
+            // Tùy chỉnh vô hiệu hóa kéo thu nhỏ di chuyển menu
+            barManagerLayoutCustom.DisableMoving();
+             
+            // Tùy chỉnh vô hiệu hóa design mode menu con của layout control 
+            layoutControlCustom.DisableLayoutCustomization(layoutForm);
         }
 
         protected override void Load_Data()
@@ -69,7 +96,7 @@ namespace GUI.UI.Modules
             {
                 executeReport();
             }
-        } 
+        }
         private void btnTaoBaoCao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) &&

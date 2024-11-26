@@ -8,6 +8,7 @@ using BUS.Danh_Muc;
 using DTO;
 using DTO.Common;
 using DTO.tbl_DTO;
+using GUI.UI.Component;
 
 namespace GUI.UI.Modules
 {
@@ -50,6 +51,12 @@ namespace GUI.UI.Modules
         private int paddingLeftRight_Couples = 0;
         private int minPadding = 20;
         private Point previousPanelPoint;
+         
+        // Component Barmanager menu layout custom
+        BarManagerLayoutCustom barManagerLayoutCustom = new BarManagerLayoutCustom();
+
+        // Component layout allow show/hide control menu customize
+        LayoutControlCustom layoutControlCustom = new LayoutControlCustom();
 
         public ucChonGhe()
         {
@@ -82,6 +89,17 @@ namespace GUI.UI.Modules
 
             // Hiển thị số lượng vé đang đặt
             txtQuantity.Text = count.ToString().Trim();
+             
+            barManagerLayoutCustom.BarManagerCustom = barManager1;
+              
+            // Tùy chỉnh vô hiệu hóa chuột phải design mode trên menu
+            barManagerLayoutCustom.DisableCustomization();
+
+            // Tùy chỉnh vô hiệu hóa kéo thu nhỏ di chuyển menu
+            barManagerLayoutCustom.DisableMoving();
+
+            // Tùy chỉnh vô hiệu hóa design mode menu con của layout control 
+            layoutControlCustom.DisableLayoutCustomization(layoutForm);
         }
 
         private void ucChonGhe_Load(object sender, System.EventArgs e)
@@ -140,7 +158,7 @@ namespace GUI.UI.Modules
                 }
                 else
                 {
-                    seats_Couple[couple] = 0;
+                    seats_Couple[couple] = 2;
                 }
             }
 
