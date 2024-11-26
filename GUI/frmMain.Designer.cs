@@ -77,17 +77,17 @@
             this.accordionControl.AllowItemSelection = true;
             this.accordionControl.Appearance.AccordionControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(88)))), ((int)(((byte)(143)))));
             this.accordionControl.Appearance.AccordionControl.Options.UseBackColor = true;
-            this.accordionControl.Appearance.Item.Default.Font = ((System.Drawing.Font)(resources.GetObject("arrFunction.Appearance.Item.Default.Font")));
+            this.accordionControl.Appearance.Item.Default.Font = ((System.Drawing.Font)(resources.GetObject("accordionControl.Appearance.Item.Default.Font")));
             this.accordionControl.Appearance.Item.Default.ForeColor = System.Drawing.Color.White;
             this.accordionControl.Appearance.Item.Default.Options.UseFont = true;
             this.accordionControl.Appearance.Item.Default.Options.UseForeColor = true;
             this.accordionControl.Appearance.Item.Hovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(223)))), ((int)(((byte)(246)))));
-            this.accordionControl.Appearance.Item.Hovered.Font = ((System.Drawing.Font)(resources.GetObject("arrFunction.Appearance.Item.Hovered.Font")));
+            this.accordionControl.Appearance.Item.Hovered.Font = ((System.Drawing.Font)(resources.GetObject("accordionControl.Appearance.Item.Hovered.Font")));
             this.accordionControl.Appearance.Item.Hovered.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.accordionControl.Appearance.Item.Hovered.Options.UseBackColor = true;
             this.accordionControl.Appearance.Item.Hovered.Options.UseFont = true;
             this.accordionControl.Appearance.Item.Hovered.Options.UseForeColor = true;
-            this.accordionControl.Appearance.Item.Pressed.Font = ((System.Drawing.Font)(resources.GetObject("arrFunction.Appearance.Item.Pressed.Font")));
+            this.accordionControl.Appearance.Item.Pressed.Font = ((System.Drawing.Font)(resources.GetObject("accordionControl.Appearance.Item.Pressed.Font")));
             this.accordionControl.Appearance.Item.Pressed.Options.UseFont = true;
             this.accordionControl.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.aceDatVe,
@@ -97,6 +97,7 @@
             this.accordionControl.Name = "accordionControl";
             this.accordionControl.OptionsHamburgerMenu.HighlightRootElements = DevExpress.Utils.DefaultBoolean.True;
             this.accordionControl.OptionsMinimizing.AllowMinimizeMode = DevExpress.Utils.DefaultBoolean.True;
+            this.accordionControl.OptionsMinimizing.State = DevExpress.XtraBars.Navigation.AccordionControlState.Minimized;
             this.accordionControl.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Fluent;
             this.accordionControl.ShowFilterControl = DevExpress.XtraBars.Navigation.ShowFilterControl.Auto;
             this.accordionControl.ShowItemExpandButtons = false;

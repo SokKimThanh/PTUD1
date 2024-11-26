@@ -118,24 +118,21 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="mainContainer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>250, 31</value>
+  <data name="accordionControl.Appearance.Item.Default.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 11.25pt</value>
   </data>
-  <data name="mainContainer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>948, 768</value>
+  <data name="accordionControl.Appearance.Item.Hovered.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 11.25pt</value>
   </data>
-  <data name="arrFunction.Appearance.Item.Default.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 12pt</value>
-  </data>
-  <data name="arrFunction.Appearance.Item.Hovered.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 12pt</value>
-  </data>
-  <data name="arrFunction.Appearance.Item.Pressed.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="accordionControl.Appearance.Item.Pressed.Font" type="System.Drawing.Font, System.Drawing">
     <value>Tahoma, 11.25pt</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="accordionControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
+  </data>
+  <data name="accDatVe.Hint" xml:space="preserve">
+    <value>Đặt vé xem phim</value>
   </data>
   <data name="aceDanhMuc.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -187,18 +184,6 @@
         SUVORK5CYII=
 </value>
   </data>
-  <data name="accordionControl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="accordionControl.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="accordionControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 768</value>
-  </data>
-  <data name="accDatVe.Hint" xml:space="preserve">
-    <value>Đặt vé xem phim</value>
-  </data>
   <data name="accCaiDat.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACt0RVh0VGl0
@@ -219,5 +204,14 @@
         5o6reWI25wDYrkLMtXMJJWv0lZmPVxNiI+uF4wF/ER3sJOLp46b974H9EYPxE5lctVMC1DujAAAAAElF
         TkSuQmCC
 </value>
+  </data>
+  <data name="accordionControl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="accordionControl.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="accordionControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 768</value>
   </data>
 </root>

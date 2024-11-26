@@ -115,6 +115,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\Component\BarManagerLayoutCustom.cs" />
+    <Compile Include="UI\Component\CardViewLayoutCustom.cs" />
     <Compile Include="UI\Component\ComboBoxItem.cs" />
     <Compile Include="UI\Component\ExpenseStatus.cs" />
     <Compile Include="UI\Component\GridViewLayoutCustom.cs" />

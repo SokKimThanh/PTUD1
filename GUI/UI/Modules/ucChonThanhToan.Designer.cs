@@ -138,13 +138,13 @@
             this.gvSanPham.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.layoutView1});
             // 
-            // layoutView1
+            // lView
             // 
             this.layoutView1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.layoutView1.CardMinSize = new System.Drawing.Size(200, 200);
             this.layoutView1.CardVertInterval = 1;
             this.layoutView1.GridControl = this.gvSanPham;
-            this.layoutView1.Name = "layoutView1";
+            this.layoutView1.Name = "lView";
             this.layoutView1.OptionsView.CardsAlignment = DevExpress.XtraGrid.Views.Layout.CardsAlignment.Near;
             this.layoutView1.OptionsView.ShowCardCaption = false;
             this.layoutView1.OptionsView.ShowCardLines = false;

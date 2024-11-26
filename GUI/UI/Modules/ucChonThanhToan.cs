@@ -39,6 +39,9 @@ namespace GUI.UI.Modules
         // Component layout allow show/hide control menu customize
         LayoutControlCustom layoutControlCustom = new LayoutControlCustom();
 
+        // Component layout view custom for template card
+        CardViewLayoutCustom cardViewLayoutCustom = new CardViewLayoutCustom();
+
         public ucChonThanhToan()
         {
             InitializeComponent();
@@ -324,46 +327,11 @@ namespace GUI.UI.Modules
 
         public void SetupLayoutView()
         {
-            // Set the card's minimum size.
-            layoutView1.CardMinSize = new Size(200, 250);
-            layoutView1.OptionsCustomization.AllowFilter = false;
-            layoutView1.OptionsCustomization.ShowGroupView = false;
-
-            // Ngăn không cho phép sửa dữ liệu trực tiếp trên Layoutview
-            layoutView1.OptionsBehavior.Editable = false;
-
-            // Duyệt qua tất cả các cột và ẩn các cột không cần thiết
-            foreach (LayoutViewColumn column in layoutView1.Columns)
-            {
-                // ẩn tất cả cột không cần thiết
-                column.Visible = false;
-
-                // tắt cái tiêu đề của field
-                column.LayoutViewField.TextVisible = false;
-            }
-
-            // Tạo cột hình ảnh không có sẵn trong dữ liệu (Unbound)
-            LayoutViewColumn hinhAnhColumn = layoutView1.Columns.AddField("PosterImage");
-
-            // tắt cái tiêu đề của field
-            hinhAnhColumn.LayoutViewField.TextVisible = false;
-            hinhAnhColumn.UnboundType = DevExpress.Data.UnboundColumnType.Object;
-            hinhAnhColumn.Visible = true;
-            hinhAnhColumn.Caption = "Hình ảnh";
-
-            // Thiết lập LayoutViewField cho cột hình ảnh
-            hinhAnhColumn.LayoutViewField.TextVisible = false;
-            hinhAnhColumn.LayoutViewField.SizeConstraintsType = SizeConstraintsType.Custom;
-            hinhAnhColumn.LayoutViewField.MinSize = new Size(200, 250); // Minimum size of the card
-            hinhAnhColumn.LayoutViewField.MaxSize = new Size(200, 250); // Maximum size of the card
-            hinhAnhColumn.LayoutViewField.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0); // Remove any padding
-
-            // Thiết lập RepositoryItemPictureEdit để hiển thị hình ảnh
-            RepositoryItemPictureEdit pictureEdit = new RepositoryItemPictureEdit();
-            pictureEdit.SizeMode = PictureSizeMode.Squeeze; // Stretch to fit
-            pictureEdit.PictureAlignment = ContentAlignment.MiddleCenter; // Center the image
-            gvSanPham.RepositoryItems.Add(pictureEdit);
-            hinhAnhColumn.ColumnEdit = pictureEdit;
+            cardViewLayoutCustom.LayoutView1 = layoutView1;
+            cardViewLayoutCustom.GridControl1 = gvSanPham;
+            cardViewLayoutCustom.ImageURLFieldName = "PD_IMAGEURL";
+            cardViewLayoutCustom.SetupLayoutView();
+            cardViewLayoutCustom.AddPhoto();
 
             // Tìm cột PD_NAME và cấu hình nếu cột tồn tại
             LayoutViewColumn tenSanPham = layoutView1.Columns.ColumnByFieldName("PD_NAME");

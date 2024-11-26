@@ -37,7 +37,6 @@
             this.layoutForm = new DevExpress.XtraLayout.LayoutControl();
             this.dgvMovies = new DevExpress.XtraGrid.GridControl();
             this.layoutView1 = new DevExpress.XtraGrid.Views.Layout.LayoutView();
-            this.layoutViewCard1 = new DevExpress.XtraGrid.Views.Layout.LayoutViewCard();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
@@ -67,13 +66,13 @@
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.ActionBar = new DevExpress.XtraBars.Bar();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.ActionBar = new DevExpress.XtraBars.Bar();
+            this.layoutViewCard1 = new DevExpress.XtraGrid.Views.Layout.LayoutViewCard();
             ((System.ComponentModel.ISupportInitialize)(this.layoutForm)).BeginInit();
             this.layoutForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovies)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutViewCard1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtThoiLuong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAgeRating.Properties)).BeginInit();
@@ -97,6 +96,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutViewCard1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnThucThi
@@ -173,7 +173,7 @@
             // 
             this.layoutView1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.layoutView1.CardHorzInterval = 3;
-            this.layoutView1.CardMinSize = new System.Drawing.Size(171, 162);
+            this.layoutView1.CardMinSize = new System.Drawing.Size(200, 200);
             this.layoutView1.CardVertInterval = 0;
             this.layoutView1.GridControl = this.dgvMovies;
             this.layoutView1.Name = "layoutView1";
@@ -188,24 +188,15 @@
             this.layoutView1.OptionsCustomization.ShowGroupLayout = false;
             this.layoutView1.OptionsCustomization.ShowGroupLayoutTreeView = false;
             this.layoutView1.OptionsCustomization.ShowGroupView = false;
+            this.layoutView1.OptionsItemText.AlignMode = DevExpress.XtraGrid.Views.Layout.FieldTextAlignMode.CustomSize;
+            this.layoutView1.OptionsItemText.TextToControlDistance = 2;
             this.layoutView1.OptionsView.ShowCardCaption = false;
             this.layoutView1.OptionsView.ShowCardExpandButton = false;
+            this.layoutView1.OptionsView.ShowCardFieldBorders = true;
             this.layoutView1.OptionsView.ShowCardLines = false;
             this.layoutView1.OptionsView.ShowHeaderPanel = false;
-            this.layoutView1.OptionsView.ViewMode = DevExpress.XtraGrid.Views.Layout.LayoutViewMode.MultiColumn;
+            this.layoutView1.OptionsView.ViewMode = DevExpress.XtraGrid.Views.Layout.LayoutViewMode.MultiRow;
             this.layoutView1.TemplateCard = this.layoutViewCard1;
-            this.layoutView1.CustomUnboundColumnData += new DevExpress.XtraGrid.Views.Base.CustomColumnDataEventHandler(this.layoutView1_CustomUnboundColumnData);
-            // 
-            // layoutViewCard1
-            // 
-            this.layoutViewCard1.CustomizationFormText = "TemplateCard";
-            this.layoutViewCard1.GroupBordersVisible = false;
-            this.layoutViewCard1.HeaderButtonsLocation = DevExpress.Utils.GroupElementLocation.AfterText;
-            this.layoutViewCard1.Name = "layoutViewCard1";
-            this.layoutViewCard1.OptionsCustomization.AllowDrag = DevExpress.XtraLayout.ItemDragDropMode.Disable;
-            this.layoutViewCard1.OptionsCustomization.AllowDrop = DevExpress.XtraLayout.ItemDragDropMode.Disable;
-            this.layoutViewCard1.OptionsItemText.TextToControlDistance = 5;
-            this.layoutViewCard1.Text = "TemplateCard";
             // 
             // barManager1
             // 
@@ -568,6 +559,14 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
+            // emptySpaceItem2
+            // 
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 722);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(1017, 20);
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
+            // 
             // ActionBar
             // 
             this.ActionBar.BarName = "Main menu";
@@ -580,13 +579,17 @@
             this.ActionBar.OptionsBar.UseWholeRow = true;
             this.ActionBar.Text = "Main menu";
             // 
-            // emptySpaceItem2
+            // layoutViewCard1
             // 
-            this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 722);
-            this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(1017, 20);
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutViewCard1.CustomizationFormText = "TemplateCard";
+            this.layoutViewCard1.GroupBordersVisible = false;
+            this.layoutViewCard1.HeaderButtonsLocation = DevExpress.Utils.GroupElementLocation.AfterText;
+            this.layoutViewCard1.Name = "layoutViewCard1";
+            this.layoutViewCard1.OptionsCustomization.AllowDrag = DevExpress.XtraLayout.ItemDragDropMode.Disable;
+            this.layoutViewCard1.OptionsCustomization.AllowDrop = DevExpress.XtraLayout.ItemDragDropMode.Disable;
+            this.layoutViewCard1.OptionsItemText.TextToControlDistance = 2;
+            this.layoutViewCard1.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
+            this.layoutViewCard1.Text = "TemplateCard";
             // 
             // ucChonPhim
             // 
@@ -605,7 +608,6 @@
             this.layoutForm.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovies)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutViewCard1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtThoiLuong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAgeRating.Properties)).EndInit();
@@ -629,6 +631,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutViewCard1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -673,7 +676,7 @@
         private DevExpress.XtraGrid.Views.Layout.LayoutView layoutView1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraEditors.DateEdit dtpDate;
-        private DevExpress.XtraGrid.Views.Layout.LayoutViewCard layoutViewCard1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
+        private DevExpress.XtraGrid.Views.Layout.LayoutViewCard layoutViewCard1;
     }
 }
