@@ -35,12 +35,14 @@ namespace GUI.UI.Modules
         private tbl_DM_Movie_BUS moiveBus = new tbl_DM_Movie_BUS();
         private tbl_DM_AgeRating_BUS ageBus = new tbl_DM_AgeRating_BUS();
         private tbl_DM_MovieSchedule_BUS movieScheBus = new tbl_DM_MovieSchedule_BUS();
-         
+
         // Component Barmanager menu layout custom
         BarManagerLayoutCustom barManagerLayoutCustom = new BarManagerLayoutCustom();
 
         // Component layout allow show/hide control menu customize
         LayoutControlCustom layoutControlCustom = new LayoutControlCustom();
+
+        CardViewLayoutCustom cardViewLayoutCustom = new CardViewLayoutCustom();
 
         //Khởi tạo giao diện
         public ucChonPhim()
@@ -54,10 +56,10 @@ namespace GUI.UI.Modules
         {
             LoadData();
             SetupLayoutView();
-             
+
 
             barManagerLayoutCustom.BarManagerCustom = barManager1;
-             
+
             // Tùy chỉnh vô hiệu hóa chuột phải design mode trên menu
             barManagerLayoutCustom.DisableCustomization();
 
@@ -87,7 +89,7 @@ namespace GUI.UI.Modules
             cboMovieSchedule.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             cboMovieSchedule.Properties.DisplayFormat.FormatString = CConfig.Time_Format_String;
 
-            
+
         }
         private void ClearData()
         {
@@ -171,7 +173,7 @@ namespace GUI.UI.Modules
             {
                 // Cập nhật lại danh sách các phim được chiếu trong ngày
                 dgvMovies.Refresh();
-                
+
                 dgvMovies.DataSource = moiveBus.GetMovies_ByScheduleDate((DateTime)dtpDate.EditValue);
 
                 // Hủy chọn suất chiếu trước đó do đổi ngày 
@@ -221,32 +223,6 @@ namespace GUI.UI.Modules
             }
         }
 
-        private void gridControl1_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
-        {
-            int[] dong = layoutView1.GetSelectedRows();
-            foreach (int i in dong)
-            {
-                if (i >= 0)
-                {
-                    try
-                    {
-                        string dgv_selected_id = layoutView1.GetRowCellValue(i, "MV_AutoID").ToString().Trim();
-                        tbl_DM_Movie_DTO o = moiveBus.Find(long.Parse(dgv_selected_id));
-                        tbl_DM_AgeRating_DTO foundAR = ageBus.Find((long)o.MV_AGERATING_AutoID);
-                        txtThoiLuong.Text = o.MV_DURATION.ToString().Trim();
-                        txtAgeRating.Text = foundAR.AR_NOTE.ToString().Trim();
-                        cboMovieSchedule.Properties.DataSource = movieScheBus.GetMovieSchedule_ByMovieDate(o.MV_AutoID, (DateTime)dtpDate.EditValue);
-                        cboMovieSchedule.ItemIndex = 0;
-
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Lỗi");
-                    }
-                }
-            }
-        }
-
         private void cboMovieSchedule_EditValueChanged(object sender, EventArgs e)
         {
             if (cboMovieSchedule.Properties.DataSource != null)
@@ -261,46 +237,10 @@ namespace GUI.UI.Modules
         }
         public void SetupLayoutView()
         {
-            // Set the card's minimum size.
-            layoutView1.CardMinSize = new Size(300, 350);
-            layoutView1.OptionsCustomization.AllowFilter = false;
-            layoutView1.OptionsCustomization.ShowGroupView = false;
-
-            // Ngăn không cho phép sửa dữ liệu trực tiếp trên Layoutview
-            layoutView1.OptionsBehavior.Editable = false;
-
-            // Duyệt qua tất cả các cột và ẩn các cột không cần thiết
-            foreach (LayoutViewColumn column in layoutView1.Columns)
-            {
-                // ẩn tất cả cột không cần thiết
-                column.Visible = false;
-
-                // tắt cái tiêu đề của field
-                column.LayoutViewField.TextVisible = false;
-            }
-
-            // Tạo cột hình ảnh không có sẵn trong dữ liệu (Unbound)
-            LayoutViewColumn hinhAnhColumn = layoutView1.Columns.AddField("PosterImage");
-
-            // tắt cái tiêu đề của field
-            hinhAnhColumn.LayoutViewField.TextVisible = false;
-            hinhAnhColumn.UnboundType = DevExpress.Data.UnboundColumnType.Object;
-            hinhAnhColumn.Visible = true;
-            hinhAnhColumn.Caption = "Hình ảnh";
-
-            // Thiết lập LayoutViewField cho cột hình ảnh
-            hinhAnhColumn.LayoutViewField.TextVisible = false;
-            hinhAnhColumn.LayoutViewField.SizeConstraintsType = SizeConstraintsType.Custom;
-            hinhAnhColumn.LayoutViewField.MinSize = new Size(300, 350); // Minimum size of the card
-            hinhAnhColumn.LayoutViewField.MaxSize = new Size(300, 350); // Maximum size of the card
-            hinhAnhColumn.LayoutViewField.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0); // Remove any padding
-
-            // Thiết lập RepositoryItemPictureEdit để hiển thị hình ảnh
-            RepositoryItemPictureEdit pictureEdit = new RepositoryItemPictureEdit();
-            pictureEdit.SizeMode = PictureSizeMode.Squeeze; // Stretch to fit
-            pictureEdit.PictureAlignment = ContentAlignment.MiddleCenter; // Center the image
-            dgvMovies.RepositoryItems.Add(pictureEdit);
-            hinhAnhColumn.ColumnEdit = pictureEdit;
+            
+            cardViewLayoutCustom.LayoutView1 = layoutView1;
+            cardViewLayoutCustom.GridControl1 = dgvMovies;
+            cardViewLayoutCustom.SetupLayoutView();
 
             // Tìm cột PD_NAME và cấu hình nếu cột tồn tại
             LayoutViewColumn tenSanPham = layoutView1.Columns.ColumnByFieldName("MV_NAME");
@@ -313,34 +253,9 @@ namespace GUI.UI.Modules
             {
                 Console.WriteLine("Cột 'MV_NAME' không tồn tại trong LayoutView.");
             }
-
         }
 
-        /// <summary>
-        /// Thêm cột hình ảnh khi hiển thị card
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void layoutView1_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
-        {
-            if (e.Column.FieldName == "PosterImage" && e.IsGetData)
-            {
-                // Lấy đường dẫn từ cột MV_POSTERURL của bản ghi hiện tại
-                string imagePath = layoutView1.GetRowCellValue(e.ListSourceRowIndex, "MV_POSTERURL")?.ToString();
 
-                // Kiểm tra nếu file tồn tại
-                if (!string.IsNullOrEmpty(imagePath) && File.Exists(imagePath))
-                {
-                    // Đọc hình ảnh từ đường dẫn
-                    e.Value = Image.FromFile(imagePath);
-                }
-                else
-                {
-                    // Nếu không có hình ảnh, sử dụng hình ảnh mặc định
-                    e.Value = Properties.Resources.picture_card_no_image;
-                }
-            }
-        }
 
         private void dgvMovies_Click(object sender, EventArgs e)
         {
