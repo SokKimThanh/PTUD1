@@ -117,8 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="accQLSuatChieu.Text" xml:space="preserve">
-    <value>Suất Chiếu</value>
+  <data name="&gt;&gt;accThoat.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="mainContainer.Location" type="System.Drawing.Point, System.Drawing">
@@ -133,9 +133,6 @@
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lblTime.ImageOptions.LargeImageIndex" type="System.Int32, mscorlib">
     <value>-1</value>
-  </data>
-  <data name="&gt;&gt;accLoaiChiPhi.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
@@ -153,14 +150,14 @@
   <data name="mainContainer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="&gt;&gt;accQLPhongChieu.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
   <data name="&gt;&gt;arrFunction.Name" xml:space="preserve">
     <value>arrFunction</value>
   </data>
-  <data name="accQLPhongChieu.Text" xml:space="preserve">
-    <value>Phòng Chiếu</value>
+  <data name="&gt;&gt;aceHeThong.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;accDatVe.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="accQLHoaDon.Text" xml:space="preserve">
     <value>Hóa Đơn</value>
@@ -168,8 +165,8 @@
   <data name="accQLHoaDon.Hint" xml:space="preserve">
     <value>Quản lý Hóa Đơn</value>
   </data>
-  <data name="accThoat.Text" xml:space="preserve">
-    <value>Thoát</value>
+  <data name="&gt;&gt;fluentDesignFormControl1.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="arrFunction.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
@@ -177,8 +174,8 @@
   <data name="accQLPhim.Text" xml:space="preserve">
     <value>Phim</value>
   </data>
-  <data name="&gt;&gt;fluentFormDefaultManager1.Name" xml:space="preserve">
-    <value>fluentFormDefaultManager1</value>
+  <data name="arrFunction.Appearance.Item.Default.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 12pt</value>
   </data>
   <data name="accQLNhanVien.Hint" xml:space="preserve">
     <value>Quản Lý Nhân Viên</value>
@@ -192,9 +189,6 @@
   <data name="&gt;&gt;accQLSanPham.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;accQLDanhGiaDoTuoi.Name" xml:space="preserve">
-    <value>accQLDanhGiaDoTuoi</value>
-  </data>
   <data name="lblTime.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
     <value>-1</value>
   </data>
@@ -204,8 +198,8 @@
   <data name="&gt;&gt;aceDanhMuc.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="accChiPhi.Text" xml:space="preserve">
-    <value>Chi phí</value>
+  <data name="&gt;&gt;accQLPhongChieu.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="fluentDesignFormControl1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
@@ -222,8 +216,11 @@
   <data name="&gt;&gt;accBaoCaoThuChi.Name" xml:space="preserve">
     <value>accBaoCaoThuChi</value>
   </data>
-  <data name="&gt;&gt;mainContainer.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="&gt;&gt;mainContainer.Name" xml:space="preserve">
+    <value>mainContainer</value>
+  </data>
+  <data name="&gt;&gt;accQLDanhGiaDoTuoi.Name" xml:space="preserve">
+    <value>accQLDanhGiaDoTuoi</value>
   </data>
   <data name="accQLSanPham.Text" xml:space="preserve">
     <value>Sản Phẩm</value>
@@ -246,13 +243,16 @@
   <data name="&gt;&gt;accChiPhi.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
+  <data name="arrFunction.Appearance.Item.Hovered.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 12pt</value>
+  </data>
+  <data name="accQLSuatChieu.Text" xml:space="preserve">
+    <value>Suất Chiếu</value>
+  </data>
   <data name="accQLPhanCa.Text" xml:space="preserve">
     <value>Phân Ca</value>
   </data>
   <data name="&gt;&gt;accQLDanhGiaDoTuoi.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;aceHeThong.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="accDatVe.Text" xml:space="preserve">
@@ -260,9 +260,6 @@
   </data>
   <data name="&gt;&gt;accDangXuat.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;accQLGhe.Name" xml:space="preserve">
-    <value>accQLGhe</value>
   </data>
   <data name="accQLGhe.Hint" xml:space="preserve">
     <value>Quản lý ghế</value>
@@ -276,20 +273,17 @@
   <data name="&gt;&gt;fluentDesignFormControl1.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;fluentDesignFormControl1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="aceDatVe.Hint" xml:space="preserve">
     <value>Đặt vé xem phim</value>
   </data>
   <data name="&gt;&gt;accChiPhi.Name" xml:space="preserve">
     <value>accChiPhi</value>
   </data>
-  <data name="accBaoCaoTonKho.Text" xml:space="preserve">
-    <value>Báo cáo Tồn Kho</value>
+  <data name="fluentDesignFormControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-  <data name="&gt;&gt;accLoaiChiPhi.Name" xml:space="preserve">
-    <value>accLoaiChiPhi</value>
+  <data name="arrFunction.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>PTUD: Cinema Management</value>
@@ -327,8 +321,8 @@
   <data name="&gt;&gt;accVe.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;accThoat.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="lblTime.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
   </data>
   <data name="&gt;&gt;arrFunction.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Navigation.AccordionControl, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
@@ -336,35 +330,35 @@
   <data name="accCaiDat.Text" xml:space="preserve">
     <value>Cài đặt</value>
   </data>
-  <data name="&gt;&gt;mainContainer.Name" xml:space="preserve">
-    <value>mainContainer</value>
+  <data name="mainContainer.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;accQLGhe.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="&gt;&gt;fluentFormDefaultManager1.Name" xml:space="preserve">
+    <value>fluentFormDefaultManager1</value>
   </data>
   <data name="accQLDanhGiaDoTuoi.Hint" xml:space="preserve">
     <value>Quản lý Đánh giá độ tuổi</value>
   </data>
-  <data name="&gt;&gt;accQLHoaDon.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="accQLPhongChieu.Text" xml:space="preserve">
+    <value>Phòng Chiếu</value>
   </data>
-  <data name="aceBaoCao.Text" xml:space="preserve">
-    <value>Báo cáo</value>
+  <data name="accThoat.Text" xml:space="preserve">
+    <value>Thoát</value>
   </data>
   <data name="accQLPhim.Hint" xml:space="preserve">
     <value>Quản Lý Phim</value>
   </data>
-  <data name="accQLNhanVien.Text" xml:space="preserve">
-    <value>Nhân Viên</value>
+  <data name="&gt;&gt;mainContainer.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="accQLGhe.Text" xml:space="preserve">
-    <value>Ghế</value>
+  <data name="&gt;&gt;accQLGhe.Name" xml:space="preserve">
+    <value>accQLGhe</value>
   </data>
   <data name="&gt;&gt;fluentFormDefaultManager1.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;accQLSuatChieu.Name" xml:space="preserve">
-    <value>accQLSuatChieu</value>
+  <data name="aceBaoCao.Text" xml:space="preserve">
+    <value>Báo cáo</value>
   </data>
   <data name="accVe.Text" xml:space="preserve">
     <value>Vé</value>
@@ -378,16 +372,13 @@
   <data name="&gt;&gt;accBaoCaoTonKho.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;fluentDesignFormControl1.Name" xml:space="preserve">
-    <value>fluentDesignFormControl1</value>
+  <data name="&gt;&gt;accQLGhe.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="accDangXuat.Text" xml:space="preserve">
     <value>Đăng xuất</value>
   </data>
-  <data name="&gt;&gt;accBaoCaoTonKho.Name" xml:space="preserve">
-    <value>accBaoCaoTonKho</value>
-  </data>
-  <data name="&gt;&gt;accQLNhanVien.Type" xml:space="preserve">
+  <data name="&gt;&gt;accLoaiChiPhi.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;accQLSuatChieu.Type" xml:space="preserve">
@@ -396,17 +387,23 @@
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
-  <data name="accQLPhongChieu.Hint" xml:space="preserve">
-    <value>Quản Lý Phòng Chiếu</value>
+  <data name="&gt;&gt;accBaoCaoTonKho.Name" xml:space="preserve">
+    <value>accBaoCaoTonKho</value>
   </data>
-  <data name="&gt;&gt;accQLPhim.Type" xml:space="preserve">
+  <data name="accQLDanhGiaDoTuoi.Text" xml:space="preserve">
+    <value>Đánh giá độ tuổi</value>
+  </data>
+  <data name="&gt;&gt;accQLHoaDon.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;accLoaiChiPhi.Name" xml:space="preserve">
+    <value>accLoaiChiPhi</value>
   </data>
   <data name="lblTime.Caption" xml:space="preserve">
     <value>Thời gian</value>
   </data>
-  <data name="accQLDanhGiaDoTuoi.Text" xml:space="preserve">
-    <value>Đánh giá độ tuổi</value>
+  <data name="&gt;&gt;mainContainer.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;aceBaoCao.Type" xml:space="preserve">
     <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
@@ -417,11 +414,14 @@
   <data name="&gt;&gt;accQLPhanCa.Name" xml:space="preserve">
     <value>accQLPhanCa</value>
   </data>
-  <data name="&gt;&gt;accBaoCaoDoanhThu.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="accChiPhi.Text" xml:space="preserve">
+    <value>Chi phí</value>
   </data>
   <data name="mainContainer.Size" type="System.Drawing.Size, System.Drawing">
     <value>1150, 768</value>
+  </data>
+  <data name="arrFunction.Appearance.Item.Pressed.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 11.25pt</value>
   </data>
   <data name="fluentDesignFormControl1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -431,78 +431,6 @@
   </data>
   <data name="fluentDesignFormControl1.Size" type="System.Drawing.Size, System.Drawing">
     <value>1198, 31</value>
-  </data>
-  <data name="arrFunction.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 768</value>
-  </data>
-  <data name="&gt;&gt;accQLPhongChieu.Name" xml:space="preserve">
-    <value>accQLPhongChieu</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>frmMain</value>
-  </data>
-  <data name="&gt;&gt;accBaoCaoThuChi.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;accVe.Name" xml:space="preserve">
-    <value>accVe</value>
-  </data>
-  <data name="accQLCaLamViec.Text" xml:space="preserve">
-    <value>Ca Làm Việc</value>
-  </data>
-  <data name="&gt;&gt;accCaiDat.Name" xml:space="preserve">
-    <value>accCaiDat</value>
-  </data>
-  <data name="lblTime.ImageOptions.SvgImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="aceHeThong.Text" xml:space="preserve">
-    <value>Hệ thống</value>
-  </data>
-  <data name="accBaoCaoDoanhThu.Text" xml:space="preserve">
-    <value>Báo cáo doanh thu</value>
-  </data>
-  <data name="accQLCaLamViec.Hint" xml:space="preserve">
-    <value>Quản lý Ca Làm Việc</value>
-  </data>
-  <data name="accBaoCaoThuChi.Text" xml:space="preserve">
-    <value>Báo cáo chi phí</value>
-  </data>
-  <data name="&gt;&gt;arrFunction.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;aceHeThong.Name" xml:space="preserve">
-    <value>aceHeThong</value>
-  </data>
-  <data name="&gt;&gt;accQLPhim.Name" xml:space="preserve">
-    <value>accQLPhim</value>
-  </data>
-  <data name="&gt;&gt;accQLPhanCa.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;lblTime.Name" xml:space="preserve">
-    <value>lblTime</value>
-  </data>
-  <data name="aceDanhMuc.Text" xml:space="preserve">
-    <value>Quản lý danh mục</value>
-  </data>
-  <data name="arrFunction.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 31</value>
-  </data>
-  <data name="mainContainer.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lblTime.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.BarHeaderItem, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="fluentDesignFormControl1.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="arrFunction.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="arrFunction.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
   </data>
   <data name="aceDanhMuc.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -554,17 +482,98 @@
         SUVORK5CYII=
 </value>
   </data>
+  <data name="arrFunction.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 768</value>
+  </data>
+  <data name="&gt;&gt;accQLPhongChieu.Name" xml:space="preserve">
+    <value>accQLPhongChieu</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>frmMain</value>
+  </data>
+  <data name="&gt;&gt;accBaoCaoThuChi.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;accVe.Name" xml:space="preserve">
+    <value>accVe</value>
+  </data>
+  <data name="accQLCaLamViec.Text" xml:space="preserve">
+    <value>Ca Làm Việc</value>
+  </data>
+  <data name="&gt;&gt;accCaiDat.Name" xml:space="preserve">
+    <value>accCaiDat</value>
+  </data>
+  <data name="accQLPhongChieu.Hint" xml:space="preserve">
+    <value>Quản Lý Phòng Chiếu</value>
+  </data>
+  <data name="accQLNhanVien.Text" xml:space="preserve">
+    <value>Nhân Viên</value>
+  </data>
+  <data name="&gt;&gt;accQLNhanVien.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="aceHeThong.Text" xml:space="preserve">
+    <value>Hệ thống</value>
+  </data>
+  <data name="accBaoCaoDoanhThu.Text" xml:space="preserve">
+    <value>Báo cáo doanh thu</value>
+  </data>
+  <data name="&gt;&gt;accQLPhim.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="accBaoCaoThuChi.Text" xml:space="preserve">
+    <value>Báo cáo chi phí</value>
+  </data>
+  <data name="accBaoCaoTonKho.Text" xml:space="preserve">
+    <value>Báo cáo Tồn Kho</value>
+  </data>
+  <data name="&gt;&gt;arrFunction.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="accQLGhe.Text" xml:space="preserve">
+    <value>Ghế</value>
+  </data>
+  <data name="&gt;&gt;accQLPhim.Name" xml:space="preserve">
+    <value>accQLPhim</value>
+  </data>
+  <data name="&gt;&gt;accQLPhanCa.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblTime.Name" xml:space="preserve">
+    <value>lblTime</value>
+  </data>
+  <data name="aceDanhMuc.Text" xml:space="preserve">
+    <value>Quản lý danh mục</value>
+  </data>
+  <data name="arrFunction.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 31</value>
+  </data>
+  <data name="&gt;&gt;fluentDesignFormControl1.Name" xml:space="preserve">
+    <value>fluentDesignFormControl1</value>
+  </data>
+  <data name="arrFunction.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;lblTime.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.BarHeaderItem, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="accQLCaLamViec.Hint" xml:space="preserve">
+    <value>Quản lý Ca Làm Việc</value>
+  </data>
+  <data name="&gt;&gt;accBaoCaoDoanhThu.Type" xml:space="preserve">
+    <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
   <data name="accQLSanPham.Hint" xml:space="preserve">
     <value>Quản Lý Sản Phẩm</value>
   </data>
-  <data name="&gt;&gt;mainContainer.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;aceHeThong.Name" xml:space="preserve">
+    <value>aceHeThong</value>
   </data>
   <data name="&gt;&gt;accQLNhanVien.Name" xml:space="preserve">
     <value>accQLNhanVien</value>
   </data>
-  <data name="&gt;&gt;accDatVe.Type" xml:space="preserve">
-    <value>DevExpress.XtraBars.Navigation.AccordionControlElement, DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="&gt;&gt;accQLSuatChieu.Name" xml:space="preserve">
+    <value>accQLSuatChieu</value>
   </data>
   <data name="&gt;&gt;accDangXuat.Name" xml:space="preserve">
     <value>accDangXuat</value>
