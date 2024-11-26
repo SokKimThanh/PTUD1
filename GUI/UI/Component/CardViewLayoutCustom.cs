@@ -34,9 +34,9 @@ namespace GUI.UI.Component
         /// <summary>
         /// Set the card's minimum size.
         /// </summary>
-        public Size MiniSizeDefault { get; set; } = new Size(300, 350);
-        public Size MiniSizeUpdate { get; set; } = new Size(150, 180);
-        public Size FullSizeField { get; set; } = new Size(150, 200);
+        public Size SizeDefault { get; set; } = new Size(350, 400);
+        public Size SizeUpdate { get; set; } = new Size(150, 180);
+        public Size SizeFullField { get; set; } = new Size(150, 200);
 
         /// <summary>
         /// Tùy chỉnh field đang hiển thị trong card
@@ -45,7 +45,7 @@ namespace GUI.UI.Component
         {
             LayoutView1.OptionsBehavior.AutoPopulateColumns = false;
             // Set the card's minimum size.
-            LayoutView1.CardMinSize = MiniSizeDefault; // default
+            LayoutView1.CardMinSize = SizeDefault; // default
             LayoutView1.OptionsCustomization.AllowFilter = false;
             LayoutView1.OptionsCustomization.ShowGroupView = false;
 
@@ -67,6 +67,9 @@ namespace GUI.UI.Component
         /// </summary>
         public void AddPhoto()
         {
+
+
+
             // Create columns.
             LayoutViewColumn colPhoto = LayoutView1.Columns.AddField("PhotoField");
 
@@ -76,23 +79,24 @@ namespace GUI.UI.Component
             // Access corresponding card fields.
             LayoutViewField fieldPhoto = colPhoto.LayoutViewField;
 
+            // Set the card's minimum size udate
+            LayoutView1.CardMinSize = SizeUpdate;
+
+            fieldPhoto.TextVisible = false;
+            fieldPhoto.SizeConstraintsType = SizeConstraintsType.Custom;
+            fieldPhoto.MaxSize = fieldPhoto.MinSize = SizeFullField;
+
+
             // Assign editors to card fields.
             RepositoryItemPictureEdit riPictureEdit = new RepositoryItemPictureEdit();
-            riPictureEdit.SizeMode = PictureSizeMode.Zoom;
+            riPictureEdit.SizeMode = PictureSizeMode.Squeeze;
             riPictureEdit.PictureAlignment = ContentAlignment.MiddleCenter;
 
             GridControl1.RepositoryItems.Add(riPictureEdit);
 
             colPhoto.ColumnEdit = riPictureEdit;
-
-            // Set the card's minimum size udate
-            LayoutView1.CardMinSize = MiniSizeUpdate;
-
-            fieldPhoto.TextVisible = false;
-            fieldPhoto.SizeConstraintsType = SizeConstraintsType.Custom;
-            fieldPhoto.MaxSize = fieldPhoto.MinSize = FullSizeField;
-
-
+             
+            // Thêm sự kiện add photo bằng url hình của field
             LayoutView1.CustomUnboundColumnData += LayoutView1_CustomUnboundColumnData;
         }
 

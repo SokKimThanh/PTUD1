@@ -238,11 +238,16 @@ namespace GUI.UI.Modules
         }
         public void SetupLayoutView()
         {
-            
+
             cardViewLayoutCustom.LayoutView1 = layoutView1;
             cardViewLayoutCustom.GridControl1 = dgvMovies;
             cardViewLayoutCustom.ImageURLFieldName = "MV_POSTERURL";
+
+            cardViewLayoutCustom.SizeDefault = new Size(600, 700);
             cardViewLayoutCustom.SetupLayoutView();
+
+            cardViewLayoutCustom.SizeUpdate = new Size(350, 400);
+            cardViewLayoutCustom.SizeFullField = new Size(350, 400);
             cardViewLayoutCustom.AddPhoto();
 
             // Tìm cột PD_NAME và cấu hình nếu cột tồn tại
