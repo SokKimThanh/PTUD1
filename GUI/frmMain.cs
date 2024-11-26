@@ -404,7 +404,9 @@ namespace GUI
                 }));
 
                 Thread.Sleep(1000); // Thêm delay để tránh vòng lặp quá nhanh
-            }
-        }   
+            }       
+
+        }
+
     }
 }
