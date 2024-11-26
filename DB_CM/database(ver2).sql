@@ -11,7 +11,7 @@ create database CM_Cinema_DB
 go
 USE [CM_Cinema_DB]
 GO
-/****** Object:  Table [dbo].[tbl_DM_AgeRating]    Script Date: 25/11/2024 5:44:44 SA ******/
+/****** Object:  Table [dbo].[tbl_DM_AgeRating]    Script Date: 27/11/2024 5:49:09 SA ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -33,7 +33,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_DM_Bill]    Script Date: 25/11/2024 5:44:44 SA ******/
+/****** Object:  Table [dbo].[tbl_DM_Bill]    Script Date: 27/11/2024 5:49:10 SA ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -41,6 +41,7 @@ GO
 CREATE TABLE [dbo].[tbl_DM_Bill](
 	[BL_AutoID] [bigint] IDENTITY(1,1) NOT NULL,
 	[BL_STAFF_AutoID] [bigint] NOT NULL,
+	[BL_Trang_Thai_ID] [int] NULL,
 	[BL_Bill_Code] [nvarchar](50) NULL,
 	[BL_Total_Price] [float] NULL,
 	[DELETED] [int] NULL,
@@ -56,7 +57,7 @@ CREATE TABLE [dbo].[tbl_DM_Bill](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_DM_BillDetail]    Script Date: 25/11/2024 5:44:44 SA ******/
+/****** Object:  Table [dbo].[tbl_DM_BillDetail]    Script Date: 27/11/2024 5:49:10 SA ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -79,7 +80,7 @@ CREATE TABLE [dbo].[tbl_DM_BillDetail](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_DM_ExpenseType]    Script Date: 25/11/2024 5:44:44 SA ******/
+/****** Object:  Table [dbo].[tbl_DM_ExpenseType]    Script Date: 27/11/2024 5:49:10 SA ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -105,7 +106,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_DM_Movie]    Script Date: 25/11/2024 5:44:44 SA ******/
+/****** Object:  Table [dbo].[tbl_DM_Movie]    Script Date: 27/11/2024 5:49:10 SA ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -135,7 +136,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_DM_MovieSchedule]    Script Date: 25/11/2024 5:44:44 SA ******/
+/****** Object:  Table [dbo].[tbl_DM_MovieSchedule]    Script Date: 27/11/2024 5:49:10 SA ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -165,7 +166,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_DM_Product]    Script Date: 25/11/2024 5:44:44 SA ******/
+/****** Object:  Table [dbo].[tbl_DM_Product]    Script Date: 27/11/2024 5:49:10 SA ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -193,7 +194,7 @@ CREATE TABLE [dbo].[tbl_DM_Product](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_DM_Shift]    Script Date: 25/11/2024 5:44:44 SA ******/
+/****** Object:  Table [dbo].[tbl_DM_Shift]    Script Date: 27/11/2024 5:49:10 SA ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -216,7 +217,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_DM_Staff]    Script Date: 25/11/2024 5:44:44 SA ******/
+/****** Object:  Table [dbo].[tbl_DM_Staff]    Script Date: 27/11/2024 5:49:10 SA ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -243,7 +244,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_DM_StaffSchedule]    Script Date: 25/11/2024 5:44:44 SA ******/
+/****** Object:  Table [dbo].[tbl_DM_StaffSchedule]    Script Date: 27/11/2024 5:49:10 SA ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -265,7 +266,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_DM_Theater]    Script Date: 25/11/2024 5:44:44 SA ******/
+/****** Object:  Table [dbo].[tbl_DM_Theater]    Script Date: 27/11/2024 5:49:10 SA ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -294,7 +295,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_DM_Ticket]    Script Date: 25/11/2024 5:44:44 SA ******/
+/****** Object:  Table [dbo].[tbl_DM_Ticket]    Script Date: 27/11/2024 5:49:10 SA ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -319,7 +320,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_SYS_Expense]    Script Date: 25/11/2024 5:44:44 SA ******/
+/****** Object:  Table [dbo].[tbl_SYS_Expense]    Script Date: 27/11/2024 5:49:10 SA ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -344,7 +345,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[tbl_Sys_Language]    Script Date: 25/11/2024 5:44:44 SA ******/
+/****** Object:  Table [dbo].[tbl_Sys_Language]    Script Date: 27/11/2024 5:49:10 SA ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
