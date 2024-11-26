@@ -61,6 +61,9 @@ namespace GUI
             const int WM_SYSCOMMAND = 0x0112;
             const int SC_MOVE = 0xF010;
             const int SC_SIZE = 0xF000; // Mã lệnh cho thay đổi kích thước
+                                        // Các mã lệnh khác có thể liên quan
+            const int WM_NCLBUTTONDOWN = 0x00A1; // Click chuột vào thanh tiêu đề
+            const int WM_NCLBUTTONDBLCLK = 0x00A3; //double click on a title bar a.k.a. non-client area of the form
 
             switch (message.Msg)
             {
@@ -69,6 +72,14 @@ namespace GUI
                     if (command == SC_MOVE || command == SC_SIZE)
                         return; // Chặn cả di chuyển và thay đổi kích thước
                     break;
+
+                case WM_NCLBUTTONDOWN:
+                    // Chặn hành động nhấn chuột vào thanh tiêu đề
+                    return;
+
+                case WM_NCLBUTTONDBLCLK:
+                    message.Result = IntPtr.Zero;      
+                    return;
             }
 
             base.WndProc(ref message);
@@ -80,4 +91,5 @@ namespace GUI
             this.Close();
         }
     }
+
 }
