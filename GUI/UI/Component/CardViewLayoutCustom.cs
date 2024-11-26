@@ -16,15 +16,27 @@ namespace GUI.UI.Component
 {
     public class CardViewLayoutCustom
     {
-
+        /// <summary>
+        /// Field hình ảnh có chứa url hình ảnh
+        /// </summary>
         public string ImageURLFieldName { get; set; }
 
+        /// <summary>
+        /// Layout view chứa template card
+        /// </summary>
         public LayoutView LayoutView1 { get; set; }
 
+        /// <summary>
+        /// Grid view chứa layout view
+        /// </summary>
         public GridControl GridControl1 { get; set; }
 
+        /// <summary>
+        /// Tùy chỉnh field đang hiển thị trong card
+        /// </summary>
         public void SetupLayoutView()
         {
+            LayoutView1.OptionsBehavior.AutoPopulateColumns = false;
             // Set the card's minimum size.
             LayoutView1.CardMinSize = new Size(300, 350);
             LayoutView1.OptionsCustomization.AllowFilter = false;
@@ -42,9 +54,12 @@ namespace GUI.UI.Component
                 // tắt cái tiêu đề của field
                 column.LayoutViewField.TextVisible = false;
             }
-
-            LayoutView1.OptionsBehavior.AutoPopulateColumns = false;
-
+        }
+        /// <summary>
+        /// Thêm hình cho một card view
+        /// </summary>
+        public void AddPhoto()
+        {
             // Create columns.
             LayoutViewColumn colPhoto = LayoutView1.Columns.AddField("PhotoField");
 
@@ -73,8 +88,9 @@ namespace GUI.UI.Component
 
             LayoutView1.CustomUnboundColumnData += LayoutView1_CustomUnboundColumnData;
         }
+
         /// <summary>
-        /// Thêm cột hình ảnh khi hiển thị card
+        /// Sự kiện Thêm cột hình ảnh khi hiển thị card
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

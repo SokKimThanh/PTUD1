@@ -42,6 +42,7 @@ namespace GUI.UI.Modules
         // Component layout allow show/hide control menu customize
         LayoutControlCustom layoutControlCustom = new LayoutControlCustom();
 
+        // Component layout view custom for template card
         CardViewLayoutCustom cardViewLayoutCustom = new CardViewLayoutCustom();
 
         //Khởi tạo giao diện
@@ -240,7 +241,9 @@ namespace GUI.UI.Modules
             
             cardViewLayoutCustom.LayoutView1 = layoutView1;
             cardViewLayoutCustom.GridControl1 = dgvMovies;
+            cardViewLayoutCustom.ImageURLFieldName = "MV_POSTERURL";
             cardViewLayoutCustom.SetupLayoutView();
+            cardViewLayoutCustom.AddPhoto();
 
             // Tìm cột PD_NAME và cấu hình nếu cột tồn tại
             LayoutViewColumn tenSanPham = layoutView1.Columns.ColumnByFieldName("MV_NAME");
