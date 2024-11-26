@@ -25,6 +25,7 @@ namespace GUI.UI.Component
         {
             // Vô hiệu hóa tùy chỉnh trên BarManager
             BarManagerCustom.AllowCustomization = false;
+            BarManagerCustom.AllowQuickCustomization = false; // ẩn nút add or remove button
         } 
 
         /// <summary>
