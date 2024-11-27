@@ -273,6 +273,12 @@
     <Compile Include="UI\ReportDesign\RP_Expense.Designer.cs">
       <DependentUpon>RP_Expense.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ReportDesign\RP_InHoaDon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\ReportDesign\RP_InHoaDon.Designer.cs">
+      <DependentUpon>RP_InHoaDon.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ReportDesign\RP_InventoryDetail.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -431,6 +437,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ReportDesign\RP_Expense.resx">
       <DependentUpon>RP_Expense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ReportDesign\RP_InHoaDon.resx">
+      <DependentUpon>RP_InHoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ReportDesign\RP_InventoryDetail.resx">
       <DependentUpon>RP_InventoryDetail.cs</DependentUpon>
@@ -1009,6 +1018,8 @@
     <Content Include="obj\Debug\gui.exe.licenses" />
     <Content Include="obj\Debug\GUI.pdb" />
     <Content Include="obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
+    <None Include="Resources\printer_16x161.png" />
+    <None Include="Resources\printer_32x321.png" />
     <None Include="Resources\coupon.png" />
     <None Include="Resources\TicketDesignIcon16.png" />
     <None Include="Resources\financial_16x161.png" />

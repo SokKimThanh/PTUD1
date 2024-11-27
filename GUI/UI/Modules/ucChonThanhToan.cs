@@ -246,23 +246,23 @@ namespace GUI.UI.Modules
                             try
                             {
                                 // Tạo vé
-                                RP_PrintTicket report = new RP_PrintTicket();
-                                report.BindParameter(v_objItem.AutoID.ToString());
-                                report.CreateDocument();
+                                RP_PrintTicket report_Ticket = new RP_PrintTicket();
+                                report_Ticket.BindParameter(v_objItem.AutoID.ToString());
+                                report_Ticket.CreateDocument();
 
                                 if (Directory.Exists(CConfig.CM_Cinema_FileManagement_Folder) == false)
                                     Directory.CreateDirectory(CConfig.CM_Cinema_FileManagement_Folder);
 
-                                if (Directory.Exists(CConfig.CM_Cinema_FileManagement_Folder + "\\Reports\\") == false)
-                                    Directory.CreateDirectory(CConfig.CM_Cinema_FileManagement_Folder + "\\Reports\\");
+                                if (Directory.Exists(CConfig.CM_Cinema_FileManagement_Folder + "\\Reports\\Tickets\\") == false)
+                                    Directory.CreateDirectory(CConfig.CM_Cinema_FileManagement_Folder + "\\Reports\\Tickets\\");
 
-                                string predefinedPath = CConfig.CM_Cinema_FileManagement_Folder + "Reports\\" + v_objItem.AutoID + ".pdf";
-                                report.ExportToPdf(predefinedPath); // No Save dialog is triggered
+                                string predefinedPath_Ticket = CConfig.CM_Cinema_FileManagement_Folder + "Reports\\Tickets\\" + v_objItem.AutoID + ".pdf";
+                                report_Ticket.ExportToPdf(predefinedPath_Ticket); // No Save dialog is triggered
 
                                 // Thiết lập máy in
-                                ReportPrintTool tool = new ReportPrintTool(report);
+                                ReportPrintTool tool_Ticket = new ReportPrintTool(report_Ticket);
                                 if (CCommon.Printer_Name != "")
-                                    tool.PrinterSettings.PrinterName = CCommon.Printer_Name; // Thay "Tên máy in của bạn" bằng tên máy in thực tế
+                                    tool_Ticket.PrinterSettings.PrinterName = CCommon.Printer_Name; // Thay "Tên máy in của bạn" bằng tên máy in thực tế
 
                                 // In vé không cần review
                                 //tool.Print();
@@ -274,6 +274,28 @@ namespace GUI.UI.Modules
 
                         #endregion
                     }
+                    // Tạo vé
+                    RP_InHoaDon report_Bill = new RP_InHoaDon();
+                    report_Bill.BindParameter(v_objNewBill.BL_AutoID.ToString());
+                    report_Bill.CreateDocument();
+
+                    if (Directory.Exists(CConfig.CM_Cinema_FileManagement_Folder) == false)
+                        Directory.CreateDirectory(CConfig.CM_Cinema_FileManagement_Folder);
+
+                    if (Directory.Exists(CConfig.CM_Cinema_FileManagement_Folder + "\\Reports\\Bills\\") == false)
+                        Directory.CreateDirectory(CConfig.CM_Cinema_FileManagement_Folder + "\\Reports\\Bills\\");
+
+                    string predefinedPath_Bill = CConfig.CM_Cinema_FileManagement_Folder + "Reports\\Bills\\" + v_objNewBill.BL_AutoID + ".pdf";
+                    report_Bill.ExportToPdf(predefinedPath_Bill); // No Save dialog is triggered
+
+                    // Thiết lập máy in
+                    ReportPrintTool tool_Bill = new ReportPrintTool(report_Bill);
+                    if (CCommon.Printer_Name != "")
+                        tool_Bill.PrinterSettings.PrinterName = CCommon.Printer_Name; // Thay "Tên máy in của bạn" bằng tên máy in thực tế
+
+                    // In vé không cần review
+                    //tool.Print();
+                    MessageBox.Show("In hóa đơn thành công", "Thông báo");
 
                     MessageBox.Show(LanguageController.GetLanguageDataLabel("Thanh toán thành công!"), LanguageController.GetLanguageDataLabel("Thông báo"), MessageBoxButtons.OK, MessageBoxIcon.None);
 

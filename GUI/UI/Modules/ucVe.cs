@@ -1,11 +1,14 @@
 ﻿using BUS.Danh_Muc;
 using DevExpress.XtraReports.UI;
 using DTO;
+using DTO.Common;
+using DTO.Custom;
 using DTO.tbl_DTO;
 using GUI.UI.Component;
 using GUI.UI.ReportDesign;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
 
 namespace GUI.UI.Modules
@@ -163,10 +166,22 @@ namespace GUI.UI.Modules
                     report.BindParameter(selectedTicketID.ToString());
                     report.CreateDocument();
 
-                    // In vé không cần review
+                    if (Directory.Exists(CConfig.CM_Cinema_FileManagement_Folder) == false)
+                        Directory.CreateDirectory(CConfig.CM_Cinema_FileManagement_Folder);
+
+                    if (Directory.Exists(CConfig.CM_Cinema_FileManagement_Folder + "\\Reports\\Tickets\\") == false)
+                        Directory.CreateDirectory(CConfig.CM_Cinema_FileManagement_Folder + "\\Reports\\Tickets\\");
+
+                    string predefinedPath = CConfig.CM_Cinema_FileManagement_Folder + "Reports\\Tickets\\" + selectedTicketID + ".pdf";
+                    report.ExportToPdf(predefinedPath); // No Save dialog is triggered
+
+                    // Thiết lập máy in
                     ReportPrintTool tool = new ReportPrintTool(report);
-                    tool.Print();
-                    MessageBox.Show("Đã in thành công", "Thông báo");
+                    if (CCommon.Printer_Name != "")
+                        tool.PrinterSettings.PrinterName = CCommon.Printer_Name; // Thay "Tên máy in của bạn" bằng tên máy in thực tế
+
+                    // In vé không cần review
+                    //tool.Print();
                 }
             }
         }

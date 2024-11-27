@@ -2,11 +2,15 @@
 using BUS.Sys;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraReports.UI;
+using DTO.Common;
 using DTO.Custom;
 using DTO.tbl_DTO;
 using GUI.UI.Component;
+using GUI.UI.ReportDesign;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -14,6 +18,9 @@ namespace GUI.UI.Modules
 {
     public partial class ucHoaDon : ucBase
     {
+        // Selected bill's id
+        private long selectedBill_AutoID = -1;
+
         // Component grid view layout custom
         GridViewLayoutCustom gridViewLayoutCustom = new GridViewLayoutCustom();
 
@@ -22,6 +29,10 @@ namespace GUI.UI.Modules
 
         // Component layout allow show/hide control menu customize
         LayoutControlCustom layoutControlCustom = new LayoutControlCustom();
+        private void IsUsing(bool isUsing)
+        {
+            btnIn.Enabled = isUsing;
+        }
         public ucHoaDon()
         {
             InitializeComponent();
@@ -85,11 +96,13 @@ namespace GUI.UI.Modules
             grdData.Columns["CREATED_BY"].Caption = LanguageController.GetLanguageDataLabel("Người tạo");
 
             GridLevelTree v_objTree = dgv.LevelTree;
+            selectedBill_AutoID = -1;
+            IsUsing(false);
         }
 
         protected override void Update_Data()
         {
-            
+
         }
 
         private void grdData_RowClick(object sender, RowClickEventArgs e)
@@ -168,11 +181,42 @@ namespace GUI.UI.Modules
 
 
                     }
+                    selectedBill_AutoID = v_objRes.BL_AutoID;
                 }
+                IsUsing(true);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(LanguageController.GetLanguageDataLabel(ex.Message), LanguageController.GetLanguageDataLabel("Lỗi"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnIn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if(selectedBill_AutoID != -1)
+            {
+                // Tạo vé
+                RP_InHoaDon report = new RP_InHoaDon();
+                report.BindParameter(selectedBill_AutoID.ToString());
+                report.CreateDocument();
+
+                if (Directory.Exists(CConfig.CM_Cinema_FileManagement_Folder) == false)
+                    Directory.CreateDirectory(CConfig.CM_Cinema_FileManagement_Folder);
+
+                if (Directory.Exists(CConfig.CM_Cinema_FileManagement_Folder + "\\Reports\\Bills\\") == false)
+                    Directory.CreateDirectory(CConfig.CM_Cinema_FileManagement_Folder + "\\Reports\\Bills\\");
+
+                string predefinedPath = CConfig.CM_Cinema_FileManagement_Folder + "Reports\\Bills\\" + selectedBill_AutoID + ".pdf";
+                report.ExportToPdf(predefinedPath); // No Save dialog is triggered
+
+                // Thiết lập máy in
+                ReportPrintTool tool = new ReportPrintTool(report);
+                if (CCommon.Printer_Name != "")
+                    tool.PrinterSettings.PrinterName = CCommon.Printer_Name; // Thay "Tên máy in của bạn" bằng tên máy in thực tế
+
+                // In vé không cần review
+                //tool.Print();
+                MessageBox.Show("In hóa đơn thành công", "Thông báo");
             }
         }
     }

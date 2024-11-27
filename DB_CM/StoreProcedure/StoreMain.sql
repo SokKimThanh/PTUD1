@@ -408,3 +408,24 @@ BEGIN
     WHERE 
         t.TK_AutoID = @TicketID;
 END;
+
+-- In hóa đơn
+go
+drop proc if exists sp_HoaDon_BaoCao
+go
+CREATE PROCEDURE sp_HoaDon_BaoCao
+@Bill_AutoID bigint
+as
+Begin
+
+	select bl.BL_AutoID as AutoID, count(tk.TK_AutoID) as NoTicket, bl.CREATED as Created, st.ST_NAME as StaffName, bl.BL_Trang_Thai_ID as BillStatus,
+		pd.PD_NAME as ProductName, bd.BD_QUANTITY as Quantity, pd.PD_PRICE as BasePrice, bd.BD_QUANTITY * pd.PD_PRICE as TotalPrice 
+	from tbl_DM_Bill as bl
+	join tbl_DM_BillDetail as bd on bl.BL_AutoID = bd.BD_BILL_AutoID
+	join tbl_DM_Ticket as tk on bl.BL_AutoID = TK_BILL_AutoID
+	join tbl_DM_Staff as st on bl.BL_STAFF_AutoID = st.ST_AutoID
+	join tbl_DM_Product as pd on bd.BD_PRODUCT_AutoID = pd.PD_AutoID
+	where bl.BL_AutoID = @Bill_AutoID
+	group by bl.BL_AutoID, bl.CREATED, st.ST_NAME , bl.BL_Trang_Thai_ID ,
+		pd.PD_NAME , bd.BD_QUANTITY , pd.PD_PRICE , bd.BD_QUANTITY * pd.PD_PRICE
+End
