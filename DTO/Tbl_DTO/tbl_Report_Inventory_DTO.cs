@@ -9,16 +9,12 @@
         public long ProductID { get; set; }
         public string ProductName { get; set; }
         public double ReceivedQuantity { get; set; }
-        public double RemainingStock { get; set; }
-        public double SoldQuantity { get; set; }
-        public double TotalReceived { get; set; }
-        public double TotalSold { get; set; }
-        public double SalesPerformancePercentage { get; set; }
-        public string SalesPerformanceCategory { get; set; }
-        public string StockStatus { get; set; }
         public double TotalImportCost { get; set; }
+        public double UnitCost { get; set; }
+        public double SoldQuantity { get; set; }
+        public double UnitPrice { get; set; }
         public double TotalRevenue { get; set; }
-        public double Profit { get; set; }
-        public int InventoryStatus { get; set; }
-    }
+        public string RestockStatus { get; set; }
+        public double RemainingStock { get; set; }
+    } 
 }

@@ -67,72 +67,68 @@ namespace DAL
         }
 
         public List<tbl_Report_Inventory_DTO> GetInventoryReportByStatusAndDate(
-    DateTime startDate,
-    DateTime endDate,
-    int salesPerformanceThreshold = 50,     // hiệu suất bán hàng
-    int minStockThreshold = 50,            // ngưỡng tồn kho
-    double desiredProfitMargin = 0.2,      // lợi nhuận mong muốn
-    int inventoryStatus = 0                // trạng thái kho (0 = tất cả, 1 = cần nhập hàng, 2 = tồn kho đủ)
-)
+     DateTime startDate,
+     DateTime endDate,
+     int salesPerformanceThreshold = 50,
+     int minStockThreshold = 50,
+     double desiredProfitMargin = 0.2,
+     int? inventoryStatus = 0)
         {
             using (var dbContext = new CM_Cinema_DBDataContext(connectionString))
             {
-                var query = from pd in dbContext.tbl_DM_Products
-                            where pd.DELETED == 0
-                            join ex in dbContext.tbl_SYS_Expenses
-                                on pd.PD_AutoID equals ex.EX_EXTYPE_AutoID into exGroup
-                            from ex in exGroup.DefaultIfEmpty()
-                            where ex.CREATED >= startDate && ex.CREATED <= endDate
+                // Số liệu nhập hàng
+                var received = from ex in dbContext.tbl_SYS_Expenses
+                               where ex.CREATED >= startDate && ex.CREATED <= endDate
+                               group ex by ex.EX_EXTYPE_AutoID into g
+                               select new
+                               {
+                                   ProductID = g.Key,
+                                   TotalReceived = g.Sum(x => x.EX_QUANTITY),
+                                   TotalImportCost = g.Sum(x => x.EX_PRICE),
+                                   UnitCost = g.Sum(x => x.EX_QUANTITY) > 0 ? g.Sum(x => x.EX_PRICE) / g.Sum(x => x.EX_QUANTITY) : 0
+                               };
 
-                            join bd in dbContext.tbl_DM_BillDetails
-                                on pd.PD_AutoID equals bd.BD_PRODUCT_AutoID into bdGroup
-                            from bd in bdGroup.DefaultIfEmpty()
-                            where bd.CREATED >= startDate && bd.CREATED <= endDate
+                // Số liệu bán hàng (sản phẩm)
+                var sold = from bd in dbContext.tbl_DM_BillDetails
+                           join bill in dbContext.tbl_DM_Bills on bd.BD_BILL_AutoID equals bill.BL_AutoID
+                           join product in dbContext.tbl_DM_Products on bd.BD_PRODUCT_AutoID equals product.PD_AutoID
+                           where bill.CREATED >= startDate && bill.CREATED <= endDate
+                           group new { bd, product } by bd.BD_PRODUCT_AutoID into g
+                           select new
+                           {
+                               ProductID = g.Key,
+                               TotalSold = g.Sum(x => x.bd.BD_QUANTITY),
+                               ProductRevenue = g.Sum(x => x.bd.BD_QUANTITY * x.product.PD_PRICE),
+                               UnitPrice = g.Max(x => x.product.PD_PRICE)
+                           };
 
-                            group new { ex, bd } by new { pd.PD_AutoID, pd.PD_NAME } into g
-                            let totalReceived = g.Sum(x => x.ex != null ? x.ex.EX_QUANTITY : 0)
-                            let totalSold = g.Sum(x => x.bd != null ? x.bd.BD_QUANTITY : 0)
-                            let remainingStock = totalReceived - totalSold
+                // Kết hợp các dữ liệu
+                var result = from product in dbContext.tbl_DM_Products
+                             join r in received on product.PD_AutoID equals r.ProductID into receivedGroup
+                             from r in receivedGroup.DefaultIfEmpty()
+                             join s in sold on product.PD_AutoID equals s.ProductID into soldGroup
+                             from s in soldGroup.DefaultIfEmpty()
+                             where product.DELETED == 0
+                             let restockStatus = (r != null && s != null && (r.TotalReceived - s.TotalSold) < minStockThreshold)
+                                 ? "Cần nhập hàng" : "Đủ hàng"
+                             where inventoryStatus == null ||
+                                   (inventoryStatus == 0 && restockStatus == "Cần nhập hàng") ||
+                                   (inventoryStatus == 1 && restockStatus == "Đủ hàng")
+                             select new tbl_Report_Inventory_DTO
+                             {
+                                 ProductID = product.PD_AutoID,
+                                 ProductName = product.PD_NAME,
+                                 ReceivedQuantity = r != null ? r.TotalReceived : 0,
+                                 TotalImportCost = r != null ? r.TotalImportCost : 0,
+                                 UnitCost = r != null ? r.UnitCost : 0,
+                                 SoldQuantity = s != null ? s.TotalSold : 0,
+                                 UnitPrice = s != null ? s.UnitPrice : 0,
+                                 TotalRevenue = (s != null ? s.ProductRevenue : 0),
+                                 RestockStatus = restockStatus
+                             };
 
-                            let percent = totalSold * 100.0 / totalReceived
-                            let salesPerformancePercentage = totalReceived == 0 ? 0 : percent
-
-                            let totalImportCost = g.Sum(x => x.ex != null ? x.ex.EX_PRICE : 0)
-                            let totalRevenue = g.Sum(x => x.bd != null ? x.bd.BD_QUANTITY * x.bd.tbl_DM_Product.PD_PRICE : 0)
-                            let profit = totalRevenue - totalImportCost
-
-                            let stockStatus = remainingStock < minStockThreshold ? 1 : 2 // 1 = cần nhập hàng, 2 = tồn kho đủ
-                            select new tbl_Report_Inventory_DTO()
-                            {
-                                ProductID = g.Key.PD_AutoID,
-                                ProductName = g.Key.PD_NAME,
-                                TotalReceived = totalReceived,
-                                TotalSold = totalSold,
-                                RemainingStock = remainingStock,
-                                SalesPerformancePercentage = salesPerformancePercentage,
-                                SalesPerformanceCategory = totalReceived == 0
-                                    ? "Cần nhập hàng"
-                                    : salesPerformancePercentage < salesPerformanceThreshold
-                                        ? "Bán chậm"
-                                        : salesPerformancePercentage <= salesPerformanceThreshold + 20
-                                            ? "Hiệu suất ổn định"
-                                            : "Mặt hàng hot",
-                                StockStatus = stockStatus == 1 ? "Cần nhập hàng" : "Tồn kho đủ",
-                                TotalImportCost = totalImportCost,
-                                TotalRevenue = totalRevenue,
-                                Profit = profit,
-                                InventoryStatus = stockStatus // Trạng thái kho theo kiểu số
-                            };
-
-                // Lọc theo trạng thái nếu inventoryStatus khác 0
-                if (inventoryStatus > 0)
-                {
-                    query = query.Where(x => x.InventoryStatus == inventoryStatus);
-                }
-
-                return query.OrderBy(x => x.ProductName).ToList();
+                return result.OrderBy(x => x.ProductName).ToList();
             }
         }
-
     }
 }

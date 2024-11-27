@@ -68,8 +68,6 @@ namespace GUI.UI.Modules
         {
             lblTitle.Text = !string.IsNullOrEmpty(strFunctionCode) ? strFunctionCode.ToUpper().Trim() : string.Empty;
 
-
-
             executeReportDefault();
         }
 
@@ -79,50 +77,49 @@ namespace GUI.UI.Modules
         private void ConfigureGridColumns()
         {
             // Ghi tiếng việt cho các cột
-            gridView1.Columns["ProductID"].Visible = false;
+            gridView1.Columns["ProductID"].Caption = "Mã sản phẩm";
             gridView1.Columns["ProductName"].Caption = "Tên Sản phẩm";
-            gridView1.Columns["ReceivedQuantity"].Caption = "SL Nhập";
-            gridView1.Columns["RemainingStock"].Caption = "Số lượng còn tồn kho";
-            gridView1.Columns["SoldQuantity"].Caption = "SL bán";
-            gridView1.Columns["SalesPerformancePercentage"].Caption = "Tính hiệu suất bán hàng (%)";
-            gridView1.Columns["SalesPerformanceCategory"].Caption = "Phân loại hiệu suất bán hàng";
-            gridView1.Columns["StockStatus"].Caption = "Trạng thái tồn kho";
+            gridView1.Columns["ReceivedQuantity"].Caption = "Số lượng nhập";
             gridView1.Columns["TotalImportCost"].Caption = "Tổng chi phí nhập hàng";
+            gridView1.Columns["UnitCost"].Caption = "Giá nhập";
+            gridView1.Columns["SoldQuantity"].Caption = "Số lượng bán";
+            gridView1.Columns["UnitPrice"].Caption = "Giá bán";
             gridView1.Columns["TotalRevenue"].Caption = "Tổng doanh thu từ sản phẩm";
-            gridView1.Columns["TotalReceived"].Caption = "Tổng số lượng nhập";
-            gridView1.Columns["TotalSold"].Caption = "Tổng số lượng bán";
-            gridView1.Columns["Profit"].Caption = "Lợi nhuận từ sản phẩm";
+            gridView1.Columns["RestockStatus"].Caption = "Trạng thái kho";
+            gridView1.Columns["RemainingStock"].Caption = "Tồn kho";
+
 
             if (rptViewReport.SelectedIndex == 0)
             {
-                gridView1.Columns["SalesPerformancePercentage"].Visible = false;
-                gridView1.Columns["SalesPerformanceCategory"].Visible = false;
-                gridView1.Columns["StockStatus"].Visible = false;
-                gridView1.Columns["TotalImportCost"].Visible = false;
+
+                gridView1.Columns["ProductID"].Visible = false;
+                gridView1.Columns["SoldQuantity"].Visible = false;
+                gridView1.Columns["UnitPrice"].Visible = false;
                 gridView1.Columns["TotalRevenue"].Visible = false;
-                gridView1.Columns["TotalReceived"].Visible = false;
-                gridView1.Columns["TotalSold"].Visible = false;
-                gridView1.Columns["Profit"].Visible = false;
-                gridView1.Columns["InventoryStatus"].Visible = false;
+                gridView1.Columns["RestockStatus"].Visible = false;
+                gridView1.Columns["RemainingStock"].Visible = false;
+                gridView1.Columns["UnitCost"].Visible = false;
             }
             else
             {
-                gridView1.Columns["ReceivedQuantity"].Visible = false;
-                gridView1.Columns["SoldQuantity"].Visible = false;
+                gridView1.Columns["ProductID"].Visible = false;
+                gridView1.Columns["TotalImportCost"].Visible = false;
+                gridView1.Columns["UnitCost"].Visible = false;
+                gridView1.Columns["UnitPrice"].Visible = false;
+                gridView1.Columns["TotalRevenue"].Visible = false;
+                gridView1.Columns["RemainingStock"].Visible = false;
+
             }
 
             // Định dạng cột Tổng doanh thu
             gridView1.Columns["TotalImportCost"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             gridView1.Columns["TotalImportCost"].DisplayFormat.FormatString = "c0"; // Định dạng tiền tệ
 
-            gridView1.Columns["SalesPerformancePercentage"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            gridView1.Columns["SalesPerformancePercentage"].DisplayFormat.FormatString = "n0"; // Định dạng tiền tệ
-
             gridView1.Columns["ReceivedQuantity"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             gridView1.Columns["ReceivedQuantity"].DisplayFormat.FormatString = "N0"; // Định dạng tiền tệ
 
-            gridView1.Columns["Profit"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            gridView1.Columns["Profit"].DisplayFormat.FormatString = "c0"; // Định dạng tiền tệ
+            gridView1.Columns["UnitPrice"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gridView1.Columns["UnitPrice"].DisplayFormat.FormatString = "c0"; // Định dạng tiền tệ
 
             gridView1.Columns["TotalImportCost"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             gridView1.Columns["TotalImportCost"].DisplayFormat.FormatString = "c0"; // Định dạng tiền tệ
@@ -159,6 +156,7 @@ namespace GUI.UI.Modules
                 txtStartDate.Enabled = false;
                 txtEndDate.Enabled = false;
                 btnTaoBaoCao.Enabled = false; // khong cho tao bao cao tong hop
+                cboInventoryStatus.Enabled = false;
                 dgv.DataSource = data.GetInventoryReport(startDate, endDate);
             }
             // bao cao chi tiet
@@ -167,6 +165,7 @@ namespace GUI.UI.Modules
                 txtStartDate.Enabled = true;
                 txtEndDate.Enabled = true;
                 btnTaoBaoCao.Enabled = true;
+                cboInventoryStatus.Enabled = true;
 
                 if (!DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) &&
                 !DateTime.TryParse(txtEndDate.Text.Trim(), out endDate))
@@ -183,7 +182,7 @@ namespace GUI.UI.Modules
         }
         private void btnTaoBaoCao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            
+
             try
             {
                 if (!DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) && !DateTime.TryParse(txtEndDate.Text.Trim(), out endDate))
@@ -275,7 +274,10 @@ namespace GUI.UI.Modules
         {
             try
             {
+                btnTaoBaoCao.Enabled = false;
+
                 // cbo trang thai
+                cboInventoryStatus.Enabled = false;
                 cboInventoryStatus.Properties.DataSource = dsTrangThaiTonKho;
                 cboInventoryStatus.EditValue = 0;    // Mặc định chọn "Thiếu hàng" 
 

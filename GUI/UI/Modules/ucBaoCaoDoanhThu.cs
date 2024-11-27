@@ -75,6 +75,7 @@ namespace GUI.UI.Modules
             }
             else // Chi tiết
             {
+                btnTaoBaoCao.Enabled = true;
                 if ((int)cboLoaiDoanhThu.EditValue == 0)
                 {
                     
