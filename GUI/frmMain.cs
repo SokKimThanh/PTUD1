@@ -3,6 +3,7 @@ using BUS.Sys;
 using DevExpress.XtraBars.Navigation;
 using DTO.Common;
 using DTO.Custom;
+using DTO.tbl_DTO;
 using GUI.UI.Modules;
 using System;
 using System.Collections.Generic;
@@ -22,9 +23,8 @@ namespace GUI
         /// </summary>
         private Dictionary<string, ucBase> dicFunction = new Dictionary<string, ucBase>()
         {
-            { "accCaiDat", new ucCaiDat() },
-            { "accDatVe", new ucChonPhim() },
-            { "accVe", new ucVe() },
+           { "accDatVe", new ucChonPhim() },
+           { "accVe", new ucVe() },
             { "accQLHoaDon", new ucHoaDon() },
             { "accQLPhim", new ucPhim() },
             { "accQLSanPham", new ucSanPham() },
@@ -53,7 +53,7 @@ namespace GUI
         private void LoadFunctionByLevel(int iLevel)
         {
             //Xóa hết chức năng trên menu đi
-            accordionControl.Elements.Clear();
+            arrFunction.Elements.Clear();
             switch (iLevel)
             {
                 case (int)ELevel.Admin:
@@ -70,10 +70,13 @@ namespace GUI
             }
 
             //Duyệt qua cây chức năng sau khi đã load
-            foreach (AccordionControlElement objFunctionC1 in accordionControl.Elements)
+            foreach (AccordionControlElement objFunctionC1 in arrFunction.Elements)
             {
                 objFunctionC1.Text = LanguageController.GetLanguageDataLabel(objFunctionC1.Text);
                 objFunctionC1.Hint = LanguageController.GetLanguageDataLabel(objFunctionC1.Hint);
+                //Kiểm tra xem có tồn tại chức năng con không
+                if (objFunctionC1.Elements.Count == 0)
+                    continue;
 
                 foreach (AccordionControlElement objFunctionC2 in objFunctionC1.Elements)
                 {
@@ -88,7 +91,7 @@ namespace GUI
 
         private void FunctionADMIN()
         {
-            accordionControl.Elements.AddRange(new AccordionControlElement[] {
+            arrFunction.Elements.AddRange(new AccordionControlElement[] {
                 this.aceDatVe,
             this.aceDanhMuc,
             this.aceBaoCao,
@@ -100,7 +103,7 @@ namespace GUI
 
         private void FunctionManager()
         {
-            accordionControl.Elements.AddRange(new AccordionControlElement[] {
+            arrFunction.Elements.AddRange(new AccordionControlElement[] {
                  this.aceDatVe,
             this.aceDanhMuc,
             this.aceBaoCao,
@@ -115,7 +118,7 @@ namespace GUI
             //Nhân viên thì k vào được chức năng báo cáo
             this.aceDanhMuc.Elements.Remove(this.accQLNhanVien);
 
-            accordionControl.Elements.AddRange(new AccordionControlElement[] {
+            arrFunction.Elements.AddRange(new AccordionControlElement[] {
             this.aceDatVe,
             this.aceDanhMuc,
             this.aceHeThong});
@@ -386,33 +389,28 @@ namespace GUI
             base.WndProc(ref message);
         }
 
+        private void mainContainer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
 
         private void TimeExcute()
         {
             while (true)
             {
-                try
+                string currentTime = DateTime.Now.ToString(CConfig.Time_Format_String);
+
+                // Sử dụng Form hoặc Control cha để gọi BeginInvoke
+                this.BeginInvoke(new Action(() =>
                 {
-                    string currentTime = DateTime.Now.ToString(CConfig.Time_Format_String);
+                    lblTime.Caption = currentTime;
+                }));
 
-                    // Sử dụng Form hoặc Control cha để gọi BeginInvoke
-                    this.BeginInvoke(new Action(() =>
-                    {
-                        lblTime.Caption = currentTime;
-                    }));
-
-                    Thread.Sleep(1000); // Thêm delay để tránh vòng lặp quá nhanh
-                }
-                catch (Exception)
-                {
-
-                }
+                Thread.Sleep(1000); // Tránh vòng lặp quá nhanh
             }
         }
 
-        private void arrFunction_ElementClick(object sender, ElementClickEventArgs e)
-        {
-            accordionControl.FindForm().Activate();
-        }
     }
 }
