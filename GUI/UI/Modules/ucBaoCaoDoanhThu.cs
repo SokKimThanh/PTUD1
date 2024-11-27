@@ -120,13 +120,29 @@ namespace GUI.UI.Modules
         }
         private void btnTaoBaoCao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+             
             try
             {
-                if (!DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) &&
-                !DateTime.TryParse(txtEndDate.Text.Trim(), out endDate))
+                if (!DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) && !DateTime.TryParse(txtEndDate.Text.Trim(), out endDate))
                 {
-                    throw new Exception("Vui lòng nhập đúng định dạng ngày!");
+                    MessageBox.Show("Vui lòng nhập đúng định dạng ngày!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
+
+                DateTime.TryParse(txtStartDate.Text.Trim(), out startDate);
+                DateTime.TryParse(txtEndDate.Text.Trim(), out endDate);
+
+
+                // Kiểm tra ngày bắt đầu và ngày kết thúc
+                if (startDate >= endDate)
+                {
+                    throw new Exception("Ngày bắt đầu phải nhỏ hơn ngày kết thúc!");
+                }
+
+                if (startDate < new DateTime(1753, 1, 1) || endDate > new DateTime(9999, 12, 31))
+                {
+                    throw new Exception("Ngày tháng phải nằm trong khoảng từ 1/1/1753 đến 12/31/9999!");
+                } 
 
                 var report = new RP_BaoCaoDoanhThu();
                 report.Add(startDate, endDate);
@@ -137,7 +153,7 @@ namespace GUI.UI.Modules
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void executeReport()
@@ -145,11 +161,27 @@ namespace GUI.UI.Modules
 
             try
             {
-                if (!DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) &&
-                !DateTime.TryParse(txtEndDate.Text.Trim(), out endDate))
+                if (!DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) && !DateTime.TryParse(txtEndDate.Text.Trim(), out endDate))
                 {
-                    throw new Exception("Vui lòng nhập đúng định dạng ngày!");
+                    MessageBox.Show("Vui lòng nhập đúng định dạng ngày!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
+
+                DateTime.TryParse(txtStartDate.Text.Trim(), out startDate);
+                DateTime.TryParse(txtEndDate.Text.Trim(), out endDate);
+
+
+                // Kiểm tra ngày bắt đầu và ngày kết thúc
+                if (startDate >= endDate)
+                {
+                    throw new Exception("Ngày bắt đầu phải nhỏ hơn ngày kết thúc!");
+                }
+
+                if (startDate < new DateTime(1753, 1, 1) || endDate > new DateTime(9999, 12, 31))
+                {
+                    throw new Exception("Ngày tháng phải nằm trong khoảng từ 1/1/1753 đến 12/31/9999!");
+                }
+
 
                 gridView1.Columns.Clear(); // Xóa cột cũ trước khi gán dữ liệu mới
 
@@ -179,7 +211,7 @@ namespace GUI.UI.Modules
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void executeReportDefault()

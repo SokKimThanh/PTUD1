@@ -20,7 +20,7 @@ namespace GUI.UI.Modules
 
 
         private tbl_Report_BUS data = new tbl_Report_BUS();
-       
+
         private DateTime startDate = new DateTime();
         private DateTime endDate = new DateTime();
 
@@ -68,7 +68,7 @@ namespace GUI.UI.Modules
         {
             lblTitle.Text = !string.IsNullOrEmpty(strFunctionCode) ? strFunctionCode.ToUpper().Trim() : string.Empty;
 
-           
+
 
             executeReportDefault();
         }
@@ -183,10 +183,31 @@ namespace GUI.UI.Modules
         }
         private void btnTaoBaoCao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            // chi tiết báo cáo tồn kho
-            if (DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) &&
-                DateTime.TryParse(txtEndDate.Text.Trim(), out endDate))
+            
+            try
             {
+                if (!DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) && !DateTime.TryParse(txtEndDate.Text.Trim(), out endDate))
+                {
+                    MessageBox.Show("Vui lòng nhập đúng định dạng ngày!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                DateTime.TryParse(txtStartDate.Text.Trim(), out startDate);
+                DateTime.TryParse(txtEndDate.Text.Trim(), out endDate);
+
+
+                // Kiểm tra ngày bắt đầu và ngày kết thúc
+                if (startDate >= endDate)
+                {
+                    throw new Exception("Ngày bắt đầu phải nhỏ hơn ngày kết thúc!");
+                }
+
+                if (startDate < new DateTime(1753, 1, 1) || endDate > new DateTime(9999, 12, 31))
+                {
+                    throw new Exception("Ngày tháng phải nằm trong khoảng từ 1/1/1753 đến 12/31/9999!");
+                }
+
+
                 var report = new RP_BaoCaoTonKho();
 
                 report.Add(startDate, endDate, (int)cboInventoryStatus.EditValue);
@@ -195,9 +216,9 @@ namespace GUI.UI.Modules
                 var printTool = new ReportPrintTool(report);
                 printTool.ShowPreview();
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Vui lòng nhập đúng định dạng ngày!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void executeReport()
@@ -245,7 +266,7 @@ namespace GUI.UI.Modules
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi: " + ex.Message, "Thông báo");
+                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -289,7 +310,7 @@ namespace GUI.UI.Modules
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi: " + ex.Message, "Thông báo");
+                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
