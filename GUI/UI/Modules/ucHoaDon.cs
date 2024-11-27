@@ -74,7 +74,7 @@ namespace GUI.UI.Modules
 
             grdData.Columns["BL_Bill_Code"].Caption = LanguageController.GetLanguageDataLabel("Mã hóa đơn");
             grdData.Columns["BL_Total_Price"].Caption = LanguageController.GetLanguageDataLabel("Tổng giá trị");
-            grdData.Columns["BL_Trang_Thai_Text"].Caption = LanguageController.GetLanguageDataLabel("Tổng giá trị");
+            grdData.Columns["BL_Trang_Thai_Text"].Caption = LanguageController.GetLanguageDataLabel("Trạng thái");
 
             FormatGridView(grdData);
 
