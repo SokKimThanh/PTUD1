@@ -10,7 +10,7 @@ DECLARE @StockStatus INT= 1;             -- Trạng thái tồn kho: 1 = Cạn k
 DECLARE @SalesPerformance INT = 1;        -- Hiệu suất bán hàng: 1 = Bán chậm, 2 = Ổn định, 3 = Cháy hàng
 DECLARE @TopN INT = 10;
 
-DECLARE @InventoryStatus int = 0;  -- Trạng thái kho để lọc
+DECLARE @InventoryStatus int = 1;  -- Trạng thái kho để lọc
  
 EXEC sp_TonKhoChiTiet @StartDate, @EndDate, @SalesPerformanceThreshold, @MinStockThreshold, @DesiredProfitMargin, @InventoryStatus;
 

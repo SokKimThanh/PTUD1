@@ -20,8 +20,7 @@ namespace GUI.UI.Modules
 
 
         private tbl_Report_BUS data = new tbl_Report_BUS();
-        //private int stock_status_selectedID;        // 1 = Cạn kiệt, 2 = Có sẵn, 3 = Quá tải
-        //private int sales_performance_selectedID;   // 1 = Bán chậm, 2 = Ổn định, 3 = Cháy hàng
+       
         private DateTime startDate = new DateTime();
         private DateTime endDate = new DateTime();
 
@@ -69,9 +68,7 @@ namespace GUI.UI.Modules
         {
             lblTitle.Text = !string.IsNullOrEmpty(strFunctionCode) ? strFunctionCode.ToUpper().Trim() : string.Empty;
 
-            // cbo trang thai
-            cboInventoryStatus.Properties.DataSource = dsTrangThaiTonKho;
-            cboInventoryStatus.EditValue = 0;    // Mặc định chọn "Tất cả" 
+           
 
             executeReportDefault();
         }
@@ -257,6 +254,9 @@ namespace GUI.UI.Modules
         {
             try
             {
+                // cbo trang thai
+                cboInventoryStatus.Properties.DataSource = dsTrangThaiTonKho;
+                cboInventoryStatus.EditValue = 0;    // Mặc định chọn "Thiếu hàng" 
 
                 // Mặc định hiển thị báo cáo tổng quan
                 rptViewReport.SelectedIndex = 0;
