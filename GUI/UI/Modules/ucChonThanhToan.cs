@@ -184,10 +184,10 @@ namespace GUI.UI.Modules
                     v_objNewBill.DELETED = 0;
                     v_objNewBill.CREATED = DateTime.Now;
                     v_objNewBill.CREATED_BY = strActive_User_Name;
-                    v_objNewBill.CREATED_BY_FUNCTION = strFunctionCode;
+                    v_objNewBill.CREATED_BY_FUNCTION = "Thanh toán";
                     v_objNewBill.UPDATED = DateTime.Now;
                     v_objNewBill.UPDATED_BY = strActive_User_Name;
-                    v_objNewBill.UPDATED_BY_FUNCTION = strFunctionCode;
+                    v_objNewBill.UPDATED_BY_FUNCTION = "Thanh toán";
                     v_objBill_BUS.AddData(v_objNewBill);
 
                     //Lấy bill ra
@@ -211,10 +211,10 @@ namespace GUI.UI.Modules
                             v_objTiket.Deleted = 0;
                             v_objTiket.Created = DateTime.Now;
                             v_objTiket.CREATED_BY = strActive_User_Name;
-                            v_objTiket.CREATED_BY_FUNCTION = strFunctionCode;
+                            v_objTiket.CREATED_BY_FUNCTION = "Thanh toán";
                             v_objTiket.UPDATED = DateTime.Now;
                             v_objTiket.UPDATED_BY = strActive_User_Name;
-                            v_objTiket.UPDATED_BY_FUNCTION = strFunctionCode;
+                            v_objTiket.UPDATED_BY_FUNCTION = "Thanh toán";
 
                             v_objTicket_BUS.AddData(v_objTiket);
                         }
@@ -232,10 +232,10 @@ namespace GUI.UI.Modules
                             v_objDetail.DELETED = 0;
                             v_objDetail.CREATED = DateTime.Now;
                             v_objDetail.CREATED_BY = strActive_User_Name;
-                            v_objDetail.CREATED_BY_FUNCTION = strFunctionCode;
+                            v_objDetail.CREATED_BY_FUNCTION = "Thanh toán";
                             v_objDetail.UPDATED = DateTime.Now;
                             v_objDetail.UPDATED_BY = strActive_User_Name;
-                            v_objDetail.UPDATED_BY_FUNCTION = strFunctionCode;
+                            v_objDetail.UPDATED_BY_FUNCTION = "Thanh toán";
 
                             v_objBillDetail_BUS.AddData(v_objDetail);
                         }

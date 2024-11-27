@@ -118,21 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="accordionControl.Appearance.Item.Default.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 11.25pt</value>
-  </data>
-  <data name="accordionControl.Appearance.Item.Hovered.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 11.25pt</value>
-  </data>
-  <data name="accordionControl.Appearance.Item.Pressed.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 11.25pt</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="accordionControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="accDatVe.Hint" xml:space="preserve">
-    <value>Đặt vé xem phim</value>
+  <data name="mainContainer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>912, 608</value>
   </data>
   <data name="aceDanhMuc.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -205,13 +192,13 @@
         TkSuQmCC
 </value>
   </data>
-  <data name="accordionControl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="arrFunction.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 608</value>
   </data>
-  <data name="accordionControl.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>960, 639</value>
   </data>
-  <data name="accordionControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 768</value>
+  <data name="fluentDesignFormControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>960, 31</value>
   </data>
 </root>

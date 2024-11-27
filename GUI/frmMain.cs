@@ -411,6 +411,9 @@ namespace GUI
                 Thread.Sleep(1000); // Tránh vòng lặp quá nhanh
             }
         }
-
+        private void arrFunction_ElementClick(object sender, ElementClickEventArgs e)
+        {
+            arrFunction.FindForm().Activate();
+        }
     }
 }
