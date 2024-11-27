@@ -137,7 +137,6 @@ namespace GUI.UI.Modules
                         tbl_DM_MovieSchedule_DTO v_objMovieSchedule = v_objMovieSchedule_Bus.GetLastMovieSchedule_ByID(v_objTiket.MovieScheID);
                         if (v_objMovieSchedule_Bus != null)
                         {
-
                             //Lấy phim
                             tbl_DM_Movie_DTO v_objMovie = v_objMovie_Bus.Find(v_objMovieSchedule.Movie_AutoID);
 
@@ -161,10 +160,12 @@ namespace GUI.UI.Modules
                                 v_objRes.BL_Total_Price += v_objForm.Get_Gia();
                                 v_objBill_Bus.UpdateData(v_objRes.BL_AutoID, (int)ETrang_Thai_ID.Hoan_Thanh);
                                 v_objBill_Bus.UpdateData(v_objRes.BL_AutoID, v_objRes.BL_Total_Price);
+
+                                Load_Data();
+
                             }
                         }
 
-                        Load_Data();
 
                     }
                 }
