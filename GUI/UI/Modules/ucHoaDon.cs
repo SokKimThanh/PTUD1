@@ -89,7 +89,7 @@ namespace GUI.UI.Modules
 
         protected override void Update_Data()
         {
-            tbl_DM_Bill_BUS v_objBill_Bus = new tbl_DM_Bill_BUS();
+            
         }
 
         private void grdData_RowClick(object sender, RowClickEventArgs e)
