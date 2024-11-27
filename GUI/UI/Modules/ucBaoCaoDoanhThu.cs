@@ -78,7 +78,7 @@ namespace GUI.UI.Modules
                 btnTaoBaoCao.Enabled = true;
                 if ((int)cboLoaiDoanhThu.EditValue == 0)
                 {
-                    
+
                     gridView1.Columns["ProductName"].Caption = "Tên sản phẩm";
                     gridView1.Columns["UnitPrice"].Caption = "Đơn giá";
                     gridView1.Columns["TotalQuantitySold"].Caption = "Tổng số lượng bán sản phẩm";
@@ -121,7 +121,7 @@ namespace GUI.UI.Modules
         }
         private void btnTaoBaoCao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-             
+
             try
             {
                 if (!DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) && !DateTime.TryParse(txtEndDate.Text.Trim(), out endDate))
@@ -143,7 +143,7 @@ namespace GUI.UI.Modules
                 if (startDate < new DateTime(1753, 1, 1) || endDate > new DateTime(9999, 12, 31))
                 {
                     throw new Exception("Ngày tháng phải nằm trong khoảng từ 1/1/1753 đến 12/31/9999!");
-                } 
+                }
 
                 var report = new RP_BaoCaoDoanhThu();
                 report.Add(startDate, endDate);
@@ -175,11 +175,31 @@ namespace GUI.UI.Modules
                 // Kiểm tra ngày bắt đầu và ngày kết thúc
                 if (startDate >= endDate)
                 {
+                    if (rptViewReport.SelectedIndex == 0)
+                    {
+                        cboLoaiDoanhThu.Enabled = false;// Ẩn cbo loại doanh thu
+                        btnTaoBaoCao.Enabled = false;
+                    }
+                    else
+                    {
+                        cboLoaiDoanhThu.Enabled = true;// Hiện cbo loại doanh thu
+                        btnTaoBaoCao.Enabled = true;
+                    }
                     throw new Exception("Ngày bắt đầu phải nhỏ hơn ngày kết thúc!");
                 }
 
                 if (startDate < new DateTime(1753, 1, 1) || endDate > new DateTime(9999, 12, 31))
                 {
+                    if (rptViewReport.SelectedIndex == 0)
+                    {
+                        cboLoaiDoanhThu.Enabled = false;// Ẩn cbo loại doanh thu
+                        btnTaoBaoCao.Enabled = false;
+                    }
+                    else
+                    {
+                        cboLoaiDoanhThu.Enabled = true;// Hiện cbo loại doanh thu
+                        btnTaoBaoCao.Enabled = true;
+                    }
                     throw new Exception("Ngày tháng phải nằm trong khoảng từ 1/1/1753 đến 12/31/9999!");
                 }
 
@@ -190,10 +210,12 @@ namespace GUI.UI.Modules
                 {
                     dgv.DataSource = data.GetAllSalesReport(startDate, endDate);
                     cboLoaiDoanhThu.Enabled = false;// Ẩn cbo loại doanh thu
+                    btnTaoBaoCao.Enabled = false;
                 }
                 else
                 {
                     cboLoaiDoanhThu.Enabled = true;// Hiện cbo loại doanh thu
+                    btnTaoBaoCao.Enabled = true;
                     if ((int)cboLoaiDoanhThu.EditValue == 0)
                     {
                         dgv.DataSource = data.GetProductRevenue(startDate, endDate);
