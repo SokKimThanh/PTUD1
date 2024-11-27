@@ -86,91 +86,91 @@
         <elementListCompartment Id="eee49599-4d63-4477-b2bf-20c611410121" absoluteBounds="9.015, 6.96, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.5 : 11.3373527018229); (5.85416666666667 : 11.3373527018229 : JumpStart); (6.02083333333333 : 11.3373527018229 : JumpEnd); (6.25 : 11.3373527018229)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 11.3373527018229); (5.85416666666667 : 11.3373527018229 : JumpStart); (6.02083333333333 : 11.3373527018229 : JumpEnd); (6.25 : 11.3373527018229)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_Bill/tbl_DM_Bill_tbl_DM_BillDetail" />
       <nodes>
         <classShapeMoniker Id="476d2d32-d134-4547-b91d-52bf42ac1346" />
         <classShapeMoniker Id="2fcd9417-f655-4ccd-940d-9a1735d1b184" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.125 : 22.125); (2.125 : 21.2516097005208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.125 : 22.125); (2.125 : 21.2516097005208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_AgeRating/tbl_DM_AgeRating_tbl_DM_Movie" />
       <nodes>
         <classShapeMoniker Id="f46c04f4-11e0-4e61-b781-39c106698305" />
         <classShapeMoniker Id="9261d3b9-4bfe-4c35-9c54-dbffbbb9225f" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 18.3710034179688); (3.5 : 18.3710034179688)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 18.3710034179688); (3.5 : 18.3710034179688)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_Movie/tbl_DM_Movie_tbl_DM_MovieSchedule" />
       <nodes>
         <classShapeMoniker Id="9261d3b9-4bfe-4c35-9c54-dbffbbb9225f" />
         <classShapeMoniker Id="414c7ddc-75b1-46e4-809f-e8e8e7f52aad" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 3.86546737439904); (5.875 : 4.24046737439904); (5.875 : 10.5749243509115); (6.25 : 10.5749243509115)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 3.86546737439904); (5.875 : 4.24046737439904); (5.875 : 10.5749243509115); (6.25 : 10.5749243509115)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_Product/tbl_DM_Product_tbl_DM_BillDetail" />
       <nodes>
         <classShapeMoniker Id="071b8848-29fe-4336-857a-e8eb442c2a9a" />
         <classShapeMoniker Id="2fcd9417-f655-4ccd-940d-9a1735d1b184" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 2.49120198567708); (6.25 : 2.49120198567708)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 2.49120198567708); (6.25 : 2.49120198567708)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_Product/tbl_DM_Product_tbl_DM_ExpenseType" />
       <nodes>
         <classShapeMoniker Id="071b8848-29fe-4336-857a-e8eb442c2a9a" />
         <classShapeMoniker Id="5a52ff17-e50f-4f0a-9952-abaa342b2f61" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.75 : 9.6939111328125); (1.75 : 11.3085034179688); (3.5 : 11.3085034179688)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.75 : 9.6939111328125); (1.75 : 11.3085034179688); (3.5 : 11.3085034179688)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_Staff/tbl_DM_Staff_tbl_DM_Bill" />
       <nodes>
         <classShapeMoniker Id="65c72c37-8998-44a2-bcf4-b904c8a84bd1" />
         <classShapeMoniker Id="476d2d32-d134-4547-b91d-52bf42ac1346" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 4.29970540364583); (3.125 : 4.67470540364583); (3.125 : 6.86620198567708); (3.5 : 6.86620198567708)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 4.29970540364583); (3.125 : 4.67470540364583); (3.125 : 6.86620198567708); (3.5 : 6.86620198567708)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_Shift/tbl_DM_Shift_tbl_DM_StaffSchedule" />
       <nodes>
         <classShapeMoniker Id="8a459c8e-2c5f-4aaa-b5cf-4d72434010cc" />
         <classShapeMoniker Id="da1ec039-9529-4f57-b544-cbb8a4bd4df7" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 7.61180297851562); (3.5 : 7.61180297851562)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 7.61180297851562); (3.5 : 7.61180297851562)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_Staff/tbl_DM_Staff_tbl_DM_StaffSchedule" />
       <nodes>
         <classShapeMoniker Id="65c72c37-8998-44a2-bcf4-b904c8a84bd1" />
         <classShapeMoniker Id="da1ec039-9529-4f57-b544-cbb8a4bd4df7" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 9.81153746153846); (5.81607443490112 : 9.49546302663734 : JumpStart); (5.99642556509888 : 9.31511189643958 : JumpEnd); (6.0625 : 9.24903746153846); (6.0625 : 7.40465413411458); (6.25 : 7.40465413411458)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 9.81153746153846); (5.81607443490112 : 9.49546302663734 : JumpStart); (5.93392556509888 : 9.37761189643958 : JumpEnd); (6.0625 : 9.24903746153846); (6.0625 : 7.40465413411458); (6.25 : 7.40465413411458)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_Bill/tbl_DM_Bill_tbl_DM_Ticket" />
       <nodes>
         <classShapeMoniker Id="476d2d32-d134-4547-b91d-52bf42ac1346" />
         <classShapeMoniker Id="cb0e8932-52e5-45d7-acbc-4a0896b790b2" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 15.9365374615385); (5.9375 : 15.4990374615385); (5.9375 : 8.26323320117188); (5.97916666666667 : 8.26323320117188 : JumpStart); (6.14583333333333 : 8.26323320117188 : JumpEnd); (6.25 : 8.26323320117188)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 15.9365374615385); (5.9375 : 15.4990374615385); (5.9375 : 8.26323320117188); (5.97916666666667 : 8.26323320117188 : JumpStart); (6.14583333333333 : 8.26323320117188 : JumpEnd); (6.25 : 8.26323320117188)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_MovieSchedule/tbl_DM_MovieSchedule_tbl_DM_Ticket" />
       <nodes>
         <classShapeMoniker Id="414c7ddc-75b1-46e4-809f-e8e8e7f52aad" />
         <classShapeMoniker Id="cb0e8932-52e5-45d7-acbc-4a0896b790b2" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 8.72377073470052); (5.79166666666667 : 8.72377073470052 : JumpStart); (6.14583333333333 : 8.72377073470052 : JumpEnd); (6.25 : 8.72377073470052)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 8.72377073470052); (5.79166666666667 : 8.72377073470052 : JumpStart); (6.14583333333333 : 8.72377073470052 : JumpEnd); (6.25 : 8.72377073470052)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_Staff/tbl_DM_Staff_tbl_DM_Ticket" />
       <nodes>
         <classShapeMoniker Id="65c72c37-8998-44a2-bcf4-b904c8a84bd1" />
         <classShapeMoniker Id="cb0e8932-52e5-45d7-acbc-4a0896b790b2" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 16.4046541341146); (3.5 : 16.4046541341146)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 16.4046541341146); (3.5 : 16.4046541341146)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_Theater/tbl_DM_Theater_tbl_DM_MovieSchedule" />
       <nodes>
         <classShapeMoniker Id="6a92715a-7c20-47b8-8f7d-eb6eb383e1fb" />
         <classShapeMoniker Id="414c7ddc-75b1-46e4-809f-e8e8e7f52aad" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 1.53125); (10.90625 : 1.53125); (10.90625 : 6.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.25 : 1.53125); (10.90625 : 1.53125); (10.90625 : 6.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/CM_Cinema_DBDataContext/tbl_DM_ExpenseType/tbl_DM_ExpenseType_tbl_SYS_Expense" />
       <nodes>
         <classShapeMoniker Id="5a52ff17-e50f-4f0a-9952-abaa342b2f61" />

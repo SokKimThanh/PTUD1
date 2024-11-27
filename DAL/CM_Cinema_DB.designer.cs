@@ -2186,7 +2186,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MV_POSTERURL", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MV_POSTERURL", DbType="NvarChar(MAX) NOT NULL", CanBeNull=false)]
 		public string MV_POSTERURL
 		{
 			get

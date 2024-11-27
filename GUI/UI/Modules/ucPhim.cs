@@ -1,4 +1,5 @@
 ﻿using BUS.Danh_Muc;
+using DevExpress.DataProcessing.InMemoryDataProcessor;
 using DevExpress.XtraEditors.Controls;
 using DTO.tbl_DTO;
 using GUI.UI.Component;
@@ -58,10 +59,24 @@ namespace GUI.UI.Modules
         /// <returns></returns>
         private tbl_DM_Movie_DTO GetFormData()
         {
+            // Đường dẫn đến thư mục hình của prject
+            string projectPath = Environment.CurrentDirectory + "\\Images\\";
+
+            // Tạo thư mục nếu chưa có
+            if (!System.IO.Directory.Exists(projectPath))
+                System.IO.Directory.CreateDirectory(projectPath);
+
+            // Sao chép hình vào thư mục hình của project và sửa tên hình thành tên phim
+            string[] splitStr = txtUrlHinhAnh.Split('.');
+            string pictureUrl = projectPath + txtName.Text + "." + splitStr[splitStr.Length - 1];
+            if(File.Exists(pictureUrl))
+                File.Delete(pictureUrl);
+            File.Copy(txtUrlHinhAnh, pictureUrl);
+
             // Sử dụng constructor của tbl_DM_Movie_DTO để tạo đối tượng movie
             var movie = new tbl_DM_Movie_DTO();
             movie.MV_NAME = txtName.Text;
-            movie.MV_POSTERURL = txtUrlHinhAnh;
+            movie.MV_POSTERURL = pictureUrl;
             movie.MV_DESCRIPTION = txtDescription.Text;
             movie.MV_PRICE = double.Parse(txtPrice.Text.Trim());
             movie.MV_DURATION = int.Parse(txtDurations.Text.Trim());
@@ -289,7 +304,7 @@ namespace GUI.UI.Modules
         private void ChonHinhAnh()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif";
+            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png";
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
