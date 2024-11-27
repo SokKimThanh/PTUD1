@@ -23,8 +23,9 @@ namespace GUI
         /// </summary>
         private Dictionary<string, ucBase> dicFunction = new Dictionary<string, ucBase>()
         {
-           { "accDatVe", new ucChonPhim() },
-           { "accVe", new ucVe() },
+            { "accCaiDat", new ucCaiDat() },
+            { "accDatVe", new ucChonPhim() },
+            { "accVe", new ucVe() },
             { "accQLHoaDon", new ucHoaDon() },
             { "accQLPhim", new ucPhim() },
             { "accQLSanPham", new ucSanPham() },
@@ -74,9 +75,6 @@ namespace GUI
             {
                 objFunctionC1.Text = LanguageController.GetLanguageDataLabel(objFunctionC1.Text);
                 objFunctionC1.Hint = LanguageController.GetLanguageDataLabel(objFunctionC1.Hint);
-                //Kiểm tra xem có tồn tại chức năng con không
-                if (objFunctionC1.Elements.Count == 0)
-                    continue;
 
                 foreach (AccordionControlElement objFunctionC2 in objFunctionC1.Elements)
                 {
@@ -389,28 +387,30 @@ namespace GUI
             base.WndProc(ref message);
         }
 
-        private void mainContainer_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
 
         private void TimeExcute()
         {
             while (true)
             {
-                string currentTime = DateTime.Now.ToString(CConfig.Time_Format_String);
-
-                // Sử dụng Form hoặc Control cha để gọi BeginInvoke
-                this.BeginInvoke(new Action(() =>
+                try
                 {
-                    lblTime.Caption = currentTime;
-                }));
+                    string currentTime = DateTime.Now.ToString(CConfig.Time_Format_String);
 
-                Thread.Sleep(1000); // Tránh vòng lặp quá nhanh
+                    // Sử dụng Form hoặc Control cha để gọi BeginInvoke
+                    this.BeginInvoke(new Action(() =>
+                    {
+                        lblTime.Caption = currentTime;
+                    }));
+
+                    Thread.Sleep(1000); // Thêm delay để tránh vòng lặp quá nhanh
+                }
+                catch (Exception)
+                {
+
+                }
             }
         }
+
         private void arrFunction_ElementClick(object sender, ElementClickEventArgs e)
         {
             arrFunction.FindForm().Activate();
