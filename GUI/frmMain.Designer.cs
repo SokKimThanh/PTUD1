@@ -67,13 +67,28 @@
             // mainContainer
             // 
             resources.ApplyResources(this.mainContainer, "mainContainer");
+            this.mainContainer.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            this.mainContainer.Appearance.Options.UseBackColor = true;
             this.mainContainer.Name = "mainContainer";
             // 
             // arrFunction
             // 
             resources.ApplyResources(this.arrFunction, "arrFunction");
+            this.arrFunction.AllowItemSelection = true;
             this.arrFunction.Appearance.AccordionControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(88)))), ((int)(((byte)(143)))));
             this.arrFunction.Appearance.AccordionControl.Options.UseBackColor = true;
+            this.arrFunction.Appearance.Item.Default.Font = ((System.Drawing.Font)(resources.GetObject("accordionControl.Appearance.Item.Default.Font")));
+            this.arrFunction.Appearance.Item.Default.ForeColor = System.Drawing.Color.White;
+            this.arrFunction.Appearance.Item.Default.Options.UseFont = true;
+            this.arrFunction.Appearance.Item.Default.Options.UseForeColor = true;
+            this.arrFunction.Appearance.Item.Hovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(223)))), ((int)(((byte)(246)))));
+            this.arrFunction.Appearance.Item.Hovered.Font = ((System.Drawing.Font)(resources.GetObject("accordionControl.Appearance.Item.Hovered.Font")));
+            this.arrFunction.Appearance.Item.Hovered.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.arrFunction.Appearance.Item.Hovered.Options.UseBackColor = true;
+            this.arrFunction.Appearance.Item.Hovered.Options.UseFont = true;
+            this.arrFunction.Appearance.Item.Hovered.Options.UseForeColor = true;
+            this.arrFunction.Appearance.Item.Pressed.Font = ((System.Drawing.Font)(resources.GetObject("accordionControl.Appearance.Item.Pressed.Font")));
+            this.arrFunction.Appearance.Item.Pressed.Options.UseFont = true;
             this.arrFunction.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.aceDatVe,
             this.aceDanhMuc,
@@ -84,6 +99,8 @@
             this.arrFunction.OptionsMinimizing.AllowMinimizeMode = DevExpress.Utils.DefaultBoolean.True;
             this.arrFunction.OptionsMinimizing.State = DevExpress.XtraBars.Navigation.AccordionControlState.Minimized;
             this.arrFunction.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Fluent;
+            this.arrFunction.ShowFilterControl = DevExpress.XtraBars.Navigation.ShowFilterControl.Auto;
+            this.arrFunction.ShowItemExpandButtons = false;
             this.arrFunction.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             this.arrFunction.ElementClick += new DevExpress.XtraBars.Navigation.ElementClickEventHandler(this.arrFunction_ElementClick);
             // 
@@ -93,6 +110,7 @@
             this.aceDatVe.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accDatVe,
             this.accQLHoaDon});
+            this.aceDatVe.Expanded = true;
             this.aceDatVe.ImageOptions.Image = global::GUI.Properties.Resources.Logo32;
             this.aceDatVe.Name = "aceDatVe";
             // 
@@ -221,7 +239,6 @@
             this.accBaoCaoDoanhThu,
             this.accBaoCaoThuChi,
             this.accBaoCaoTonKho});
-            this.aceBaoCao.Expanded = true;
             this.aceBaoCao.ImageOptions.Image = global::GUI.Properties.Resources.report2_32x32;
             this.aceBaoCao.Name = "aceBaoCao";
             // 
@@ -309,6 +326,8 @@
             // frmMain
             // 
             resources.ApplyResources(this, "$this");
+            this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            this.Appearance.Options.UseBackColor = true;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ControlContainer = this.mainContainer;
             this.Controls.Add(this.mainContainer);
@@ -319,6 +338,7 @@
             this.MaximizeBox = false;
             this.Name = "frmMain";
             this.NavigationControl = this.arrFunction;
+            this.SurfaceMaterial = DevExpress.XtraEditors.SurfaceMaterial.Acrylic;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.arrFunction)).EndInit();
