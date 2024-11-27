@@ -249,14 +249,18 @@ namespace GUI.UI.Modules
                                 RP_PrintTicket report = new RP_PrintTicket();
                                 report.BindParameter(v_objItem.AutoID.ToString());
                                 report.CreateDocument();
+                                string predefinedPath = @"C:\Users\Windows\Downloads\Tiket_" + v_objItem.AutoID + ".pdf";
+                                report.ExportToPdf(predefinedPath); // No Save dialog is triggered
 
                                 // Thiết lập máy in
                                 ReportPrintTool tool = new ReportPrintTool(report);
                                 if (CCommon.Printer_Name != "")
                                     tool.PrinterSettings.PrinterName = CCommon.Printer_Name; // Thay "Tên máy in của bạn" bằng tên máy in thực tế
 
+
                                 // In vé không cần review
-                                tool.Print();
+                                //tool.Print();
+
                             }
                             catch (Exception) { }
 

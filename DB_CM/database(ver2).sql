@@ -1,4 +1,3 @@
-
 ﻿go
 use master
 
@@ -302,7 +301,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[tbl_DM_Ticket](
 	[TK_AutoID] [bigint] IDENTITY(1,1) NOT NULL,
-	[TK_SEATNAME] [nchar](3) NOT NULL,
+	[TK_SEATNAME] [nchar](100) NOT NULL,
 	[TK_MOVIESCHEDULE_AutoID] [bigint] NOT NULL,
 	[TK_STAFF_AutoID] [bigint] NOT NULL,
 	[TK_BILL_AutoID] [bigint] NULL,

@@ -75,7 +75,7 @@ namespace DAL
     #endregion
 		
 		public CM_Cinema_DBDataContext() : 
-				base(global::DAL.Properties.Settings.Default.CM_Cinema_DBConnectionString8, mappingSource)
+				base(global::DAL.Properties.Settings.Default.CM_Cinema_DBConnectionString9, mappingSource)
 		{
 			OnCreated();
 		}
@@ -4558,7 +4558,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TK_SEATNAME", DbType="NChar(3) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TK_SEATNAME", DbType="NChar(100) NOT NULL", CanBeNull=false)]
 		public string TK_SEATNAME
 		{
 			get

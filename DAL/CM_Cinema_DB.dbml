@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CM_Cinema_DB" Class="CM_Cinema_DBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=CM_Cinema_DB;Integrated Security=True;Encrypt=False;Trust Server Certificate=True" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="CM_Cinema_DBConnectionString8" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\sqlexpress;Initial Catalog=CM_Cinema_DB;Integrated Security=True;Encrypt=False" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="CM_Cinema_DBConnectionString9" Provider="System.Data.SqlClient" />
   <Table Name="dbo.tbl_DM_AgeRating" Member="tbl_DM_AgeRatings">
     <Type Name="tbl_DM_AgeRating">
       <Column Name="AR_AutoID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -198,7 +198,7 @@
   <Table Name="dbo.tbl_DM_Ticket" Member="tbl_DM_Tickets">
     <Type Name="tbl_DM_Ticket">
       <Column Name="TK_AutoID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TK_SEATNAME" Type="System.String" DbType="NChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="TK_SEATNAME" Type="System.String" DbType="NChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="TK_MOVIESCHEDULE_AutoID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Column Name="TK_STAFF_AutoID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Column Name="TK_BILL_AutoID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />

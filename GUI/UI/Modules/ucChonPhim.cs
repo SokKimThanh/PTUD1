@@ -249,8 +249,6 @@ namespace GUI.UI.Modules
             }
         }
 
-
-
         private void dgvMovies_Click(object sender, EventArgs e)
         {
             int[] dong = layoutView1.GetSelectedRows();
@@ -269,6 +267,33 @@ namespace GUI.UI.Modules
                         cboMovieSchedule.Properties.DataSource = movieScheBus.GetMovieSchedule_ByMovieDate(o.MV_AutoID, (DateTime)dtpDate.EditValue);
                         cboMovieSchedule.ItemIndex = 0;
 
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Lỗi");
+                    }
+                }
+            }
+        }
+
+        private void layoutView1_Click(object sender, EventArgs e)
+        {
+            int[] dong = layoutView1.GetSelectedRows();
+            foreach (int i in dong)
+            {
+                if (i >= 0)
+                {
+                    try
+                    {
+                        string dgv_selected_id = layoutView1.GetRowCellValue(i, "MV_AutoID").ToString().Trim();
+                        tbl_DM_Movie_DTO o = moiveBus.Find(long.Parse(dgv_selected_id));
+                        tbl_DM_AgeRating_DTO foundAR = ageBus.Find((long)o.MV_AGERATING_AutoID);
+                        txtTenPhim.Text = o.MV_NAME.ToString().Trim();
+                        txtThoiLuong.Text = o.MV_DURATION.ToString().Trim();
+                        txtAgeRating.Text = foundAR.AR_NOTE.ToString().Trim();
+                        cboMovieSchedule.Properties.DataSource = movieScheBus.GetMovieSchedule_ByMovieDate(o.MV_AutoID, (DateTime)dtpDate.EditValue);
+                        cboMovieSchedule.ItemIndex = 0;
+                        CCommon.suatChieuDuocChon = (long)cboMovieSchedule.EditValue;
                     }
                     catch (Exception ex)
                     {

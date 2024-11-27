@@ -13,6 +13,7 @@ namespace GUI.UI.ReportDesign
             try
             {
                 prmTicketID.Value = parameter;
+                prmTicketID.Visible = false;
             }
             catch (Exception ex)
             {
