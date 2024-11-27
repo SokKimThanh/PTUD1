@@ -113,10 +113,6 @@ namespace GUI.UI.Modules
                     tbl_DM_MovieSchedule_BUS v_objMovieSchedule_Bus = new tbl_DM_MovieSchedule_BUS();
                     tbl_DM_Movie_BUS v_objMovie_Bus = new tbl_DM_Movie_BUS();
 
-
-                    // Lấy tiền của hóa đơn
-                    double v_dblPrice = v_objRes.BL_Total_Price;
-
                     //Tính tiền cần thanh toán dựa trên ghế và sản phẩm
                     v_objRes.Bill_Detail = v_objBill_Detail_BUS.List_Data_By_Bill_ID(v_objRes.BL_AutoID);
                     v_objRes.Tiket = v_objTiket_BUS.List_Data_By_Bill_ID(v_objRes.BL_AutoID);
