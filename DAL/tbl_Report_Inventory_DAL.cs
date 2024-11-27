@@ -67,11 +67,13 @@ namespace DAL
         }
 
         public List<tbl_Report_Inventory_DTO> GetInventoryReportByStatusAndDate(
-              DateTime startDate,
-              DateTime endDate, int salesPerformanceThreshold = 50,         // hiệu suất bán hàng
-              int minStockThreshold = 50,    // ngưỡng tồn kho
-              double desiredProfitMargin = 0.2 // lợi nhuận mong muốn
-            )
+    DateTime startDate,
+    DateTime endDate,
+    int salesPerformanceThreshold = 50,     // hiệu suất bán hàng
+    int minStockThreshold = 50,            // ngưỡng tồn kho
+    double desiredProfitMargin = 0.2,      // lợi nhuận mong muốn
+    int inventoryStatus = 0                // trạng thái kho (0 = tất cả, 1 = cần nhập hàng, 2 = tồn kho đủ)
+)
         {
             using (var dbContext = new CM_Cinema_DBDataContext(connectionString))
             {
@@ -98,6 +100,8 @@ namespace DAL
                             let totalImportCost = g.Sum(x => x.ex != null ? x.ex.EX_PRICE : 0)
                             let totalRevenue = g.Sum(x => x.bd != null ? x.bd.BD_QUANTITY * x.bd.tbl_DM_Product.PD_PRICE : 0)
                             let profit = totalRevenue - totalImportCost
+
+                            let stockStatus = remainingStock < minStockThreshold ? 1 : 2 // 1 = cần nhập hàng, 2 = tồn kho đủ
                             select new tbl_Report_Inventory_DTO()
                             {
                                 ProductID = g.Key.PD_AutoID,
@@ -113,16 +117,22 @@ namespace DAL
                                         : salesPerformancePercentage <= salesPerformanceThreshold + 20
                                             ? "Hiệu suất ổn định"
                                             : "Mặt hàng hot",
-                                StockStatus = remainingStock < minStockThreshold
-                                    ? "Cần nhập hàng"
-                                    : "Tồn kho đủ",
+                                StockStatus = stockStatus == 1 ? "Cần nhập hàng" : "Tồn kho đủ",
                                 TotalImportCost = totalImportCost,
                                 TotalRevenue = totalRevenue,
-                                Profit = profit
+                                Profit = profit,
+                                InventoryStatus = stockStatus // Trạng thái kho theo kiểu số
                             };
+
+                // Lọc theo trạng thái nếu inventoryStatus khác 0
+                if (inventoryStatus > 0)
+                {
+                    query = query.Where(x => x.InventoryStatus == inventoryStatus);
+                }
 
                 return query.OrderBy(x => x.ProductName).ToList();
             }
         }
+
     }
 }

@@ -1,13 +1,24 @@
 ﻿using BUS.Bao_Cao;
+using DevExpress.XtraEditors;
+using DevExpress.XtraGrid;
 using DevExpress.XtraReports.UI;
 using GUI.UI.Component;
 using GUI.UI.ReportDesign;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 namespace GUI.UI.Modules
 {
     public partial class ucBaoCaoTonKho : ucBase
     {
+        // Danh sách trạng thái
+        Dictionary<int, string> dsTrangThaiTonKho = new Dictionary<int, string>()
+        {
+            {0, "Thiếu hàng" },
+            {1, "Đủ hàng" }
+        };
+
+
         private tbl_Report_BUS data = new tbl_Report_BUS();
         //private int stock_status_selectedID;        // 1 = Cạn kiệt, 2 = Có sẵn, 3 = Quá tải
         //private int sales_performance_selectedID;   // 1 = Bán chậm, 2 = Ổn định, 3 = Cháy hàng
@@ -57,6 +68,11 @@ namespace GUI.UI.Modules
         protected override void Load_Data()
         {
             lblTitle.Text = !string.IsNullOrEmpty(strFunctionCode) ? strFunctionCode.ToUpper().Trim() : string.Empty;
+
+            // cbo trang thai
+            cboInventoryStatus.Properties.DataSource = dsTrangThaiTonKho;
+            cboInventoryStatus.EditValue = 0;    // Mặc định chọn "Tất cả" 
+
             executeReportDefault();
         }
 
@@ -90,6 +106,7 @@ namespace GUI.UI.Modules
                 gridView1.Columns["TotalReceived"].Visible = false;
                 gridView1.Columns["TotalSold"].Visible = false;
                 gridView1.Columns["Profit"].Visible = false;
+                gridView1.Columns["InventoryStatus"].Visible = false;
             }
             else
             {
@@ -138,25 +155,29 @@ namespace GUI.UI.Modules
         {
             gridView1.Columns.Clear(); // Xóa cột cũ trước khi gán dữ liệu mới 
 
+            // bao cao tong hop
             if (rptViewReport.SelectedIndex == 0)
             {
 
                 txtStartDate.Enabled = false;
                 txtEndDate.Enabled = false;
+                btnTaoBaoCao.Enabled = false; // khong cho tao bao cao tong hop
                 dgv.DataSource = data.GetInventoryReport(startDate, endDate);
             }
+            // bao cao chi tiet
             else
             {
-
                 txtStartDate.Enabled = true;
                 txtEndDate.Enabled = true;
+                btnTaoBaoCao.Enabled = true;
+
                 if (!DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) &&
                 !DateTime.TryParse(txtEndDate.Text.Trim(), out endDate))
                 {
                     MessageBox.Show("Vui lòng nhập đúng định dạng ngày!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                dgv.DataSource = data.GetInventoryReportByStatusAndDate(startDate, endDate);
+                dgv.DataSource = data.GetInventoryReportByStatusAndDate(startDate, endDate, 50, 50, 0.2, (int)cboInventoryStatus.EditValue);
             }
             ConfigureGridColumns();
 
@@ -170,7 +191,8 @@ namespace GUI.UI.Modules
                 DateTime.TryParse(txtEndDate.Text.Trim(), out endDate))
             {
                 var report = new RP_BaoCaoTonKho();
-                report.Add(startDate, endDate);
+
+                report.Add(startDate, endDate, (int)cboInventoryStatus.EditValue);
 
                 // Hiển thị báo cáo
                 var printTool = new ReportPrintTool(report);
@@ -183,32 +205,51 @@ namespace GUI.UI.Modules
         }
         public void executeReport()
         {
-            if (!DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) && !DateTime.TryParse(txtEndDate.Text.Trim(), out endDate))
+            try
             {
-                MessageBox.Show("Vui lòng nhập đúng định dạng ngày!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                if (!DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) && !DateTime.TryParse(txtEndDate.Text.Trim(), out endDate))
+                {
+                    MessageBox.Show("Vui lòng nhập đúng định dạng ngày!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                DateTime.TryParse(txtStartDate.Text.Trim(), out startDate);
+                DateTime.TryParse(txtEndDate.Text.Trim(), out endDate);
+
+
+                // Kiểm tra ngày bắt đầu và ngày kết thúc
+                if (startDate >= endDate)
+                {
+                    throw new Exception("Ngày bắt đầu phải nhỏ hơn ngày kết thúc!");
+                }
+
+                if (startDate < new DateTime(1753, 1, 1) || endDate > new DateTime(9999, 12, 31))
+                {
+                    throw new Exception("Ngày tháng phải nằm trong khoảng từ 1/1/1753 đến 12/31/9999!");
+                }
+
+
+                gridView1.Columns.Clear(); // Xóa cột cũ trước khi gán dữ liệu mới
+
+                if (rptViewReport.SelectedIndex == 0)
+                {
+
+                    dgv.DataSource = data.GetInventoryReport(startDate, endDate);
+                }
+                else
+                {
+                    dgv.DataSource = data.GetInventoryReportByStatusAndDate(startDate, endDate, 50, 50, 0.2, (int)cboInventoryStatus.EditValue);
+                }
+                // Định dạng cột theo tổng quan hoặc chi tiết
+                ConfigureGridColumns();
+
+                // Refresh lại DataGridView để hiển thị dữ liệu mới
+                dgv.Refresh();
             }
-
-            DateTime.TryParse(txtStartDate.Text.Trim(), out startDate);
-            DateTime.TryParse(txtEndDate.Text.Trim(), out endDate);
-
-            gridView1.Columns.Clear(); // Xóa cột cũ trước khi gán dữ liệu mới
-
-            if (rptViewReport.SelectedIndex == 0)
+            catch (Exception ex)
             {
-
-                dgv.DataSource = data.GetInventoryReport(startDate, endDate);
+                MessageBox.Show("Lỗi: " + ex.Message, "Thông báo");
             }
-            else
-            {
-
-                dgv.DataSource = data.GetInventoryReportByStatusAndDate(startDate, endDate);
-            }
-            // Định dạng cột theo tổng quan hoặc chi tiết
-            ConfigureGridColumns();
-
-            // Refresh lại DataGridView để hiển thị dữ liệu mới
-            dgv.Refresh();
         }
 
 
@@ -220,15 +261,12 @@ namespace GUI.UI.Modules
                 // Mặc định hiển thị báo cáo tổng quan
                 rptViewReport.SelectedIndex = 0;
 
-
-
-
-
                 if (startDate < new DateTime(1753, 1, 1) || endDate > new DateTime(9999, 12, 31))
                 {
-                    MessageBox.Show("Ngày tháng phải nằm trong khoảng từ 1/1/1753 đến 12/31/9999!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    throw new Exception("Ngày tháng phải nằm trong khoảng từ 1/1/1753 đến 12/31/9999!");
                 }
+
+
                 // Hiển thị năm hiện tại lên các điều khiển
                 txtStartDate.EditValue = startDate;
                 txtEndDate.EditValue = endDate;
@@ -241,7 +279,7 @@ namespace GUI.UI.Modules
                 }
                 else
                 {
-                    dgv.DataSource = data.GetInventoryReportByStatusAndDate(startDate, endDate);
+                    dgv.DataSource = data.GetInventoryReportByStatusAndDate(startDate, endDate, 50, 50, 0.2, (int)cboInventoryStatus.EditValue);
                 }
 
                 ConfigureGridColumns();

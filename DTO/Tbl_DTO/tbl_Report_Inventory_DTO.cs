@@ -19,5 +19,6 @@
         public double TotalImportCost { get; set; }
         public double TotalRevenue { get; set; }
         public double Profit { get; set; }
+        public int InventoryStatus { get; set; }
     }
 }

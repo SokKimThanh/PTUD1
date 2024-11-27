@@ -51,6 +51,7 @@
             this.rptViewReport = new DevExpress.XtraEditors.RadioGroup();
             this.txtStartDate = new DevExpress.XtraEditors.DateEdit();
             this.txtEndDate = new DevExpress.XtraEditors.DateEdit();
+            this.cboInventoryStatus = new DevExpress.XtraEditors.LookUpEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutTitle = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutDGV = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -59,6 +60,7 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutInventoryStatus = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutForm)).BeginInit();
             this.layoutForm.SuspendLayout();
@@ -69,6 +71,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtStartDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEndDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEndDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboInventoryStatus.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).BeginInit();
@@ -77,6 +80,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutInventoryStatus)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -230,6 +234,7 @@
             this.layoutForm.Controls.Add(this.rptViewReport);
             this.layoutForm.Controls.Add(this.txtStartDate);
             this.layoutForm.Controls.Add(this.txtEndDate);
+            this.layoutForm.Controls.Add(this.cboInventoryStatus);
             this.layoutForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutForm.Location = new System.Drawing.Point(0, 24);
             this.layoutForm.Name = "layoutForm";
@@ -266,14 +271,14 @@
             // 
             // rptViewReport
             // 
-            this.rptViewReport.Location = new System.Drawing.Point(430, 87);
+            this.rptViewReport.Location = new System.Drawing.Point(557, 87);
             this.rptViewReport.Name = "rptViewReport";
             this.rptViewReport.Properties.Columns = 2;
             this.rptViewReport.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
             this.rptViewReport.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(((short)(0)), "Tổng quan", true, null, "rptTongQuan"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(((short)(1)), "Chi Tiết", true, null, "rptChiTiet")});
-            this.rptViewReport.Size = new System.Drawing.Size(277, 44);
+            this.rptViewReport.Size = new System.Drawing.Size(150, 44);
             this.rptViewReport.StyleController = this.layoutForm;
             this.rptViewReport.TabIndex = 11;
             this.rptViewReport.SelectedIndexChanged += new System.EventHandler(this.rptViewReport_SelectedIndexChanged);
@@ -282,7 +287,7 @@
             // 
             this.txtStartDate.EditValue = null;
             this.txtStartDate.Enabled = false;
-            this.txtStartDate.Location = new System.Drawing.Point(87, 87);
+            this.txtStartDate.Location = new System.Drawing.Point(124, 87);
             this.txtStartDate.Name = "txtStartDate";
             this.txtStartDate.Properties.BeepOnError = true;
             this.txtStartDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -293,7 +298,7 @@
             this.txtStartDate.Properties.MaskSettings.Set("mask", "d");
             this.txtStartDate.Properties.UseMaskAsDisplayFormat = true;
             this.txtStartDate.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            this.txtStartDate.Size = new System.Drawing.Size(276, 20);
+            this.txtStartDate.Size = new System.Drawing.Size(112, 20);
             this.txtStartDate.StyleController = this.layoutForm;
             this.txtStartDate.TabIndex = 10;
             this.txtStartDate.EditValueChanged += new System.EventHandler(this.txtStartDate_EditValueChanged);
@@ -302,7 +307,7 @@
             // 
             this.txtEndDate.EditValue = null;
             this.txtEndDate.Enabled = false;
-            this.txtEndDate.Location = new System.Drawing.Point(87, 111);
+            this.txtEndDate.Location = new System.Drawing.Point(124, 111);
             this.txtEndDate.Name = "txtEndDate";
             this.txtEndDate.Properties.BeepOnError = true;
             this.txtEndDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -313,10 +318,27 @@
             this.txtEndDate.Properties.MaskSettings.Set("mask", "d");
             this.txtEndDate.Properties.UseMaskAsDisplayFormat = true;
             this.txtEndDate.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            this.txtEndDate.Size = new System.Drawing.Size(276, 20);
+            this.txtEndDate.Size = new System.Drawing.Size(112, 20);
             this.txtEndDate.StyleController = this.layoutForm;
             this.txtEndDate.TabIndex = 10;
             this.txtEndDate.EditValueChanged += new System.EventHandler(this.txtEndDate_EditValueChanged);
+            // 
+            // cboInventoryStatus
+            // 
+            this.cboInventoryStatus.Location = new System.Drawing.Point(340, 99);
+            this.cboInventoryStatus.Name = "cboInventoryStatus";
+            this.cboInventoryStatus.Properties.BeepOnError = true;
+            this.cboInventoryStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboInventoryStatus.Properties.DisplayFormat.FormatString = "d";
+            this.cboInventoryStatus.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.cboInventoryStatus.Properties.DropDownRows = 3;
+            this.cboInventoryStatus.Properties.EditFormat.FormatString = "d";
+            this.cboInventoryStatus.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.cboInventoryStatus.Properties.NullText = "";
+            this.cboInventoryStatus.Size = new System.Drawing.Size(113, 20);
+            this.cboInventoryStatus.StyleController = this.layoutForm;
+            this.cboInventoryStatus.TabIndex = 10;
             // 
             // Root
             // 
@@ -372,7 +394,8 @@
             this.layoutAction.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem5,
             this.layoutControlItem4,
-            this.layoutControlItem6});
+            this.layoutControlItem6,
+            this.layoutInventoryStatus});
             this.layoutAction.Location = new System.Drawing.Point(0, 42);
             this.layoutAction.Name = "layoutAction";
             this.layoutAction.OptionsItemText.TextToControlDistance = 3;
@@ -386,21 +409,21 @@
             this.layoutControlItem5.CustomizationFormText = "Đến ngày:";
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(343, 24);
+            this.layoutControlItem5.Size = new System.Drawing.Size(216, 24);
             this.layoutControlItem5.Text = "Từ ngày";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(51, 13);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(88, 13);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.rptViewReport;
             this.layoutControlItem4.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem4.CustomizationFormText = "Hiển thị:";
-            this.layoutControlItem4.Location = new System.Drawing.Point(343, 0);
+            this.layoutControlItem4.Location = new System.Drawing.Point(433, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(344, 48);
+            this.layoutControlItem4.Size = new System.Drawing.Size(254, 48);
             this.layoutControlItem4.Text = "Hiển thị:";
             this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Left;
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(51, 13);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(88, 13);
             // 
             // layoutControlItem6
             // 
@@ -409,9 +432,21 @@
             this.layoutControlItem6.CustomizationFormText = "Đến ngày:";
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(343, 24);
+            this.layoutControlItem6.Size = new System.Drawing.Size(216, 24);
             this.layoutControlItem6.Text = "Đến ngày:";
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(51, 13);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(88, 13);
+            // 
+            // layoutInventoryStatus
+            // 
+            this.layoutInventoryStatus.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.layoutInventoryStatus.Control = this.cboInventoryStatus;
+            this.layoutInventoryStatus.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.layoutInventoryStatus.CustomizationFormText = "Đến ngày:";
+            this.layoutInventoryStatus.Location = new System.Drawing.Point(216, 0);
+            this.layoutInventoryStatus.Name = "layoutInventoryStatus";
+            this.layoutInventoryStatus.Size = new System.Drawing.Size(217, 48);
+            this.layoutInventoryStatus.Text = "Trạng thái tồn kho";
+            this.layoutInventoryStatus.TextSize = new System.Drawing.Size(88, 13);
             // 
             // ucBaoCaoTonKho
             // 
@@ -434,6 +469,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtStartDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEndDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEndDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboInventoryStatus.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).EndInit();
@@ -442,6 +478,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutInventoryStatus)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -479,5 +516,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
         private DevExpress.XtraEditors.DateEdit txtStartDate;
         private DevExpress.XtraEditors.DateEdit txtEndDate;
+        private DevExpress.XtraEditors.LookUpEdit cboInventoryStatus;
+        private DevExpress.XtraLayout.LayoutControlItem layoutInventoryStatus;
     }
 }

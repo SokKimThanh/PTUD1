@@ -10,11 +10,12 @@ DECLARE @StockStatus INT= 1;             -- Trạng thái tồn kho: 1 = Cạn k
 DECLARE @SalesPerformance INT = 1;        -- Hiệu suất bán hàng: 1 = Bán chậm, 2 = Ổn định, 3 = Cháy hàng
 DECLARE @TopN INT = 10;
 
-EXEC sp_TonKhoChiTiet @StartDate, @EndDate, @SalesPerformanceThreshold, @MinStockThreshold, @DesiredProfitMargin;
+DECLARE @InventoryStatus int = 0;  -- Trạng thái kho để lọc
+ 
+EXEC sp_TonKhoChiTiet @StartDate, @EndDate, @SalesPerformanceThreshold, @MinStockThreshold, @DesiredProfitMargin, @InventoryStatus;
 
-EXEC sp_TonKhoTongQuan @StartDate, @EndDate, @SalesPerformanceThreshold, @MinStockThreshold;
-
-
+--EXEC sp_TonKhoTongQuan @StartDate, @EndDate, @SalesPerformanceThreshold, @MinStockThreshold;
+ 
 --EXEC sp_TongHopLoiNhuan @StartDate, @EndDate, @LoiNhuanVe, @LoiNhuanSanPham;
 
 --EXEC sp_DoanhThuVe @StartDate, @EndDate

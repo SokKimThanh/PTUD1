@@ -61,10 +61,12 @@ namespace BUS.Bao_Cao
               DateTime startDate,
               DateTime endDate, int salesPerformanceThreshold = 50,         // hiệu suất bán hàng
               int minStockThreshold = 50,    // ngưỡng tồn kho
-              double desiredProfitMargin = 0.2 // lợi nhuận mong muốn
+              double desiredProfitMargin = 0.2, // lợi nhuận mong muốn
+              int InventoryStatus = 0 // trang thai ton kho -- 0 : can nhap hang, 1: du hang
             )
         {
-            return inventory_DAL.GetInventoryReportByStatusAndDate(startDate, endDate, salesPerformanceThreshold, minStockThreshold, desiredProfitMargin);
+            return inventory_DAL.GetInventoryReportByStatusAndDate(startDate, endDate, 
+                salesPerformanceThreshold, minStockThreshold, desiredProfitMargin, InventoryStatus);
         }
     }
 }
