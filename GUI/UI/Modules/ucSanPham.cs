@@ -95,9 +95,10 @@ namespace GUI.UI.Modules
 
             // Đặt tên tiếng Việt cho các cột
             gridView1.Columns["PD_NAME"].Caption = "Tên sản phẩm";
-            gridView1.Columns["PD_PRICE"].Caption = "Giá tiền";
-            gridView1.Columns["PD_QUANTITY"].Caption = "Số lượng đang có";
-            gridView1.Columns["PD_IMAGEURL"].Caption = "Đường dẫn Hình Ảnh";
+            gridView1.Columns["PD_PRICE"].Caption = "Đơn giá";
+            gridView1.Columns["PD_QUANTITY"].Caption = "Số lượng tồn";
+            gridView1.Columns["PD_IMAGEURL"].Caption = "Hình Ảnh";
+            gridView1.Columns["PD_TRI_GIA"].Caption = "Giá trị tồn kho";
             gridView1.Columns["PD_AutoID"].Visible = false;
 
             // Đặt VisibleIndex của cột PD_IMAGEURL về 0 để chuyển nó lên vị trí đầu tiên

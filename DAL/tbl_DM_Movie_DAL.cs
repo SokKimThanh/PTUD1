@@ -227,14 +227,14 @@ namespace DAL
                                 let ms_start = ms.MS_START.Date
 
                                 where ms_start == date.Date
-                                select mv).ToList();
+                                select mv).Distinct().ToList();
                     }
                     else
                     {
                         list = (from mv in db.tbl_DM_Movies
                                 join ms in db.tbl_DM_MovieSchedules on mv.MV_AutoID equals ms.MS_MOVIE_AutoID
                                 where ms.MS_START >= date && ms.MS_START < date.AddDays(1)
-                                select mv).ToList();
+                                select mv).Distinct().ToList();
                     }
 
                     foreach (var item in list)

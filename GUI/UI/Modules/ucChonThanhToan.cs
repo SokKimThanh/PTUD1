@@ -274,9 +274,9 @@ namespace GUI.UI.Modules
 
                         #endregion
                     }
-                    // Tạo vé
+                    // Tạo hóa đơn
                     RP_InHoaDon report_Bill = new RP_InHoaDon();
-                    report_Bill.BindParameter(v_objNewBill.BL_AutoID.ToString());
+                    report_Bill.BindParameter(v_objBill_Res.BL_AutoID.ToString());
                     report_Bill.CreateDocument();
 
                     if (Directory.Exists(CConfig.CM_Cinema_FileManagement_Folder) == false)
@@ -285,7 +285,7 @@ namespace GUI.UI.Modules
                     if (Directory.Exists(CConfig.CM_Cinema_FileManagement_Folder + "\\Reports\\Bills\\") == false)
                         Directory.CreateDirectory(CConfig.CM_Cinema_FileManagement_Folder + "\\Reports\\Bills\\");
 
-                    string predefinedPath_Bill = CConfig.CM_Cinema_FileManagement_Folder + "Reports\\Bills\\" + v_objNewBill.BL_AutoID + ".pdf";
+                    string predefinedPath_Bill = CConfig.CM_Cinema_FileManagement_Folder + "Reports\\Bills\\" + v_objBill_Res.BL_AutoID + ".pdf";
                     report_Bill.ExportToPdf(predefinedPath_Bill); // No Save dialog is triggered
 
                     // Thiết lập máy in
@@ -293,8 +293,9 @@ namespace GUI.UI.Modules
                     if (CCommon.Printer_Name != "")
                         tool_Bill.PrinterSettings.PrinterName = CCommon.Printer_Name; // Thay "Tên máy in của bạn" bằng tên máy in thực tế
 
-                    // In vé không cần review
+                    // In hóa đơn không cần review
                     //tool.Print();
+
                     MessageBox.Show("In hóa đơn thành công", "Thông báo");
 
                     MessageBox.Show(LanguageController.GetLanguageDataLabel("Thanh toán thành công!"), LanguageController.GetLanguageDataLabel("Thông báo"), MessageBoxButtons.OK, MessageBoxIcon.None);

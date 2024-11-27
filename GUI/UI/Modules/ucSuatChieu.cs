@@ -144,14 +144,21 @@ namespace GUI.UI.Modules
                             id = (long)gvMovieSchedules.GetRowCellValue(i, "AutoID");
                         }
                     }
-                    movieSche_bus.RemoveData(id);
-                    MessageBox.Show("Xóa thông tin lịch chiếu thành công", "Thông báo");
-                    Load_Data();
+                    if (!movieSche_bus.IsBookedSchedule(id))
+                    {
+                        movieSche_bus.RemoveData(id);
+                        MessageBox.Show("Xóa thông tin lịch chiếu thành công", "Thông báo");
+                        Load_Data();
+                    }
+                    else
+                    {
+                        throw new Exception("Suất phim đã được đặt vé, không thể xóa");
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Lỗi");
             }
         }
         /// <summary>
@@ -304,7 +311,7 @@ namespace GUI.UI.Modules
                 if (theaterID == null)
                 {
                     // Lấy dữ liệu danh sách lịch chiếu
-                    dgvMovieSchedules.DataSource = movieSche_bus.GetList();
+                    dgvMovieSchedules.DataSource = movieSche_bus.GetList(0);
                 }
                 else
                 {

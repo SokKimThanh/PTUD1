@@ -28,11 +28,11 @@ namespace BUS.Danh_Muc
         /// Lấy danh sách hiển thị
         /// </summary>
         /// <returns></returns>
-        public List<tbl_DM_MovieSchedule_DTO> GetList()
+        public List<tbl_DM_MovieSchedule_DTO> GetList(int deleted)
         {
             try
             {
-                return dal.GetList();
+                return dal.GetList(deleted);
             }
             catch (Exception ex)
             {
@@ -135,6 +135,16 @@ namespace BUS.Danh_Muc
                 return dal.GetMovieSchedule_ByTheater(theaterID);
             }
             catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public bool IsBookedSchedule(long id)
+        {
+            try
+            {
+                return dal.IsBookedSchedule(id);
+            }catch (Exception ex)
             {
                 throw ex;
             }

@@ -30,7 +30,7 @@ Begin
 	join tbl_DM_MovieSchedule as ms on tk.TK_MOVIESCHEDULE_AutoID = ms.MS_AutoID
 	join tbl_DM_Movie as mv on ms.MS_MOVIE_AutoID = MV_AutoID
 	where bl.BL_AutoID = @Bill_AutoID
-	group by bl.BL_AutoID, bl.CREATED, st.ST_NAME , bl.BL_Trang_Thai_ID ,
+	group by bl.BL_AutoID, mv.MV_NAME, bl.CREATED, st.ST_NAME, mv.MV_PRICE, ms.MS_START, ms.MS_END , bl.BL_Trang_Thai_ID ,
 		pd.PD_NAME , bd.BD_QUANTITY , pd.PD_PRICE , bd.BD_QUANTITY * pd.PD_PRICE
 End
 

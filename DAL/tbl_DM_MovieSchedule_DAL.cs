@@ -49,7 +49,7 @@ namespace DAL
         /// </summary>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public List<tbl_DM_MovieSchedule_DTO> GetList()
+        public List<tbl_DM_MovieSchedule_DTO> GetList(int deleted)
         {
             try
             {
@@ -60,6 +60,7 @@ namespace DAL
                     var list_Found = from ms in db.tbl_DM_MovieSchedules
                                      join mv in db.tbl_DM_Movies on ms.MS_MOVIE_AutoID equals mv.MV_AutoID
                                      join tt in db.tbl_DM_Theaters on ms.MS_THEATER_AutoID equals tt.TT_AutoID
+                                     where ms.DELETED == deleted
                                      select new
                                      {
                                          AutoID = ms.MS_AutoID,
@@ -143,7 +144,7 @@ namespace DAL
                 tbl_DM_MovieSchedule_DTO lastMovieSchedule = null;
                 using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString))
                 {
-                    tbl_DM_MovieSchedule result = db.tbl_DM_MovieSchedules.Where(item => item.MS_THEATER_AutoID == theaterID).OrderByDescending(item => item.MS_END).FirstOrDefault();
+                    tbl_DM_MovieSchedule result = db.tbl_DM_MovieSchedules.Where(item => item.MS_THEATER_AutoID == theaterID && item.DELETED == 0).OrderByDescending(item => item.MS_END).FirstOrDefault();
                     if (result != null)
                     {
                         tbl_DM_Movie foundMovie = db.tbl_DM_Movies.Where(item => item.MV_AutoID == result.MS_MOVIE_AutoID).First();
@@ -165,7 +166,7 @@ namespace DAL
                 tbl_DM_MovieSchedule_DTO lastMovieSchedule = null;
                 using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString))
                 {
-                    tbl_DM_MovieSchedule result = db.tbl_DM_MovieSchedules.FirstOrDefault(item => item.MS_AutoID == id);
+                    tbl_DM_MovieSchedule result = db.tbl_DM_MovieSchedules.FirstOrDefault(item => item.MS_AutoID == id && item.DELETED == 0);
                     if (result != null)
                     {
                         tbl_DM_Movie foundMovie = db.tbl_DM_Movies.Where(item => item.MV_AutoID == result.MS_MOVIE_AutoID).First();
@@ -187,7 +188,7 @@ namespace DAL
                 tbl_DM_MovieSchedule_DTO lastMovieSchedule = null;
                 using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString))
                 {
-                    tbl_DM_MovieSchedule result = db.tbl_DM_MovieSchedules.Where(item => item.MS_THEATER_AutoID == theaterID && item.MS_MOVIE_AutoID == movieID).OrderByDescending(item => item.MS_END).FirstOrDefault();
+                    tbl_DM_MovieSchedule result = db.tbl_DM_MovieSchedules.Where(item => item.MS_THEATER_AutoID == theaterID && item.MS_MOVIE_AutoID == movieID && item.DELETED == 0).OrderByDescending(item => item.MS_END).FirstOrDefault();
                     if (result != null)
                     {
                         tbl_DM_Movie foundMovie = db.tbl_DM_Movies.Where(item => item.MV_AutoID == result.MS_MOVIE_AutoID).First();
@@ -213,7 +214,7 @@ namespace DAL
                     var result = from ms in db.tbl_DM_MovieSchedules
                                  join mv in db.tbl_DM_Movies on ms.MS_MOVIE_AutoID equals mv.MV_AutoID
                                  join tt in db.tbl_DM_Theaters on ms.MS_THEATER_AutoID equals tt.TT_AutoID
-                                 where ms.MS_MOVIE_AutoID == movieID && ms.MS_START.Date == date.Date
+                                 where ms.MS_MOVIE_AutoID == movieID && ms.MS_START.Date == date.Date && ms.DELETED == 0
                                  orderby ms.MS_START ascending
                                  select new
                                  {
@@ -274,6 +275,21 @@ namespace DAL
                 return list;
             }
             catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public bool IsBookedSchedule(long id)
+        {
+            try
+            {
+                using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString))
+                {
+                    tbl_DM_Ticket foundTK = db.tbl_DM_Tickets.FirstOrDefault(item => item.TK_MOVIESCHEDULE_AutoID == id && item.DELETED == 0);
+                    tbl_DM_MovieSchedule foundMS = db.tbl_DM_MovieSchedules.FirstOrDefault(item => item.MS_AutoID == id && item.MS_END > DateTime.Now && item.DELETED == 0);
+                    return foundTK != null && foundMS != null;
+                }
+            }catch(Exception ex)
             {
                 throw ex;
             }
