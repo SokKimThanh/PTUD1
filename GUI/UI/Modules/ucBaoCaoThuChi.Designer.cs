@@ -273,9 +273,10 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtStartDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtStartDate.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Fluent;
+            this.txtStartDate.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Classic;
             this.txtStartDate.Properties.MaskSettings.Set("mask", "d");
             this.txtStartDate.Properties.MaskSettings.Set("culture", "vi-VN");
+            this.txtStartDate.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.txtStartDate.Properties.UseMaskAsDisplayFormat = true;
             this.txtStartDate.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
             this.txtStartDate.Size = new System.Drawing.Size(595, 20);
@@ -292,9 +293,10 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtEndDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtEndDate.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Fluent;
+            this.txtEndDate.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Classic;
             this.txtEndDate.Properties.MaskSettings.Set("mask", "d");
             this.txtEndDate.Properties.MaskSettings.Set("culture", "vi-VN");
+            this.txtEndDate.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.txtEndDate.Properties.UseMaskAsDisplayFormat = true;
             this.txtEndDate.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
             this.txtEndDate.Size = new System.Drawing.Size(595, 20);
