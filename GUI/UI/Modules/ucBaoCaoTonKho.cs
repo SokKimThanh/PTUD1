@@ -129,12 +129,22 @@ namespace GUI.UI.Modules
         }
         private void txtStartDate_EditValueChanged(object sender, EventArgs e)
         {
-            startDate = txtStartDate.DateTime;
+            if (txtStartDate.EditValue != null && txtEndDate.EditValue != null)
+            {
+                startDate = (DateTime)txtStartDate.EditValue;
+                endDate = (DateTime)txtEndDate.EditValue;
+                txtEndDate.Properties.MinValue = (DateTime)txtStartDate.EditValue;
+            }
         }
 
         private void txtEndDate_EditValueChanged(object sender, EventArgs e)
         {
-            endDate = txtEndDate.DateTime;
+            if (txtStartDate.EditValue != null && txtEndDate.EditValue != null)
+            {
+                startDate = (DateTime)txtStartDate.EditValue;
+                endDate = (DateTime)txtEndDate.EditValue;
+                txtEndDate.Properties.MinValue = (DateTime)txtStartDate.EditValue;
+            }
         }
         private void btnThucThi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -167,12 +177,10 @@ namespace GUI.UI.Modules
                 btnTaoBaoCao.Enabled = true;
                 cboInventoryStatus.Enabled = true;
 
-                if (!DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) &&
-                !DateTime.TryParse(txtEndDate.Text.Trim(), out endDate))
-                {
-                    MessageBox.Show("Vui lòng nhập đúng định dạng ngày!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+
+                DateTime.TryParse(txtStartDate.Text.Trim(), out startDate);
+                DateTime.TryParse(txtEndDate.Text.Trim(), out endDate);
+
                 dgv.DataSource = data.GetInventoryReportByStatusAndDate(startDate, endDate, 50, 50, 0.2, (int)cboInventoryStatus.EditValue);
             }
             ConfigureGridColumns();
@@ -185,27 +193,8 @@ namespace GUI.UI.Modules
 
             try
             {
-                if (!DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) && !DateTime.TryParse(txtEndDate.Text.Trim(), out endDate))
-                {
-                    MessageBox.Show("Vui lòng nhập đúng định dạng ngày!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
                 DateTime.TryParse(txtStartDate.Text.Trim(), out startDate);
                 DateTime.TryParse(txtEndDate.Text.Trim(), out endDate);
-
-
-                // Kiểm tra ngày bắt đầu và ngày kết thúc
-                if (startDate >= endDate)
-                {
-                    throw new Exception("Ngày bắt đầu phải nhỏ hơn ngày kết thúc!");
-                }
-
-                if (startDate < new DateTime(1753, 1, 1) || endDate > new DateTime(9999, 12, 31))
-                {
-                    throw new Exception("Ngày tháng phải nằm trong khoảng từ 1/1/1753 đến 12/31/9999!");
-                }
-
 
                 var report = new RP_BaoCaoTonKho();
 
@@ -224,27 +213,9 @@ namespace GUI.UI.Modules
         {
             try
             {
-                if (!DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) && !DateTime.TryParse(txtEndDate.Text.Trim(), out endDate))
-                {
-                    MessageBox.Show("Vui lòng nhập đúng định dạng ngày!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
 
                 DateTime.TryParse(txtStartDate.Text.Trim(), out startDate);
                 DateTime.TryParse(txtEndDate.Text.Trim(), out endDate);
-
-
-                // Kiểm tra ngày bắt đầu và ngày kết thúc
-                if (startDate >= endDate)
-                {
-                    throw new Exception("Ngày bắt đầu phải nhỏ hơn ngày kết thúc!");
-                }
-
-                if (startDate < new DateTime(1753, 1, 1) || endDate > new DateTime(9999, 12, 31))
-                {
-                    throw new Exception("Ngày tháng phải nằm trong khoảng từ 1/1/1753 đến 12/31/9999!");
-                }
-
 
                 gridView1.Columns.Clear(); // Xóa cột cũ trước khi gán dữ liệu mới
 
@@ -284,15 +255,12 @@ namespace GUI.UI.Modules
                 // Mặc định hiển thị báo cáo tổng quan
                 rptViewReport.SelectedIndex = 0;
 
-                if (startDate < new DateTime(1753, 1, 1) || endDate > new DateTime(9999, 12, 31))
-                {
-                    throw new Exception("Ngày tháng phải nằm trong khoảng từ 1/1/1753 đến 12/31/9999!");
-                }
-
-
                 // Hiển thị năm hiện tại lên các điều khiển
                 txtStartDate.EditValue = startDate;
                 txtEndDate.EditValue = endDate;
+
+                // Đặt ngày chọn ban đầu
+                txtEndDate.Properties.MinValue = startDate;// ngày nhỏ nhất của end date là start date
 
                 gridView1.Columns.Clear(); // Xóa cột cũ trước khi gán dữ liệu mới 
 

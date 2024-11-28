@@ -313,6 +313,7 @@
             this.txtStartDate.Size = new System.Drawing.Size(175, 20);
             this.txtStartDate.StyleController = this.layoutForm;
             this.txtStartDate.TabIndex = 10;
+            this.txtStartDate.EditValueChanged += new System.EventHandler(this.txtStartDate_EditValueChanged);
             // 
             // txtEndDate
             // 
@@ -333,6 +334,7 @@
             this.txtEndDate.Size = new System.Drawing.Size(175, 20);
             this.txtEndDate.StyleController = this.layoutForm;
             this.txtEndDate.TabIndex = 10;
+            this.txtEndDate.EditValueChanged += new System.EventHandler(this.txtEndDate_EditValueChanged);
             // 
             // cboLoaiDoanhThu
             // 
