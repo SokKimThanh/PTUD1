@@ -286,8 +286,8 @@ namespace DAL
                 using (CM_Cinema_DBDataContext db = new CM_Cinema_DBDataContext(CConfig.CM_Cinema_DB_ConnectionString))
                 {
                     tbl_DM_Ticket foundTK = db.tbl_DM_Tickets.FirstOrDefault(item => item.TK_MOVIESCHEDULE_AutoID == id && item.DELETED == 0);
-                    tbl_DM_MovieSchedule foundMS = db.tbl_DM_MovieSchedules.FirstOrDefault(item => item.MS_AutoID == id && item.MS_END > DateTime.Now && item.DELETED == 0);
-                    return foundTK != null && foundMS != null;
+                    //tbl_DM_MovieSchedule foundMS = db.tbl_DM_MovieSchedules.FirstOrDefault(item => item.MS_AutoID == id && item.MS_END > DateTime.Now && item.DELETED == 0);
+                    return foundTK != null;
                 }
             }catch(Exception ex)
             {

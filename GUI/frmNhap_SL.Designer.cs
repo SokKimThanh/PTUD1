@@ -115,6 +115,7 @@
             this.txtSo_Luong.Size = new System.Drawing.Size(191, 24);
             this.txtSo_Luong.TabIndex = 4;
             this.txtSo_Luong.Spin += new DevExpress.XtraEditors.Controls.SpinEventHandler(this.txtSo_Luong_Spin);
+            this.txtSo_Luong.EditValueChanged += new System.EventHandler(this.txtSo_Luong_EditValueChanged);
             // 
             // frmNhap_SL
             // 

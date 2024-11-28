@@ -25,12 +25,12 @@ namespace GUI
             
             txtSan_Pham.Text = p_strSan_Pham.Trim();
 
-            if(maxValue == 0)
+            txtSo_Luong.Properties.MaxValue = maxValue;
+
+            if (maxValue == 0)
                 p_dblSo_Luong = 0;
 
             txtSo_Luong.Text = p_dblSo_Luong.ToString();
-
-            txtSo_Luong.Properties.MaxValue = maxValue;
         }
 
         public double Get_SL()
@@ -93,6 +93,18 @@ namespace GUI
                     e.Handled = true;
                     txtSo_Luong.Value = txtSo_Luong.Properties.MaxValue;
                 }
+            }
+        }
+
+        private void txtSo_Luong_EditValueChanged(object sender, EventArgs e)
+        {
+            if((decimal)txtSo_Luong.EditValue > txtSo_Luong.Properties.MaxValue)
+            {
+                txtSo_Luong.EditValue = txtSo_Luong.Properties.MaxValue;
+            }
+            else if ((decimal)txtSo_Luong.EditValue < txtSo_Luong.Properties.MinValue)
+            {
+                txtSo_Luong.EditValue = txtSo_Luong.Properties.MinValue;
             }
         }
     }
