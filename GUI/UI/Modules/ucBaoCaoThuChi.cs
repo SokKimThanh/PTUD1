@@ -64,27 +64,12 @@ namespace GUI.UI.Modules
         public void ExecuteReport()
         {
             try
-            {
-                if (!DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) && !DateTime.TryParse(txtEndDate.Text.Trim(), out endDate))
-                {
-                    MessageBox.Show("Vui lòng nhập đúng định dạng ngày!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
+            { 
                 DateTime.TryParse(txtStartDate.Text.Trim(), out startDate);
                 DateTime.TryParse(txtEndDate.Text.Trim(), out endDate);
 
 
-                // Kiểm tra ngày bắt đầu và ngày kết thúc
-                if (startDate >= endDate)
-                {
-                    throw new Exception("Ngày bắt đầu phải nhỏ hơn ngày kết thúc!");
-                }
-
-                if (startDate < new DateTime(1753, 1, 1) || endDate > new DateTime(9999, 12, 31))
-                {
-                    throw new Exception("Ngày tháng phải nằm trong khoảng từ 1/1/1753 đến 12/31/9999!");
-                }
+                txtEndDate.Properties.MinValue = startDate;
 
 
                 gridView1.Columns.Clear(); // Xóa cột cũ trước khi gán dữ liệu mới
@@ -135,29 +120,10 @@ namespace GUI.UI.Modules
         {
 
             try
-            {
-                if (!DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) && !DateTime.TryParse(txtEndDate.Text.Trim(), out endDate))
-                {
-                    MessageBox.Show("Vui lòng nhập đúng định dạng ngày!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
+            { 
                 DateTime.TryParse(txtStartDate.Text.Trim(), out startDate);
                 DateTime.TryParse(txtEndDate.Text.Trim(), out endDate);
-
-
-                // Kiểm tra ngày bắt đầu và ngày kết thúc
-                if (startDate >= endDate)
-                {
-                    throw new Exception("Ngày bắt đầu phải nhỏ hơn ngày kết thúc!");
-                }
-
-                if (startDate < new DateTime(1753, 1, 1) || endDate > new DateTime(9999, 12, 31))
-                {
-                    throw new Exception("Ngày tháng phải nằm trong khoảng từ 1/1/1753 đến 12/31/9999!");
-                }
-
-
+                  
                 dgv.DataSource = data.GetExpenseReport(startDate, endDate);
 
                 var report = new RP_BaoCaoChiPhi();
@@ -173,6 +139,24 @@ namespace GUI.UI.Modules
             }
         }
 
+        private void txtStartDate_EditValueChanged(object sender, EventArgs e)
+        {
+            if (txtStartDate.EditValue != null && txtEndDate.EditValue != null)
+            {
+                startDate = (DateTime)txtStartDate.EditValue;
+                endDate = (DateTime)txtEndDate.EditValue;
+                txtEndDate.Properties.MinValue = (DateTime)txtStartDate.EditValue;
+            }
+        }
 
+        private void txtEndDate_EditValueChanged(object sender, EventArgs e)
+        {
+            if (txtStartDate.EditValue != null && txtEndDate.EditValue != null)
+            {
+                startDate = (DateTime)txtStartDate.EditValue;
+                endDate = (DateTime)txtEndDate.EditValue;
+                txtEndDate.Properties.MinValue = (DateTime)txtStartDate.EditValue;
+            }
+        }
     }
 }

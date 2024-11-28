@@ -77,17 +77,17 @@
             this.arrFunction.AllowItemSelection = true;
             this.arrFunction.Appearance.AccordionControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(88)))), ((int)(((byte)(143)))));
             this.arrFunction.Appearance.AccordionControl.Options.UseBackColor = true;
-            this.arrFunction.Appearance.Item.Default.Font = ((System.Drawing.Font)(resources.GetObject("accordionControl.Appearance.Item.Default.Font")));
+            this.arrFunction.Appearance.Item.Default.Font = ((System.Drawing.Font)(resources.GetObject("arrFunction.Appearance.Item.Default.Font")));
             this.arrFunction.Appearance.Item.Default.ForeColor = System.Drawing.Color.White;
             this.arrFunction.Appearance.Item.Default.Options.UseFont = true;
             this.arrFunction.Appearance.Item.Default.Options.UseForeColor = true;
             this.arrFunction.Appearance.Item.Hovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(223)))), ((int)(((byte)(246)))));
-            this.arrFunction.Appearance.Item.Hovered.Font = ((System.Drawing.Font)(resources.GetObject("accordionControl.Appearance.Item.Hovered.Font")));
+            this.arrFunction.Appearance.Item.Hovered.Font = ((System.Drawing.Font)(resources.GetObject("arrFunction.Appearance.Item.Hovered.Font")));
             this.arrFunction.Appearance.Item.Hovered.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.arrFunction.Appearance.Item.Hovered.Options.UseBackColor = true;
             this.arrFunction.Appearance.Item.Hovered.Options.UseFont = true;
             this.arrFunction.Appearance.Item.Hovered.Options.UseForeColor = true;
-            this.arrFunction.Appearance.Item.Pressed.Font = ((System.Drawing.Font)(resources.GetObject("accordionControl.Appearance.Item.Pressed.Font")));
+            this.arrFunction.Appearance.Item.Pressed.Font = ((System.Drawing.Font)(resources.GetObject("arrFunction.Appearance.Item.Pressed.Font")));
             this.arrFunction.Appearance.Item.Pressed.Options.UseFont = true;
             this.arrFunction.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.aceDatVe,
@@ -95,7 +95,6 @@
             this.aceBaoCao,
             this.aceHeThong});
             this.arrFunction.Name = "arrFunction";
-            this.arrFunction.OptionsHamburgerMenu.HighlightRootElements = DevExpress.Utils.DefaultBoolean.True;
             this.arrFunction.OptionsMinimizing.AllowMinimizeMode = DevExpress.Utils.DefaultBoolean.True;
             this.arrFunction.OptionsMinimizing.State = DevExpress.XtraBars.Navigation.AccordionControlState.Minimized;
             this.arrFunction.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Fluent;
