@@ -51,17 +51,17 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.txtStartDate = new DevExpress.XtraEditors.DateEdit();
             this.txtEndDate = new DevExpress.XtraEditors.DateEdit();
+            this.cboLoaiDoanhThu = new DevExpress.XtraEditors.LookUpEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutTitle = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutAction = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutDGV = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.cboLoaiDoanhThu = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutForm)).BeginInit();
             this.layoutForm.SuspendLayout();
@@ -72,16 +72,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtStartDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEndDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEndDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboLoaiDoanhThu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutAction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboLoaiDoanhThu.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -304,14 +304,16 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtStartDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtStartDate.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Fluent;
+            this.txtStartDate.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Classic;
             this.txtStartDate.Properties.MaskSettings.Set("mask", "d");
             this.txtStartDate.Properties.MaskSettings.Set("culture", "vi-VN");
+            this.txtStartDate.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.txtStartDate.Properties.UseMaskAsDisplayFormat = true;
             this.txtStartDate.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
             this.txtStartDate.Size = new System.Drawing.Size(175, 20);
             this.txtStartDate.StyleController = this.layoutForm;
             this.txtStartDate.TabIndex = 10;
+            this.txtStartDate.EditValueChanged += new System.EventHandler(this.txtStartDate_EditValueChanged);
             // 
             // txtEndDate
             // 
@@ -323,14 +325,33 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtEndDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtEndDate.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Fluent;
+            this.txtEndDate.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Classic;
             this.txtEndDate.Properties.MaskSettings.Set("mask", "d");
             this.txtEndDate.Properties.MaskSettings.Set("culture", "vi-VN");
+            this.txtEndDate.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.txtEndDate.Properties.UseMaskAsDisplayFormat = true;
             this.txtEndDate.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
             this.txtEndDate.Size = new System.Drawing.Size(175, 20);
             this.txtEndDate.StyleController = this.layoutForm;
             this.txtEndDate.TabIndex = 10;
+            this.txtEndDate.EditValueChanged += new System.EventHandler(this.txtEndDate_EditValueChanged);
+            // 
+            // cboLoaiDoanhThu
+            // 
+            this.cboLoaiDoanhThu.Location = new System.Drawing.Point(383, 99);
+            this.cboLoaiDoanhThu.Name = "cboLoaiDoanhThu";
+            this.cboLoaiDoanhThu.Properties.BeepOnError = true;
+            this.cboLoaiDoanhThu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboLoaiDoanhThu.Properties.DisplayFormat.FormatString = "d";
+            this.cboLoaiDoanhThu.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.cboLoaiDoanhThu.Properties.DropDownRows = 2;
+            this.cboLoaiDoanhThu.Properties.EditFormat.FormatString = "d";
+            this.cboLoaiDoanhThu.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.cboLoaiDoanhThu.Properties.NullText = "";
+            this.cboLoaiDoanhThu.Size = new System.Drawing.Size(164, 20);
+            this.cboLoaiDoanhThu.StyleController = this.layoutForm;
+            this.cboLoaiDoanhThu.TabIndex = 10;
             // 
             // Root
             // 
@@ -401,6 +422,19 @@
             this.layoutControlItem3.Text = "Đến ngày:";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(75, 13);
             // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.layoutControlItem5.Control = this.cboLoaiDoanhThu;
+            this.layoutControlItem5.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.layoutControlItem5.CustomizationFormText = "Từ ngày:";
+            this.layoutControlItem5.Location = new System.Drawing.Point(266, 0);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Padding = new DevExpress.XtraLayout.Utils.Padding(8, 8, 8, 8);
+            this.layoutControlItem5.Size = new System.Drawing.Size(267, 48);
+            this.layoutControlItem5.Text = "Loại doanh thu:";
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(75, 13);
+            // 
             // layoutDGV
             // 
             this.layoutDGV.CaptionImageOptions.Image = global::GUI.Properties.Resources.newtablestyle_16x16;
@@ -431,36 +465,6 @@
             this.barButtonItem5.ImageOptions.LargeImage = global::GUI.Properties.Resources.refreshpivottable_32x32;
             this.barButtonItem5.Name = "barButtonItem5";
             // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.layoutControlItem5.Control = this.cboLoaiDoanhThu;
-            this.layoutControlItem5.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItem5.CustomizationFormText = "Từ ngày:";
-            this.layoutControlItem5.Location = new System.Drawing.Point(266, 0);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Padding = new DevExpress.XtraLayout.Utils.Padding(8, 8, 8, 8);
-            this.layoutControlItem5.Size = new System.Drawing.Size(267, 48);
-            this.layoutControlItem5.Text = "Loại doanh thu:";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(75, 13);
-            // 
-            // cboLoaiDoanhThu
-            // 
-            this.cboLoaiDoanhThu.Location = new System.Drawing.Point(383, 99);
-            this.cboLoaiDoanhThu.Name = "cboLoaiDoanhThu";
-            this.cboLoaiDoanhThu.Properties.BeepOnError = true;
-            this.cboLoaiDoanhThu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cboLoaiDoanhThu.Properties.DisplayFormat.FormatString = "d";
-            this.cboLoaiDoanhThu.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.cboLoaiDoanhThu.Properties.DropDownRows = 2;
-            this.cboLoaiDoanhThu.Properties.EditFormat.FormatString = "d";
-            this.cboLoaiDoanhThu.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.cboLoaiDoanhThu.Properties.NullText = "";
-            this.cboLoaiDoanhThu.Size = new System.Drawing.Size(164, 20);
-            this.cboLoaiDoanhThu.StyleController = this.layoutForm;
-            this.cboLoaiDoanhThu.TabIndex = 10;
-            // 
             // ucBaoCaoDoanhThu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -482,16 +486,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtStartDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEndDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEndDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboLoaiDoanhThu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutAction)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboLoaiDoanhThu.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
