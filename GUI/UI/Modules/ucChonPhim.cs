@@ -60,7 +60,7 @@ namespace GUI.UI.Modules
         {
             //btnTiepTuc.Enabled = false;
             // tai du lieu dgv
-            dgvMovies.DataSource = moiveBus.GetAll();
+            dgvMovies.DataSource = moiveBus.GetAll(0);
             dgvMovies.RefreshDataSource();
 
             // Đặt ngày chọn ban đầu

@@ -36,7 +36,7 @@ namespace GUI.UI.Modules
         {
             //Load danh sách sản phẩm
             tbl_DM_Product_BUS v_objProductBus = new tbl_DM_Product_BUS();
-            gridControl1.DataSource = v_objProductBus.GetAll();
+            gridControl1.DataSource = v_objProductBus.GetAll(0);
 
             //Lưới chọn sản phẩm
             grdChon_San_Pham.Columns["PD_AutoID"].Visible = false;

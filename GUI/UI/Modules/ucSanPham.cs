@@ -5,18 +5,26 @@ using GUI.UI.Component;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace GUI.UI.Modules
 {
     public partial class ucSanPham : ucBase
     {
-        private tbl_DM_Product_BUS data = new tbl_DM_Product_BUS();
+        private tbl_DM_Product_BUS product_BUS = new tbl_DM_Product_BUS();
         private tbl_DM_ExpenseType_BUS expenseType_BUS = new tbl_DM_ExpenseType_BUS();
         private string dgv_selected_id = "";
         private string txtUrlHinhAnh = "";
         private double txtSoLuong = 0;
+
+        private Dictionary<int, string> statusDic = new Dictionary<int, string>()
+        {
+            {0, "Đang sử dụng" },
+            {1, "Đã xóa" },
+        };
 
         // Từ điển cache hình ảnh
         private Dictionary<string, Image> imageCache = new Dictionary<string, Image>();
@@ -49,6 +57,10 @@ namespace GUI.UI.Modules
 
             // Tùy chỉnh vô hiệu hóa design mode menu con của layout control 
             layoutControlCustom.DisableLayoutCustomization(layoutForm);
+            // Combobox trạng thái dữ liệu
+            cboStatus.Properties.DataSource = statusDic;
+            cboStatus.EditValue = 0;
+
         }
         /// <summary>
         /// Lấy dữ liệu từ form
@@ -56,11 +68,25 @@ namespace GUI.UI.Modules
         /// <returns></returns>
         private tbl_DM_Product_DTO GetFormData()
         {
+            // Đường dẫn đến thư mục hình của prject
+            string projectPath = Environment.CurrentDirectory + "\\Images\\Products\\";
+
+            // Tạo thư mục nếu chưa có
+            if (!System.IO.Directory.Exists(projectPath))
+                System.IO.Directory.CreateDirectory(projectPath);
+
+            // Sao chép hình vào thư mục hình của project và sửa tên hình thành tên phim
+            string[] splitStr = txtUrlHinhAnh.Split('.');
+            string pictureUrl = projectPath + txtTenSanPham.Text + "." + splitStr[splitStr.Length - 1];
+            if (File.Exists(pictureUrl))
+                File.Delete(pictureUrl);
+            File.Copy(txtUrlHinhAnh, pictureUrl);
+
             // Sử dụng constructor của tbl_DM_Product_DTO để tạo đối tượng productBUS
             var product = new tbl_DM_Product_DTO();
             product.PD_NAME = txtTenSanPham.Text.Trim();
             product.PD_PRICE = double.Parse(txtGiaBan.Text.ToString().Trim());
-            product.PD_IMAGEURL = txtUrlHinhAnh.Trim();
+            product.PD_IMAGEURL = pictureUrl;
             product.PD_QUANTITY = txtSoLuong;
             // edit selected id on datagridview
             if (dgv_selected_id != "")
@@ -76,7 +102,7 @@ namespace GUI.UI.Modules
                 lblTitle.Text = strFunctionCode.ToUpper().Trim();
             // tai du lieu dgv
             ClearImageCache();
-            dgv.DataSource = data.GetAll();
+            dgv.DataSource = product_BUS.GetAll(cboStatus.EditValue == null ? 0 : (int)cboStatus.EditValue);
             dgv.RefreshDataSource();
 
             // Đặt chiều cao dòng phù hợp với kích thước của hình ảnh
@@ -103,6 +129,10 @@ namespace GUI.UI.Modules
 
             // Đặt VisibleIndex của cột PD_IMAGEURL về 0 để chuyển nó lên vị trí đầu tiên
             gridView1.Columns["PD_IMAGEURL"].VisibleIndex = 0;
+
+            // Combobox trạng thái dữ liệu
+            cboStatus.Properties.DataSource = statusDic;
+            cboStatus.EditValue = 0;
         }
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -111,7 +141,7 @@ namespace GUI.UI.Modules
             {
                 tbl_DM_Product_DTO product = GetFormData();
                 tbl_DM_ExpenseType_DTO expenseType = GetFormExpenseTypeData();
-                if (data.Add(product) != 0 && expenseType_BUS.Add(expenseType) != 0)
+                if (product_BUS.Add(product) != 0 && expenseType_BUS.Add(expenseType) != 0)
                 {
                     MessageBox.Show("Thêm mới thành công!", "Thông báo");
                     LoadForm();
@@ -141,12 +171,14 @@ namespace GUI.UI.Modules
 
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (MessageBox.Show("Bạn có muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            string msg = ((int)cboStatus.EditValue) == 0 ? "xóa" : "phục hồi";
+
+            if (MessageBox.Show("Bạn có muốn " + msg + " không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 try
                 {
-                    data.Remove(long.Parse(dgv_selected_id));
-                    MessageBox.Show("Xóa thành công!", "Thông báo");
+                    product_BUS.Remove(long.Parse(dgv_selected_id));
+                    MessageBox.Show(CultureInfo.CurrentCulture.TextInfo.ToTitleCase(msg) + " thành công!", "Thông báo");
                     LoadForm();
                 }
                 catch (Exception ex)
@@ -159,7 +191,7 @@ namespace GUI.UI.Modules
         {
             try
             {
-                data.Update(GetFormData());
+                product_BUS.Update(GetFormData());
                 MessageBox.Show("Sửa thông tin thành công!", "Thông báo");
                 LoadForm();
             }
@@ -183,7 +215,7 @@ namespace GUI.UI.Modules
                     try
                     {
                         dgv_selected_id = gridView1.GetRowCellValue(i, "PD_AutoID").ToString().Trim();
-                        tbl_DM_Product_DTO o = data.Find(long.Parse(dgv_selected_id));
+                        tbl_DM_Product_DTO o = product_BUS.Find(long.Parse(dgv_selected_id));
                         txtTenSanPham.Text = o.PD_NAME;
                         txtGiaBan.Text = o.PD_PRICE.ToString();
                         txtUrlHinhAnh = o.PD_IMAGEURL;
@@ -218,7 +250,7 @@ namespace GUI.UI.Modules
         // Load dữ liệu và thiết lập form mặc định
         public void LoadForm()
         {
-            dgv.DataSource = data.GetAll();
+            dgv.DataSource = product_BUS.GetAll((int)cboStatus.EditValue);
             dangThaoTac(false);
             txtTenSanPham.Text = string.Empty;
             txtGiaBan.Text = string.Empty;
@@ -350,6 +382,29 @@ namespace GUI.UI.Modules
                 img.Dispose(); // Giải phóng tài nguyên hình ảnh
             }
             imageCache.Clear();
+        }
+
+        private void cboStatus_EditValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                // tai du lieu dgv
+                ClearImageCache();
+                dgv.DataSource = product_BUS.GetAll(cboStatus.EditValue == null ? 0 : (int)cboStatus.EditValue);
+                dgv.RefreshDataSource();
+                if ((int)cboStatus.EditValue == 0)
+                {
+                    btnXoa.Caption = "Xóa";
+                }
+                else
+                {
+                    btnXoa.Caption = "Phục hồi";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi");
+            }
         }
     }
 }

@@ -1,11 +1,13 @@
 ﻿using BUS.Danh_Muc;
 using DevExpress.DataProcessing.InMemoryDataProcessor;
 using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraPrinting.Native;
 using DTO.tbl_DTO;
 using GUI.UI.Component;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
 
@@ -20,6 +22,11 @@ namespace GUI.UI.Modules
         private long? cboAgeRating_selected_id = -1;// giá trị từ ComboBoxEdit
         private string txtUrlHinhAnh = "";
 
+        private Dictionary<int, string> statusDic = new Dictionary<int, string>()
+        {
+            {0, "Đang sử dụng" },
+            {1, "Đã xóa" },
+        };
 
         // Từ điển cache hình ảnh
         private Dictionary<string, Image> imageCache = new Dictionary<string, Image>();
@@ -60,7 +67,7 @@ namespace GUI.UI.Modules
         private tbl_DM_Movie_DTO GetFormData()
         {
             // Đường dẫn đến thư mục hình của prject
-            string projectPath = Environment.CurrentDirectory + "\\Images\\";
+            string projectPath = Environment.CurrentDirectory + "\\Images\\Movies\\";
 
             // Tạo thư mục nếu chưa có
             if (!System.IO.Directory.Exists(projectPath))
@@ -69,7 +76,7 @@ namespace GUI.UI.Modules
             // Sao chép hình vào thư mục hình của project và sửa tên hình thành tên phim
             string[] splitStr = txtUrlHinhAnh.Split('.');
             string pictureUrl = projectPath + txtName.Text + "." + splitStr[splitStr.Length - 1];
-            if(File.Exists(pictureUrl))
+            if (File.Exists(pictureUrl))
                 File.Delete(pictureUrl);
             File.Copy(txtUrlHinhAnh, pictureUrl);
 
@@ -108,7 +115,7 @@ namespace GUI.UI.Modules
 
             // tai du lieu dgv
             ClearImageCache();
-            dgv.DataSource = data.GetAll();
+            dgv.DataSource = data.GetAll(0);
             dgv.RefreshDataSource();
 
             // Đặt chiều cao dòng phù hợp với kích thước của hình ảnh
@@ -136,6 +143,10 @@ namespace GUI.UI.Modules
 
             // Đặt VisibleIndex của cột MV_POSTERURL về 0 để chuyển nó lên vị trí đầu tiên
             gridView1.Columns["MV_POSTERURL"].VisibleIndex = 0;
+
+            // Gắn dữ liệu lên combobox trạng thái
+            cboStatus.Properties.DataSource = statusDic;
+            cboStatus.EditValue = 0;
         }
         /// <summary>
         /// Thêm mới movie
@@ -166,12 +177,14 @@ namespace GUI.UI.Modules
         /// <param name="e"></param>
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (MessageBox.Show("Bạn có muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            string msg = ((int)cboStatus.EditValue) == 0 ? "xóa" : "phục hồi";
+
+            if (MessageBox.Show("Bạn có muốn " + msg + " không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 try
                 {
                     data.Remove(long.Parse(dgv_selected_id));
-                    MessageBox.Show("Xóa thành công!", "Thông báo");
+                    MessageBox.Show(CultureInfo.CurrentCulture.TextInfo.ToTitleCase(msg) + " thành công!", "Thông báo");
                     LoadForm();
                 }
                 catch (Exception ex)
@@ -258,7 +271,8 @@ namespace GUI.UI.Modules
         // Load dữ liệu và thiết lập form mặc định
         public void LoadForm()
         {
-            dgv.DataSource = data.GetAll();
+            dgv.DataSource = data.GetAll(0);
+            cboStatus.EditValue = 0;
             dangThaoTac(false);
             txtName.Text = string.Empty;
             txtDescription.Text = string.Empty;
@@ -400,6 +414,26 @@ namespace GUI.UI.Modules
                 img.Dispose(); // Giải phóng tài nguyên hình ảnh
             }
             imageCache.Clear();
+        }
+
+        private void cboStatus_EditValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                dgv.DataSource = data.GetAll((int)cboStatus.EditValue);
+                if ((int)cboStatus.EditValue == 0)
+                {
+                    btnXoa.Caption = "Xóa";
+                }
+                else
+                {
+                    btnXoa.Caption = "Phục hồi";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi");
+            }
         }
     }
 }

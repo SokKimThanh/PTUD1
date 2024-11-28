@@ -68,7 +68,7 @@ namespace GUI.UI.Modules
 
             // Lấy danh sách phim
             cboMovies.Properties.DataSource = null;
-            cboMovies.Properties.DataSource = movie_bus.GetAll();
+            cboMovies.Properties.DataSource = movie_bus.GetAll(0);
             cboMovies.Properties.DisplayMember = "MV_NAME";
             cboMovies.Properties.ValueMember = "MV_AutoID";
             cboMovies.Properties.Columns.Clear();

@@ -338,7 +338,7 @@ namespace GUI.UI.Modules
         private void Load_Danh_Sach_San_Pham()
         {
             tbl_DM_Product_BUS v_objBus = new tbl_DM_Product_BUS();
-            List<tbl_DM_Product_DTO> v_arrData = v_objBus.GetAll();
+            List<tbl_DM_Product_DTO> v_arrData = v_objBus.GetAll(0);
             gvSanPham.DataSource = v_arrData;
         }
 

@@ -42,9 +42,9 @@ namespace BUS.Danh_Muc
         /// Lấy danh sách Movie
         /// </summary>
         /// <returns>List<tbl_DM_Movie_DTO></returns>
-        public List<tbl_DM_Movie_DTO> GetAll()
+        public List<tbl_DM_Movie_DTO> GetAll(int deleted)
         {
-            return data.GetAll();
+            return data.GetAll(deleted);
         }
 
         /// <summary>

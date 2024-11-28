@@ -49,6 +49,7 @@ namespace GUI.UI.Modules
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.txtTenSanPham = new DevExpress.XtraEditors.TextEdit();
             this.txtGiaBan = new DevExpress.XtraEditors.TextEdit();
+            this.cboStatus = new DevExpress.XtraEditors.LookUpEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutAction = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -56,6 +57,7 @@ namespace GUI.UI.Modules
             this.layoutTitle = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutGiaGoc = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutTenSP = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutStatus = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutDGV = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
@@ -67,6 +69,7 @@ namespace GUI.UI.Modules
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenSanPham.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGiaBan.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboStatus.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutAction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
@@ -74,6 +77,7 @@ namespace GUI.UI.Modules
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutGiaGoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTenSP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
@@ -157,31 +161,35 @@ namespace GUI.UI.Modules
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1065, 24);
+            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4);
+            this.barDockControlTop.Size = new System.Drawing.Size(1242, 30);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 677);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 833);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1065, 0);
+            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1242, 0);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 30);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 653);
+            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 803);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1065, 24);
+            this.barDockControlRight.Location = new System.Drawing.Point(1242, 30);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 653);
+            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 803);
             // 
             // layoutForm
             // 
@@ -191,12 +199,14 @@ namespace GUI.UI.Modules
             this.layoutForm.Controls.Add(this.dgv);
             this.layoutForm.Controls.Add(this.txtTenSanPham);
             this.layoutForm.Controls.Add(this.txtGiaBan);
+            this.layoutForm.Controls.Add(this.cboStatus);
             this.layoutForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutForm.Location = new System.Drawing.Point(0, 24);
+            this.layoutForm.Location = new System.Drawing.Point(0, 30);
+            this.layoutForm.Margin = new System.Windows.Forms.Padding(4);
             this.layoutForm.Name = "layoutForm";
             this.layoutForm.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(526, 304, 650, 400);
             this.layoutForm.Root = this.Root;
-            this.layoutForm.Size = new System.Drawing.Size(1065, 653);
+            this.layoutForm.Size = new System.Drawing.Size(1242, 803);
             this.layoutForm.TabIndex = 9;
             this.layoutForm.Text = "layoutControl1";
             // 
@@ -204,11 +214,12 @@ namespace GUI.UI.Modules
             // 
             this.btnOpenImage.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnOpenImage.Appearance.Options.UseFont = true;
-            this.btnOpenImage.Location = new System.Drawing.Point(30, 247);
-            this.btnOpenImage.MaximumSize = new System.Drawing.Size(0, 32);
-            this.btnOpenImage.MinimumSize = new System.Drawing.Size(0, 32);
+            this.btnOpenImage.Location = new System.Drawing.Point(31, 299);
+            this.btnOpenImage.Margin = new System.Windows.Forms.Padding(4);
+            this.btnOpenImage.MaximumSize = new System.Drawing.Size(0, 39);
+            this.btnOpenImage.MinimumSize = new System.Drawing.Size(0, 39);
             this.btnOpenImage.Name = "btnOpenImage";
-            this.btnOpenImage.Size = new System.Drawing.Size(104, 32);
+            this.btnOpenImage.Size = new System.Drawing.Size(122, 39);
             this.btnOpenImage.StyleController = this.layoutForm;
             this.btnOpenImage.TabIndex = 14;
             this.btnOpenImage.Text = "Chọn hình ảnh";
@@ -216,13 +227,14 @@ namespace GUI.UI.Modules
             // 
             // pictureBox
             // 
-            this.pictureBox.Location = new System.Drawing.Point(24, 81);
+            this.pictureBox.Location = new System.Drawing.Point(24, 94);
+            this.pictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox.MenuManager = this.barManager1;
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureBox.Properties.ShowZoomSubMenu = DevExpress.Utils.DefaultBoolean.True;
             this.pictureBox.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.pictureBox.Size = new System.Drawing.Size(116, 156);
+            this.pictureBox.Size = new System.Drawing.Size(136, 193);
             this.pictureBox.StyleController = this.layoutForm;
             this.pictureBox.TabIndex = 13;
             this.pictureBox.Click += new System.EventHandler(this.pictureBox_Click);
@@ -231,18 +243,21 @@ namespace GUI.UI.Modules
             // 
             this.lblTitle.Font = new System.Drawing.Font("Tahoma", 13F, System.Drawing.FontStyle.Bold);
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
-            this.lblTitle.Location = new System.Drawing.Point(30, 51);
+            this.lblTitle.Location = new System.Drawing.Point(32, 58);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(1005, 20);
+            this.lblTitle.Size = new System.Drawing.Size(579, 24);
             this.lblTitle.TabIndex = 9;
             this.lblTitle.Text = "Title";
             // 
             // dgv
             // 
-            this.dgv.Location = new System.Drawing.Point(24, 334);
+            this.dgv.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(5);
+            this.dgv.Location = new System.Drawing.Point(24, 400);
             this.dgv.MainView = this.gridView1;
+            this.dgv.Margin = new System.Windows.Forms.Padding(4);
             this.dgv.Name = "dgv";
-            this.dgv.Size = new System.Drawing.Size(1017, 295);
+            this.dgv.Size = new System.Drawing.Size(1194, 379);
             this.dgv.TabIndex = 8;
             this.dgv.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -250,6 +265,7 @@ namespace GUI.UI.Modules
             // 
             // gridView1
             // 
+            this.gridView1.DetailHeight = 431;
             this.gridView1.GridControl = this.dgv;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
@@ -257,15 +273,17 @@ namespace GUI.UI.Modules
             // 
             // txtTenSanPham
             // 
-            this.txtTenSanPham.Location = new System.Drawing.Point(150, 103);
+            this.txtTenSanPham.Location = new System.Drawing.Point(171, 121);
+            this.txtTenSanPham.Margin = new System.Windows.Forms.Padding(4);
             this.txtTenSanPham.Name = "txtTenSanPham";
-            this.txtTenSanPham.Size = new System.Drawing.Size(885, 20);
+            this.txtTenSanPham.Size = new System.Drawing.Size(1040, 22);
             this.txtTenSanPham.StyleController = this.layoutForm;
             this.txtTenSanPham.TabIndex = 5;
             // 
             // txtGiaBan
             // 
-            this.txtGiaBan.Location = new System.Drawing.Point(150, 155);
+            this.txtGiaBan.Location = new System.Drawing.Point(171, 182);
+            this.txtGiaBan.Margin = new System.Windows.Forms.Padding(4);
             this.txtGiaBan.Name = "txtGiaBan";
             this.txtGiaBan.Properties.BeepOnError = true;
             this.txtGiaBan.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
@@ -274,9 +292,24 @@ namespace GUI.UI.Modules
             this.txtGiaBan.Properties.MaskSettings.Set("culture", "vi-VN");
             this.txtGiaBan.Properties.MaskSettings.Set("valueType", typeof(double));
             this.txtGiaBan.Properties.UseMaskAsDisplayFormat = true;
-            this.txtGiaBan.Size = new System.Drawing.Size(885, 20);
+            this.txtGiaBan.Size = new System.Drawing.Size(1040, 22);
             this.txtGiaBan.StyleController = this.layoutForm;
             this.txtGiaBan.TabIndex = 11;
+            // 
+            // cboStatus
+            // 
+            this.cboStatus.Location = new System.Drawing.Point(722, 54);
+            this.cboStatus.Margin = new System.Windows.Forms.Padding(0);
+            this.cboStatus.Name = "cboStatus";
+            this.cboStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboStatus.Properties.DropDownRows = 2;
+            this.cboStatus.Properties.NullText = "";
+            this.cboStatus.Properties.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.cboStatus.Size = new System.Drawing.Size(496, 32);
+            this.cboStatus.StyleController = this.layoutForm;
+            this.cboStatus.TabIndex = 5;
+            this.cboStatus.EditValueChanged += new System.EventHandler(this.cboStatus_EditValueChanged);
             // 
             // Root
             // 
@@ -286,7 +319,7 @@ namespace GUI.UI.Modules
             this.layoutAction,
             this.layoutDGV});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(1065, 653);
+            this.Root.Size = new System.Drawing.Size(1242, 803);
             this.Root.TextVisible = false;
             // 
             // layoutAction
@@ -297,20 +330,21 @@ namespace GUI.UI.Modules
             this.layoutBtnHinh,
             this.layoutTitle,
             this.layoutGiaGoc,
-            this.layoutTenSP});
+            this.layoutTenSP,
+            this.layoutStatus});
             this.layoutAction.Location = new System.Drawing.Point(0, 0);
             this.layoutAction.Name = "layoutAction";
-            this.layoutAction.Size = new System.Drawing.Size(1045, 289);
+            this.layoutAction.Size = new System.Drawing.Size(1222, 350);
             this.layoutAction.Text = "Thao tác nhập liệu";
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.pictureBox;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 36);
-            this.layoutControlItem3.MaxSize = new System.Drawing.Size(120, 160);
-            this.layoutControlItem3.MinSize = new System.Drawing.Size(120, 160);
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 44);
+            this.layoutControlItem3.MaxSize = new System.Drawing.Size(140, 197);
+            this.layoutControlItem3.MinSize = new System.Drawing.Size(140, 197);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(120, 160);
+            this.layoutControlItem3.Size = new System.Drawing.Size(140, 197);
             this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem3.Text = "Hình ảnh sản phẩm:";
             this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top;
@@ -322,10 +356,10 @@ namespace GUI.UI.Modules
             this.layoutBtnHinh.AppearanceItemCaption.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.layoutBtnHinh.AppearanceItemCaption.Options.UseBorderColor = true;
             this.layoutBtnHinh.Control = this.btnOpenImage;
-            this.layoutBtnHinh.Location = new System.Drawing.Point(0, 196);
+            this.layoutBtnHinh.Location = new System.Drawing.Point(0, 241);
             this.layoutBtnHinh.Name = "layoutBtnHinh";
-            this.layoutBtnHinh.Padding = new DevExpress.XtraLayout.Utils.Padding(8, 8, 8, 8);
-            this.layoutBtnHinh.Size = new System.Drawing.Size(120, 48);
+            this.layoutBtnHinh.Padding = new DevExpress.XtraLayout.Utils.Padding(9, 9, 10, 10);
+            this.layoutBtnHinh.Size = new System.Drawing.Size(140, 59);
             this.layoutBtnHinh.Text = "Nút Thêm Hình";
             this.layoutBtnHinh.TextSize = new System.Drawing.Size(0, 0);
             this.layoutBtnHinh.TextVisible = false;
@@ -334,13 +368,13 @@ namespace GUI.UI.Modules
             // 
             this.layoutTitle.Control = this.lblTitle;
             this.layoutTitle.Location = new System.Drawing.Point(0, 0);
-            this.layoutTitle.MaxSize = new System.Drawing.Size(0, 42);
-            this.layoutTitle.MinSize = new System.Drawing.Size(36, 36);
+            this.layoutTitle.MaxSize = new System.Drawing.Size(0, 52);
+            this.layoutTitle.MinSize = new System.Drawing.Size(42, 44);
             this.layoutTitle.Name = "layoutTitle";
-            this.layoutTitle.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
-            this.layoutTitle.Size = new System.Drawing.Size(1021, 36);
+            this.layoutTitle.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.layoutTitle.Size = new System.Drawing.Size(599, 44);
             this.layoutTitle.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutTitle.Spacing = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
+            this.layoutTitle.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.layoutTitle.Text = "Title";
             this.layoutTitle.TextSize = new System.Drawing.Size(0, 0);
             this.layoutTitle.TextVisible = false;
@@ -350,25 +384,35 @@ namespace GUI.UI.Modules
             this.layoutGiaGoc.Control = this.txtGiaBan;
             this.layoutGiaGoc.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutGiaGoc.CustomizationFormText = "Giá:";
-            this.layoutGiaGoc.Location = new System.Drawing.Point(120, 88);
+            this.layoutGiaGoc.Location = new System.Drawing.Point(140, 105);
             this.layoutGiaGoc.Name = "layoutGiaGoc";
-            this.layoutGiaGoc.Padding = new DevExpress.XtraLayout.Utils.Padding(8, 8, 8, 8);
-            this.layoutGiaGoc.Size = new System.Drawing.Size(901, 156);
+            this.layoutGiaGoc.Padding = new DevExpress.XtraLayout.Utils.Padding(9, 9, 10, 10);
+            this.layoutGiaGoc.Size = new System.Drawing.Size(1058, 195);
             this.layoutGiaGoc.Text = "Giá bán:";
             this.layoutGiaGoc.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutGiaGoc.TextSize = new System.Drawing.Size(71, 13);
+            this.layoutGiaGoc.TextSize = new System.Drawing.Size(87, 16);
             // 
             // layoutTenSP
             // 
             this.layoutTenSP.Control = this.txtTenSanPham;
             this.layoutTenSP.CustomizationFormText = "Tên sản phẩm:";
-            this.layoutTenSP.Location = new System.Drawing.Point(120, 36);
+            this.layoutTenSP.Location = new System.Drawing.Point(140, 44);
             this.layoutTenSP.Name = "layoutTenSP";
-            this.layoutTenSP.Padding = new DevExpress.XtraLayout.Utils.Padding(8, 8, 8, 8);
-            this.layoutTenSP.Size = new System.Drawing.Size(901, 52);
+            this.layoutTenSP.Padding = new DevExpress.XtraLayout.Utils.Padding(9, 9, 10, 10);
+            this.layoutTenSP.Size = new System.Drawing.Size(1058, 61);
             this.layoutTenSP.Text = "Tên sản phẩm:";
             this.layoutTenSP.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutTenSP.TextSize = new System.Drawing.Size(71, 13);
+            this.layoutTenSP.TextSize = new System.Drawing.Size(87, 16);
+            // 
+            // layoutStatus
+            // 
+            this.layoutStatus.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.layoutStatus.Control = this.cboStatus;
+            this.layoutStatus.Location = new System.Drawing.Point(599, 0);
+            this.layoutStatus.Name = "layoutStatus";
+            this.layoutStatus.Size = new System.Drawing.Size(599, 44);
+            this.layoutStatus.Text = "Trạng thái :";
+            this.layoutStatus.TextSize = new System.Drawing.Size(87, 16);
             // 
             // layoutDGV
             // 
@@ -376,9 +420,9 @@ namespace GUI.UI.Modules
             this.layoutDGV.CustomizationFormText = "Danh sách dữ liệu";
             this.layoutDGV.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
-            this.layoutDGV.Location = new System.Drawing.Point(0, 289);
+            this.layoutDGV.Location = new System.Drawing.Point(0, 350);
             this.layoutDGV.Name = "layoutDGV";
-            this.layoutDGV.Size = new System.Drawing.Size(1045, 344);
+            this.layoutDGV.Size = new System.Drawing.Size(1222, 433);
             this.layoutDGV.Text = "Danh sách dữ liệu";
             // 
             // layoutControlItem1
@@ -387,21 +431,22 @@ namespace GUI.UI.Modules
             this.layoutControlItem1.CustomizationFormText = "dgvCaLamViec";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1021, 299);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1198, 383);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // ucSanPham
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.layoutForm);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ucSanPham";
-            this.Size = new System.Drawing.Size(1065, 677);
+            this.Size = new System.Drawing.Size(1242, 833);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutForm)).EndInit();
             this.layoutForm.ResumeLayout(false);
@@ -410,6 +455,7 @@ namespace GUI.UI.Modules
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenSanPham.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGiaBan.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboStatus.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutAction)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
@@ -417,6 +463,7 @@ namespace GUI.UI.Modules
             ((System.ComponentModel.ISupportInitialize)(this.layoutTitle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutGiaGoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutTenSP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
@@ -455,5 +502,7 @@ namespace GUI.UI.Modules
         private DevExpress.XtraLayout.LayoutControlItem layoutBtnHinh;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutStatus;
+        private DevExpress.XtraEditors.LookUpEdit cboStatus;
     }
 }

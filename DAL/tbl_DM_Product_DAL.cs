@@ -56,7 +56,7 @@ namespace DAL
 
                     if (entity != null)
                     {
-                        entity.DELETED = 1;
+                        entity.DELETED = entity.DELETED == 0 ? 1 : 0;
                         entity.UPDATED = DateTime.Now;
                         entity.UPDATED_BY = CCommon.MaDangNhap;
                         entity.UPDATED_BY_FUNCTION = "Remove";
@@ -103,7 +103,7 @@ namespace DAL
         }
 
         // Lấy danh sách Product
-        public List<tbl_DM_Product_DTO> GetAll()
+        public List<tbl_DM_Product_DTO> GetAll(int deleted)
         {
             List<tbl_DM_Product_DTO> result = new List<tbl_DM_Product_DTO>();
             try
@@ -111,24 +111,22 @@ namespace DAL
                 using (var dbContext = new CM_Cinema_DBDataContext(_connectionString))
                 {
                     var list = dbContext.tbl_DM_Products
+                      .Where(item => item.DELETED == deleted)
                      .OrderByDescending(item => item.CREATED) // Sort by created date in descending order
                      .ToList();
 
 
                     foreach (var item in list)
                     {
-                        if (item.DELETED != 1)
+                        tbl_DM_Product_DTO entity = new tbl_DM_Product_DTO()
                         {
-                            tbl_DM_Product_DTO entity = new tbl_DM_Product_DTO()
-                            {
-                                PD_AutoID = item.PD_AutoID,
-                                PD_IMAGEURL = item.PD_IMAGEURL,
-                                PD_QUANTITY = item.PD_QUANTITY,
-                                PD_NAME = item.PD_NAME,
-                                PD_PRICE = item.PD_PRICE,
-                            };
-                            result.Add(entity);
-                        }
+                            PD_AutoID = item.PD_AutoID,
+                            PD_IMAGEURL = item.PD_IMAGEURL,
+                            PD_QUANTITY = item.PD_QUANTITY,
+                            PD_NAME = item.PD_NAME,
+                            PD_PRICE = item.PD_PRICE,
+                        };
+                        result.Add(entity);
                     }
                     return result;
                 }

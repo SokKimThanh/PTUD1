@@ -241,7 +241,7 @@ namespace DAL
                                  };
                     foreach (var item in result)
                     {
-                        list.Add(new TicketItem_DTO(item.AutoID, item.MovieName, item.SeatName, item.TheaterName, item.Price));
+                        list.Add(new TicketItem_DTO(item.AutoID, item.MovieName, item.SeatName.ToString().Trim(), item.TheaterName, item.Price));
                     }
                     return list;
                 }

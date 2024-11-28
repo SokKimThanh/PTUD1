@@ -21,7 +21,7 @@ as
 Begin
 
 	select @Bill_AutoID as AutoID, mv.MV_NAME as MovieName, count(tk.TK_AutoID) as NoTicket, mv.MV_PRICE as TicketPrice, ms.MS_START as BeginTime, ms.MS_END as EndTime, bl.CREATED as Created, st.ST_NAME as StaffName, bl.BL_Trang_Thai_ID as BillStatus,
-		pd.PD_NAME as ProductName, bd.BD_QUANTITY as Quantity, pd.PD_PRICE as BasePrice, bd.BD_QUANTITY * pd.PD_PRICE as TotalPrice 
+		pd.PD_NAME as ProductName, bd.BD_QUANTITY as Quantity, pd.PD_PRICE as BasePrice, (bd.BD_QUANTITY * pd.PD_PRICE) + (count(tk.TK_AutoID) * mv.MV_PRICE) as TotalPrice 
 	from tbl_DM_Bill as bl
 	join tbl_DM_BillDetail as bd on bl.BL_AutoID = bd.BD_BILL_AutoID
 	join tbl_DM_Ticket as tk on bl.BL_AutoID = TK_BILL_AutoID
@@ -31,7 +31,7 @@ Begin
 	join tbl_DM_Movie as mv on ms.MS_MOVIE_AutoID = MV_AutoID
 	where bl.BL_AutoID = @Bill_AutoID
 	group by bl.BL_AutoID, mv.MV_NAME, bl.CREATED, st.ST_NAME, mv.MV_PRICE, ms.MS_START, ms.MS_END , bl.BL_Trang_Thai_ID ,
-		pd.PD_NAME , bd.BD_QUANTITY , pd.PD_PRICE , bd.BD_QUANTITY * pd.PD_PRICE
+		pd.PD_NAME , bd.BD_QUANTITY , pd.PD_PRICE
 End
 
 exec sp_HoaDon_BaoCao 2

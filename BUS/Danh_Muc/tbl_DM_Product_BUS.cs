@@ -27,9 +27,9 @@ namespace BUS.Danh_Muc
         }
 
         // Lấy danh sách Product
-        public List<tbl_DM_Product_DTO> GetAll()
+        public List<tbl_DM_Product_DTO> GetAll(int deleted)
         {
-            return data.GetAll();
+            return data.GetAll(deleted);
         }
         // Tìm kiếm Product theo ID
         public tbl_DM_Product_DTO Find(long id)

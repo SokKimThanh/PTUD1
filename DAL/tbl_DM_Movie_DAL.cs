@@ -59,7 +59,7 @@ namespace DAL
 
                     if (entity != null)
                     {
-                        entity.DELETED = 1;
+                        entity.DELETED = entity.DELETED == 0 ? 1 : 0;
                         entity.UPDATED = DateTime.Now;
                         entity.UPDATED_BY = CCommon.MaDangNhap;
                         entity.UPDATED_BY_FUNCTION = "Remove";
@@ -108,7 +108,7 @@ namespace DAL
         }
 
         // Lấy danh sách phim
-        public List<tbl_DM_Movie_DTO> GetAll()
+        public List<tbl_DM_Movie_DTO> GetAll(int deleted)
         {
             List<tbl_DM_Movie_DTO> result = new List<tbl_DM_Movie_DTO>();
             try
@@ -119,7 +119,7 @@ namespace DAL
 
                     foreach (var item in list)
                     {
-                        if (item.DELETED != 1)
+                        if (item.DELETED == deleted)
                         {
                             tbl_DM_Movie_DTO entity = new tbl_DM_Movie_DTO()
                             {

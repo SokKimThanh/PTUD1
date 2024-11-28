@@ -118,7 +118,7 @@ namespace GUI.UI.Modules
 
 
             // Thêm các mục vào ComboBoxEdit thông qua Properties.Items
-            cboSanPham.Properties.DataSource = product_BUS.GetAll();
+            cboSanPham.Properties.DataSource = product_BUS.GetAll(0);
             cboSanPham.Properties.DisplayMember = "PD_NAME";
             cboSanPham.Properties.ValueMember = "PD_AutoID";
             cboSanPham.ItemIndex = -1;
