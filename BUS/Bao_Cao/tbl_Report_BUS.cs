@@ -17,15 +17,13 @@ namespace BUS.Bao_Cao
             return sales_DAL.GetSalesReport(ngayBatDau, ngayKetThuc);
         }
 
-        /// <summary>
-        /// Hàm tạo báo cáo doanh thu chi tiết
-        /// </summary>
-        /// <param name="startDate"></param>
-        /// <param name="endDate"></param>
-        /// <returns></returns>
-        public object GetDetailSaleReport(DateTime startDate, DateTime endDate)
+        public List<TicketRevenueDTO> GetTicketRevenue(DateTime startDate, DateTime endDate)
         {
-            return sales_DAL.GetDetailSaleReport(startDate, endDate);
+            return sales_DAL.GetTicketRevenue(startDate, endDate);
+        }
+        public List<ProductRevenueDTO> GetProductRevenue(DateTime startDate, DateTime endDate)
+        {
+            return sales_DAL.GetProductRevenue(startDate, endDate);
         }
 
         /// <summary>
@@ -61,10 +59,12 @@ namespace BUS.Bao_Cao
               DateTime startDate,
               DateTime endDate, int salesPerformanceThreshold = 50,         // hiệu suất bán hàng
               int minStockThreshold = 50,    // ngưỡng tồn kho
-              double desiredProfitMargin = 0.2 // lợi nhuận mong muốn
+              double desiredProfitMargin = 0.2, // lợi nhuận mong muốn
+              int InventoryStatus = 0 // trang thai ton kho -- 0 : can nhap hang, 1: du hang
             )
         {
-            return inventory_DAL.GetInventoryReportByStatusAndDate(startDate, endDate, salesPerformanceThreshold, minStockThreshold, desiredProfitMargin);
+            return inventory_DAL.GetInventoryReportByStatusAndDate(startDate, endDate,
+                salesPerformanceThreshold, minStockThreshold, desiredProfitMargin, InventoryStatus);
         }
     }
 }

@@ -3,12 +3,21 @@ using DevExpress.XtraReports.UI;
 using GUI.UI.Component;
 using GUI.UI.ReportDesign;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace GUI.UI.Modules
 {
     public partial class ucBaoCaoDoanhThu : ucBase
     {
+        // Danh sách trạng thái
+        Dictionary<int, string> dsLoaiDoanhThu = new Dictionary<int, string>()
+        {
+            {0, "Doanh thu sản phẩm" },
+            {1, "Doanh thu suất chiếu" }
+        };
+
+
         private tbl_Report_BUS data = new tbl_Report_BUS();
         private DateTime startDate;
         private DateTime endDate;
@@ -47,6 +56,8 @@ namespace GUI.UI.Modules
         protected override void Load_Data()
         {
             lblTitle.Text = !string.IsNullOrEmpty(strFunctionCode) ? strFunctionCode.ToUpper().Trim() : string.Empty;
+
+
             executeReportDefault();
         }
 
@@ -64,15 +75,30 @@ namespace GUI.UI.Modules
             }
             else // Chi tiết
             {
-                gridView1.Columns["MovieName"].Caption = "Tên phim";
-                gridView1.Columns["ShowTime"].Caption = "Thời gian chiếu";
-                gridView1.Columns["TicketPrice"].Caption = "Giá vé";
-                gridView1.Columns["SaleTime"].Caption = "Thời gian bán";
-                gridView1.Columns["TheaterName"].Caption = "Phòng chiếu";
+                btnTaoBaoCao.Enabled = true;
+                if ((int)cboLoaiDoanhThu.EditValue == 0)
+                {
 
-                // Định dạng cột Giá vé
-                gridView1.Columns["TicketPrice"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-                gridView1.Columns["TicketPrice"].DisplayFormat.FormatString = "c0"; // Định dạng tiền tệ
+                    gridView1.Columns["ProductName"].Caption = "Tên sản phẩm";
+                    gridView1.Columns["UnitPrice"].Caption = "Đơn giá";
+                    gridView1.Columns["TotalQuantitySold"].Caption = "Tổng số lượng bán sản phẩm";
+                    gridView1.Columns["TotalProductRevenue"].Caption = "Tổng doanh thu sản phẩm";
+
+                    // Định dạng cột tổng tiền
+                    gridView1.Columns["TotalProductRevenue"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+                    gridView1.Columns["TotalProductRevenue"].DisplayFormat.FormatString = "c0"; // Định dạng tiền tệ
+                }
+                else
+                {
+                    gridView1.Columns["MovieName"].Caption = "Tên phim";
+                    gridView1.Columns["TicketPrice"].Caption = "Giá vé";
+                    gridView1.Columns["TotalTickets"].Caption = "Tổng số lượng vé";
+                    gridView1.Columns["TotalTicketRevenue"].Caption = "Tổng doanh thu vé";
+
+                    // Định dạng cột tổng tiền
+                    gridView1.Columns["TotalTicketRevenue"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+                    gridView1.Columns["TotalTicketRevenue"].DisplayFormat.FormatString = "c0"; // Định dạng tiền tệ
+                }
             }
         }
 
@@ -89,14 +115,36 @@ namespace GUI.UI.Modules
         {
             if (txtStartDate.Text != "" && txtEndDate.Text != "")
             {
+
                 executeReport();
             }
         }
         private void btnTaoBaoCao_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) &&
-                DateTime.TryParse(txtEndDate.Text.Trim(), out endDate))
+
+            try
             {
+                if (!DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) && !DateTime.TryParse(txtEndDate.Text.Trim(), out endDate))
+                {
+                    MessageBox.Show("Vui lòng nhập đúng định dạng ngày!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                DateTime.TryParse(txtStartDate.Text.Trim(), out startDate);
+                DateTime.TryParse(txtEndDate.Text.Trim(), out endDate);
+
+
+                // Kiểm tra ngày bắt đầu và ngày kết thúc
+                if (startDate >= endDate)
+                {
+                    throw new Exception("Ngày bắt đầu phải nhỏ hơn ngày kết thúc!");
+                }
+
+                if (startDate < new DateTime(1753, 1, 1) || endDate > new DateTime(9999, 12, 31))
+                {
+                    throw new Exception("Ngày tháng phải nằm trong khoảng từ 1/1/1753 đến 12/31/9999!");
+                }
+
                 var report = new RP_BaoCaoDoanhThu();
                 report.Add(startDate, endDate);
 
@@ -104,26 +152,78 @@ namespace GUI.UI.Modules
                 var printTool = new ReportPrintTool(report);
                 printTool.ShowPreview();
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Vui lòng nhập đúng định dạng ngày!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void executeReport()
         {
 
-            if (DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) &&
-                DateTime.TryParse(txtEndDate.Text.Trim(), out endDate))
+            try
             {
+                if (!DateTime.TryParse(txtStartDate.Text.Trim(), out startDate) && !DateTime.TryParse(txtEndDate.Text.Trim(), out endDate))
+                {
+                    MessageBox.Show("Vui lòng nhập đúng định dạng ngày!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                DateTime.TryParse(txtStartDate.Text.Trim(), out startDate);
+                DateTime.TryParse(txtEndDate.Text.Trim(), out endDate);
+
+
+                // Kiểm tra ngày bắt đầu và ngày kết thúc
+                if (startDate >= endDate)
+                {
+                    if (rptViewReport.SelectedIndex == 0)
+                    {
+                        cboLoaiDoanhThu.Enabled = false;// Ẩn cbo loại doanh thu
+                        btnTaoBaoCao.Enabled = false;
+                    }
+                    else
+                    {
+                        cboLoaiDoanhThu.Enabled = true;// Hiện cbo loại doanh thu
+                        btnTaoBaoCao.Enabled = true;
+                    }
+                    throw new Exception("Ngày bắt đầu phải nhỏ hơn ngày kết thúc!");
+                }
+
+                if (startDate < new DateTime(1753, 1, 1) || endDate > new DateTime(9999, 12, 31))
+                {
+                    if (rptViewReport.SelectedIndex == 0)
+                    {
+                        cboLoaiDoanhThu.Enabled = false;// Ẩn cbo loại doanh thu
+                        btnTaoBaoCao.Enabled = false;
+                    }
+                    else
+                    {
+                        cboLoaiDoanhThu.Enabled = true;// Hiện cbo loại doanh thu
+                        btnTaoBaoCao.Enabled = true;
+                    }
+                    throw new Exception("Ngày tháng phải nằm trong khoảng từ 1/1/1753 đến 12/31/9999!");
+                }
+
+
                 gridView1.Columns.Clear(); // Xóa cột cũ trước khi gán dữ liệu mới
 
                 if (rptViewReport.SelectedIndex == 0)
                 {
                     dgv.DataSource = data.GetAllSalesReport(startDate, endDate);
+                    cboLoaiDoanhThu.Enabled = false;// Ẩn cbo loại doanh thu
+                    btnTaoBaoCao.Enabled = false;
                 }
                 else
                 {
-                    dgv.DataSource = data.GetDetailSaleReport(startDate, endDate);
+                    cboLoaiDoanhThu.Enabled = true;// Hiện cbo loại doanh thu
+                    btnTaoBaoCao.Enabled = true;
+                    if ((int)cboLoaiDoanhThu.EditValue == 0)
+                    {
+                        dgv.DataSource = data.GetProductRevenue(startDate, endDate);
+                    }
+                    else
+                    {
+                        dgv.DataSource = data.GetTicketRevenue(startDate, endDate);
+                    }
                 }
 
                 // Định dạng cột theo tổng quan hoặc chi tiết
@@ -132,13 +232,18 @@ namespace GUI.UI.Modules
                 // Refresh lại DataGridView để hiển thị dữ liệu mới
                 dgv.Refresh();
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Vui lòng nhập đúng định dạng ngày!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void executeReportDefault()
         {
+            btnTaoBaoCao.Enabled = false;
+            cboLoaiDoanhThu.Enabled = false;
+            cboLoaiDoanhThu.Properties.DataSource = dsLoaiDoanhThu;
+            cboLoaiDoanhThu.EditValue = 0;    // Mặc định chọn "Doanh thu vé" 
+
             // Mặc định hiển thị báo cáo tổng quan
             rptViewReport.SelectedIndex = 0;
 
@@ -159,7 +264,16 @@ namespace GUI.UI.Modules
             }
             else
             {
-                dgv.DataSource = data.GetDetailSaleReport(startDate, endDate);
+                // doanh thu sản phẩm
+                if ((int)cboLoaiDoanhThu.EditValue == 0)
+                {
+                    dgv.DataSource = data.GetProductRevenue(startDate, endDate);
+                }
+                // doanh thu suất chiếu
+                else
+                {
+                    dgv.DataSource = data.GetTicketRevenue(startDate, endDate);
+                }
             }
 
             ConfigureGridColumns();

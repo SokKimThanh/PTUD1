@@ -16,7 +16,8 @@ CREATE PROCEDURE sp_TonKhoChiTiet
     @EndDate DATETIME,                       -- Ngày kết thúc
     @SalesPerformanceThreshold INT = 50,     -- Ngưỡng hiệu suất bán hàng (mặc định 50%)
     @MinStockThreshold INT = 50,             -- Lượng tồn kho dưới ngưỡng tối thiểu (mặc định 50%)
-    @DesiredProfitMargin FLOAT = 0.2         -- Lợi nhuận mong muốn (20%)
+    @DesiredProfitMargin FLOAT = 0.2,        -- Lợi nhuận mong muốn (20%)
+    @InventoryStatus INT = NULL              -- Trạng thái kho để lọc (0: Cần nhập hàng, 1: Đủ hàng)
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -71,40 +72,26 @@ BEGIN
         ISNULL(S.TotalSold, 0) AS SoldQuantity,                     -- Số lượng bán sản phẩm
         ISNULL(S.UnitPrice, 0) AS UnitPrice,                        -- Giá bán đơn vị sản phẩm
         ISNULL(S.ProductRevenue, 0) + ISNULL(TR.TotalTicketRevenue, 0) AS TotalRevenue, -- Tổng doanh thu
-        CASE 
-            WHEN ISNULL(R.UnitCost, 0) > 0 THEN 
-                ISNULL(S.ProductRevenue, 0) - ISNULL(R.UnitCost, 0) * ISNULL(S.TotalSold, 0) + ISNULL(TR.TotalTicketRevenue, 0)
-            ELSE ISNULL(TR.TotalTicketRevenue, 0)
-        END AS ProfitLoss,                                          -- Lợi nhuận
-        CASE 
-			WHEN ISNULL(R.TotalReceived, 0) = 0 THEN 0
-			ELSE ROUND(ISNULL(S.TotalSold, 0) * 100.0 / ISNULL(R.TotalReceived, 0), 2)
-		END AS SalesPerformancePercentage,                         -- Hiệu suất bán hàng (%)
-        CASE 
-            WHEN ISNULL(R.TotalReceived, 0) = 0 THEN N'Cần nhập hàng'
-            WHEN (ISNULL(S.TotalSold, 0) * 100.0 / ISNULL(R.TotalReceived, 0)) < @SalesPerformanceThreshold THEN N'Bán chậm'
-            ELSE N'Hiệu suất cao'
-        END AS SalesPerformanceCategory,                           -- Phân loại hiệu suất
-        CASE 
+        
+         CASE 
             WHEN (ISNULL(R.TotalReceived, 0) - ISNULL(S.TotalSold, 0)) < @MinStockThreshold THEN N'Cần nhập hàng'
             ELSE N'Đủ hàng'
-        END AS RestockStatus,                                      -- Cảnh báo thiếu hàng
-        CASE 
-            WHEN ISNULL(S.TotalSold, 0) = 0 AND R.TotalReceived > 0 THEN N'Tồn lâu'
-            ELSE N'Bình thường'
-        END AS InventoryAgeStatus,                                 -- Sản phẩm tồn kho lâu ngày
-        CASE 
-            WHEN ISNULL(S.ProductRevenue, 0) - ISNULL(R.UnitCost, 0) * ISNULL(S.TotalSold, 0) < 0 
-            THEN ROUND(ISNULL(R.UnitCost, 0) * (1 + @DesiredProfitMargin), 0)
-            ELSE NULL
-        END AS SuggestedPrice                                      -- Giá bán đề xuất khi bán lỗ
+        END AS RestockStatus -- Cảnh báo thiếu hàng
+         
     FROM tbl_DM_Product PD
     LEFT JOIN Received R ON PD.PD_AutoID = R.ProductID
     LEFT JOIN Sold S ON PD.PD_AutoID = S.ProductID
     LEFT JOIN TicketRevenue TR ON TR.MovieID = PD.PD_AutoID
     WHERE PD.DELETED = 0
+        AND (@InventoryStatus IS NULL OR
+             (CASE 
+                 WHEN (ISNULL(R.TotalReceived, 0) - ISNULL(S.TotalSold, 0)) < @MinStockThreshold THEN 0
+                 ELSE 1
+             END = @InventoryStatus))
     ORDER BY PD.PD_NAME ASC;
 END;
+
+
 
 
 
