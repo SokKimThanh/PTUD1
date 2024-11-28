@@ -77,9 +77,18 @@ namespace GUI.UI.Modules
             string[] splitStr = txtUrlHinhAnh.Split('.');
             string pictureUrl = projectPath + txtName.Text + "." + splitStr[splitStr.Length - 1];
             if (File.Exists(pictureUrl))
+            {
                 File.Delete(pictureUrl);
-            File.Copy(txtUrlHinhAnh, pictureUrl);
-
+            }
+            try
+            {
+                File.Copy(txtUrlHinhAnh, pictureUrl);
+            }
+            catch (Exception)
+            {
+                pictureUrl = "";
+            }
+            
             // Sử dụng constructor của tbl_DM_Movie_DTO để tạo đối tượng movie
             var movie = new tbl_DM_Movie_DTO();
             movie.MV_NAME = txtName.Text;
