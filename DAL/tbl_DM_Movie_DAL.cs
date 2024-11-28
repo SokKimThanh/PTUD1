@@ -130,6 +130,7 @@ namespace DAL
                                 MV_NAME = item.MV_NAME,
                                 MV_PRICE = item.MV_PRICE,
                                 MV_AGERATING_AutoID = item.MV_AGERATING_AutoID,
+                                Deleted = (int)item.DELETED,
                             };
                             result.Add(entity);
                         }
@@ -196,6 +197,7 @@ namespace DAL
                               MV_NAME = item.MV_NAME,
                               MV_PRICE = item.MV_PRICE,
                               MV_AGERATING_AutoID = item.MV_AGERATING_AutoID,
+                              Deleted = (int)item.DELETED,
                           })
                           .SingleOrDefault();
                 }

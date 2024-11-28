@@ -21,34 +21,16 @@ namespace GUI
         /// <summary>
         /// Nơi khai báo mã chức năng và user control
         /// </summary>
-        private Dictionary<string, ucBase> dicFunction = new Dictionary<string, ucBase>()
-        {
-            { "accCaiDat", new ucCaiDat() },
-            { "accDatVe", new ucChonPhim() },
-            { "accVe", new ucVe() },
-            { "accQLHoaDon", new ucHoaDon() },
-            { "accQLPhim", new ucPhim() },
-            { "accQLSanPham", new ucSanPham() },
-            { "accQLPhongChieu", new ucPhongChieu() },
-            { "accQLSuatChieu", new ucSuatChieu() },
-            { "accQLNhanVien", new ucNhanVien() },
-            { "accQLPhanCa", new ucPhanCa() },
-            { "accQLCaLamViec", new ucCaLamViec() },
-            { "accQLDanhGiaDoTuoi", new ucDanhGiaDoTuoi() },
-            { "accBaoCaoDoanhThu", new ucBaoCaoDoanhThu() },
-            { "accBaoCaoThuChi", new ucBaoCaoThuChi() },
-            { "accBaoCaoTonKho", new ucBaoCaoTonKho() },
-            { "accChiPhi", new ucChiPhi() },
-            { "accLoaiChiPhi", new ucChiPhiLoai() },
-        };
-
         private frmLoading frmLoad = null;
+
 
         public frmMain()
         {
             InitializeComponent();
-        }
 
+            //Ẩn đi nút hamburger
+            this.arrFunction.OptionsMinimizing.AllowMinimizeMode = DevExpress.Utils.DefaultBoolean.False;
+        }
         #region Function bổ trợ
 
         private void LoadFunctionByLevel(int iLevel)
@@ -229,6 +211,7 @@ namespace GUI
 
         private void LoadFunction_Click(object objSender, EventArgs e)
         {
+
             //Kiểm tra dữ liệu có null và có phải kiểu AccordionControlElement hay không
             if (objSender != null && objSender.GetType() == typeof(AccordionControlElement))
             {
@@ -242,30 +225,95 @@ namespace GUI
 
                     AccordionControlElement objElement = objSender as AccordionControlElement;
 
-                    // Kiểm tra xem nó có trong dicFunction hay không
-                    if (dicFunction.ContainsKey(objElement.Name) == false)
-                        return;
+                    // Tạo một biến để lưu trữ UserControl được chọn
+                    ucBase objLoad = null;
 
-                    // Lấy UserControl tương ứng với tên
-                    ucBase objLoad = dicFunction[objElement.Name];
+                    // Kiểm tra xem tên có khớp với bất kỳ trường hợp nào trong switch case
+                    switch (objElement.Name)
+                    {
+                        case "accCaiDat":
+                            objLoad = new ucCaiDat();
+                            break;
+
+                        case "accDatVe":
+                            objLoad = new ucChonPhim();
+                            break;
+
+                        case "accVe":
+                            objLoad = new ucVe();
+                            break;
+
+                        case "accQLHoaDon":
+                            objLoad = new ucHoaDon();
+                            break;
+
+                        case "accQLPhim":
+                            objLoad = new ucPhim();
+                            break;
+
+                        case "accQLSanPham":
+                            objLoad = new ucSanPham();
+                            break;
+
+                        case "accQLPhongChieu":
+                            objLoad = new ucPhongChieu();
+                            break;
+
+                        case "accQLSuatChieu":
+                            objLoad = new ucSuatChieu();
+                            break;
+
+                        case "accQLNhanVien":
+                            objLoad = new ucNhanVien();
+                            break;
+
+                        case "accQLPhanCa":
+                            objLoad = new ucPhanCa();
+                            break;
+
+                        case "accQLCaLamViec":
+                            objLoad = new ucCaLamViec();
+                            break;
+
+                        case "accQLDanhGiaDoTuoi":
+                            objLoad = new ucDanhGiaDoTuoi();
+                            break;
+
+                        case "accBaoCaoDoanhThu":
+                            objLoad = new ucBaoCaoDoanhThu();
+                            break;
+
+                        case "accBaoCaoThuChi":
+                            objLoad = new ucBaoCaoThuChi();
+                            break;
+
+                        case "accBaoCaoTonKho":
+                            objLoad = new ucBaoCaoTonKho();
+                            break;
+
+                        case "accChiPhi":
+                            objLoad = new ucChiPhi();
+                            break;
+
+                        case "accLoaiChiPhi":
+                            objLoad = new ucChiPhiLoai();
+                            break;
+                    }
+
                     if (objLoad == null)
                         return;
 
                     objLoad.strFunctionCode = objElement.Text;
 
-                    // Nếu UserControl đã có trong mainContainer thì đưa nó lên trước
-                    if (mainContainer.Controls.Contains(objLoad) == false)
-                    {
-                        // Clear toàn bộ những gì trên container
-                        mainContainer.Controls.Clear();
+                    // Clear toàn bộ những gì trên container
+                    mainContainer.Controls.Clear();
 
-                        // Dock control vào container để nó chiếm toàn bộ diện tích
-                        objLoad.Dock = DockStyle.Fill;
+                    // Dock control vào container để nó chiếm toàn bộ diện tích
+                    objLoad.Dock = DockStyle.Fill;
 
-                        // Thêm UserControl vào main container
-                        mainContainer.Controls.Add(objLoad);
-                        objLoad.Load_DataBase(objSender, e);
-                    }
+                    // Thêm UserControl vào main container
+                    mainContainer.Controls.Add(objLoad);
+                    objLoad.Load_DataBase(objSender, e);
 
                     // Đưa nó lên phía trước
                     objLoad.BringToFront();

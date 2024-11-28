@@ -12,6 +12,7 @@ namespace DTO.tbl_DTO
         private double mV_PRICE;
         private int mV_DURATION;
         private long? mV_AGERATING_AutoID; // Có thể null
+        private int deleted;
 
         public tbl_DM_Movie_DTO()
         {
@@ -24,7 +25,7 @@ namespace DTO.tbl_DTO
             this.mV_NAME = mV_NAME;
         }
 
-        public tbl_DM_Movie_DTO(string mV_NAME, string mV_POSTERURL, string mV_DESCRIPTION, double mV_PRICE, int mV_DURATION, long mV_AutoID, long? mV_AGERATING_AutoID = null)
+        public tbl_DM_Movie_DTO(string mV_NAME, string mV_POSTERURL, string mV_DESCRIPTION, double mV_PRICE, int mV_DURATION, long mV_AutoID, int deleted = 0, long? mV_AGERATING_AutoID = null)
         {
             MV_NAME = mV_NAME;
             MV_POSTERURL = mV_POSTERURL;
@@ -32,6 +33,7 @@ namespace DTO.tbl_DTO
             MV_PRICE = mV_PRICE;
             MV_DURATION = mV_DURATION;
             MV_AutoID = mV_AutoID;
+            Deleted = deleted;
             this.mV_AGERATING_AutoID = mV_AGERATING_AutoID;
         }
 
@@ -105,6 +107,6 @@ namespace DTO.tbl_DTO
             }
         }
         public long? MV_AGERATING_AutoID { get => mV_AGERATING_AutoID; set => mV_AGERATING_AutoID = value; }
-
+        public int Deleted { get => deleted; set => deleted = value; }
     }
 }

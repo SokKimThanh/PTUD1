@@ -163,8 +163,16 @@ namespace GUI.UI.Modules
             {
                 tbl_DM_Bill_BUS v_objBill_BUS = new tbl_DM_Bill_BUS();
                 tbl_DM_Staff_BUS v_objStaff_BUS = new tbl_DM_Staff_BUS();
+                tbl_DM_Product_BUS v_objProduct_BUS = new tbl_DM_Product_BUS();
                 try
                 {
+                    foreach(tbl_DM_Product_DTO item in m_arrSan_Pham_Da_Chon)
+                    {
+                        tbl_DM_Product_DTO foundProduct = v_objProduct_BUS.Find(item.PD_AutoID);
+                        foundProduct.PD_QUANTITY -= item.PD_QUANTITY;
+                        v_objProduct_BUS.Update(foundProduct);
+                    }
+
                     //Tạo obj user 
                     tbl_DM_Staff_DTO v_objStaff = v_objStaff_BUS.GetStaff_ByUserName(CCommon.MaDangNhap);
 
@@ -333,12 +341,11 @@ namespace GUI.UI.Modules
 
         }
 
-
         #region Nhóm private
         private void Load_Danh_Sach_San_Pham()
         {
             tbl_DM_Product_BUS v_objBus = new tbl_DM_Product_BUS();
-            List<tbl_DM_Product_DTO> v_arrData = v_objBus.GetAll(0);
+            List<tbl_DM_Product_DTO> v_arrData = v_objBus.GetAvailable();
             gvSanPham.DataSource = v_arrData;
         }
 
@@ -427,14 +434,30 @@ namespace GUI.UI.Modules
                 //Tạo form nhập số lương
                 if (v_objSP_Chon != null)
                 {
+                    // Số lượng tối đa mặc định = số lượng tồn kho
+                    int maxValue = (int)v_objSP_Chon.PD_QUANTITY;
+
+                    // Nếu đã chọn mua trước đó, số lượng tối đa = số lượng mặc định - số lượng đã chọn
+                    tbl_DM_Product_DTO foundProduct = m_arrSan_Pham_Da_Chon.FirstOrDefault(item => item.PD_NAME == v_objSP_Chon.PD_NAME);
+                    if (foundProduct != null)
+                    {
+                        maxValue -= (int)foundProduct.PD_QUANTITY;
+                    }
+
                     frmNhap_SL v_objFormSL = new frmNhap_SL();
-                    v_objFormSL.Set_Data(v_objSP_Chon.PD_NAME);
+                    v_objFormSL.Set_Data(v_objSP_Chon.PD_NAME, maxValue);
                     v_objFormSL.ShowDialog();
                     if (v_objFormSL.Status_Close == false)
                     {
                         v_objSP_Chon.PD_QUANTITY = v_objFormSL.Get_SL();
                         if (v_objSP_Chon.PD_QUANTITY > 0)
-                            m_arrSan_Pham_Da_Chon.Add(v_objSP_Chon);
+                        {
+                            if (foundProduct == null)
+                                m_arrSan_Pham_Da_Chon.Add(v_objSP_Chon);
+                            else
+                                foundProduct.PD_QUANTITY += v_objSP_Chon.PD_QUANTITY;
+
+                        }
                         grdData.RefreshData();
 
                         //Cập nhật tổng tiền
@@ -462,12 +485,16 @@ namespace GUI.UI.Modules
         protected override void ObjectProcessing(object obj)
         {
             tbl_DM_Product_DTO v_objSP_Da_Chon = obj as tbl_DM_Product_DTO;
+            tbl_DM_Product_BUS v_objProduct_BUS = new tbl_DM_Product_BUS();
+
+            // Số lượng tối đa mặc định = số lượng tồn kho
+            int maxValue = (int)v_objProduct_BUS.Find(v_objSP_Da_Chon.PD_AutoID).PD_QUANTITY;
 
             //Tạo form nhập số lương
             if (v_objSP_Da_Chon != null)
             {
                 frmNhap_SL v_objFormSL = new frmNhap_SL();
-                v_objFormSL.Set_Data(v_objSP_Da_Chon.PD_NAME, v_objSP_Da_Chon.PD_QUANTITY);
+                v_objFormSL.Set_Data(v_objSP_Da_Chon.PD_NAME, maxValue, v_objSP_Da_Chon.PD_QUANTITY);
                 v_objFormSL.ShowDialog();
                 if (v_objFormSL.Status_Close == false)
                 {

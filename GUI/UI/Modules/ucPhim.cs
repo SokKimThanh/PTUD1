@@ -76,9 +76,16 @@ namespace GUI.UI.Modules
             // Sao chép hình vào thư mục hình của project và sửa tên hình thành tên phim
             string[] splitStr = txtUrlHinhAnh.Split('.');
             string pictureUrl = projectPath + txtName.Text + "." + splitStr[splitStr.Length - 1];
-            if (File.Exists(pictureUrl))
-                File.Delete(pictureUrl);
-            File.Copy(txtUrlHinhAnh, pictureUrl);
+            try
+            {
+                if (File.Exists(pictureUrl))
+                    File.Delete(pictureUrl);
+                File.Copy(txtUrlHinhAnh, pictureUrl);
+            }
+            catch (Exception)
+            {
+
+            }
 
             // Sử dụng constructor của tbl_DM_Movie_DTO để tạo đối tượng movie
             var movie = new tbl_DM_Movie_DTO();
@@ -155,9 +162,10 @@ namespace GUI.UI.Modules
         /// <param name="e"></param>
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            tbl_DM_Movie_DTO movie = null;
             try
             {
-                tbl_DM_Movie_DTO movie = GetFormData();
+                movie = GetFormData();
 
                 if (data.Add(movie) != 0)
                 {
@@ -167,7 +175,30 @@ namespace GUI.UI.Modules
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Lỗi: {ex.Message}");
+                if (ex.Message.Contains("duplicate"))
+                {
+                    movie = data.Find(movie.MV_AutoID);
+                    string msg = "";
+                    if (movie.Deleted == 1)
+                    {
+                        msg = "Phim " + movie.MV_NAME + " đã bị xóa. Bạn có muốn phục hồi phim " + movie.MV_NAME + " ?";
+                        DialogResult re = MessageBox.Show(msg, "Thông báo", MessageBoxButtons.YesNo);
+                        if(re == DialogResult.Yes)
+                        {
+                            data.Remove(movie.MV_AutoID);
+                            LoadForm();
+                        }
+                    }
+                    else
+                    {
+                        msg = "Phim " + movie.MV_NAME + " đã tồn tại. Không thể thêm !";
+                        MessageBox.Show(msg, "Lỗi");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show($"Lỗi: {ex.Message}");
+                }
             }
         }
         /// <summary>

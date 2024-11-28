@@ -110,9 +110,11 @@
             this.txtSo_Luong.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtSo_Luong.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
-            this.txtSo_Luong.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
+            this.txtSo_Luong.Properties.IsFloatValue = false;
+            this.txtSo_Luong.Properties.MaskSettings.Set("mask", "N00");
             this.txtSo_Luong.Size = new System.Drawing.Size(191, 24);
             this.txtSo_Luong.TabIndex = 4;
+            this.txtSo_Luong.Spin += new DevExpress.XtraEditors.Controls.SpinEventHandler(this.txtSo_Luong_Spin);
             // 
             // frmNhap_SL
             // 

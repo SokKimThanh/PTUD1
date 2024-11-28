@@ -193,31 +193,39 @@ namespace GUI.UI.Modules
 
         private void btnIn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if(selectedBill_AutoID != -1)
+            try
             {
-                // Tạo vé
-                RP_InHoaDon report = new RP_InHoaDon();
-                report.BindParameter(selectedBill_AutoID.ToString());
-                report.CreateDocument();
+                if (selectedBill_AutoID != -1)
+                {
+                    // Tạo vé
+                    RP_InHoaDon report = new RP_InHoaDon();
+                    report.BindParameter(selectedBill_AutoID.ToString());
+                    report.CreateDocument();
 
-                if (Directory.Exists(CConfig.CM_Cinema_FileManagement_Folder) == false)
-                    Directory.CreateDirectory(CConfig.CM_Cinema_FileManagement_Folder);
+                    if (Directory.Exists(CConfig.CM_Cinema_FileManagement_Folder) == false)
+                        Directory.CreateDirectory(CConfig.CM_Cinema_FileManagement_Folder);
 
-                if (Directory.Exists(CConfig.CM_Cinema_FileManagement_Folder + "\\Reports\\Bills\\") == false)
-                    Directory.CreateDirectory(CConfig.CM_Cinema_FileManagement_Folder + "\\Reports\\Bills\\");
+                    if (Directory.Exists(CConfig.CM_Cinema_FileManagement_Folder + "\\Reports\\Bills\\") == false)
+                        Directory.CreateDirectory(CConfig.CM_Cinema_FileManagement_Folder + "\\Reports\\Bills\\");
 
-                string predefinedPath = CConfig.CM_Cinema_FileManagement_Folder + "Reports\\Bills\\" + selectedBill_AutoID + ".pdf";
-                report.ExportToPdf(predefinedPath); // No Save dialog is triggered
+                    string predefinedPath = CConfig.CM_Cinema_FileManagement_Folder + "Reports\\Bills\\" + selectedBill_AutoID + ".pdf";
+                    report.ExportToPdf(predefinedPath); // No Save dialog is triggered
 
-                // Thiết lập máy in
-                ReportPrintTool tool = new ReportPrintTool(report);
-                if (CCommon.Printer_Name != "")
-                    tool.PrinterSettings.PrinterName = CCommon.Printer_Name; // Thay "Tên máy in của bạn" bằng tên máy in thực tế
+                    // Thiết lập máy in
+                    ReportPrintTool tool = new ReportPrintTool(report);
+                    if (CCommon.Printer_Name != "")
+                        tool.PrinterSettings.PrinterName = CCommon.Printer_Name; // Thay "Tên máy in của bạn" bằng tên máy in thực tế
 
-                // In vé không cần review
-                //tool.Print();
-                MessageBox.Show("In hóa đơn thành công", "Thông báo");
+                    // In vé không cần review
+                    //tool.Print();
+                    MessageBox.Show("In hóa đơn thành công", "Thông báo");
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }
