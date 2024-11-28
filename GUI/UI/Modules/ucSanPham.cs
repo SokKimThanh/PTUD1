@@ -1,4 +1,5 @@
 ﻿using BUS.Danh_Muc;
+using DevExpress.ClipboardSource.SpreadsheetML;
 using DTO.Common;
 using DTO.tbl_DTO;
 using GUI.UI.Component;
@@ -78,9 +79,16 @@ namespace GUI.UI.Modules
             // Sao chép hình vào thư mục hình của project và sửa tên hình thành tên phim
             string[] splitStr = txtUrlHinhAnh.Split('.');
             string pictureUrl = projectPath + txtTenSanPham.Text + "." + splitStr[splitStr.Length - 1];
-            if (File.Exists(pictureUrl))
-                File.Delete(pictureUrl);
-            File.Copy(txtUrlHinhAnh, pictureUrl);
+            try
+            {
+                if (File.Exists(pictureUrl))
+                    File.Delete(pictureUrl);
+                File.Copy(txtUrlHinhAnh, pictureUrl);
+            }
+            catch (Exception)
+            {
+
+            }
 
             // Sử dụng constructor của tbl_DM_Product_DTO để tạo đối tượng productBUS
             var product = new tbl_DM_Product_DTO();
@@ -88,6 +96,7 @@ namespace GUI.UI.Modules
             product.PD_PRICE = double.Parse(txtGiaBan.Text.ToString().Trim());
             product.PD_IMAGEURL = pictureUrl;
             product.PD_QUANTITY = txtSoLuong;
+
             // edit selected id on datagridview
             if (dgv_selected_id != "")
             {
@@ -137,9 +146,10 @@ namespace GUI.UI.Modules
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            tbl_DM_Product_DTO product = null;
             try
             {
-                tbl_DM_Product_DTO product = GetFormData();
+                product = GetFormData();
                 tbl_DM_ExpenseType_DTO expenseType = GetFormExpenseTypeData();
                 if (product_BUS.Add(product) != 0 && expenseType_BUS.Add(expenseType) != 0)
                 {
@@ -149,7 +159,30 @@ namespace GUI.UI.Modules
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Lỗi: {ex.Message}");
+                if (ex.Message.Contains("duplicate"))
+                {
+                    product = product_BUS.Find(product.PD_NAME);
+                    string msg = "";
+                    if (product.Deleted == 1)
+                    {
+                        msg = "Sản phẩm " + product.PD_NAME + " đã bị xóa. Bạn có muốn phục hồi Sản phẩm " + product.PD_NAME + " ?";
+                        DialogResult re = MessageBox.Show(msg, "Thông báo", MessageBoxButtons.YesNo);
+                        if (re == DialogResult.Yes)
+                        {
+                            product_BUS.Remove(product.PD_AutoID);
+                            LoadForm();
+                        }
+                    }
+                    else
+                    {
+                        msg = "Sản phẩm " + product.PD_NAME + " đã tồn tại. Không thể thêm !";
+                        MessageBox.Show(msg, "Lỗi");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show($"Lỗi: {ex.Message}");
+                }
             }
 
         }
@@ -189,15 +222,27 @@ namespace GUI.UI.Modules
         }
         private void btnCapNhat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            tbl_DM_Product_DTO product = null;
             try
             {
-                product_BUS.Update(GetFormData());
+                product = GetFormData();
+                product_BUS.Update(product);
                 MessageBox.Show("Sửa thông tin thành công!", "Thông báo");
                 LoadForm();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Lỗi: {ex.Message}");
+                if (ex.Message.Contains("duplicate"))
+                {
+
+                    MessageBox.Show("Sản phẩm " + txtTenSanPham.Text.Trim() + " đã tồn tại. Vui lòng chọn tên khác.", "Thông báo");
+                    txtTenSanPham.Text = product_BUS.Find(long.Parse(dgv_selected_id)).PD_NAME;
+                    txtTenSanPham.Focus();
+                }
+                else
+                {
+                    MessageBox.Show($"Lỗi: {ex.Message}");
+                }
             }
         }
         private void btnLamMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

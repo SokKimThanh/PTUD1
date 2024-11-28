@@ -1,5 +1,6 @@
 ﻿using DAL;
 using DTO.tbl_DTO;
+using System;
 using System.Collections.Generic;
 
 namespace BUS.Danh_Muc
@@ -31,10 +32,29 @@ namespace BUS.Danh_Muc
         {
             return data.GetAll(deleted);
         }
+
+        // Lấy danh sách sản phẩm có thể bán
+        public List<tbl_DM_Product_DTO> GetAvailable()
+        {
+            try
+            {
+                return data.GetAvailable();
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
         // Tìm kiếm Product theo ID
         public tbl_DM_Product_DTO Find(long id)
         {
             return data.Find(id);
+        }
+        // Tìm kiếm Product theo tên
+        public tbl_DM_Product_DTO Find(string name)
+        {
+            return data.Find(name);
         }
         /// <summary>
         /// Danh sách combobox phim

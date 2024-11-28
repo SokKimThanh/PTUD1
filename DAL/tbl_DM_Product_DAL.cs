@@ -125,6 +125,7 @@ namespace DAL
                             PD_QUANTITY = item.PD_QUANTITY,
                             PD_NAME = item.PD_NAME,
                             PD_PRICE = item.PD_PRICE,
+                            Deleted = (int)item.DELETED,
                         };
                         result.Add(entity);
                     }
@@ -136,6 +137,43 @@ namespace DAL
                 throw new Exception($"Lỗi thực thi thao tác với DB: {ex.Message}");
             }
         }
+
+        // Lấy danh sách sản phẩm có thể bán
+        public List<tbl_DM_Product_DTO> GetAvailable()
+        {
+            List<tbl_DM_Product_DTO> result = new List<tbl_DM_Product_DTO>();
+            try
+            {
+                using (var dbContext = new CM_Cinema_DBDataContext(_connectionString))
+                {
+                    var list = dbContext.tbl_DM_Products
+                      .Where(item => item.DELETED == 0 && item.PD_QUANTITY > 0)
+                     .OrderByDescending(item => item.CREATED) // Sort by created date in descending order
+                     .ToList();
+
+
+                    foreach (var item in list)
+                    {
+                        tbl_DM_Product_DTO entity = new tbl_DM_Product_DTO()
+                        {
+                            PD_AutoID = item.PD_AutoID,
+                            PD_IMAGEURL = item.PD_IMAGEURL,
+                            PD_QUANTITY = item.PD_QUANTITY,
+                            PD_NAME = item.PD_NAME,
+                            PD_PRICE = item.PD_PRICE,
+                            Deleted = (int)item.DELETED,
+                        };
+                        result.Add(entity);
+                    }
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Lỗi thực thi thao tác với DB: {ex.Message}");
+            }
+        }
+
         // Tìm kiếm Product theo ID
         public tbl_DM_Product_DTO Find(long id)
         {
@@ -152,6 +190,32 @@ namespace DAL
                               PD_QUANTITY = item.PD_QUANTITY,
                               PD_NAME = item.PD_NAME,
                               PD_PRICE = item.PD_PRICE,
+                              Deleted = (int)item.DELETED,
+                          })
+                          .SingleOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Lỗi thực thi thao tác với DB: {ex.Message}");
+            }
+        }
+        public tbl_DM_Product_DTO Find(string name)
+        {
+            try
+            {
+                using (var dbContext = new CM_Cinema_DBDataContext(_connectionString))
+                {
+                    return dbContext.tbl_DM_Products
+                          .Where(t => t.PD_NAME.Trim() == name.Trim())
+                          .Select(item => new tbl_DM_Product_DTO
+                          {
+                              PD_AutoID = item.PD_AutoID,
+                              PD_IMAGEURL = item.PD_IMAGEURL,
+                              PD_QUANTITY = item.PD_QUANTITY,
+                              PD_NAME = item.PD_NAME,
+                              PD_PRICE = item.PD_PRICE,
+                              Deleted = (int)item.DELETED,
                           })
                           .SingleOrDefault();
                 }

@@ -291,6 +291,7 @@ namespace GUI.UI.Modules
             this.txtGiaBan.Properties.MaskSettings.Set("mask", "d");
             this.txtGiaBan.Properties.MaskSettings.Set("culture", "vi-VN");
             this.txtGiaBan.Properties.MaskSettings.Set("valueType", typeof(double));
+            this.txtGiaBan.Properties.NullText = "0";
             this.txtGiaBan.Properties.UseMaskAsDisplayFormat = true;
             this.txtGiaBan.Size = new System.Drawing.Size(1040, 22);
             this.txtGiaBan.StyleController = this.layoutForm;

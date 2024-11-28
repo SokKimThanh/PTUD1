@@ -16,15 +16,21 @@ namespace GUI
             txtSo_Luong.Focus();
         }
 
-        public void Set_Data(string p_strSan_Pham, double p_dblSo_Luong = 1, string p_strTitle = "")
+        public void Set_Data(string p_strSan_Pham, int maxValue = 10, double p_dblSo_Luong = 1, string p_strTitle = "")
         {
             if (p_strTitle != "")
             {
                 lblSan_Pham.Text = p_strTitle;
             }
+            
             txtSan_Pham.Text = p_strSan_Pham.Trim();
 
+            if(maxValue == 0)
+                p_dblSo_Luong = 0;
+
             txtSo_Luong.Text = p_dblSo_Luong.ToString();
+
+            txtSo_Luong.Properties.MaxValue = maxValue;
         }
 
         public double Get_SL()
@@ -68,6 +74,26 @@ namespace GUI
         {
             Status_Close = true;
             this.Close();
+        }
+
+        private void txtSo_Luong_Spin(object sender, DevExpress.XtraEditors.Controls.SpinEventArgs e)
+        {
+            if(!e.IsSpinUp)
+            { 
+                if (txtSo_Luong.Value - txtSo_Luong.Properties.Increment < txtSo_Luong.Properties.MinValue) 
+                { 
+                    e.Handled = true;
+                    txtSo_Luong.Value = txtSo_Luong.Properties.MinValue; 
+                }
+            }
+            else
+            {
+                if (txtSo_Luong.Value + txtSo_Luong.Properties.Increment > txtSo_Luong.Properties.MaxValue)
+                {
+                    e.Handled = true;
+                    txtSo_Luong.Value = txtSo_Luong.Properties.MaxValue;
+                }
+            }
         }
     }
 }

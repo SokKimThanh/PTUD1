@@ -108,7 +108,6 @@ namespace DAL
                 throw;
             }
         }
-
         public List<tbl_DM_Ticket_DTO> GetList_ByMovieSchedule(long moviesSheduleID)
         {
             try
@@ -131,7 +130,6 @@ namespace DAL
                 throw ex;
             }
         }
-
         public List<tbl_DM_Ticket_DTO> List_Data_By_Bill_ID(long p_lngBill_ID)
         {
             try

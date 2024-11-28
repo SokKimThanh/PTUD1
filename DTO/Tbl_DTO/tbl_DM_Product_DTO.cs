@@ -10,6 +10,7 @@ namespace DTO.tbl_DTO
         private long pD_AutoID;
         private string pD_NAME, pD_IMAGEURL;
         private double pD_QUANTITY, pD_PRICE;
+        private int deleted;
 
         public tbl_DM_Product_DTO()
         {
@@ -119,5 +120,6 @@ namespace DTO.tbl_DTO
         {
             get => pD_PRICE * pD_QUANTITY;
         }
+        public int Deleted { get => deleted; set => deleted = value; }
     }
 }
