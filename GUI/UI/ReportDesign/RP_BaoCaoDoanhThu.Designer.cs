@@ -246,7 +246,7 @@
             this.xrTableCell7.Name = "xrTableCell7";
             this.xrTableCell7.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
             this.xrTableCell7.StylePriority.UseFont = false;
-            this.xrTableCell7.Text = "Từ ngày:";
+            this.xrTableCell7.Text = "Từ:";
             this.xrTableCell7.Weight = 138.54167175292969D;
             // 
             // xrTableCell8
@@ -312,7 +312,7 @@
             this.label1.StyleName = "Title";
             this.label1.StylePriority.UseFont = false;
             this.label1.StylePriority.UseTextAlignment = false;
-            this.label1.Text = "BÁO CÁO DOANH THU VÉ VÀ SẢN PHẨM";
+            this.label1.Text = "BÁO CÁO DOANH THU";
             this.label1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             // 
             // DetailReport
@@ -845,7 +845,7 @@
             this.xrTableCell12.StylePriority.UseFont = false;
             this.xrTableCell12.StylePriority.UseForeColor = false;
             this.xrTableCell12.StylePriority.UseTextAlignment = false;
-            this.xrTableCell12.Text = "DOANH THU SUẤT CHIẾU";
+            this.xrTableCell12.Text = "DOANH THU VÉ";
             this.xrTableCell12.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell12.Weight = 0.23389042851356664D;
             // 
@@ -942,7 +942,7 @@
             this.xrLabel4.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "\'Ngày \' + getday(today()) + \' tháng \' + getMonth(today()) + \' năm \' + getYear(tod" +
                     "ay())")});
-            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(255.5416F, 10F);
+            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(255.5416F, 43.33334F);
             this.xrLabel4.Multiline = true;
             this.xrLabel4.Name = "xrLabel4";
             this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -952,7 +952,7 @@
             // 
             // xrLabel7
             // 
-            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(255.5416F, 56.00038F);
+            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(255.5416F, 89.33376F);
             this.xrLabel7.Multiline = true;
             this.xrLabel7.Name = "xrLabel7";
             this.xrLabel7.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -963,7 +963,7 @@
             // 
             // xrLabel6
             // 
-            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(255.5416F, 32.99998F);
+            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(255.5416F, 66.33336F);
             this.xrLabel6.Multiline = true;
             this.xrLabel6.Name = "xrLabel6";
             this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);

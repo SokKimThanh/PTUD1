@@ -12,7 +12,7 @@ DECLARE @TopN INT = 10;
 
 DECLARE @InventoryStatus int = 1;  -- Trạng thái kho để lọc
  
-EXEC sp_TonKhoChiTiet @StartDate, @EndDate, @SalesPerformanceThreshold, @MinStockThreshold, @DesiredProfitMargin, @InventoryStatus;
+--EXEC sp_TonKhoChiTiet @StartDate, @EndDate, @SalesPerformanceThreshold, @MinStockThreshold, @DesiredProfitMargin, @InventoryStatus;
 
 --EXEC sp_TonKhoTongQuan @StartDate, @EndDate, @SalesPerformanceThreshold, @MinStockThreshold;
  
@@ -24,11 +24,8 @@ EXEC sp_TonKhoChiTiet @StartDate, @EndDate, @SalesPerformanceThreshold, @MinStoc
 
 --EXEC sp_Top10SanPhamBanChay @StartDate, @EndDate, @TopN
 
---EXEC sp_BaoCaoChiPhi 
---    @StartDate  , 
---    @EndDate  , 
---    @OperatingCost = 500000, 
---    @DesiredProfitMargin = 0.20;
+--EXEC sp_BaoCaoChiPhi @StartDate, @EndDate   
+    
 
  -- EXEC sp_DoanhThuVe @StartDate, @EndDate
  -- EXEC sp_DoanhThuSanPham @StartDate, @EndDate
