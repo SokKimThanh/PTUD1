@@ -203,7 +203,7 @@
             this.xrTableCell1.Name = "xrTableCell1";
             this.xrTableCell1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
             this.xrTableCell1.StylePriority.UseFont = false;
-            this.xrTableCell1.Text = "Từ ngày:";
+            this.xrTableCell1.Text = "Từ:";
             this.xrTableCell1.Weight = 138.54167175292969D;
             // 
             // xrTableCell2
@@ -374,7 +374,7 @@
             // 
             // xrLabel6
             // 
-            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(412.5416F, 32.99998F);
+            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(406.4115F, 55.91666F);
             this.xrLabel6.Multiline = true;
             this.xrLabel6.Name = "xrLabel6";
             this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -385,7 +385,7 @@
             // 
             // xrLabel7
             // 
-            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(412.5416F, 56.00038F);
+            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(406.4115F, 78.91706F);
             this.xrLabel7.Multiline = true;
             this.xrLabel7.Name = "xrLabel7";
             this.xrLabel7.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -399,7 +399,7 @@
             this.xrLabel4.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "\'Ngày \' + getday(today()) + \' tháng \' + getMonth(today()) + \' năm \' + getYear(tod" +
                     "ay())")});
-            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(412.5416F, 10F);
+            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(406.4115F, 32.91664F);
             this.xrLabel4.Multiline = true;
             this.xrLabel4.Name = "xrLabel4";
             this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);

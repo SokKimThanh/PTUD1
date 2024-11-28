@@ -24,7 +24,7 @@ BEGIN
             SUM(EX.EX_QUANTITY) AS TotalReceived,  
             SUM(EX.EX_PRICE) AS TotalImportCost   
         FROM tbl_SYS_Expense EX
-        WHERE EX.CREATED BETWEEN @StartDate AND @EndDate
+        WHERE EX.CREATED BETWEEN @StartDate AND @EndDate 
         GROUP BY EX.EX_EXTYPE_AutoID
     ),
     -- CTE: Số liệu bán hàng
@@ -59,7 +59,7 @@ BEGIN
     LEFT JOIN Received R ON PD.PD_AutoID = R.ProductID
     LEFT JOIN Sold S ON PD.PD_AutoID = S.ProductID
     LEFT JOIN ExpenseType ET ON PD.PD_AutoID = ET.ProductID
-    WHERE PD.DELETED = 0
+    WHERE PD.DELETED = 0 and R.TotalReceived > 0 and R.TotalImportCost > 0
     GROUP BY PD.PD_AutoID, PD.PD_NAME, ET.ExpenseTypeName
     ORDER BY PD.PD_NAME ASC;
 END;
